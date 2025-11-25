@@ -1,0 +1,72 @@
+<html><head>
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+ <title>documentation:  Description of the OI.v2 Monthly SST Analysis</title>
+</head>
+<INGRID>standardHeader</INGRID>
+<h3>Description of the OI.v2 Monthly SST Analysis (v2 indicates version 2)</h3>
+<p>
+
+The NOAA OI.v2 SST monthly fields are derived by a linear interpolation of
+the weekly optimum interpolation (OI) version 2 fields to daily fields then
+averaging the daily values over a month. The monthly fields are in the
+same format and spatial resolution as the weekly fields.
+<p>
+The OI.v2 analysis is described in Reynolds, R.W., N.A. Rayner, T.M. 
+Smith, D.C. Stokes, and W. Wang, 2001: An Improved In Situ and Satellite 
+SST Analysis for Climate, J. Climate, submitted. The paper has been 
+accepted by the Journal of Climate subject to minor revisions. A preprint 
+of the paper can be obtained in the directory:
+<br><br>
+   <a href="ftp://ftp.ncep.noaa.gov/pub/cmb/People/reynolds/oiv2pap/">ftp://ftp.ncep.noaa.gov/pub/cmb/People/reynolds/oiv2pap/</a>
+<br><p>
+The paper is presently in two word perfect files (oiv2_text.wpd and
+oiv2_figs.wpd) and two word files (oiv2_text.doc and oiv2_figs.doc).
+The first file is the text, the second is the figures.)
+<p>
+The ice field shows the approximate monthly average of the ice 
+concentration values input to the SST analysis.  Ice concentration is 
+stored as the percentage of are of area covered.  For the ice fields, the 
+value 122 represents land or coast.  Note, the ice land mask is a function 
+of the ice analysis and may change periodically.
+<p>
+The sst and ice fields are on a 1-degree (360 lon by 180 lat) grid.
+The first gridbox of each array is centered on 0.5E, 89.5S.  The points
+move eastward to 359.5E, then northward to 89.5N.
+<p>
+The OI analysis is done over all ocean areas and the Great Lakes.  
+There is no analysis over land.  The land values are filled by a Cressman
+interpolation to produce a complete grid for possible interpolation to 
+other grids.  The ocean and land areas are defined by a land sea mask.  
+This data set is a binary, direct access file, lstags.ondeg.dat, which 
+is included in the same directory.  The spatial grid is defined identically 
+to the grid for the SST arrays.  
+<p>
+Please note, a new climatology based on these fields was derived by Yan 
+Xue of NCEPs Climate Prediction Center following the technique of 
+Reynolds and Smith (1995) and Smith and Reynolds (1998).  The new 
+climatology is available in:
+<br><br>
+
+   <a href="ftp://ftp.ncep.noaa.gov/pub/cpc/wd52yx/sstclim/">ftp://ftp.ncep.noaa.gov/pub/cpc/wd52yx/sstclim/</a>
+<br>
+<p>
+For further information, contact:<br>
+<p>
+<address>
+   Diane C. Stokes <br>           
+<p>
+   email:  Diane.Stokes@noaa.gov <br>
+   Voice:  (301) 763-8000 extension 7581 <br>
+   FAX:    (301) 763-8125 <br>
+<p>
+   Postal Address: <br>
+     Climate Modeling Branch W/NP24 <br>
+     Environmental Modeling Center <br>
+     National Centers for Environmental Prediction <br>
+     World Weather Building, Room 807 <br>
+     5200 Auth Road <br>
+     Camp Springs, MD 20746 USA <br>
+</address>
+<p>
+UPDATED: 20 December 2001
+</body></html>

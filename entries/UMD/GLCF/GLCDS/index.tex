@@ -1,0 +1,96 @@
+\begin{ingrid}
+continuedataset:
+/description (Gridded 1-km global land cover data set from the University of Maryland) def
+grid: /name /X def 
+/units /degreeE def
+periodic
+-180 0.008333333 2 div  add to 180  0.008333333 2 div sub  N= 43200 pts :grid 
+grid: /name /Y def 
+/units /degreeN def
+90
+0.008333333 2 div sub
+to
+-90
+0.008333333 2 div add
+ N= 21600 pts :grid 
+link:
+/name (dataset_documentation.html) def
+/href(http://glcf.umd.edu/data/landcover/index.shtml)def
+:link
+/lc {
+Y 1 onegridcounter
+(/Data/data7/umd/glcf/gl-latlong-1km-landcover.bsq)
+[X] -32768 readui1direct
+/missing_value undef
+/long_name (land cover) def
+/scale_min 0 def
+/scale_max 13 def
+/units /ids def
+/iridl:hasSemantics (iridl:LandCover) def
+/CLIST [
+(water)
+(Evergreen Needleleaf Forest)
+(Evergreen Broadleaf Forest)
+(Deciduous Needleleaf Forest)
+(Deciduous Broadleaf Forest)
+(Mixed Forest)
+(Woodland)
+(Wooded Grassland)
+(Closed Shrubland)
+(Open Shrubland)
+(Grassland)
+(Cropland)
+(Bare Ground)
+(Urban and Built-up)
+] def
+startcolormap
+/maxncolor 17 def
+DATA 0 13 RANGE
+transparent 68 79 137 RGB 
+68 79 137 RGB 
+1 100 0 RGB
+1 130 0 RGB
+151 191 71 RGB
+2 220 0 RGB
+0 255 0 RGB
+146 174 47 RGB
+220 206 0 RGB
+255 173 0 RGB
+255 251 195 RGB
+140 72 9 RGB
+247 165 255 RGB
+255 199 174 RGB
+0 255 255 RGB
+0 255 255 RGB
+endcolormap
+%startcolormap
+%/maxncolor 17 def
+%DATA 0 13 RANGE
+%transparent MidnightBlue
+%MidnightBlue 
+%DarkGreen
+%LightSeaGreen
+%SeaGreen
+%ForestGreen 
+%LimeGreen
+%firebrick
+%chocolate
+%gold
+%yellow   
+%orange     
+%salmon
+%khaki 
+%red
+%red
+%endcolormap
+(/Data/data7/umd/glcf/gl-latlong-1km-landcover.bsq)deflastmod
+} defasvarsilent
+/references (Hansen_etal1998) def
+:dataset
+\end{ingrid}
+
+
+
+
+
+

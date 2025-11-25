@@ -1,0 +1,520 @@
+\begin{ingrid}
+continuedataset:
+
+ /title (Gridded Berkeley Earth Surface Temperature Anomaly Field) def
+ /Conventions (Berkeley Earth Internal Convention (based on CF-1.5)) def
+ /comment (This file contains surface temperature anomaly field gridded on a 1 deg. (longitude) by 1 deg. (latitude) grid-box basis.) def
+ /institution (Berkeley Earth Surface Temperature Project, http://www.berkeleyearth.org/) def
+
+link:
+ /name (data source) def
+ /description (Source of Berkeley Earth Daily Land Data (Experimental; 1880 – Recent) On 1 Deg. Lat/Lon Grid) def
+ /href (http://berkeleyearth.org/data/) def
+:link
+
+grid:
+/name (X)def
+/units (degree_east)def
+periodic
+ -179.5 1.0 179.5
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ -89.5 1.0 89.5
+:grid
+
+dataset:
+/name (dc5180) def
+/description (Daily Climatology 1951-1980) def
+
+ /institution (Berkeley Earth Surface Temperature Project, http://www.berkeleyearth.org/) def
+
+link:
+ /name (data source) def
+ /description (Source of Berkeley Earth Daily Land Data (Experimental; 1880 – Recent) On 1 Deg. Lat/Lon Grid) def
+ /href (http://berkeleyearth.org/data/) def
+:link
+
+[ X Y ] { name exch def } forall
+
+grid:
+/name (T) def
+/units (day) def
+/calendar /365 def
+periodic
+1. 1.0 365.
+:grid
+
+ /tavg_climatology{
+[ X Y | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TAVG_Daily_LatLong1_1880.nc) readdatafile:
+/name (climatology) def
+ /valid_min -75.00 def
+ /missing_value NaN def
+ /valid_max 50.00 def
+ /standard_name (air_temperature) def
+ /long_name (Average Surface Air Temperature Climatology (Jan 1951 - Dec 1980)) def
+ /units /degreeC def
+ /coordinates (latitude longitude) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmax_climatology{
+[ X Y | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMAX_Daily_LatLong1_1880.nc) readdatafile:
+/name (climatology) def
+ /valid_min -75.00 def
+ /missing_value NaN def
+ /valid_max 50.00 def
+ /standard_name (air_temperature) def
+ /long_name (Maximum Surface Air Temperature Climatology (Jan 1951 - Dec 1980)) def
+ /units /degreeC def
+ /coordinates (latitude longitude) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmin_climatology{
+[ X Y | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMIN_Daily_LatLong1_1880.nc)  readdatafile:
+/name (climatology) def
+ /valid_min -75.00 def
+ /missing_value NaN def
+ /valid_max 50.00 def
+ /standard_name (air_temperature) def
+ /long_name (Minimum Surface Air Temperature Climatology (Jan 1951 - Dec 1980)) def
+ /units /degreeC def
+ /coordinates (latitude longitude) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+dataset: 
+/name (maximum) def
+
+[ X Y ] { name exch def } forall
+
+ /institution (Berkeley Earth Surface Temperature Project, http://www.berkeleyearth.org/) def
+
+link:
+ /name (data source) def
+ /description (Source of Berkeley Earth Daily Land Data (Experimental; 1880 – Recent) On 1 Deg. Lat/Lon Grid) def
+ /href (http://berkeleyearth.org/data/) def
+:link
+
+grid:
+/name (T)def
+%/units (julian_day) def
+%01 Jan 1880 julian_day 
+%1.0  
+%31 May 2018 julian_day 
+ /units (days since 1960-01-01) def
+ 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub 0.5 add
+ 1.0  
+ 30 Sep 2019 julian_day 01 Jan 1960 julian_day sub 0.5 add
+:grid
+
+ /tmax_anomaly {
+[ X Y | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMAX_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ]   readdatafile:
+/name (temperature) def
+ /valid_min -32.576313 def
+ /long_name (Maximum Surface Air Temperature Anomaly) def
+ /missing_value NaN def
+ /valid_max 32.309147 def
+ /units /degreeC def
+ /standard_name (air_temperature_anomaly) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /date_number{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMAX_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ] readdatafile:
+/name (date_number) def
+ /units (year A.D.)cvn def
+ /long_name (Date Number) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /day{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMAX_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ] readdatafile:
+/name (day) def
+ /units (day of month)cvn def
+ /long_name (Day of Month) def
+%/standard_name (day) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /day_of_year{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMAX_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ] readdatafile:
+/name (day_of_year) def
+ /units (day of year)cvn def
+ /long_name (Day of Year) def
+%/standard_name (doy) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /land_mask{
+[ X | Y ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMAX_Daily_LatLong1_1880.nc) readdatafile:
+/name (land_mask) def
+ /valid_min 0.0 def
+ /long_name (Land Area Fraction) def
+ /missing_value NaN def
+ /valid_max 1.0 def
+ /units /unitless def
+ /standard_name (land_area_fraction) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /month{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMAX_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ] readdatafile:
+/name (month) def
+ /units (month number)cvn def
+ /long_name (Month) def
+%/standard_name (month) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /yr{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMAX_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ]   readdatafile:
+/name (year) def
+ /units (year A.D.)cvn def
+ /long_name (Year) def
+%/standard_name (year) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+
+dataset:
+/name (mean) def
+
+[ X Y ] { name exch def } forall
+
+ /institution (Berkeley Earth Surface Temperature Project, http://www.berkeleyearth.org/) def
+
+link:
+ /name (data source) def
+ /description (Source of Berkeley Earth Daily Land Data (Experimental; 1880 – Recent) On 1 Deg. Lat/Lon Grid) def
+ /href (http://berkeleyearth.org/data/) def
+:link
+
+grid:
+/name (T)def
+%/units (julian_day) def
+%01 Jan 1880 julian_day 
+%1.0  
+%31 May 2018 julian_day 
+ /units (days since 1960-01-01) def
+ 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub 0.5 add
+ 1.0  
+ 31 May 2018 julian_day 01 Jan 1960 julian_day sub 0.5 add
+:grid
+
+ /tavg_anomaly {
+[ X Y | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TAVG_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ]   readdatafile:
+/name (temperature) def
+ /valid_min -32.576313 def
+ /long_name (Average Surface Air Temperature Anomaly) def
+ /missing_value NaN def
+ /valid_max 32.309147 def
+ /units /degreeC def
+ /standard_name (air_temperature_anomaly) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /date_number{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TAVG_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ] readdatafile:
+/name (date_number) def
+ /units (year A.D.)cvn def
+ /long_name (Date Number) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /day{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TAVG_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ] readdatafile:
+/name (day) def
+ /units (day of month)cvn def
+ /long_name (Day of Month) def
+%/standard_name (day) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /day_of_year{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TAVG_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ] readdatafile:
+/name (day_of_year) def
+ /units (day of year)cvn def
+ /long_name (Day of Year) def
+%/standard_name (doy) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /land_mask{
+[ X | Y ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TAVG_Daily_LatLong1_1880.nc) readdatafile:
+/name (land_mask) def
+ /valid_min 0.0 def
+ /long_name (Land Area Fraction) def
+ /missing_value NaN def
+ /valid_max 1.0 def
+ /units /unitless def
+ /standard_name (land_area_fraction) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /month{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TAVG_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ] readdatafile:
+/name (month) def
+ /units (month number)cvn def
+ /long_name (Month) def
+%/standard_name (month) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /yr{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TAVG_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ]   readdatafile:
+/name (year) def
+ /units (year A.D.)cvn def
+ /long_name (Year) def
+%/standard_name (year) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+
+dataset:
+/name (minimum) def
+
+[ X Y ] { name exch def } forall
+
+ /institution (Berkeley Earth Surface Temperature Project, http://www.berkeleyearth.org/) def
+
+link:
+ /name (data source) def
+ /description (Source of Berkeley Earth Daily Land Data (Experimental; 1880 – Recent) On 1 Deg. Lat/Lon Grid) def
+ /href (http://berkeleyearth.org/data/) def
+:link
+
+grid:
+/name (T)def
+%/units (julian_day) def
+%01 Jan 1880 julian_day 
+%1.0  
+%31 May 2018 julian_day 
+ /units (days since 1960-01-01) def
+ 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub 0.5 add
+ 1.0  
+ 30 Sep 2019 julian_day 01 Jan 1960 julian_day sub 0.5 add
+:grid
+
+ /tmin_anomaly {
+[ X Y | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMIN_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ]   readdatafile:
+/name (temperature) def
+ /valid_min -32.576313 def
+ /long_name (Minimum Surface Air Temperature Anomaly) def
+ /missing_value NaN def
+ /valid_max 32.309147 def
+ /units /degreeC def
+ /standard_name (air_temperature_anomaly) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /date_number{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMIN_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ] readdatafile:
+/name (date_number) def
+ /units (year A.D.)cvn def
+ /long_name (Date Number) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /day{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMIN_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ] readdatafile:
+/name (day) def
+ /units (day of month)cvn def
+ /long_name (Day of Month) def
+%/standard_name (day) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /day_of_year{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMIN_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ] readdatafile:
+/name (day_of_year) def
+ /units (day of year)cvn def
+ /long_name (Day of Year) def
+%/standard_name (doy) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /land_mask{
+[ X | Y ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMIN_Daily_LatLong1_1880.nc) readdatafile:
+/name (land_mask) def
+ /valid_min 0.0 def
+ /long_name (Land Area Fraction) def
+ /missing_value NaN def
+ /valid_max 1.0 def
+ /units /unitless def
+ /standard_name (land_area_fraction) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /month{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMIN_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ] readdatafile:
+/name (month) def
+ /units (month number)cvn def
+ /long_name (Month) def
+%/standard_name (month) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /yr{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMIN_Daily_LatLong1_%Y[T].nc) [ grid: /T (days since 1960-01-01) 0 values: 01 Jan 1880 julian_day 01 Jan 1960 julian_day sub  01 Jan 1890 julian_day 01 Jan 1960 julian_day sub  01 Jan 1900 julian_day 01 Jan 1960 julian_day sub  01 Jan 1910 julian_day 01 Jan 1960 julian_day sub  01 Jan 1920 julian_day 01 Jan 1960 julian_day sub 01 Jan 1930 julian_day 01 Jan 1960 julian_day sub 01 Jan 1940 julian_day 01 Jan 1960 julian_day sub 01 Jan 1950 julian_day 01 Jan 1960 julian_day sub  01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 01 Jan 1970 julian_day 01 Jan 1960 julian_day sub 01 Jan 1980 julian_day 01 Jan 1960 julian_day sub 01 Jan 1990 julian_day 01 Jan 1960 julian_day sub 01 Jan 2000 julian_day 01 Jan 1960 julian_day sub 01 Jan 2010 julian_day 01 Jan 1960 julian_day sub :values :grid /pointwidth 0 def ]   readdatafile:
+/name (year) def
+ /units (year A.D.)cvn def
+ /long_name (Year) def
+%/standard_name (year) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+
+
+
+
+
+\end{ingrid}
+
+ /date_number{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TAVG_Daily_LatLong1_%Y[T].nc) [ grid: /T (julian_day) 0 values: 01 Jan 1880 julian_day 01 Jan 1890 julian_day 01 Jan 1900 julian_day 01 Jan 1910 julian_day 01 Jan 1920 julian_day 01 Jan 1930 julian_day 01 Jan 1940 julian_day 01 Jan 1950 julian_day 01 Jan 1960 julian_day 01 Jan 1970 julian_day 01 Jan 1980 julian_day 01 Jan 1990 julian_day 01 Jan 2000 julian_day 01 Jan 2010 julian_day :values :grid /pointwidth 0 def ] readdatafile:
+/name (date_number) def
+ /units (year A.D.)cvn def
+ /long_name (Date Number) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /day{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TAVG_Daily_LatLong1_%Y[T].nc) [ grid: /T (julian_day) 0 values: 01 Jan 1880 julian_day 01 Jan 1890 julian_day 01 Jan 1900 julian_day 01 Jan 1910 julian_day 01 Jan 1920 julian_day 01 Jan 1930 julian_day 01 Jan 1940 julian_day 01 Jan 1950 julian_day 01 Jan 1960 julian_day 01 Jan 1970 julian_day 01 Jan 1980 julian_day 01 Jan 1990 julian_day 01 Jan 2000 julian_day 01 Jan 2010 julian_day :values :grid /pointwidth 0 def ] readdatafile:
+/name (day) def
+ /units (day of month)cvn def
+ /long_name (Day of Month) def
+%/standard_name (day) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /day_of_year{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TAVG_Daily_LatLong1_%Y[T].nc) [ grid: /T (julian_day) 0 values: 01 Jan 1880 julian_day 01 Jan 1890 julian_day 01 Jan 1900 julian_day 01 Jan 1910 julian_day 01 Jan 1920 julian_day 01 Jan 1930 julian_day 01 Jan 1940 julian_day 01 Jan 1950 julian_day 01 Jan 1960 julian_day 01 Jan 1970 julian_day 01 Jan 1980 julian_day 01 Jan 1990 julian_day 01 Jan 2000 julian_day 01 Jan 2010 julian_day :values :grid /pointwidth 0 def ] readdatafile:
+/name (day_of_year) def
+ /units (day of year)cvn def
+ /long_name (Day of Year) def
+%/standard_name (doy) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /land_mask{
+[ X | Y ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMIN_Daily_LatLong1_1880.nc) readdatafile:
+/name (land_mask) def
+ /valid_min 0.0 def
+ /long_name (Land Area Fraction) def
+ /missing_value NaN def
+ /valid_max 1.0 def
+ /units /unitless def
+ /standard_name (land_area_fraction) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /month{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TAVG_Daily_LatLong1_%Y[T].nc) [ grid: /T (julian_day) 0 values: 01 Jan 1880 julian_day 01 Jan 1890 julian_day 01 Jan 1900 julian_day 01 Jan 1910 julian_day 01 Jan 1920 julian_day 01 Jan 1930 julian_day 01 Jan 1940 julian_day 01 Jan 1950 julian_day 01 Jan 1960 julian_day 01 Jan 1970 julian_day 01 Jan 1980 julian_day 01 Jan 1990 julian_day 01 Jan 2000 julian_day 01 Jan 2010 julian_day :values :grid /pointwidth 0 def ] readdatafile:
+/name (month) def
+ /units (month number)cvn def
+ /long_name (Month) def
+%/standard_name (month) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tavg {
+[ X Y | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TAVG_Daily_LatLong1_%Y[T].nc) [ grid: /T (julian_day) 0 values: 01 Jan 1880 julian_day 01 Jan 1890 julian_day 01 Jan 1900 julian_day 01 Jan 1910 julian_day 01 Jan 1920 julian_day 01 Jan 1930 julian_day 01 Jan 1940 julian_day 01 Jan 1950 julian_day 01 Jan 1960 julian_day 01 Jan 1970 julian_day 01 Jan 1980 julian_day 01 Jan 1990 julian_day 01 Jan 2000 julian_day 01 Jan 2010 julian_day :values :grid /pointwidth 0 def ]   readdatafile:
+/name (temperature) def
+ /valid_min -32.576313 def
+ /long_name (Average Surface Air Temperature Anomaly) def
+ /missing_value NaN def
+ /valid_max 32.309147 def
+ /units /degreeC def
+ /standard_name (air_temperature_anomaly) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmax {
+[ X Y | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMAX_Daily_LatLong1_%Y[T].nc) [ grid: /T (julian_day) 0 values: 01 Jan 1880 julian_day 01 Jan 1890 julian_day 01 Jan 1900 julian_day 01 Jan 1910 julian_day 01 Jan 1920 julian_day 01 Jan 1930 julian_day 01 Jan 1940 julian_day 01 Jan 1950 julian_day 01 Jan 1960 julian_day 01 Jan 1970 julian_day 01 Jan 1980 julian_day 01 Jan 1990 julian_day 01 Jan 2000 julian_day 01 Jan 2010 julian_day :values :grid /pointwidth 0 def ]   readdatafile:
+/name (temperature) def
+ /valid_min -32.576313 def
+ /long_name (Maximum Surface Air Temperature Anomaly) def
+ /missing_value NaN def
+ /valid_max 32.309147 def
+ /units /degreeC def
+ /standard_name (air_temperature_anomaly) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmin {
+[ X Y | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TMIN_Daily_LatLong1_%Y[T].nc) [ grid: /T (julian_day) 0 values: 01 Jan 1880 julian_day 01 Jan 1890 julian_day 01 Jan 1900 julian_day 01 Jan 1910 julian_day 01 Jan 1920 julian_day 01 Jan 1930 julian_day 01 Jan 1940 julian_day 01 Jan 1950 julian_day 01 Jan 1960 julian_day 01 Jan 1970 julian_day 01 Jan 1980 julian_day 01 Jan 1990 julian_day 01 Jan 2000 julian_day 01 Jan 2010 julian_day :values :grid /pointwidth 0 def ]   readdatafile:
+/name (temperature) def
+ /valid_min -32.576313 def
+ /long_name (Minimum Surface Air Temperature Anomaly) def
+ /missing_value NaN def
+ /valid_max 32.309147 def
+ /units /degreeC def
+ /standard_name (air_temperature_anomaly) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /yr{
+[ | T ] (/Data/data23/BerkeleyEarth/daily/land/deg1p0/Complete_TAVG_Daily_LatLong1_%Y[T].nc) [ grid: /T (julian_day) 0 values: 01 Jan 1880 julian_day 01 Jan 1890 julian_day 01 Jan 1900 julian_day 01 Jan 1910 julian_day 01 Jan 1920 julian_day 01 Jan 1930 julian_day 01 Jan 1940 julian_day 01 Jan 1950 julian_day 01 Jan 1960 julian_day 01 Jan 1970 julian_day 01 Jan 1980 julian_day 01 Jan 1990 julian_day 01 Jan 2000 julian_day 01 Jan 2010 julian_day :values :grid /pointwidth 0 def ]   readdatafile:
+/name (year) def
+ /units (year A.D.)cvn def
+ /long_name (Year) def
+%/standard_name (year) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+\begin{ingrid}
+
+
+
+
+
+
+
+ dataset:
+ /name (pc5180) def
+ /description (Pentad Climatology 1951-1980) def
+
+grid:
+/name (X)def
+/units (degree_east)def
+periodic
+ -179.5 1.0 179.5
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ -89.5 1.0 89.5
+:grid
+
+grid:
+/name /T def
+/units (pentads since 1960-01-01) def
+periodic
+0.5 1 72.5
+:grid
+
+/tavg { (/Data/data23/BerkeleyEarth/daily/land/deg1p0/BerkeleyEarth_TAVG_pc5180_LatLong1.nc) readCDF .tavg_climatology } defasvarsilent
+
+/tmax { (/Data/data23/BerkeleyEarth/daily/land/deg1p0/BerkeleyEarth_TMAX_pc5180_LatLong1.nc) readCDF .tmax_climatology } defasvarsilent
+
+/tmin { (/Data/data23/BerkeleyEarth/daily/land/deg1p0/BerkeleyEarth_TMIN_pc5180_LatLong1.nc) readCDF .tmin_climatology } defasvarsilent
+
+ :dataset
+
+:dataset
+
+\end{ingrid}
+

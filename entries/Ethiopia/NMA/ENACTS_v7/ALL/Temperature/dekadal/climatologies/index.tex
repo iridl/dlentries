@@ -1,0 +1,70 @@
+\begin{ingrid}
+
+continuedataset:
+
+/tmax {
+   SOURCES .Ethiopia .NMA .ENACTS_v7 .ALL .Temperature .dekadal .tmax
+     T (1 Jan 1981) (31 Dec 1981) RANGE
+   SOURCES .Ethiopia .NMA .ENACTS_v7 .ALL .Temperature .dekadal .tmax
+     T (1 Jan 1981) (31 Dec 2010) RANGE
+     T name
+      npts NewIntegerGRID
+      replaceGRID
+    T 36 splitstreamgrid
+    [T2]average
+    T 2 index
+      T dekadaledgesgrid partialgrid
+       2 1 roll
+       pop
+      replaceGRID
+    T (days since 1981-01-01) streamgridunitconvert
+    T T dekadaledgesgrid
+      first secondtolast subgrid
+      /calendar /365 def
+      gridS
+       365 store modulus
+       pop
+      periodic setgridtype
+      partialgrid replaceGRID
+        [X Y]REORDER
+        2 1 roll pop
+%/fullname (Merged Station-Satellite Rainfall Climatology 1981-2010) def
+/long_name (Merged Station-Downscaled Reanalysis Maximum Temperature Climatology 1981-2010) def
+}defasvar
+
+/tmin {
+SOURCES .Ethiopia .NMA .ENACTS_v7 .ALL .Temperature .dekadal .tmin
+  T (1 Jan 1981) (31 Dec 1981) RANGE
+SOURCES .Ethiopia .NMA .ENACTS_v7 .ALL .Temperature .dekadal .tmin
+     T (1 Jan 1981) (31 Dec 2010) RANGE
+    T name
+      npts NewIntegerGRID
+      replaceGRID
+    T 36 splitstreamgrid
+    [T2]average
+    T 2 index
+      T dekadaledgesgrid partialgrid
+       2 1 roll
+       pop
+      replaceGRID
+    T (days since 1981-01-01) streamgridunitconvert
+    T T dekadaledgesgrid
+      first secondtolast subgrid
+      /calendar /365 def
+      gridS
+       365 store modulus
+       pop
+      periodic setgridtype
+      partialgrid replaceGRID
+        [X Y]REORDER
+        2 1 roll pop
+/long_name (Merged Station-Downscaled Reanalysis Minimum Temperature Climatology 1981-2010) def
+}defasvar
+
+:dataset
+
+tmax .X name exch def
+tmax .Y name exch def
+tmax .T name exch def
+
+\end{ingrid}

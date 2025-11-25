@@ -1,0 +1,47 @@
+\begin{ingrid}
+
+continuedataset:
+
+
+grid:
+/name (Y)def
+/units (degree_north)def
+13.5 0.1 18.5
+/long_name (Latitude) def
+:grid
+
+grid:
+/name (X)def
+/units (degree_east)def
+periodic
+ -92.5 0.1 -88.0
+/long_name (Longitude) def
+:grid
+
+
+grid:
+ /name /T def
+ /standard_name (time) def
+ /units (julian_day) def
+ /defaultvalue {last} def
+ 1 Jan 1981 julian_day
+ 1.0
+ 31 Dec 2018 julian_day
+:grid
+
+
+
+ /rfe{
+[ X Y | T ]  (/Data/data23/Guatemala/ENACTS/Prec/Daily/Merged/DATA_NetCDF/rr_mrg_%Y%m%d[T].nc) [T]
+readdatafile:
+ /name (precip) def
+ /units /mm def
+ /long_name (Merged Station-Satelite Rainfall 1981-2018) def
+ /missing_value -99.0 def
+ /realarraytype netcdfrecords :readdatafile
+ daily_precip_colors
+ DATA 0 30 RANGE
+}defasvarsilent
+
+:dataset
+\end{ingrid}

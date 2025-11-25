@@ -1,0 +1,24 @@
+\begin{ingrid}
+
+continuedataset:
+/iod {SOURCES .NOAA .NCDC .ERSST .version4 .sst
+  T (1961) (2015) RANGE
+  yearly-anomalies
+  dup
+   X 50 70 RANGE
+   Y -10 10 RANGE
+   [X Y]average
+   exch
+   X 90 110 RANGE
+   Y -10 0 RANGE
+   [X Y]average
+   sub
+  /long_name (Indian Ocean Dipole 1961-2015) def
+  sstacolorscale
+  DATA -2 2 RANGE
+} defasvar
+:dataset 
+
+
+
+\end{ingrid}

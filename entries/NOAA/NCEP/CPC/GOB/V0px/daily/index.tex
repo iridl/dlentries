@@ -1,0 +1,91 @@
+\begin{ingrid}
+continuedataset:
+
+dataset:
+/name /RETRO def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+degE
+0.125 0.25 359.875 
+periodic
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+degN
+-89.875 0.25 89.875
+:grid
+
+grid:
+/name /T def
+/long_name (Time) def
+/standard_name (time) def
+/units (julian_day) def
+/defaultvalue {last} def
+01 Jan 1979 julian_day 
+1.0
+31 Oct 2014 julian_day
+/pointwidth 1.0 def
+:grid
+
+/prcp {
+[ X Y | T ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/%Y[T]/CPC_GOB_V0.x_DLY_0.25deg.lnx.%Y%m%d[T].gz) [ T ] readdatafile:
+/long_name (blended daily precipitation) def
+/units (mm/day) def
+decdirect
+/missing_value -999.0 def
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+
+/name /REALTIME def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+degE
+0.125 0.25 359.875 
+periodic
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+degN
+-89.875 0.25 89.875
+:grid
+
+grid:
+/name /T def
+/long_name (Time) def
+/standard_name (time) def
+/units (julian_day) def
+/defaultvalue {last} def
+01 Nov 2014 julian_day 
+1.0
+2 Jun 2025 julian_day
+/pointwidth 1.0 def
+:grid
+
+/last_modified T .last_modified def
+
+/prcp {
+[ X Y | T ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/RT/%Y[T]/CPC_GOB_V0.x_DLY_0.25deg.lnx.%Y%m%d[T].RT.gz) [ T ] readdatafile:
+true /useopenfile myreadfileargs !
+/long_name (blended daily precipitation) def
+/units (mm/day) def
+decdirect
+/missing_value -999.0 def
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}

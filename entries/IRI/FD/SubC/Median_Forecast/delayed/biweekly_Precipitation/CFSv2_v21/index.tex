@@ -1,0 +1,50 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (SubC CFSv2_v21 global bi-weekly percipitation median probability forecast of exceedence without land-sea mask for Saturday-Friday) def
+
+
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+values:
+02 Oct 2020 julian_day 01 Jan 1960 julian_day sub
+7
+systemtime
+(%d %b %Y) 12 strftime interp julian_day 3 add
+01 Jan 1960 julian_day sub
+4 7 mul sub
+{} for
+:values
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+S
+/expires
+S last 4 7 mul add 6 add cvsunits nip interp exch 0.5 add 4 -2 roll exch pop ymd2systemtime
+def
+name exch def
+
+/expires S .expires def
+
+/target_date {S
+SOURCES .IRI .FD .SubC .Median_Forecast .biweekly_Precipitation .CFSv2_v21 .L
+add /long_name (forecast time) def /pointwidth 14 def} defasvarsilent
+
+/prob_median {
+SOURCES .IRI .FD .SubC .Median_Forecast .biweekly_Precipitation .CFSv2_v21 .prob_median
+S first target_date .S .last RANGE
+/expires target_date .S .expires def
+}defasvarsilent
+
+:dataset
+
+prob_median .X name exch def
+prob_median .Y name exch def
+prob_median .L name exch def
+
+\end{ingrid}

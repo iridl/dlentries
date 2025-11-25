@@ -1,0 +1,15 @@
+\begin{ingrid}
+datasetdefs:
+/climatology { GLOBAL .climatology } def
+/monthly { GLOBAL .monthly } def
+:datasetdefs
+[ /Merged_Analysis /CAMS_OPI/CAMS
+/GLOBAL /Indices /EVE /CLIMAT /REGIONAL/FEWS /GSOD /GOB /GMSM /PRECL /CMORPH /DailyEVE /CA_SST
+/GHCN_CAMS /UNIFIED_PRCP /GTS /temperature /CBO_V1] 
+      {currentobject 1 index get def} forall
+/description (Climate Prediction Center) def
+link:
+/name (Climate Prediction Center) def
+/href (http://www.cpc.ncep.noaa.gov/) def
+:link
+\end{ingrid}

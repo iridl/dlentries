@@ -1,0 +1,188 @@
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name (X) def
+/units (degree_east) def
+periodic
+ 0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/units (degree_north) def
+ 90.0 1.0 -90.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (days) def
+/standard_name (forecast_period) def
+ 0.5 1.0 43.5
+/pointwidth 1.0 def
+:grid
+
+grid:
+/name (M) def
+/long_name (Ensemble Member) def
+/units (ids) def
+/standard_name (realization) def
+1 1 4
+:grid
+
+grid:
+/name /P def
+/long_name (Pressure Level) def
+/units /hPa def
+values: 500 200 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (S) def
+/long_name (Start Time) def
+/standard_name (forecast_reference_time) def
+15 Oct 2017 julian_day 01 Jan 1960 julian_day sub 
+0.25
+systemtime
+(%d %b %Y) 12 strftime interp julian_day
+01 Jan 1960 julian_day sub
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+/pointwidth 0. def
+:grid
+
+S {(/Data/SubX/NCEP/CFSv2/forecast/pr_sfc_CFS/%Y[S]/%m[S]/pr_sfc_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m01_XYT.nc) [S]} removeextrausing
+name exch def
+
+ /pr {
+[ X Y | L M S ] (/Data/SubX/NCEP/CFSv2/forecast/pr_sfc_CFS/%Y[S]/%m[S]/pr_sfc_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ M S ] readdatafile:
+/name (pr_sfc) def
+ /long_name (Total Precipitation) def
+ /standard_name (precipitation_flux) def
+ /units (kg m-2 s-1)cvn def
+ /level_type (surface) def
+ /interpolation (bilinearly interpolated from Gaussian grid) def
+ /missing_value -9999.0 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tas {
+[ X Y | L M S ] (/Data/SubX/NCEP/CFSv2/forecast/tas_2m_CFS/%Y[S]/%m[S]/tas_2m_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ M S ] readdatafile:
+/name (tas_2m) def
+/long_name (2-meter Mean Air Temperature) def
+/interpolation (bilinearly interpolated from Gaussian grid) def
+/missing_value -9999.0 def
+/level_type (2 meters above ground) def
+/standard_name (air_temperature) def
+/units /Kelvin_scale def
+/realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/ts {
+[ X Y | L M S ] (/Data/SubX/NCEP/CFSv2/forecast/ts_CFS/%Y[S]/%m[S]/ts_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ M S ] readdatafile:
+/name (ts) def
+/long_name (Surface Temperature) def
+/interpolation (bilinearly interpolated from Gaussian grid) def
+/missing_value -9999.0 def
+/level_type (surface) def
+/standard_name (air_temperature) def
+/units /Kelvin_scale def
+/realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/va {
+[ X Y | L M S ] (/Data/SubX/NCEP/CFSv2/forecast/va_200_CFS/%Y[S]/%m[S]/va_200_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ M S ] readdatafile:
+/name (va_200) def
+/long_name (Meridional Wind at 200 hPa) def
+/interpolation (bilinearly interpolated from Gaussian grid) def
+/missing_value -9999.0 def
+/standard_name (northward_wind) def
+/level_type (pressure level) def
+/units (m/s)cvn def
+/realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/ua {
+%From 5 Sep 2023
+[ X Y | L M S 23258 last subgrid ] (/Data/SubX/NCEP/CFSv2/forecast/ua_200_CFS/%Y[S]/%m[S]/ua_200_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ M S 23258 last subgrid ] readdatafile:
+/name (ua_200) def
+/long_name (Zonal Wind at 200 hPa) def
+/interpolation (bilinearly interpolated from Gaussian grid) def
+/missing_value -9999.0 def
+/standard_name (eastward_wind) def
+/level_type (pressure level) def
+/units (m/s)cvn def
+/realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/zg {
+[ X Y | L M S 21200 last subgrid P ] (/Data/SubX/NCEP/CFSv2/forecast/zg_%d[P]_CFS/%Y[S]/%m[S]/zg_%d[P]_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ M S 21200 last subgrid P ] readdatafile:
+/name (zg) def
+/long_name (Geopotential Height) def
+/interpolation (bilinearly interpolated from Gaussian grid) def
+/missing_value -9999.0 def
+/standard_name (geopotential_height) def
+/level_type (pressure level) def
+/units /m def
+/realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ dataset:
+
+/name (ROMI) def
+/description (Real Time OLR MJO Index) def
+
+grid:
+/name (PC) def
+1 1 2
+/units (unitless) def
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+ -49.5 1.0 29.5
+/pointwidth 1.0 def
+:grid
+
+grid:
+/name (M) def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+1 1 16
+:grid
+
+grid:
+/name (S) def
+/long_name (Start Time) def
+/standard_name (forecast_reference_time) def
+10 Feb 2019 julian_day 01 Jan 1960 julian_day sub
+1.0
+27 Jun 2022 julian_day 
+01 Jan 1960 julian_day sub
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+/pointwidth 0. def
+:grid
+
+
+ /romi {
+[ M PC | L S ] (/Data/SubX/NCEP/CFSv2/ROMI/NCEP_CFSv2_%Y_%m_%d[S].nc) [ S ] readdatafile: 
+/name (fcst) def
+ /long_name (Real Time OLR MJO Index) def
+ /missing_value NaN def
+ /units (unitless) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/references (Wang_etal2018) def
+
+ :dataset
+
+:dataset
+\end{ingrid}

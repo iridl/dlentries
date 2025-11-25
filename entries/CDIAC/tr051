@@ -1,0 +1,37 @@
+\begin{ingrid}
+/tr051 insertdataset:
+/description (Comprehensive preciptation anomaly data set for global land areas) def
+/dataset_documentation.html descriptions .cdiac  /tr051.html get def
+/references (Eischeid_etal1991) def
+grid:
+/name /X def
+degE
+periodic
+0 5 355
+:grid
+grid:
+/name /Y def
+degN
+-62 4 86
+:grid
+grid: 
+/name /T def
+monthtime
+16 Jan 1851 ensotime 3. 16 Oct 1989 ensotime
+:grid
+dataset:
+/name /precipitation def
+variable:
+/name /anomalies def
+/units (mm) def
+grids: X Y | T :grids
+/missing_value -9999.99 def
+file:
+/name (/Data/data1/cdiac/tr051/precip.grid.r4) def
+random
+:file
+:variable
+:dataset
+:insertdataset
+\end{ingrid}
+

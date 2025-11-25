@@ -1,0 +1,261 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9741
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 289
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_rapid_FSAdec_2009.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Dépenses) def
+/Q25 {
+mytable
+myquestion 
+102 VALUE
+ myquestion removeGRID
+/long_name (Q25 : Depuis les récoltes de l'année 2008, aviez-vous eu à v) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q26A1A {
+mytable
+myquestion 
+103 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Mil : Quantité en UM) def 
+}defasvarsilent
+
+/Q26A1B {
+mytable
+myquestion 
+104 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Mil : Nombre d'UML p) def 
+}defasvarsilent
+
+/Q26A1C {
+mytable
+myquestion 
+105 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Mil : Code UML) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q26A2A {
+mytable
+myquestion 
+106 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Sorgho : Quantité en) def 
+}defasvarsilent
+
+/Q26A2B {
+mytable
+myquestion 
+107 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Sorgho : Nombre d'UM) def 
+}defasvarsilent
+
+/Q26A2C {
+mytable
+myquestion 
+108 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Sorgho : Code UML) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q26A3A {
+mytable
+myquestion 
+109 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Maïs : Quantité en U) def 
+}defasvarsilent
+
+/Q26A3B {
+mytable
+myquestion 
+110 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Maïs : Nombre d'UML) def 
+}defasvarsilent
+
+/Q26A3C {
+mytable
+myquestion 
+111 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Maïs : Code UML) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q26A4A {
+mytable
+myquestion 
+112 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Riz Paddy : Quantité) def 
+}defasvarsilent
+
+/Q26A4B {
+mytable
+myquestion 
+113 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Riz Paddy : Nombre d) def 
+}defasvarsilent
+
+/Q26A4C {
+mytable
+myquestion 
+114 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Riz Paddy : Code UML) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q26A5A {
+mytable
+myquestion 
+115 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Riz Blanchi : Quanti) def 
+}defasvarsilent
+
+/Q26A5B {
+mytable
+myquestion 
+116 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Riz Blanchi : Nombre) def 
+}defasvarsilent
+
+/Q26A5C {
+mytable
+myquestion 
+117 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Riz Blanchi : Code U) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q26A6A {
+mytable
+myquestion 
+118 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Blé : Quantité en UM) def 
+}defasvarsilent
+
+/Q26A6B {
+mytable
+myquestion 
+119 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Blé : Nombre d'UML p) def 
+}defasvarsilent
+
+/Q26A6C {
+mytable
+myquestion 
+120 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Blé : Code UML) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q26A7A {
+mytable
+myquestion 
+121 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Fonio : Quantité en) def 
+}defasvarsilent
+
+/Q26A7B {
+mytable
+myquestion 
+122 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Fonio : Nombre d'UML) def 
+}defasvarsilent
+
+/Q26A7C {
+mytable
+myquestion 
+123 VALUE
+ myquestion removeGRID
+/long_name (Q26.a : Si oui, En vivres (en nature) ? Fonio : Code UML) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q26B {
+mytable
+myquestion 
+124 VALUE
+ myquestion removeGRID
+/long_name (Q26.b : Si oui, En espèces (y compris la valeur des aminaux)) def 
+}defasvarsilent
+
+/Q27 {
+mytable
+myquestion 
+125 VALUE
+ myquestion removeGRID
+/long_name (Q27 : Si oui, le remboursement a-t-il déjà été fait ou engag) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

@@ -1,0 +1,137 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (GR2M Sub-basins) def
+
+datasetdefs:
+
+grid:
+/name /mycol def
+1 1 2
+:grid
+
+:datasetdefs
+
+link:
+/name (ShapefilesZip) def
+/description (Access to the shapefiles) def
+/href (https://iri.columbia.edu/~remic/files/Subbasins_GR2M_Peru/) def
+:link
+
+link:
+/name (Reference) def
+/description (PISCO_HyM_GR2M: A Model of Monthly Water Balance in Peru (1981–2020)) def
+/href (https://www.mdpi.com/2073-4441/13/8/1048) def
+:link
+
+/gid /unitless 0 1 1 3594 NewEvenIntegerGRID
+name exch def
+
+grid:
+/name /T def
+/units (monthtime) def
+/defaultvalue { last } def
+16 Jan 1981 ensotime
+1
+16 systemtime systemtime2ymd pop exch ensotime
+/pointwidth 1. def
+:grid
+
+T { (/Data/data23/SENAMHI/Stream/v1.1/monthly/GR2M/QR/QR_PISCO_HyM_GR2M_v1.1_%Y%m[T].txt) [T] } removeextrausing
+/expires
+last cvsunits
+    interp exch 0.5 add
+     1 ymd:nextmonth ymd:nextmonth pop 5 ymd2systemtime
+def
+name exch def
+/expires T .expires def
+
+/the_geom {
+ SOURCES .Features .Hydrological .Peru .SubBasins
+.the_geom
+}defasvar
+
+/label {
+ SOURCES .Features .Hydrological .Peru .SubBasins
+.label
+}defasvar
+
+/Region {
+ SOURCES .Features .Hydrological .Peru .SubBasins
+.Region
+}defasvar
+
+/QR {
+[mycol gid | T]
+(/Data/data23/SENAMHI/Stream/v1.1/monthly/GR2M/QR/QR_PISCO_HyM_GR2M_v1.1_%Y%m[T].txt) [T]
+readdatafile:
+[1 0] r*4astsv
+:readdatafile
+mycol second VALUE
+mycol removeGRID
+/long_name (Discharge) def
+/units (m3/s) def
+daily_precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+/AE {
+[mycol gid | T]
+(/Data/data23/SENAMHI/Stream/v1.1/monthly/GR2M/AE/AE_PISCO_HyM_GR2M_v1.1_%Y%m[T].txt) [T]
+readdatafile:
+[1 0] r*4astsv
+:readdatafile
+mycol second VALUE
+mycol removeGRID
+/long_name (Actual evapotranspiration) def
+/units /mm def
+daily_precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+/PR {
+[mycol gid | T]
+(/Data/data23/SENAMHI/Stream/v1.1/monthly/GR2M/PR/PR_PISCO_HyM_GR2M_v1.1_%Y%m[T].txt) [T]
+readdatafile:
+[1 0] r*4astsv
+:readdatafile
+mycol second VALUE
+mycol removeGRID
+/long_name (Precipitation) def
+/units /mm def
+daily_precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+/SM {
+[mycol gid | T]
+(/Data/data23/SENAMHI/Stream/v1.1/monthly/GR2M/SM/SM_PISCO_HyM_GR2M_v1.1_%Y%m[T].txt) [T]
+readdatafile:
+[1 0] r*4astsv
+:readdatafile
+mycol second VALUE
+mycol removeGRID
+/long_name (Soil moisture) def
+/units /mm def
+daily_precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+/RU {
+[mycol gid | T]
+(/Data/data23/SENAMHI/Stream/v1.1/monthly/GR2M/RU/RU_PISCO_HyM_GR2M_v1.1_%Y%m[T].txt) [T]
+readdatafile:
+[1 0] r*4astsv
+:readdatafile
+mycol second VALUE
+mycol removeGRID
+/long_name (Runoff) def
+/units /mm def
+daily_precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

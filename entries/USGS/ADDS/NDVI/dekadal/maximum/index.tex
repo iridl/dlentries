@@ -1,0 +1,87 @@
+\begin{ingrid}
+/description (Dekadal NDVI data from ADDS) def
+continuedataset:
+datasetdefs:
+/filename {T (/Data/data6/usgs/adds/ndvi/ndvie%y[T]/AC%y%m0%d[dekad].IMG) strftimes}def
+/adds_ndvi_colors {
+startcolormap
+DATA 0.0 1.0 RANGE
+white white white 0.0 VALUE
+234 233 189 RGB RGBdup 0.05 bandmax
+215 211 148 RGB RGBdup 0.1 bandmax
+202 189 119 RGB RGBdup 0.15 bandmax
+175 175 77 RGB RGBdup 0.2 bandmax
+128 169 5 RGB RGBdup 0.3 bandmax
+12 127 0 RGB RGBdup 0.4 bandmax
+0 94 0 RGB RGBdup 0.5 bandmax
+0 59 1 RGB RGBdup 0.6 bandmax
+0 9 0 RGB RGBdup 1.0 bandmax
+0 9 0 RGB 1.0 VALUE
+0 9 0 RGB
+endcolormap } def
+:datasetdefs
+grid:
+/name /X def
+-4604000 8000 4604000 
+:grid
+grid:
+/name /Y def
+4604000 8000 -4604000
+:grid
+variable:
+        /name /lat def
+        /units (degreeN) def
+        /fullname (Latitude) def
+        /scale_min -40 def
+        /scale_max 45 def
+        grids: X Y :grids
+        file:
+                decrandom
+                /name (/Data/data6/usgs/adds/ndvi/lat_1152_geom.bin) def
+        :file
+:variable
+variable:
+        /name /lon def
+        /units (degreeE) def
+        /fullname (Longitude) def
+        /scale_min -24 def
+        /scale_max 65 def
+        grids: X Y :grids
+        file:
+                decrandom
+                /name (/Data/data6/usgs/adds/ndvi/lon_1152_geom.bin) def
+        :file
+:variable
+
+1 Jul 1981 julian_day
+%systemtime (%d %b %Y) 12 strftime interp julian_day
+6 Nov 2004 julian_day %enddate
+dekadGRID
+/defaultvalue { last } def
+name exch def
+
+/NDVI {[| T] (/Data/data6/usgs/adds/ndvi/ndvie%y[T]/AC%y[T]%m[T]0%d[dekad].IMG) [T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+readdatafile:
+IDAimage
+:readdatafile
+/valid_min 1 def
+/valid_max 250 def
+/scale_factor 0.004016 def
+/add_offset -0.004016 def
+/long_name (Normalized Difference Vegetation Index) def
+toNaN
+adds_ndvi_colors
+}defasvarsilent
+
+:dataset
+T { (/Data/data6/usgs/adds/ndvi/ndvie%y[T]/AC%y[T]%m[T]0%d[dekad].IMG) [T dup day2dom 5. add 10. div toi4 /name /dekad def]}removeextrausing
+/expires
+last_modified systemtime2ymd 
+dup 20 lt { 10 lt { 11 }{21} ifelse}
+{ymd:nextmonth} ifelse
+ ymd2systemtime
+def
+name exch def
+/expires T .expires def
+/last_modified T .last_modified def
+\end{ingrid}

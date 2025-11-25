@@ -1,0 +1,133 @@
+\begin{ingrid}
+continuedataset:
+/references (WCRP1990) def
+dataset:
+/name (Satellite-Model-Gauge) def
+datasetdefs:
+ /fyibrowsecolors {
+startcolormap
+/maxncolor 78 def
+DATA -42 32 RANGE
+white blue
+  0   0 255 RGB 
+255 182 193 RGB 
+245 222 179 RGB RGBdup -32 VALUE
+255   0   0 RGB 
+245 222 179 RGB RGBdup -23 VALUE
+255 255   0 RGB
+107 142  35 RGB 
+245 222 179 RGB RGBdup -12 VALUE
+186  85 211 RGB 
+245 222 179 RGB RGBdup -1 VALUE
+  0 255   0 RGB  0 VALUE
+255 165   0 RGB 32 VALUE
+red
+endcolormap } def
+:datasetdefs
+grid: 
+/name /X def
+degE
+periodic
+-178.75 2.5 178.75
+:grid
+grid:
+/name /Y def
+degN
+88.75 -2.5 -88.75
+:grid
+grid:
+/name /T def
+monthtime
+/fullname (Month) def
+16 Jan 1987 ensotime
+1.
+16 Dec 1988 ensotime
+:grid
+variable:
+/name /browse_fyi def
+/long_name (Gauge Count or Satellite/Model Used in Estimate) def 
+/units (ids) def
+fyibrowsecolors
+grids: X Y T :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/precip/bry87_88fyi.i2) def
+:file
+/scale_min -42 def
+/scale_max 32 def
+/CLIST [ (ECMWF model; 12-36 H; 2.5 deg.) (ECMWF model; 0-24 H; 2.5 deg)
+9 () repeat 
+(mixed sat. est.; (IR+SSM/I)/2) 
+8 () repeat
+(SSM/I sat. data; 2.5 deg.)  
+(SSM/I sat. data; 5 deg.) 
+9 () repeat
+(IR sat. data; 2.5 deg.) 
+10 () repeat
+(0) (1) (2) (3) (4) (5)
+(6) (7) (8) (9) (10) (11) (12) (13) (14) (15) (16) (17) (18) (19) (20) (21)
+(22) (23) (24) (25) (26) (27) (28) (29) (30) (31) (32) ] def
+:variable
+variable:
+/name /precip def
+/long_name (Estimated Monthly Precip.) def 
+/units (mm) def
+grids: X Y T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/precip/bry87_88prc.r4) def
+:file
+/scale_min 0 def
+/scale_max 1000 def
+:variable
+:dataset
+
+dataset:
+/name (Gauge) def
+grid:
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 1 -89.5
+:grid
+grid:
+/name /T def
+monthtime
+/fullname (Month) def
+16 Jan 1987 ensotime
+1.
+16 Dec 1988 ensotime
+:grid
+variable:
+/name /gauge_fyi def         
+/long_name (Gauge Count) def
+/units (count) def
+grids: X Y T :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/precip/gry87_88fyi.i2) def
+:file
+/scale_min 0 def
+/scale_max 10 def
+:variable
+variable:
+/name /precip def
+/long_name (Monthly Precip.) def
+/units (mm) def
+grids: X Y T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/precip/gry87_88prc.r4) def
+:file
+/scale_min 0 def
+/scale_max 1000 def
+:variable 
+:dataset 
+
+:dataset
+\end{ingrid}

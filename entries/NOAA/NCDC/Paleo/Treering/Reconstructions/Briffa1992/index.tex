@@ -1,0 +1,96 @@
+\begin{ingrid}
+continuedataset:
+/description (Western North America Gridpoint and Regional Summer Temperature Reconstructions) def
+/references (Briffa_etal2002 Briffa_etal1992) def
+link:
+/name (data source) def
+/description (NCDC ftp site) def
+/href (ftp://ftp.ncdc.noaa.gov/pub/data/paleo/treering/reconstructions/westnamerica/briffa1992/briffa1992.txt) def
+:link
+
+dataset:
+ /name /osr115 def
+ /long_name (1750-1983 Temperature Reconstruction) def
+ /note (Anomalies are calculated with respect to the 1951-1970 climatological base period) def
+
+grid:
+ /name /X def
+ /long_name /Longitude def
+ /units (degree_east) def
+ -150 10 -100
+:grid
+
+grid:
+ /name /Y def
+ /long_name /Latitude def
+ /units (degree_north) def
+ 65 5 30
+:grid
+
+grid:
+ /name /T def
+ /units (months since 1960-01-01) def
+ 01 Jul 1750 ensotime
+ 12
+ 01 Jul 1983 ensotime
+ /pointwidth 6 def
+:grid
+
+variable:
+ /name /tanom def 
+ /long_name (Temperature Anomaly) def
+ /units (Celsius_scale) def
+ /missing_value -99.9 def
+ grids: Y X | T :grids
+ file:
+  direct
+ /name (/Data/data7/noaa/ncdc/paleo/treering/reconstructions/westnamerica/briffa1992/gridosr115.r4) def
+ :file
+:variable
+
+:dataset
+
+dataset:
+ /name /osr125 def
+ /long_name (1600-1983 Temperature Reconstruction) def
+ /note (Anomalies are calculated with respect to the 1951-1970 climatological base period) def
+
+grid:
+ /name /X def
+ /long_name /Longitude def
+ /units (degree_east) def
+ -150 10 -100
+:grid
+
+grid:
+ /name /Y def
+ /long_name /Latitude def
+ /units (degree_north) def
+ 65 5 30
+:grid
+
+grid:
+ /name /T def
+ /units (months since 1960-01-01) def
+ 01 Jul 1600 ensotime
+ 12
+ 01 Jul 1983 ensotime
+ /pointwidth 6 def
+:grid
+
+variable:
+ /name /tanom def
+ /long_name (Temperature Anomaly) def 
+ /units (Celsius_scale) def
+ /missing_value -99.9 def
+ grids: Y X | T :grids
+ file:
+  direct
+ /name (/Data/data7/noaa/ncdc/paleo/treering/reconstructions/westnamerica/briffa1992/gridosr125.r4) def
+ :file
+:variable
+
+:dataset
+
+:dataset
+\end{ingrid}

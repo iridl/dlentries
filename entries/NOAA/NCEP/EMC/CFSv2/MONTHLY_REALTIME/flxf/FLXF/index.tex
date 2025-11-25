@@ -1,0 +1,210 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name (X)def
+/units (degree_east)def
+0 360 384. div dup 360 exch  sub  
+
+:grid
+
+190 gaussianlat high low subgrid
+name exch def
+
+grid:
+/name (M) def
+/long_name (Initial time) def
+values:
+00 06 12 18
+:values
+:grid
+
+grid:
+/name /L def
+/units (months) def
+/standard_name (forecast_period) def
+0.5 1. 9.5
+:grid
+
+grid:
+/name (S) def
+/units (days since 2011-01-01) def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+31
+1
+systemtime
+systemtime2ymd ymd2rjt 1 sub
+2011 01 01 ymd2rjt
+sub
+/defaultvalue {last} def
+:grid
+%S{(/Data/data22/noaa/ncep/cfsv2/fcst/%Y[S]/%m[S]/%d[S]/18/flxf.01.%Y[S]%m[S]%d[S]18.%Y[T]%m[T].avrg.grib.grb2) [S  dup L .last add /name /T def]}
+ S{(/Data/data22/noaa/ncep/cfsv2/fcst/%Y[S]/%m[S]/%d[S]/filecount) [S  dup L .last add /name /T def]}
+ removeextrausing
+ /expires last 2 add 
+ 2011 01 01  ymd2rjt
+ add
+ rjt2ymd ymd2systemtime 3600 19 mul add
+      def
+ name exch def
+/last_modified S .last_modified def
+ /expires S .expires def
+/T{
+currentobject
+S 
+monthlyedgesgrid first secondtolast subgrid
+ first cvsunits
+    interp ensotime
+     nip cvi onegridcounter
+
+/units (months since 1960-01-01) def
+L  add
+[S] regridLB nip
+/long_name (Forecast Time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/calendar /360 def
+/pointwidth 1 def
+}defasvarsilent
+
+dataset: /name /surface def :dataset
+dataset: /name /0-10_cm_down def :dataset
+dataset: /name /10-40_cm_down def :dataset
+dataset: /name /40-100_cm_down def :dataset
+dataset: /name /100-200_cm_down def :dataset
+dataset: /name /0-200_cm_down def :dataset
+dataset: /name /boundary_layer def :dataset
+dataset: /name /high_cloud def :dataset
+dataset: /name /middle_cloud def :dataset
+dataset: /name /low_cloud def :dataset
+dataset: /name /2m_above_ground def :dataset
+dataset: /name /10m_above_ground def :dataset
+dataset: /name /entire_atmosphere def :dataset
+dataset: /name /top_of_atmosphere def :dataset
+dataset: /name /convective_cloud def :dataset
+dataset: /name /hybrid_level def :dataset
+grid:
+/name (Z) def
+/long_name (wind component) def
+values:
+1 1 2
+:values
+:grid
+
+[ X Y | /NVZ 101 NewIntegerGRID M L S ] 
+(/Data/data22/noaa/ncep/cfsv2/fcst/%Y/%m/%d[S]/%2.2d[M]/flxf.01.%Y%m%d[S]%2.2d[M].%Y%m[T].avrg.grib.grb2) [M L S T] 
+readdatafile: 
+%/gribparam 84 def
+%/gribNumBits 14 def
+/missing_value 9.9990003E+20 def
+%GRIB1record
+1 GRIB2record
+:readdatafile
+definevariables:
+surface 0 Zvariable:/name (UFLX) def /long_name (Zonal momentum flux) def /units (N m-2) def :Zvariable
+surface 0 Zvariable:/name (VFLX) def /long_name (Meridional Momentum Flux) def /units (N m-2) def :Zvariable
+surface 0 Zvariable:/name (SHTFL) def /long_name (Sensible Heat Net Flux) def /units (W m-2) def :Zvariable
+surface 0 Zvariable:/name (LHTFL) def /long_name (LHTFL Latent Heat Net Flux) def /units (W m-2) def :Zvariable
+surface 0 Zvariable:/name (TMP) def /long_name (Tempeture) def /units (Kelven_degree) def :Zvariable
+0-10_cm_down 0 Zvariable:/name (SOILW) def /long_name (Volumetric Soil Moisture Content) def /units (percentage) def :Zvariable
+10-40_cm_down 0 Zvariable:/name (SOILW) def /long_name (Volumetric Soil Moisture Content) def /units (percentage) def :Zvariable
+0-10_cm_down 0 Zvariable:/name (TMP) def /long_name (Temperature 0-10_cm_down) def /units (Kelven_degree) def :Zvariable
+10-40_cm_down 0 Zvariable:/name (TMP) def /long_name (Temperature 10-40_cm_down ) def /units (Kelven_degree) def :Zvariable
+surface 0 Zvariable:/name (WEASD) def /long_name (Water Equivalent of Accumulated Snow Depth) def /units (kg m-2) def :Zvariable
+surface 0 Zvariable:/name (DLWRF) def /long_name (Downward Long-Wave Rad. Flux) def /units (W m-2) def :Zvariable
+surface 0 Zvariable:/name (ULWRF) def /long_name (Upwnward Long-Wave Rad. Flux) def /units (W m-2) def :Zvariable
+top_of_atmosphere 0 Zvariable:/name (ULWRF) def /long_name (Upward Long-Wave Rad. Flux) def /units (W m-2) def :Zvariable
+top_of_atmosphere 0 Zvariable:/name (USWRF) def /long_name (Upward Short-Wave Rad. Flux) def /units (W m-2) def :Zvariable
+surface 0 Zvariable:/name (USWRF) def /long_name (Upward Short-Wave Rad. Flux) def /units (W m-2) def :Zvariable
+surface 0 Zvariable:/name (DSWRF) def /long_name (Downward Short-Wave Rad. Flux) def /units (W m-2) def :Zvariable
+surface 0 Zvariable:/name (DUVB) def /long_name (UV-B downward solar flux) def /units (W m-2) def :Zvariable
+surface 0 Zvariable:/name (CDUVB) def /long_name (Clear sky UV-B downward solar flux) def /units (W m-2) def :Zvariable
+high_cloud 0 Zvariable:/name (TCDC) def /long_name (Total Cloud Cover) def /units (percentage) def :Zvariable
+high_cloud 0 Zvariable:/name (PRES_top) def /long_name (Cloud Top pressure) def /units (Pa) def :Zvariable 
+high_cloud 0 Zvariable:/name (PRES_bot) def /long_name (Cloud Bottom pressure) def /units (Pa) def :Zvariable
+high_cloud 0 Zvariable:/name (TMP) def /long_name (Cloud Top Temperature) def /units (Kelvin_scale) def :Zvariable
+middle_cloud 0 Zvariable:/name (TCDC) def /long_name (Total Cloud Cover) def /units (percentage) def :Zvariable
+middle_cloud 0 Zvariable:/name (PRES_top) def /long_name (Cloud Top pressure) def /units (Pa) def :Zvariable
+middle_cloud 0 Zvariable:/name (PRES_bot) def /long_name (Cloud Bottom pressure) def /units (Pa) def :Zvariable
+middle_cloud 0 Zvariable:/name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def :Zvariable
+low_cloud 0 Zvariable:/name (TCDC) def /long_name (Total Cloud Cover) def /units (percentage) def :Zvariable
+low_cloud 0 Zvariable:/name (PRES_top) def /long_name (Cloud top pressure) def /units (Pa) def :Zvariable
+low_cloud 0 Zvariable:/name (PRES_bot) def /long_name (Cloud bottom pressure) def /units (Pa) def :Zvariable
+low_cloud 0 Zvariable:/name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def :Zvariable
+surface 0 Zvariable:/name (PRATE) def /long_name (Precipitation Rate) def /units (kg m-2 s-1) def :Zvariable
+surface 0 Zvariable:/name (CPRAT) def /long_name (Convective Precipitation Rate) def /units (kg m-2 s-1) def :Zvariable
+surface 0 Zvariable:/name (GFLUX) def /long_name (Ground Heat Flux) def /units (W m-2) def :Zvariable 
+surface 0 Zvariable:/name (LAND) def /long_name (Land Cover 1=land, 0=sea) def :Zvariable
+surface 0 Zvariable:/name (ICEC) def /long_name (Ice Cover) def :Zvariable
+10m_above_ground [36] Zvariable:/gribfield 1 def /name (UGRD) def /long_name (U-Component of Wind) def /units (m s-1) def :Zvariable 
+10m_above_ground [36] Zvariable: /gribfield 2 def /name (VGRD) def /long_name (V-Component of Wind) def /units (m s-1) def  :Zvariable
+
+2m_above_ground 0 Zvariable:/name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def :Zvariable
+2m_above_ground 0 Zvariable:/name (SPFH) def /long_name (Specific Humidity) def /units (kg/kg) def :Zvariable
+surface 0 Zvariable:/name (PRES) def /long_name (Pressure) def /units (Pa) def :Zvariable
+2m_above_ground 0 Zvariable:/name (TMAX) def /long_name (Maximum Temperature) def /units (Kelvin_scale) def :Zvariable
+2m_above_ground 0 Zvariable:/name (TMIN) def /long_name (Minimum Temperature) def /units (Kelvin_scale) def :Zvariable
+2m_above_ground 0 Zvariable:/name (QMAX) def /long_name (Maximum Specific Humidity) def /units (kg/kg) def :Zvariable
+2m_above_ground 0 Zvariable:/name (QMIN) def /long_name (Minimum Specific Humidity) def /units (kg/kg) def :Zvariable
+surface 0 Zvariable:/name (WATR) def /long_name (Water Runoff) def /units (kg m-2) def :Zvariable
+surface 0 Zvariable:/name (PEVPR) def /long_name (Potential Evaporation Rate) def /units (W m-2) def :Zvariable
+entire_atmosphere 0 Zvariable:/name (CWORK) def /long_name (Cloud Work Function) def /units (J kg-1) def :Zvariable
+surface 0 Zvariable:/name (U-GWD) def /long_name (Zonal Flux of Gravity Wave Stress) def /units (N m-2) def :Zvariable
+surface 0 Zvariable:/name (V-GWD) def /long_name (Meridional Flux of Gravity Wave Stress) def /units (N m-2) def :Zvariable
+surface 0 Zvariable:/name (HPBL) def /long_name (Planetary Boundary Layer Height) def /units (m) def :Zvariable
+entire_atmosphere 0 Zvariable:/name (PWAT) def /long_name (Precipitable Water) def /units (kg m-2) def :Zvariable
+surface 0 Zvariable:/name (ALBDO) def /long_name (Albedo) def /units (%) def :Zvariable
+entire_atmosphere 0 Zvariable:/name (TCDC) def /long_name (Total Cloud Cover) def /units (%) def :Zvariable
+convective_cloud 0 Zvariable:/name (TCDC) def /long_name (Total Cloud Cover) def /units (%) def :Zvariable
+convective_cloud 0 Zvariable:/name (PRES_top) def /long_name (convective cloud top level pressure) def /units (Pa) def :Zvariable
+convective_cloud 0 Zvariable:/name (PRES_bot) def /long_name (convective cloud bottom level pressure) def /units (Pa) def :Zvariable
+boundary_layer 0 Zvariable:/name (TCDC) def /long_name (Total Cloud Cover) def /units (%) def :Zvariable
+surface 0 Zvariable:/name (ICETK) def /long_name (Ice Thickness) def /units (m) def :Zvariable
+40-100_cm_down 0 Zvariable:/name (SOILW) def /long_name (Volumetric Soil Moisture Content) def :Zvariable
+100-200_cm_down 0 Zvariable:/name (SOILW) def /long_name (Volumetric Soil Moisture Content) def :Zvariable
+40-100_cm_down 0 Zvariable:/name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def :Zvariable
+100-200_cm_down 0 Zvariable:/name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def :Zvariable
+0-10_cm_down 0 Zvariable:/name (SOILL) def /long_name (Liquid Volumetric Soil Moisture (non Frozen)) def :Zvariable
+10-40_cm_down 0 Zvariable:/name (SOILL) def /long_name (Liquid Volumetric Soil Moisture (non Frozen)) def :Zvariable
+40-100_cm_down 0 Zvariable:/name (SOILL) def /long_name (Liquid Volumetric Soil Moisture (non Frozen)) def :Zvariable
+100-200_cm_down 0 Zvariable:/name (SOILL) def /long_name (Liquid Volumetric Soil Moisture (non Frozen)) def :Zvariable
+surface 0 Zvariable:/name (SNOD) def /long_name (Snow Depth) def /units (m) def :Zvariable
+surface 0 Zvariable:/name (CNWAT) def /long_name (Plant Canopy Surface Water) def /units (kg m-2) def :Zvariable
+surface 0 Zvariable:/name (SFCR) def /long_name (Surface Roughness) def /units (m) def :Zvariable
+surface 0 Zvariable:/name (VEG) def /long_name (Vegetation) def /units (%) def :Zvariable
+surface 0 Zvariable:/name (VGTYP) def /long_name (Vegetation Type [Integer(0-13)]) def :Zvariable
+surface 0 Zvariable:/name (SOTYP) def /long_name (Soil Type [Integer(1-9)]) def :Zvariable
+surface 0 Zvariable:/name (SLTYP) def /long_name (Slope Type [Integer(1-9)]) def :Zvariable
+surface 0 Zvariable:/name (FRICV) def /long_name (Frictional Velocity) def /units (m s-1) def :Zvariable
+surface 0 Zvariable:/name (HGT) def /long_name (Geopotential Height) def /units (gpm) def :Zvariable
+surface 0 Zvariable:/name (CRAIN) def /long_name (Categorical Rain (yes=1; no=0)) def :Zvariable
+surface 0 Zvariable:/name (SFEXC) def /long_name (Exchange Coefficient) def /units (kg m-3 m s-1) def :Zvariable
+surface 0 Zvariable:/name (ACOND) def /long_name (Aerodynamic conductance) def /units (m s-1) def :Zvariable
+surface 0 Zvariable:/name (SSRUN) def /long_name (Storm Surface Runoff) def /units (kg m-2) def :Zvariable
+hybrid_level 0 Zvariable:/name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def :Zvariable
+hybrid_level 0 Zvariable:/name (SPFH) def /long_name (Specific Humidity) def /units (kg kg-1) def :Zvariable
+hybrid_level [81] Zvariable: /gribfield 1 def /name (UGRD) def /long_name (U-Component of Wind) def /units (m s-1) def :Zvariable
+hybrid_level [81] Zvariable: /gribfield 2 def /name (VGRD) def /long_name (V-Component of Wind) def /units (m s-1) def :Zvariable
+hybrid_level 0 Zvariable:/name (HGT) def /long_name (Geopotential Height) def /units (gpm) def :Zvariable
+surface 0 Zvariable:/name (EVBS) def /long_name (Direct evaporation from bare soil) def /units (W m-2) def :Zvariable
+surface 0 Zvariable:/name (EVCW) def /long_name (Canopy water evaporation) def /units (W m-2) def :Zvariable
+surface 0 Zvariable:/name (TRANS) def /long_name (Transpiration) def /units (W m-2) def :Zvariable
+surface 0 Zvariable:/name (SBSNO) def /long_name (Evaporation from snow) def /units (W m-2) def :Zvariable
+surface 0 Zvariable:/name (SNOWC) def /long_name (Snow Cover) def /units (%) def :Zvariable
+0-200_cm_down 0 Zvariable:/name (SOILM) def /long_name (Soil Moisture Content) def /units (kg m-2) def :Zvariable
+top_of_atmosphere  0 Zvariable:/name (DSWRF)  def /long_name (Downward Short-Wave Rad. Flux) def /units (W m-2) def :Zvariable
+top_of_atmosphere  0 Zvariable:/name (CSULF)  def /long_name (Clear Sky Upward Long Wave Flux) def /units (W m-2) def :Zvariable
+top_of_atmosphere  0 Zvariable:/name (CSUSF)  def /long_name (Clear Sky Upward Solar Flux) def /units (W m-2) def :Zvariable
+surface  0 Zvariable:/name (CSDLF)  def /long_name (Clear Sky Downward Long Wave Flux) def /units (W m-2) def :Zvariable
+surface  0 Zvariable:/name (CSUSF)  def /long_name (Clear Sky Upward Solar Flux) def /units (W m-2) def :Zvariable
+surface  0 Zvariable:/name (CSDSF)  def /long_name (Clear Sky Downward Solar Flux) def /units (W m-2) def :Zvariable
+surface  0 Zvariable:/name (CSULF)  def /long_name (Clear Sky Upward Long Wave Flux) def /units (W m-2) def :Zvariable
+surface  0 Zvariable:/name (SNOHF)  def /long_name (Snow Phase Change Heat Flux) def /units (W m-2) def :Zvariable
+surface  0 Zvariable:/name (VBDSF)  def /long_name (Visible Beam Downward Solar Flux) def /units (W m-2) def :Zvariable
+surface  0 Zvariable:/name (VDDSF)  def /long_name (Visible Diffuse Downward Solar Flux) def /units (W m-2) def :Zvariable
+surface  0 Zvariable:/name (NBDSF)  def /long_name (Near IR Beam Downward Solar Flux) def /units (W m-2) def :Zvariable
+surface  0 Zvariable:/name (NDDSF)  def /long_name (Near IR Diffuse Downward Solar Flux) def /units (W m-2) def :Zvariable
+surface  0 Zvariable:/name (IMGD)  def /long_name (Image data) def :Zvariable
+:definevariables
+:dataset
+\end{ingrid}

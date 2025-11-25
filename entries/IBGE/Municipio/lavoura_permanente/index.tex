@@ -1,0 +1,51 @@
+\begin{ingrid}
+
+continuedataset:
+
+/source (<a href="http://sidra.ibge.gov.br/bda/acervo/acervo2.asp?e=v&p=PA&z=t&o=11">IBGE</a>) def
+
+
+grid:
+/name /T def
+/long_name (Time) def
+    /units (months since 1960-01-01) def
+    /pointwidth 12 def
+    1 Jul 1990 ensotime
+    12
+    1 Jul 2011 ensotime
+  :grid
+
+grid:
+/name /municode_id def
+/units /ids def
+1 1 5491
+:grid
+
+/municode {
+[municode_id | ]
+(/data/remic/mydatafiles/ibge/municode_per_id.txt)
+readdatafile:
+[0 0 0] r*8asblank
+:readdatafile
+}defasvarsilent
+
+/cafe {
+[T municode_id | ]
+(/data/remic/mydatafiles/ibge/CafeBrazilMuni.tsv)
+readdatafile:
+[5 1] r*4astsv
+:readdatafile
+/missing_value -9 def
+/units (kg/hectare) def
+/long_name (Rendimento médio da produção do café) def
+/scale_min 0. def
+municode use_as_grid
+}defasvarcachesilent
+
+/the_geom {
+ SOURCES .Features .Political .Brazil .Municipios .the_geom
+}defasvar
+
+:dataset
+
+\end{ingrid}

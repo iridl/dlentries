@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>GRIB inventory for <INGRID>longname ==</INGRID></title>
+</head>
+<INGRID>standardHeader
+null 5 object /mygriblist Ingrid: !
+dup { pop} {currentobject /gribparam known
+{
+currentobject /XY known {
+%relativename ==
+%grib_name == gribparam == (<br>)print
+relativename gribparam mygriblist !
+} if
+} if pop
+} foralldatasets2
+mygriblist { pop} forall
+mygriblist length integerarray astore
+dup integersort 
+</INGRID>
+<table border=2>
+<tr><th>param</th><th>GRIB<br>Name</th><th>Name</th><th>units</th></tr>
+<INGRID>
+{
+(<tr><td>)print 
+dup == (</td><td>)print
+mygriblist exch get 
+currentobject 1 index pget 
+grib_name print
+(</td><td>)print
+exch
+dup
+(<a href=".) print
+cvnatoslurl print
+(">)print
+cvnatoss print (</a></td><td>)print
+units cvntos print
+(</td></tr>\n) print
+pop
+} forall
+</INGRID>
+</table>
+</html>

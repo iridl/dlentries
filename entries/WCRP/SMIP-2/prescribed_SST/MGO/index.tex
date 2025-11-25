@@ -1,0 +1,297 @@
+\begin{ingrid}
+continuedataset:
+/description (Main Geophysical Observatory, Russia) def
+/references(Shneerov_etal1997 Shneerov_etal1999 Shneerov_etal2001)def
+/iridl:hasSemantics (iridl:MGO) def
+grid:
+/name /M def
+/long_name (members) def
+1 1 6
+:grid
+grid:
+/name /S def
+/standard_name (forecast_reference_time) def
+monthtime
+/pointwidth 0 def
+periodic
+1 Nov 1979 ensotime
+3.
+1 Aug 1980 ensotime
+:grid
+variable:
+/name /season def
+grids: S :grids
+values:
+(ndjfmam)
+(fmamjja)
+(mjjason)
+(asondjf)
+:values
+:variable
+grid:
+/name /S def
+/standard_name (forecast_reference_time) def
+/long_name (start time) def
+monthtime
+/pointwidth 0 def
+1 Nov 1978 ensotime
+3.
+1 Nov 2000 ensotime
+:grid
+grid:
+/name /L def
+/long_name (lead time) def
+/standard_name (forecast_period) def
+/units (months) def
+0.5 1. 6.5
+:grid
+/T { S L add /long_name (Forecast Time) def /pointwidth 1 def
+/standard_name (time) def
+} defasvar
+\end{ingrid}
+dataset:
+/name (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MGO.D/1979/mjjason/01)def
+dataset:
+/name (pr_mgo_1979.mjjason.01_mm.nc)def
+\begin{ingrid}
+ /institution (MGO) def
+ /Conventions (COARDS) def
+ /comments (Monthly Mean Hindcast Output) def
+ /model (MGOAM2) def
+\end{ingrid}
+ /calendar (gregorian) def
+\begin{ingrid}
+grid:
+/name (longitude)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (latitude)def
+/units (degree_north)def
+ -90. 2.5 90.
+:grid
+\end{ingrid}
+grid:
+/name (time)def
+/units (days since 1979-5-1 0)def
+values: 0.0 31. 61. 92. 123. 153. 184. :values
+:grid
+\begin{ingrid}
+ /pr{
+[ longitude latitude | M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MGO.D/%Y[S]/%s[season]/%2.2d[M]/pr_mgo_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+ readdatafile:
+/name (pr) def
+ /time_statistic (average) def
+ /grid_type (uniform) def
+ /comment (Precipitation) def
+ /units (kg/(m^2*s))cvn def
+ /grid_name (U2.5x2.5) def
+ /long_name (Total precipitation rate) def
+ /level_description (Earth surface) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (psl_mgo_1979.mjjason.01_mm.nc)def
+ /institution (MGO) def
+ /Conventions (COARDS) def
+ /comments (Monthly Mean Hindcast Output) def
+ /model (MGOAM2) def
+ /calendar (gregorian) def
+\begin{ingrid}
+ /psl{
+[ longitude latitude | M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MGO.D/%Y[S]/%s[season]/%2.2d[M]/psl_mgo_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+ readdatafile:
+/name (psl) def
+ /time_statistic (average) def
+ /grid_type (uniform) def
+ /comment (Mean Sea Level Pressure) def
+ /units /Pa def
+ /grid_name (U2.5x2.5) def
+ /long_name (Mean sea-level pressure) def
+ /level_description (Mean Sea Level) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (ta_mgo_1979.mjjason.01_mm.nc)def
+ /institution (MGO) def
+ /Conventions (COARDS) def
+ /comments (Monthly Mean Hindcast Output) def
+ /model (MGOAM2) def
+ /calendar (gregorian) def
+\begin{ingrid}
+ /ta{
+[ longitude latitude grid:
+/name (plev)def
+/units (hPa)def
+ 850. 150. 700.
+:grid
+| M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MGO.D/%Y[S]/%s[season]/%2.2d[M]/ta_mgo_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+ readdatafile:
+/name (ta) def
+ /long_name (Air Temperature) def
+ /grid_name (U2.5x2.5) def
+ /time_statistic (average) def
+ /comment (Air temperature) def
+ /units /Kelvin_scale def
+ /grid_type (uniform) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (tas_mgo_1979.mjjason.01_mm.nc)def
+ /institution (MGO) def
+ /Conventions (COARDS) def
+ /comments (Monthly Mean Hindcast Output) def
+ /model (MGOAM2) def
+ /calendar (gregorian) def
+\begin{ingrid}
+ /tas{
+[ longitude latitude | M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MGO.D/%Y[S]/%s[season]/%2.2d[M]/tas_mgo_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+ readdatafile:
+/name (tas) def
+ /time_statistic (average) def
+ /grid_type (uniform) def
+ /comment (Surface (2m) air temperature) def
+ /units /Kelvin_scale def
+ /grid_name (U2.5x2.5) def
+ /long_name (Surface (2m) air temperature) def
+ /level_description (2 meters above earth surface) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (ts_mgo_1979.mjjason.01_mm.nc)def
+ /institution (MGO) def
+ /Conventions (COARDS) def
+ /comments (Monthly Mean Hindcast Output) def
+ /model (MGOAM2) def
+ /calendar (gregorian) def
+\begin{ingrid}
+ /ts{
+[ longitude latitude | M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MGO.D/%Y[S]/%s[season]/%2.2d[M]/ts_mgo_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+ readdatafile:
+/name (ts) def
+ /time_statistic (average) def
+ /grid_type (uniform) def
+ /comment (Ground Surface Temperature) def
+ /units /Kelvin_scale def
+ /grid_name (U2.5x2.5) def
+ /long_name (Ground Surface Temperature) def
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+ /level_description (Earth surface) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (ua_mgo_1979.mjjason.01_mm.nc)def
+ /institution (MGO) def
+ /Conventions (COARDS) def
+ /comments (Monthly Mean Hindcast Output) def
+ /model (MGOAM2) def
+ /calendar (gregorian) def
+grid:
+/name (plev)def
+/units (hPa)def
+ 850. 650. 200.
+:grid
+\begin{ingrid}
+ /ua{
+[ longitude latitude 
+grid:
+/name (plev)def
+/units (hPa)def
+ 850. 650. 200.
+:grid
+| M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MGO.D/%Y[S]/%s[season]/%2.2d[M]/ua_mgo_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+ readdatafile:
+/name (ua) def
+ /long_name (Eastward wind) def
+ /grid_name (U2.5x2.5) def
+ /time_statistic (average) def
+ /comment (Zonal velocity) def
+ /units (m/s)cvn def
+ /grid_type (uniform) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (va_mgo_1979.mjjason.01_mm.nc)def
+ /institution (MGO) def
+ /Conventions (COARDS) def
+ /comments (Monthly Mean Hindcast Output) def
+ /model (MGOAM2) def
+ /calendar (gregorian) def
+\begin{ingrid}
+ /va{
+[ longitude latitude 
+grid:
+/name (plev)def
+/units (hPa)def
+ 850. 650. 200.
+:grid
+| M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MGO.D/%Y[S]/%s[season]/%2.2d[M]/va_mgo_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+ readdatafile:
+/name (va) def
+ /long_name (Northward wind) def
+ /grid_name (U2.5x2.5) def
+ /time_statistic (average) def
+ /comment (Meridional velocity) def
+ /units (m/s)cvn def
+ /grid_type (uniform) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (zg_mgo_1979.mjjason.01_mm.nc)def
+ /institution (MGO) def
+ /Conventions (COARDS) def
+ /comments (Monthly Mean Hindcast Output) def
+ /model (MGOAM2) def
+ /calendar (gregorian) def
+grid:
+/name (plev)def
+/units (hPa)def
+ 1000. 500. 500.
+:grid
+\begin{ingrid}
+ /zg{
+[ longitude latitude grid:
+/name (plev)def
+/units (hPa)def
+ 1000. 500. 500.
+:grid
+| M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MGO.D/%Y[S]/%s[season]/%2.2d[M]/zg_mgo_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+ readdatafile:
+/name (zg) def
+ /long_name (Geopotential height) def
+ /grid_name (U2.5x2.5) def
+ /time_statistic (average) def
+ /comment (Geopotential height) def
+ /units /m def
+ /grid_type (uniform) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+\begin{ingrid}
+:dataset
+T pop
+\end{ingrid}

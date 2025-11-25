@@ -1,0 +1,785 @@
+\begin{ingrid}
+continuedataset:
+/description (Hindcasts from the ECMWF coupled model for the DEMETER Project) def
+/long_name (ECMWF) def
+
+ /history (2004-07-01 19:01:31 GMT by mars2netcdf-0.92) def
+ /Conventions (CF-1.0) def
+
+datasetdefs:
+grid:
+/name (P) def
+/units (mb) def
+values: 850 500 200 :values
+:grid
+
+variable:
+/name /uscale def
+grids: P :grids
+values: 6.22748514E-04 9.24626307E-04 0.001464667 :values
+:variable
+
+variable:
+/name /uoffset def
+grids: P :grids
+values: 2.817945 7.803545 22.866098  :values
+:variable
+
+variable:
+/name /vscale def
+grids: P :grids
+values: 4.59806935E-04 5.46227384E-04 7.94024381E-04 :values
+:variable
+
+variable:
+/name /voffset def
+grids: P :grids
+values: 2.2387464 0.3016813 -0.1207853  :values
+:variable
+
+variable:
+/name /tscale def
+grids: P :grids
+values: 0.001398936 8.77515646E-04 6.37261663E-04 :values
+:variable
+
+variable:
+/name /toffset def
+grids: P :grids
+values: 265.5748 246.45673 212.25449 :values
+:variable
+
+variable:
+/name /qscale def
+grids: P :grids
+values: 3.18968716E-07 1.24820502E-07 7.55683338E-09 :values
+:variable
+
+variable:
+/name /qoffset def
+grids: P :grids
+values: 0.01045237 0.00411026 2.48629309E-04 :values
+:variable
+
+%scale_factor
+% u850 = 6.22748514E-04, u500 = 9.24626307E-04, u200 = 0.001464667
+% v850 = 4.59806935E-04, v500 = 5.46227384E-04, v200 = 7.94024381E-04
+% gz850 = 0.1178925, gz500 = 0.2192964, gz200 = 0.3751421
+% t850 = 0.001398936, t500 = 8.77515646E-04, t200 = 6.37261663E-04
+% q850 = 3.18968716E-07, q500 = 1.24820502E-07, q200 = 7.55683338E-09
+
+%add_offset
+% u850 = 2.817945, u500 = 7.803545, u200 = 22.866098
+% v850 = 2.2387464, v500 = 0.3016813, v200 = -0.1207853 
+% gz850 = 12674.312, gz500 = 51862.414, gz200 = 111285.41 
+% t850 = 265.5748, t500 = 246.45673, t200 = 212.25449 
+% q850 = 0.01045237, q500 = 0.00411026, q200 = 2.48629309E-04 
+
+variable:
+/name /phiscale def
+/units (unitless) def
+grids: P :grids
+values: 0.1178925 0.2192964 0.3751421 :values
+:variable
+
+variable:
+/name /phioffset def
+/units (m) def
+grids: P :grids
+values: 12674.312 51862.414 111285.41 :values
+:variable
+:datasetdefs
+
+
+grid:
+/name (X) def
+/units (degree_east) def
+periodic
+ 0.0 2.5 357.5
+:grid
+
+grid:
+/name (Y) def
+/units (degree_north) def
+ 87.5 2.5 -87.5
+:grid
+
+grid:
+/name (M) def
+/units (ids) def
+ 0 1. 8
+:grid
+M 1 shiftGRID
+
+grid:
+/name (L) def
+/units (months) def
+ 0.5 1. 5.5
+:grid
+
+grid:
+/name /S def 
+/units (monthtime) def
+1 Feb 1958 ensotime
+3. 
+1 Nov 2001 ensotime
+/pointwidth 0 def
+:grid
+
+grid:
+/name (P) def
+/units (mb) def
+values: 850 500 200 :values
+:grid
+
+/X X def
+/Y Y def
+/M M def
+/L L def
+/S S def
+/P P def
+
+
+ /phi {
+[ X Y M L | S P ] (/beluga/data/datag/DEMETER/ECMWF_gz%3d[P].nc) [ P ] readdatafile:
+ /name (z) def
+ /units (m2 s-2)cvn def
+ /scale_factor phiscale def
+ /add_offset phioffset def
+ /missing_value -32767 def
+ /long_name (Geopotential) def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /zonal_wind {
+[ X Y M L | S P ] (/beluga/data/datag/DEMETER/ECMWF_u%3d[P].nc) [ P ] readdatafile:
+ /name (u) def
+ /long_name (U velocity) def
+ /scale_factor uscale def
+ /add_offset uoffset def
+ /units (m s-1) cvn def
+ /missing_value -32767 def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /meridional_wind {
+[ X Y M L | S P ] (/beluga/data/datag/DEMETER/ECMWF_v%3d[P].nc) [ P ] readdatafile:
+ /name (v) def
+ /long_name (V velocity) def
+ /scale_factor vscale def
+ /add_offset voffset def
+ /units (m s-1) cvn def
+ /missing_value -32767 def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /temp {
+[ X Y M L | S P ] (/beluga/data/datag/DEMETER/ECMWF_t%3d[P].nc) [ P ] readdatafile:
+ /name (t) def
+ /long_name (Temperature) def
+ /scale_factor tscale def
+ /add_offset toffset def
+ /units (Kelvin_scale) def
+ /missing_value -32767 def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /q {
+[ X Y M L | S P ] (/beluga/data/datag/DEMETER/ECMWF_q%3d[P].nc) [ P ] readdatafile:
+ /name (q) def
+ /long_name (Specific humidity) def
+ /scale_factor qscale def
+ /add_offset qoffset def
+ /units (unitless) def
+ /missing_value -32767 def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tp {
+[ X Y M L | S ] (/beluga/data/datag/DEMETER/ECMWF_pcp.nc) readdatafile:
+ /name (tp) def
+ /long_name (Total precipitation) def
+ /scale_factor 1.99605176E-11 def
+ /add_offset 6.54025371E-07 def
+ /units (m) def
+% /missing_value -32767 def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /t2m {
+[ X Y M L | S ] (/beluga/data/datag/DEMETER/ECMWF_t2m.nc) readdatafile:
+ /name (p2m_t) def
+ /long_name (2 metre temperature) def
+ /scale_factor 0.001942285 def
+ /add_offset 256.07388 def
+ /units (Kelvin_scale) def
+ /missing_value -32767 def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /soiltemp {
+[ X Y M L | S ] (/beluga/data/datag/DEMETER/ECMWF-soiltemp.nc) readdatafile:
+ /name (st_stl1) def
+ /long_name (Soil temperature level 1) def
+ /scale_factor 0.001833368 def
+ /add_offset 261.15286 def
+ /units (Kelvin_scale) def
+ /missing_value -32767 def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /u10m {
+[ X Y M L | S ] (/beluga/data/datag/DEMETER/ECMWF_u10m.nc) readdatafile:
+ /name (p10m_u) def
+ /long_name (10 metre U wind component) def
+ /scale_factor 4.50558407E-04 def
+ /add_offset 0.5165396 def
+ /units (m s-1) def
+ /missing_value -32767 def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /v10m {
+[ X Y M L | S ] (/beluga/data/datag/DEMETER/ECMWF_v10m.nc) readdatafile:
+ /name (p10m_v) def
+ /long_name (10 metre V wind component) def
+ /scale_factor 4.31372348E-04 def
+ /add_offset -0.6644362 def
+ /units (m s-1) def
+ /missing_value -32767 def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /mslp {
+[ X Y M L | S ] (/beluga/data/datag/DEMETER/ECMWF_mslp.nc) readdatafile:
+ /name (msl) def
+ /long_name (Mean sea level pressure) def
+ /scale_factor 0.1380862 def
+ /add_offset 100491.2 def
+ /units (Pa) def
+ /missing_value -32767 def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+\end{ingrid}
+
+
+
+
+original entry below:
+
+/description (Hindcasts from the ECMWF coupled model for the DEMETER Project) def
+/long_name (ECMWF) def
+
+/zonal_wind {
+members:
+	(/beluga/data/datag/DEMETER/ECMWF_u850.nc) readCDF
+	(/beluga/data/datag/DEMETER/ECMWF_u500.nc) readCDF
+	(/beluga/data/datag/DEMETER/ECMWF_u200.nc) readCDF
+	{p850 p500 p200}
+:members
+
+.u
+
+M 
+grid:
+/name (P) def
+/units (mb) def
+values: 850 500 200 :values
+:grid
+replaceGRID
+
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1958 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0 def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y P M L S]REORDER
+3 RECHUNK
+
+} defasvarsilent
+
+/meridional_wind {
+members:
+	(/beluga/data/datag/DEMETER/ECMWF_v850.nc) readCDF
+	(/beluga/data/datag/DEMETER/ECMWF_v500.nc) readCDF
+	(/beluga/data/datag/DEMETER/ECMWF_v200.nc) readCDF
+	{p850 p500 p200}
+:members
+
+.v
+
+M 
+grid:
+/name (P) def
+/units (mb) def
+values: 850 500 200 :values
+:grid
+replaceGRID
+
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1958 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0 def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y P M L S]REORDER
+3 RECHUNK
+
+} defasvarsilent
+
+/phi {
+members:
+	(/beluga/data/datag/DEMETER/ECMWF_gz850.nc) readCDF
+	(/beluga/data/datag/DEMETER/ECMWF_gz500.nc) readCDF
+	(/beluga/data/datag/DEMETER/ECMWF_gz200.nc) readCDF
+	{p850 p500 p200}
+:members
+
+.z
+
+M 
+grid:
+/name (P) def
+/units (mb) def
+values: 850 500 200 :values
+:grid
+replaceGRID
+
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1958 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0 def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y P M L S]REORDER
+3 RECHUNK
+
+} defasvarsilent
+
+/temp {
+members:
+	(/beluga/data/datag/DEMETER/ECMWF_t850.nc) readCDF
+	(/beluga/data/datag/DEMETER/ECMWF_t500.nc) readCDF
+	(/beluga/data/datag/DEMETER/ECMWF_t200.nc) readCDF
+	{p850 p500 p200}
+:members
+
+.t
+
+M 
+grid:
+/name (P) def
+/units (mb) def
+values: 850 500 200 :values
+:grid
+replaceGRID
+
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1958 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0 def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y P M L S]REORDER
+3 RECHUNK
+
+} defasvarsilent
+
+/q {
+members:
+	(/beluga/data/datag/DEMETER/ECMWF_q850.nc) readCDF
+	(/beluga/data/datag/DEMETER/ECMWF_q500.nc) readCDF
+	(/beluga/data/datag/DEMETER/ECMWF_q200.nc) readCDF
+	{p850 p500 p200}
+:members
+
+.q
+
+M 
+grid:
+/name (P) def
+/units (mb) def
+values: 850 500 200 :values
+:grid
+replaceGRID
+
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1958 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0 def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y P M L S]REORDER
+3 RECHUNK
+
+} defasvarsilent
+
+/tp {
+(/beluga/data/datag/DEMETER/ECMWF_pcp.nc) readCDF
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1958 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+tp
+[X Y M L S]REORDER
+2 RECHUNK
+name exch def
+
+.tp
+} defasvarsilent
+
+/t2m{
+(/beluga/data/datag/DEMETER/ECMWF_t2m.nc) readCDF
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1958 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+p2m_t
+[X Y M L S]REORDER
+2 RECHUNK
+name exch def
+
+.p2m_t
+} defasvarsilent
+
+
+/soiltemp {
+(/beluga/data/datag/DEMETER/ECMWF-soiltemp.nc) readCDF
+.st_stl1
+date
+grid:
+/units (monthtime) def
+/name /S def
+1 Feb 1958 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number
+grid:
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y M L S]REORDER
+2 RECHUNK
+} defasvarsilent
+
+/u10m {
+(/beluga/data/datag/DEMETER/ECMWF_u10m.nc) readCDF
+.p10m_u
+date
+grid:
+/units (monthtime) def
+/name /S def
+1 Feb 1958 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number
+grid:
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y M L S]REORDER
+2 RECHUNK
+} defasvarsilent
+
+/v10m {
+(/beluga/data/datag/DEMETER/ECMWF_v10m.nc) readCDF
+.p10m_v
+date
+grid:
+/units (monthtime) def
+/name /S def
+1 Feb 1958 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number
+grid:
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y M L S]REORDER
+2 RECHUNK
+} defasvarsilent
+
+/mslp {
+(/beluga/data/datag/DEMETER/ECMWF_mslp.nc) readCDF
+.msl
+date
+grid:
+/units (monthtime) def
+/name /S def
+1 Feb 1958 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number
+grid:
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y M L S]REORDER
+2 RECHUNK
+} defasvarsilent
+
+
+temp .streamgridarray { name exch def } forall
+\end{ingrid}
+
+
+

@@ -1,0 +1,205 @@
+\begin{ingrid}
+/long_name (Climate Information Digest) def
+/description (Analyses from the IRI Climate Information Digest) def
+continuedataset:
+/iridl:hasSemantics [ (iriref:Bell_M)(iriref:Grover-Kopec_E) ] def
+\end{ingrid}
+\begin{ingrid}
+/sensitivity {SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .anomaly .prcp
+  [T]REORDER
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+  SOURCES .NOAA .NCEP .CPC .CAMS_OPI .climatology .prcp
+   [T]REORDER
+   /name /prcp3 def
+   a: :a:
+      [T]average
+      12 mul
+      0.001 masklt
+      div
+     :a
+   mul
+  /history null def
+  12 mul
+  T 9 runningAverage
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+  SOURCES .NOAA .NCEP .CPC .CAMS_OPI .climatology .prcp
+   [T]average
+   8 masklt
+   dup div
+   div
+  /long_name (9-Month WASP Index) def
+  std_wasp_colors
+  X -180 180 RANGEEDGES
+  Y -90 90 RANGEEDGES
+  T /defaultvalue { last } def
+  pop
+  /description (Sensitivity Map -- Generated from 9-Month WASP Index) def
+} defasvar
+\end{ingrid}
+\begin{ingrid}
+/prcp_persist { SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+  T -2 1 0 shiftdatashort
+  T last npts
+     12 idiv
+     12 mul
+     sub
+    last RANGE
+  T 12 STEP
+  [T]percentileover
+  0.8 flagge
+  [T_lag]sum
+  1 masklt
+  SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+   T -2 1 0 shiftdatashort
+   T last npts
+      12 idiv
+      12 mul
+      sub
+     last RANGE
+   T 12 STEP
+   [T]percentileover
+   0.2 flagle
+   [T_lag]sum
+   -1 mul
+   -1 maskgt
+   replaceNaN
+  T -1 shiftGRID
+  T
+   /pointwidth 3 def
+   pop
+  X Y 1 SM121
+  /long_name (Precipitation Persistence) def
+  /units (months) def
+  prcp_persistence_colors
+  X -180 180 RANGEEDGES
+  Y -90 90 RANGEEDGES
+  T /defaultvalue { last } def
+  pop
+} defasvar
+\end{ingrid}
+\begin{ingrid}
+/prcp_climo_3month {  SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+   T -2 1 0 shiftdatashort
+   T last npts
+      12 idiv
+      12 mul
+      sub
+     last RANGE
+   T 12 splitstreamgrid
+   [T2]average
+   [T_lag]average
+   3 mul
+   T -1 shiftGRID
+   T /pointwidth 3 def
+   pop
+   X Y 1 SM121
+  /long_name (Climatological 3-Month Precipitation) def
+  /units (cm) def
+   X -180 180 RANGEEDGES
+   Y -90 90 RANGEEDGES
+} defasvar
+\end{ingrid}
+\begin{ingrid}
+/temp_persist { 
+SOURCES .NOAA .NCEP .CPC .CAMS .anomaly .temp
+T -2 1 0 shiftdatashort
+T last npts
+12 idiv
+12 mul
+sub
+last RANGE
+T 12 STEP
+[T]percentileover
+a:
+0.8 flagge
+[T_lag]sum
+1 masklt
+:a:
+0.2 flagle
+[T_lag]sum
+-1 mul
+-1 maskgt
+:a
+replaceNaN
+T -1 shiftGRID
+T /pointwidth 3 def
+pop
+X Y 1 SM121
+/long_name (Temperature Persistence) def
+/units (months) def
+temp_persistence
+  X -180 180 RANGEEDGES
+  Y -90 90 RANGEEDGES
+  T /defaultvalue { last } def
+  pop
+} defasvar
+\end{ingrid}
+\begin{ingrid}
+/temp_climo { SOURCES .UEA .CRU .New .CRU05 .climatology .c6190 .mean .temp
+  X Y 1 SM121
+  DATA -40 -35 -30 -25 -20 -15 -10 -5 0 5 10 15 20 25 30 35 40 VALUES
+  temp_colors
+  X -180 180 RANGEEDGES
+  Y -90 90 RANGEEDGES
+  /long_name (Climatological Temperature) def
+} defasvar
+
+/prcp_climo {  SOURCES .UEA .CRU .New .CRU05 .climatology .c6190 .prcp
+  X Y 3 SM121
+  precip_colors
+  X -180 180 RANGEEDGES
+  Y -90 90 RANGEEDGES
+  /fullname (DATA:  Univ. of East Anglia) def
+  /history null def
+  /long_name (Climatological Precipitation) def
+} defasvar
+
+/temp_anomaly { SOURCES .NOAA .NCEP .CPC .CAMS .anomaly .temp DATA 1. STEP startcolormap DATA -10. 10. RANGE white purple purple -10. VALUE cyan -1. VALUE white white 1. bandmax yellow 1. VALUE red 10. VALUE firebrick endcolormap
+  X -180 180 RANGEEDGES
+  Y -90 90 RANGEEDGES
+/long_name (Temperature Anomaly) def
+} defasvar
+\end{ingrid}
+\begin{ingrid}
+/prcp_anomaly { SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .anomaly .prcp 30 mul X 90 100 flagrange Y 10 28 flagrange mul 0 flagle mul prcp_anomaly_max500_colors2 /units (mm/month) def /long_name (Precipitation Anomaly) def DATA -500 -450 -400 -350 -300 -250 -200 -150 -100 -50 -25 25 50 100 150 200 250 300 350 400 450 500 VALUES
+  X -180 180 RANGEEDGES
+  Y -90 90 RANGEEDGES
+} defasvar
+\end{ingrid}
+\begin{ingrid}
+/sst_anomaly { SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .Reyn_SmithOIv2 .monthly .ssta startcolormap DATA -5. 5. RANGE white navy blue -5. VALUE cyan -0.5 VALUE white white 0.5 bandmax yellow 0.5 VALUE red 5. VALUE firebrick endcolormap DATA 0.5 STEP 
+  X -180 180 RANGEEDGES
+  Y -90 90 RANGEEDGES
+  T /defaultvalue { last } def
+  pop
+} defasvar
+\end{ingrid}
+\begin{ingrid}
+/prcp_fcst { SOURCES .IRI .FD .Seasonal_Forecast .Precipitation .dominant
+  L 1 VALUE /long_name (Dominant Tercile Probability:  Precipitation) def
+  X -180 180 RANGEEDGES
+  Y -90 90 RANGEEDGES
+} defasvar
+
+/temp_fcst { SOURCES .IRI .FD .Seasonal_Forecast .Temperature .dominant
+  L 1 VALUE /long_name (Dominant Tercile Probability:  Temperature) def
+  X -180 180 RANGEEDGES
+  Y -90 90 RANGEEDGES
+} defasvar
+\end{ingrid}
+\begin{ingrid}
+:dataset
+prcp_anomaly /expires getknown { /expires exch def} if
+/last_modified last_modified 2 index
+     {pop}{.last_modified imax}foralldatasets2
+    def
+\end{ingrid}
+

@@ -1,0 +1,239 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+
+grid:
+/name /N def
+/long_name (realization) def
+/standard_name (realization) def
+/units /ids def
+values: 1 :values
+:grid
+
+variable:
+/name (version) def
+/long_name (Version Number) def
+/units (ids) def
+grids: N :grids
+values: /v1 :values
+:variable
+
+:datasetdefs
+
+ /initialization_method 1 def
+ /contact (bronaugh@uvic.ca) def
+ /parent_experiment_rip (r1i1p1) def
+ /institution (CSIRO (Commonwealth Scientific and Industrial Research Organisation, Australia), and BOM (Bureau of Meteorology, Australia)) def
+ /version_number (v20120413) def
+ /parent_experiment (historical) def
+ /title (ETCCDI indices computed on ACCESS1-3 model output prepared for CMIP5 RCP4.5) def
+ /ETCCDI_institution (Pacific Climate Impacts Consortium) def
+ /input_frequency (day) def
+ /input_title (ACCESS1-3 model output prepared for CMIP5 RCP4.5) def
+ /parent_experiment_id (historical) def
+ /CSIRO-BOM_contact (The ACCESS wiki: http://wiki.csiro.au/confluence/display/ACCESS/Home. Contact Tony.Hirst@csiro.au regarding the ACCESS coupled climate model. Contact Peter.Uhe@csiro.au regarding ACCESS coupled climate model CMIP5 datasets.) def
+ /source (ACCESS1-3 2011. Atmosphere: AGCM v1.0 (N96 grid-point, 1.875 degrees EW x approx 1.25 degree NS, 38 levels); ocean: NOAA/GFDL MOM4p1 (nominal 1.0 degree EW x 1.0 degrees NS, tripolar north of 65N, equatorial refinement to 1/3 degree from 10S to 10 N, cosine dependent NS south of 25S, 50 levels); sea ice: CICE4.1 (nominal 1.0 degree EW x 1.0 degrees NS, tripolar north of 65N, equatorial refinement to 1/3 degree from 10S to 10 N, cosine dependent NS south of 25S); land: CABLE1.0 (1.875 degree EW x 1.25 degree NS, 6 levels)) def
+ /input_creation_date (2012-04-03T07:15:06Z) def
+ /product (output) def
+ /physics_version 1 def
+ /creation_date (2012-07-30T13:25:17Z) def
+ /institute_id (CSIRO-BOM) def
+ /frequency (mon) def
+ /references (http://www.cccma.ec.gc.ca/data/climdex/) def
+ /references (Sillmann_etal2013a Sillmann_etal2013b) def
+ /ETCCDI_software (climdex.pcic) def
+ /Conventions (CF-1.4) def
+ /modeling_realm (atmos) def
+ /CSIRO-BOM_references (See http://wiki.csiro.au/confluence/display/ACCESS/ACCESS+Publications) def
+ /experiment (RCP4.5) def
+ /project_id (CMIP5) def
+ /model_id (ACCESS1.3) def
+ /experiment_id (rcp45) def
+%/input_tracking_id (0e034822-7017-4f84-a42e-1f1edf2bf38c) def
+ /realization 1 def
+ /cmor_version (2.8.0) def
+ /ETCCDI_software_version (0.6.1) def
+ /branch_time 732311.0 def
+ /ETCCDI_institution_id (PCIC) def
+ /forcing (GHG, Oz, SA, Sl, Vl, BC, OC, (GHG = CO2, N2O, CH4, CFC11, CFC12, CFC113, HCFC22, HFC125, HFC134a)) def
+ /nco_openmp_thread_number 1 def
+ /ETCCDI_indices_archive (Please check http://www.cccma.ec.gc.ca/data/climdex/climdex.shtml for errata or updates.) def
+ /table_id (Table day (01 February 2012) b6353e9919862612c81d65cae757c88a) def
+
+ /references (Sillmann_etal2013a Sillmann_etal2013b) def
+
+grid:
+/name (lon)def
+/long_name (longitude) def
+/standard_name (longitude) def
+periodic
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+
+grid:
+/name (lat)def
+/long_name (latitude) def
+/standard_name (latitude) def
+/units (degree_north)def
+ -90.0 1.25 90.0
+:grid
+
+grid:
+/name (time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/pointwidth 1 def
+16 Jan 2006 ensotime
+1
+16 Dec 2100 ensotime
+:grid
+
+grid:
+/name /N def
+/long_name (realization) def
+/standard_name (realization) def
+/units /ids def
+values: 1 :values
+:grid
+
+grid:
+/name /M def
+/long_name (initialization method) def
+/units /ids def
+values: 1 :values
+:grid
+
+grid:
+/name /L def
+/long_name (perturbed physics) def
+/units /ids def
+values: 1 :values
+:grid
+
+variable:
+/name (version) def
+/long_name (Version Number) def
+/units (ids) def
+grids: N :grids
+values: /v1 :values
+:variable
+
+/dtr { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/rcp45/ACCESS1-3/r%d[N]i%d[M]p%d[L]/%s[version]/historical-base_1961-1990/dtrETCCDI_mon_ACCESS1-3_rcp45_r%d[N]i%d[M]p%d[L]_200601-210012.nc) [ N M L version ] readdatafile:
+/name (dtrETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Mean Diurnal Temperature Range) def
+ /iridl:hasSemantics [ (climdex:DTR) ] def
+ /missing_value 1.00000002E20 def
+ /history (Created by climdex.pcic 0.6.1 on Mon Jul 30 13:25:17 2012) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/rx1day { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/rcp45/ACCESS1-3/r%d[N]i%d[M]p%d[L]/%s[version]/historical-base_1961-1990/rx1dayETCCDI_mon_ACCESS1-3_rcp45_r%d[N]i%d[M]p%d[L]_200601-210012.nc) [ N M L version ] readdatafile:
+/name (rx1dayETCCDI) def
+ /units (mm) def
+ /long_name (Monthly Maximum 1-day Precipitation) def
+ /iridl:hasSemantics [ (climdex:Rx1day) ] def
+ /missing_value 1.00000002E20 def
+ /history (Created by climdex.pcic 0.6.1 on Mon Jul 30 13:25:17 2012) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/rx5day { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/rcp45/ACCESS1-3/r%d[N]i%d[M]p%d[L]/%s[version]/historical-base_1961-1990/rx5dayETCCDI_mon_ACCESS1-3_rcp45_r%d[N]i%d[M]p%d[L]_200601-210012.nc) [ N M L version ] readdatafile:
+/name (rx5dayETCCDI) def
+ /units (mm) def
+ /long_name (Monthly Maximum Consecutive 5-day Precipitation) def
+ /iridl:hasSemantics [ (climdex:Rx5day) ] def
+ /missing_value 1.00000002E20 def
+ /history (Created by climdex.pcic 0.6.1 on Mon Jul 30 13:25:17 2012) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tn10p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/rcp45/ACCESS1-3/r%d[N]i%d[M]p%d[L]/%s[version]/historical-base_1961-1990/tn10pETCCDI_mon_ACCESS1-3_rcp45_r%d[N]i%d[M]p%d[L]_200601-210012.nc) [ N M L version ] readdatafile:
+/name (tn10pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Minimum Temperature is Below the 10th Percentile) def
+ /iridl:hasSemantics [ (climdex:TN10p) ] def
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /history (Created by climdex.pcic 0.6.1 on Mon Jul 30 13:25:17 2012) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tn90p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/rcp45/ACCESS1-3/r%d[N]i%d[M]p%d[L]/%s[version]/historical-base_1961-1990/tn90pETCCDI_mon_ACCESS1-3_rcp45_r%d[N]i%d[M]p%d[L]_200601-210012.nc) [ N M L version ] readdatafile:
+/name (tn90pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Minimum Temperature is Above the 90th Percentile) def
+ /iridl:hasSemantics [ (climdex:TN90p) ] def 
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /history (Created by climdex.pcic 0.6.1 on Mon Jul 30 13:25:17 2012) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tnn { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/rcp45/ACCESS1-3/r%d[N]i%d[M]p%d[L]/%s[version]/historical-base_1961-1990/tnnETCCDI_mon_ACCESS1-3_rcp45_r%d[N]i%d[M]p%d[L]_200601-210012.nc) [ N M L version ] readdatafile:
+/name (tnnETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Minimum of Daily Minimum Temperature) def
+ /iridl:hasSemantics [ (climdex:TNn) ] def
+ /missing_value 1.00000002E20 def
+ /history (Created by climdex.pcic 0.6.1 on Mon Jul 30 13:25:17 2012) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tnx { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/rcp45/ACCESS1-3/r%d[N]i%d[M]p%d[L]/%s[version]/historical-base_1961-1990/tnxETCCDI_mon_ACCESS1-3_rcp45_r%d[N]i%d[M]p%d[L]_200601-210012.nc) [ N M L version ] readdatafile:
+/name (tnxETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Maximum of Daily Minimum Temperature) def
+ /iridl:hasSemantics [ (climdex:TNx) ] def
+ /missing_value 1.00000002E20 def
+ /history (Created by climdex.pcic 0.6.1 on Mon Jul 30 13:25:17 2012) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tx10p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/rcp45/ACCESS1-3/r%d[N]i%d[M]p%d[L]/%s[version]/historical-base_1961-1990/tx10pETCCDI_mon_ACCESS1-3_rcp45_r%d[N]i%d[M]p%d[L]_200601-210012.nc) [ N M L version ] readdatafile:
+/name (tx10pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Maximum Temperature is Below the 10th Percentile) def
+ /iridl:hasSemantics [ (climdex:TX10p) ] def
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /history (Created by climdex.pcic 0.6.1 on Mon Jul 30 13:25:17 2012) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tx90p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/rcp45/ACCESS1-3/r%d[N]i%d[M]p%d[L]/%s[version]/historical-base_1961-1990/tx90pETCCDI_mon_ACCESS1-3_rcp45_r%d[N]i%d[M]p%d[L]_200601-210012.nc) [ N M L version ] readdatafile:
+/name (tx90pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Maximum Temperature is Above the 90th Percentile) def
+ /iridl:hasSemantics [ (climdex:TX90p) ] def
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /history (Created by climdex.pcic 0.6.1 on Mon Jul 30 13:25:17 2012) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/txn { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/rcp45/ACCESS1-3/r%d[N]i%d[M]p%d[L]/%s[version]/historical-base_1961-1990/txnETCCDI_mon_ACCESS1-3_rcp45_r%d[N]i%d[M]p%d[L]_200601-210012.nc) [ N M L version ] readdatafile:
+/name (txnETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Minimum of Daily Maximum Temperature) def
+ /iridl:hasSemantics [ (climdex:TXn) ] def
+ /missing_value 1.00000002E20 def
+ /history (Created by climdex.pcic 0.6.1 on Mon Jul 30 13:25:17 2012) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/txx { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/rcp45/ACCESS1-3/r%d[N]i%d[M]p%d[L]/%s[version]/historical-base_1961-1990/txxETCCDI_mon_ACCESS1-3_rcp45_r%d[N]i%d[M]p%d[L]_200601-210012.nc) [ N M L version ] readdatafile:
+/name (txxETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Maximum of Daily Maximum Temperature) def
+ /iridl:hasSemantics [ (climdex:TXx) ] def
+ /missing_value 1.00000002E20 def
+ /history (Created by climdex.pcic 0.6.1 on Mon Jul 30 13:25:17 2012) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+:dataset
+\end{ingrid}
+

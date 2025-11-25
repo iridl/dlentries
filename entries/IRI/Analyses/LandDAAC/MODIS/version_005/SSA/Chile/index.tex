@@ -1,0 +1,232 @@
+\begin{ingrid}
+continuedataset:
+
+dataset:
+ /name (monthlyavg) def
+
+ /NDVI {
+  SOURCES .USGS .LandDAAC .MODIS .version_005 .SSA .NDVI
+  X -78.0 -67.0 RANGEEDGES
+  T monthlyAverage
+  2 RECHUNK
+ } defasvarcachesilent
+
+:dataset
+
+dataset:
+ /name (Countrymask) def
+ /mask_coarse {
+  SOURCES .IRI .Analyses .LandDAAC .MODIS .version_005 .SSA .Chile .monthlyclimcoarse .NDVI
+  SOURCES .Features .Political .World .Countries .the_geom
+   objectid 243 VALUE
+   rasterize
+  0.05 flaggt
+  0.05 masklt
+  [objectid]sum
+  dataflag
+  0 maskle
+  /long_name (Chile mask coarse monthly) def
+ } defasvarcache
+:dataset
+
+dataset:
+ /name (monthlyclim) def
+
+grid:
+/name (X)def
+/units (degree_east)def
+ -77.998672 0.002662044 -66.999107
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ -20.001331 0.002662043 -57.001068
+:grid
+
+grid:
+/name (T) def
+/units monthclimoname def
+periodic
+Jan 1. Dec
+:grid
+
+ /NDVI{
+[ X Y | T ] (/Data/data21/iri/Analyses/LandDAAC/MODIS/version_005/SSA/Chile/NDVI_%b[T]_avg2001_12.cdf) [T] readdatafile:
+/name (NDVI) def
+ /long_name (NDVI) def
+ /valid_max 1. def
+ /pointwidth 0 def
+ /colormap ([null 16711680 [16776960 22] [16777215 22] 12446186 [12446186 11] 9753559 [9753559 10] 7847370 [7847370 10] 5091247 [5091247 11] 371072 [371072 21] 32524 [32524 20] 24064 [24064 21] 80640 [80640 21] 2304 [2304 83] 2304 2304]) def
+ /units /unitless def
+ /ncolor 254 def
+ /missing_value NaN def
+ /valid_min -0.2 def
+ /history ([(Boxes with less than 0.0% dropped) (Averaged over T[Dec 2001, Dec 2012] minimum 0.0% data present)]) def
+ /maxncolor 254 def
+ /colorscalename (ndvi_colorsMODIS) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+dataset:
+ /name (monthlysd) def
+
+grid:
+/name (X)def
+/units (degree_east)def
+ -77.998672 0.002662044 -66.999107
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ -20.001331 0.002662043 -57.001068
+:grid
+
+grid:
+/name (T) def
+/units monthclimoname def
+periodic
+Jan 1. Dec
+:grid
+
+ /NDVI{
+[ X Y | T ] (/Data/data21/iri/Analyses/LandDAAC/MODIS/version_005/SSA/Chile/NDVI_%b[T]_sd2001_12.cdf) [T] readdatafile:
+/name (NDVI) def
+ /long_name (NDVI) def
+ /valid_max 1. def
+ /pointwidth 0 def
+ /colormap ([null 16711680 [16776960 22] [16777215 22] 12446186 [12446186 11] 9753559 [9753559 10] 7847370 [7847370 10] 5091247 [5091247 11] 371072 [371072 21] 32524 [32524 20] 24064 [24064 21] 80640 [80640 21] 2304 [2304 83] 2304 2304]) def
+ /units /unitless def
+ /ncolor 254 def
+ /missing_value NaN def
+ /valid_min 0. def
+ /maxncolor 254 def
+ /colorscalename (ndvi_colorsMODIS) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+dataset:
+ /name (monthlyclimcoarse) def
+
+grid:
+/name (X)def
+/units (degree_east)def
+ -77.995 0.01 -67.005
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ -20.005 0.01 -56.995
+:grid
+
+grid:
+/name (T) def
+/units monthclimoname def
+periodic
+Jan 1. Dec
+:grid
+
+ /NDVI{
+[ X Y | T ] (/Data/data21/iri/Analyses/LandDAAC/MODIS/version_005/SSA/deg0p01/NDVI_clim2001_12_0p01deg.cdf) readdatafile:
+%[ X Y | T ] (/beluga/data/mbell/dldata/iri.d/Analyses.d/LandDAAC.d/MODIS.d/version_005.d/SSA.d/Chile.d/NDVI_clim2001_12_0p01deg.cdf) readdatafile:
+/name (NDVI) def
+ /long_name (NDVI) def
+ /valid_max 1. def
+ /pointwidth 0 def
+ /colormap ([null 16711680 [16776960 22] [16777215 22] 12446186 [12446186 11] 9753559 [9753559 10] 7847370 [7847370 10] 5091247 [5091247 11] 371072 [371072 21] 32524 [32524 20] 24064 [24064 21] 80640 [80640 21] 2304 [2304 83] 2304 2304]) def
+ /units /unitless def
+ /ncolor 254 def
+ /missing_value NaN def
+ /valid_min -0.2 def
+ /history ([(Boxes with less than 0.0% dropped) (Averaged over T[Dec 2001, Dec 2012] minimum 0.0% data present)]) def
+ /maxncolor 254 def
+ /colorscalename (ndvi_colorsMODIS) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+dataset:
+ /name (monthlysdcoarse) def
+
+grid:
+/name (X)def
+/units (degree_east)def
+ -77.995 0.01 -67.005
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ -20.005 0.01 -56.995
+:grid
+
+grid:
+/name (T) def
+/units monthclimoname def
+periodic
+Jan 1. Dec
+:grid
+
+ /NDVI{
+[ X Y | T ] (/Data/data21/iri/Analyses/LandDAAC/MODIS/version_005/SSA/deg0p01/NDVI_sd2001_12_0p01deg.cdf) readdatafile:
+/name (NDVI) def
+ /long_name (NDVI) def
+ /valid_max 1. def
+ /pointwidth 0 def
+ /colormap ([null 16711680 [16776960 22] [16777215 22] 12446186 [12446186 11] 9753559 [9753559 10] 7847370 [7847370 10] 5091247 [5091247 11] 371072 [371072 21] 32524 [32524 20] 24064 [24064 21] 80640 [80640 21] 2304 [2304 83] 2304 2304]) def
+ /units /unitless def
+ /ncolor 254 def
+ /missing_value NaN def
+ /valid_min 0. def
+ /maxncolor 254 def
+ /colorscalename (ndvi_colorsMODIS) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+dataset:
+
+/name (monthlypctavgcoarse) def
+
+/NDVI {
+ SOURCES .IRI .Analyses .LandDAAC .MODIS .version_005 .SSA .Chile .monthlyavg .NDVI
+  X -77.995 0.01 -67.005 0.8 evengridAverage
+  Y -20.005 0.01 -56.995 0.8 evengridAverage
+  SOURCES .IRI .Analyses .LandDAAC .MODIS .version_005 .SSA .Chile .monthlyclimcoarse .NDVI div
+  c:
+   100 (percent) :c
+   mul
+  T
+   /defaultvalue {last}def
+   pop
+  /long_name (NDVI Percent of Normal) def
+  DATA 0 400 RANGE
+} defasvarcachesilent
+
+:dataset
+
+dataset:
+
+/name (monthlystdanomcoarse) def
+
+/NDVI {
+ SOURCES .IRI .Analyses .LandDAAC .MODIS .version_005 .SSA .Chile .monthlyavg .NDVI
+  X -77.995 0.01 -67.005 0.8 evengridAverage
+  Y -20.005 0.01 -56.995 0.8 evengridAverage
+  2 RECHUNK
+ SOURCES .IRI .Analyses .LandDAAC .MODIS .version_005 .SSA .Chile .monthlyclimcoarse .NDVI sub
+ SOURCES .IRI .Analyses .LandDAAC .MODIS .version_005 .SSA .Chile .monthlysdcoarse .NDVI div
+} defasvarcachesilent
+
+:dataset
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,100 @@
+\begin{ingrid}
+continuedataset:
+/references (Ropelewski_etal1985) def
+/description (Climate Anomaly Monitoring System monthly gridded and station precipitation and temperature data) def
+grid:
+/name /X def
+degE
+periodic
+1 2 359
+:grid
+grid:
+/name /Y def
+degN
+-89 2 91
+:grid
+
+grid:
+/name /T def
+monthtime
+/defaultvalue {last} def
+16 Jan 1950 ensotime
+1.
+16 Jan 1950 ensotime
+(/Data/data5/noaa/cpc/CAMS/gradstempgfs.bi)
+dup deflastmod
+filelength
+65520 idiv
+add 1 sub
+:grid
+
+T 
+/expires
+last_modified systemtime2ymd ymd:nextmonth
+ymd2systemtime 7 3600 mul add
+def
+/defaultvalue last def
+name exch def
+/expires T .expires def
+/last_modified T .last_modified def
+
+dataset:
+
+/name /anomaly def
+variable:
+/name /temp def
+/long_name (temperature anomaly) def
+/missing_value -9999. def
+/units (degreeC) def
+grids: X Y | T :grids
+file:
+/name (/Data/data5/noaa/cpc/CAMS/gradstempgfs.bi)def
+decrandom
+:file
+:variable
+/temp temp Y -89 89 RANGE0 def
+/Y temp .Y def
+/X temp .X def
+
+/temp_9120 {
+temp
+dup
+T (1991) (2020) RANGE
+yearly-climatology
+sub
+/long_name (temperature anomaly 1991-2020) def
+}defasvar
+
+:dataset
+
+dataset:
+/name /mean def
+grid:
+/name /Y def
+degN
+-89 2 89
+:grid
+grid:
+/name /T def
+monthtime
+%/defaultvalue {last} def
+16 Jan 1950 ensotime
+1.
+16 Mar 2001 ensotime
+:grid
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/missing_value -9999. def
+/units (mm/month) def
+grids: X Y | T :grids
+file:
+/name (/Data/data5/noaa/cpc/CAMS/gradsprec.bi)def
+random
+:file
+:variable
+%/T temp .T def
+:dataset
+/Y anomaly .Y def
+:dataset
+\end{ingrid}

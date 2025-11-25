@@ -1,0 +1,55 @@
+\begin{ingrid}
+continuedataset:
+
+/name (ensemble_mean)def
+ /history (Thu Jan 10 11:38:44 2008: /home/jwhitaker/bin/ncks -d lon,0.0,357.5 -d lat,-90.0,90.0 /home/outgoing/www/tmp-BhjtN.apcp_Surface_ensmean.nc /home/outgoing/www/subtmp-BhjtN.apcp_Surface_ensmean.nc created 2008-1-10) def
+ /Conventions (COARDS) def
+ /title (MRF Reforecasting Experiment) def
+ /platform (none) def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 2.5 -90.
+:grid
+grid:
+/name (lag)def
+/units (hours)def
+ 12 12. 144
+:grid
+grid:
+/name (S)def
+/units (days since 1979-01-01 00:00:00)def
+0
+1
+31 Dec 2004 julian_day
+01 Jan 1979 julian_day
+sub
+/pointwidth 0 def
+:grid
+ /apcp{
+[ X Y lag | S] (/Data/data21/noaa/esrl/psd/refcst/ensemblemean/refcst%Y[S].apcp_Surface_ensmean.nc) [S yearlyedgesgrid first secondtolast subgrid]  readdatafile:
+/name (apcp) def
+ /long_name (Accumulated precipitation) def
+ /data_download_level (Nonemb) def
+ /actual_range [ 0.01 68.57 ] def
+ /var_desc (Accumulated precipitation) def
+ /data_download_type (ensemble mean) def
+ /valid_range [ -9.96920997E36 9.96920997E36 ] def
+ /scale_factor 0.01 def
+ /parent_stat (Mean) def
+ /precision -999. def
+ /units /mm def
+ /add_offset 327.64999 def
+ /Dataset (MRF Reforecasting experiment) def
+ /missing_value 32766 def
+ /statistic (Mean) def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,23 @@
+ENSO forecasts kept in netCDF files
+\begin{ingrid}
+/LDEO2 insertdataset:
+/fullname (ENSO forecast) def
+/description(LDEO2 Forecasts of Tropical Pacific SSTA at 3-12 month lead times) def
+/X {06MON >X} def
+/Y {06MON >Y} def
+/T {06MON >T} def
+/03MON {/03MON (/Data/data3/data/fc2_03mon.cdf) nameCDF ssta /units (degC) def /T T /defaultvalue { last } def def
+/ssta exch def } def
+/06MON {/06MON (/Data/data3/data/fc2_06mon.cdf) nameCDF ssta /units (degC) def /T T /defaultvalue { last } def def
+/ssta exch def } def
+/09MON {/09MON (/Data/data3/data/fc2_09mon.cdf) nameCDF ssta /units (degC) def /T T /defaultvalue { last } def def 
+/ssta exch def } def
+/12MON {/12MON (/Data/data3/data/fc2_12mon.cdf) nameCDF ssta /units (degC) def  /T T /defaultvalue { last } def def 
+/ssta exch def } def
+/CACSM {/CACSM (/Data/data3/data/ossta.cdf) nameCDF ssta /units (degC) def 
+/T T /defaultvalue { last } def def
+/history (CACSM SSTA with land gridded as in the forecasts) def
+/ssta exch def } def
+
+:insertdataset
+\end{ingrid}

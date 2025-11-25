@@ -1,0 +1,283 @@
+\begin{ingrid}
+
+continuedataset:
+/iridl:hasSemantics (irigaz:Madagascar_94_1) def
+/description (Delimitations administratives Madagascar) def
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name
+ /Regions
+ def
+/description (Delimitations administratives Regions Madagascar) def
+/fir
+{ IRIDB (regiondef) (fir_) [(codefiv)]open_column_by
+}defasvarsilentnoreuse
+
+/fir_id
+{ IRIDB (regiondef) (fir_id) [(codefiv)]open_column_by
+}defasvarsilentnoreuse
+
+/codefar
+{ IRIDB (regiondef) (codefar) [(codefiv)]open_column_by
+}defasvarsilentnoreuse
+
+/nomreg
+{ IRIDB (regiondef) (nomfiv) [(codefiv)]open_column_by
+}defasvarsilentnoreuse
+
+/nomprov
+{ IRIDB (regiondef) (nomfar) [(codefiv)]open_column_by
+}defasvarsilentnoreuse
+
+/the_geom
+{ IRIDB (regiondef) (the_geom) [(codefiv)]open_column_by
+}defasvarsilentnoreuse
+
+/label
+{ IRIDB (regiondef) ((nomfiv ||', '|| nomfar) as label)
+[(codefiv)]open_column_by
+  /long_name (label) def
+  }defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name
+ /Districts
+ def
+/description (Delimitations administratives Districts Madagascar) def
+/fir
+{ IRIDB (distr) (fir_) [(codefiv)]open_column_by
+}defasvarsilentnoreuse
+
+/fir_id
+{ IRIDB (distr) (fir_id) [(codefiv)]open_column_by
+}defasvarsilentnoreuse
+
+/codefar
+{ IRIDB (distr) (codefar) [(codefiv)]open_column_by
+}defasvarsilentnoreuse
+
+/nomdist
+{ IRIDB (distr) (nomfiv) [(codefiv)]open_column_by
+}defasvarsilentnoreuse
+
+/nomprov
+{ IRIDB (distr) (nomfar) [(codefiv)]open_column_by
+}defasvarsilentnoreuse
+
+/the_geom
+{ IRIDB (distr) (the_geom) [(codefiv)]open_column_by
+}defasvarsilentnoreuse
+
+/label
+{ IRIDB (distr) ((nomfiv ||', '|| nomfar) as label)
+[(codefiv)]open_column_by
+  /long_name (label) def
+  }defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name
+ /SubDistricts
+ def
+/description (Delimitations administratives Communes Madagascar) def
+/codefir
+{ IRIDB (admin3) (codefir) [(codefir)]open_column_by
+}defasvarsilentnoreuse
+/codefiv
+{ IRIDB (admin3) (codefiv) [(codefir)]open_column_by
+}defasvarsilentnoreuse
+/codefar
+{ IRIDB (admin3) (codefar) [(codefir)]open_column_by
+}defasvarsilentnoreuse
+/lvlid
+{ IRIDB (admin3) (lvlid) [(codefir)]open_column_by
+}defasvarsilentnoreuse
+
+/nomcomm
+{ IRIDB (admin3) (name as nomcomm) [(codefir)]open_column_by
+}defasvarsilentnoreuse
+
+/nomdist
+{ IRIDB (admin3) (ad2_name) [(codefir)]open_column_by
+}defasvarsilentnoreuse
+/nomprov
+{ IRIDB (admin3) (ad1_name) [(codefir)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (admin3) (the_geom) [(codefir)]open_column_by
+}defasvarsilentnoreuse
+
+/label
+{ IRIDB (admin3) ((name ||', '|| ad2_name ||', '|| ad1_name) as label)
+[(codefir)]open_column_by
+  /long_name (label) def
+  }defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Provinces def
+/description /description (Delimitations administratives Provinces Madagascar) def
+/code
+{IRIDB (prov) (code) [(id)]open_column_by
+/long_name (Province code) def
+  }defasvarsilentnoreuse
+/p_name
+{IRIDB (prov) (name as p_name) [(id)]open_column_by
+/long_name (Province name) def
+  }defasvarsilentnoreuse
+/lvlid
+{IRIDB (prov) (lvlid) [(id)]open_column_by
+/long_name (LVL ID) def
+  }defasvarsilentnoreuse
+/label
+{IRIDB (prov) (name as label) [(id)]open_column_by
+  }defasvarsilentnoreuse
+/the_geom
+{IRIDB (prov) (the_geom) [(id)]open_column_by
+/long_name (Province geometry) def
+  }defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+Provinces lvlid .id name exch put
+SubDistricts codefar .codefir name exch put
+Districts codefar .codefiv name exch put
+Regions codefar .codefiv name exch put
+\end{ingrid}
+\begin{ingrid*}
+%/iridl:hasSemantics (irigaz:Madagascar_94_1) def
+/Provinces
+/description ( Provinces, Regions, and Districts) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select id,code,name as p_name,lvlid,the_geom from prov order by id) (id) openqueryby
+        code
+            /long_name (Province code) def
+        CopyStream
+        name exch def
+        p_name
+            /long_name (Province name) def
+        CopyStream
+        name exch def
+        lvlid
+            /long_name (LVL id) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Province geometry) def
+        name exch def
+}defasvarcachesilent
+/Regions
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select fir_ as fir,fir_id,codefiv,nomfiv,codefar,nomfar,the_geom from regiondef order by codefiv) (codefiv) openqueryby
+        fir
+            /long_name (FIR) def
+        CopyStream
+        name exch def
+        fir_id
+            /long_name (FIR id) def
+        CopyStream
+        name exch def
+        nomfiv
+            /long_name (FIV name) def
+        CopyStream
+        name exch def
+        codefar
+            /long_name (FAR code) def
+        CopyStream
+        name exch def
+        nomfar
+            /long_name (FAR name) def
+        CopyStream
+        name exch def
+/label
+{ IRIDB (regiondef) (nomfiv as label)
+[(codefiv)]open_column_by
+  /long_name (label) def
+  }defasvarsilentnoreuse        
+        the_geom
+            /long_name (Region geometry) def
+        name exch def
+}defasvarcachesilent
+/Districts
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select fir_ as fir,fir_id,codefiv,nomfiv,codefar,nomfar,the_geom from distr order by codefiv) (codefiv) openqueryby
+        fir
+            /long_name (FIR) def
+        CopyStream
+        name exch def
+        fir_id
+            /long_name (FIR id) def
+        CopyStream
+        name exch def
+        nomfiv
+            /long_name (FIV name) def
+        CopyStream
+        name exch def
+        codefar
+            /long_name (FAR code) def
+        CopyStream
+        name exch def
+        nomfar
+            /long_name (FAR name) def
+        CopyStream
+        name exch def
+ /label
+{ IRIDB (distr) (nomfiv as label)
+[(codefiv)]open_column_by
+  /long_name (label) def
+  }defasvarsilentnoreuse
+         the_geom
+            /long_name (District geometry) def
+        name exch def
+}defasvarcachesilent
+/SubDistricts
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select codefir,codefiv,codefar,lvlid,name as sd_name,ad2_name,ad1_name,the_geom from admin3 order by codefir) (codefir) openqueryby
+        codefar
+            /long_name (FAR code) def
+        CopyStream
+        name exch def
+        lvlid
+            /long_name (LVL id) def
+        CopyStream
+        name exch def
+        sd_name
+            /long_name (3rd Order Admin. name) def
+        CopyStream
+        name exch def
+        ad2_name
+            /long_name (2nd Order Admin. name) def
+        CopyStream
+        name exch def
+        ad1_name
+            /long_name (1st Order Admin. name) def
+        CopyStream
+        name exch def
+/label
+{ IRIDB (admin3) ((name ||', '|| ad2_name) as label)
+[(codefir)]open_column_by
+  /long_name (label) def
+  }defasvarsilentnoreuse        
+        the_geom
+            /long_name (District geometry) def
+        name exch def
+}defasvarcachesilent
+\end{ingrid*}

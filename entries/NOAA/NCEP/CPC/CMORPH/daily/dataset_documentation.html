@@ -1,0 +1,88 @@
+<INGRID>datasetdocumentationheader</INGRID>
+<h3>Daily global CMORPH precipitation data from the CPC</h3>
+<p>
+<i>For documentation, see the
+following web page:  <a
+href="http://www.cpc.ncep.noaa.gov/products/janowiak/cmorph.shtml">http://www.cpc.ncep.noaa.gov/products/janowiak/cmorph.shtml</a></i>
+<p>
+<i>The appropriate reference for this data set is the following:</i> 
+<p>
+Joyce, R.J., J.E. Janowiak, P. A. Arkin and P. Xie, 2004: CMORPH: A Method that Produces Global Precipitation Estimates from Passive Microwave and Infrared Data at High Spatial and Temporal Resolution. <i>J. Hydrometeorology</i>, <b>5</b>, 487-503.
+
+<p>
+<i>The following information is excerpted from the "readme" file associated with this data set:</i>
+<p>
+<pre>
+
+                    CMORPH 0.25 degree DAILY Information
+
+                      Last Update: November 8 2004
+
+The 0.25 degree daily CMORPH can be found on the ftpprd.ncep.noaa.gov
+server in the /pub/precip/global_CMORPH/daily_025deg/ directory
+ 
+
+The data are compressed using the standard Unix compress function (files have a
+suffix of ".Z"). Each file is composed of 2 direct access binary ("big_endian")
+records that are defined as follows:
+
+Record 1: contains the merged microwave precipitation only (GrADS variable: comb)
+Record 2: contains the "CMORPH" precipitation estimates (GrADS variable: cmorph)
+
+All units are "mm/hr".  Missing data are denoted by values of "-9999."
+Each record contains a 1440 x 480 REAL*4 array of data which
+is oriented from 0.125E EASTward and from 59.875N SOUTHward, with a grid increment
+of 0.25 degrees of latitude and longitude.  Thus, the grid locations are the
+centers of a 0.25 degree lat/lon grid box.  Note that these estimates represent
+spatial averages, so the data aare grid-centered, rather than lattice-centered.
+
+For example (1,1) is 0.125E, 59.875N
+            (2,2) is 0.375E, 59.625N
+	    
+	    
+	    , etc.
+	    
+	    
+The daily accumulation period is 00Z thru 23:59Z.
+
+For GrADS users, a descriptor ("ctl") file CMORPH+MWCOMB_025deg-daily.ctl
+has been provided.
+
+
+Sample FORTRAN code for reading the data sets is provided below
+
+      program readday
+
+      parameter (IRMAX=1440, JRMAX=480, PMAX=2)
+
+      character*115 in1ssmipropREGD
+      real*4 ssmipropREGD(IRMAX,JRMAX,PMAX)
+
+      write (*,*) ' enter day ie 20041107 '
+      read (*,*) iyrmndy
+
+c    Open input daily 0.25 deg lat/lon CMORPH rainfall file
+
+      in1ssmipropREGD = '/export-2/sgi109/irstat/blended_tech/cpc/data/0
+     &25deg/YYYY0M0D_dly-025deg_cpc+comb'
+      write (in1ssmipropREGD(54:61),'(i8)') iyrmndy
+      write(6,'('' file '',a88)') in1ssmipropREGD
+
+      open (unit=16, file=in1ssmipropREGD, access='direct',
+     &              recl=1440*480*2*4, form='unformatted')
+
+c    Read daily me derived regional precip to disk
+
+      read (16, rec = 1) ssmipropREGD
+
+      write (6,'(/,'' daily CMORPH '')')
+      do jreg = 121, 140
+       write(6,'(15(f5.1))') (ssmipropREGD(ireg,jreg,2),ireg=581,595)
+      enddo
+
+      stop
+
+      end
+
+</pre>
+<INGRID>datasetdocumentationtrailer</INGRID>

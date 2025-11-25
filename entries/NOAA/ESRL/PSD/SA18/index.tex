@@ -1,0 +1,60 @@
+\begin{ingrid}
+/NotOpen dataareIRIonlyPassword
+continuedataset:
+link:
+/name (South America Precipitation) def
+/description (Homepage for South America Daily Precipitation Data Set) def
+/href (http://www.cdc.noaa.gov/people/brant.liebmann/south_america_precip.html) def
+:link
+dataset:
+/name (1_Degree) def
+/count {
+(/Data/data6/noaa/esrl/psd/SA18/sa18.daily.1.1940-2005.nc) readCDF
+  time name
+    npts NewIntegerGRID
+    replaceGRID
+  time name
+    (julian_day) ordered 2429630 1 2453544 NewEvenGRID
+    replaceGRID
+    .count
+    } defasvarsilent
+
+/precip {
+(/Data/data6/noaa/esrl/psd/SA18/sa18.daily.1.1940-2005.nc) readCDF
+  time name
+    npts NewIntegerGRID
+    replaceGRID
+  time name
+    (julian_day) ordered 2429630 1 2453544 NewEvenGRID
+    replaceGRID
+    .precip
+    } defasvarsilent
+:dataset
+dataset:
+/name (2p5_Degree) def
+/count {
+(/Data/data6/noaa/esrl/psd/SA18/sa18.daily.2.5.1940-2005.nc) readCDF
+  time name
+    npts NewIntegerGRID
+    replaceGRID
+  time name
+    (julian_day) ordered 2429630 1 2453544 NewEvenGRID
+    replaceGRID
+.count
+} defasvarsilent
+
+/precip {
+(/Data/data6/noaa/esrl/psd/SA18/sa18.daily.2.5.1940-2005.nc) readCDF
+  time name
+    npts NewIntegerGRID
+    replaceGRID
+  time name
+    (julian_day) ordered 2429630 1 2453544 NewEvenGRID
+    replaceGRID
+.precip
+} defasvarsilent
+
+:dataset
+/references(Liebmann_Allured2005) def
+:dataset
+\end{ingrid}

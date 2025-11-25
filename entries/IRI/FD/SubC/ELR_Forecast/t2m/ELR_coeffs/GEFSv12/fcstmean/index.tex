@@ -1,0 +1,84 @@
+\begin{ingrid}
+
+continuedataset:
+
+(iri.columbia.edu/terms/forecast/1) cvn datadownloadsareRestricted
+/Cookie varies_on
+
+
+/description (Forecast Ensemble Mean) def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+0 1 359
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+-90.0 1 90.0
+:grid
+
+grid:
+/name /L def
+/long_name (Lead Time) def
+/units /days def
+15. 7. 22.
+:grid
+
+grid:
+/name /S def
+/long_name (Start Time) def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+%/netcdfgrid true def
+2 Oct 2020 julian_day 01 Jan 1960 julian_day sub
+7
+systemtime
+(%d %b %Y) 12 strftime interp julian_day
+    2
+        Oct 2020 julian_day
+        sub
+       7 div
+       1 add
+       7 mul
+       2 index add
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+S { (/crunch/c10/jingyuan/Subx_forecast/Subx_flexible_forecast/Subx_flexible_biweek_T2M_ELR_forecast/GEFSv12/Subx_global_t2m_issue_Fri_%d_%b_%Y[S]_biweek_fcst_mean.nc) [S] } removeextrausing
+   name exch def
+
+S
+/expires
+S last 6 add cvsunits nip interp exch 0.5 add 4 -2 roll exch pop ymd2systemtime
+def
+name exch def
+
+/expires S .expires def
+
+    /target_date {S L add /long_name (forecast time) def /pointwidth 14 def} defasvar
+
+/temperature {
+[ X Y last first subgrid L | S ]
+(/crunch/c10/jingyuan/Subx_forecast/Subx_flexible_forecast/Subx_flexible_biweek_T2M_ELR_forecast/GEFSv12/Subx_global_t2m_issue_Fri_%d_%b_%Y[S]_biweek_fcst_mean.nc) [S]
+readdatafile:
+/name (mean) def
+/doublearraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/long_name (Ensemble Mean Temperature) def
+/units /Kelvin_scale def
+temp_colors
+/scale_symmetric false def
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+
+:dataset
+
+\end{ingrid}

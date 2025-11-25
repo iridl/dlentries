@@ -1,0 +1,99 @@
+\begin{ingrid}
+
+continuedataset:
+
+/MMS2SAI dataareRestricted
+/Cookie varies_on
+
+grid:
+/name /X def
+/long_name (longitude) def
+/units /degree_east def
+0. 0.5 359.5
+:grid
+
+grid:
+/name /Y def
+/long_name (latitude) def
+/units /degree_north def
+-90. 0.5 90.
+:grid
+
+grid:
+/name /L def
+/long_name (Lead Time) def
+/units /days def
+0.5 1. 35.5
+:grid
+
+grid:
+/name /M def
+/long_name (Member) def
+0 1 2
+:grid
+
+grid:
+/name /S def
+/long_name (Issue date) def
+/units (days since 1960-01-01) def
+values:
+2022 5 11 ymd2rjt 1960 1 1 ymd2rjt sub
+7
+2024 2 22 ymd2rjt 1960 1 1 ymd2rjt sub
+  {}for
+2024 3 1 ymd2rjt 1960 1 1 ymd2rjt sub
+7
+2024 4 26 ymd2rjt 1960 1 1 ymd2rjt sub
+2024 5 4 ymd2rjt 1960 1 1 ymd2rjt sub
+7
+2024 11 16 ymd2rjt 1960 1 1 ymd2rjt sub
+  {}for
+2023 1 4 ymd2rjt 1960 1 1 ymd2rjt sub
+7
+2023 1 25 ymd2rjt 1960 1 1 ymd2rjt sub
+  {}for
+2023 2 2 ymd2rjt 1960 1 1 ymd2rjt sub
+2023 2 8 ymd2rjt 1960 1 1 ymd2rjt sub
+2023 2 15 ymd2rjt 1960 1 1 ymd2rjt sub
+2023 2 22 ymd2rjt 1960 1 1 ymd2rjt sub
+2023 3 1 ymd2rjt 1960 1 1 ymd2rjt sub
+7
+2023 4 26 ymd2rjt 1960 1 1 ymd2rjt sub
+  {}for
+2023 5 4 ymd2rjt 1960 1 1 ymd2rjt sub
+7
+2024 2 22 ymd2rjt 1960 1 1 ymd2rjt sub
+  {}for
+2024 3 1 ymd2rjt 1960 1 1 ymd2rjt sub
+7
+2024 4 26 ymd2rjt 1960 1 1 ymd2rjt sub
+2024 5 4 ymd2rjt 1960 1 1 ymd2rjt sub
+7
+2024 11 16 ymd2rjt 1960 1 1 ymd2rjt sub
+  {}for
+:values
+/pointwidth 0. def
+/defaultvalue {last} def
+:grid
+
+/target_date {
+S L add
+/long_name (Forecast Period) def
+} def
+
+/APCPsfc {
+[X Y | L M S]
+(/Data/data6/IMD/model_output/erp_0.5/CFS/nsaszc/%m%d[S]/0%d[M]/prec/prec%Y%m%d[S]00_0.5X0.5_24hr.grb) [M S]
+readdatafile:
+1 GRIB2record
+:readdatafile
+/missing_value 9.999E+20 def
+/long_name (surface Total Precipitation) def
+/units (kg/m2) def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

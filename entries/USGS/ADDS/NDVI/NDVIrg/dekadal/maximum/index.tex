@@ -1,0 +1,124 @@
+\begin{ingrid}
+/description (Dekadal NDVIrg data from ADDS) def
+continuedataset:
+datasetdefs:
+/filename {T (/Data/data6/usgs/adds/ndvi/ndvirg/ndvirg%y[T]/AC%y%m0%d[dekad].IMG) strftimes}def
+/adds_ndvi_colors {
+startcolormap
+DATA 0.0 1.0 RANGE
+white white white 0.0 VALUE
+234 233 189 RGB RGBdup 0.05 bandmax
+215 211 148 RGB RGBdup 0.1 bandmax
+202 189 119 RGB RGBdup 0.15 bandmax
+175 175 77 RGB RGBdup 0.2 bandmax
+128 169 5 RGB RGBdup 0.3 bandmax
+12 127 0 RGB RGBdup 0.4 bandmax
+0 94 0 RGB RGBdup 0.5 bandmax
+0 59 1 RGB RGBdup 0.6 bandmax
+0 9 0 RGB RGBdup 1.0 bandmax
+0 9 0 RGB 1.0 VALUE
+0 9 0 RGB
+endcolormap } def
+:datasetdefs
+
+link:
+/name (source) def
+/description (USGS/FEWS Net AVHRR NDVI Download Portal) def/href
+(http://earlywarning.usgs.gov/fews/africa/web/datatheme.php) def
+:link
+
+/note (From ADDS Website (March 2010): "NDVI PROCESSING SUSPENDED  Please be advised that the AVHRR sensor (the sensor used to derive the Africa dekadal AVHRR NDVI) onboard the NOAA-17 satellite is encountering major degradation problems. The NDVI data derived from the NOAA-17 AVHRR sensor are no longer valid and will no longer be staged or distributed -- until further notice. NASA is currently in the process of converting from the NOAA-17 AVHRR sensor to the NOAA-18 AVHRR sensor.NASA intends to calibrate and reprocess the AVHRR NDVI using the NOAA-18 sensor data back to the beginning of 2010. When this transition has been completed and production using the NOAA-18 sensor is established, we will continue staging and distributing the AVHRR NDVI product.") def
+
+/references (Tucker_etal2005) def
+/Conventions (CF-1.0) def
+grid:
+/name /x def
+-4604000 8000 4604000 
+/standard_name (projection_x_coordinate) def
+:grid
+grid:
+/name /y def
+4604000 8000 -4604000
+/standard_name (projection_y_coordinate) def
+:grid
+variable:
+        /name /lat def
+        /units (degreeN) def
+        /fullname (Latitude) def
+	/standard_name (latitude) def
+        /scale_min -40 def
+        /scale_max 45 def
+        grids: x y :grids
+        file:
+                decrandom
+                /name (/Data/data6/usgs/adds/ndvi/lat_1152_geom.bin) def
+        :file
+:variable
+variable:
+        /name /lon def
+        /units (degreeE) def
+        /fullname (Longitude) def
+	/standard_name (longitude) def
+        /scale_min -24 def
+        /scale_max 65 def
+        grids: x y :grids
+        file:
+                decrandom
+                /name (/Data/data6/usgs/adds/ndvi/lon_1152_geom.bin) def
+        :file
+:variable
+
+1 Jun 2004 julian_day
+systemtime (%d %b %Y) 12 strftime interp julian_day
+%21 Dec 2002 julian_day %enddate
+dekadGRID
+/defaultvalue { last } def
+/standard_name (time) def
+name exch def
+
+/NDVI {[| T] (/Data/data6/usgs/adds/ndvi/ndvirg/ndvirg%y[T]/AC%y[T]%m[T]0%d[dekad].IMG) [T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+readdatafile:
+IDAimage
+:readdatafile
+/valid_min 1 def
+/valid_max 250 def
+/scale_factor 0.004016 def
+/add_offset -0.004016 def
+/grid_mapping /Projection def
+/long_name (Normalized Difference Vegetation Index) def
+/standard_name (normalized_difference_vegetation_index) def
+/iridl:hasSemantics (iridl:NDVI) def
+/SpatialReferenceSystemDims {x y} cvlit def
+/SpatialReferenceSystemWKT (PROJCS["Albers_Equal_Area_Conic",GEOGCS["GCS_North_American_1927",DATUM["D_North_American_1927",SPHEROID["Clarke_1866",6378206.4,294.9786982]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Albers"],PARAMETER["False_Easting",0],PARAMETER["False_Northing",0],PARAMETER["Central_Meridian",20],PARAMETER["Standard_Parallel_1",21],PARAMETER["Standard_Parallel_2",-19],PARAMETER["Latitude_Of_Origin",1],UNIT["Meter",1]]) def
+toNaN
+adds_ndvi_colors
+x /standard_name (projection_x_coordinate) def name exch def
+y /standard_name (projection_y_coordinate) def name exch def
+}defasvarsilent
+
+variable:
+ grids: :grids
+ values: 0 :values
+ /name (Projection) def
+ /grid_mapping_name (albers_conical_equal_area) def
+ /latitude_of_projection_origin 1 def
+ /longitude_of_central_meridian 20.0 def
+ /standard_parallel 21 -19 2 realarray astore def
+ /false_easting 0 def
+ /false_northing 0 def
+% /_CoordinateTransformType (Projection) def
+% /_CoordinateAxisTypes (GeoX GeoY) def
+:variable
+
+:dataset
+T { (/Data/data6/usgs/adds/ndvi/ndvirg/ndvirg%y[T]/AC%y[T]%m[T]0%d[dekad].IMG) [T dup day2dom 5. add 10. div toi4 /name /dekad def]}removeextrausing
+%/expires
+%last_modified systemtime2ymd 
+%dup 20 lt { 10 lt { 11 }{21} ifelse}
+%{ymd:nextmonth} ifelse
+% ymd2systemtime
+%def
+name exch def
+%/expires T .expires def
+/last_modified T .last_modified def
+\end{ingrid}

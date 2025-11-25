@@ -1,0 +1,39 @@
+\begin{ingrid}
+continuedataset:
+
+/long_name (Pacific Decadal Oscillation Index) def
+/description (Monthly Pacific Decadal Oscillation Index from JISAO) def
+/iridl:hasSemantics [(iridl:PacificDecadalOscillationIndex)(iridl:JISAO)] def
+
+link:
+/name (data source) def
+/description (Text file of PDO monthly data values from 1900 to present (JISAO)) def
+/href (http://research.jisao.washington.edu/pdo/PDO.latest.txt) def
+:link
+
+link:
+/name (JISAO PDO documentation page) def
+/description (The Pacific Decadal Oscillation (PDO)) def
+/href (http://research.jisao.washington.edu/pdo/) def
+:link
+
+/references (Zhang_etal1997 Mantua_etal1997) def
+
+grid:
+/name /T def
+/units (months since 1960-01-01) def
+/defaultvalue { last } def
+16 Jan 1900 ensotime
+1
+16 Sep 2018 ensotime
+:grid
+
+/pdo { [ T | ] (/Data/data23/JISAO/PDO/PDO.latest.dataonly.txt) readdatafile:
+[ 0 0 ] r*4asblank
+/missing_value -9999 def
+:readdatafile
+/units (unitless) def
+} defasvarsilent
+
+:dataset
+\end{ingrid}

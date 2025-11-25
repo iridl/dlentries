@@ -1,0 +1,273 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9354
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 475
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAJanv2011.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Chocs) def
+/Q901 {
+mytable
+myquestion 
+346 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 1 = Perte d'emploi) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q902 {
+mytable
+myquestion 
+347 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 2 = Baisse de reve) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q903 {
+mytable
+myquestion 
+348 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 3 = Maladie/dépens) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q904 {
+mytable
+myquestion 
+349 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 4 = Décès d'un mem) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q905 {
+mytable
+myquestion 
+350 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 5 = augmentation d) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q906 {
+mytable
+myquestion 
+351 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 6 = Augmentation d) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q907 {
+mytable
+myquestion 
+352 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 7 = Augmentation d) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q908 {
+mytable
+myquestion 
+353 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 8 = Augmentation d) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q909 {
+mytable
+myquestion 
+354 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 9 = Coupure d'élec) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9010 {
+mytable
+myquestion 
+355 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 10 = Insécurité/ v) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9011 {
+mytable
+myquestion 
+356 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 11 = Remboursement) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9012 {
+mytable
+myquestion 
+357 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 12 = Chômage de lo) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9013 {
+mytable
+myquestion 
+358 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 13 = Catastrophes) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9014 {
+mytable
+myquestion 
+359 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 14 = Irrégularité) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9015 {
+mytable
+myquestion 
+360 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 15 = Autres à préc) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9001 {
+mytable
+myquestion 
+361 VALUE
+ myquestion removeGRID
+/long_name (Q90.1 : Principales difficultés ou chocs..: 1ère difficulté) def 
+/units /ids def
+/CLIST [(Perte d'emplois)(Baisse de revenu)(Maladie/dépenses de santé exceptionnelles)(Décès d'un membre de famille)(Augmentation des prix des denrées alimentaires)(Augmentation des prix du carburant / du transport)(Augmentation des prix du loyer)(Augmentation des prix des intrants agricoles)(Coupure d'électricité)(Insécurité / vols)(Remboursement de dettes)(Chômage de longue durée)(Catastrophes naturelles (inondation, incendie, vents))(Irrégularité des pluies)(Autres)] def
+/scale_min 1 def
+/scale_max 15 def
+}defasvarsilent
+
+/Q9002 {
+mytable
+myquestion 
+362 VALUE
+ myquestion removeGRID
+/long_name (Q90.2 : Principales difficultés ou chocs..: 2ème difficulté) def 
+/units /ids def
+/CLIST [(Perte d'emplois)(Baisse de revenu)(Maladie/dépenses de santé exceptionnelles)(Décès d'un membre de famille)(Augmentation des prix des denrées alimentaires)(Augmentation des prix du carburant / du transport)(Augmentation des prix du loyer)(Augmentation des prix des intrants agricoles)(Coupure d'électricité)(Insécurité / vols)(Remboursement de dettes)(Chômage de longue durée)(Catastrophes naturelles (inondation, incendie, vents))(Irrégularité des pluies)(Autres)] def
+/scale_min 1 def
+/scale_max 15 def
+}defasvarsilent
+
+/Q9003 {
+mytable
+myquestion 
+363 VALUE
+ myquestion removeGRID
+/long_name (Q90.3 : Principales difficultés ou chocs..: 3ème difficulté) def 
+/units /ids def
+/CLIST [(Perte d'emplois)(Baisse de revenu)(Maladie/dépenses de santé exceptionnelles)(Décès d'un membre de famille)(Augmentation des prix des denrées alimentaires)(Augmentation des prix du carburant / du transport)(Augmentation des prix du loyer)(Augmentation des prix des intrants agricoles)(Coupure d'électricité)(Insécurité / vols)(Remboursement de dettes)(Chômage de longue durée)(Catastrophes naturelles (inondation, incendie, vents))(Irrégularité des pluies)(Autres)] def
+/scale_min 1 def
+/scale_max 15 def
+}defasvarsilent
+
+/Q9004 {
+mytable
+myquestion 
+364 VALUE
+ myquestion removeGRID
+/long_name (Q90.4 : Comment jugez-vous l'impact sur la situation aliment) def 
+/units /ids def
+/CLIST [(Très important)(Modéré)(Faible)(Pas d'impact)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q9005 {
+mytable
+myquestion 
+365 VALUE
+ myquestion removeGRID
+/long_name (Q90.5 : Comment jugez-vous l'impact sur la situation nutriti) def 
+/units /ids def
+/CLIST [(Très important)(Modéré)(Faible)(Pas d'impact)(Pas d'enfants de moins de 5 ans)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

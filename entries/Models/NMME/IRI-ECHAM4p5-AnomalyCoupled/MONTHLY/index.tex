@@ -1,0 +1,97 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/filenames {
+} def
+/fileavail {
+prec dataflag[X Y]average 0 maskle 0 flaggt L first VALUE M first VALUE grid: /name /S1 def /units monthtimename def /gridtype periodic def Jan 1 Dec :grid grid: /name /S2 def /units monthtimename def /pointwidth 12 def 1 Jul 1981 ensotime 12 1 Jul 2012 ensotime :grid add 6.5 sub S .first S .last masknotrange /pointwidth 0 def[S]sample-along /fullname (fileavail) def
+} defasvar
+:datasetdefs
+/references (Kirtman_etal2014) def
+link:
+/name (data_availability) def
+/href (fileavail/mark/exch/S2/exch[S1]table:/mark/:table/.html) def 
+:link
+ /missing_value -999. def
+grid:
+/name (X)def
+/units (degree_east)def
+/standard_name (longitude) def
+ 0.0 1. 359.
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+/standard_name (latitude) def
+ 90. 1. -90.
+:grid
+grid:
+/name (S)def
+/units (months since 1960-01-01)def
+/calendar /360 def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+1 Jan 1982 ensotime
+1. 
+1 Jul 2012 ensotime %enddate
+:grid
+grid:
+/name (L) def
+/units (months) def
+/standard_name (forecast_period) def
+0.5 1 7.5
+:grid
+/M 12 NewIntegerGRID
+/standard_name (realization) def
+name exch def
+/T { S L add
+/standard_name (time) def } defasvarsilent
+grid:
+/name (Z) def
+/units (m) def
+/long_name (Height) def
+/standard_name (height) def
+2 :grid
+ /prec{
+[ X Y | M L S] 
+(/data/dstore4/iri/modelling/daved/BlueFin.D/ECHAM4.5_MOM3DirCpl2.D/EXP.D/TestCpl1b.D/Forecast_AnomCoup_SSMI_P80Cl_P80An.D/PutTogPost.D/NMME_AllEns_ForDL.D/%b.D/%Y%m[S]01.1x1.precip_ens%2.2d[M].dat)[M S]
+readdatafile:
+/name (precl) def
+ /long_name (precipitation) def
+/long_name (Total Precipitation) def
+/standard_name (lwe_precipitation_rate) def
+ /missing_value -999. def
+/units (mm/day) def
+ direct :readdatafile
+Y low high RANGE
+CopyStream
+}defasvarcachesilent
+ /tref{
+[ X Y Z | M L S] 
+(/data/dstore4/iri/modelling/daved/BlueFin.D/ECHAM4.5_MOM3DirCpl2.D/EXP.D/TestCpl1b.D/Forecast_AnomCoup_SSMI_P80Cl_P80An.D/PutTogPost.D/NMME_AllEns_ForDL.D/%b.D/%Y%m[S]01.1x1.t2m_ens%2.2d[M].dat)[M S]
+readdatafile:
+/name (t2m) def
+ /long_name (Temperature 2m) def
+/long_name (Reference Temperature) def
+/standard_name (air_temperature) def
+ /missing_value -999. def
+/units (Kelvin_scale) def
+ direct :readdatafile
+Y low high RANGE
+CopyStream
+}defasvarcachesilent
+ /sst{
+[ X Y | M L S] 
+(/data/dstore4/iri/modelling/daved/BlueFin.D/ECHAM4.5_MOM3DirCpl2.D/EXP.D/TestCpl1b.D/Forecast_AnomCoup_SSMI_P80Cl_P80An.D/PutTogPost.D/NMME_AllEns_ForDL.D/%b.D/%Y%m[S]01.1x1.sst_ens%2.2d[M].dat)[M S]
+readdatafile:
+/name (t2m) def
+ /long_name (Sea Surface Temperature) def
+/standard_name (sea_surface_temperature) def
+ /missing_value -999. def
+/units (Celsius_scale) def
+ direct :readdatafile
+Y low high RANGE
+CopyStream
+}defasvarcachesilent
+:dataset
+\end{ingrid}

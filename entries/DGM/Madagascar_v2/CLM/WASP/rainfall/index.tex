@@ -1,0 +1,51 @@
+
+\begin{ingrid}
+
+continuedataset:
+
+/rfe{
+ SOURCES .DGM .Madagascar_v2 .CLM .dekadal .rainfall .rfe
+  T (1983) (2014) RANGE
+  monthlyAverage
+  3.0 mul
+  a:
+    :a: yearly-climatology sub
+    :a
+  [T]REORDER
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+   SOURCES .DGM .Madagascar_v2 .CLM .monthly .climatologies .rfe
+   [T]REORDER
+   a: :a:
+      [T]average
+      12 mul
+      0.001 masklt
+      div
+     :a
+   mul
+  T 12 runningAverage
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+   SOURCES .DGM .Madagascar_v2 .CLM .monthly .climatologies .rfe
+   [T]average
+   0.25 masklt
+   dup div
+   div
+  /long_name (WASP12) def
+  /valid_min undef
+  /valid_max undef
+  std_wasp_colors
+
+}defasvarcache
+
+:dataset
+
+\end{ingrid}
+
+

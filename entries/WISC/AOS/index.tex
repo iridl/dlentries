@@ -1,0 +1,252 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+grid:
+/name /micol def
+1 1 1
+:grid
+:datasetdefs
+
+%DEFINE MONTHLY DATA
+    grid:
+      /name /T def
+      monthtime
+      /defaultvalue { last } def
+      /pointwidth 1 def
+       /standard_name (time) def
+      values:
+        16 Jan 1948 ensotime
+        1
+        systemtime
+        systemtime2ymd
+        ymd:lastmonth
+        ymd:nextmonth 15 add
+        ymd2rm1960
+        {} for
+      :values
+
+    :grid
+
+T { (/Data/data1/noaa/indices/amm-pmm/amm/amm_%Y[T]-%m[T].txt) [T]  } removeextrausing
+/expires
+  T last cvsunits
+    interp exch
+     0.5 add
+     6 ymd:nextmonth
+      5 add
+      ymd2systemtime
+      nip
+def
+  name exch def
+/expires T .expires  def
+
+
+link:
+  /name (website) def
+  /description (https://www.aos.wisc.edu/~dvimont/MModes/Data.html)def
+  /href (https://www.aos.wisc.edu/~dvimont/MModes/Data.html)def
+:link
+
+
+/description (Atmospheric and Oceanic Sciences |  AOS) def
+
+
+/AMM_SST {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/amm-pmm/amm/amm_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 1 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /units /degree_Celsius def
+   /missing_value -999.00 def 
+   /long_name (Atlantic Meridional Mode | SST) def
+   temp_anomaly_colors
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+
+ /title (Atlantic Meridional Mode ) def
+ /institution (Atmospheric and Oceanic Sciences |  AOS) def
+
+ link:
+  /name (ftp_url) def
+  /description (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/AMM.txt) def
+  /href (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/AMM.txt) def
+ :link
+
+}defasvarsilent
+
+/AMM_Wind {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/amm-pmm/amm/amm_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 1 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /missing_value -999.00 def
+   /long_name (Atlantic Meridional Mode | Wind) def
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+
+ /title (Atlantic Meridional Mode ) def
+ /institution (Atmospheric and Oceanic Sciences |  AOS) def
+
+ link:
+  /name (ftp_url) def
+  /description (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/AMM.txt) def
+  /href (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/AMM.txt) def
+ :link
+
+}defasvarsilent
+
+%%%% Atlantic Meridional Mode (AMM) and
+/AMM-RAW_SST { 
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/amm-pmm/amm-raw/amm-raw_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 1 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /units /degree_Celsius def
+   /missing_value -999.00 def 
+   /long_name (RAW Atlantic Meridional Mode | SST) def
+   temp_anomaly_colors
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+ 
+ /title (Atlantic Meridional Mode ) def
+ /institution (Atmospheric and Oceanic Sciences |  AOS) def
+ 
+ link:
+  /name (ftp_url) def
+  /description (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/AMM.RAW.txt) def
+  /href (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/AMM.RAW.txt) def
+ :link
+
+}defasvarsilent
+
+/AMM-RAW_Wind {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/amm-pmm/amm-raw/amm-raw_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 2 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /missing_value -999.00 def
+   /long_name (RAW Atlantic Meridional Mode | Wind) def
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+
+ /title (Atlantic Meridional Mode ) def
+ /institution (Atmospheric and Oceanic Sciences |  AOS) def
+
+ link:
+  /name (ftp_url) def
+  /description (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/AMM.RAW.txt) def
+  /href (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/AMM.RAW.txt) def
+ :link
+
+}defasvarsilent
+
+%%%% Pacific Meridional Mode (PMM)
+/PMM_SST {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/amm-pmm/pmm/pmm_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 1 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /units /degree_Celsius def
+   /missing_value -999.00 def
+   /long_name ( Pacific Meridional Mode | SST) def
+   temp_anomaly_colors
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+
+ /title (Pacific Meridional Mode ) def
+ /institution (Atmospheric and Oceanic Sciences |  AOS) def
+
+ link:
+  /name (ftp_url) def
+  /description (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/PMM.txt) def
+  /href (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/PMM.txt) def
+ :link
+
+}defasvarsilent
+
+/PMM_Wind {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/amm-pmm/pmm/pmm_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 2 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /missing_value -999.00 def
+   /long_name ( Pacific Meridional Mode | Wind) def
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+
+ /title (Pacific Meridional Mode ) def
+ /institution (Atmospheric and Oceanic Sciences |  AOS) def
+
+ link:
+  /name (ftp_url) def
+  /description (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/PMM.txt) def
+  /href (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/PMM.txt) def
+ :link
+
+}defasvarsilent
+
+/PMM-RAW_SST {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/amm-pmm/pmm-raw/pmm-raw_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 1 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /units /degree_Celsius def
+   /missing_value -999.00 def
+   /long_name (RAW Pacific Meridional Mode | SST) def
+   temp_anomaly_colors
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+
+ /title (Pacific Meridional Mode ) def
+ /institution (Atmospheric and Oceanic Sciences |  AOS) def
+
+ link:
+  /name (ftp_url) def
+  /description (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/PMM.RAW.txt) def
+  /href (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/PMM.RAW.txt) def
+ :link
+
+}defasvarsilent
+
+/PMM-RAW_Wind {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/amm-pmm/pmm-raw/pmm-raw_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 2 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /missing_value -999.00 def
+   /long_name (RAW Pacific Meridional Mode | Wind) def
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+
+ /title (Pacific Meridional Mode ) def
+ /institution (Atmospheric and Oceanic Sciences |  AOS) def
+
+ link:
+  /name (ftp_url) def
+  /description (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/PMM.RAW.txt) def
+  /href (https://www.aos.wisc.edu/~dvimont/MModes/RealTime/PMM.RAW.txt) def
+ :link
+
+}defasvarsilent
+
+:dataset
+\end{ingrid}
+

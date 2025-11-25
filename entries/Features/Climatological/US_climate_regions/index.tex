@@ -1,0 +1,25 @@
+\begin{ingrid}
+/Regions
+/iridl:hasSemantics (irigaz:United_States_156_1) def
+/description ( Climate Regions in the U.S.) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select region_name,the_geom from us_clim_regions order by region_name) (region_name) openqueryby
+        region_name
+            /long_name (Climate Region Name) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Climate Region Geometry) def
+        name exch def
+}defasvarsilent
+/last_modified
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select max ( last_modified ) as last_modified from us_clim_regions) openquery .last_modified
+}def
+\end{ingrid}

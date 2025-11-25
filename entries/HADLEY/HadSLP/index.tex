@@ -1,0 +1,49 @@
+\begin{ingrid}
+continuedataset:
+allow: /celineh :allow dataareRestricted
+link:
+/name (dataset_documentation.html) def
+/href (http://hadobs.metoffice.com/gmslp) def
+:link
+grid:
+/name /X def
+degE
+periodic
+%-177.5 5 177.5
+-180 5 175
+:grid
+grid:
+/name /Y def
+degN
+-90 5 90
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1871 ensotime
+1.
+16 Dec 1998 ensotime
+:grid
+/scslp
+{
+[X Y | T](/Data/data7/hadley/hadslp/hadSLP1_1871-1998.asc)
+readdatafile:
+[16 18811 ] i*4asascii
+/long_name (spatially complete sea level pressure) def
+/scale_factor .01 def
+/units (hPa) def
+:readdatafile
+} defasvarsilent
+/sislp
+{
+[X Y | T](/Data/data7/hadley/hadslp/hadSLP1.0_1871-1998.asc)
+readdatafile:
+[16 21476 ] i*4asascii
+/long_name (spatially incomplete sea level pressure) def
+/scale_factor .01 def
+/units (hPa) def
+/missing_value -99990  def
+:readdatafile
+} defasvarsilent
+:dataset
+\end{ingrid}

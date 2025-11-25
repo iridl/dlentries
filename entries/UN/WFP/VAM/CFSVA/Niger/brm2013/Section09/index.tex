@@ -1,0 +1,285 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 5648
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 507
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Baseruralmenagenov2013.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Chocs) def
+/Q901 {
+mytable
+myquestion 
+359 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 1 = Perte d'emploi) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q902 {
+mytable
+myquestion 
+360 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 2 = Baisse de revenu) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q903 {
+mytable
+myquestion 
+361 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 3 = Maladie/dépenses de santé exceptio) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q904 {
+mytable
+myquestion 
+362 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 4 = Décès d'un membre de la famille) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q905 {
+mytable
+myquestion 
+363 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 5 = augmentation des prix des denrées) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q906 {
+mytable
+myquestion 
+364 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 6 = Augmentation des prix du carburant) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q907 {
+mytable
+myquestion 
+365 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 7 = Augmentation des prix du loyer) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q908 {
+mytable
+myquestion 
+366 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 8 = Augmentation des prix des intrants) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q909 {
+mytable
+myquestion 
+367 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 9 = Coupure d'électricité) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9010 {
+mytable
+myquestion 
+368 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 10 = Insécurité/ vols) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9011 {
+mytable
+myquestion 
+369 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 11 = Remboursement de dettes) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9012 {
+mytable
+myquestion 
+370 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 12 = Chômage de longue durée) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9013 {
+mytable
+myquestion 
+371 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 13 = Catastrophes naturelles (inondati)) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9014 {
+mytable
+myquestion 
+372 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 14 = Irrégularité des pluies) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9015 {
+mytable
+myquestion 
+373 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 15 = baisse des récoltes) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9016 {
+mytable
+myquestion 
+374 VALUE
+ myquestion removeGRID
+/long_name (Q90 : Principales difficultés ou chocs..: 16 = Autres à préciser...) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9001 {
+mytable
+myquestion 
+375 VALUE
+ myquestion removeGRID
+/long_name (Q90.1 : Principales difficultés ou chocs..: 1ère difficulté) def 
+/units /ids def
+/CLIST [(Perte d'emplois)(Baisse de revenu)(Maladie/dépenses de santé exceptionnelles)(Décès d'un membre de famille)(Augmentation des prix des denrées alimentaires)(Augmentation des prix du carburant / du transport)(Augmentation des prix du loyer)(Augmentation des prix des intrants agricoles)(Coupure d'électricité)(Insécurité / vols)(Remboursement de dettes)(Chômage de longue durée)("Catastrophes naturelles (inondation, incendie, vents)")(Irrégularité des pluies)(Autres)] def
+/scale_min 1 def
+/scale_max 15 def
+}defasvarsilent
+
+/Q9002 {
+mytable
+myquestion 
+376 VALUE
+ myquestion removeGRID
+/long_name (Q90.2 : Principales difficultés ou chocs..: 2ème difficulté) def 
+/units /ids def
+/CLIST [(Perte d'emplois)(Baisse de revenu)(Maladie/dépenses de santé exceptionnelles)(Décès d'un membre de famille)(Augmentation des prix des denrées alimentaires)(Augmentation des prix du carburant / du transport)(Augmentation des prix du loyer)(Augmentation des prix des intrants agricoles)(Coupure d'électricité)(Insécurité / vols)(Remboursement de dettes)(Chômage de longue durée)("Catastrophes naturelles (inondation, incendie, vents)")(Irrégularité des pluies)(Autres)] def
+/scale_min 1 def
+/scale_max 15 def
+}defasvarsilent
+
+/Q9003 {
+mytable
+myquestion 
+377 VALUE
+ myquestion removeGRID
+/long_name (Q90.3 : Principales difficultés ou chocs..: 3ème difficulté) def 
+/units /ids def
+/CLIST [(Perte d'emplois)(Baisse de revenu)(Maladie/dépenses de santé exceptionnelles)(Décès d'un membre de famille)(Augmentation des prix des denrées alimentaires)(Augmentation des prix du carburant / du transport)(Augmentation des prix du loyer)(Augmentation des prix des intrants agricoles)(Coupure d'électricité)(Insécurité / vols)(Remboursement de dettes)(Chômage de longue durée)("Catastrophes naturelles (inondation, incendie, vents)")(Irrégularité des pluies)(Autres)] def
+/scale_min 1 def
+/scale_max 15 def
+}defasvarsilent
+
+/Q9004 {
+mytable
+myquestion 
+378 VALUE
+ myquestion removeGRID
+/long_name (Q90.4 : Comment jugez-vous l'impact sur la situation alimentaire de votre ménage) def 
+/units /ids def
+/CLIST [(Très important)(Modéré)(Faible)(Pas d'impact)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q9005 {
+mytable
+myquestion 
+379 VALUE
+ myquestion removeGRID
+/long_name (Q90.5 : Comment jugez-vous l'impact sur la situation nutritionnelle des enfants) def 
+/units /ids def
+/CLIST [(Très important)(Modéré)(Faible)(Pas d'impact)(Pas d'enfants de moins de 5 ans)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

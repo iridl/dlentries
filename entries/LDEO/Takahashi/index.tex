@@ -1,0 +1,81 @@
+\begin{ingrid}
+continuedataset:
+/description (Sea-air pCO2 differences and carbon flux data over the global oceans from Lamont-Doherty Earth Observatory) def
+grid:
+/name /X def
+degE
+2.5 5. 357.5
+:grid
+grid:
+/name /Y def
+degN
+-88. 4. 88.
+:grid
+grid:
+/name /T def
+monthtime
+/pointwidth 12. def
+values: 1 Jul 1990 ensotime :values
+:grid
+dataset:
+/name /annual def
+variable:
+/name /carbon def
+/long_name (carbon flux) def
+/units (10^12 gram/year/4x5 degree box) def
+/missing_value NaN def
+grids: X Y T :grids
+file:
+/name (/Data/data4/LDEO/Takahashi/annualflux.r4) def
+random
+:file
+correlationcolorscale DATA -10 10 RANGE
+:variable
+:dataset
+grid:
+/name /T def
+monthtime
+
+16 Jan 1990 ensotime 1.
+16  Dec 1990 ensotime
+:grid
+dataset:
+/name /hf90 def
+/long_name (half 1990 atmospheric correction) def
+dataset:
+/name (sea-air) def
+variable:
+/name /pCO2 def
+/long_name (pCO2) def
+/units (micro atm) def
+/missing_value NaN def
+grids: X Y T :grids
+file:
+/name (/Data/data4/LDEO/Takahashi/hf90.r4) def
+random
+:file
+correlationcolorscale DATA -150 150 RANGE
+:variable
+:dataset
+:dataset
+dataset:
+/name /dp90 def
+/long_name (full 1990 atmospheric correction)def
+dataset:
+/name (sea-air) def
+variable:
+/name /pCO2 def
+/long_name (pCO2) def
+/units (micro atm) def
+/missing_value NaN def
+grids: X Y T :grids
+file:
+/name (/Data/data4/LDEO/Takahashi/dp90.r4) def
+random
+:file
+correlationcolorscale DATA -150 150 RANGE
+:variable
+:dataset
+:dataset
+:dataset
+\end{ingrid}

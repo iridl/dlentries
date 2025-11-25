@@ -1,0 +1,166 @@
+\begin{ingrid}
+continuedataset:
+/long_name (1961-1990) def
+/iridl:hasSemantics (iridl:climatology) def
+grid:
+/name /X def
+degE
+periodic
+.25 .5 359.75
+:grid
+grid:
+/name /Y def
+degN
+89.75 -.5 -89.75
+:grid
+grid:
+/name /T def
+/units (month) def
+periodic
+16 Jan 1960 ensotime
+1
+16 Dec 1960 ensotime
+:grid
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /cld def
+/long_name (cloud cover) def
+/units (percent) def
+file:
+/name (/Data/data7/uea/cru/New/ccld6190.i2) def
+i*2
+:file
+:variable
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /dtr def
+/long_name (diurnal temperature range) def
+/units (degree_Celsius) def
+/scale_factor .1 def
+file:
+/name (/Data/data7/uea/cru/New/cdtr6190.i2) def
+i*2
+:file
+:variable
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /frs def
+/long_name (Ground-frost Frequency) def
+/units (days/month) def
+/scale_factor .1 def
+file:
+/name (/Data/data7/uea/cru/New/cfrs6190.i2) def
+i*2
+:file
+:variable
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /prcp def
+/long_name (precipitation) def
+/units (mm/day) def
+/scale_factor .1 def
+file:
+/name (/Data/data7/uea/cru/New/cpre6190.i2) def
+i*2
+:file
+:variable
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /rad def
+/long_name (radiation) def
+/units (W/m2) def
+file:
+/name (/Data/data7/uea/cru/New/crad6190.i2) def
+i*2
+:file
+:variable
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /wet def
+/long_name (wet day frequency) def
+/units (days/month) def
+/scale_factor .1 def
+file:
+/name (/Data/data7/uea/cru/New/cwet6190.i2) def
+i*2
+:file
+:variable
+dataset: 
+/name /mean def
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /temp def
+/long_name (temperature) def
+/units (Celsius_scale) def
+/scale_factor .1 def
+file:
+/name (/Data/data7/uea/cru/New/ctmp6190.i2) def
+i*2
+:file
+:variable
+:dataset
+dataset: 
+/name /maximum def
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /temp def
+/long_name (temperature) def
+/units (Celsius_scale) def
+/scale_factor .1 def
+file:
+/name (/Data/data7/uea/cru/New/ctmx6190.i2) def
+i*2
+:file
+:variable
+:dataset
+dataset: 
+/name /minimum def
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /temp def
+/long_name (temperature) def
+/units (Celsius_scale) def
+/scale_factor .1 def
+file:
+/name (/Data/data7/uea/cru/New/ctmn6190.i2) def
+i*2
+:file
+:variable
+:dataset
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /vap def
+/long_name (vapor pressure) def
+/units (hPa) def
+/scale_factor .1 def
+file:
+/name (/Data/data7/uea/cru/New/cvap6190.i2) def
+i*2
+:file
+:variable
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /wspd def
+/long_name (wind speed) def
+/units (m/s) def
+/scale_factor .1 def
+file:
+/name (/Data/data7/uea/cru/New/cwnd6190.i2) def
+i*2
+:file
+:variable
+:dataset
+\end{ingrid}
+
+

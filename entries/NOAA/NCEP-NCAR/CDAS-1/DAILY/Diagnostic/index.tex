@@ -1,0 +1,2382 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+
+grid:
+/name (T) def
+/units (days since 1948-01-01 12:00:00) def
+/defaultvalue { last } def
+/long_name (Time) def
+/standard_name (time) def
+0.0
+1.0
+systemtime
+   (%d %b %Y) 12 strftime interp julian_day
+01 Jan 1948 julian_day sub
+:grid
+
+T {(/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [T] } removeextrausing
+
+/expires last 3 add 1948 1 1 ymd2rjt add rjt2ymd ymd2systemtime 
+13 60 mul 40 add 60 mul add % 13:40 GMT
+def
+name exch def
+/expires T .expires def
+/last_modified T .last_modified def
+
+T monthlyedgesgrid
+(1 Jan 1948-2002) (1 Apr 2002) subgridvalues
+partialgrid
+/T2002 exch def
+
+T dailyedgesgrid
+19814.0 last subgrid
+/T2002a exch def
+
+\end{ingrid}
+
+\word dstrfn ( varname -- filename_stream ) shorthand function to
+create the yearly files followed by the daily files needs for a number
+of variables.  Note that the name of the stream is the varname -- this
+is really important because later when this function is used in a
+readdatafile: it is important that the strings fed to
+codedstringtostream be different because codedstringtostream caches by
+that string, so by naming the function differently for each, the
+strings are different for each. 
+
+\begin{ingrid}
+
+/dstrfn {
+{mydname} inputs
+   (flux/) mydname (.daily.b%y%m%d[stime].e%y%m%d[etime]) 3array astore concat
+   [T2002 get_bounds a:
+        I_bounds 1 VALUE
+        /name /stime def
+        :a:
+         I_bounds 2 VALUE
+         1 sub
+         /name /etime def
+         :a
+       ]codedstringtostream
+   T dup integralgrid
+     first secondtolast subgrid
+     replaceGRID
+   (update/grb2d.%Y%m%d[dstime]) [T2002a get_bounds
+       I_bounds 1 VALUE
+       /name /dstime def
+       ]codedstringtostream
+    T dup integralgrid
+      first secondtolast subgrid
+      replaceGRID
+    appendstream
+/I_bounds undef   /name mydname cvn def
+1output
+} def
+
+\end{ingrid}
+
+\begin{ingrid}
+
+:datasetdefs
+
+/T T def
+
+grid:
+/name (X) def
+/long_name (Longitude) def
+/units (degree_east) def
+periodic
+0.0 1.875 358.125
+:grid
+
+grid:
+/name (Y) def
+/long_name (Latitude) def
+/units (degree_north) def
+values: 88.54196 86.65315 84.75323 82.85076 80.94736 79.04349 77.13936 75.23506 73.33066 71.42619 69.52167 67.6171 65.71251 63.8079 61.90326 59.99861 58.09395 56.18928 54.28461 52.37991 50.47522 48.57052 46.66582 44.76111 42.8564 40.95169 39.04697 37.14225 35.23753 33.33281 31.42808 29.52336 27.61863 25.7139 23.80917 21.90444 19.99971 18.09498 16.19024 14.28551 12.38078 10.47604 8.571308 6.666573 4.761838 2.857103 0.9523677 -0.9523677 -2.857103 -4.761838 -6.666573 -8.571308 -10.47604 -12.38078 -14.28551 -16.19024 -18.09498 -19.99971 -21.90444 -23.80917 -25.7139 -27.61863 -29.52336 -31.42808 -33.33281 -35.23753 -37.14225 -39.04697 -40.95169 -42.8564 -44.76111 -46.66582 -48.57052 -50.47522 -52.37991 -54.28461 -56.18928 -58.09395 -59.99861 -61.90326 -63.8079 -65.71251 -67.6171 -69.52167 -71.42619 -73.33066 -75.23506 -77.13936 -79.04349 -80.94736 -82.85076 -84.75323 -86.65315 -88.54196 :values
+:grid
+
+grid:
+/name (Z1) def
+/units (ids) def
+/long_name (Depth) def
+values: (0-10 cm down) (10-200 cm down) :values
+:grid
+
+grid:
+/name (Z) def
+/long_name (Height) def
+/units (m_above_gnd) def
+values: 2 :values
+:grid
+
+grid:
+/name (Z0) def
+/long_name (Height) def
+/units (m_above_gnd) def
+values: 10 :values
+:grid
+
+grid:
+/name (Z3) def
+/units (cm_down) def
+/long_name (Depth) def
+values: 300 :values
+:grid
+
+% parameters to GRIBvariable, in order, are: 1. GRIB variable parameter code, 2. GRIB level/layer type code, and
+% 3. field ID (generally 1).  So, for example, pressure-level absolute vorticity would be "41 100 1 GRIBvariable"
+
+ dataset: /name (surface) def
+
+  datasetdefs:
+  /T2002 T2002 def
+  /T2002a T2002a def
+  /Tdaily T def
+  /dstrfn 3 index 1 index get def
+  :datasetdefs
+
+  [ X Y T ] { name exch def } forall
+
+ 
+  dataset: /name (clear_sky) def
+
+   [ X Y T 18506. last subgrid ] { name exch def } forall
+
+   dataset: /name (downward) def
+
+    [ X Y T ] { name exch def } forall
+
+    /solr { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    161 1 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (CSDSF) def
+    /gribleveltype 1 def
+    /gribNumBits 9 def
+    /gribparam 161 def
+    /missing_value 9.99900026E20 def
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 541.0 def
+    /scale_min -4.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (solar flux) def
+    /standard_name (surface_net_downward_shortwave_flux_assuming_clear_sky) def 
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+
+    /lwflx { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    163 1 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (CSDLF) def
+    /gribleveltype 1 def
+    /gribNumBits 9 def
+    /gribparam 163 def
+    /missing_value 9.99900026E20 def 
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 478.0 def
+    /scale_min 19.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (longwave flux) def
+    /standard_name (surface_net_downward_longwave_flux_assuming_clear_sky) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+
+   :dataset
+
+   dataset: /name (upward) def
+
+    [ X Y T ] { name exch def } forall
+
+    /solr { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    160 1 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (CSUSF) def
+    /gribleveltype 1 def
+    /gribNumBits 9 def
+    /gribparam 160 def
+    /missing_value 9.99900026E20 def 
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 410.0 def
+    /scale_min -3.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (solar flux) def
+    /standard_name (surface_net_upward_shortwave_flux) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+
+   :dataset
+
+  :dataset
+
+  dataset: /name (cloud_forcing) def
+
+   [ X Y T 18506. last subgrid ] { name exch def } forall
+   
+   dataset: /name (net) def
+
+    [ X Y T ] { name exch def } forall
+
+    /solr { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    164 1 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (CFNSF) def
+    /gribleveltype 1 def
+    /gribNumBits 9 def
+    /gribparam 164 def
+    /missing_value 9.99900026E20 def 
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 39.0 def
+    /scale_min -307.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (solar flux) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+    
+    /lwflx { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    165 1 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (CFNLF) def
+    /gribleveltype 1 def
+    /gribNumBits 7 def
+    /gribparam 165 def
+    /missing_value 9.99900026E20 def 
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 110.0 def
+    /scale_min -24.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (longwave flux) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+
+   :dataset
+
+  :dataset
+
+  dataset: /name (convective) def
+
+   datasetdefs:
+   /T2002 T2002 def
+   /T2002a T2002a def
+   /Tdaily T def
+   /dstrfn 3 index 1 index get def
+   :datasetdefs
+
+   [ X Y T ] { name exch def } forall
+
+   /cprate { [ X Y | T ] (/Data/data6/ncep-ncar/daily/%s[CPRAT]) [ (CPRAT)dstrfn  T exch ]
+   readdatafile:
+   214 1 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (CPRAT) def
+   /gribleveltype 1 def
+   /gribNumBits 10 def
+   /gribparam 214 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 0.00136 def
+   /scale_min 0.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Convective precip. rate) def
+   /standard_name (convective_precipitation_flux) def
+   /units (kg/m2/s) def
+   T Tdaily replaceGRID
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+  dataset: /name (downward) def
+
+   [ X Y T 18506. last subgrid ] { name exch def } forall
+
+    /lwflx { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    205 1 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (DLWRF) def
+    /gribleveltype 1 def
+    /gribNumBits 9 def
+    /gribparam 205 def
+    /missing_value 9.99900026E20 def 
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 497.0 def
+    /scale_min -1.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (longwave flux) def
+    /standard_name (surface_net_downward_longwave_flux) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+
+    /solr { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    204 1 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (DSWRF) def
+    /gribleveltype 1 def
+    /gribNumBits 10 def
+    /gribparam 204 def
+    /missing_value 9.99900026E20 def 
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 574.0 def
+    /scale_min -4.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (solar flux) def
+    /standard_name (surface_net_downward_shortwave_flux) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+
+  :dataset
+
+  dataset: /name (ground) def
+
+   [ X Y T 18506. last subgrid ] { name exch def } forall
+
+    /heat_flux { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    155 1 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (GFLUX) def
+    /gribleveltype 1 def
+    /gribNumBits 8 def
+    /gribparam 155 def
+    /missing_value 9.99900026E20 def 
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 125.0 def
+    /scale_min -119.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (Ground heat flux) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+
+  :dataset
+
+  /ICEC { [ X Y | T 18506. last subgrid ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T 18506. last subgrid ]
+  readdatafile:
+  91 1 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (ICEC) def
+  /gribleveltype 1 def
+  /gribNumBits 1 def
+  /gribparam 91 def
+  /missing_value 9.99900026E20 def 
+  /PDS_TimeRange 113 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 1.0 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Ice concentration) def
+  /units (ice=1; no ice=0) def
+  decompress
+  } defasvarsilent
+  
+  /LAND { [ X Y | T 18506. last subgrid ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T 18506. last subgrid ]
+  readdatafile:
+  81 1 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (LAND) def
+  /gribleveltype 1 def
+  /gribNumBits 1 def
+  /gribparam 81 def
+  /missing_value 9.99900026E20 def 
+  /PDS_TimeRange 113 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 1.0 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Land-sea mask) def
+  /standard_name (land_binary_mask) def
+  /units (1=land; 0=sea) def
+  decompress
+  } defasvarsilent
+
+\end{ingrid}
+
+\begin{ingrid}
+
+  dataset: /name (latent) def
+
+   datasetdefs:
+   /T2002 T2002 def
+   /T2002a T2002a def
+   /Tdaily T def
+   /dstrfn 3 index 1 index get def
+   :datasetdefs
+   
+   [ X Y T ] { name exch def } forall
+ 
+   /heat_flux { [ X Y | T ] (/Data/data6/ncep-ncar/daily/%s[LHTFL]) [ (LHTFL)dstrfn T exch ] 
+   readdatafile:
+   121 1 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (LHTFL) def
+   /gribleveltype 1 def
+   /gribNumBits 9 def
+   /gribparam 121 def
+   /missing_value 9.99900026E20 def 
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 1537.0 def
+   /scale_min -302.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Latent heat flux) def
+   /units (W/m2) def
+   T Tdaily replaceGRID 
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+  /NBDSF { [ X Y | T 18506. last subgrid ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T 18506. last subgrid ]
+  readdatafile:
+  168 1 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (NBDSF) def
+  /gribleveltype 1 def
+  /gribNumBits 9 def
+  /gribparam 168 def
+  /missing_value 9.99900026E20 def 
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 326.0 def
+  /scale_min -70.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Near IR beam downward solar flux) def
+  /units (W/m2) def
+  decompress
+  } defasvarsilent
+  
+  /NDDSF { [ X Y | T 18506. last subgrid ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T 18506. last subgrid ]
+  readdatafile:
+  169 1 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (NDDSF) def
+  /gribleveltype 1 def
+  /gribNumBits 9 def
+  /gribparam 169 def
+  /missing_value 9.99900026E20 def 
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 305.0 def
+  /scale_min -61.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Near IR diffuse downward solar flux) def
+  /units (W/m2) def
+  decompress
+  } defasvarsilent
+  
+  dataset: /name (net) def
+
+   [ X Y T 18506. last subgrid ] { name exch def } forall
+ 
+   /solr
+   { dataset
+   a: .upward .solr
+   :a: .downward .solr
+   :a
+   sub
+   /gribparam 111 def
+   /grib_name (NSWRS) def
+   /standard_name undef
+   } defasvar
+
+   /lwflx
+   { dataset
+   a: .upward .lwflx
+   :a: .downward .lwflx
+   :a
+   sub
+   /gribparam 112 def
+   /grib_name (NLWRS) def
+   /standard_name undef
+   } defasvar  
+
+  :dataset
+
+  dataset: /name (potential) def
+
+   [ X Y T 18506. last subgrid ] { name exch def } forall
+
+    /evap { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    145 1 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (PEVPR) def
+    /gribleveltype 1 def
+    /gribNumBits 11 def
+    /gribparam 145 def
+    /missing_value 9.99900026E20 def 
+    /PDS_TimeRange 113 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 3358.0 def
+    /scale_min -152.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (evaporation) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+
+  :dataset
+
+% need to concatenate annual files
+  /prate { [ X Y | T ] (/Data/data6/ncep-ncar/daily/%s[PRATE]) [ (PRATE)dstrfn T exch ]
+  readdatafile:
+  59 1 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (PRATE) def
+  /gribleveltype 1 def
+  /gribNumBits 10 def
+  /gribparam 59 def
+  /missing_value 9.99900026E20 def 
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 0.002473 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Precipitation rate) def
+  /standard_name (precipitation_flux) def
+  /units (kg/m2/s) def
+  T Tdaily replaceGRID 
+  decompress
+  } defasvarsilent
+  
+  /pressure { [ X Y | T 18506. last subgrid ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T 18506. last subgrid ]
+  readdatafile:
+  1 1 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (PRES) def
+  /gribleveltype 1 def
+  /gribNumBits 13 def
+  /gribparam 1 def
+  /missing_value 9.99900026E20 def 
+  /PDS_TimeRange 113 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 109250.0 def
+  /scale_min 48340.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Pressure) def
+  /standard_name (surface_air_pressure) def
+  /units (N/m2) def
+  decompress
+  } defasvarsilent
+
+% runoff requires concatenation of annual files
+  /runoff { [ X Y | T ] (/Data/data6/ncep-ncar/daily/%s[RUNOFsfc]) [ (RUNOFsfc)dstrfn T exch ] 
+  readdatafile:
+  90 1 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (RUNOF) def
+  /gribleveltype 1 def
+  /gribNumBits 7 def
+  /gribparam 90 def
+  /missing_value 9.99900026E20 def 
+  /PDS_TimeRange 113 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 46.200001 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Runoff) def
+  /standard_name (surface_runoff_amount) def
+  /units (kg/m2) def
+  T Tdaily replaceGRID 
+  decompress
+  } defasvarsilent
+
+% sensible heat flux requires concatenation of annual files
+
+  dataset: /name (sensible) def
+
+   datasetdefs:
+   /T2002 T2002 def
+   /T2002a T2002a def
+   /Tdaily T def
+   /dstrfn 3 index 1 index get def
+   :datasetdefs
+
+   [ X Y T ] { name exch def } forall
+
+   /heat_flux { [ X Y | T ] (/Data/data6/ncep-ncar/daily/%s[SHTFL]) [ (SHTFL)dstrfn T exch ] 
+   readdatafile:
+   122 1 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (SHTFL) def
+   /gribleveltype 1 def
+   /gribNumBits 10 def
+   /gribparam 122 def
+   /missing_value 9.99900026E20 def 
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 2466.0 def
+   /scale_min -809.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Sensible heat flux) def
+   /units (W/m2) def
+   T Tdaily replaceGRID 
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+  /SFCR { [ X Y | T 18506. last subgrid ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T 18506. last subgrid ]
+  readdatafile:
+  83 1 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (SFCR) def
+  /gribleveltype 1 def
+  /gribNumBits 8 def
+  /gribparam 83 def
+  /missing_value 9.99900026E20 def 
+  /PDS_TimeRange 113 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 0.00647 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Surface roughness) def
+  /standard_name (surface_roughness_length) def
+  /units (m) def
+  decompress
+  } defasvarsilent
+ 
+  dataset: /name (snow) def
+
+   [ X Y T 18506. last subgrid ] { name exch def } forall
+
+    /depth { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    65 1 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (WEASD) def
+    /gribleveltype 1 def
+    /gribNumBits 16 def
+    /gribparam 65 def
+    /missing_value 9.99900026E20 def 
+    /PDS_TimeRange 113 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 55010.0 def
+    /scale_min 0.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (Accum. snow) def
+    /standard_name (snowfall_amount) def
+    /units (kg/m2) def
+    decompress
+    } defasvarsilent
+
+    /rate { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    64 1 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (SRWEQ) def
+    /gribleveltype 1 def
+    /gribNumBits 9 def
+    /gribparam 64 def
+    /missing_value 9.99900026E20 def 
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 0.001029 def
+    /scale_min 0.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (rate) def
+    /standard_name (snowfall_flux) def
+    /units (kg/m2/s) def
+    decompress
+    } defasvarsilent
+
+   dataset: /name (melt) def
+
+    [ X Y T 18506. last subgrid ] { name exch def } forall
+
+    /hflx { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    229 1 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (SNOHF) def
+    /gribleveltype 1 def
+    /gribNumBits 9 def
+    /gribparam 229 def
+    /missing_value 9.99900026E20 def 
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 693.0 def
+    /scale_min 0.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (heat flux) def
+    /standard_name (surface_snow_melt_heat_flux) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+
+   :dataset
+
+   dataset: /name (sublimation) def
+
+    [ X Y T 18506. last subgrid ] { name exch def } forall
+
+    /hflx { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    230 1 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (SNOEV) def
+    /gribleveltype 1 def
+    /gribNumBits 8 def
+    /gribparam 230 def
+    /missing_value 9.99900026E20 def 
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 520.0 def
+    /scale_min -151.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (heat flux) def
+    /standard_name (surface_snow_sublimation_heat_flux) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+
+   :dataset
+
+  :dataset
+
+% taux requires appending yearly and daily files
+  /taux { [ X Y | T ] (/Data/data6/ncep-ncar/daily/%s[UFLX]) [ (UFLX)dstrfn T exch ]
+  readdatafile:
+  124 1 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (UFLX) def
+  /GRIBgridcode 2 def
+  /gribleveltype 1 def
+  /gribNumBits 11 def
+  /gribparam 124 def
+  /missing_value 9.99900026E20 def 
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 3.4979999 def
+  /scale_min -3.7579999 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Zonal momentum flux) def
+  /units (N/m2) def
+  T Tdaily replaceGRID
+  decompress
+  } defasvarsilent
+
+% tauy requires appending yearly and daily files
+  /tauy { [ X Y | T ] (/Data/data6/ncep-ncar/daily/%s[VFLX]) [ (VFLX)dstrfn T exch ]
+  readdatafile:
+  125 1 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (VFLX) def
+  /gribleveltype 1 def
+  /gribNumBits 11 def
+  /gribparam 125 def
+  /missing_value 9.99900026E20 def 
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 4.152 def
+  /scale_min -3.5480001 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Meridional momentum flux) def
+  /units (Pa) def
+  T Tdaily replaceGRID
+  decompress
+  } defasvarsilent
+
+% temp requires appending yearly and daily files
+  /temp { [ X Y | T ] (/Data/data6/ncep-ncar/daily/%s[TMPsfc]) [ (TMPsfc)dstrfn T exch ]
+  readdatafile:
+  11 1 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (TMP) def
+  /gribleveltype 1 def
+  /gribNumBits 11 def
+  /gribparam 11 def
+  /missing_value 9.99900026E20 def 
+  /PDS_TimeRange 113 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 322.0 def
+  /scale_min 154.89999 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Temperature) def
+  /standard_name (surface_temperature) def
+  /units (Kelvin_scale) def
+  T Tdaily replaceGRID
+  decompress
+  } defasvarsilent
+
+
+ /U-GWD { [ X Y | T 18506. last subgrid ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T 18506. last subgrid ]
+ readdatafile:
+ 147 1 1 GRIBvariable
+ /calendar (standard) def
+ /center (US Weather Service - National Met. Center) def
+ /grib_name (U-GWD) def
+ /gribleveltype 1 def
+ /gribNumBits 13 def
+ /gribparam 147 def
+ /missing_value 9.99900026E20 def
+ /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+ /PTVersion 2 def
+ /scale_max 12.948 def
+ /scale_min -13.807 def
+ /subcenter (NCEP Ensemble Products) def
+ :readdatafile
+ /long_name (Zonal gravity wave stress) def
+ /units (Pa) def
+ decompress
+ } defasvarsilent
+ 
+  dataset: /name (upward) def
+
+   [ X Y T 18506. last subgrid ] { name exch def } forall
+
+   /lwflx { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   212 1 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (ULWRF) def
+   /gribleveltype 1 def
+   /gribNumBits 9 def
+   /gribparam 212 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 572.0 def
+   /scale_min 44.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (longwave flux) def
+   /standard_name (surface_net_upward_longwave_flux) def
+   /units (W/m2) def
+   decompress
+   } defasvarsilent
+
+   /solr { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   211 1 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (USWRF) def
+   /gribleveltype 1 def
+   /gribNumBits 9 def
+   /gribparam 211 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 426.0 def
+   /scale_min -16.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (solar flux) def
+   /standard_name (surface_net_upward_shortwave_flux) def
+   /units (W/m2) def
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+  /V-GWD { [ X Y | T 18506. last subgrid ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T 18506. last subgrid ]
+  readdatafile:
+  148 1 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (V-GWD) def
+  /gribleveltype 1 def
+  /gribNumBits 13 def
+  /gribparam 148 def
+  /missing_value 9.99900026E20 def
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 12.146 def
+  /scale_min -5.9860001 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Meridional gravity wave stress) def
+  /units (Pa) def
+  decompress
+  } defasvarsilent
+
+  /VBDSF { [ X Y | T 18506. last subgrid ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T 18506. last subgrid ]
+  readdatafile:
+  166 1 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (VBDSF) def
+  /gribleveltype 1 def
+  /gribNumBits 8 def
+  /gribparam 166 def
+  /missing_value 9.99900026E20 def
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 224.0 def
+  /scale_min -46.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Visible beam downward solar flux) def
+  /units (W/m2) def
+  decompress
+  } defasvarsilent
+
+  /VDDSF { [ X Y | T 18506. last subgrid ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T 18506. last subgrid ]
+  readdatafile:
+  167 1 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (VDDSF) def
+  /gribleveltype 1 def
+  /gribNumBits 9 def
+  /gribparam 167 def
+  /missing_value 9.99900026E20 def
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 301.0 def
+  /scale_min -2.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Visible diffuse downward solar flux) def
+  /units (W/m2) def
+  decompress
+  } defasvarsilent
+
+ :dataset  % end of surface
+
+ dataset: /name (top) def
+
+  [ X Y T 18506. last subgrid ] { name exch def } forall
+
+  dataset: /name (clear_sky) def
+
+   [ X Y T ] { name exch def } forall
+
+   dataset: /name (upward) def
+
+    [ X Y T ] { name exch def } forall
+
+% starts 2002
+    /lwflx { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    162 8 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (CSULF) def
+    /gribleveltype 8 def
+    /gribNumBits 8 def
+    /gribparam 162 def
+    /missing_value 9.99900026E20 def
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 379.0 def
+    /scale_min 58.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (longwave flux) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+
+    /solr { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    160 8 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (CSUSF) def
+    /gribleveltype 8 def
+    /gribNumBits 9 def
+    /gribparam 160 def
+    /missing_value 9.99900026E20 def
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 404.0 def
+    /scale_min -3.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (solar flux) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+
+   :dataset
+
+  :dataset
+
+  dataset: /name (cloud_forcing) def
+
+   [ X Y T ] { name exch def } forall
+
+   dataset: /name (net) def
+
+    [ X Y T ] { name exch def } forall
+
+    /lwflx { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    165 8 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (CFNLF) def
+    /gribleveltype 8 def
+    /gribNumBits 8 def
+    /gribparam 165 def
+    /missing_value 9.99900026E20 def
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 194.0 def
+    /scale_min -30.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (longwave flux) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+
+    /solr { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    164 8 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (CFNSF) def
+    /gribleveltype 8 def
+    /gribNumBits 9 def
+    /gribparam 164 def
+    /missing_value 9.99900026E20 def
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 37.0 def
+    /scale_min -321.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (solar flux) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+
+   :dataset
+
+  :dataset
+
+  dataset: /name (downward) def
+
+   [ X Y T ] { name exch def } forall
+
+   /solr { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   204 8 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (DSWRF) def
+   /gribleveltype 8 def
+   /gribNumBits 10 def
+   /gribparam 204 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 563.0 def
+   /scale_min -4.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (solar flux) def
+   /units (W/m2) def
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+  dataset: /name (upward) def
+
+   [ X Y T ] { name exch def } forall
+
+   /solr { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   211 8 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (USWRF) def
+   /gribleveltype 8 def
+   /gribNumBits 9 def
+   /gribparam 211 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 423.0 def
+   /scale_min -3.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (solar flux) def
+   /units (W/m2) def
+   decompress
+   } defasvarsilent
+
+   /lwflx { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   212 8 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (ULWRF) def
+   /gribleveltype 8 def
+   /gribNumBits 8 def
+   /gribparam 212 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 379.0 def
+   /scale_min 56.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (longwave flux) def
+   /units (W/m2) def
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+ :dataset % end of top
+
+ dataset: /name (0-10_cm_down) def
+
+  datasetdefs:
+  /T2002 T2002 def
+  /T2002a T2002a def
+  /Tdaily T def
+  /dstrfn 3 index 1 index get def
+  :datasetdefs
+
+  [ X Y Z1 T ] { name exch def } forall
+
+   /temp { [ X Y | Z1 T 18506. last subgrid ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T 18506. last subgrid ]
+   readdatafile:
+   11 112 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (TMP) def
+   /gribleveltype 112 def
+   /gribNumBits 11 def
+   /gribparam 11 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 113 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 317.29999 def
+   /scale_min 200.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   Z1 (0-10 cm down) VALUE
+   /long_name (Temperature) def
+   /standard_name (soil_temperature) def
+   /units (Kelvin_scale) def
+   decompress
+   } defasvarsilent
+
+  dataset: /name (soil) def
+
+   datasetdefs:
+   /T2002 T2002 def
+   /T2002a T2002a def
+   /Tdaily T def
+   /dstrfn 3 index 1 index get def
+   :datasetdefs
+
+   [ X Y Z1 T ] { name exch def } forall
+
+   /moisture { [ X Y | Z1 T ] (/Data/data6/ncep-ncar/daily/%s[SOILW.10cm]) [ (SOILW.10cm)dstrfn T exch ]
+   readdatafile:
+   144 112 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (SOILW) def
+   /gribleveltype 112 def
+   /gribNumBits 9 def
+   /gribparam 144 def
+   /missing_value 9.99900026E20 def 
+   /PDS_TimeRange 113 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 0.434 def
+   /scale_min 0.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   Z1 (0-10 cm down) VALUE
+   /long_name (moisture) def
+   /units (unitless) def
+   T Tdaily replaceGRID 
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+ :dataset
+
+\end{ingrid}
+
+\begin{ingrid}
+
+ dataset: /name (10-200_cm_down) def
+
+  datasetdefs:
+  /T2002 T2002 def
+  /T2002a T2002a def
+  /Tdaily T def
+  /dstrfn 3 index 1 index get def
+  :datasetdefs
+
+  [ X Y Z1 T ] { name exch def } forall
+
+   /temp { [ X Y | Z1 T 18506. last subgrid ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T 18506. last subgrid ]
+   readdatafile:
+   11 112 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (TMP) def
+   /gribleveltype 112 def
+   /gribNumBits 11 def
+   /gribparam 11 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 113 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 305.39999 def
+   /scale_min 199.89999 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   Z1 (10-200 cm down) VALUE
+   /long_name (Temperature) def
+   /standard_name (soil_temperature) def
+   /units (Kelvin_scale) def
+   decompress
+   } defasvarsilent
+
+  dataset: /name (soil) def
+
+   datasetdefs:
+   /T2002 T2002 def
+   /T2002a T2002a def
+   /Tdaily T def
+   /dstrfn 3 index 1 index get def
+   :datasetdefs
+
+   [ X Y Z1 T ] { name exch def } forall
+
+   /moisture { [ X Y | Z1 T ] (/Data/data6/ncep-ncar/daily/%s[SOILW.200cm]) [ (SOILW.200cm)dstrfn T exch ]
+   readdatafile:
+   144 112 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (SOILW) def
+   /gribleveltype 112 def
+   /gribNumBits 9 def
+   /gribparam 144 def
+   /missing_value 9.99900026E20 def 
+   /PDS_TimeRange 113 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 0.436 def
+   /scale_min 0.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   Z1 (10-200 cm down) VALUE
+   /long_name (moisture) def
+   /units (unitless) def
+   T Tdaily replaceGRID 
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+ :dataset
+
+ dataset: /name (above_ground) def
+
+  datasetdefs:
+  /T2002 T2002 def
+  /T2002a T2002a def
+  /Tdaily T def
+  /dstrfn 3 index 1 index get def
+  :datasetdefs
+
+  [ X Y Z Z0 T ] { name exch def } forall
+
+  dataset: /name (maximum) def
+
+   datasetdefs:
+   /T2002 T2002 def
+   /T2002a T2002a def
+   /Tdaily T def
+   /dstrfn 3 index 1 index get def
+   :datasetdefs
+
+   [ X Y Z T ] { name exch def } forall
+
+   /temp { [ X Y | Z T ] (/Data/data6/ncep-ncar/daily/%s[TMAXhag.2]) [ (TMAXhag.2)dstrfn T exch ]
+   readdatafile:
+   15 105 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (TMAX) def
+   /gribleveltype 105 def
+   /gribNumBits 10 def
+   /gribparam 15 def
+   /missing_value 9.99900026E20 def 
+   /PDS_TimeRange 2 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 356.10001 def
+   /scale_min 178.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   Z 2 VALUE
+   /long_name (Temperature) def
+   /standard_name (air_temperature) def
+   /units (Kelvin_scale) def
+   T Tdaily replaceGRID 
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+  dataset: /name (minimum) def
+
+   datasetdefs:
+   /T2002 T2002 def
+   /T2002a T2002a def
+   /Tdaily T def
+   /dstrfn 3 index 1 index get def
+   :datasetdefs
+
+   [ X Y Z T ] { name exch def } forall
+
+   /temp { [ X Y | Z T ] (/Data/data6/ncep-ncar/daily/%s[TMINhag.2]) [ (TMINhag.2)dstrfn T exch ]
+   readdatafile:
+   16 105 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (TMIN) def
+   /gribleveltype 105 def
+   /gribNumBits 10 def
+   /gribparam 16 def
+   /missing_value 9.99900026E20 def 
+   /PDS_TimeRange 2 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 311.60001 def
+   /scale_min 161.60001 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   Z 2 VALUE
+   /long_name (Temperature) def
+   /standard_name (air_temperature) def
+   /units (Kelvin_scale) def
+   T Tdaily replaceGRID 
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+   /qa { [ X Y | Z T ] (/Data/data6/ncep-ncar/daily/%s[SPFH.2m]) [ (SPFH.2m)dstrfn T exch ]
+   readdatafile:
+   51 105 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (SPFH) def
+   /gribleveltype 105 def
+   /gribNumBits 8 def
+   /gribparam 51 def
+   /missing_value 9.99900026E20 def 
+   /PDS_TimeRange 2 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 0.0284 def
+   /scale_min 0.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   Z 2 VALUE
+   /long_name (Specific humidity) def
+   /standard_name (specific_humidity) def
+   /units (unitless) def
+   T Tdaily replaceGRID 
+   decompress
+   } defasvarsilent
+
+   /temp { [ X Y | Z T ] (/Data/data6/ncep-ncar/daily/%s[TMP.2m]) [ (TMP.2m)dstrfn T exch ]
+   readdatafile:
+   11 105 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (TMP) def
+   /gribleveltype 105 def
+   /gribNumBits 10 def
+   /gribparam 11 def
+   /missing_value 9.99900026E20 def 
+   /PDS_TimeRange 113 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 318.60001 def
+   /scale_min 165.89999 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   Z 2 VALUE
+   /long_name (Temperature) def
+   /standard_name (air_temperature) def
+   /units (Kelvin_scale) def
+   T Tdaily replaceGRID 
+   decompress
+   } defasvarsilent
+
+   /u { [ X Y | Z0 T ] (/Data/data6/ncep-ncar/daily/%s[UGRD.10m]) [ (UGRD.10m)dstrfn T exch ]
+   readdatafile:
+   33 105 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (UGRD) def
+   /gribleveltype 105 def
+   /gribNumBits 8 def
+   /gribparam 33 def
+   /missing_value 9.99900026E20 def 
+   /PDS_TimeRange 113 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 28.6 def
+   /scale_min -29.4 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   Z0 10 VALUE
+   Z0 /Z renameGRID
+   /long_name (zonal wind) def
+   /standard_name (eastward_wind) def
+   /units (m/s) def
+   T Tdaily replaceGRID 
+   decompress
+   } defasvarsilent
+
+   /v { [ X Y | Z0 T ] (/Data/data6/ncep-ncar/daily/%s[VGRD.10m]) [ (VGRD.10m)dstrfn T exch ]
+   readdatafile:
+   34 105 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (VGRD) def
+   /gribleveltype 105 def
+   /gribNumBits 8 def
+   /gribparam 34 def
+   /missing_value 9.99900026E20 def 
+   /PDS_TimeRange 113 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 27.6 def
+   /scale_min -30.700001 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   Z0 10 VALUE
+   Z0 /Z renameGRID
+   /long_name (meridional wind) def
+   /standard_name (northward_wind) def
+   /units (m/s) def
+   T Tdaily replaceGRID 
+   decompress
+   } defasvarsilent
+
+ :dataset
+ 
+\end{ingrid}
+
+\begin{ingrid}
+
+ dataset: /name (high-cloud) def
+
+  [ X Y T 18506. last subgrid ] { name exch def } forall
+
+  dataset: /name (bottom) def
+
+   [ X Y T ] { name exch def } forall
+
+   /pressure { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   1 232 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (PRES) def
+   /gribleveltype 232 def
+   /gribNumBits 12 def
+   /gribparam 1 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 52530.0 def
+   /scale_min 11360.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Pressure) def
+   /standard_name (air_pressure) def
+   /units (Pa) def
+   decompress
+   } defasvarsilent
+
+   /SGLYR { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   175 232 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (SGLYR) def
+   /gribleveltype 232 def
+   /gribNumBits 6 def
+   /gribparam 175 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 53.0 def
+   /scale_min 11.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Nearby model level) def
+   /standard_name (model_level_number) def
+   /units (unitless) def
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+  dataset: /name (top) def
+
+   [ X Y T ] { name exch def } forall
+
+   /pressure { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   1 233 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (PRES) def
+   /gribleveltype 233 def
+   /gribNumBits 12 def
+   /gribparam 1 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 47420.0 def
+   /scale_min 8720.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Pressure) def
+   /standard_name (air_pressure) def
+   /units (N/m2) def
+   decompress
+   } defasvarsilent
+
+   /SGLYR { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   175 233 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (SGLYR) def
+   /gribleveltype 233 def
+   /gribNumBits 6 def
+   /gribparam 175 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 47.0 def
+   /scale_min 9.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Nearby model level) def
+   /standard_name (model_level_number) def
+   /units (unitless) def
+   decompress
+   } defasvarsilent
+
+   /temp { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   11 233 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (TMP) def
+   /gribleveltype 233 def
+   /gribNumBits 10 def
+   /gribparam 11 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 252.39999 def
+   /scale_min 184.89999 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Temperature) def
+   /standard_name (air_temperature) def
+   /units (Kelvin_scale) def
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+  /CDCON { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+  readdatafile:
+  72 234 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (CDCON) def
+  /gribleveltype 234 def
+  /gribNumBits 7 def
+  /gribparam 72 def
+  /missing_value 9.99900026E20 def
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 92.0 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Convective cloud cover) def
+  /standard_name (convective_cloud_area_fraction) def
+  /units (percent) def
+  decompress
+  } defasvarsilent
+
+  /cld { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+  readdatafile:
+  71 234 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (TCDC) def
+  /gribleveltype 234 def
+  /gribNumBits 7 def
+  /gribparam 71 def
+  /missing_value 9.99900026E20 def
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 100.0 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (cloud cover) def
+  /standard_name (cloud_area_fraction) def
+  /units (percent) def
+  decompress
+  } defasvarsilent
+
+  /RHCLD { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+  readdatafile:
+  225 234 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (RHCLD) def
+  /gribleveltype 234 def
+  /gribNumBits 10 def
+  /gribparam 225 def
+  /missing_value 9.99900026E20 def
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 100.0 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (RH-type cloud cover) def
+  /standard_name (cloud_area_fraction) def
+  /units (percent) def
+  decompress
+  } defasvarsilent
+
+ :dataset
+
+\end{ingrid}
+
+\begin{ingrid}
+
+ dataset: /name (low-cloud) def
+
+  [ X Y T 18506. last subgrid ] { name exch def } forall
+
+  dataset: /name (bottom) def
+
+   [ X Y T ] { name exch def } forall
+
+   /pressure { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   1 212 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (PRES) def
+   /gribleveltype 212 def
+   /gribNumBits 12 def
+   /gribparam 1 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 102300.0 def
+   /scale_min 65920.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Pressure) def
+   /standard_name (air_pressure) def
+   /units (N/m2) def
+   decompress
+   } defasvarsilent
+
+   /SGLYR { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   175 212 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (SGLYR) def
+   /gribleveltype 212 def
+   /gribNumBits 5 def
+   /gribparam 175 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 103.0 def
+   /scale_min 66.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Nearby model level) def
+   /standard_name (model_level_number) def
+   /units (unitless) def
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+  dataset: /name (top) def
+
+   [ X Y T ] { name exch def } forall
+
+   /pressure { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   1 213 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (PRES) def
+   /gribleveltype 213 def
+   /gribNumBits 12 def
+   /gribparam 1 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 92490.0 def
+   /scale_min 61080.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Pressure) def
+   /standard_name (air_pressure) def
+   /units (N/m2) def
+   decompress
+   } defasvarsilent
+
+   /SGLYR { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   175 213 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (SGLYR) def
+   /gribleveltype 213 def
+   /gribNumBits 5 def
+   /gribparam 175 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 92.0 def
+   /scale_min 61.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Nearby model level) def
+   /standard_name (model_level_number) def
+   /units (unitless) def
+   decompress
+   } defasvarsilent
+
+   /temp { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   11 213 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (TMP) def
+   /gribleveltype 213 def
+   /gribNumBits 9 def
+   /gribparam 11 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 306.89999 def
+   /scale_min 227.39999 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Temperature) def
+   /standard_name (air_temperature) def
+   /units (Kelvin_scale) def
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+  /CDCON { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+  readdatafile:
+  72 214 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (CDCON) def
+  /gribleveltype 214 def
+  /gribNumBits 7 def
+  /gribparam 72 def
+  /missing_value 9.99900026E20 def
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 77.0 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Convective cloud cover) def
+  /standard_name (convective_cloud_area_fraction) def
+  /units (percent) def
+  decompress
+  } defasvarsilent
+
+  /cld { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+  readdatafile:
+  71 214 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (TCDC) def
+  /gribleveltype 214 def
+  /gribNumBits 7 def
+  /gribparam 71 def
+  /missing_value 9.99900026E20 def
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 100.0 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (cloud cover) def
+  /standard_name (cloud_area_fraction) def
+  /units (percent) def
+  decompress
+  } defasvarsilent
+
+  /RHCLD { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+  readdatafile:
+  225 214 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (RHCLD) def
+  /gribleveltype 214 def
+  /gribNumBits 10 def
+  /gribparam 225 def
+  /missing_value 9.99900026E20 def
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 100.0 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (RH-type cloud cover) def
+  /standard_name (cloud_area_fraction) def
+  /units (percent) def
+  decompress
+  } defasvarsilent
+
+ :dataset
+
+\end{ingrid}
+
+\begin{ingrid}
+
+ dataset: /name (middle-cloud) def
+
+  [ X Y T 18506. last subgrid ] { name exch def } forall
+
+  dataset: /name (bottom) def
+
+   [ X Y T ] { name exch def } forall
+
+   /pressure { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   1 222 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (PRES) def
+   /gribleveltype 222 def
+   /gribNumBits 12 def
+   /gribparam 1 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 76920.0 def
+   /scale_min 37440.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Pressure) def
+   /standard_name (air_pressure) def
+   /units (N/m2) def
+   decompress
+   } defasvarsilent
+
+   /SGLYR { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   175 222 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (SGLYR) def
+   /gribleveltype 222 def
+   /gribNumBits 5 def
+   /gribparam 175 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 77.0 def
+   /scale_min 37.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Nearby model level) def
+   /standard_name (model_level_number) def
+   /units (unitless) def
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+  dataset: /name (top) def
+
+   [ X Y T ] { name exch def } forall
+
+   /pressure { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   1 223 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (PRES) def
+   /gribleveltype 223 def
+   /gribNumBits 12 def
+   /gribparam 1 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 71830.0 def
+   /scale_min 32150.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Pressure) def
+   /standard_name (air_pressure) def
+   /units (N/m2) def
+   decompress
+   } defasvarsilent
+
+   /SGLYR { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   175 223 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (SGLYR) def
+   /gribleveltype 223 def
+   /gribNumBits 5 def
+   /gribparam 175 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 72.0 def
+   /scale_min 32.0 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Nearby model level) def
+   /standard_name (model_level_number) def
+   /units (unitless) def
+   decompress
+   } defasvarsilent
+
+   /temp { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+   readdatafile:
+   11 223 1 GRIBvariable
+   /calendar (standard) def
+   /center (US Weather Service - National Met. Center) def
+   /grib_name (TMP) def
+   /gribleveltype 223 def
+   /gribNumBits 10 def
+   /gribparam 11 def
+   /missing_value 9.99900026E20 def
+   /PDS_TimeRange 3 def
+   /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+   /PTVersion 2 def
+   /scale_max 284.5 def
+   /scale_min 215.5 def
+   /subcenter (NCEP Ensemble Products) def
+   :readdatafile
+   /long_name (Temperature) def
+   /standard_name (air_temperature) def
+   /units (Kelvin_scale) def
+   decompress
+   } defasvarsilent
+
+  :dataset
+
+  /CDCON { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+  readdatafile:
+  72 224 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (CDCON) def
+  /gribleveltype 224 def
+  /gribNumBits 7 def
+  /gribparam 72 def
+  /missing_value 9.99900026E20 def
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 77.0 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Convective cloud cover) def
+  /standard_name (convective_cloud_area_fraction) def
+  /units (percent) def
+  decompress
+  } defasvarsilent
+
+  /cld { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+  readdatafile:
+  71 224 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (TCDC) def
+  /gribleveltype 224 def
+  /gribNumBits 7 def
+  /gribparam 71 def
+  /missing_value 9.99900026E20 def
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 100.0 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (cloud cover) def
+  /standard_name (cloud_area_fraction) def
+  /units (percent) def
+  decompress
+  } defasvarsilent
+
+  /RHCLD { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+  readdatafile:
+  225 224 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (RHCLD) def
+  /gribleveltype 224 def
+  /gribNumBits 10 def
+  /gribparam 225 def
+  /missing_value 9.99900026E20 def
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 100.0 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (RH-type cloud cover) def
+  /standard_name (cloud_area_fraction) def
+  /units (percent) def
+  decompress
+  } defasvarsilent
+
+ :dataset
+
+\end{ingrid}
+
+\begin{ingrid}
+
+ dataset: /name (soil) def
+
+  [ X Y Z3 T 18506. last subgrid ] { name exch def } forall
+
+  /temp { [ X Y | Z3 T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+  readdatafile:
+  11 111 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (TMP) def
+  /gribleveltype 111 def
+  /gribNumBits 11 def
+  /gribparam 11 def
+  /missing_value 9.99900026E20 def 
+  /PDS_TimeRange 113 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 301.10001 def
+  /scale_min 179.8 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  Z3 300 VALUE
+  Z3 /Z renameGRID
+  /long_name (Temperature) def
+  /standard_name (soil_temperature) def
+  /units (Kelvin_scale) def
+  decompress
+  } defasvarsilent
+
+ :dataset
+
+ dataset: /name (total_air_column) def
+
+  datasetdefs:
+  /T2002 T2002 def
+  /T2002a T2002a def
+  /Tdaily T def
+  /dstrfn 3 index 1 index get def
+  :datasetdefs
+
+  [ X Y T ] { name exch def } forall
+
+  /cld { [ X Y | T ] (/Data/data6/ncep-ncar/daily/%s[TCDCclm]) [ (TCDCclm)dstrfn T exch ]
+  readdatafile:
+  71 200 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (TCDC) def
+  /gribleveltype 200 def
+  /gribNumBits 7 def
+  /gribparam 71 def
+  /missing_value 9.99900026E20 def 
+  /PDS_TimeRange 3 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 100.0 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (cloud cover) def
+  /standard_name (cloud_area_fraction) def
+  /units (percent) def
+  T Tdaily replaceGRID
+  decompress
+  } defasvarsilent
+ 
+  dataset: /name (cloud_forcing) def 
+
+   [ X Y T 18506. last subgrid ] { name exch def } forall
+
+   dataset: /name (net) def
+
+    [ X Y T ] { name exch def } forall
+
+    /solr { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    164 200 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (CFNSF) def
+    /gribleveltype 200 def
+    /gribNumBits 5 def
+    /gribparam 164 def
+    /missing_value 9.99900026E20 def
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 12.0 def
+    /scale_min -33.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (solar flux) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+ 
+    /lwflx { [ X Y | T ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T ]
+    readdatafile:
+    165 200 1 GRIBvariable
+    /calendar (standard) def
+    /center (US Weather Service - National Met. Center) def
+    /grib_name (CFNLF) def
+    /gribleveltype 200 def
+    /gribNumBits 8 def
+    /gribparam 165 def
+    /missing_value 9.99900026E20 def
+    /PDS_TimeRange 3 def
+    /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+    /PTVersion 2 def
+    /scale_max 160.0 def
+    /scale_min -131.0 def
+    /subcenter (NCEP Ensemble Products) def
+    :readdatafile
+    /long_name (longwave flux) def
+    /units (W/m2) def
+    decompress
+    } defasvarsilent
+
+   :dataset
+
+  :dataset
+
+  /CWORK { [ X Y | T 18506. last subgrid ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T 18506. last subgrid ]
+  readdatafile:
+  146 200 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (CWORK) def
+  /gribleveltype 200 def
+  /gribNumBits 12 def
+  /gribparam 146 def
+  /missing_value 9.99900026E20 def
+  /PDS_TimeRange 113 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 3858.0 def
+  /scale_min 0.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Cloud work function) def
+  /units (J/kg) def
+  decompress
+  } defasvarsilent
+  
+  /PWAT2 { [ X Y | T 18506. last subgrid ] (/Data/data6/ncep-ncar/daily/update/grb2d.%Y%m%d[T]) [ T 18506. last subgrid ]
+  readdatafile:
+  54 200 1 GRIBvariable
+  /calendar (standard) def
+  /center (US Weather Service - National Met. Center) def
+  /grib_name (PWAT) def
+  /gribleveltype 200 def
+  /gribNumBits 10 def
+  /gribparam 54 def
+  /missing_value 9.99900026E20 def 
+  /PDS_TimeRange 113 def
+  /process ((180) 62 wave triangular, 28 layer Spectral model from "Medium Range Forecast" run) def
+  /PTVersion 2 def
+  /scale_max 86.800003 def
+  /scale_min -8.0 def
+  /subcenter (NCEP Ensemble Products) def
+  :readdatafile
+  /long_name (Precipitable water) def
+  /standard_name (atmosphere_mass_content_of_water_vapor) def
+  /units (kg/m2) def
+  decompress
+  } defasvarsilent
+ 
+ :dataset
+
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,153 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+grid:
+/name /micol def
+1 1 1
+:grid
+:datasetdefs
+
+%DEFINE MONTHLY DATA
+    grid:
+      /name /T def
+      monthtime
+      /defaultvalue { last } def
+      /pointwidth 1 def
+      values:
+        16 Jan 1856 ensotime
+        1
+        systemtime
+        systemtime2ymd
+        ymd:lastmonth
+        ymd:nextmonth 15 add
+        ymd2rm1960
+        {} for
+      :values
+
+    :grid
+
+T { (/Data/data1/noaa/indices/amo/amon-us_long/amon_%Y[T]-%m[T].txt) [T]  } removeextrausing
+/expires
+  T last cvsunits
+    interp exch
+     0.5 add
+     6 ymd:nextmonth
+      6 add
+      ymd2systemtime
+      nip
+def
+  name exch def
+/expires T .expires  def
+
+
+link:
+  /name (website) def
+  /description (http://www.psl.noaa.gov/data/timeseries/AMO/)def
+  /href (http://www.psl.noaa.gov/data/timeseries/AMO/)def
+:link
+
+
+/institution (Physical Sciences Laboratory |  NOAA) def
+/description (Atlantic Multidecadal Oscillation Index) def 
+
+
+/AMO-long_realtime-unsmooth {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/amo/amon-us_long/amon_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 1 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /units /degree_Celsius def
+   /missing_value -99.990 def 
+   /long_name (AMO unsmoothed from the Kaplan SST V2) def
+   temp_anomaly_colors
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+ /title (Atlantic Multidecadal Oscillation) def
+ /description (Calculated at NOAA PSL1 ) def
+ /institution (Physical Sciences Laboratory |  NOAA) def
+ link:
+  /name (ftp_url) def
+  /description (https://psl.noaa.gov/data/correlation/amon.us.long.data) def
+  /href (https://psl.noaa.gov/data/correlation/amon.us.long.data) def
+ :link
+}defasvarsilent
+
+/AMO-short_realtime-unsmooth {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/amo/amon-us_long/amon_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 1 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /units /degree_Celsius def
+   /missing_value -99.990 def
+   /long_name (AMO unsmoothed, detrended from the Kaplan SST V2) def
+   T (Jan 1948) last RANGE
+   temp_anomaly_colors
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+ /title (Atlantic Multidecadal Oscillation) def
+ /description (Calculated at NOAA PSL1 ) def
+ /institution (Physical Sciences Laboratory |  NOAA) def
+ link:
+  /name (ftp_url) def
+  /description (https://psl.noaa.gov/data/correlation/amon.us.data) def
+  /href (https://psl.noaa.gov/data/correlation/amon.us.data) def
+ :link
+}defasvarsilent
+
+/AMO-long_smoothed {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/amo/amon-sm_long/amon_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 1 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /units /degree_Celsius def
+   /missing_value -99.990 def
+   /long_name (AMO smoothed, long.) def
+   T (Jan 1861) (Dec 2015) RANGE
+   temp_anomaly_colors
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+ /title (Atlantic Multidecadal Oscillation) def
+ /description (Calculated at NOAA PSL1 ) def
+ /institution (Physical Sciences Laboratory |  NOAA) def
+ link:
+  /name (ftp_url) def
+  /description (https://psl.noaa.gov/data/correlation/amon.sm.long.data) def
+  /href (https://psl.noaa.gov/data/correlation/amon.sm.long.data) def
+ :link
+}defasvarsilent
+
+/AMO-short_smoothed {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/amo/amon-sm_short/amon_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 1 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /units /degree_Celsius def
+   /missing_value -99.990 def
+   /long_name (AMO smoothed, long.) def
+   T (Jan 1948) (Dec 2015) RANGE
+   temp_anomaly_colors
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+ /title (Atlantic Multidecadal Oscillation) def
+ /description (Calculated at NOAA PSL1 ) def
+ /institution (Physical Sciences Laboratory |  NOAA) def
+ link:
+  /name (ftp_url) def
+  /description (https://psl.noaa.gov/data/correlation/amon.sm.data) def
+  /href (https://psl.noaa.gov/data/correlation/amon.sm.data) def
+ :link
+}defasvarsilent
+
+:dataset
+\end{ingrid}
+

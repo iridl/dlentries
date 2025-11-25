@@ -1,0 +1,20 @@
+\begin{ingrid}
+/T SOURCES .IRI .FD .ECHAM4p5 .Forecast .asst .ensemble .MONTHLY .T
+def
+continuedataset:
+SOURCES .IRI .FD .ECHAM4p5 .Forecast .asst .ensemble .SIX-HOURLY
+{totype dup /pendingdatasettype eq exch /datasettype eq or
+{
+[
+{SOURCES .IRI .FD .ECHAM4p5 .Forecast .asst .ensemble .MONTHLY}
+aload pop
+9 index cvpops
+{[M] average} aload pop
+] cvx defasvar
+}
+{pop}ifelse
+}
+forsomedataset
+/ifvar? false def
+:dataset
+\end{ingrid}

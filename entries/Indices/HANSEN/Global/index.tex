@@ -1,0 +1,71 @@
+\begin{ingrid}
+continuedataset:
+/history (update of Hansen and Lebedeff (1987)) def
+/description (Analysis of average global temperature at annual, seasonal, and monthly time scales) def
+/references (Hansen_Lebedeff1988) def
+dataset:
+/name /Monthly def
+grid:
+/name /T def
+monthtime
+16 Jan 1867 ensotime
+1.
+16 Dec 1994 ensotime
+:grid
+variable:
+/name /Temperature def
+/long_name /Temperature cvntos def
+/units /Celsius def
+grids: T :grids
+file:
+/name (/Data/data2/hansen/global_temp.ch) def
+formatted
+/format ((1x//(5X,12F8.0)))def
+:file
+:variable
+:dataset
+dataset:
+/name /Seasonal def
+grid:
+/name /T def
+monthtime
+16 Jan 1867 ensotime
+3.
+16 Oct 1994 ensotime
+:grid
+variable:
+/name /Temperature def
+/long_name /Temperature cvntos def
+/units /Celsius def
+grids: T :grids
+file:
+/name (/Data/data2/hansen/global_temp.ch) def
+formatted
+/format ((1x//(5X,96X,8X,4F8.0)))def
+:file
+:variable
+:dataset
+dataset:
+/name /Annual def
+grid:
+/name /T def
+monthtime
+1 Jul 1867 ensotime
+12.
+1 Jul 1994 ensotime
+:grid
+variable:
+/name /Temperature def
+/long_name /Temperature cvntos def
+/units /Celsius def
+grids: T :grids
+file:
+/name (/Data/data2/hansen/global_temp.ch) def
+formatted
+/format ((1x//(5X,96X,F8.0)))def
+:file
+:variable
+:dataset
+:dataset
+\end{ingrid}
+

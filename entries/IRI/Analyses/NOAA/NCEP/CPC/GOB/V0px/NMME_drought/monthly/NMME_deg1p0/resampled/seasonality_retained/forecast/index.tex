@@ -1,0 +1,591 @@
+\begin{ingrid}
+continuedataset:
+
+dataset:
+ /name (spi3) def
+
+ /mean {
+ SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+  T (Jan 1982) last RANGE
+% T (Jan 1982) (Aug 2015) RANGE
+  2 gamma3par
+  pcpn_accum gmean gsd gskew pzero 2 gammaprobs
+  2 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered[1]NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi3 .corrSPI3
+   Y -60 75 RANGE
+   L (1) VALUE
+   mul
+  S /defaultvalue {last}def pop
+  /long_name (mean) def
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+   T (Jan 1982) last RANGE
+%  T (Jan 1982) (Aug 2015) RANGE
+   1 gamma3par
+   pcpn_accum gmean gsd gskew pzero 1 gammaprobs
+   1 gammastandardize
+   T /S renameGRID
+   S /long_name (Start Time) def pop
+   /L /months ordered[2]NewGRID addGRID
+   [X Y L S] REORDER
+   2 RECHUNK
+   SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi3 .corrSPI3
+   Y -60 75 RANGE
+    L (2) VALUE
+    mul
+   S /defaultvalue {last}def pop
+   /long_name (mean) def
+   appendstream
+ } defasvarsilent
+
+ /forecasttime {
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+  T (Jan 1982) last RANGE
+  3 gamma3par
+  pcpn_accum gmean gsd gskew pzero 3 gammaprobs
+  3 gammastandardize
+  T /S renameGRID
+  [X Y S]REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi3 .corrSPI3 mul
+  S /defaultvalue { last } def pop
+  S
+   L add
+   nip /long_name (Forecast Time) def
+  /standard_name (time) def
+ } defasvarsilent
+
+ /sigma {
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi3 .corrSPI3
+  Y -60 75 RANGE
+  dup mul
+  -1 mul
+  1 add
+  sqrt
+  1 mul
+  /long_name (sigma) def
+ } defasvarsilent
+
+:dataset
+
+dataset:
+ /name (spi6) def
+
+ /mean{
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  5 gamma3par
+  pcpn_accum gmean gsd gskew pzero 5 gammaprobs
+  5 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [1] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi6 .corrSPI6
+  Y -60 75 RANGE
+  L (1) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  4 gamma3par
+  pcpn_accum gmean gsd gskew pzero 4 gammaprobs
+  4 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [2] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi6 .corrSPI6
+  Y -60 75 RANGE
+  L (2) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  3 gamma3par
+  pcpn_accum gmean gsd gskew pzero 3 gammaprobs
+  3 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [3] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi6 .corrSPI6
+  Y -60 75 RANGE
+  L (3) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def
+  appendstream  
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  2 gamma3par
+  pcpn_accum gmean gsd gskew pzero 2 gammaprobs
+  2 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [4] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi6 .corrSPI6
+  Y -60 75 RANGE
+  L (4) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def
+  appendstream  
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  1 gamma3par
+  pcpn_accum gmean gsd gskew pzero 1 gammaprobs
+  1 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [5] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi6 .corrSPI6
+  Y -60 75 RANGE
+  L (5) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def
+  appendstream  
+ } defasvarsilent
+
+ /forecasttime {
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  6 gamma3par
+  pcpn_accum gmean gsd gskew pzero 6 gammaprobs
+  6 gammastandardize
+  T /S renameGRID 
+  [X Y S]REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi6 .corrSPI6
+  Y -60 75 RANGE
+  mul
+  S /defaultvalue { last } def pop
+  S L add nip /long_name (Forecast Time) def /standard_name (time) def 
+ } defasvarsilent
+
+ /sigma {
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi6 .corrSPI6
+  Y -60 75 RANGE
+  dup mul
+  -1 mul
+  1 add
+  sqrt
+  1 mul
+  /long_name (sigma) def
+ } defasvarsilent 
+
+:dataset
+
+
+dataset:
+ /name (spi9) def
+
+ /mean {
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  8 gamma3par
+  pcpn_accum gmean gsd gskew pzero 8 gammaprobs
+  8 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [1] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi9 .corrSPI9
+  Y -60 75 RANGE
+  L (1) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  7 gamma3par
+  pcpn_accum gmean gsd gskew pzero 7 gammaprobs
+  7 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [2] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi9 .corrSPI9
+  Y -60 75 RANGE
+  L (2) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  6 gamma3par
+  pcpn_accum gmean gsd gskew pzero 6 gammaprobs
+  6 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [3] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi9 .corrSPI9
+  Y -60 75 RANGE
+  L (3) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  5 gamma3par
+  pcpn_accum gmean gsd gskew pzero 5 gammaprobs
+  5 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [4] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi9 .corrSPI9
+  Y -60 75 RANGE
+  L (4) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  4 gamma3par
+  pcpn_accum gmean gsd gskew pzero 4 gammaprobs
+  4 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [5] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi9 .corrSPI9
+  Y -60 75 RANGE
+  L (5) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  3 gamma3par
+  pcpn_accum gmean gsd gskew pzero 3 gammaprobs
+  3 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [6] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi9 .corrSPI9
+  Y -60 75 RANGE
+  L (6) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  2 gamma3par
+  pcpn_accum gmean gsd gskew pzero 2 gammaprobs
+  2 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [7] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi9 .corrSPI9
+  Y -60 75 RANGE
+  L (7) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  1 gamma3par
+  pcpn_accum gmean gsd gskew pzero 1 gammaprobs
+  1 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [8] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi9 .corrSPI9
+  Y -60 75 RANGE
+  L (8) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def
+  appendstream
+ } defasvarsilent
+
+ /forecasttime {
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  9 gamma3par
+  pcpn_accum gmean gsd gskew pzero 9 gammaprobs
+  9 gammastandardize
+  T /S renameGRID
+  [X Y S]REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi9 .corrSPI9
+  Y -60 75 RANGE
+  mul
+  S /defaultvalue { last } def pop
+  S L add nip /long_name (Forecast Time) def /standard_name (time) def
+ } defasvarsilent
+
+ /sigma {
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi9 .corrSPI9
+  Y -60 75 RANGE
+  dup mul
+  -1 mul
+  1 add
+  sqrt
+  1 mul
+  /long_name (sigma) def
+ } defasvarsilent
+
+:dataset
+
+dataset:
+ /name (spi12) def
+
+ /mean {
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  11 gamma3par
+  pcpn_accum gmean gsd gskew pzero 11 gammaprobs
+  11 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [1] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi12 .corrSPI12
+  Y -60 75 RANGE
+  L (1) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def 
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  10 gamma3par
+  pcpn_accum gmean gsd gskew pzero 10 gammaprobs
+  10 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [2] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi12 .corrSPI12
+  Y -60 75 RANGE
+  L (2) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def 
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  9 gamma3par
+  pcpn_accum gmean gsd gskew pzero 9 gammaprobs
+  9 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [3] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi12 .corrSPI12
+  Y -60 75 RANGE
+  L (3) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def 
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  8 gamma3par
+  pcpn_accum gmean gsd gskew pzero 8 gammaprobs
+  8 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [4] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi12 .corrSPI12
+  Y -60 75 RANGE
+  L (4) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def 
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  7 gamma3par
+  pcpn_accum gmean gsd gskew pzero 7 gammaprobs
+  7 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [5] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi12 .corrSPI12
+  Y -60 75 RANGE
+  L (5) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def 
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  6 gamma3par
+  pcpn_accum gmean gsd gskew pzero 6 gammaprobs
+  6 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [6] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi12 .corrSPI12
+  Y -60 75 RANGE
+  L (6) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def 
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  5 gamma3par
+  pcpn_accum gmean gsd gskew pzero 5 gammaprobs
+  5 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [7] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi12 .corrSPI12
+  Y -60 75 RANGE
+  L (7) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def 
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  4 gamma3par
+  pcpn_accum gmean gsd gskew pzero 4 gammaprobs
+  4 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [8] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi12 .corrSPI12
+  Y -60 75 RANGE
+  L (8) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def 
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  3 gamma3par
+  pcpn_accum gmean gsd gskew pzero 3 gammaprobs
+  3 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [9] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi12 .corrSPI12
+  Y -60 75 RANGE
+  L (9) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def 
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  2 gamma3par
+  pcpn_accum gmean gsd gskew pzero 2 gammaprobs
+  2 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [10] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi12 .corrSPI12
+  Y -60 75 RANGE
+  L (10) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def 
+  appendstream
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  1 gamma3par
+  pcpn_accum gmean gsd gskew pzero 1 gammaprobs
+  1 gammastandardize
+  T /S renameGRID
+  S /long_name (Start Time) def pop
+  /L /months ordered [11] NewGRID addGRID
+  [X Y L S] REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi12 .corrSPI12
+  Y -60 75 RANGE
+  L (11) VALUE mul
+  S /defaultvalue { last } def pop
+  /long_name (mean) def 
+  appendstream
+ } defasvarsilent
+
+ /forecasttime {
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+% T (Jan 1982) (Aug 2015) RANGE
+  T (Jan 1982) last RANGE
+  12 gamma3par
+  pcpn_accum gmean gsd gskew pzero 12 gammaprobs
+  12 gammastandardize
+  T /S renameGRID
+  [X Y S]REORDER
+  2 RECHUNK
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi12 .corrSPI12
+  Y -60 75 RANGE
+  mul
+  S /defaultvalue { last } def pop
+  S L add nip /long_name (Forecast Time) def /standard_name (time) def
+ } defasvarsilent
+
+ /sigma {
+  SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .resampled .seasonality_retained .SPIcorrel .spi12 .corrSPI12
+  Y -60 75 RANGE
+  dup mul
+  -1 mul
+  1 add
+  sqrt
+  1 mul
+  /long_name (sigma) def
+ } defasvarsilent
+
+:dataset
+
+:dataset
+
+\end{ingrid}

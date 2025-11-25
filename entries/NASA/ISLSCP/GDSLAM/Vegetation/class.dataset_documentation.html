@@ -1,0 +1,853 @@
+<html>
+<INGRID>standardHeader</INGRID>
+<h1 align=center> Global land cover classification from satellite data.<br>
+     <font size=-1>(Fixed ; UMD, NASA/GSFC)</font><br>
+     revision date for document: April 5, 1995
+</h1>
+<p align=center>
+     Dr. Ruth DeFries<br>
+     Department of Geography<br>
+     University of Maryland, College Park<br><br>
+
+     Dr. J.R.G. Townshend<br>
+     Department of Geography<br>
+     University of Maryland, College Park
+</p>
+<h2>Global Mapping of Vegetative Land Cover</h2>
+
+<h3>  Contacts (For Data Production Information)</h3>
+<pre>
+_________________________________________________________
+              |      Contact 1     |    Contact 2        |
+______________|____________________|_____________________|
+2.3.1 Name    | Dr. Ruth DeFries   | Dr. John Townshend   |
+2.3.2 Address | Dept. of Geography | Dept. of Geography  |
+              | 1113 Lefrak Hall   | 1113 Lefrak Hall    |
+      City/St.| College Park, MD   | College Park, MD    |
+      Zip Code| 20742-8225         | 20742-8225          |
+2.3.3 Tel.    | 301 405-7861       | 301 405-4050        |
+2.3.4 Email   | rd63@umail.umd.edu | jt59@umail.umd.edu  |
+______________|____________________|_____________________|
+
+2.4  Requested Form of Acknowledgment.
+
+     Please cite the following publication when ever these data are used:
+
+      DeFries, R. S. and J. R. G. Townshend, 1994a, NDVI-derived land 
+           cover classification at global scales. International Journal of 
+           Remote Sensing, 15:3567-3586. Special Issue on Global Data Sets.
+
+                            3.  INTRODUCTION
+
+3.1  Objective/Purpose.
+
+     The data set was developed to explore the conceptual and methodological 
+     issues that arise when using the Normalized Difference Vegetation Index 
+     (NDVI) as a basis for global classification of vegetative land cover.  
+     The purpose of the study is to use satellite data to improve currently 
+     available information on global land cover for applications to global 
+     change research.
+
+3.2  Summary of Parameters.
+
+     The data set describes the geographic distributions of eleven major
+     cover types based on interannual variations in NDVI (see section 
+     8.2 for listing of cover types included).  Vegetation-type dependent 
+     parameters as used in SIB2 are included in this documentation, see 
+     section 11.
+
+3.3  Discussion.
+
+     Phenological differences among vegetation types, reflected in temporal
+     variations in NDVI derived from satellite data, have been used to 
+     classify land cover at continental scales.  This study explored 
+     methodologies for extending this concept to a global scale.  A coarse 
+     resolution (one by one degree) data set of monthly NDVI values for 1987  
+     (Los, et al. 1994, Sellers, et al. 1994, 1995b) was used as the basis 
+     for a supervised classification of eleven cover types that broadly 
+     represent the major biomes of the world. Because of missing values at 
+     high latitudes, the Pathfinder AVHRR data set for 1987 (James and 
+     Kalluri, 1994)  for summer monthly NDVI and red reflectance values were 
+     used to distinguish the following cover types: tundra, high latitude 
+     deciduous forest and woodland, coniferous evergreen forest and woodland.
+
+     The eleven cover types were selected primarily to conform with the cover 
+     types required as input to climate models.  Training sets for each of the
+     eleven cover types were identified as the areas where three existing 
+     ground-based data sets of global land cover (Matthews 1983, Olson, et 
+     al. 1983, Wilson and  Henderson-Sellers 1985) agree that the land cover 
+     is present.
+
+     The global land cover data set is the result of a maximum likelihood 
+     classification of eleven cover types.  The data set has not been
+     systematically validated.  Cursory validation indicates that the user
+     should be aware of the following problems: 1) the distinction between 
+     "cultivated" and "grassland" cover types may be inaccurate because the
+     NDVI temporal profiles of these two cover types are not significantly 
+     distinct, and 2) the "tundra" cover type may be inaccurate because of
+     missing data at high latitudes.
+
+                        4.  THEORY OF MEASUREMENTS
+
+Not available at this revision.
+
+                            5.  EQUIPMENT
+
+5.1  Instrument Description.
+
+     The global land cover data set was based on AVHRR maximum monthly 
+     composites for 1987 of NDVI values at approximately 8 km resolution, 
+     averaged to one by one degree resolution  (Los, et al. in press) .  A 
+     Fourier transform was applied to smooth the temporal profiles and remove 
+     aberrant low values (Sellers, et al. 1994, 1995b) .  At high northern 
+     latitudes, the data set was based on the AVHRR Pathfinder data set for 
+     1987  (James and Kalluri, 1994), resampled to a spatial resolution of 
+     one by one degree and composited to obtain maximum monthly NDVI values 
+     and corresponding red reflectance values for summer months.
+
+     5.1.1  Platform (Satellite, Aircraft, Ground, Person...).
+
+            Not applicable.
+
+     5.1.2  Mission Objectives.
+
+            Not applicable.
+
+     5.1.3  Key Variables.
+
+            Not applicable.
+
+     5.1.4  Principles of Operation.
+
+            Not applicable.
+
+     5.1.5  Instrument Measurement Geometry .
+
+            Not applicable.
+
+     5.1.6  Manufacturer of Instrument.
+
+            Not applicable.
+
+5.2  Calibration.
+
+     5.2.1  Specifications.
+
+            Not applicable.
+
+            5.2.1.1  Tolerance.
+
+     5.2.2  Frequency of Calibration.
+
+            Not applicable.
+
+     5.2.3  Other Calibration Information.
+
+            Not applicable.
+
+                          6.  PROCEDURE
+
+6.1  Data Acquisition Methods.
+
+     Not available at this revision.
+
+6.2  Spatial Characteristics.
+
+     6.2.1  Spatial Coverage.
+
+            The coverage is global.  Data in file are ordered from North to 
+            South and from West to East beginning at 180 degrees West and 90 
+            degrees North.  Point (1,1) represents the grid cell centered at 
+            89.5 N and 179.5 W (see section 8.4).
+
+            For additional information on acquisition and processing of the 
+            data sets that were used to derive global land cover, see  (Los, 
+            et al. 1994), (Sellers, et al. 1994, 1995b), and (James and 
+            Kalluri, 1994) .
+
+     6.2.2  Spatial Resolution.
+
+            The data are given in an equal-angle lat/long grid that has a 
+            spatial resolution of 1 X 1 degree lat/long.
+
+6.3  Temporal Characteristics.
+
+     6.3.1  Temporal Coverage.
+
+            The data set is derived from data collected in 1987.
+
+     6.3.2  Temporal Resolution.
+
+            Not applicable.
+
+                           7.  OBSERVATIONS
+
+7.1  Field Notes.
+
+     Not applicable.
+
+                         8.  DATA DESCRIPTION
+
+8.1  Table Definition With Comments.
+
+--------------------------------------------------------------------------------
+|                 8.2.1                   |            |           |           |
+|Parameter/Variable Name                  |            |           |           |
+--------------------------------------------------------------------------------
+|    |                8.2.2               |     8.2.3   |  8.2.4    |  8.2.5   |
+|    | Parameter/Variable Description     |Range        |Units      |Source    |
+--------------------------------------------------------------------------------
+|LAND_COVER_CLASSIFICATIONS               |             |           |          |
+|    |                                    |Min = 0      |Not        |DeFries & |
+|    | Value   Land Cover class           |Max = 15     |Applicable |Townshend |
+|    | =====   ================           |             |           |          |
+|    | 0   0   water                      |             |           |          |
+|    | 1   1   broadleaf evergreen forest |             |           |          |
+|    | 2   2   broadleaf deciduous forest |             |           |          |
+|    |         and woodland               |             |           |          |
+|    | 3   3   mixed coniferous and broad-|             |           |          |
+|    |         leaf deciduous forest and  |             |           |          |
+|    |         woodland                   |             |           |          |
+|    | 4   4   coniferous forest and      |             |           |          |
+|    |         woodland                   |             |           |          |
+|    | 5   5   high latitude deciduous    |             |           |          |
+|    |         forest and woodland        |             |           |          |
+|    |6,8  6   wooded c4 grassland        |             |           |          |
+|    | 7   6   c4 grassland               |             |           |          |
+|    | 9   7   shrubs and bare ground     |             |           |          |
+|    |10   8   tundra                     |             |           |          |
+|    |11   6   desert, bare ground        |             |           |          |
+|    |12   9   cultivation                |             |           |          |
+|    |13       ice                        |             |           |          |
+|    |14   9   c3 wooded grassland        |             |           |          |
+|    |15   9   c3 grassland               |             |           |          |
+--------------------------------------------------------------------------------
+The data values in the first column are consistent with SiB vegetation classes 
+(Dorman and Sellers, 1989).  It was not possible to separate SiB vegetation
+classes 6 (broadleaf trees with groundcover) and 8 (broadleaf shrubs with
+groundcover) using the classification method described here.  Class 6, 
+therefore, includes both types, and there are no class 8 values in the data 
+set.
+
+In the SiB2 GCM application of Sellers et. al. (1995a, b) and for the purpose
+of producing the NDVI related data sets elsewhere on the CD-ROM, this
+classification is simplified to the right-hand column, where most
+tropical seasonal biomes are assigned C4 grassland properties and temperate 
+biomes with c3 ground cover are assigned cultivation properties. For the
+FASIR corrections (see FASIR document elsewhere on the CD-ROM) classes 1,6 and
+14 were merged and represented classes 1, 6, 8 and 14, classes 2 and 3 were 
+merged, class 4 represented class 4 and 5 and class 12 represented classes 
+7,9,10,11,12 and 15.
+
+The cover class descriptions used in DeFries and Townshend (1994a) differ 
+somewhat from the classes shown in Table 8.2.2. Their method resolved 11 
+classes which are regrouped into SiB classes as shown in the following Table.
+
+--------------------------------------------------------------------------------
+|        8.2.6            |                      8.2.7                         |
+--------------------------------------------------------------------------------
+|  Classification numbers | DeFries and Townshend                              |
+|  from the first column  |                                                    |
+|  in Table 8.2.1         |    nomenclature                                    |
+--------------------------------------------------------------------------------
+|                         |                                                    |
+|           1             |  Broadleaf evergreen trees                         |
+|           2             |  Broadleaf deciduous trees                         |
+|           3             |  Mixed trees                                       |
+|           4             |  Needleleaf evergreen trees                        |
+|           5             |  High latitude deciduous trees                     |
+|           6,8           |  Grass with 10 - 40% woody cover                   |
+|           7             |  Grass with <10% woody cover                       |
+|           9             |  Shrubs and bare soil                              |
+|          10             |  Moss and lichens                                  |
+|          11             |  Bare                                              |
+|          12             |  Cultivated                                        |
+--------------------------------------------------------------------------------
+
+For descriptions of the functional characteristics of these cover types, in 
+terms of approximate height of mature vegetation, percent ground surface 
+covered by vegetation, seasonality, and leaf type, see Table 1 in DeFries and 
+Townshend  (1994a).  
+
+8.3  Sample Data Base Data Record.
+
+     Not applicable.
+
+8.4  Data Format.
+
+     The CD-ROM file format is ASCII, and consists of numerical fields of 
+     varying length, which are space delimited and arranged in columns and 
+     rows.  Each column contains 180 numerical values and each row contain 360 
+     numerical values.  
+
+          Grid arrangement
+
+             ARRAY(I,J)
+             I  = 1 IS CENTERED AT 179.5W
+             I INCREASES EASTWARD BY 1 DEGREE
+             J  = 1 IS CENTERED AT 89.5N
+             J INCREASES SOUTHWARD BY 1 DEGREE
+
+             90N - | - - - | - - - | - - - | - -
+                   | (1,1) | (2,1) | (3,1) |
+             89N - | - - - | - - - | - - - | - -
+                   | (1,2) | (2,2) | (3,2) |
+             88N - | - - - | - - - | - - - | - -
+                   | (1,3) | (2,3) | (3,3) |
+             87N - | - - - | - - - | - - - |
+                  180W   179W    178W   177W
+
+            ARRAY(360,180)
+
+8.5  Related Data Sets.
+
+     For other global land cover data sets, see  (Matthews 1983) ,  (Olson, et 
+     al. 1983), (Wilson and Henderson-Sellers 1985) and vegetation 
+     classification map (Dorman and Sellers 1989, Nobre et al. 1991).
+
+                         9.  DATA MANIPULATIONS
+
+9.1  Formulas.
+
+     9.1.1  Derivation Techniques/Algorithms.
+
+            Maximum likelihood classification based on 12 monthly NDVI values
+            was used to obtain the global land cover data set.  In outline,
+            the maximum likelihood procedure classifies each pixel to the land
+            cover type that it most resembles in terms of its remotely sensed
+            properties.  The remotely sensed properties are used to define a 
+            multi-dimensional space within which pixels of each cover type can 
+            be located. The mean vector and variance-covariance matrix for 
+            each cover type are estimated using its worldwide population of 
+            pixels from the training set. Then, using the maximum likelihood 
+            rule (Swain and Davis 1978), the multidimensional space is 
+            partitioned into sub-spaces each uniquely associated with one land 
+            cover type.  The whole of the global land mass is then classified 
+            according to the remotely sensed properties of each pixel.  Thus, 
+            if a pixel falls within the sub-space associated  with cover type 
+            ci, it is labeled ci.  If the pixel falls within the sub-space 
+            associated with cover type cj, it is labeled as that cover type, 
+            cj.
+
+9.2  Data Processing Sequence.
+
+     9.2.1  Processing Steps and Data Sets.
+
+            To account for phasing of seasons, maximum likelihood 
+            classification was based on monthly NDVI values sequenced from the 
+            peak value at each pixel (see DeFries and Townshend  (1994a)  
+            for more detail).
+
+            Training sets for each of the eleven cover types were
+            identified as the areas where three existing ground-based data 
+            sets of global land cover (Matthews 1983, Olson, et al. 1983, 
+            Wilson and Henderson-Sellers 1985) agree that the land cover is 
+            present.  Although there is considerable disagreement among these 
+            data sets  (DeFries and Townshend 1994b), the locations where the 
+            three data sets agree were selected as those with the greatest 
+            confidence that the cover type actually exists on the ground.  The 
+            following steps were taken to ensure that each training set was as 
+            spectrally distinct as possible or to further subdivide the 
+            training set so that each would be spectrally distinct:
+
+            1) each training set was split into Northern and Southern 
+               Hemispheres to account for phasing of seasons in the two 
+               hemispheres.
+
+            2) the feature space occupied by each training set was visually
+               examined.  Pixels that were obvious outliers were removed, and
+               clusters were examined to determine if they were falling in 
+               different geographic areas.  Where this was the case, the 
+               training set was subdivided.  The most obvious example where 
+               subdivision was required was cultivated crops whose spectral 
+               signatures vary considerably among continents.
+
+            3) Bhattacharrya Distances--a measure of the separability of the 
+               training sets--and overlaps in the feature space were examined 
+               to determine if some cover types should be combined.  This was 
+               the case, for example, for Southern Hemisphere broadleaf 
+               deciduous forest located mainly in Africa and Southern 
+               Hemisphere wooded grassland.
+
+     9.2.2  Processing Changes.
+
+            Not applicable.
+
+9.3  Calculations.
+
+     9.3.1  Special Corrections/Adjustments.
+
+            The global land cover data set was modified from the original 
+            maximum likelihood classification result as follows to eliminate 
+            stray pixels that were obviously incorrectly classified:  pixels 
+            falling within training areas that were not correctly classified 
+            were changed to the cover type indicated by the training area;  
+            pixels surrounded on all sides by a different cover type were 
+            changed to that cover type; pixels classified as broadleaf 
+            evergreen in mid-latitudes were changed to the wooded grassland 
+            cover type; pixels classified as coniferous evergreen within the 
+            tropics were changed to the broadleaf evergreen cover type; pixels 
+            classified as mixed deciduous and evergreen forest and woodland 
+            within the tropics were changed to the wooded grassland cover 
+            type.  In total, these changes altered approximately 10 percent of 
+            the total land surface.
+            
+            The following modifications have been made to the global land
+            cover data set by:
+            
+            G. James Collatz and Sietse Los, Biospheric Sciences Branch,
+            Code 923, NASA/Goddard Space Flight Center, Greenbelt MD 20771.
+            
+            The land cover data set was further modified to be consistent with 
+            the SiB vegetation classes described in Dorman and Sellers, 
+            (1989), Sellers et. al. (1995a) and Sellers et. al. (1995b) in the 
+            following ways:
+            
+            a) The Matthews (1983) vegetation map is used as the global 
+               land/ocean mask except for Africa where Kuchler (1983) is used.  
+            
+            b) Vegetation class 8 (broad leaf shrubs and ground cover) was not 
+               distinguishable from class 6 (wooded grassland) using the 
+               classification methods described here so class 6 includes both 
+               wooded grasslands and shrubs with groundcover understory.
+               
+            c) The original classification data set had 90 missing points in
+               Arctic that are classified as land points in the land/ocean 
+               mask.  These were set to class 11 (bare ground). Two other 
+               points not classified lie in the southwestern Pacific 
+               (latitudinal index, longitudinal index=94,329 and 94,330).  
+               These points are set to class 1 to match an adjoining point 
+               that had been classified.
+               
+            d) Class 6 (wooded c4 grassland) and class 7 (c4 grasslands) 
+               occurring in regions with climates unfavorable for c4 grasses 
+               were reclassified to class 14 (wooded c3 grassland) and class 
+               15 (c3 grasslands) respectively.  The main criteria for 
+               deciding whether the climate is favorable for c4 grasses are 
+               that the following two conditions apply for any month at that 
+               grid point: a) mean monthly temperature is above 22 degree C 
+               and b) mean monthly precipitation is above 25mm.  The mean 
+               monthly temperature and precipitation fields were from Leemans 
+               and Cramer (1991). 
+
+9.4  Graphs and Plots.
+
+     See DeFries and Townshend (1994a).
+
+                          10.  ERRORS
+
+10.1  Sources of Error.
+
+      Wintertime NDVI values were missing for large areas in high latitudes in 
+      the primary data set used for this study  (Los, et al., 1994) .  For 
+      these areas, results from a maximum likelihood classification using 
+      AVHRR Pathfinder data (James and Kalluri, 1994) for summertime monthly 
+      NDVI and red reflectance values were used.
+
+10.2  Quality Assessment.
+
+      10.2.1  Data Validation by Source.
+
+              The data set has not been systematically validated.
+
+      10.2.2  Confidence Level/Accuracy Judgment.
+
+              Cursory validation indicates that the user should be aware of 
+              the following problems: 
+
+              1) the distinction between "cultivated" and "grassland" cover 
+                 types may be inaccurate because the NDVI temporal profiles of 
+                 these two cover types are not significantly distinct.
+
+              2) the "tundra" cover type may be inaccurate because of missing 
+                 data at high latitudes.
+
+      10.2.3  Measurement Error for Parameters and Variables.
+
+              Not available.
+
+      10.2.4  Additional Quality Assessment Applied.
+
+              None.
+
+                             11.  NOTES
+
+11.1  Known Problems With The Data.
+
+      See section 10.2.
+
+11.2  Usage Guidance.
+
+      See section 10.2.
+
+11.3  Other Relevant Information.
+
+      The following two tables (Biome dependent and Biome independent
+      parameters) were compiled by G. James Collatz, Code 923, NASA/GSFC,
+      Greenbelt MD 20771, phone: 301-286-1425, e-mail: 
+      jcollatz@biome.gsfc.nasa.gov
+
+      Tables: Time-invariant land surface properties. These can be used in
+      conjunction with the vegetation classification to specify global
+      parameter fields. Most parameter fields are derived for use in the 
+      Simple Biosphere model (SiB2; see Sellers et al., 1994, 1995b and 
+      Sellers et al., 1995a,b and papers referenced) and may need to be 
+      adapted for use in other models. (Parameters are from Sellers et al., 
+      1995a,b).
+______________________________________________________________________________
+______________________________________________________________________________
+11.3.1 Biome dependent morphological and physiological parameters.
+______________________________________________________________________________
+
+                                                   SiB Vegetation Type
+Name                    Symbol    Units     1     2     3     4     5     6   
+______________________________________________________________________________
+Canopy top height         z_2      m       35.0  20.0  20.0  17.0  17.0  1.0
+
+Inflection height for
+   leaf area density      z_c      m       28.0  17.0  15.0  10.0  10.0  0.6
+   
+Canopy base height        z_1      m        1.0  11.5  10.0   8.5   8.5  0.1
+
+Canopy cover fraction      V       -        1.0   1.0   1.0   1.0   1.0  1.0
+
+Leaf angle distribution
+   factor                 chi_l    -        0.1  0.25  0.13  0.01  0.01 -0.3
+   
+Leaf width                l_w      m       0.05  0.08  0.04 0.001 0.001 0.01
+
+Leaf length               l_l      m        0.1  0.15   0.1  0.06  0.04  0.3
+
+Total soil depth          D_t      m        3.5   2.0   2.0   2.0   2.0  1.5
+
+Maximum rooting depth     D_r      m        1.5   1.5   1.5   1.5   1.5  1.0
+
+1/2 inhibition water
+   potential              psi_c    m       -200  -200  -200  -200  -200  -200
+   
+Leaf reflectance, visible,
+   live                  alpha_v,l -        0.1   0.1  0.07  0.07  0.07  0.11
+   
+Leaf reflectance, visible,
+   dead                  alpha_v,d -       0.16  0.16  0.16  0.16  0.16  0.36
+   
+Leaf reflectance, near IR,
+   live                  alpha_n,l -       0.45  0.45   0.4  0.35  0.35  0.58
+   
+Leaf reflectance, near IR,
+   dead                  alpha_n,d -       0.39  0.39  0.39  0.39  0.39  0.58
+   
+Leaf transmittance, visible,
+   live                  delta_v,l -       0.05  0.05  0.05  0.05  0.05  0.07
+   
+Leaf transmittance, visible,
+   dead                  delta_v,d -      0.001 0.001 0.001 0.001 0.001  0.22
+   
+Leaf transmittance, near IR,
+   live                  delta_n,l -       0.25  0.25  0.15   0.1   0.1  0.25
+   
+Leaf transmittance, near IR,
+   dead                  delta_n,d -      0.001 0.001 0.001 0.001 0.001  0.38
+   
+Soil reflectance, visible   a_s,n   -      0.11  0.11  0.11  0.11  0.11  0.11*
+
+Soil reflectance, near IR  a_s,v   -      0.225 0.225 0.225 0.225 0.225 0.225*
+
+Maximum rubisco capacity,         mol m^-2
+   top leaf              V_max0    s^-1    6e-5  6e-5  6e-5  6e-5  6e-5  3e-5
+   
+Intrinsic quantum yield  epsilon   -       0.08  0.08  0.08  0.08  0.08  0.05
+
+Stomatal slope factor       m      -        9.0   9.0   7.5   6.0   6.0   4.0
+
+Minimum stomatal                  mol m^-2
+   conductance              b      s^-1    0.01  0.01  0.01  0.01  0.01  0.04
+   
+Photosynthesis coupling
+   coefficient           beta_ce   -       0.98  0.98  0.98  0.98  0.98   0.8
+   
+High temperature stress
+   factor, photosynthesis   s_2     K        313   311   307   303   303   313
+   
+Low temperature stress
+   factor, photosynthesis   s_4     K        288   283   281   278   278   288
+   
+Minimum leaf resistance**  r_min   s m^-1    80    80   100   120   120   110
+   
+_____________________________________________________________________________
+11.3.2 Biome dependent parameters continued.
+_____________________________________________________________________________
+                                                   SiB Vegetation Type
+ Name                    Symbol    Units     7     8     9    10    11   12  
+_____________________________________________________________________________
+Canopy top height         z_2      m        1.0   1.0   0.5   0.6   1.0  1.0
+
+Inflection height for
+   leaf area density      z_c      m        0.6   0.6   0.3  0.35   0.6  0.6
+   
+Canopy base height        z_1      m        0.1   0.1   0.1   0.1   0.1  0.1
+
+Canopy cover fraction      V       -        1.0   1.0   0.1   1.0   1.0  1.0
+
+Leaf angle distribution
+   factor                 chi_l    -       -0.3  -0.3  0.01   0.2  -0.3 -0.3
+   
+Leaf width                l_w      m       0.01  0.01 0.003  0.01  0.01 0.01
+
+Leaf length               l_l      m        0.3   0.3  0.03   0.3   0.3  0.3
+
+Total soil depth          D_t      m        1.5   1.5   1.5   1.5   1.5  1.5
+
+Maximum rooting depth     D_r      m        1.0   1.0   1.0   1.0   1.0  1.0
+
+1/2 inhibition water
+   potential              psi_c    m       -200  -200  -300  -200  -200 -200
+   
+Leaf reflectance, visible,
+   live                  alpha_v,l -       0.11  0.11   0.1  0.11  0.11  0.11
+   
+Leaf reflectance, visible,
+   dead                  alpha_v,d -       0.36  0.36  0.16  0.36  0.36  0.36
+   
+Leaf reflectance, near IR,
+   live                  alpha_n,l -       0.58  0.58  0.45  0.58  0.58  0.58
+   
+Leaf reflectance, near IR,
+   dead                  alpha_n,d -       0.58  0.58  0.39  0.58  0.58  0.58
+   
+Leaf transmittance, visible,
+   live                  delta_v,l -       0.07  0.07  0.05  0.07  0.07  0.07
+   
+Leaf transmittance, visible,
+   dead                  delta_v,d -       0.22  0.22 0.001  0.22  0.22  0.22
+   
+Leaf transmittance, near IR,
+   live                  delta_n,l -       0.25  0.25  0.25  0.25  0.25  0.25
+   
+Leaf transmittance, near IR,
+   dead                  delta_n,d -       0.38  0.38 0.001  0.38  0.38  0.38
+   
+Soil reflectance, visible   a_s,n   -       0.11* 0.15*  0.3* 0.11   0.3*  0.1
+
+Soil reflectance, near IR  a_s,v   -      0.225* 0.25* 0.35* 0.23  0.35* 0.15
+
+Maximum rubisco capacity,         mol m^-2
+   top leaf              V_max0    s^-1    3e-5  3e-5  6e-5  6e-5  3e-5  6e-5
+   
+Intrinsic quantum yield  epsilon   -       0.05  0.05  0.08  0.08  0.05  0.08
+
+Stomatal slope factor       m      -        4.0   4.0   9.0   9.0   4.0   9.0
+
+Minimum stomatal                  mol m^-2
+   conductance              b      s^-1    0.04  0.04  0.01  0.01  0.04  0.01
+   
+Photosynthesis coupling
+   coefficient           beta_ce   -        0.8   0.8  0.98  0.98   0.8  0.98
+   
+High temperature stress
+   factor, photosynthesis   s_2     K        313   313   313   303   313   308
+   
+Low temperature stress
+   factor, photosynthesis   s_4     K        288   288   288   278   288   281
+   
+Minimum leaf resistance**  r_min   s m^-1   110   110    80    80   110    80
+
+_____________________________________________________________________________
+
+*Soil reflectance for areas with bare soil are specified according to ERBE
+data which is available elsewhere on this CD ROM.
+
+**Minimum leaf resistance is the light saturated, unstressed resistance to 
+water vapor diffusion through the leaf surface.  It is calculated using table 
+values of V_max and m and the photosynthesis and stomatal models described in
+Collatz et. al. 1991, Agric. For. Meteor., 54:107-136.  The total canopy 
+resistance can be calculated using the minimum leaf resistance scaled by 
+environmental conditions and integrated over all the leaves in the canopy.  
+A simple way to perform the integration would be to multiply the environment-
+modified minimum leaf resistance by the leaf area index (LAI) or by the 
+fraction of incident PAR that is absorbed by the canopy (FPAR).  Global fields
+of LAI and FPAR are available elsewhere on this CD-ROM.
+     
+______________________________________________________________________________
+     Biome independent parameters
+______________________________________________________________________________
+     Name                                        symbol    units       value
+______________________________________________________________________________
+     Ground roughness length                       z_s       m          0.05
+     
+     Augmentation factor for momentum              G_1       -          1.449
+     
+     Transition height factor for momentum         G_4       -         11.785
+     
+     Depth of surface soil layer                   D_1       m          0.02
+     
+     Rubisco Michaels-Menten constant for CO2      K_c       Pa      30*2.1^Qt
+     
+     Rubisco inhibition constant for oxygen        K_o       Pa  30,000*1.2^Qt
+     
+     Rubisco specificity for CO2 relative to       S         -   2,600*0.57^Qt
+     oxygen
+     
+     Q10 temperature coefficient                   Qt        -      (T-298)/10
+     
+     Photosynthesis coupling coefficient           beta_ps   -           0.95
+     
+     High temperature stress factor, photosynthesis s_1       K^-1        0.3
+     
+     Low temperature stress factor, photosynthesis  s_3       K^-1        0.2
+     
+     High temperature stress factor, respiration    s_5       K^-1        1.3
+     
+     High temperature stress factor, respiration    s_6       K           328
+     
+     Leaf respiration factor                       f_d       -           0.015
+______________________________________________________________________________
+______________________________________________________________________________
+
+                           12.  REFERENCES
+
+12.1  Satellite/Instrument/Data Processing Documentation.
+
+      None.
+
+12.2  Journal Articles and Study Reports.
+
+      DeFries, R. S. and J. R. G. Townshend, 1994a, NDVI-derived land 
+           cover classification at global scales. International Journal of 
+           Remote Sensing, 15:3567-3586. Special Issue on Global Data Sets.
+      DeFries, R. S. and J. R. G. Townshend, 1994b. Global land cover:
+           comparison of ground-based data sets to classifications with AVHRR 
+           data. In Environmental Remote Sensing from Regional to Global 
+           Scales, edited by G. Foody and P. Curran, Environmental Remote 
+           Sensing from Regional to Global Scales. (U.K.: John Wiley and 
+           Sons).
+      James, M. E. and S. N. V. Kalluri, 1994. The Pathfinder AVHRR land 
+           data set: An improved coarse resolution data set for terrestrial 
+           monitoring. International Journal of Remote Sensing,  Special Issue 
+           on Global Data Sets. 15(17):3347-3363.
+      Kuchler, A.W., 1983,  World map of natural vegetation.  Goode's World 
+           Atlas, 16th ed., Rand McNally, 16-17. 
+      Leemans, R., and W. P. Cramer, 1991, The IIASA database for mean monthly
+           values of temperature, precipitation and cloudiness on a global
+           terrestrial grid, technical report, International Institute for
+           Applied Systems Analysis, Laxenburg, Austria.
+      Los, S.O.,  C.O. Justice, C.J. Tucker, 1994. A global 1 by 1 degree NDVI 
+           data set for climate studies derived from the GIMMS continental 
+           NDVI data. International Journal of Remote Sensing, 15(17):3493-
+           3518. 
+      Matthews, E., 1983. Global vegetation and land use: new high resolution 
+           data bases for climate studies. Journal of Climate and Applied 
+           Meteorology, 22: 474-487.
+      Olson, J. S., Watts, J. and L. Allison, 1983. Carbon in live vegetation 
+           of major world ecosystems. W-7405-ENG-26, U.S. Department of 
+           Energy, Oak Ridge National Laboratory.
+      Sellers, P.J., S.O. Los, C.J. Tucker, C.O. Justice, D.A. Dazlich, G.J. 
+           Collatz, and D.A. Randall, 1994. A global 1*1 degree NDVI data set 
+           for climate studies. Part 2: The generation of global fields of 
+           terrestrial biophysical parameters from the NDVI. International 
+           Journal of Remote Sensing, 15(17):3519-3545.
+      Sellers, P.J., D.A. Randall, C.J. Collatz, J.A. Berry, C.B. Field, D.A. 
+          Dazlich, C. Zhang, and C.D. Collelo, 1995a. A revised land surface 
+          parameterization (SiB2) for atmospheric GCMs. Part 1: Model 
+          formulation. submitted to Journal of Climate.
+      Sellers, P.J., S.O. Los, C.J. Tucker, C.O. Justice, D.A. Dazlich, G.J. 
+         Collatz, and D.A. Randall, 1995b. A revised land surface 
+         parameterization (SiB2) for atmospheric GCMs. Part 2: The generation 
+         of global fields of terrestrial biophysical parameters from satellite 
+         data. submitted to Journal of Climate.
+      Swain, P. H. and S. M. Davis, (ed.), 1978. Remote Sensing: The 
+           Quantitative Approach. (New York: McGraw-Hill Book Company).
+      Wilson, M. F. and A. Henderson-Sellers, 1985. A global archive of land 
+           cover and soils data for use in general circulation models. Journal 
+           of Climatology, 5: 119-143.
+ 
+12.3  Archive/DBMS Usage Documentation.
+
+      Contact the EOS Distributed Active Archive Center (DAAC) at NASA Goddard 
+      Space Flight Center (GSFC), Greenbelt Maryland (see Section 13 below).
+      Documentation about using the archive or information about access to the 
+      on-line information system is available through the GSFC DAAC User 
+      Services Office.
+
+                             13.  DATA ACCESS
+
+13.1  Contacts for Archive/Data Access Information.
+
+      GSFC DAAC User Services
+      NASA/Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Phone:     (301) 286-3209
+      Fax:       (301) 286-1775
+      Internet:  daacuso@eosdata.gsfc.nasa.gov
+
+13.2  Archive Identification.
+
+      Goddard Distributed Active Archive Center
+      NASA Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Telephone:  (301) 286-3209
+      FAX:        (301) 286-1775
+      Internet:   daacuso@eosdata.gsfc.nasa.gov
+
+13.3  Procedures for Obtaining Data.
+
+      Users may place requests by accessing the on-line system, by sending 
+      letters, electronic mail, FAX, telephone, or personal visit.
+
+      Accessing the GSFC DAAC Online System:
+
+      The GSFC DAAC Information Management System (IMS) allows users to 
+      ordering data sets stored on-line.  The system is open to the public.
+
+      Access Instructions:
+
+      Node name:  daac.gsfc.nasa.gov
+      Node number: 192.107.190.139
+      Login example: telnet daac.gsfc.nasa.gov
+      Username:  daacims
+      password:  gsfcdaac
+
+      You will be asked to register your name and address during your first
+      session.
+
+      Ordering CD-ROMs:
+
+      To order CD-ROMs (available through the Goddard DAAC) users should 
+      contact the Goddard DAAC User Support Office (see section 13.2).
+
+13.4  GSFC DAAC Status/Plans.
+
+      The ISLSCP Initiative I CD-ROM is available from the Goddard DAAC.
+
+                   14.  OUTPUT PRODUCTS AND AVAILABILITY
+
+14.1  Tape Products.
+
+      None.
+
+14.2  Film Products.
+
+      None.
+
+14.3  Other Products.
+
+      None.
+
+                       15.  GLOSSARY OF ACRONYMS
+
+AVHRR          Advanced Very High Resolution Radiometer
+CD-ROM         Compact Disk (optical), Read Only Memory
+DAAC           Distributed Active Archive Center
+EOS            Earth Observing System
+GCM            General Circulation Model of the atmosphere
+GSFC           Goddard Space Flight Center
+IDS            Inter-disciplinary Science
+ISLSCP         International Satellite Land Surface Climatology Project
+NASA           National Aeronautics and Space Administration
+NDVI           Normalized Difference Vegetation Index
+</pre>
+</body></html>

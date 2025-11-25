@@ -1,0 +1,469 @@
+% GEDEX CD-ROM Booklet for Distribution Package
+%
+% Written Dec. 1991 by A. Warnock, Hughes STX
+%
+\documentstyle[twoside]{article}
+\textheight 3.8in
+\textwidth 4.0in
+\oddsidemargin .7in
+\evensidemargin .7in
+\raggedbottom
+%
+% Quire input and settings (see quire.doc for more information)
+\input quire
+\latexquire
+%\htotal 5.0in       \vtotal 5.0in
+\htotal 4.75in       \vtotal 4.7in
+\horigin -0.3in     \vorigin -0.2in
+\shoutline 0pt      \shstaplewidth 0pt
+\shcrop 1pt
+%\shonly2
+% Use these two lines to format one booklet page per sheet with crop marks
+\shhtotal 8.5in
+\qonepage
+% Use these two lines to format two booklet pages per sheet with crop marks
+% (Make sure the printer is set for landscape mode, not portrait mode)
+%\shhtotal 11in
+%\quire{16}
+%
+\pagestyle{myheadings}
+\markboth{NASA Climate Data System}
+{GEDEX CD-ROM}
+%
+\begin{document}
+\setcounter{page}{0}
+\thispagestyle{empty}
+\begin{centering}
+{\Large\bf GREENHOUSE EFFECT \\
+DETECTION EXPERIMENT\\
+\bigskip
+GEDEX \\
+\bigskip
+Selected Data Sets} \\
+%\bigskip\bigskip\bigskip
+\medskip\medskip
+Lola M. Olsen  \\
+Archibald Warnock III \\
+%\bigskip\bigskip\bigskip\bigskip
+\bigskip
+Prepared as a NASA contribution to \\
+The Space Agency Forum \\
+on \\
+The International Space Year 1992\\
+\medskip
+by \\
+NASA Climate Data System Staff\\
+Goddard Distributed Active Archive Center\\
+NASA --- Goddard Space Flight Center \\
+Greenbelt, Maryland 20771 \\
+%\bigskip\bigskip
+%Prepared by: \\
+%Hughes STX \\
+%4400 Forbes Blvd. \\
+%Lanham, MD 20706 \\
+\end{centering}
+
+\pagebreak
+\setcounter{page}{0}
+\thispagestyle{empty}
+\noindent
+
+\small
+\vspace{.5in}
+\noindent The data contained herein are for scientific use only and 
+have no commercial value.
+
+\vspace{.5in}
+\noindent MS-DOS is a registered trademark of Microsoft Corporation. \\
+Macintosh is a registered trademark of Apple Computer. \\
+UNIX is a registered trademark of AT\&T. \\
+VMS is a registered trademark of Digital Equipment Corp.
+
+\pagebreak
+\setcounter{page}{1}
+
+\begin{centering}
+\Large \bf
+The Greenhouse Effect Detection Experiment \\
+\bigskip
+Selected Data Sets \\
+for \\
+Global Change Research \\
+\end{centering}
+
+\small
+\vspace*{3ex}
+
+\section*{Introduction}
+
+In preparation for the International Space Year (ISY), the Greenhouse
+Effect Detection Experiment (GEDEX), a NASA Earth Science and
+Applications Division-sponsored initiative in support of the Space
+Agency Forum on the International Space Year (SAFISY), organized a
+workshop to bring together a core group of scientists to share their
+research and ideas in the area of global climate change. Participants in
+this workshop, which was designated GEDEX Atmospheric Temperature
+Workshop met in Columbia, Maryland, in July of 1991 for the purpose of
+obtaining a measure of progress and recommending actions required to
+better understand the global atmospheric temperature record and its
+relationship with climate forcings and feedbacks.  Dr.~Robert
+A.~Schiffer and Dr.~Sushel Unninayar organized and led the discussions
+where concepts and hypotheses were exchanged.  The document, ``The
+Detection of Climate Change Due To The Enhanced Greenhouse Effect: A
+Synthesis of Findings Based on the GEDEX Atmospheric Temperature
+Workshop,'' issued by NASA Headquarters in February 1992 summarizes the
+ideas and discussions which took place during the workshop.
+
+One of the primary objectives of the workshop was to assemble and
+document existing data (focusing on temperature) for the analysis of
+global climate change and to consolidate these selected data sets onto
+CD-ROMs for distribution nationally and internationally to promote
+further research. With climate as the focus, Dr.~Schiffer requested that
+NASA's Climate Data System (NCDS) staff participate and prepare for the
+acquisition, archiving, implementation, and documentation of data
+recommended for distribution.  NCDS has been designated as the core
+system for the Goddard Space Flight Center's Distributed Active Archive
+Center (DAAC) of the Earth Observing System Data and Information System
+(EOSDIS), and in this role will continue to update GEDEX-relevant data
+sets.  All data will remain in the Goddard DAAC (NCDS) and will be
+updated whenever new releases are made available. Subsequent updates
+will therefore be made available in an ongoing manner to the climate
+user community.  More than 60 data sets were identified by workshop
+participants for inclusion, yielding nearly 1 gigabyte of data for this
+first 2-disk set of CD-ROMs.
+
+Immediately following the workshop, staff members began gathering and
+implementing the designated data to make it available to the climate
+user community through the online interactive data system, as well as
+preparing the data for publication on CD-ROM.  NCDS staff members also
+translated data into a standard format (the Common Data Format [CDF]) to
+allow for the use of a single set of software tools to access the data
+on disks.
+
+Most participants contributed data and helped in the preparation of the
+standard documentation for each data set slated for CD-ROM. Each data
+set was verified by the NCDS staff after it was transformed into CDF.
+Iterations of the detailed documentation and extensive verification with
+data producers ensure that the data are reproduced as received from data
+producers.  The data producers cooperated fully with this essential
+effort.
+
+The data sets include surface, upper air, and/or satellite-derived
+measurements of temperature, solar irradiance, clouds, greenhouse gases,
+fluxes, albedo, aerosols, ozone, and water vapor, along with Southern
+Oscillation Indices and Quasi-Biennial Oscillation statistics.  Many of
+the data sets provide global coverage.  The spatial resolutions vary
+from zonal to 2.5 degree grids. Temporal coverage also varies. Some
+surface station data sets cover more than 100 years, while most of the
+satellite-derived data sets cover only the most recent 12 years.
+Temporal resolution, for most data sets, is monthly.
+
+The data sets, thoroughly documented through standard detailed catalogs,
+are easily identified through the use of summaries providing temporal
+coverage and resolution, spatial coverage and resolution, parameters,
+{\em etc\/}.
+
+\section*{GEDEX Data Sets}
+
+%Within the workshop environment, participants recommended data sets that
+During the workshop, participants recommended data sets that
+they considered directly or indirectly relevant to the study of the
+Greenhouse Effect.  One session at the workshop was devoted to
+identifying data sets for the CD-ROMs, including recommended temporal and
+spatial resolutions. Although the focus of the first GEDEX workshop was
+on temperature, other parameters such as solar irradiance, atmospheric
+constituents, cloud, and radiation budget data which affect the
+temperature record were considered essential components of these disks.
+The data on the disks have been categorized by these parameters for
+summary here. The temperature, solar irradiance, cloud, and radiation
+budget data can be found on Disk 1. The atmospheric constituent data are
+contained on Disk 2. Satellite-based data overlap these categories but
+are also designated separately. Additionally, the documentation of data
+sets is discussed briefly.
+
+
+\subsection*{Disk 1 --- Temperature, Radiation and Cloud Data}
+
+\subsubsection*{Temperature --- Surface}
+
+The basic surface station temperature data set from NCDC/NCAR contains
+monthly temperature and precipitation values and is subdivided by
+continent.  A few records date from as early as 1738, and modern station
+data extend through 1989. Other surface temperature anomaly data sets
+containing monthly gridded values were provided by Philip Jones,
+University of East Anglia Climate Research Unit, and by James Hansen,
+Goddard Institute for Space Studies (GISS). Zonal and station
+temperature data are included from the State Hydrologic Institute's
+(Russia) Konstantin Vinnikov. These data sets extend over 100 years of
+record.  Gridded 2.5 degree monthly sea surface temperature data and
+anomalies as calculated by Richard Reynolds from NOAA's Climate Analysis
+Center also reside on this disk. These SST values are from AVHRR sensors
+on NOAA polar orbiters and are blended with ship and buoy data.
+Investigating the effect of the El Ni\~{n}o/Southern Oscillation (ENSO)
+on the temperature anomaly record, may be done with the data set
+provided by the University of East Anglia's Climate Research Unit
+containing the Southern Oscillation Index calculations, along with the
+Tahiti and Darwin mean sea level pressures from which they are derived.
+
+
+\subsubsection*{Temperature --- Upper Air}
+
+NCDC/NCAR contributed comprehensive monthly station rawinsonde data.
+Both temperature and humidity profiles are included in this data set.
+Another upper air temperature data set was produced by James Angell,
+NOAA ARL.  It contains seasonal zonal temperature deviations from
+rawinsonde data around the world. Angell also provided Quasi-Biennial
+Oscillation temperature and zonal wind data at 50, 30, and 10 mb.
+Marshall Space Flight Center's Roy Spencer provided more than 12 years
+of mid-tropospheric temperature and anomaly data from the TIROS
+Operational Vertical Sounder Microwave Sounding Unit (TOVS-MSU), flown
+on NOAA polar orbiters.  Stratospheric temperature data were provided by
+Harry van Loon and Karen Labitzke through NCAR.   Although these data
+are only available for the northern hemisphere, they provide a valuable
+monthly zonal product for the years 1957 to 1991.  In addition, profiles
+of meteorological data from NMC were provided at 1 km intervals for the
+Stratospheric Aerosol and Gas Experiment (SAGE II) time period.
+
+
+\subsubsection*{Solar Irradiance and Transmission}
+
+Solar transmission and surface-measured irradiance data were sent by
+Ellsworth Dutton, NOAA Climate Monitoring and Diagnostics Laboratory
+(CMDL).  The daily solar transmission indices from the Mauna Loa
+Observatory begin in 1958 and continue through 1990. The hourly solar
+irradiance data make up a rare collection of solar data collected at the
+surface from 1976 to 1989 at selected sites.  NASA Goddard Space Flight
+Center's Lee Kyle provided solar irradiance data from the Nimbus-7 Earth
+Radiation Budget (ERB) instrument, and Langley Research Center's Robert
+Lee, offered the solar irradiance data from NOAA-9, NOAA-10, and ERBS.
+Richard Willson of JPL has collaborated with the NCDS staff over the
+years in making 9 years of solar irradiance data from the Solar Maximum
+Mission's ACRIM sensor available to users online.  The Dominion Radio
+Astrophysical Observatory (DRAO) (formerly Ottawa) 2800 MHz radio flux
+data from 1947 to the present are also available on the disk with
+observed, absolute, and adjusted variables.
+
+\subsubsection*{Radiation Budget and Clouds}
+
+Bruce Barkstrom of Langley Research Center provided the combined
+Earth Radiation Budget Experiment's (ERBE S4) satellite gridded
+products, including the scanner data at 2.5 degree resolution and the
+wide-field-of-view monthly averages. William Rossow, NASA GISS,
+suggested and subsequently provided a comprehensive subset of the
+International Satellite Cloud Climatology Project's (ISCCP) monthly
+cloud products at 2.5 degree resolution.  He also assisted in the review
+and verification of those data.  Goddard's Lee Kyle worked closely with
+the staff in the validation of data on the disk from the Earth Radiation
+Budget instrument on board Nimbus-7.  Data from the wide-field-of-view
+sensor span the period 1978 to 1987 and are monthly in temporal
+resolution and approximately 4.5 by 5 degrees in spatial resolution.
+Goddard's Joel Susskind also worked closely with the NCDS staff, making
+subsets of his cloud and radiation data available for the disk.  His
+data are derived from NOAA Polar Orbiting satellites using TOVS-HIRS and
+TOVS-MSU sensors.
+
+
+\subsection*{Disk 2 --- Atmospheric Constituents}
+
+\subsubsection*{Atmospheric Constituents}
+
+The Carbon Dioxide Information Analysis Center (CDIAC), Department of
+Energy, is the source for the ``TRENDS '90, A Compendium of Data on
+Global Change,'' providing carbon dioxide and methane values spanning
+the geological record (through ice core techniques) and more recent
+values collected by NOAA from flask sampling and continuous monitoring
+techniques.  NOAA ARL's James Angell also contributed seasonal layer
+ozone data from Umkehr sounding and ozonesonde from 1957 to 1990, and
+total ozone from Dobson spectrophotometers for the period 1967 to 1989.
+Patrick McCormick's colleagues at NASA's Langley Research Center worked
+closely with our staff in providing ozone, nitrogen dioxide, and aerosol
+data from the Atmospheric Explorer Mission's SAGE I instrument, and
+aerosol, ozone, water vapor, and nitrogen dioxide data from the Earth
+Radiation Budget Satellite's (ERBS) SAGE II instrument beginning with
+data from the November 1984 launch through 1991.
+
+
+
+\subsubsection*{Satellite-based Data}
+
+The satellite-based data sets are those from Solar Maximum Mission's
+ACRIM instrument, the Nimbus-7 Earth Radiation Budget instrument, the
+Atmospheric Explorer Mission's SAGE I sensor, the Earth Radiation Budget
+Satellite's SAGE II sensor, the NOAA polar orbiter TOVS-HIRS and
+TOVS-MSU instrument, the Earth Radiation Budget Experiment (NOAA-9,
+NOAA-10, and ERBS sensors), and the International Satellite Cloud
+Climatology Project's AVHRR, MIR and VAS sensors on NOAA Polar Orbiters,
+GOES, Meteosat, and GMS satellites.
+
+
+\subsection*{Documentation}
+
+Each data set is accompanied by a detailed catalog in a standard format
+(in the subdirectory DETAILED) and by a short summary file (in the
+subdirectory SUMMARY). In addition, the DETAILED subdirectory also
+contains descriptions of satellite sensors and the products from which
+the geophysical parameters on this disk are derived.  Among these are
+AVHRR, TOVS, VAS, VISSR, ERB, ERBE, SAGE I, and SAGE II.
+
+\section*{The CD-ROM Contents}
+
+For the purposes of this discussion, we assume that the reader has
+access to a CD-ROM drive and is familiar with its operation. Drives are
+available for nearly every computer and operating system, so a tutorial
+in their installation and operation is beyond the scope of this booklet.
+
+All of the actual data on the CD-ROMs are in CDF format, written under
+version 2.1 of the CDF library.  The single-file and network-encoding
+options were used to make the data most widely portable.  There are also
+supplemental text files which provide additional information about the
+contents of the data files. In this booklet, the term {\em text file}
+implies that the file consists of stream-oriented records delimited by a
+carriage-return (decimal value 13) and a linefeed (decimal value 10).
+This format is consistent with the MS-DOS$^{\rm TM}$ operating system.
+Users of Apple Macintosh$^{\rm TM}$ computers, DEC VAX$^{\rm TM}$  or
+UNIX$^{\rm TM}$ workstations may find that one or the other of these
+delimiters is not used by the operating system and is ``visible'' in the
+file. Regardless, the files should be easily readable by normal text
+processing tools such as editors and file browsers.
+
+File names on the discs consist of a name no longer than eight
+characters, followed by a period, ``.'', and an extension no longer than
+three characters. On Macintosh and some UNIX computers, the full
+filename may also contain a trailing ``version number'' separated by a
+semi-colon. The file names will appear in upper case under those
+operating systems which are case-sensitive.
+
+The directory hierarchy is the same for both CD-ROMs.  There are 5 major
+subdirectories on the discs, as given below:
+
+\begin{description}
+\item[DATA] The data sets, in Common Data Format.
+\item[DETAILED] Detailed catalogs for the individual data sets and
+sensors.
+\item[DOCUMENT] Overall documentation for the CD-ROM.
+\item[INDEX] Various comma-delimited tables of data describing the
+data sets.  Suitable for import into a database management system.
+\item[SOFTWARE] Utility programs for manipulating data in CDF under
+MS-DOS$^{\rm TM}$, DEC VAX$^{\rm TM}$  or UNIX$^{\rm TM}$ operating
+systems, along with the portable CDF software library.
+\item[SUMMARY] Summary documentation for the individual data sets.
+\end{description}
+
+There are several files associated with each data set.  The kind of
+information stored in a file can be inferred from the extension on the
+file name:
+
+\begin{description}
+\item[CDF] The data, formatted to CDF v2.1 as network-encoded,
+single file data sets.  These are all located in the DATA subdirectory.
+\item[DET] A text file, containing the NCDS Detailed Catalog
+associated with the data set.  All of these files are located in the
+DETAILED subdirectory.
+\item[SUM] A text file, containing summary information about the
+data set.  All of these files are located in the SUMMARY subdirectory.
+\end{description}
+
+Since several data sets may share a single detailed catalog, the file
+PRODUCTS.LIS (in the SUMMARY subdirectory) gives a tabular listing of
+the name of the data file, a brief description of the data set and the
+name of the associated detailed catalog.
+
+\section*{Software}
+
+A software package to assist the user in browsing the contents of the
+disk and in reading the supplemental documentation is provided here.
+Through the use of a commercial user-interface library (JYACC
+Application Manager --- JAM), we were able to develop versions of the
+software which present the same user interface under MS-DOS, Unix and
+VMS.  The interface itself was designed to look and perform like the
+current NCDS on-line system.
+
+Explicit installation and operation directions for the browse software
+are located in the SOFTWARE subdirectory.
+
+
+%Arch:::Major new section
+
+\section*{GEDEX Research}
+
+It is hoped that through this consolidation and documentation of
+existing data sets, ambiguities and uncertainties associated with
+climate change and greenhouse gas effect will be further explored by
+more scientists.  It is also hoped that researchers will continue to
+review the relationships between temperature change and plausible
+cause-effect factors, and that this disk will serve as a test-bed for
+future CD-ROMs for EOS.
+
+\section*{Acknowledgements}
+
+The creation and distribution of the GEDEX CD-ROM disk set was an effort
+that pressed the entire NCDS staff into service to meet the standards
+adopted at the outset. Bruce Vollmer, NCDS task leader, coordinated the
+effort for Hughes STX. Ke Jun Sun coaxed CDFs from many nebulously
+formatted, vaguely documented, but vitally important data sets.
+Configuration management was expertly handled by systems architect John
+Vanderpool, who also created the package of software for users of this
+disk and helped in data set implementation. The integrity of the data
+base, now fully normalized by data base designer Hank Griffioen,
+permitted the assimilation of designated data holdings for this CD-ROM.
+Staff members Jim Closs and Frank Corprew balanced their workload in the
+user support office while managing to implement data sets and help in
+data documentation. Overseeing the archiving and inventory of data was
+Joe Brown, aided by Frances Bergman.  Rick Amick fine-tuned the artwork,
+and helped with editing. Sue Sorlie rendered important assistance in
+data verification. Pat Hrubiak, designed the logo for this CD-ROM,
+contributing in the areas of quality control and catalog updates as
+well.
+
+In addition to the full cooperation from the data set producers already
+mentioned, valuable assistance was also offered by Alison Walker and
+Helene Wilson from GISS, Mike Rowland and Er-won Chiou from Langley
+Research Center,  Lena Iredell from Goddard Space Flight Center, and
+Pavel Groisman from the State Hydrological Institute (presently at
+NCDC).  Michael J.~Martin of the Jet Propulsion Laboratory provided
+valuable assistance by producing a preliminary version of this disk for
+testing.
+
+Support for this effort from the Earth Science and Applications
+Division, NASA Headquarters was provided by Dr.~Robert Schiffer.
+Dr.~Sushel Unninayar (NASA Headquarters/University Corporation for
+Atmospheric Research) provided important suggestions and encouragement
+throughout.
+
+\bigskip
+\noindent
+Further information on GEDEX can be obtained by contacting:
+
+\smallskip
+\noindent
+Dr.~Robert A.~Schiffer \\
+Chief, Climate and Hydrological Systems Branch \\
+Earth Science and Applications Division \\
+NASA Headquarters, Code SED \\
+Washington, DC 20546
+
+\noindent
+tel: (202) 453-1680 \\
+fax: (202) 755-5032
+
+\bigskip
+\noindent
+Further information on the CD-ROM can be obtained by contacting:
+
+\medskip
+\noindent
+Lola M.~Olsen \\
+Project Manager, NASA's Climate Data System \\
+Data Management Systems Facility \\
+Goddard Space Flight Center \\
+Greenbelt, MD 20771
+
+\noindent
+tel: (301) 286-9760 \\
+fax: (301) 286-3221
+
+\end{document}
+
+
+%Arch:  move phone numbers beside our names if this drags on to another
+%page

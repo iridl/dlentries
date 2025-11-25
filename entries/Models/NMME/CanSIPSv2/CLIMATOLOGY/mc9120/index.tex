@@ -1,0 +1,152 @@
+\begin{ingrid} 
+continuedataset: 
+
+/hgt { 
+ SOURCES .Models .NMME .CanSIPSv2 .HINDCAST .MONTHLY .hgt
+  S (1 Jan 1991) (1 Dec 2018) RANGEEDGES
+  SOURCES .Models .NMME .CanSIPSv2 .FORECAST .MONTHLY .hgt
+   S (1 Jan 2019) (1 Dec 2020) RANGEEDGES
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvarcache 
+
+/prec { 
+ SOURCES .Models .NMME .CanSIPSv2 .HINDCAST  .MONTHLY .prec
+  S (1 Jan 1991) (1 Dec 2018) RANGEEDGES
+  SOURCES .Models .NMME .CanSIPSv2 .FORECAST  .MONTHLY .prec
+   S (1 Jan 2019) (1 Dec 2020) RANGEEDGES
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvarcache
+
+
+/sst { 
+ SOURCES .Models .NMME .CanSIPSv2 .HINDCAST .MONTHLY .sst
+  S (1 Jan 1991) (1 Dec 2018) RANGEEDGES
+  SOURCES .Models .NMME .CanSIPSv2 .FORECAST .MONTHLY .sst
+   S (1 Jan 2019) (1 Dec 2020) RANGEEDGES
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvarcache
+
+/tref { 
+ SOURCES .Models .NMME .CanSIPSv2 .HINDCAST .MONTHLY .tref
+  S (1 Jan 1991) (1 Dec 2018) RANGEEDGES
+  SOURCES .Models .NMME .CanSIPSv2 .FORECAST .MONTHLY .tref
+   S (1 Jan 2019) (1 Dec 2020) RANGEEDGES
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvarcache
+
+/ugrd200 {
+ SOURCES .Models .NMME .CanSIPSv2 .HINDCAST .MONTHLY .ugrd
+  S (1 Jan 1991) (1 Dec 2018) RANGEEDGES
+  P (200) VALUES  
+SOURCES .Models .NMME .CanSIPSv2 .FORECAST .MONTHLY .ugrd
+   S (1 Jan 2019) (1 Dec 2020) RANGEEDGES
+   P (200) VALUES
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvarcache
+
+
+/ugrd850 {
+ SOURCES .Models .NMME .CanSIPSv2 .HINDCAST .MONTHLY .ugrd
+  S (1 Jan 1991) (1 Dec 2018) RANGEEDGES
+  P (850) VALUES
+SOURCES .Models .NMME .CanSIPSv2 .FORECAST .MONTHLY .ugrd
+   S (1 Jan 2019) (1 Dec 2020) RANGEEDGES
+   P (850) VALUES 
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvarcache
+
+
+/vgrd200 {
+ SOURCES .Models .NMME .CanSIPSv2 .HINDCAST .MONTHLY .vgrd
+  S (1 Jan 1991) (1 Dec 2018) RANGEEDGES
+  P (200) VALUES  
+SOURCES .Models .NMME .CanSIPSv2 .FORECAST .MONTHLY .vgrd
+   S (1 Jan 2019) (1 Dec 2020) RANGEEDGES
+   P (200) VALUES
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvarcache
+
+
+/vgrd850 {
+ SOURCES .Models .NMME .CanSIPSv2 .HINDCAST .MONTHLY .vgrd
+  S (1 Jan 1991) (1 Dec 2018) RANGEEDGES
+  P (850) VALUES
+SOURCES .Models .NMME .CanSIPSv2 .FORECAST .MONTHLY .vgrd
+   S (1 Jan 2019) (1 Dec 2020) RANGEEDGES
+   P (850) VALUES
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvarcache
+
+
+
+/tmin {
+ SOURCES .Models .NMME .CanSIPSv2 .HINDCAST .MONTHLY .tmin
+  S (1 Jan 1991) (1 Dec 2018) RANGEEDGES
+  SOURCES .Models .NMME .CanSIPSv2 .FORECAST .MONTHLY .tmin
+   S (1 Jan 2019) (1 Dec 2020) RANGEEDGES
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvarcache
+
+/tmax {
+ SOURCES .Models .NMME .CanSIPSv2 .HINDCAST .MONTHLY .tmax
+  S (1 Jan 1991) (1 Dec 2018) RANGEEDGES
+  SOURCES .Models .NMME .CanSIPSv2 .FORECAST .MONTHLY .tmax
+   S (1 Jan 2019) (1 Dec 2020) RANGEEDGES
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvarcache
+
+/tmp {
+ SOURCES .Models .NMME .CanSIPSv2 .HINDCAST .MONTHLY .tmp
+  S (1 Jan 1991) (1 Dec 2018) RANGEEDGES
+  SOURCES .Models .NMME .CanSIPSv2 .FORECAST .MONTHLY .tmp
+   S (1 Jan 2019) (1 Dec 2020) RANGEEDGES
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvarcache
+
+/prmsl {
+ SOURCES .Models .NMME .CanSIPSv2 .HINDCAST .MONTHLY .prmsl
+  S (1 Jan 1991) (1 Dec 2018) RANGEEDGES
+  SOURCES .Models .NMME .CanSIPSv2 .FORECAST .MONTHLY .prmsl
+   S (1 Jan 2019) (1 Dec 2020) RANGEEDGES
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvarcache
+
+:dataset
+\end{ingrid} 
+

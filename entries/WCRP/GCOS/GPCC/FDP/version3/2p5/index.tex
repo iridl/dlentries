@@ -1,0 +1,57 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+periodic
+-178.75 2.5 178.75
+:grid
+grid:
+/name /Y def
+degN
+88.75 -2.5 -88.75
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1951 ensotime
+1.
+16 Dec 2004 ensotime
+:grid
+/TY T yearlyedgesgrid first secondtolast subgrid def
+/TM2 T yearlyedgesgrid partialgrid /name /TM2 def  def
+grid:
+/name /TM def
+monthtime
+periodic
+Jan 1 Dec
+:grid
+  [ /NVZ
+    2 NewIntegerGRID
+    TM X Y |
+    TY] (/Data/data21/gpcc/gpcc_full_V3_25_%Y[T]_precip_gauges.gz) [TY]readdatafile:
+/missing_value -99999.99 def 
+2488320
+ r*4asascii :readdatafile
+ [X Y NVZ TM T]REORDER
+   2 RECHUNK
+   T TM2 replaceGRID
+   TM unsplitstreamgrid
+TM /T renameGRID
+/TM2 undef
+definevariables:
+0 Zvariable:
+/name /prcp def
+/units (mm/month) def
+/standard_name (precipitation_amount) def
+:Zvariable
+0 Zvariable:
+/name /cnts def
+:Zvariable
+:definevariables
+:dataset
+\end{ingrid}
+home .benno .GPCC .2p5
+   T first VALUE
+   TM first VALUE
+

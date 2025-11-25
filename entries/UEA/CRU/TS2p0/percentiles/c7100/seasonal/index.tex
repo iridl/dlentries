@@ -1,0 +1,46 @@
+\begin{ingrid}
+continuedataset:
+/prcp
+{
+ SOURCES .UEA .CRU .TS2p0 .monthly .prcp
+  T (Dec 1970) (Jan 2001) RANGE
+  T 3. runningAverage
+  T 12 splitstreamgrid
+ ndim RECHUNK
+   CopyStream
+  [T2]0 .1 .2 0.33 .5 0.67 .8 .9 1 0.5 replacebypercentile
+T /pointwidth 3 def name exch def
+3 RECHUNK CopyStream
+} defasvarcache
+/temp
+{
+ SOURCES .UEA .CRU .TS2p0 .monthly .mean .temp
+  T (Dec 1970) (Jan 2001) RANGE
+  T 3. runningAverage
+  T 12 splitstreamgrid
+ ndim RECHUNK
+   CopyStream
+  [T2]0 .1 .2 0.33 .5 0.67 .8 .9 1 0.5 replacebypercentile
+T /pointwidth 3 def name exch def
+3 RECHUNK CopyStream
+} defasvarcache
+grid:
+/name /X def
+degE
+periodic
+-179.75 .5 179.75
+:grid
+grid:
+/name /Y def
+degN
+-89.75 .5 89.75
+:grid
+grid:
+/name /T def
+/units monthclimoname def
+/pointwidth 3 def
+Jan 1. Dec
+:grid
+:dataset
+\end{ingrid}
+

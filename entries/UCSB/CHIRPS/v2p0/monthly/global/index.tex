@@ -1,0 +1,154 @@
+\begin{ingrid}
+continuedataset:  
+
+%% -50.00S --  50.00N Northward;
+%%         180.00W -- 180.00E Eastward  
+%%        7200 grid points in east - west direction
+%%        2000 grid points in south - north direction
+
+datasetdefs:
+/prcp_monthlyrate_max1500_smooth {
+  startcolormap
+    0.0 1500.0 RANGE
+    LightGrey white white
+       0.0 VALUE
+       LightCyan
+        25.0 VALUE
+        SkyBlue
+         37.5 VALUE
+         DodgerBlue
+          125.0 VALUE
+          MediumBlue
+           250.0 VALUE
+           DarkSeaGreen
+            375.0 VALUE
+            MediumSeaGreen
+             500.0 VALUE
+             LightSeaGreen
+              750.0 VALUE
+              khaki
+               1000.0 VALUE
+               SandyBrown
+                1250.0 VALUE
+                firebrick 1500.0 VALUE
+                firebrick endcolormap
+} defcolorscale
+:datasetdefs
+
+link:
+/name (source) def
+/href (ftp://ftp.chc.ucsb.edu/pub/org/chc/products/CHIRPS-2.0/global_monthly/tifs/) def
+:link
+
+link:
+/name (USGS Data Series 832) def
+/description (Reference paper PDF) def
+/href (http://pubs.usgs.gov/ds/832/) def
+:link
+
+link:
+/name (CHIRPS Home Page) def
+/description (CHIRPS page at UCSB Climate Hazards Center) def
+/href (https://www.chc.ucsb.edu/data/chirps/) def
+:link 
+
+%latitude 
+grid: 
+/name /Y def 
+/units (degree_north) def
+ordered 
+50 0.05 2 div sub to -50 0.05 2 div add N= 2000 pts 
+:grid
+
+%longitude 
+grid: 
+/name /X def 
+/units (degree_east) def 
+periodic 
+-180 to 180 0.05 sub  N= 7200 pts 
+:grid
+
+grid: 
+/name /T def 
+monthtime 
+/defaultvalue {last} def
+/long_name (Time) def
+/standard_name (time) def
+16 Jan 1981 ensotime 
+1 
+16 systemtime systemtime2ymd ymd:lastmonth pop exch ensotime
+:grid
+
+T {(/Data/data23/UCSB/CHIRPS/v2p0/monthly/chirps-v2.0.%Y[T].%m[T].tif) [T] } removeextrausing
+name exch def
+
+T
+/expires last
+  rm19602ymd ymd:nextmonth ymd:nextmonth ymd2systemtime def
+  name exch def
+/last_modified last_modified T .last_modified imax def
+/expires T .expires def
+
+/precipitation{
+[X Y | T] 
+(/Data/data23/UCSB/CHIRPS/v2p0/monthly/chirps-v2.0.%Y[T].%m[T].tif) [T]readdatafile:
+      /realarraytype tiffimage
+      /missing_value -9999.0 def
+/name (precipitation) def
+/long_name (CHIRPS precipitation) def
+/standard_name (lwe_precipitation_rate) def
+/units (mm/month) def
+      :readdatafile
+prcp_monthlyrate_max1500_smooth
+} defasvarsilent
+
+/references (Funk_etal2014) def
+
+dataset:
+
+/name (c8113) def
+/description (1981-2013 climatology) def
+
+/precipitation {
+ SOURCES .UCSB .CHIRPS .v2p0 .monthly .global .precipitation
+  T first (Dec 2013) RANGE
+  T 12 splitstreamgrid
+  [X Y T2]REORDER
+  [X Y]REORDER
+  [T2]average
+}defasvarcache
+
+:dataset
+
+dataset:
+
+/name (deg1p0) def
+/description (regridded to 1.0 deg. lat/lon resolution) def
+ 
+/precipitation {
+ SOURCES .UCSB .CHIRPS .v2p0 .monthly .global .precipitation
+  X -179.5 1.0 179.5 0.5 evengridAverage
+  Y 49.5 1.0 -49.5 0.5 evengridAverage
+} defasvarcachesilent
+
+:dataset
+
+dataset:
+
+/name (NMME_deg1p0) def
+
+/description (CHIRPS monthly precipitation regridded to 1.0 deg. lat/lon resolution to match NMME models between 49S and 49N) def
+
+/precipitation {
+ SOURCES .UCSB .CHIRPS .v2p0 .monthly .global .precipitation
+  X -179.0 1.0 180.0 0.25 evengridAverage
+  Y 49.0 1.0 -49.0 0.25 evengridAverage
+  X 0.0 359.0 RANGE
+  Y -49.0 49.0 RANGE
+} defasvarcachesilent
+
+:dataset
+
+:dataset
+
+\end{ingrid}

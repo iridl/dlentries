@@ -1,0 +1,74 @@
+\begin{ingrid}
+continuedataset:
+/description (IMD 0.25 Degree Daily Gridded Precipitation Data Set) def
+/iridl:hasSemantics (iridl:India_ERFS) def
+%/NotOpen dataareIRIonlyPassword
+/IMDPrecipERFS datadownloadsareRestricted
+%link:
+%/name (dataset_documentation) def
+%/href (http://www.agu.org/journals/gl/gl0818/2008GL035143/) def
+%/description (GRL Publication) def
+%:link
+
+%link:
+%/name (NCC1-2005 Version 2.0) def
+%/href (http://iridl.ldeo.columbia.edu/SOURCES/.IMD/.NCC1-2005/.v2p0/) def
+%/description (this dataset was replaced by NCC1-2005 Version 2.0) def
+%/semantics /dctem:isReplacedBy def
+%:link
+
+%/references (Rajeevan_etal2008) def
+
+grid:
+/name (X)def
+/units (degree_east)def
+ 66.5 0.25 100.
+ :grid
+ grid:
+ /name (Y)def
+ /units (degree_north)def
+  6.5 0.25 38.5
+  :grid
+  grid:
+  /name (T)def
+  /units (julian_day) def
+  01 Jan 1901 julian_day
+  1
+  31 Dec 2016 julian_day
+  :grid
+
+  /rf{
+   [X
+      Y |
+   T] (/Data/data6/IMD/daily/gridded/precip/IMD-0p25_1901-2015/ind%Y[T]_rfp25.grd) [T yearlyedgesgrid
+      first secondtolast subgrid
+      ]readdatafile:
+      /name (rf) def
+      /pointwidth 1. def
+      /step 1. def
+      /calendar /standard def
+      /long_name (GRIDDED RAINFALL) def
+      /missing_value -999. def
+      /units (mm/day) def
+      /standard_name (rainfall_rate) def
+      decdirect :readdatafile
+   } defasvarsilent
+
+  /stn{
+   [X
+      Y |
+   T] (/Data/data6/IMD/daily/gridded/precip/IMD-0p25_1901-2015/stn_%Y[T]_pt25.grd) [T yearlyedgesgrid
+      first secondtolast subgrid
+      ]readdatafile:
+      /name (stn) def
+      /pointwidth 1. def
+      /step 1. def
+      /calendar /standard def
+      /long_name (Number of Stations) def
+      /missing_value 0.0 def
+      /units (count) def
+      decdirect :readdatafile
+   } defasvarsilent
+
+:dataset
+\end{ingrid}

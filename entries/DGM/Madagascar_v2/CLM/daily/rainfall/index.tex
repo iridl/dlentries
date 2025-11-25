@@ -1,0 +1,44 @@
+
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name /T def
+/units (days since 1960-01-01 12:00:00) def
+/defaultvalue { last } def
+1 Jan 1983 julian_day 01 Jan 1960 julian_day sub
+1.0
+30 Nov 2015 julian_day 01 Jan 1960 julian_day sub
+:grid
+
+%Define Lat grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ -25.9875 0.0375 -12.
+:grid
+
+%Define Lon grid
+grid:
+/name (X)def
+/units (degree_east)def
+ 42. 0.0375 51.975
+:grid
+
+/rfe{
+[ X Y | T] (/Data/data23/madagascar_v2/CLM/daily/rainfall/rr_mrg_%Y[T]%m[T]%d[T]_CLM.nc) [T]
+readdatafile:
+/name (precip) def
+ /long_name (Merged Station-Satellite Rainfall) def
+ /missing_value -99. def
+ /units /mm def
+ /realarraytype netcdfrecords :readdatafile
+cmorph_dekad_colors
+DATA 0 150 RANGE
+}defasvarcachesilent
+
+
+:dataset
+
+\end{ingrid}
+

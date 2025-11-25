@@ -1,0 +1,93 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+
+/prcp_dailyrate_max100_smooth {
+  startcolormap
+    0.0 100.0 RANGE
+    LightGrey white white
+       0.0 VALUE
+       LightCyan
+        2.0 VALUE
+        SkyBlue
+         4.0 VALUE
+         DodgerBlue
+          9.0 VALUE
+          MediumBlue
+           16.0 VALUE
+           DarkSeaGreen
+            25.0 VALUE
+            MediumSeaGreen
+             33.0 VALUE
+             LightSeaGreen
+              50.0 VALUE
+              khaki
+               67.0 VALUE
+               SandyBrown
+                83.0 VALUE
+                firebrick 100.0 VALUE
+                firebrick endcolormap
+} defcolorscale
+
+:datasetdefs
+
+
+grid:
+/name /X def
+/units /degree_east def
+ -17.5875 0.0375 dup 170.0 mul 2 index add
+/long_name (Longitude) def
+:grid
+
+grid:
+/name /Y def
+/units /degree_north def
+ 12.225 0.0375 dup 122.0 mul 2 index add
+/long_name (Latitude) def
+:grid
+
+
+grid:
+/name /T def
+/standard_name (time) def
+/units (days since 1983-01-01  12:00:00) def
+0 1.0 
+%systemtime
+%systemtime2ymd ymd2rjt
+31 Dec 2016 julian_day
+1
+Jan 1983 julian_day
+sub
+/defaultvalue {last} def
+:grid
+
+%T { (/Data/data23/ANACIM/anacim_v3/ALL_block2/rr_mrg_daily/rr_mrg_%Y%m[T]%d[T]_ALL.nc) [T]} removeextrausing
+%name exch def
+
+%T 
+%/expires last rjt2ymd ymd:nextmonth ymd:nextmonth ymd2systemtime def
+%   name exch def
+%   /expires T .expires def
+%   /last_modified T .last_modified def
+
+%%%%%
+
+/rfe{
+[ X Y | T] (/Data/data23/ANACIM/anacim_v3/ALL_block2/rr_mrg_daily/rr_mrg_%Y%m[T]%d[T]_ALL.nc) [T]
+readdatafile:
+/name (precip) def
+ /long_name (Daily Rainfall) def
+ /missing_value -99. def
+ /units /mm def
+ /realarraytype netcdfrecords 
+ :readdatafile
+prcp_dailyrate_max100_smooth
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+
+

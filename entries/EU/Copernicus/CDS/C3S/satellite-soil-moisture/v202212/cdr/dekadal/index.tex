@@ -1,0 +1,248 @@
+\begin{ingrid}
+
+continuedataset:
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+-179.875 0.25 179.875
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+-89.875 0.25 89.875
+:grid
+
+dataset:
+
+/name /ssm def
+/description (Surface Soil Moisture) def
+
+/keywords (soil moisture, soil water content, microwave remote sensing, active, passive, combined, climate data record) def
+/platform (ERS-1, ERS-2, METOP-A, METOP-B) def
+/license (Copernicus Data License) def
+/geospatial_lat_units (degrees_north) def
+/geospatial_lat_max (90.0) def
+/project (C3S2 312a Lot 4 Soil Moisture) def
+/product_version (v202212.0.0) def
+/summary (This dataset was produced with funding of the Copernicus Climate Change Service implemented by ECMWF through C3S 312a Lot 7 & C3S2 312a Lot 4 Soil Moisture) def
+/keywords_vocabulary (NASA Global Change Master Directory (GCMD) Science Keywords) def
+/geospatial_vertical_max (0.0) def
+/geospatial_lon_max (180.0) def
+/standard_name_vocabulary (CF Standard Name Table v77) def
+/spatial_resolution (25km) def
+/institution (TU Wien (AUT); VanderSat B.V. (NL)) def
+/naming_authority (TU Wien, EODC) def
+/contact (cci_sm_contact@eodc.eu) def
+/geospatial_lon_min (-180.0) def
+/creator_url (https://eodc.eu/) def
+/creator_name (Earth Observation Data Centre (EODC)) def
+/cdm_data_type (Grid) def
+/geospatial_lon_units (degrees_east) def
+/geospatial_lon_resolution (0.25 degree) def
+/key_variables (sm) def
+/geospatial_vertical_min (0.0) def
+/geospatial_lat_min (-90.0) def
+/processing_level (Quality-controlled, super-collocated (L3S) Satellite Soil Moisture (SM) data from multiple sensors) def
+/title (C3S Satellite Surface Soil Moisture merged ACTIVE Product) def
+/references (https://doi.org/10.24381/cds.d7782f18; Dorigo, W.A., Wagner, W., Albergel, C., Albrecht, F.,  Balsamo, G., Brocca, L., Chung, D., Ertl, M., Forkel, M., Gruber, A., Haas, E., Hamer, D. P. Hirschi, M., Ikonen, J., De Jeu, R. Kidd, R. Lahoz, W., Liu, Y.Y., Miralles, D., Lecomte, P. (2017) ESA CCI Soil Moisture for improved Earth system understanding: State-of-the art and future directions. In Remote Sensing of Environment, 2017, ISSN 0034-4257, https://doi.org/10.1016/j.rse.2017.07.001; Gruber, A., Scanlon, T., van der Schalie, R., Wagner, W., Dorigo, W. (2019) Evolution of the ESA CCI Soil Moisture Climate Data Records and their underlying merging methodology. Earth System Science Data 11, 717-739, https://doi.org/10.5194/essd-11-717-2019; Gruber, A., Dorigo, W. A., Crow, W., Wagner W. (2017). Triple Collocation-Based Merging of Satellite Soil Moisture Retrievals. IEEE Transactions on Geoscience and Remote Sensing. PP. 1-13. https://doi.org/10.1109/TGRS.2017.2734070) def
+/creator_email (C3S_SM_Science@eodc.eu) def
+/comment (This dataset was produced with funding of the Copernicus Climate Change Service implemented by ECMWF through C3S 312a Lot 7 & C3S2 312a Lot 4 Soil Moisture) def
+/Conventions (CF-1.9) def
+/source (WARP 5.5R1.1/AMI-WS/ERS12 Level 2 Soil Moisture; WARP 5.4R1.0/AMI-WS/ERS2 Level 2 Soil Moisture; H115: Metop ASCAT Surface Soil Moisture Climate Data Record v5 12.5 km sampling, DOI: 10.15770/EUM_SAF_H_0006; H116: Metop ASCAT Surface Soil Moisture Climate Data Record v5 Extension 12.5 km sampling; H115: Metop ASCAT Surface Soil Moisture Climate Data Record v5 12.5 km sampling, DOI: 10.15770/EUM_SAF_H_0006; H116: Metop ASCAT Surface Soil Moisture Climate Data Record v5 Extension 12.5 km sampling; H115: Metop ASCAT Surface Soil Moisture Climate Data Record v5 12.5 km sampling, DOI: 10.15770/EUM_SAF_H_0006; H116: Metop ASCAT Surface Soil Moisture Climate Data Record v5 Extension 12.5 km sampling;) def
+/geospatial_lat_resolution (0.25 degree) def
+
+[X Y] {name exch def}forall
+
+/T
+11 Aug 1991 julian_day
+31 Dec 2022 julian_day
+dekadGRID
+/defaultvalue { last } def
+def
+
+/sm {
+[X Y last first subgrid | T]
+(/Data/data21/EC/Copernicus/CDS/C3S/satellite-soil-moisture/v202212/ssm/10_day/cdr/%Y[T]/C3S-SOILMOISTURE-L3S-SSMS-ACTIVE-DEKADAL-%Y%m%d[T]000000-TCDR-v202212.0.0.nc)
+[T integralgrid first secondtolast subgrid]
+readdatafile:
+/name (sm) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/missing_value -9999. def
+/units /percent def
+/long_name (Percent of Saturation Soil Moisture) def
+precip_colors
+/valid_min 0 def
+/valid_max 100 def
+DATA 0 100 RANGE
+}defasvarsilent
+
+/sensor {
+[X Y last first subgrid | T]
+(/Data/data21/EC/Copernicus/CDS/C3S/satellite-soil-moisture/v202212/ssm/10_day/cdr/%Y[T]/C3S-SOILMOISTURE-L3S-SSMS-ACTIVE-DEKADAL-%Y%m%d[T]000000-TCDR-v202212.0.0.nc)
+[T integralgrid first secondtolast subgrid]
+readdatafile:
+/name (sensor) def
+/integerarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/missing_value 0 def
+/long_name (Sensor) def
+256 div
+/units /ids def
+/scale_min 1 def
+/scale_max 3 def
+/CLIST [(ASCATA) (ASCATB) (ASCATA+ASCATB)] def
+startcolormap
+DATA 1 3 RANGE
+transparent red red green yellow yellow
+endcolormap
+}defasvarsilent
+
+/freqbandID {
+[X Y last first subgrid | T]
+(/Data/data21/EC/Copernicus/CDS/C3S/satellite-soil-moisture/v202212/ssm/10_day/cdr/%Y[T]/C3S-SOILMOISTURE-L3S-SSMS-ACTIVE-DEKADAL-%Y%m%d[T]000000-TCDR-v202212.0.0.nc)
+[T integralgrid first secondtolast subgrid]
+readdatafile:
+/name (freqbandID) def
+/shortarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/missing_value 0 def
+/long_name (Frequency Band Identification C53) def
+}defasvarsilent
+
+/nobs {
+[X Y last first subgrid | T]
+(/Data/data21/EC/Copernicus/CDS/C3S/satellite-soil-moisture/v202212/ssm/10_day/cdr/%Y[T]/C3S-SOILMOISTURE-L3S-SSMS-ACTIVE-DEKADAL-%Y%m%d[T]000000-TCDR-v202212.0.0.nc)
+[T integralgrid first secondtolast subgrid]
+readdatafile:
+/name (nobs) def
+/shortarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/missing_value -1 def
+/long_name (Number of valid observation) def
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+dataset:
+
+/name /vssm def
+/description (Volumetric Surface Soil Moisture) def
+
+ /geospatial_vertical_max (0.0) def
+ /spatial_resolution (25km) def
+ /geospatial_lat_min (-90.0) def
+ /naming_authority (TU Wien, EODC) def
+ /platform (Nimbus 7, DMSP, TRMM, AQUA, Coriolis, GCOM-W1, MIRAS, SMAP, GPM, FengYun-3B, FengYun-3C, FengYun-3D; ERS-1, ERS-2, METOP-A, METOP-B) def
+ /keywords (soil moisture, soil water content, microwave remote sensing, active, passive, combined, climate data record) def
+ /project (C3S2 312a Lot 4 Soil Moisture) def
+ /summary (This dataset was produced with funding of the Copernicus Climate Change Service implemented by ECMWF through C3S 312a Lot 7 & C3S2 312a Lot 4 Soil Moisture) def
+ /keywords_vocabulary (NASA Global Change Master Directory (GCMD) Science Keywords) def
+ /product_version (v202212.0.0) def
+ /creator_name (Earth Observation Data Centre (EODC)) def
+ /cdm_data_type (Grid) def
+ /geospatial_lon_min (-180.0) def
+ /comment (This dataset was produced with funding of the Copernicus Climate Change Service implemented by ECMWF through C3S 312a Lot 7 & C3S2 312a Lot 4 Soil Moisture) def
+ /geospatial_lat_resolution (0.25 degree) def
+ /geospatial_lon_units (degrees_east) def
+ /geospatial_lon_max (180.0) def
+ /institution (TU Wien (AUT); VanderSat B.V. (NL)) def
+ /standard_name_vocabulary (CF Standard Name Table v77) def
+ /contact (cci_sm_contact@eodc.eu) def
+ /key_variables (sm) def
+ /creator_email (C3S_SM_Science@eodc.eu) def
+ /creator_url (https://eodc.eu/) def
+ /geospatial_lon_resolution (0.25 degree) def
+ /geospatial_lat_units (degrees_north) def
+ /processing_level (Quality-controlled, super-collocated (L3S) Satellite Soil Moisture (SM) data from multiple sensors) def
+ /license (Copernicus Data License) def
+ /title (C3S Satellite Surface Soil Moisture COMBINED active+passive Product) def
+ /references (https://doi.org/10.24381/cds.d7782f18; Dorigo, W.A., Wagner, W., Albergel, C., Albrecht, F.,  Balsamo, G., Brocca, L., Chung, D., Ertl, M., Forkel, M., Gruber, A., Haas, E., Hamer, D. P. Hirschi, M., Ikonen, J., De Jeu, R. Kidd, R. Lahoz, W., Liu, Y.Y., Miralles, D., Lecomte, P. (2017) ESA CCI Soil Moisture for improved Earth system understanding: State-of-the art and future directions. In Remote Sensing of Environment, 2017, ISSN 0034-4257, https://doi.org/10.1016/j.rse.2017.07.001; Gruber, A., Scanlon, T., van der Schalie, R., Wagner, W., Dorigo, W. (2019) Evolution of the ESA CCI Soil Moisture Climate Data Records and their underlying merging methodology. Earth System Science Data 11, 717-739, https://doi.org/10.5194/essd-11-717-2019; Gruber, A., Dorigo, W. A., Crow, W., Wagner W. (2017). Triple Collocation-Based Merging of Satellite Soil Moisture Retrievals. IEEE Transactions on Geoscience and Remote Sensing. PP. 1-13. https://doi.org/10.1109/TGRS.2017.2734070) def
+ /geospatial_vertical_min (0.0) def
+ /Conventions (CF-1.9) def
+ /geospatial_lat_max (90.0) def
+ /source (WARP 5.5R1.1/AMI-WS/ERS12 Level 2 Soil Moisture; WARP 5.4R1.0/AMI-WS/ERS2 Level 2 Soil Moisture; H115: Metop ASCAT Surface Soil Moisture Climate Data Record v5 12.5 km sampling, DOI: 10.15770/EUM_SAF_H_0006; H116: Metop ASCAT Surface Soil Moisture Climate Data Record v5 Extension 12.5 km sampling; H115: Metop ASCAT Surface Soil Moisture Climate Data Record v5 12.5 km sampling, DOI: 10.15770/EUM_SAF_H_0006; H116: Metop ASCAT Surface Soil Moisture Climate Data Record v5 Extension 12.5 km sampling; H115: Metop ASCAT Surface Soil Moisture Climate Data Record v5 12.5 km sampling, DOI: 10.15770/EUM_SAF_H_0006; H116: Metop ASCAT Surface Soil Moisture Climate Data Record v5 Extension 12.5 km sampling;; LPRMv7/SMMR/Nimbus 7 L3 Surface Soil Moisture, Ancillary Params, and quality flags; LPRMv7/SSMI/F08, F11, F13 DMSP L3 Surface Soil Moisture, Ancillary Params, and quality flags; LPRMv7/TMI/TRMM L2 Surface Soil Moisture, Ancillary Params, and QC; LPRMv7/AMSR-E/Aqua L2B Surface Soil Moisture, Ancillary Params, and QC; LPRMv7/WINDSAT/CORIOLIS L2 Surface Soil Moisture, Ancillary Params, and QC; LPRMv7/AMSR2/GCOM-W1 L3 Surface Soil Moisture, Ancillary Params; LPRMv7/SMOS/MIRAS L3 Surface Soil Moisture, CATDS Level 3 Brightness Temperatures (L3TB) version 300 RE03 & RE04; LPRMv7/SMAP_radiometer/SMAP L2 Surface Soil Moisture, Ancillary Params, and QC; LPRMv7/GMI/GPM L3 Surface Soil Moisture, Ancillary Params, and quality flags; LPRMv7/VIRR/FengYun-3B L3 Surface Soil Moisture, Ancillary Params, and quality flags; LPRMv7/VIRR/FengYun-3C L3 Surface Soil Moisture, Ancillary Params, and quality flags; LPRMv7/VIRR/FengYun-3D L3 Surface Soil Moisture, Ancillary Params, and quality flags;;) def
+
+[X Y] {name exch def}forall
+
+/T
+1 Nov 1978 julian_day
+31 Dec 2022 julian_day
+dekadGRID
+/defaultvalue { last } def
+def
+
+/sm {
+[X Y last first subgrid | T]
+(/Data/data21/EC/Copernicus/CDS/C3S/satellite-soil-moisture/v202212/vssm/10_day/cdr/%Y[T]/C3S-SOILMOISTURE-L3S-SSMV-COMBINED-DEKADAL-%Y%m%d[T]000000-TCDR-v202212.0.0.nc)
+[T integralgrid first secondtolast subgrid]
+readdatafile:
+/name (sm) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/missing_value -9999. def
+/units (m3/m3) def
+/long_name (Volumetric Soil Moisture) def
+precip_colors
+/valid_min 0 def
+/valid_max 1 def
+DATA 0 1 RANGE
+}defasvarsilent
+
+/sensor {
+[X Y last first subgrid | T]
+(/Data/data21/EC/Copernicus/CDS/C3S/satellite-soil-moisture/v202212/vssm/10_day/cdr/%Y[T]/C3S-SOILMOISTURE-L3S-SSMV-COMBINED-DEKADAL-%Y%m%d[T]000000-TCDR-v202212.0.0.nc)
+[T integralgrid first secondtolast subgrid]
+readdatafile:
+/name (sensor) def
+/integerarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/missing_value 0 def
+DATA 1 AUTO RANGE
+/long_name (Sensor) def
+}defasvarsilent
+
+/freqbandID {
+[X Y last first subgrid | T]
+(/Data/data21/EC/Copernicus/CDS/C3S/satellite-soil-moisture/v202212/vssm/10_day/cdr/%Y[T]/C3S-SOILMOISTURE-L3S-SSMV-COMBINED-DEKADAL-%Y%m%d[T]000000-TCDR-v202212.0.0.nc)
+[T integralgrid first secondtolast subgrid]
+readdatafile:
+/name (freqbandID) def
+/shortarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/missing_value 0 def
+DATA 1 AUTO RANGE
+/long_name (Frequency Band Identification) def
+}defasvarsilent
+
+/nobs {
+[X Y last first subgrid | T]
+(/Data/data21/EC/Copernicus/CDS/C3S/satellite-soil-moisture/v202212/vssm/10_day/cdr/%Y[T]/C3S-SOILMOISTURE-L3S-SSMV-COMBINED-DEKADAL-%Y%m%d[T]000000-TCDR-v202212.0.0.nc)
+[T integralgrid first secondtolast subgrid]
+readdatafile:
+/name (nobs) def
+/shortarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/missing_value -1 def
+/long_name (Number of valid observation) def
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+:dataset
+
+\end{ingrid}

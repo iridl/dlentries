@@ -1,0 +1,134 @@
+\begin{ingrid}
+continuedataset:
+/description (Pressure level data) def
+link:
+/name (20th Century Reanalysis) def
+/href (http://www.cdc.noaa.gov/data/gridded/data.20thC_Rean.html) def
+/description (ESRL Documentation for Twentieth Century Reanalysis (V1) dataset) def
+:link
+
+dataset:
+/name (analysis) def
+
+/temp 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure/air.mon.mean.nc) readfile .air
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/hgt 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure/hgt.mon.mean.nc) readfile .hgt
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/omega 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure/omega.mon.mean.nc) readfile .omega
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/rhum
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure/rhum.mon.mean.nc) readfile .rhum
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/shum
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure/shum.mon.mean.nc) readfile .shum
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/uwnd
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure/uwnd.mon.mean.nc) readfile .uwnd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/vwnd
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure/vwnd.mon.mean.nc) readfile .vwnd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/wspd
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure/wspd.mon.mean.nc) readfile .wspd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+:dataset
+
+dataset:
+/name (spread) def
+
+/temp 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure_sprd/air.mon.mean.nc) readfile .air
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/hgt 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure_sprd/hgt.mon.mean.nc) readfile .hgt
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/omega 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure_sprd/omega.mon.mean.nc) readfile .omega
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/rhum
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure_sprd/rhum.mon.mean.nc) readfile .rhum
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/shum
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure_sprd/shum.mon.mean.nc) readfile .shum
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/uwnd
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure_sprd/uwnd.mon.mean.nc) readfile .uwnd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/vwnd
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure_sprd/vwnd.mon.mean.nc) readfile .vwnd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/wspd
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/pressure_sprd/wspd.mon.mean.nc) readfile .wspd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}
+

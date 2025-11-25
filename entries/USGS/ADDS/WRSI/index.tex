@@ -1,0 +1,157 @@
+\begin{ingrid}
+continuedataset:
+/name (WRSI) def
+/long_name (Water Requirement Satisfaction Index) def
+/iridl:hasSemantics (iriref:Mendez_M) def
+datasetdefs:
+/wrsi_colors {
+startcolormap
+DATA 0 100 RANGE
+white gray 
+gray 0 VALUE
+firebrick firebrick 50 bandmax
+peru peru 59 bandmax
+khaki khaki 79 bandmax
+LightSeaGreen LightSeaGreen 94 bandmax
+SeaGreen SeaGreen 99 bandmax
+DarkGreen DarkGreen 100 bandmax
+gray endcolormap
+} def
+:datasetdefs
+
+/Conventions (CF-1.0) def
+grid:
+	/name /x def
+	-4600000 8000 4600000
+/standard_name (projection_x_coordinate) def
+:grid
+grid:
+	/name /y def
+	4600000 -8000 -4600000
+/standard_name (projection_y_coordinate) def
+:grid
+grid:
+	/name /T def
+	1 Jul 1961 ensotime
+	12
+	1 Jul 1996 ensotime
+	/units monthtimename def
+/standard_name (time) def
+:grid
+
+variable:
+	/name /lat def
+	/units (degreeN) def
+	/fullname (Latitude) def
+	/standard_name (latitude) def
+	/scale_min -40 def
+	/scale_max 45 def
+	grids: x y :grids
+	file:
+		decrandom
+		/name (/Data/data6/usgs/wrsi/lat_geom.bin) def
+	:file
+:variable
+variable:
+	/name /lon def
+	/units (degreeE) def
+	/fullname (Longitude) def
+	/standard_name (longitude) def
+	/scale_min -24 def
+	/scale_max 65 def
+	grids: x y :grids
+	file:
+		decrandom
+		/name (/Data/data6/usgs/wrsi/lon_geom.bin) def
+	:file
+:variable
+
+/East_Africa_May-Nov {[| T] 
+	(/Data/data6/usgs/wrsi/wrsi-ea-may-nov/W%y[T]33EO.IMG) /onefileperrecord readdatafile: 
+		IDAimage
+		/units (%) def
+		/valid_min 1 def
+		/valid_max 100 def
+		wrsi_colors
+	:readdatafile
+		/grid_mapping /Projection def
+		/SpatialReferenceSystemDims {x y} cvlit def
+		x /standard_name (projection_x_coordinate) def name exch def
+		y /standard_name (projection_y_coordinate) def name exch def
+/iridl:hasSemantics (irigaz:Africa_East_303_0) def
+
+}defasvarsilent
+
+/East_Africa_Mar-May {[| T] 
+	(/Data/data6/usgs/wrsi/wrsi-ea-mar-may/W%y[T]21EO.IMG) /onefileperrecord readdatafile: 
+		IDAimage
+		/units (%) def
+		/valid_min 1 def
+		/valid_max 100 def
+		wrsi_colors
+	:readdatafile
+		/grid_mapping /Projection def
+		/SpatialReferenceSystemDims {x y} cvlit def
+		x /standard_name (projection_x_coordinate) def name exch def
+		y /standard_name (projection_y_coordinate) def name exch def
+/iridl:hasSemantics (irigaz:Africa_East_303_0) def
+}defasvarsilent
+
+/Sahel {[| T] 
+	(/Data/data6/usgs/wrsi/wrsi-sahel/W%y[T]33EO.IMG) /onefileperrecord readdatafile: 
+		IDAimage
+		/units (%) def
+		/valid_min 1 def
+		/valid_max 100 def
+		wrsi_colors
+	:readdatafile
+		/grid_mapping /Projection def
+		/SpatialReferenceSystemDims {x y} cvlit def
+		x /standard_name (projection_x_coordinate) def name exch def
+		y /standard_name (projection_y_coordinate) def name exch def
+/iridl:hasSemantics (irigaz:Africa_Sahelian_316_0) def
+}defasvarsilent
+
+/South_Africa {
+
+[| 
+grid:
+	/name /T def
+	1 Jul 1962 ensotime
+	12
+	1 Jul 1996 ensotime
+	/units monthtimename def
+:grid ] 
+	(/Data/data6/usgs/wrsi/wrsi-sa/W%y[T]15EO.IMG) /onefileperrecord readdatafile: 
+		IDAimage
+		/units (%) def
+		/valid_min 1 def
+		/valid_max 100 def
+		wrsi_colors
+	:readdatafile
+		/grid_mapping /Projection def
+		/SpatialReferenceSystemDims {x y} cvlit def
+		x /standard_name (projection_x_coordinate) def name exch def
+		y /standard_name (projection_y_coordinate) def name exch def
+/iridl:hasSemantics (irigaz:Africa_Southern_306_0)  def
+}defasvarsilent	
+
+ variable:
+  grids: :grids
+  values: 0 :values
+  /name (Projection) def
+  /grid_mapping_name (albers_conical_equal_area) def
+  /latitude_of_projection_origin 1 def
+  /longitude_of_central_meridian 20.0 def
+  /standard_parallel 21 -19 2 realarray astore def
+  /false_easting 0 def
+  /false_northing 0 def
+ :variable
+
+/dataset_documentation.html currentobject 1 index get def
+:dataset
+\end{ingrid}
+
+
+
+

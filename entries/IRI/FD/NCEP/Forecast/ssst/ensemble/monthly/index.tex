@@ -1,0 +1,66 @@
+\begin{ingrid}
+continuedataset:
+(ncep/ssst) IRIforecastdir deflastmod
+/Y 64 namedgaussianlat
+ high low subgrid 
+name exch def
+grid: /name /X def degE periodic 0 2.8125 357.1875 :grid
+grid:
+/name /M def
+/long_name (member) def
+/units (ids) def
+1 1 30
+:grid
+grid:
+/name /S def
+monthtime
+/long_name (Forecast Started) def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+1 Jun 2004 ensotime
+1.
+1 Sep 2009 
+% (ncep/ssst) IRIlaststarttime interp
+ensotime
+:grid
+grid:
+/name /L def
+/units (months) def
+/standard_name (forecast_period) def
+0.5 1 6.5
+:grid
+grid:
+/name /P def
+/units (mb) def
+values: 500 :values
+:grid
+/T { L S add [L S] REORDER /long_name (Forecast Time) def
+ /standard_name (time) def
+/pointwidth 1 def } defasvar
+/t2m { (167) (ncep/ssst) IRIforecastfilenameCS readdatafile:
+r*4asascii :readdatafile
+/long_name (Temperature at 2m)def
+/units (Kelvin_scale) preferredunitname def
+/last_modified 3 index .last_modified def
+} defasvarcachesilent
+/prcp { (260) (ncep/ssst) IRIforecastfilenameCS readdatafile:
+r*4asascii :readdatafile
+/long_name (precipitation rate) def
+/units (mm/day) preferredunitname def
+/scale_factor 4000. def
+/last_modified 3 index .last_modified def
+} defasvarcachesilent
+/zg { (156) (ncep/ssst) IRIforecastfilenameCS_P readdatafile:
+r*4asascii :readdatafile
+/long_name (geopotential hieght) def
+/units (m) preferredunitname def
+/last_modified 3 index .last_modified def
+} defasvarcachesilent
+
+:dataset
+\end{ingrid}
+
+
+
+
+

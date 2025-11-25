@@ -1,0 +1,249 @@
+<html>
+<INGRID> ANNUAL </INGRID>
+<INGRID>
+/var1 FORMknown not
+{ 
+WWWinfo
+/FORMinfo
+null 20 object
+/var1 null 5 object
+/name (theta) def
+def
+/var2 null 5 object
+/name (sal) def
+def
+/var3 null 5 object
+/name (rhoa)def
+def
+/X 180 def
+/Y 0 def
+store
+pop
+} 
+{ WWWinfo
+.FORMinfo
+/X X interp def
+/Y Y interp def
+pop
+ }
+ifelse
+Ingrid:
+/setvarrange
+{
+FORMgetknown
+    { 
+	dup /low known
+	{
+	    low exch .high
+	    1 index null ne
+	    1 index null ne
+	    or
+	    {/CE exch interp def /CS exch interp def
+	    CS CE} if
+	    pop pop
+	} 
+	{pop}
+	ifelse
+    } if
+} def
+/urlvarrange
+{
+FORMgetknown
+    { 
+	dup /low known
+	{
+	    low high
+	    1 index null ne
+	    1 index null ne
+	    or
+	    {
+		(+DATA+) print
+		1 index null eq { (AUTO) print }
+		{ 1 index print } ifelse
+		(+) print
+		dup null eq { (AUTO) print }
+		{ dup print } ifelse
+		(+RANGE) print
+	    } if
+	    pop pop
+	} if
+	pop
+    } if
+} def
+/imagesrcsel
+{
+/var2 FORMgetknown pop .name dup print
+/var2 urlvarrange
+(+X+) print /X FORMget ==ns (+VALUE) print
+(+Y+) print /Y FORMget ==ns (+VALUE) print
+(+) print
+pop
+/var1 FORMgetknown pop .name dup print
+/var1 urlvarrange
+(+) print
+(X+) print /X FORMget ==ns (+VALUE+) print
+(Y+) print /Y FORMget ==ns (+VALUE+) print
+pop
+/var3 FORMgetknown 
+{ .name dup (null) eq { pop null } if
+}
+{ null } ifelse
+dup null eq
+{ pop  false} 
+{ dup print 
+/var3 urlvarrange
+(+) print
+interp
+(X+) print /X FORMget ==ns (+VALUE+) print
+(Y+) print /Y FORMget ==ns (+VALUE+) print
+pop
+  true} ifelse
+
+} def
+pop
+</INGRID>
+<head>
+    <title>Ocean views from <INGRID> longname print</INGRID></title>
+</head>
+<body>  
+<form action=oceanviews2.html>
+<table border=4>
+<tr><th><input type=submit value=Redraw></th>
+<th>vertical</th><th>horizontal</th><th>colors</th></tr>
+<tr><th>Variable</th><INGRID>
+[ /var1 /var2 /var3 ]
+{
+(<th>) print
+dup FORMgetknownnotnull
+{ name (null) eq { null } { name cvn}ifelse nip } 
+{ null } ifelse
+exch
+/name 2 namearray astore exch
+startselect 
+selectname 0 get /var3 eq 
+{ null (none) valueoption } if
+1 index {pop}{relativename exch .long_name  valueoption}foralldatasets2
+endselect
+(</th>\n)print
+} forall
+</INGRID>
+</tr>
+<tr><th>Limits</th><INGRID>
+[ /var1 /var2 /var3 ]
+{
+(<th>) print
+dup /low FORMtextitem
+ /high FORMtextitem
+(</th>\n)print
+} forall
+</INGRID>
+</tr>
+
+<tr><td colspan=2>
+<INGRID> 
+/var1 FORMgetknown { .name
+currentobject exch cvn get exec
+dup /thestream WWWinfo .FORMinfo !
+Z first VALUE
+/var1 setvarrange
+X Y fig: /plotaxislength 360 def colors | contours  land :fig 
+/map 
+[(ANNUAL .) /var1 FORMgetknown pop .name ( Z first VALUE )
+/var1 FORMgetknown pop /low known
+{ (DATA ) 
+/CS  where { /CS get exec } {null} ifelse
+s== ( ) 
+/CE  where { /CE get exec } {null} ifelse
+s== ( RANGE)
+} if
+( X Y fig-(plotaxislength) 360 def colors | contours land -fig) ]
+concat  
+inputimagelinkwithlimitcontrols
+hiddendomainline
+.auxfig [ (ANNUAL .) /var1 FORMgetknown pop .name
+( Z first VALUE )
+/var1 FORMgetknown pop /low known
+{ 
+(DATA ) 
+/CS  where { /CS get exec} {null} ifelse
+ s== ( ) 
+/CE  where { /CE get exec} {null} ifelse
+s== ( RANGE)
+} if ( X Y fig-(plotaxislength) 360 def colors | contours land -fig .auxfig) ] concat
+imagelink
+} if </INGRID>
+<INGRID>
+ /map getimageinput 
+{ click?
+{
+clickpoint 0 get null ne 
+clickpoint 1 get null ne
+and
+{ clickpoint { value round .5 add name WWWinfo .FORMinfo ! pop } forall } if
+} if
+pop
+} if
+</INGRID>
+</td><th colspan=2 align=center><img width=372 height=222 src="ANNUAL+<INGRID>
+imagesrcsel
+{(fig-(plotaxislength)300+def+scattercolor+-fig+.gif"><br><img width=320 height=50 src="ANNUAL+) print
+imagesrcsel pop
+(fig-(plotaxislength)300+def+scattercolor+-fig+.auxfig+.gif) print} 
+{(fig-(plotaxislength)300+def+scatter+-fig+.gif) print} ifelse
+</INGRID>">
+</th>
+</tr><tr>
+<th colspan=4 align=center>
+<INGRID>
+SOURCES .WORLDBATH .bath
+/thestream FORMgetknown pop
+a: .X name FORMgetknown pop  nip 
+:a: .Y name FORMgetknown pop nip :a 
+togeopoint
+a: .lon :a: .lat :a
+X Y fig: lightgrey mask black thin red smallpushpins :fig /plotaxislength 120 psdef /plotborder 0 psdef
+/plotbordertop 8 psdef
+/plotborderright 8 psdef
+/plotborderleft 8 psdef
+/plotborderbottom 8 psdef
+/antialias true psdef
+/map inputimageplainlink 
+</INGRID>
+Data at (<INGRID>/thestream FORMgetknown pop
+.X name FORMgetknown pop printunits pop
+(, ) print
+/thestream FORMgetknown pop .Y name FORMgetknown pop printunits pop
+rpar print lpar print
+(<input name=X value=) print /X FORMget ==ns
+( size=8>\n<input name=Y value=) print/Y FORMget ==ns( size=8>) print
+</INGRID>)</th></tr>
+<tr><td></td>
+<INGRID>
+[ /var1 /var2 /var3 ]
+{
+dup FORMgetknown 
+{ .name
+dup (null) eq {pop null} {cvn} ifelse
+dup null ne
+{(<td align=center> <img width=192 height=372  src="ANNUAL+.) print
+dup cvntos print 
+1 index urlvarrange
+(+X+) print /X FORMget ==ns (+VALUE) print
+(+Y+) print /Y FORMget ==ns (+VALUE) print
+(+Z+fig-(plotaxislength)300+def(XOVY)+.4+def+scatterline+-fig//Z/5500/0/plotrange+.gif) print
+("></td>)print
+} if
+pop
+} if
+pop
+} forall
+</INGRID>
+</tr>
+<tr><th colspan=4><a href="ANNUAL+Z+<INGRID>imagesrcsel (/) print { 4 } { 3 } ifelse ==ns
+(+ncoltable.html) print</INGRID>">Data in current view</a></th></tr>
+
+</table>
+</form>
+<br clear=all>
+<INGRID>pop maybeGoogleAnalytics standardTrailer</INGRID>
+</html>>

@@ -1,0 +1,156 @@
+\begin{ingrid}
+
+/description (Barangay Results) def
+
+continuedataset:
+
+/adm4code_d {
+IRIDB (phl_ica_admin4_results) (adm4code_d) [(gid)] open_column_by
+/long_name (Barangay Code) def
+}defasvarsilentnoreuse
+
+/brgy_name {
+IRIDB (phl_ica_admin4_results) (brgy_name) [(gid)] open_column_by
+/long_name (Barangay Name) def
+}defasvarsilentnoreuse
+
+/flood_ri_1 {
+IRIDB (phl_ica_admin4_results) (flood_ri_1) [(gid)] open_column_by
+/long_name (Flood Risk) def
+}defasvarsilentnoreuse
+
+/flood_risk {
+IRIDB (phl_ica_admin4_results) (flood_risk) [(gid)] open_column_by
+0 maskle
+1. sub
+DATA 0 2  RANGE
+/long_name (Flood Risk Level) def
+/scale_min 0. def
+/scale_max 2. def
+/CLIST [(High) (Moderate) (None)] def
+startcolormap transparent red red orange green green endcolormap
+}defasvarsilentnoreuse
+
+/adm4_pco_1 {
+IRIDB (phl_ica_admin4_results) (adm4_pco_1) [(gid)] open_column_by
+/long_name (Barangay Code) def
+}defasvarsilentnoreuse
+
+/househol_1 {
+IRIDB (phl_ica_admin4_results) (househol_1) [(gid)] open_column_by
+/long_name (Household) def
+}defasvarsilentnoreuse
+
+/households {
+IRIDB (phl_ica_admin4_results) (households) [(gid)] open_column_by
+/long_name (Households) def
+}defasvarsilentnoreuse
+
+/iso {
+IRIDB (phl_ica_admin4_results) (iso) [(gid)] open_column_by
+/long_name (Country Name ISO) def
+}defasvarsilentnoreuse
+
+/landslide1 {
+IRIDB (phl_ica_admin4_results) (landslide1) [(gid)] open_column_by
+/long_name (Landslide Risk) def
+}defasvarsilentnoreuse
+
+/landslide {
+IRIDB (phl_ica_admin4_results) (landslide_) [(gid)] open_column_by
+0 maskle
+1. sub
+DATA 0 2  RANGE
+/long_name (Landslide Risk Level) def
+/scale_min 0. def
+/scale_max 2. def
+/CLIST [(High) (Moderate) (None)] def
+startcolormap transparent red red orange green green endcolormap
+}defasvarsilentnoreuse
+
+/main_lc {
+IRIDB (phl_ica_admin4_results) (main_lc) [(gid)] open_column_by
+/long_name (main Land Cover) def
+}defasvarsilentnoreuse
+
+/main_lc_te {
+IRIDB (phl_ica_admin4_results) (main_lc_te) [(gid)] open_column_by
+/long_name (main Land Cover term) def
+}defasvarsilentnoreuse
+
+/mun {
+IRIDB (phl_ica_admin4_results) (mun) [(gid)] open_column_by
+/long_name (Municipality ID) def
+}defasvarsilentnoreuse
+
+/mun_name {
+IRIDB (phl_ica_admin4_results) (mun_name) [(gid)] open_column_by
+/long_name (Municipality ID) def
+}defasvarsilentnoreuse
+
+/name_0 {
+IRIDB (phl_ica_admin4_results) (name_0) [(gid)] open_column_by
+/long_name (Country Name) def
+}defasvarsilentnoreuse
+
+/name_1 {
+IRIDB (phl_ica_admin4_results) (name_1) [(gid)] open_column_by
+/long_name (Region Name) def
+}defasvarsilentnoreuse
+
+/name_2 {
+IRIDB (phl_ica_admin4_results) (name_2) [(gid)] open_column_by
+/long_name (Provicne Name) def
+}defasvarsilentnoreuse
+
+/name_3 {
+IRIDB (phl_ica_admin4_results) (name_3) [(gid)] open_column_by
+/long_name (Municipality Name) def
+}defasvarsilentnoreuse
+
+/objectid {
+IRIDB (phl_ica_admin4_results) (objectid) [(gid)] open_column_by
+/long_name (Object ID) def
+}defasvarsilentnoreuse
+
+/population {
+IRIDB (phl_ica_admin4_results) (population) [(gid)] open_column_by
+/long_name (Population) def
+DATA 0 AUTO RANGE
+}defasvarsilentnoreuse
+
+/prov {
+IRIDB (phl_ica_admin4_results) (prov) [(gid)] open_column_by
+/long_name (Province ID) def
+}defasvarsilentnoreuse
+
+/prov_name {
+IRIDB (phl_ica_admin4_results) (prov_name) [(gid)] open_column_by
+/long_name (Province Name) def
+}defasvarsilentnoreuse
+
+/psgc_baran {
+IRIDB (phl_ica_admin4_results) (psgc_baran) [(gid)] open_column_by
+/long_name (Barangay PSGC) def
+}defasvarsilentnoreuse
+
+/ranking {
+IRIDB (phl_ica_admin4_results) (ranking) [(gid)] open_column_by
+/long_name (Ranking) def
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (phl_ica_admin4_results) (geom) [(gid)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (phl_ica_admin4_results) ((brgy_name || ', ' || name_3 || ', ' || name_2 || ', ' || name_1 || ', ' || iso) as label) [(gid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+prov .gid name exch def
+
+\end{ingrid}

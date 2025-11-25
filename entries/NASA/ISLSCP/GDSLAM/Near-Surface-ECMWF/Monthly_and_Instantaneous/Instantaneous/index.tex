@@ -1,0 +1,114 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/snowcovercolors {
+startcolormap
+DATA 0 10 RANGE
+white wheat
+245 222 179 RGB  0 VALUE
+  0   0 205 RGB RGBdup 0.04 bandmax
+  0   0 255 RGB RGBdup 0.12 bandmax
+ 30 144 255 RGB RGBdup 0.28 bandmax
+  0 191 255 RGB RGBdup 0.60 bandmax
+135 206 250 RGB RGBdup 1 bandmax
+173 216 230 RGB RGBdup 2 bandmax
+127 255 212 RGB RGBdup 3 bandmax
+152 251 152 RGB RGBdup 4 bandmax
+  0 255   0 RGB RGBdup 5 bandmax
+ 25 225  25 RGB RGBdup 6 bandmax
+ 50 205  50 RGB RGBdup 7 bandmax
+ 60 179 113 RGB RGBdup 8 bandmax
+255 255   0 RGB RGBdup 9 bandmax
+255   0   0 RGB RGBdup 10 bandmax
+255   0   0 RGB endcolormap } def
+:datasetdefs
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 1 -89.5
+:grid
+grid:
+/name /T def
+monthtime
+/fullname (Month) def
+1 Jan 1987 ensotime
+1.
+1 Dec 1988 ensotime
+:grid
+variable:
+/name /csm_inst def
+/long_name (Climate Deep Soil Wetness) def
+/units (m) def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ec_mthin/csm/csm87_88.r4) def
+:file
+:variable
+
+variable:
+/name /cst_inst def
+/long_name (Climate Deep Soil Temperature) def
+/units (K) def
+/scale_min 200 def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ec_mthin/cst/cst87_88.r4) def
+:file
+:variable
+
+variable:
+/name /dsm_inst def
+/long_name (Deep Soil Wetness) def
+/units (m) def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ec_mthin/dsm/dsm87_88.r4) def
+:file
+:variable
+
+variable:
+/name /dst_inst def
+/long_name (Deep Soil Temperature) def
+/units (K) def
+/scale_min 200 def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ec_mthin/dst/dst87_88.r4) def
+:file
+:variable
+
+variable:
+/name /sdp_inst def
+/long_name (Snow Depth) def
+/units (m) def
+snowcovercolors
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ec_mthin/sdp/sdp87_88.r4) def
+:file
+:variable
+
+variable:
+/name /ssm_inst def
+/long_name (Surface Soil Wetness) def
+/units (m) def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ec_mthin/ssm/ssm87_88.r4) def
+:file
+:variable
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,556 @@
+\begin{ingrid}
+%(http://opendap.bom.gov.au:8080/thredds/catalog/poama/m24a/hindcasts/catalog.xml) continuewiththredds
+%/m24a_hindcasts { (http://opendap.bom.gov.au:8080/thredds/dodsC/poama/m24a/hindcasts) readdods } defasvarsilent
+
+link:
+/name (The New POAMA2 System) def
+/description (Description of the POAMA-2 (M24) Forecast System) def
+/href (http://poama.bom.gov.au/about_poama2.shtml#The_new_POAMA2_System) def
+:link
+
+link:
+/name (POAMA) def
+/description (POAMA Home Page) def
+/href (http://poama.bom.gov.au/) def
+:link
+
+link:
+/name (POAMA Hindcast Data) def
+/description (THREDDS Data Server for POAMA Hindcasts) def
+/href (http://opendap.bom.gov.au:8080/thredds/catalogs/bmrc-poama-multiweek-hindcast-catalog.html) def
+:link
+
+/references (Hudson_etal2013) def
+
+continuedataset:
+/description (POAMA 2.4A Hindcast: All Starts) def
+
+%grid:
+%/name /X def
+%/long_name (Longitude) def
+%/units (degree_east) def
+%periodic
+%0.0 2.5 357.5
+%:grid
+
+%grid:
+%/name /T def
+%/units (months since 1960-01-01) def
+%16 Jan 1960 ensotime
+%1.
+%16 Dec 2010 ensotime
+%:grid
+
+ /NCO (4.0.0) def
+ /arch_vrsn (g2.0    ) def
+ /conventions (COARDS) def
+ /served_from (opendap.bom.gov.au:8080) def
+ /modl_vrsn (3.0d    ) def
+ /expt_id (m24a    ) def
+ /history (Produced by BMRC DP V15 20120813 19:08) def
+
+grid:
+/name (X)def
+/long_name (longitude) def
+/standard_name (longitude) def
+/units (degree_east)def
+ periodic
+ 0.0 2.5 357.5
+:grid
+
+grid:
+/name (Y)def
+/long_name (latitude) def
+/standard_name (latitude) def
+/units (degree_north)def
+values: 88.09951 85.637589 83.161125 80.681381 78.200386 75.718796 73.236862 70.754723 68.272446 65.790077 63.307636 60.825146 58.342617 55.860062 53.37748 50.894875 48.412258 45.929626 43.446987 40.964333 38.481674 35.999012 33.516338 31.033663 28.550983 26.068298 23.585611 21.102922 18.62023 16.137537 13.654841 11.172145 8.6894474 6.2067485 3.7240493 1.2413498 -1.2413498 -3.7240493 -6.2067485 -8.6894474 -11.172145 -13.654841 -16.137537 -18.62023 -21.102922 -23.585611 -26.068298 -28.550983 -31.033663 -33.516338 -35.999012 -38.481674 -40.964333 -43.446987 -45.929626 -48.412258 -50.894875 -53.37748 -55.860062 -58.342617 -60.825146 -63.307636 -65.790077 -68.272446 -70.754723 -73.236862 -75.718796 -78.200386 -80.681381 -83.161125 -85.637589 -88.09951 :values
+:grid
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/units (hPa)def
+values: 850. 700. 500. 200. :values
+:grid
+
+grid:
+/name /L0 def
+/long_name (Lead) def
+1 1 9
+:grid
+
+%grid:
+%/name (time)def
+%/units (days since 1960-01-01 00:00:00)def
+%values: 15. 45. 75. 105. 136. 166. 197. 228. 258. :values
+%:grid
+
+grid:
+/name (M) def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+0 1 10
+:grid
+
+%grid:
+%/name (S) def
+%/long_name (Start Time) def
+%/standard_name (forecast_reference_time) def
+%/units (months since 1960-01-01) def
+%1 Jan 1981 ensotime
+%1
+%1 Dec 2011 ensotime
+%/pointwidth 0 def
+%:grid
+
+1 Jan 1981 julian_day
+21 Dec 2011 julian_day
+dekadGRID
+/defaultvalue { last } def
+name exch def
+T /S renameGRID
+S S dekadaledgesgrid first secondtolast subgrid replaceGRID 
+
+variable:
+/name /T def
+/units (months since 1960-01-01) def
+/pointwidth 1.0 def
+/standard_name (time) def
+grids: L0 | S :grids
+file:
+/name (/Data/data21/BoM/POAMA/M24/Hindcast/POAMAhindcastTvar.dat) def
+formatted
+:file
+:variable
+
+
+%  !!! older link
+% /air_temp{
+%[ X Y P | L S M ] (http://opendap.bom.gov.au:8080/thredds/fileServer/poama/m24a/hindcasts/e%2.2d[M]/ma_%Y%m[S]01.nc) [S M ] readdatafile:
+%/name (air_temp) def
+% /level_type (multi ) def
+% /grid_type (spatial) def
+% /units /Kelvin_scale def
+% /long_name (air temperature) def
+% /standard_name (air_temperature) def
+% /dodsname /air_temp def
+% /realarraytype netcdfrecords :readdatafile
+%}defasvarsilent
+
+
+ /hr24_prcp{
+[ X Y | L0 S M ] (http://opendap.bom.gov.au:8080/thredds/fileServer/poama/hindcast/monthly/m24a/e%2.2d[M]/mac_%Y%m%d[S].nc) [S M ] readdatafile:
+/name (hr24_prcp) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units (mm/day) def
+ /long_name (total precipitation) def
+ /standard_name (lwe_precipitation_rate) def
+ /dodsname /hr24_prcp def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /sfc_temp{
+[ X Y | L0 S M ] (http://opendap.bom.gov.au:8080/thredds/fileServer/poama/hindcast/monthly/m24a/e%2.2d[M]/mac_%Y%m%d[S].nc) [S M ] 
+readdatafile:
+ /name (sfc_temp) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units (K) def
+ /long_name (surface temperature) def
+ /standard_name (surface_temperature) def
+ /dodsname /sfc_temp def
+ /realarraytype netcdfrecords 
+:readdatafile
+}defasvarsilent
+
+ /tsaira{
+[ X Y | L0 S M ] (http://opendap.bom.gov.au:8080/thredds/fileServer/poama/hindcast/monthly/m24a/e%2.2d[M]/mac_%Y%m%d[S].nc) [S M ] 
+readdatafile:
+%[ lon lat | time] filenames readdatafile:
+/name (tsaira) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units /Kelvin_scale def
+ /long_name (temperature at 1.5m) def
+ /standard_name (air_temperature) def
+ /dodsname /tsaira def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+\end{ingrid}
+
+
+ /base_date{
+[ time |] filenames readdatafile:
+/name (base_date) def
+ /units /unitless def
+ /long_name (base date (YYYYMMDD) of this segment) def
+ /dodsname /base_date def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /base_time{
+[ time |] filenames readdatafile:
+/name (base_time) def
+ /units /unitless def
+ /long_name (base time (HHMM) of this segment) def
+ /dodsname /base_time def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /geop_ht{
+[ lon lat lvl | time] filenames readdatafile:
+/name (geop_ht) def
+ /level_type (multi ) def
+ /grid_type (spatial) def
+ /units /unitless def
+ /long_name () def
+ /dodsname /geop_ht def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /hlat{
+[ lon lat | time] filenames readdatafile:
+/name (hlat) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units (W/M/M)cvn def
+ /long_name (LATENT HEAT) def
+ /dodsname /hlat def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /hr24_prcp{
+[ lon lat | time] filenames readdatafile:
+/name (hr24_prcp) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units /mm def
+ /long_name (precipitation accumulated over previous 24 hours.) def
+ /dodsname /hr24_prcp def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /hsens{
+[ lon lat | time] filenames readdatafile:
+/name (hsens) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units (W/M/M)cvn def
+ /long_name (SENSIBLE HEAT) def
+ /dodsname /hsens def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /hsoil{
+[ lon lat | time] filenames readdatafile:
+/name (hsoil) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units (W/M/M)cvn def
+ /long_name (HEAT TO SOIL) def
+ /dodsname /hsoil def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /merid_wnd{
+[ lon lat lvl | time] filenames readdatafile:
+/name (merid_wnd) def
+ /level_type (multi ) def
+ /grid_type (spatial) def
+ /units /unitless def
+ /long_name () def
+ /dodsname /merid_wnd def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /mix_rto{
+[ lon lat lvl | time] filenames readdatafile:
+/name (mix_rto) def
+ /level_type (multi ) def
+ /grid_type (spatial) def
+ /units /unitless def
+ /long_name (mixing ratio of water vapour) def
+ /dodsname /mix_rto def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /mslp{
+[ lon lat | time] filenames readdatafile:
+/name (mslp) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units /hPa def
+ /long_name (mean sea level pressure) def
+ /dodsname /mslp def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /netlw_toa_rad{
+[ lon lat | time] filenames readdatafile:
+/name (netlw_toa_rad) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units (W/m2)cvn def
+ /long_name (net Longwave radiation at top of atmosphere) def
+ /dodsname /netlw_toa_rad def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /netlwsur{
+[ lon lat | time] filenames readdatafile:
+/name (netlwsur) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units (W/M/M)cvn def
+ /long_name (NET LW AT GROUND) def
+ /dodsname /netlwsur def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /netsw_toa_rad{
+[ lon lat | time] filenames readdatafile:
+/name (netsw_toa_rad) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units (W/m2)cvn def
+ /long_name (net Shortwave radiation at top of atmosphere) def
+ /dodsname /netsw_toa_rad def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /pcptg{
+[ lon lat | time] filenames readdatafile:
+/name (pcptg) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units /mm def
+ /long_name (convective precipitation) def
+ /dodsname /pcptg def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /qsaira{
+[ lon lat | time] filenames readdatafile:
+/name (qsaira) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units /unitless def
+ /long_name (MIXING RATIO AT 1.5M) def
+ /dodsname /qsaira def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /seg_type{
+[ time |] filenames readdatafile:
+/name (seg_type) def
+ /units /unitless def
+ /long_name (segment of bmrc header type) def
+ /dodsname /seg_type def
+ /namearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /sfc_temp{
+[ lon lat | time] filenames readdatafile:
+/name (sfc_temp) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units (K sec**-1)cvn def
+ /long_name (temperature tendency due to sensible heat flux at surface) def
+ /dodsname /sfc_temp def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /sfc_wet{
+[ lon lat | time] filenames readdatafile:
+/name (sfc_wet) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units /m def
+ /long_name (surface wetness (known as soil moisture in model)) def
+ /dodsname /sfc_wet def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /snowfall{
+[ lon lat | time] filenames readdatafile:
+/name (snowfall) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units /mm def
+ /long_name (snow fall) def
+ /dodsname /snowfall def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+grid:
+/name (soil_lvl)def
+/units (m)def
+values: 0.05 0.5 5. :values
+:grid
+
+ /soil_temp{
+[ lon lat soil_lvl | time] filenames readdatafile:
+/name (soil_temp) def
+ /accum_type (instantaneous           ) def
+ /level_type (multi   ) def
+ /units /Kelvin_scale def
+ /long_name (sub-surface layer soil temperatures) def
+ /grid_type (spatial ) def
+ /dodsname /soil_temp def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /solgndac{
+[ lon lat | time] filenames readdatafile:
+/name (solgndac) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units (W/M/M)cvn def
+ /long_name (NET SW AT GROUND (ACC)) def
+ /dodsname /solgndac def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /stresx{
+[ lon lat | time] filenames readdatafile:
+/name (stresx) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units /Pa def
+ /long_name (zonal component of surface wind stress) def
+ /dodsname /stresx def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /stresy{
+[ lon lat | time] filenames readdatafile:
+/name (stresy) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units /Pa def
+ /long_name (meridional component of surface wind stress) def
+ /dodsname /stresy def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /surlwd{
+[ lon lat | time] filenames readdatafile:
+/name (surlwd) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units (W/m2)cvn def
+ /long_name (downwards longwave radiation at surface) def
+ /dodsname /surlwd def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /swirrsur{
+[ lon lat | time] filenames readdatafile:
+/name (swirrsur) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units (W/M/M)cvn def
+ /long_name (SW IRRADIANCE AT SURFACE) def
+ /dodsname /swirrsur def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tm_step_size{
+[ |] filenames readdatafile:
+/name (tm_step_size) def
+ /units /seconds def
+ /long_name (time step size) def
+ /dodsname /tm_step_size def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tsaira{
+[ lon lat | time] filenames readdatafile:
+/name (tsaira) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units /Kelvin_scale def
+ /long_name (AIR TEMPERATURE AT 1.5M) def
+ /dodsname /tsaira def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tsfmax{
+[ lon lat | time] filenames readdatafile:
+/name (tsfmax) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units /Kelvin_scale def
+ /long_name (Daily maximum surface temperature) def
+ /dodsname /tsfmax def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tsfmin{
+[ lon lat | time] filenames readdatafile:
+/name (tsfmin) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units /Kelvin_scale def
+ /long_name (Daily minimum surface temperature) def
+ /dodsname /tsfmin def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /u10a{
+[ lon lat | time] filenames readdatafile:
+/name (u10a) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units (M/S)cvn def
+ /long_name (ZONAL COMPONENT OF WIND AT 10M) def
+ /dodsname /u10a def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /v10a{
+[ lon lat | time] filenames readdatafile:
+/name (v10a) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units (M/S)cvn def
+ /long_name (MERIDIONAL COMPONENT OF WIND AT 10M) def
+ /dodsname /v10a def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /valid_date{
+[ time |] filenames readdatafile:
+/name (valid_date) def
+ /units /unitless def
+ /long_name (valid date (YYYYMMDD) of this segment) def
+ /dodsname /valid_date def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /valid_time{
+[ time |] filenames readdatafile:
+/name (valid_time) def
+ /units /unitless def
+ /long_name (valid time (HHMM) of this segment) def
+ /dodsname /valid_time def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /zonal_wnd{
+[ X Y P | L S M ] (http://opendap.bom.gov.au:8080/thredds/fileServer/poama/m24a/hindcasts/e%2.2d[M]/ma_%Y%m[S]01.nc) [S M ] readdatafile:
+/name (zonal_wnd) def
+ /level_type (multi ) def
+ /grid_type (spatial) def
+ /units /unitless def
+ /long_name () def
+ /dodsname /zonal_wnd def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+
+:dataset
+\end{ingrid}

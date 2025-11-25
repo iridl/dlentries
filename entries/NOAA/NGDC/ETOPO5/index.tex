@@ -1,0 +1,37 @@
+\begin{ingrid}
+continuedataset:
+/description (ETOPO5 5x5 minute land surface elevations and sea floor depths) def
+grid: /name /X def
+/units /degreeE def
+periodic
+0 to 360 360. 4320. div sub  N= 4320 pts :grid
+grid: /name /Y def
+/units /degreeN def
+90.0 to -90. 5. 60. div add  N= 2160 pts :grid
+/elev
+{
+ [X |
+    Y] (/Data/data7/noaa/ngdc/ETOPO5.DOS) 
+readdatafile: 
+deci*2
+/long_name (elevation/bathymetry) def
+/units (m) def
+ :readdatafile
+topographycolorscale
+} defasvarsilent
+:dataset
+\end{ingrid}
+variable:
+/name /elev cvx def
+/long_name (elevation/bathymetry) def
+/units (m) def
+grids: X | Y :grids
+file:
+i*2
+/name (/Data/data7/noaa/ngdc/ETOPO5.DOS) def
+:file
+optionalREORDER
+toi2
+swapbytes
+topographycolorscale
+:variable

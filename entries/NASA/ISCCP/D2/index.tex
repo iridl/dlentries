@@ -1,0 +1,44 @@
+\begin{ingrid}
+continuedataset:
+/description (Cloud characteristics, including amount, optical thickness, and cloud top pressure and temperature, for multiple cloud types from the the International Satellite Cloud Climatology Project) def
+grid:
+/name /T def
+/long_name /month def
+monthtime
+16 Jul 1983 ensotime
+1
+16 Aug 2001 ensotime
+:grid
+grid:
+/name /boxnum def
+1
+1
+6596
+:grid
+/references (Rossow_etal1996) def
+variable:
+/name (lat) def
+/units /degreeN def
+/scale_min -90 def
+/scale_max 90 def
+grids: boxnum :grids
+file:
+random
+/name (/Data/data4/nasa/isccp/cenlat.isccp) def
+:file
+:variable
+
+variable:
+/name (lon) def
+/units /degreeE def
+/scale_min 0 def
+/scale_max 360 def
+/modulus 360 def
+grids: boxnum :grids
+file:
+random
+/name (/Data/data4/nasa/isccp/cenlon.isccp) def
+:file
+:variable
+:dataset
+\end{ingrid}

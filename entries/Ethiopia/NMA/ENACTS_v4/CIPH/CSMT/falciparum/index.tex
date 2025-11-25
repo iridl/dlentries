@@ -1,0 +1,273 @@
+\begin{ingrid}
+/description (Climatic Suitability for a Malaria Transmission) def
+/references (Grover-Kopec_etal2006) def
+%/iridl:hasSemantics (iridl:Malaria) def
+/Annual_Sum {
+SOURCES .Ethiopia .NMA .ENACTS_v4 .rainfall .MRG .CLM .monthly .rr_mrg
+yearly-climatology
+  80 flagge
+ SOURCES .Ethiopia .NMA .ENACTS_v4 .temperature .MRG .monthly
+a: .tmin :a: .tmax :a add 2. div
+    T (Jan 1983) (Dec 2014) RANGE
+   yearly-climatology
+dup
+  18 flagge
+exch
+   32 flagle
+  mul
+ SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .PressureLevel .qa
+    T (Jan 1983) (Dec 2014) RANGE
+    yearly-climatology
+    P (1000) VALUE
+  X 0 0.5 359.5 GRID
+  Y 90 0.5 -90 GRID
+    17.67 SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .PressureLevel .temp
+      T (Jan 1983) (Dec 2014) RANGE
+      yearly-climatology
+      P (1000) VALUE
+      273.1 sub
+      mul
+     SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .PressureLevel .temp
+      T (Jan 1983) (Dec 2014) RANGE
+      yearly-climatology
+      P (1000) VALUE
+  X 0 0.5 359.5 GRID
+  Y 90 0.5 -90 GRID
+      273.1 sub
+      243.5 add
+      div
+     eexp
+     6.112 mul
+     0.622 mul
+     1000 div
+     div
+    100 mul
+    /name (relative humidity) def
+    /units (%) def
+    P removeGRID
+    [X Y]regridLinear
+    60 flagge
+    mul mul
+  [T]sum
+  startcolormap
+    0.0 12.5 RANGE
+transparent transparent
+transparent
+       0.0 VALUE
+transparent 0.5 VALUE
+       SteelBlue SteelBlue
+         1.5 bandmax
+         NavyBlue NavyBlue
+           2.5 bandmax
+           DarkSeaGreen DarkSeaGreen
+             3.5 bandmax
+             SeaGreen SeaGreen
+               4.5 bandmax
+               MediumSeaGreen MediumSeaGreen
+                 5.5 bandmax
+                 LightSeaGreen LightSeaGreen
+                   6.5 bandmax
+                   yellow yellow 7.5
+                     bandmax
+                     gold gold 8.5
+                     bandmax
+                     goldenrod goldenrod 9.5
+                     bandmax
+                     SandyBrown SandyBrown 10.5
+                     bandmax
+                     chocolate chocolate 11.5
+                     bandmax
+                     firebrick firebrick 12.5
+                     bandmax
+                     black endcolormap
+  /long_name (Number of Months Suitable for Malaria Transmission) def
+  /expires undef
+}defasvar
+
+/AllCondProb {
+SOURCES .Ethiopia .NMA .ENACTS_v4 .rainfall .MRG .CLM .monthly .rr_mrg
+  80 flagge
+ SOURCES .Ethiopia .NMA .ENACTS_v4 .temperature .MRG .monthly
+a: .tmin :a: .tmax :a add 2. div
+    T (Jan 1983) (Dec 2014) RANGE
+   yearly-climatology
+dup
+   18 flagge
+exch
+   32 flagle
+  mul
+   SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .PressureLevel .qa
+    T (Jan 1983) (Dec 2014) RANGE
+    P (1000) VALUE
+  X 0 0.5 359.5 GRID
+  Y 90 0.5 -90 GRID
+    17.67 SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .PressureLevel .temp
+      T (Jan 1983) (Dec 2014) RANGE
+      P (1000) VALUE
+  X 0 0.5 359.5 GRID
+  Y 90 0.5 -90 GRID
+      273.1 sub
+      mul
+     SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .PressureLevel .temp
+      T (Jan 1983) (Dec 2014) RANGE
+      P (1000) VALUE
+  X 0 0.5 359.5 GRID
+  Y 90 0.5 -90 GRID
+      273.1 sub
+      243.5 add
+      div
+     eexp
+     6.112 mul
+     0.622 mul
+     1000 div
+     div
+    100 mul
+    /name (relative humidity) def
+    /units (%) def
+    P removeGRID
+    [X Y]regridLinear
+    60 flagge
+    mul
+   mul
+  T 12 splitstreamgrid
+  [T2]average
+100 mul
+  T
+   /long_name (Month) def
+   pop
+  /long_name (Percent Occurrence of All Three Climate Conditions in Historical Record) def
+DATA 25. STEP
+ startcolormap
+    0.0 100. RANGE
+    white LightGrey LightGrey
+       0.0 VALUE
+       white white
+         25 bandmax
+         AntiqueWhite AntiqueWhite
+           50 bandmax
+           PeachPuff PeachPuff
+             75 bandmax
+             DarkSalmon DarkSalmon
+               100. bandmax
+               LightGrey endcolormap
+/expires undef
+ }defasvar
+
+/PcpnCondProb {
+SOURCES .Ethiopia .NMA .ENACTS_v4 .rainfall .MRG .CLM .monthly .rr_mrg
+  80 flagge
+  T 12 splitstreamgrid
+  [T2]average
+100 mul
+  T
+   /long_name (Month) def
+   pop
+  /long_name (Percent Occurrence of Precipitation Condition in Historical Record) def
+DATA 25. STEP
+startcolormap
+    0.0 100. RANGE
+    white LightGrey LightGrey
+       0.0 VALUE
+       white white
+         25 bandmax
+         LightCyan LightCyan
+           50 bandmax
+           PowderBlue PowderBlue
+             75 bandmax
+             LightSteelBlue LightSteelBlue
+               100. bandmax
+               white endcolormap
+}defasvar
+
+/TempCondProb {
+ SOURCES .Ethiopia .NMA .ENACTS_v4 .temperature .MRG .monthly
+a: .tmin :a: .tmax :a add 2. div
+    T (Jan 1983) (Dec 2014) RANGE
+   yearly-climatology
+dup
+   18 flagge
+exch
+   32 flagle
+  mul
+  T 12 splitstreamgrid
+  [T2]average
+100 mul
+  T
+   /long_name (Month) def
+   pop
+  /long_name (Percent Occurrence of Temperature Condition in Historical Record) def
+DATA 25. STEP
+startcolormap
+    0.0 100. RANGE
+    white LightGrey LightGrey
+       0.0 VALUE
+       white white
+         25 bandmax
+         LightYellow LightYellow
+           50 bandmax
+           PaleGoldenrod PaleGoldenrod
+             75 bandmax
+             LightGoldenrod LightGoldenrod
+               100. bandmax
+               white endcolormap
+
+}defasvar
+
+/RHCondProb {
+SOURCES .Ethiopia .NMA .ENACTS_v4 .rainfall .MRG .CLM .monthly .rr_mrg
+  SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .PressureLevel .qa
+   T (Jan 1983) (Dec 2014) RANGE
+   P (1000) VALUE
+  X 0 0.5 359.5 GRID
+  Y 90 0.5 -90 GRID
+   17.67 SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .PressureLevel .temp
+     T (Jan 1983) (Dec 2014) RANGE
+     P (1000) VALUE
+  X 0 0.5 359.5 GRID
+  Y 90 0.5 -90 GRID
+     273.1 sub
+     mul
+    SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .PressureLevel .temp
+     T (Jan 1983) (Dec 2014) RANGE
+     P (1000) VALUE
+  X 0 0.5 359.5 GRID
+  Y 90 0.5 -90 GRID
+     273.1 sub
+     243.5 add
+     div
+    eexp
+    6.112 mul
+    0.622 mul
+    1000 div
+    div
+   100 mul
+   P removeGRID
+   [X Y]regridLinear
+   60 flagge
+   2 1 roll
+   pop
+  T 12 splitstreamgrid
+  [T2]average
+100 mul
+  T
+   /long_name (Month) def
+   pop
+  /long_name (Percent Occurrence of Relative Humidity Condition in Historical Record) def
+DATA 25. STEP
+   startcolormap
+     0.0 100. RANGE
+     white LightGrey LightGrey
+        0.0 VALUE
+        white white
+          25 bandmax
+          LightCyan LightCyan
+            50 bandmax
+            MediumAquamarine MediumAquamarine
+              75 bandmax
+              LightSeaGreen LightSeaGreen
+                100. bandmax
+                LightGrey endcolormap
+/expires undef
+}defasvar
+
+\end{ingrid}

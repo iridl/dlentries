@@ -1,0 +1,1667 @@
+<html>
+<INGRID>standardHeader</INGRID>
+  <h1 align=center>Near-surface Meteorological Analyses and Hybrid Products<br>
+   <font size=-1>(fixed, monthly, monthly 6-hourly, 6-hourly ; ECMWF, NASA/LaRC)</font><br>
+    Revision Date Of This Document: April 5, 1995
+    </h1>
+
+    <p align=center>
+    <br>
+     All products except hybrid products: <br>
+
+     Dr. Anthony Hollingsworth,
+     European Center for Medium-Range 
+     Weather Forecasts
+<br>
+     Dr. Horst  Bottger,
+     European Center for Medium-Range 
+     Weather Forecasts
+<br><br>
+     Hybrid radiation products:
+<br>
+     ECMWF, NASA/LaRC, GSFC/DAAC and Code 923, NASA/GSFC
+<br><br>
+     Hybrid precipitation products.
+<br>
+     NOAA/NMC and GPCP/GPCC
+<br><br>
+     See the NMC_GPCP.DOC document for addtional information on the Hybrid 
+     precipitation data.
+</p><br><br>
+
+  <h2 align=center>Regridded ECMWF Level III-A Data and Hybrid Products</h2><br><br><br>
+
+<h3> Contacts (For ECMWF Data Production Information)</h3>
+<pre>
+__________________________________________________________________
+              |        Contact 1       |       Contact 2          |
+______________|________________________|__________________________|
+2.3.1 Name    |Kathy Rider             |John T. Hennessy          |
+2.3.2 Address |ECMWF                   |Operations Department     |
+              |                        |ECMWF Forecasts           |
+              |Shinfield Park          |Shinfield Park            |
+      City/St.|Reading/Berkshire       |Reading/Berkshire         |
+      Zip Code|RG2 9AX                 |RG2 9AX,                  |
+              |United Kingdom          |United Kingdom            |
+2.3.3 Tel.    |44 734 499453           |44 734 499400             |
+              |FAX: 44 734 869450      |FAX: 44 734 869450        |
+2.3.4 Email   |rider@ecmwf.co.uk       |john.hennessy@ecmwf.co.uk |
+______________|________________________|__________________________|
+
+2.4  Requested Form of Acknowledgment.
+
+     The Technical Attachment to the Description of the ECMWF/WCRP Archive 
+     should be cited by users in publications (see reference section).
+
+     The European Center for Medium-Range Weather Forecasts provided data for 
+     the ISLSCP Initiative 1 CD-ROM from the ECMWF/WCRP Level III-A Global 
+     Atmospheric Data Archive.  ECMWF data are supplied on the CD-ROM subject 
+     to the following conditions:
+
+     1.  The supplied data will not be transmitted in whole or in part to any 
+         third party without the authorization of ECMWF.
+
+     2.  Articles, papers, or written scientific works of any form, based in 
+         whole or in part on data supplied by ECMWF, will contain an 
+         acknowledgment concerning the supplied data.
+
+     3.  Access to the data is restricted to the scientists within the 
+         organization of the data recipient working on the same computer 
+         installation.
+
+     4.  The recipient of the data will accept responsibility for informing 
+         all data users of these conditions.
+
+     5.  Data will not be provided to commercial organizations.
+
+                            3.  INTRODUCTION
+
+3.1  Objective/Purpose.
+
+     The purpose of ECMWF level III-A atmospheric data are to support projects 
+     associated with the World Climate Research Program (WCRP).
+
+     The hybrid radiation (and precipitation) products were generated to 
+     provide high temporal resolution forcing fields for land-atmosphere 
+     models.
+
+3.2  Summary of Parameters.
+
+     The ECMWF products include:
+
+     Surface pressure, temperature, dew point temperature, wind speed, 
+     shortwave and longwave net radiation fluxes, sea level pressure, sensible 
+     and latent heat flux, wind stress, soil moisture, soil temperature, snow 
+     depth, albedo, and surface roughness.
+
+     The hybrid products consist of incident longwave and shortwave radiation 
+     fluxes and total and convective precipitation. (The precipitation 
+     products are discussed in the NMC_GPCP.DOC document).
+
+3.3  Discussion.
+
+     The ECMWF, and ECMWF, NASA/LaRC data on the ISLSCP Initiative I CD-ROM 
+     are comprised of the ECMWF/TOGA Advanced Operational Analysis Data the 
+     ECMWF/TOGA Supplementary Fields data and a hybrid dataset using the 
+     radiation fields within the ECMWF/TOGA Supplementary Fields and the 
+     NASA/LaRC Surface Shortwave  and Longwave Radiation Fluxes data set.
+
+     ECMWF/TOGA Advanced Operational Analysis Data Sets:
+
+     This data set contains uninitialized analysis values at the resolution 
+     of the data assimilation system in operational use at ECMWF. The Advanced 
+     Operational Analysis Data Set, on the ISLSCP Initiative 1 CD-ROM, are 
+     comprised only of the Surface and Diagnostic Fields.
+
+     The original ECMWF Surface and Diagnostic Fields data set was represented 
+     on a 320 x 160 grid, with a regular spacing of 1.125 degrees (lat/long) 
+     between points along each row for the period January 1, 1987 - December 
+     31, 1988. Grid point values were stored in latitude rows starting at the 
+     north and working southwards; within each row values ran from west to 
+     east, starting at the 0 degree longitude. All of the ECMWF Surface and 
+     Diagnostic Fields Data sets, on the ISLSCP CD-ROM, have been converted, 
+     by the Goddard DAAC, to a 1 X 1 degree equal angle lat/long grid, 
+     starting at 90 degrees latitude North and 180 degrees longitude West (see 
+     section 9.3.1).
+
+          The Parameters from the Surface and Diagnostic Fields data set, on 
+          the ISLSCP Initiative I CD-ROM set, are:
+
+          Surface Fields
+
+              surface pressure, surface temperature, soil moisture, snow 
+              depth, mean sea level pressure, u- and v-components of wind at 
+              10m, temperature at 2m, dew point temperature at 2m, deep-soil 
+              wetness, deep-soil temperature.
+
+          Diagnostic Fields
+
+              surface roughness, albedo, climate deep-soil wetness, climate 
+              deep-soil temperature.
+
+     ECMWF/TOGA Supplementary Fields Data Set:
+
+     The Supplementary Fields Data Set contains surface heat fluxes, net 
+     radiation and u- v-stress derived from 6-hour forecasts used as "first-
+     guess" for analyses within ECMWF's data assimilation system.  The 
+     Supplementary Fields Data Set acquired from ECMWF were represented in the 
+     same format, as the Surface and Diagnostic Fields Data set, described 
+     above. All ECMWF Supplementary Fields Data Sets, on the ISLSCP CD-ROM, 
+     have been converted, by the Goddard DAAC, to a 1 X 1 degree equal angle 
+     lat/long grid, starting at 90 degrees latitude North and 180 degrees 
+     longitude West (see section 9.3.1).
+
+          The Parameters from the Supplementary Fields data set, on the ISLSCP 
+          Initiative I CD-ROM set, are:
+
+              surface flux of sensible heat, surface flux of latent heat, 
+              surface shortwave radiation, surface longwave radiation, top of 
+              the atmosphere shortwave radiation, top of the atmosphere 
+              longwave radiation, and the zonal and meridional components of 
+              the surface wind stress.
+
+     Most of the near-surface meteorological data are taken directly from 
+     forecast products generated by the ECMWF operational numerical weather 
+     prediction model.  
+
+     ECMWF requested that the following information be provided to users of 
+     the ECMWF data:
+
+        The ECMWF data sets are adapted to a specific model orography; the 
+        data sets have biases which are only partially documented (reference 
+        list).
+
+        No surface observations of T, q, precipitation, nor surface wind 
+        observations over land were used in the analysis.
+
+        Model spin up can seriously affect the flux data.  All flux fields, 
+        including total cloud cover, are first-guess fields (i.e. 6 hour 
+        forecasts).
+
+        All the time-evolving fields on this CD-ROM, such as soil moisture, 
+        snow depth and deep soil parameters include no direct observations, 
+        but evolve during the data assimilation cycle.
+
+        The Technical Attachment to the Description of the ECMWF/WCRP Archive 
+        should be cited by users in publications (see reference section).
+
+     In addition to the routine products extracted from the ECMWF archive for 
+     this data set, NASA/GSFC generated synthetic 'hybrid' 6-hourly incident 
+     surface shortwave and longwave radiation fluxes, and NOAA/NMC generated 
+     'hybrid' 6-hourly total and convective precipitation rates.  As presented 
+     on the CD-ROMs the data sets include:
+
+            I.  Prescribed/Diagnostic Fields (see table in section 1.3),
+           II.  Monthly (6-hourly) Forcing Fields (see table in section 1.3),
+          III.  Diurnally-resolved (6-hourly) Forcing Fields (see table in 
+                section 1.3).  (These include the hybrid products).
+
+     The data in I are intended for reference rather than direct use by 
+     modelers.  The data sets in II are suitable for forcing long time-step 
+     models.  The data sets in III have been put together for the express 
+     purpose of forcing energy-water-carbon land models.
+
+                        4.  THEORY OF MEASUREMENTS
+
+The ECMWF level III-A global atmospheric data, are assimilated data resulting 
+from the combination of atmospheric observations and model calculations.  No 
+surface observations are used, so that the surface data provided on these CD-
+ROM comes from the model simulations of surface processes, strongly 
+constrained by observed atmospheric information and "a priori" surface 
+climatological information.  These data sets are based on quantities analyzed 
+or computed within the ECMWF data assimilation scheme.  The ECMWF data 
+assimilation system in use in 1987 consisted of a multivariate optimal 
+interpolation analysis, a non-linear normal model initialization and a high 
+resolution spectral model which produced a first guess forecast for the 
+subsequent analysis. Data were assimilated every 6 hours.  
+
+There were frequent changes in the model (see section 9.2.2 for details), many 
+involving surface processes, over the temporal period of the data on this CD-
+ROM. Since the data on this CD-ROM is inferred from model calculations 
+constrained by atmospheric data, artificial discontinuities in the data would 
+be expected at the dates of model changes.
+
+                            5.  EQUIPMENT
+
+5.1  Instrument Description.
+
+     5.1.1  Platform.
+
+            Not applicable.
+
+     5.1.2  Mission Objectives.
+
+            Not applicable.
+
+     5.1.3  Key Variables.
+
+            Not applicable.
+
+     5.1.4  Principles of Operation.
+
+            Not applicable.
+
+     5.1.5  Instrument Measurement Geometry .
+
+            Not applicable.
+
+     5.1.6  Manufacturer of Instrument.
+
+            Not applicable.
+
+5.2  Calibration.
+
+     5.2.1  Specifications.
+
+            Not applicable.
+
+            5.2.1.1  Tolerance.
+
+                     Not applicable.
+
+     5.2.2  Frequency of Calibration.
+
+            Not applicable.
+
+     5.2.3  Other Calibration Information.
+
+            Not applicable.
+
+                          6.  PROCEDURE
+
+6.1  Data Acquisition Methods.
+
+     The data sets described in this document were acquired by the Goddard 
+     Distributed Active Archive Center (GDAAC) from the European Center for 
+     Medium-Range Weather Forecasting (ECMWF).
+
+6.2  Spatial Characteristics.
+
+     The original data was given on a regular lat/long grid that had a spatial 
+     resolution of on a 1.125 X 1.125, with an origin point at the Greenwich 
+     meridian (90 degrees latitude, 0 degrees longitude). The Goddard DAAC 
+     converted this data to a 1 X 1 degree lat/long grid with an origin point 
+     at the international date line (90 degrees latitude North, 180 degree 
+     longitude West), see section 9.3.1 for additional information.
+
+     6.2.1  Spatial Coverage.
+
+            The coverage is global.  Data in each file are ordered from north 
+            to south and from west to east beginning at 180 degrees west and 
+            90 degrees north.  Point (1,1) represents the grid cell centered 
+            at 89.5 N and 179.5 W (see section 8.4).
+
+     6.2.2  Spatial Resolution.
+
+            The data are given in an equal-angle lat/long grid that has a 
+            spatial resolution of 1 X 1 degree lat/long.
+
+6.3  Temporal Characteristics.
+
+     6.3.1  Temporal Coverage.
+
+            January 1987 through December 1988.
+
+            The time period of 0000 GMT January 1, 1989 are included for the 
+            following parameters:
+              Temperature at 2 meters  (T)
+              Dew-point temperature at 2 meters  (Tw)
+              Wind magnitude at 10 meters  (U)
+              Surface Pressure  (Ps)
+
+
+     6.3.2  Temporal Resolution.
+
+            ECMWF produces routine global analyses for the four main synoptic 
+            hours 0000, 0600, 1200 and 1800 GMT and global 10 day forecast 
+            based on 1200 GMT data.  The Hybrids were produced at the same 4 
+            synoptic hours.
+
+            The data correspond to four temporal resolutions.  
+
+            Time-invariant (fixed):
+
+              Surface Roughness
+              Albedo
+
+            Monthly data, produced, by the Goddard DAAC, from the 6 hourly 
+            daily data (see section 9.3.1):
+
+              Surface soil wetness
+              Deep soil temperature
+              Deep soil wetness
+              Climate deep-soil temperature
+              Climate deep-soil wetness
+              Snow depth
+
+              The Monthly data also includes instantaneous values from the 
+              first day of each month, at GMT 0000.
+
+            Monthly 6-hourly data, produced, by the Goddard DAAC, from the 
+            6-hourly data (see section 9.3.1):
+
+              Temperature at 2 meters
+              Dew-point temperature at 2 meters
+              Surface pressure
+              u-wind at 10 meters
+              v-wind at 10 meters
+              u-wind stress
+              v-wind stress
+              Surface temperature
+              Mean sea level pressure
+              Surface Net SW radiation*
+              Surface Net LW radiation*
+              TOA Net SW radiation*
+              TOA Net LW radiation*
+              Surface sensible heat flux*
+              Surface latent heat flux*
+
+            6-hourly daily data:
+
+              Temperature at 2 meters  (T)
+              Dew-point temperature at 2 meters  (Tw)
+              Wind magnitude at 10 meters  (U)
+              Surface Pressure  (Ps)
+              NASA/LaRC, ECMWF Hybrid Surface Shortwave down Radiation*
+              NASA/LaRC, ECMWF Hybrid Surface Longwave down Radiation*
+              NOAA/NMC, GPCP Hybrid Total Precipitation
+              NOAA/NMC, GPCP, Hybrid Convective Precipitation
+
+              These data are intended to be used as forcing data for Energy-
+              Water-Carbon models.  In addition to the ECMWF products of Ps, 
+              T, Tw and U, we have added synthesized hybrid products for 
+              downward shortwave and longwave radiation, and total and 
+              connective precipitation, generated by NOAA/NMC.  Documentation 
+              (NMC_GPCP.DOC) on the precipitation hybrid products is provided 
+              in a separate document.
+
+            * denotes fields accumulated over 6 hours since start of each 
+              ECMWF forcast.  The Goddard DAAC converted these fields to 
+              [W] [m^-2] [s^-1].  The Hybrid radiation data sets also use 
+              monthly mean radiation data from LaRC in their derivation (see 
+              section 9.1.1).
+
+                           7.  OBSERVATIONS
+
+7.1  Field Notes.
+
+     Not applicable.
+
+                         8.  DATA DESCRIPTION
+
+8.1  Table Definition With Comments.
+
+     Not applicable.
+
+8.2  Type of Data.
+
+------------------------------------------------------------------------------
+|                 8.2.1                     |            |          |        |
+|Parameter/Variable Name                    |            |          |        |
+------------------------------------------------------------------------------
+|    |               8.2.2                  |     8.2.3  |  8.2.4   |  8.2.5 |
+|    |Parameter/Variable Description        |Range       |Units     |Source  |
+------------------------------------------------------------------------------
+| I.  Prescribed/Diagnostic Fields                                           |
+------------------------------------------------------------------------------
+| Fixed (Time Invariant)                                                     |
+------------------------------------------------------------------------------
+|ALBEDO (ALBEDO)                            |            |[unitless]|ECMWF   |
+|    |The albedo calculated as the          |min = 0     |fraction  |        |
+|    |percent of reflected to               |max = 0.8   |between 0 |        |
+|    |downwelling shortwave radiation.      |Ice         |and 1     |        |
+|    |                                      |Sahara=0.4  |          |        |
+------------------------------------------------------------------------------
+|SURFACE ROUGHNESS LENGTH (ROUGHMSS)        |            |[m]       |ECMWF   |
+|    |The total roughness length is a       |min = 0     |          |        |
+|    |combination of the roughness, at      |max = 18    |          |        |
+|    |the surface, due to vegetation and    |            |          |        |
+|    |the roughness length derived from     |            |          |        |
+|    |orography. (Max value = 18m)          |            |          |        |
+------------------------------------------------------------------------------
+| Monthly                                                                    |
+------------------------------------------------------------------------------
+|SURFACE SOIL WETNESS (SSM)                 |            |[m (of    |ECMWF   |
+|    |The water content (Moisture) of the   |min = 0.0   |water)]   |        |
+|    |soil above 7 cm. This amount cannot   |max = 0.02  |          |        |
+|    |exceed 2 cm of water.                 |            |          |        |
+------------------------------------------------------------------------------
+|DEEP SOIL TEMPERATURE (DST)                |            |[K]       |ECMWF   |
+|    |The temperature of the ground         |min = 200   |          |        |
+|    |below 50 cm depth.                    |max = 316   |          |        |
+------------------------------------------------------------------------------
+|DEEP SOIL WETNESS (DSM)                    |            |[m (of    |ECMWF   |
+|    |The deep-layer water (Moisture)       |min = 0.0   |water)]   |        |
+|    |content of the soil. The deep-layer   |max = 0.02  |          |        |
+|    |wetness overlaps with the mid-layer   |            |          |        |
+|    |wetness. The mid-layer begins at      |            |          |        |
+|    |7 cm. Both Layers are 42 cm in        |            |          |        |
+|    |depth and the total water content     |            |          |        |
+|    |that each layer can hold cannot       |            |          |        |
+|    |exceed 12 cm.                         |            |          |        |
+------------------------------------------------------------------------------
+|CLIMATE DEEP SOIL TEMP. (CST)              |            |[K]       |ECMWF   |
+|    |The climate temperature of the        |min = 200   |          |        |
+|    |ground below 50 cm depth.             |max = 310   |          |        |
+------------------------------------------------------------------------------
+|CLIMATE DEEP SOIL WETNESS (CSM)            |            |[m (of    |ECMWF   |
+|    |The climate deep-layer water          |min = 0.0   |water)]   |        |
+|    |(Moisture) content of the soil.       |max = 0.02  |          |        |
+------------------------------------------------------------------------------
+|SNOW DEPTH (SDP)                           |            |[m]       |ECMWF   |
+|    |The snow depth measured in meters     |min = 0     |          |        |
+|    |of equivalent liquid water.           |max = 10.1  |          |        |
+|    |                                      |Ice caps    |          |        |
+------------------------------------------------------------------------------
+| II.  Monthly, 6-hourly Forcing Fields                                      |
+------------------------------------------------------------------------------
+|2-METER TEMPERATURE (T)                    |            |[K]       |ECMWF   |
+|    |The air temperature at 2 m above      |min = 220   |          |        |
+|    |the ground.                           |max = 330   |          |        |
+------------------------------------------------------------------------------
+|2-METER DEW POINT TEMPERATURE (D)          |            |[K]       |ECMWF   |
+|    |The dew point temperature at 2 m      |min = 215   |          |        |
+|    |above the ground.                     |max = 306   |          |        |
+------------------------------------------------------------------------------
+|SURFACE PRESSURE (P)                       |            |[Pa]      |ECMWF   |
+|    |The atmospheric pressure at the       |min = 50000 |          |        |
+|    |surface.                              |max = 106000|          |        |
+------------------------------------------------------------------------------
+|10-METER U WIND VELOCITY (UW)              |            |[m] [s^-1]|ECMWF   |
+|    |The U (Zonal) component of wind       |min = -35   |          |        |
+|    |velocity, at 10 meter above the       |max = 35    |          |        |
+|    |ground.                               |            |          |        |
+------------------------------------------------------------------------------
+|10-METER V WIND VELOCITY (VW)              |            |[m] [s^-1]|ECMWF   |
+|    |The V (Meridional) component of       |min = -35   |          |        |
+|    |wind velocity, at 10 meter above      |max = 35    |          |        |
+|    |the ground.                           |            |          |        |
+------------------------------------------------------------------------------
+|U-STRESS (US)                              |            |[N] [m^-2]|ECMWF   |
+|    |The U (Zonal) component of surface    |min = -3    |          |        |
+|    |wind stress.                          |max = 3     |          |        |
+------------------------------------------------------------------------------
+|V-STRESS (VS)                              |            |[N] [m^-2]|ECMWF   |
+|    |The V (Meridional) component of       |min = -3    |          |        |
+|    |surface wind stress.                  |max = 3     |          |        |
+------------------------------------------------------------------------------
+|SURFACE TEMPERATURE (ST)                   |            |[K]       |ECMWF   |
+|    |The temperature of the soil above     |min = 340   |          |        |
+|    |7 cm depth.                           |max = 190   |          |        |
+------------------------------------------------------------------------------
+|MEAN SEA LEVEL PRESSURE (SP)               |            |[Pa]      |ECMWF   |
+|    |The mean atmospheric pressure at      |min = 95000 |          |        |
+|    |sea level.                            |max = 106000|          |        |
+------------------------------------------------------------------------------
+|SURFACE NET SHORTWAVE RADIATION (SS)       |            |[W] [m^-2]|ECMWF   |
+|    |Net shortwave radiation absorbed      |min = 0     |          |        |
+|    |at the surface.                       |max = 950   |          |        |
+------------------------------------------------------------------------------
+|SURFACE NET LONGWAVE RADIATION (SL)        |            |[W] [m^-2]|ECMWF   |
+|    |Net longwave radiation absorbed at    |min = -300  |          |        |
+|    |the surface.                          |max = 60    |          |        |
+------------------------------------------------------------------------------
+|TOA NET SHORTWAVE RADIATION (TS)           |            |[W] [m^-2]|ECMWF   |
+|    |Net shortwave radiation at the top    |min = 0     |          |        |
+|    |of the atmosphere.                    |max = 1200  |          |        |
+------------------------------------------------------------------------------
+|TOA NET LONGWAVE RADIATION (TL)            |            |[W] [m^-2]|ECMWF   |
+|    |Net longwave radiation at the top     |min = -350  |          |        |
+|    |of the atmosphere.                    |max = -80   |          |        |
+------------------------------------------------------------------------------
+|SURFACE SENSIBLE HEAT FLUX (SH)            |            |[W] [m^-2]|ECMWF   |
+|    |The energy flux, at the surface,      |min = -700  |          |        |
+|    |due to temperature gradient           |max = 400   |          |        |
+|    |between surface and air.              |            |          |        |
+------------------------------------------------------------------------------
+|SURFACE LATENT HEAT FLUX (LH)              |            |[W] [m^-2]|ECMWF   |
+|    |The energy flux at the surface,       |min = -700  |          |        |
+|    |due to evaporation of water.          |max = 200   |          |        |
+------------------------------------------------------------------------------
+| III.  Diurnally Resolved 6-hourly Forcing Fields                           |
+------------------------------------------------------------------------------
+|2-METER TEMPERATURE (T)                    |            |[K]       |ECMWF   |
+|    |The air temperature at 2 m above      |min = 220   |          |        |
+|    |the ground.                           |max = 330   |          |        |
+------------------------------------------------------------------------------
+|2-METER DEW POINT TEMPERATURE (D)          |            |[K]       |ECMWF   |
+|    |The dew point temperature at 2 m      |min = 215   |          |        |
+|    |above the ground.                     |max = 306   |          |        |
+------------------------------------------------------------------------------
+|10-METER WIND MAGNITUDE (W)                |            |[m] [s^-1]|ECMWF   |
+|    |The total wind magnitude (speed)      |min = 0     |          |        |
+|    |given by the square root of U^2 +     |max = 35    |          |        |
+|    |V^2. Where U and V are eastward       |            |          |        |
+|    |northward wind components,            |            |          |        |
+|    |respectively.                         |            |          |        |
+------------------------------------------------------------------------------
+|SURFACE PRESSURE (P)                       |            |[Pa]      |ECMWF   |
+|    |The atmospheric pressure at the       |min = 50000 |          |        |
+|    |surface.                              |max = 106000|          |        |
+------------------------------------------------------------------------------
+|HYBRID SURFACE SHORTWAVE DOWN RADIATION (S)|            |[W] [m^-2]|NASA/   |
+|    |Shortwave down radiation at the       |min = 0     |          |LaRC,   |
+|    |surface.                              |max = 1200  |          |ECMWF   |
+------------------------------------------------------------------------------
+|HYBRID SURFACE LONGWAVE DOWN RADIATION  (L)|            |[W] [m^-2]|NASA/   |
+|    |Longwave down radiation at the        |min = 0     |          |LaRC,   |
+|    |surface.                              |max = 600   |          |ECMWF   |
+------------------------------------------------------------------------------
+|HYBRID TOTAL PRECIPITATION (O)             |            |[W] [m^-2]|NOAA/NMC|
+|    |Total precipitation                   |min = 0     |          |GPCP    |
+|    |                                      |max = 1200  |          |        |
+------------------------------------------------------------------------------
+|HYBRID CONVECTIVE PRECIPITATION (C)        |            |[W] [m^-2]|NOAA/NMC|
+|    |Convective precipitation              |min = 0     |          |GPCP    |
+|    |                                      |max = 600   |          |        |
+------------------------------------------------------------------------------
+
+8.3  Sample Data Base Data Record.
+
+     Not applicable.
+
+8.4  Data Format.
+
+     Compressed format:
+
+     The ECMWF data has been compressed using Unix Compress.  Compress uses 
+     the modified Lempel-Ziv algorithm popularized in "A Technique for High 
+     Performance Data Compression", Terry A. Welch, IEEE Computer, vol. 17, 
+     no. 6 (June 1984), pp. 8-19.  Common substrings in the file are first 
+     replaced by 9-bit codes 257 and up.  When code 512 is reached, the 
+     algorithm switches to 10-bit codes and continues to use more bits until 
+     the limit specified by the -b flag is reached (default 16).  Bits must be 
+     between 9 and 16.  The default can be changed in the source to allow 
+     compress to be run on a smaller machine.
+
+     The amount of compression obtained depends on the size of the input, the
+     number of bits per code, and the distribution of common substrings.  The 
+     ECMWF data has been reduced by approximately 85%.  So watch out!!!
+
+     The data described here can be de-compressed using the platform specific 
+     programs listed below. 
+
+     DOS       MAC               UNIX         VMS        
+     ----------------------------------------------------
+     u16.zip   MacGzip0.3b2      gzip1-2-3    gzip-1-2-3
+
+     These programs are located in the SOFTWARE directory on this CD-ROM.  The 
+     programs are also available via FTP from many archival data bases on the 
+     Internet.  Information on anonymous FTP sites which supply these software 
+     can be obtained via anonymous FTP at ftp.cso.uiuc.edu in the directory 
+     /doc/pcnet in the file compression.
+
+
+     Uncompressed format:
+
+     The CD-ROM file format is ASCII, and consists of numerical fields of 
+     varying length, which are space delimited and arranged in columns and 
+     rows.  Each column contains 180 numerical values and each row contain 360 
+     numerical values.  
+
+          Grid arrangement
+
+             ARRAY(I,J)
+             I  = 1 IS CENTERED AT 179.5W
+             I INCREASES EASTWARD BY 1 DEGREE
+             J  = 1 IS CENTERED AT 89.5N
+             J INCREASES SOUTHWARD BY 1 DEGREE
+
+             90N - | - - - | - - - | - - - | - -
+                   | (1,1) | (2,1) | (3,1) |
+             89N - | - - - | - - - | - - - | - -
+                   | (1,2) | (2,2) | (3,2) |
+             88N - | - - - | - - - | - - - | - -
+                   | (1,3) | (2,3) | (3,3) |
+             87N - | - - - | - - - | - - - |
+                  180W   179W    178W   177W
+
+            ARRAY(360,180)
+
+8.5  Related Data Sets.
+
+     NOAA/NMC, GPCP precipitation data available on ISLSCP Initiative I 
+     Volume 5 (see NMC_CPCP.DOC).
+
+                         9.  DATA MANIPULATIONS
+
+9.1  Formulas.
+
+     9.1.1  Derivation Techniques/Algorithms.
+
+            OROGRAPHY (SURFACE GEOPOTENTIAL HEIGHT)
+
+            Although ECMWF Orography (Surface Geopotential Height) is not 
+            included on this CD-ROM, it is undoubtedly one of the most 
+            important surface fields. Once defined it determines directly or 
+            indirectly some other surface fields (temperatures for example) 
+            and it has an important role in the analysis and forecast. 
+            Therefore, a description on how it is derived is presented below.
+
+            The model orography can be represented in terms of an area mean or 
+            an envelope orography. It is calculated according to the orography 
+            expression
+
+            phi(s) = g [H(m) + [alpha][sigma]]
+
+            where g = 9.80665 is the mean acceleration of the Earth's gravity, 
+            H(m) is the mean height on the user-defined grid retrieved from 
+            the US Navy summary data set (Tibaldi and Geleyn, 1981), alpha is 
+            the proportion of standard deviation to be added to the mean 
+            height over land points (alpha is not equal to 0 for an envelope 
+            orography), and sigma is the standard deviation of mean height 
+            defined for the same grid as H(m).
+
+
+            I.  Prescribed/Diagnostic Fields
+
+            ALBEDO
+
+            The background land albedo is interpolated to the model grid from 
+            the mean annual values of the climatology by Dorman and Sellers 
+            (1989). The original albedo climate data is a yearly averaged 
+            climate field, with a resolution of 1.875 degrees on a regular 
+            lat/long grid (Preuss and Geleyn, 1980; Geleyn and Preuss, 1983). 
+            The interpolated field is then filtered by the same Gaussian 
+            filter as is used in the orography filtering.
+
+            Since sea ice has an important role in defining the global albedo 
+            it was necessary to derive an annual mean sea ice pattern. The 
+            following constraints are then imposed on the albedo field: over 
+            sea ice values are reset to 0.55; over open sea (water points) the 
+            albedo is 0.07; over land points the minimum albedo must not be 
+            below 0.07 and the overall maximum cannot exceed 0.80 (usually 
+            over snow-covered areas).
+
+            In snow covered areas this background albedo, is modified taking 
+            into account the snow depth and temperature, masking by the 
+            vegetation and the presence of ice dew. The albedo of the snow 
+            covered part is set to vary between a minimum (0.4) at melting 
+            point, and a maximum (0.8) at temperature T(o) - C(ST), {C(ST) = 
+            5C}. Where T(o) is the ice melting temperature and C(ST) is the 
+            temperature for the snow albedo.
+
+            Finally, the albedo is modified for the parallel solar radiation 
+            depending on the cosine of the solar zenith angle. The thermal 
+            emissivity of the surface is assumed to be 0.996 everywhere, 
+            giving a thermal albedo of 0.004.
+
+            The albedo, values provided on the Volume 2 CD-ROM are a yearly 
+            background climate field.  The ECMWF model alters this field 
+            during the run according to the snow cover.
+
+            SURFACE ROUGHNESS LENGTH
+
+            The roughness length due to vegetation is an original climate 
+            data set, defined on a regular 5 degree lat/long grid all over the 
+            globe (Baumgartner et al., 1977), and therefore it must be 
+            interpolated from the original to the user-defined resolution. The 
+            total roughness length is calculated from a simple expression
+
+            Z(o) = [Z(V)^2 + Z(H)^2]^0.5
+
+            Where Z(V) is the roughness length due to vegetation on the user 
+            defined grid and Z(H) is the roughness length derived from 
+            orography parameters and is part of the US Navy summary data set. 
+            The information about urbanization has already been built in to 
+            Z(H), in such a way that for 100% urban area a value of 2.5 meters 
+            is assumed.
+
+
+            SURFACE SOIL WETNESS (MOISTURE)
+
+            This surface field is derived in a straightforward way from the 
+            surface soil moisture climate data set. The surface soil moisture 
+            climate data set is defined on a global 4 x 5 degree lat/long 
+            grid and is available for the 1st and 16th day of each month 
+            (Mintz and Serafini, 1981). The surface soil moisture climate data 
+            are interpolated to a user-defined grid. The original maximum 
+            value of the moisture that the soil can hold is set to 15 cm of 
+            water.  Since, the first ground layer reaches only 7.2 cm in 
+            depth, it is assumed that the maximum water content for this layer 
+            cannot exceed 2 cm, and therefore all original values are scaled 
+            accordingly.
+
+            The field is of no relevance over the model water points, where it 
+            is set to zero.
+
+            DEEP-LAYER SOIL TEMPERATURE
+
+            This field was derived from surface temperature which has been 
+            obtained by the procedure described above. From the surface 
+            temperature, deep-layer temperature is calculated using the 
+            expression
+
+            T(d)^n = [1-c]T(o) + c[aT(s)^n + bT(s)^n-1]
+
+            Where T(o) denotes the mean annual surface temperature, T(s)^n and 
+            T(s)^n-1 are the surface temperature for month n and previous 
+            month n-1, a and b are constants defining the temperature phase 
+            lag and c is a constant describing the amplitude damping. 
+            Currently a = b = 0.5 and c = 0.77. The above formula applies only 
+            over land points.
+
+            DEEP-LAYER SOIL WETNESS (MOISTURE)
+
+            This climate field is derived from the original data of Mintz and 
+            Serafini (1981). The original soil moisture is first interpolated 
+            to the operational Gaussian grid. The depth of the model's deep 
+            (third) ground layer is 42 cm and the maximum water content in 
+            this layer is assumed to be 12 cm. The deep ground layer overlaps 
+            the middle layer, which begins at 7 cm and also has a depth of 42 
+            cm. It is assumed that the soil moisture between these two layers 
+            is in balance, since values used in the forecast model are scaled 
+            to the depth of the first ground layer (which is 7 cm deep). 
+
+            CLIMATE DEEP SOIL TEMPERATURE
+
+            Not available at this revision.
+
+            CLIMATE DEEP SOIL WETNESS
+
+            Not available at this revision.
+
+            SNOW DEPTH
+
+            There are a variety of meteorological phenomena which have various 
+            degrees of impact on snow creation and snow destruction. 
+            Eventually, it was decided that only the combination of 
+            precipitation and surface soil temperature over land points 
+            would be considered when creating the snow climate.
+
+            The Snow Depth is not calculated as a prognostic variable as in 
+            most GCMs but is prescribed climatologically. The archived 
+            climatological snow is not derived from snow measurements but is 
+            derived according to some complicated semi-empirical modeling from 
+            climatological monthly precipitation and temperatures. Since there 
+            are now available, global climatologies of snow based on direct 
+            observations, it is suggested that the user be cautious in use of 
+            this unvalidated and indirectly derived climatology except to 
+            understand how the archived albedos are derived.
+
+
+            II.  Monthly, 6-hourly Forcing Fields
+
+            2-METER TEMPERATURE
+
+            Not available at this revision.
+
+            2-METER DEW POINT TEMPERATURE
+
+            Not available at this revision.
+
+            SURFACE PRESSURE
+
+            Not available at this revision.
+
+            10-METER U VELOCITY
+
+            For information on how u-wind velocity is derived see Janssen et 
+            al. (1992).
+
+            10-METER V VELOCITY
+
+            For information on how v-wind velocity is derived see Janssen et 
+            al. (1992).
+
+            U-STRESS
+
+            For information on how u-wind stress is derived see Janssen et 
+            al. (1992).
+
+            V-STRESS
+
+            For information on how v-wind stress is derived see Janssen et 
+            al. (1992).
+
+            SURFACE TEMPERATURE
+
+            A climatological surface temperature is derived according to the 
+            procedure described by Brankovic and Van Maanen (1985).
+
+            The procedure described below was taken from Brankovic and Van 
+            Maanen (1985). A rather lengthy procedure is used to derive 
+            surface temperature from the ECMWF model output.
+
+            The data has been interpolated to the model resolution, used with 
+            corrections for model elevation, and blended with the sea surface 
+            temperatures and sea-ice of Alexander and Mobley  (Tibaldi and 
+            Geleyn, 1971).  Since this data is based on early climatological 
+            information no longer in general use and has been highly 
+            manipulated to meet modeling requirements, it should be used with 
+            caution except for understanding its role in derivation of the 
+            time-dependent model surface fields.
+
+            MEAN SEA LEVEL PRESSURE
+
+            Not available at this revision.
+
+            SURFACE NET SHORTWAVE RADIATION
+
+            Surface shortwave radiation is derived from top of the atmosphere 
+            radiation and model atmospheric structure including clouds, 
+            according to the scheme of Foquart and Bonnel (1980) as given in 
+            detail in Research manual 3, ECMWF forecast model physical 
+            parameterization. 
+
+            SURFACE NET LONGWAVE RADIATION
+
+            Surface longwave fluxes are calculated from model atmospheric 
+            structure using clouds according to a parameterization which
+            includs a diffusivity factor. For further explanation, see 
+            Research manual 3, ECMWF forecast model physical parameterization.
+
+            TOA NET SHORTWAVE RADIATION
+
+            For information of on how top of the atmosphere shortwave 
+            radiation is derived, see Geleyn and Hollingsworth (1979), 
+            Morcrette (1990) and Morcrette (1991).
+
+            TOA NET LONGWAVE RADIATION
+
+            For information of on how top of the atmosphere longwave 
+            radiation is derived, see Geleyn and Hollingsworth (1979), 
+            Morcrette (1990), and Morcrette (1991).
+
+            SURFACE FLUX OF SENSIBLE HEAT
+
+            For information on how surface sensible heat flux is derived see 
+            Louis (1979) and Morcrette (1990).
+
+            SURFACE LATENT HEAT FLUX
+
+            For information on how surface latent heat flux is derived see 
+            Louis (1979) and Morcrette (1990).
+
+
+            III.  Diurnally-resolved (6-hourly) Forcing Fields
+
+            2-METER TEMPERATURE
+
+            Not available at this revision.
+
+            2-METER DEW POINT TEMPERATURE
+
+            Not available at this revision.
+
+            WIND MAGNITUDE AT 10M
+
+            Wind Magnitude was derived from the u and v components of wind at 
+            10m.  Wind magnitude is equal to the square root of U^2 +  V^2. 
+            Where U and V are eastward & northward wind components, 
+            respectively. 
+
+            SURFACE PRESSURE
+
+            Not available at this revision.
+
+            NASA/LaRC, ECMWF HYBRID SURFACE SHORTWAVE DOWN RADIATION
+
+            This parameter was derived from the NASA/LaRC (monthly mean 
+            radiation, on ISLSCP Initiative I CD-ROM Volume 1) surface 
+            shortwave down radiation, ECMWF surface net shortwave radiation, 
+            and ECMWF albedo.  The following equation was used:
+
+            S(EH) = S(L)/SUM[S(NE)/[1 - A(E)]] * S(NE)/[1 - A(E)]
+
+            where 
+
+            S(EH) = Hybrid surface shortwave down radiation (6 hourly),
+            SUM   = Summation,
+            S(L)  = LaRC surface shortwave down radiation (monthly mean),
+            S(NE) = ECMWF surface 6-hourly shortwave net radiation, 
+            A(E)  = ECMWF Albedo (monthly mean).
+
+            HYBRID SURFACE LONGWAVE DOWN RADIATION
+
+            This parameter was derived from the NASA/LaRC (monthly mean 
+            radiation, on ISLSCP Initiative I CD-ROM Volume 1) surface 
+            longwave net radiation, ECMWF surface net longwave radiation, and 
+            ECMWF surface temperature data.  The following equation was used:
+
+            L(EH) = L(NL)/SUM[L(NE)] * L(NE) + 0.996[b] * 
+                    [T(SE(t)) + T(SE(t-1))/2]^4
+
+            where 
+
+            L(EH) = Hybrid surface longwave down radiation (6-hourly),
+            L(NL) = LaRC surface longwave net radiation (monthly mean),
+            SUM   = Summation,
+            L(NE) = ECMWF surface longwave net radiation (6-hourly),
+            T(SE(t)) = ECMWF surface temperature (at time = t),
+            T(SE(t-1)) = ECMWF surface temperature (at time = t-1)
+            0.996 = Emissivity (used in ECMWF model for all land surfaces).
+            b = Stefan-Boltzman constant (5.67051 x 10^-8 [W] [m^-2] [K^-4]
+
+            HYBRID TOTAL AND CONVECTIVE PRECIPITATION
+
+            These products were created by NOAA/NMC using four input data sets 
+            which are listed below:
+
+            1)  The GPCP global 1-degree gauge-based monthly precipitation 
+                analyses for 1987/88 (available and documented on CD-ROM 
+                Volume of this set).
+
+            2)  The NMC Reanalysis global 1.875-degree 4DDA-based 6-hourly 
+                total precipitation analyses for 1987/88, available from NMC,
+                (Kalnay et al., 1993; Kalnay et al., 1995).
+
+            3)  The NMC Reanalysis global 1.875-degree 4DDA-based 6-hourly 
+                convective precipitation analyses for 1987/88, available from 
+                NMC, (Kalnay et al., 1993; Kalnay et al., 1995).
+
+            4)  The NASA/GSFC global 4x5 degree gauge-based daily 
+                precipitation analyses for Dec 1978 through Nov 1979, 
+                available from NASA/GSFC, (G. Walker, private communication, 
+                NASA/GSFC, greg@rootboy.gsfc.nasa.gov; see also Liston et al., 
+                1993, specifically Sec. 2.c, page 13).
+
+            A detailed explanation of methods used to derive these data are 
+            described in the file NMC_GPCP.DOC on ISLSCP Initiative I CD-ROM 
+            Volume 1 & 5.
+
+9.2  Data Processing Sequence.
+
+     9.2.1  Processing Steps and Data Sets.
+
+            The ECMWF data assimilation system in 1987 consisted of a 
+            multivariate optimal interpolation analysis, a non-linear normal 
+            model initialization and a high resolution spectral model which 
+            produced a first-guess forecast for the subsequent analysis. Data 
+            were assimilated every 6 hours.
+
+            The forecast model in 1987 used a spectral formulation in the 
+            horizontal, with triangular truncation at total wavenumber 106, a 
+            vertical coordinate with 19-level resolution which was terrain-
+            following at low levels. The comprehensive physical 
+            parametrization schemes included shallow and deep (Kuo) 
+            convection, a radiation scheme which allowed interaction with 
+            model generated clouds and the diurnal radiative cycle.
+
+            ECMWF produces routine global analyses for the four main synoptic 
+            hours 0000, 0600, 1200 and 1800 GMT and global 10 day forecast 
+            based on 1200 GMT data. The operational schedule with the 
+            approximate running times of the analysis and forecast suite is 
+            shown in the figure below. As a forecasting center with the 
+            emphasis on the medium-range, ECMWF operates with long data 
+            collection times of between 18 hours for the 1800 GMT analysis and 
+            8 hours for the 1200 GMT final analysis. This schedule ensures the 
+            most comprehensive global data coverage including the Southern 
+            Hemisphere surface data and global satellite sounding data.
+
+             ________________________________________________________________
+            |DATA OBSERVATION|           |           |           |           |
+            |TIME            | 1501-2100 | 2101-0300 | 0301-0900 | 0901-1500 |
+            |________________|___________|___________|___________|___________|
+                                 ||           ||          ||           ||
+             _______________     ||           ||          ||           ||
+            |APPOXIMATE TIME|    \/           \/          \/           \/
+            |OF DATA CUT-OFF|->(1100)       (1630)      (1730)       (2000)
+            |_______________|    ||           ||          ||           ||
+                              ___||___     ___||___     __||____     __||____
+                           ->|ANALYSIS| ->|ANALYSIS| ->|ANALYSIS| ->|ANALYSIS|
+                           | |VT 1800 | | |VT 1000 | | |VT 0600 | | |VT 1200 |
+                           | |________| | |________| | |________| | |________|
+                           |     ||     |     ||     |    ||      |    ||
+                           |  ___\/___  |  ___\/___  |  __\/____  |  __\/____
+                           | |INITIAL.| | |INITIAL.| | |INITIAL.| | |INITIAL.|
+                           | |________| | |________| | |________| | |________|
+                           |     ||     |     ||     |    ||      |     ||
+                           ^     ||     ^     ||     ^    ||      ^     \/
+                           |     \/     |     \/     |    \/      | (1200-0030)
+               ________    |  ___||___  |  ___||___  |  __||____  |  ___||___
+              |FORECAST|   | |FORECAST| | |FORECAST| | |FORECAST| | |FORECAST|
+              |1200+6H |___| |VT 0000 |_| |VT 0600 |_| |VT 1200 |_| |   TO   |
+              |VT 1800 |     |________|   |________|   |________|   |TEN DAYS|
+              |________|                                            |________|
+
+            The ECMWF operational schedule in late 1987, all times shown in 
+            GMT.
+
+     9.2.2  Processing Changes.
+
+            The section below summarizes the modifications to the ECMWF 
+            operational data production system from January 1987 through 
+            December 1988. This is the time period for the data in this ISLSCP 
+            Initiative I data set collection.  For information on 
+            modifications made before and after these dates see "ECMWF, The 
+            Description of the ECMWF/WCRP Level III-A Global Atmospheric Data 
+            Archive."
+
+            3 February 1987   The humidity pre-processing was modified.
+
+            10 February 1987  SATEM precipitable water content was included to 
+                              analysis.
+
+            7 April 1987      Forecast model cycle 29. The surface and 
+                              subsurface parameterization scheme has been 
+                              revised. Each grid box is now divided into 
+                              vegetated and bare ground parts which concerns 
+                              the evaporation over land surfaces. The time 
+                              evolution of the soil water content takes root 
+                              uptake, interruption of precipitation and 
+                              collusion of dew by a skin reservoir, surface 
+                              run off due to sloping terrain and gravitational 
+                              drainage into account.
+
+                              The use of specific thermal properties of snow 
+                              modifies the surface temperature evolution over 
+                              snow covered ground.
+
+                              The convective Kuo scheme was modified. The 
+                              accumulated convective precipitation now 
+                              includes convective snowfall. Over sea surface 
+                              convective precipitation is allowed to fall as 
+                              snow when the sea surface temperature is above 
+                              0 degree C. For both land and sea points the air 
+                              temperature at the first model level is required 
+                              to be colder than minus 3 degree C for snowfall.
+
+                              The post-processing method to compute the 10 m 
+                              winds, 2m temperature and dew point has been 
+                              reformulated. The calculations of 10m wind 
+                              components and the 2m temperature base on 
+                              realistic profiles of wind speed and temperature 
+                              gradients within the atmospheric boundary layer 
+                              which is assumed to be a Constant Flux Layer 
+                              (CFL). The variables (at any height) are 
+                              obtained by integrating their vertical 
+                              derivatives.
+
+                              The 2m dew point depression is computed by 
+                              assuming that the relative humidity is constant 
+                              in the CFL.
+
+                              The modifications of the near surface 
+                              temperature give a more realistic simulation of 
+                              the diurnal temperature variation under clear 
+                              sky conditions. The old 2m dew point calculation 
+                              suffered from a surface layer which was too 
+                              moist which results in a too narrow dew point 
+                              spread. The new scheme corrects this deficiency 
+                              to a large extent.
+
+                              In stable conditions the new post-processing 
+                              give lower wind speeds u-wind and v-wind at 10m 
+                              height.  The reduction which is of the order 1 - 
+                              3 ms^-1 is in better agreement with locally 
+                              observed winds.
+
+                              Over sea the Charnock constant of 0.032 was 
+                              replaced by the lower value of 0.018.
+
+                              Soil moisture analysis is not being done any 
+                              more. The initial soil temperature and moisture 
+                              content are taken from the first-guess.
+
+            13 April 1987     An error in the computation of 10m wind and 2m 
+                              temperature and dew-point temperature was fixed. 
+                              The data of u-wind 10m, v-wind 10m, 2m 
+                              temperature and 2m dew-point temperature are 
+                              incorrect within the time period from 7-13 April 
+                              1987.
+
+            16 June 1987      Land wind data in the Tropics were used and the 
+                              wind direction check was tightened up.
+
+            7 July 1987       An error in post-processing of low cloud and 
+                              total cloud amount was fixed. The total cloud 
+                              cover is incorrect from 15 July 1986 to 6 July 
+                              1987 as a result.
+
+            21 July 1987      A number of changes relating mainly to the use 
+                              of SATEMs was implemented. Now 7 SATEM layers 
+                              are used in the vertical instead of 11, i.e. 
+                              1000/700 hPa, 700/500 hPa, 500/300 hPa, 300/100 
+                              hPa, 50/30 hPa, 30/10 hPa.
+
+                              The modifications allow better use to be made of 
+                              satellite sounding data in agreement with the 
+                              vertical resolution given by the satellite 
+                              instruments.
+
+                              The satellite observation statistics and 
+                              quality control were revised.
+
+            11 August 1987    A problem with the stratospheric SATEMs during 
+                              early August caused the analysis to develop an 
+                              erroneous warm dome in the 50-30 hPa thickness 
+                              field over the Antarctic which was fixed on 11 
+                              August.
+
+            27 October 1987   Observations at North Pole were included in data 
+                              selection. The humidity analysis data selection 
+                              criteria were made consistent with mass and wind 
+                              analysis.
+
+            8 December 1987   The first-guess rejection limit for winds was 
+                              tightened and an asymmetric first-guess check on 
+                              extra-tropical cloud track winds was introduced.
+
+            5 January 1988    Forecast model cycle 30. A revised vertical 
+                              diffusion scheme was implemented. The turbulent 
+                              diffusion is now limited to below the top of the 
+                              boundary layer except when static instability is 
+                              generated. This modification restricts the 
+                              vertical mixing to the boundary layer. The 
+                              reduction of dissipation and momentum and heat 
+                              mixing in the free atmosphere has a positive 
+                              impact on zonal mean temperatures and reduces 
+                              the zonal wind errors. The eddy activity becomes 
+                              stronger.
+
+                              Modest modifications in the parameterization of 
+                              the surface processes were included. The 
+                              revision of the numerical scheme affects the 
+                              partitioning of the surface moisture flux in 
+                              terms of water extraction from the various 
+                              contributing reservoirs. The interaction between 
+                              convective precipitation and surface hydrology 
+                              was revised as well as the interaction between 
+                              the radiation and both the canopy layer and the 
+                              snow.
+
+                              The new surface parameters are only marginally 
+                              influenced by these changes except in the case 
+                              when snow is melting. Now the surface 
+                              temperatures are allowed to be positive even 
+                              with snow on the ground.
+
+            26 January 1988   Divergent structure functions were included in 
+                              wind correlation's of the analysis. The 
+                              divergent structure functions improved the 
+                              analysis significantly especially in the Tropics 
+                              but the improvements were found short-lived 
+                              during the assimilation cycle.
+
+            1 March 1988      The revision of the MARS interpolation software 
+                              affects especially the surface orographic field 
+                              of the ECMWF/TOGA Level III Basic Data Set.
+
+            12 July 1988      To minimize the impact of bad data in the data 
+                              assimilation system the quality control 
+                              algorithm have been modified which includes a 
+                              more efficient OI check of SATEMs in areas with 
+                              sufficient non-SATEM data and a general 
+                              tightening of first-guess and OI rejection 
+                              limits.
+
+                              The structure functions were modified, resulting 
+                              in an increased effective horizontal and 
+                              vertical analysis resolution.
+
+            22 November 1988  Forecast model cycle 31. A modification of the 
+                              surface scheme was implemented in order to 
+                              correct some of the deficiencies of 2 m 
+                              temperature forecast.
+
+                              1.  The root profile was adjusted. The values of 
+                                  the root percentage in each of the 2 soil 
+                                  layers are now 50% (70%) intermediate layer 
+                                  and a 0% (15%) in the climate layer 
+                                  (percentage values within the brackets are 
+                                  valid for the old scheme). In the absence of 
+                                  precipitation no root extraction is allowed 
+                                  from the climate reservoir.
+
+                              2.  The background vegetation cover in dry 
+                                  situations was changed. No plant 
+                                  transpiration is allowed if the soil wetness 
+                                  in the root zone is lower than a threshold 
+                                  value. The background vegetation cover is 
+                                  not decreased linearly to 0 when the root 
+                                  soil wetness decreases to 0.
+
+            14 December 1988  A change was made to the analysis, to 
+                              prevent uncontrolled growth of spurious vortices 
+                              at the top level of the model.
+
+9.3  Calculations.
+
+     9.3.1  Special Corrections/Adjustments.
+
+            Below is a description of the regridding procedures, performed by 
+            the NASA Goddard DAAC, used on the ECMWF data:
+
+            1)  Converted the original ECMWF (1.125 x 1.125 degree) grid point 
+                to (1.125 x 1.125 degree) grid area. This was done by 
+                averaging the four grid point corners for each grid area.
+            2)  The grid area data values were then replicated along a 
+                latitude by the factor that would result in a common multiple. 
+                Since the target grid count for the gridded ISLSCP data 
+                sets is 360 latitude grids by 180 longitude grids, the 
+                factors 360 and 180 were used for replication.  Each original 
+                grid value along a latitude was then replicated a total of  
+                360 times.  Once a latitude band has been replicated, a set of  
+                replicated grid values starting at the beginning of the 
+                latitude band are summed, averaged and assigned to a grid cell 
+                in the target grid.  This set of replicated grid cells for 
+                determining the target grid parameter value is equal to the 
+                number of total original grid cells along a latitude band.   
+                For example, if the original grids cell count for a latitude 
+                was 144, and the target count was 360, then the number of 
+                replicated cells is 51840.  From these 51840 cells, 
+                consecutive sets of 144 values are summed, averaged and 
+                assigned to each of the target grid cells.  This method is 
+                then repeated for each latitude band.
+            3)  The results of the above steps are then taken, and each data 
+                value along a longitude band is replicated using a factor of 
+                180, and then summed, averaged, and assigned to the target 
+                grid in much the same manner as before, then repeated for each 
+                longitude band. 
+            4)  The regridded (1 x 1 degree) ECMWF data were then used to 
+                produce monthly 6-hourly means, monthly means, monthly 
+                maximum, monthly minimum, and monthly Standard Deviation data 
+                files for the appropriate data sets (see section 6.3.2).  The 
+                monthly 6 hourly mean data were produced by adding a months 
+                period of data for each of the four synoptic hours and 
+                dividing by the number of days for that particular month.  The 
+                monthly mean data were then produced from the monthly 6-hourly 
+                mean data.
+
+9.4  Graphs and Plots.
+
+     See "ECMWF, The Description of the ECMWF/WCRP Level III-A Global 
+     Atmospheric Data Archive."
+
+                          10.  ERRORS
+
+10.1  Sources of Error.
+
+      The ECMWF data sets have biases which are only partially documented. 
+
+      Many of the surface and diagnostic field data sets are adapted to a 
+      specific model orography. For additional information on orography, see 
+      Jarraud et al. (1988), and Miller et al. (1989).
+
+      See Janssen et al. (1992), for information on sources of error, for the 
+      following parameters:
+
+      10 meter u-wind velocity
+      10 meter v-wind velocity
+      u-wind stress
+      v-wind stress
+
+      See Louis (1979) and Morcrette (1990), for information on sources of 
+      error, for the following parameters:
+
+      surface sensible heat flux
+      surface latent heat flux
+
+      See Geleyn and Hollingsworth (1979), Morcrette (1990) and Morcrette 
+      (1991), for information on sources of error, for the following 
+      parameters:
+
+      surface shortwave radiation
+      surface longwave radiation
+      TOA shortwave radiation
+      TOA longwave radiation
+
+10.2  Quality Assessment.
+
+      10.2.1  Data Validation by Source.
+
+              See sections 9.2.2 and 10.1.
+
+      10.2.2  Confidence Level/Accuracy Judgment.
+
+              See section 10.1.
+
+      10.2.3  Measurement Error for Parameters and Variables.
+
+              See section 10.1.
+
+      10.2.4  Additional Quality Assessment Applied.
+
+              A comparison between 48-hour forecasts from the ECMWF model and 
+              area averaged time series for the FIFE 1987 surface data was 
+              made by Betts et al. (1993).  The comparison of the October 1987 
+              data showed a consistent picture, reflecting five systematic 
+              errors in the model.
+
+              1)  The incoming short-wave radiation is too high in clear-sky 
+                  conditions, perhaps by as much as 10%.  The fixed model 
+                  albedo is lower than the data in October (the difference was 
+                  less in August), but this may be unique to this grid point.
+
+              2)  The ground-surface model, which has a 7 cm thick first 
+                  surface layer, is too slow to respond to the net radiation 
+                  after sunrise, and cools too slowly at night.  Since this 
+                  layer must warm before the Sensible Heat transfer to the 
+                  atmosphere can become upward, the model needs a very large 
+                  downward ground heat flux after sunrise, as large as 200 [W]
+                  [m^-2]. (The error is amplified by a time-truncation problem 
+                  in the model.)  This introduces a day-time phase lag into 
+                  the upward Sensible Heat flux, and appears also to result in 
+                  a net heat flux into the ground, even as late in the year as 
+                  October.
+
+              3)  The difference between surface temperature and air 
+                  temperature is too small in the model.  This is associated 
+                  in part with having the same roughness lengths for heat and 
+                  momentum in the model.
+
+              4)  The model Latent Heat flux is near zero in October.  This 
+                  results from ground-moisture values below the model 
+                  threshold for evaporation (set at 30% of the soil field 
+                  capacity).  These are kept low by the soil moisture 
+                  specified in the climate layer for October.
+
+              5)  The model Boundary Layer dries out as a result of having no 
+                  surface Latent Heat flux.
+
+              The Betts et al. (1993) analysis identified three possible 
+              small biases in the 1987 model: they were each about 1-2% and 
+              were all additive.
+
+              1)  The parameterized version of the short-wave radiative code 
+                  has an incoming flux 1-2% higher than a more exact narrow 
+                  model.
+
+              2)  The 1987 code did not include absorption in the shortwave 
+                  by either the water-vapor continuum or aerosols; each of 
+                  which might account for another 1-2% reduction in the 
+                  incoming clear-sky shortwave at the surface.
+
+              3)  The model's sensible- and latent-heat fluxes lag by about 2 
+                  hours because of the slow thermal response of the 7 cm soil 
+                  layer.  This is a result of the model's ground heat flux 
+                  which is too high during the day-time heating cycle, 
+                  reaching values in the morning of over 200 [W] [m^-2].
+
+              Dr. Robert Dickinson, of the University of Arizona's Department 
+              of Atmospheric Sciences, supplied the following quality 
+              assessment of the ECMWF parameters.
+
+                   Assessment       Parameter
+                   ------------     ---------------------------------
+                   I.  Prescribed/Diagnostic Fields
+
+                   Questionable     Albedo
+                   Questionable     Surface Roughness Length
+
+                   Unreliable       Surface Soil Wetness
+                   Questionable     Deep Soil Temperature
+                   Unreliable       Deep Soil Wetness
+                   Unreliable       Climate Deep-Soil Wetness
+                   Questionable     Climate Deep-Soil Temperature
+                   Unreliable       Snow Depth
+
+                   II.  Monthly 6-hourly Forcing Fields
+
+                   Reliable         Temperature at 2m
+                   Questionable     Dew point Temperature at 2m
+                   Reliable         Surface Pressure
+                   Reliable         U-wind at 10 meters
+                   Reliable         V-wind at 10 meters
+                   Questionable     U-wind stress
+                   Questionable     V-wind stress
+                   Questionable     Surface Temperature
+                   Reliable         Mean Sea Level Pressure
+                   Unreliable       Surface Net Shortwave Radiation
+                   Questionable     Surface Net Longwave Radiation
+                   Unreliable       TOA Net Shortwave Radiation
+                   Unreliable       TOA Net Longwave Radiation
+                   Unreliable       Surface Sensible Heat Flux
+                   Unreliable       Surface Latent Heat Flux
+
+                   III.  Diurnally-resolved (6-hourly) Forcing Fields
+
+                   Reliable         Temperature at 2m
+                   Questionable     Dew point Temperature at 2m
+                   Reliable         Wind magnitude at 10 meters
+                   Reliable         Surface Pressure
+                   Not available    NASA/LaRC, ECMWF hybrid incident SW and 
+                                    LW radiation.
+                   Not available    NOAA/NMC, GPCP hybrid Total and convective 
+                                    Precipitation.
+
+                             11.  NOTES
+
+11.1  Known Problems With The Data
+
+      U- and V-Wind Components at the Poles
+      -------------------------------------
+      In 1991 it was discovered that, on a regular latitude/longitude grid, 
+      the ECMWF u- and v- components of wind were incorrect at the poles. The 
+      problem was that the horizontal components of wind gave inconsistent 
+      polar values of wind magnitude and direction. Changes have been made to 
+      the interpolation routines used to create the ECMWF/TOGA Basic Data sets 
+      and to extract data from the ECMWF/TOGA Advanced Data Sets and the 
+      Supplementary Fields Data Set. These changes have had the following 
+      effects on u- and v-wind fields at the poles:
+
+             Surface data. The grid points at each of the poles will contain 
+             horizontal wind components from the nearest neighboring Gaussian 
+             latitude circle interpolated to the required resolution. For the 
+             0.5625 degree lat/lon grid (current ECMWF model, 17 September 
+             1991 onwards) model the nearest latitude circle is + or - 
+             89.578132.
+
+11.2  Usage Guidance.
+
+      No surface observations are used, so that the surface data provided via 
+      ECMWF comes from the model simulations of surface processes, strongly 
+      constrained by observed atmospheric information and a priori surface 
+      climatological information.
+
+      There were frequent changes in the model (see section 9.2.2 for 
+      details), many involving surface processes, over the temporal period of 
+      these ECMWF data. Since the surface data are inferred from model 
+      calculations constrained by atmospheric data, artificial discontinuities 
+      in the data would be expected at the dates of model changes.
+
+      Users of the Supplementary Fields Data Set should note the following 
+      statement which was issued by the Research Department at ECMWF in April 
+      1990.
+
+           Users of the ECMWF low level wind data, in particular over the 
+           oceans, should be aware of an inconsistency that exists between the 
+           archived surface stress values and the stresses calculated 
+           diagnostically from archived low level wind fields and 
+           temperatures.
+
+           Using the ECMWF parametrization diagnostically for example, 
+           produces stresses that are higher than archived model values 
+           because of the impact of the time algorithms used for the model's 
+           boundary layer scheme.
+
+11.3  Other Relevant Information.
+
+      The data sets are adapted to a specific model orography; the data sets 
+      have biases which are only partially documented (reference list).
+
+      No surface observations of temperature, specific humidity, 
+      precipitation, nor surface wind observations over land were used in the 
+      analysis.
+
+      Model spin-up can seriously affect the flux data.  All flux fields, 
+      including total cloud cover, are first-guess fields (i.e., 6-hour 
+      forecasts).
+
+      Several fields such as soil moisture, snow depth, deep soil parameters, 
+      although included in the analysis data set, are not analyzed but evolve 
+      during the data assimilation cycle.
+
+      The Technical Attachment to the Description of the ECMWF/WCRP Archive 
+      should be cited by users in publications (see reference section).
+
+                           12.  REFERENCES
+
+12.1  Satellite/Instrument/Data Processing Documentation.
+
+      Brankovic, C., and J. Van Maanen, 1985. The ECMWF Climate system. ECMWF 
+          Rech. Memo. No 109 51 pp + figs.
+      ECMWF Manual 3: ECMWF forecast model physical parametrization, 3rd 
+          Edition. ECMWF Research Department, Shinfield Park, Reading, 
+          Berkshire RGE 9AX, England.
+      ECMWF, The Description of the ECMWF/WCRP Level III-A Global Atmospheric 
+          Data Archive. ECMWF Operations Department Shinfield Park, Reading, 
+          Berkshire RGE 9AX, England.
+
+12.2  Journal Articles and Study Reports.
+
+      Alexander, R. C. and R. L. Mobley, 1974. Monthly average sea-surface 
+          temperatures and ice-pack limits for 1 degree global grid. RAND Rep. 
+          R01310-ARPA, 30 pp.
+      Baumgartner, A., H. Mayer and W. Metz, 1977. Weltweite Verteilung des 
+          Rauhigkeitsparameters z(o) mit Anwendung auf die Energiedissipation 
+          and der Erdoberflache. Meteor. Rundschau., 30:43-48.
+      Betts, A.K., J.H. Ball, and A.C.M. Beljaars, 1993. Comparison between 
+          the land surface response of the ECMWF model and the FIFE-1987 data. 
+          Q.J.R. Meteorol. Soc., 119:975-1001.
+      Dewey, K. F. and R. Heim, Jr., 1982. Variations in Northern Hemisphere 
+          snow cover utilizing digitized weekly charts from satellite imagery, 
+          1967-1980. Proceedings of the 6th Annual Climate Diagnostics 
+          Workshop, Palisades, N.Y., 157-165.
+      Dorman, J.L. and P.J. Sellers, 1989. A global climatology of albedo, 
+          roughness length and stomatal resistance for atmospheric general 
+          circulation models as represented by the simple biosphere model 
+          (SiB). J.A.M., 28(9):833-855.
+      Elsaser, W. M., 1942. Heat transfer by infrared radiation in the 
+          atmosphere. Harvard Meteorological Studies No. 6, 107 pp.
+      Fouqart, Y., and B. Bonnel, 1980. Computations of solar heating of the 
+          earth's atmosphere: a new parameterization. Beitr. Phys. Atmos., 
+          53:35-62
+      Geleyn, J. F., A. Hollingsworth, 1979. An economical analytical method 
+          for the computation of the interaction between scattering and line 
+          absorption of radiation. Beitr. Phys. Atmos., 52:1-16.
+      Geleyn, J. F. and H. J. Preuss, 1983. A new data set of satellite-
+          derived surface albedo values for operational use at ECMWF. Arch. 
+          Meteor. Geophys. Bioclim., Ser. A, 32:353-359.
+      Janssen, P. A. E. M., A. C. M. Beljaar, A. Simmons, and P. Viterbo, 
+          1992. The determination of the surface stress in an atmospheric 
+          model. Mon. Wea. Rev., 120:2977-2985.
+      Jarraud, M., A. J. Simmons, and M. Kanamitsu, 1988. Sensitivity of 
+          medium-range weather forecast to the use of an envelope orography. 
+          Q. J. Royal Meteorol. Soc., 114:989-1025.
+      Louis, J. F., 1979. A parametric model of vertical eddy fluxes in the 
+          atmosphere. Boundary Layer Meteorol., 17:187-202.
+      Miller, M. J., T. N. Palmer, and R. Swinbank, 1989. Parametrization and 
+          influence of subgridscale orography in general circulation and 
+          numerical weather prediction models. Meteorol. Atmos. Phys., 
+          40:84-109.
+      Mintz, Y. and Y. Serafini, 1981. Global fields of soil moisture and 
+          land-surface evapotranspiration. NASA Goddard Space Flight Center 
+          Tech.  Memo. 83907, Research review - 1980/81:178-180.
+      Morcrette J. J., 1990. Impact of changes to the radiation transfer 
+          parameterizations plus cloud optical properties in the ECMWF model. 
+          Mon. Wea. Rev., 118:847-872.
+      Morcrette J. J., 1991. Radiation and cloud radiative properties in the 
+          European Center for Medium Range Weather Forecasts forecasting 
+          system.  J. Geophysical Res., 96(5)9121-9132.
+      Preuss, J. H. and J. F. Geleyn, 1980. Surface albedos derived from 
+          satellite data and their impact of forecast models. Arch Meteor. 
+          Geophys. Biocl., Ser. A, 29:345-356.
+      Rogers, C. D., and C. D. Walshaw, 1966. The computation of the infrared 
+          cooling rate in planetary atmospheres. Quart. J. Royal. Meteor. 
+          Soc., 92:67-92.
+      Taljaard, J. J., H. van Loon, H. L. Crutcher, and R. L. Jenne, 1969. 
+          Climate of the upper air, Part 1 - Southern Hemisphere; 
+          Temperatures, dew points and heights at selected pressure levels. 
+          NAVAIR Atlas 50-1C-55, 135 pp. [Government Printing Office, 
+          Washington, D.C.]
+      Tibaldi, S. and J. F. Geleyn, 1981. The production of a new orography 
+          land-sea mask and associated climatological surface fields for 
+          operational purposes. ECMWF Tech. Memo. No. 40, 13 pp.
+      Welch, T.A., 1984.  A Technique for High Performance Data Compression. 
+          IEEE Computer, 17(6):8-19.
+
+12.3  Archive/DBMS Usage Documentation.
+
+      GSFC DAAC User Services
+      NASA/Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Phone:     (301) 286-3209
+      Fax:       (301) 286-1775
+      Internet:  daacuso@eosdata.gsfc.nasa.gov
+
+13.2  Archive Identification.
+
+      Goddard Distributed Active Archive Center
+      NASA Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Telephone:  (301) 286-3209
+      FAX:        (301) 286-1775
+      Internet:   daacuso@eosdata.gsfc.nasa.gov
+
+13.3  Procedures for Obtaining Data.
+
+      Users may place requests by accessing the on-line system, by sending 
+      letters, electronic mail, FAX, telephone, or personal visit.
+
+      Accessing the GSFC DAAC Online System:
+
+      The GSFC DAAC Information Management System (IMS) allows users to 
+      ordering data sets stored on-line.  The system is open to the public.
+
+      Access Instructions:
+
+      Node name:  daac.gsfc.nasa.gov
+      Node number: 192.107.190.139
+      Login example: telnet daac.gsfc.nasa.gov
+      Username:  daacims
+      password:  gsfcdaac
+
+      You will be asked to register your name and address during your first
+      session.
+
+      Ordering CD-ROMs:
+
+      To order CD-ROMs (available through the Goddard DAAC) users should 
+      contact the Goddard DAAC User Support Office (see section 13.2).
+
+13.4  GSFC DAAC Status/Plans.
+
+      The ISLSCP Initiative I CD-ROM is available from the Goddard DAAC.
+
+                   14.  OUTPUT PRODUCTS AND AVAILABILITY
+
+14.1  Tape Products.
+
+      The ECMWF Level III-A data can be obtained on tape from ECMWF.
+
+      ECMWF Forecasts
+      Shinfield Park
+      Reading/Berkshire
+      RG2 9AX,
+      United Kingdom 
+
+14.2  Film Products.
+
+      None.
+
+14.3  Other Products.
+
+      None.
+
+                       15.  GLOSSARY OF ACRONYMS
+
+CD-ROM        Compact Disk (optical), Read Only Memory
+CFL           Constant Flux Layer
+DAAC          Distributed Active Archive Center
+ECMWF         European Center for Medium-Range Weather Forecasts
+EOS           Earth Observing System
+GMT           Greenwich Mean Time
+GCM           General Circulation Model of the atmosphere
+GPCP          Global Precipitation Climatology Project
+GSFC          Goddard Space Flight Center
+IDS           Inter disciplinary Science
+ISLSCP        International Satellite Land Surface Climatology Project
+LaRC          Langley Research Center
+LW            Longwave radiation
+NASA          National Aeronautics and Space Administration
+NMC           National Meteorological Center
+NOAA          National Oceanic and Atmospheric Administration
+SiB           Simple Biosphere Model
+SW            Shortwave radiation
+TOA           Top of the Atmosphere
+TOGA          Tropical Ocean Global Atmosphere
+WCRP          World Climate Research Project
+
+</pre>
+</body></html>

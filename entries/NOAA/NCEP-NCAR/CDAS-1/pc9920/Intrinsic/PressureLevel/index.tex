@@ -1,0 +1,38 @@
+\begin{ingrid}
+continuedataset:
+/vpot
+{ SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Intrinsic .PressureLevel .vpot
+  P (925) (500) (250) (200) VALUES
+  T (1 Jan 1999) (31 Dec 2020) RANGE
+  T pentadAverage
+  T 73 splitstreamgrid
+  [T2]average
+  2 RECHUNK 
+  /expires undef
+CopyStream
+} defasvarcache
+grid:
+/name /X def
+degE
+periodic
+0 2.5 -2.5
+:grid
+grid:
+/name /Y def
+degN
+90 2.5 -90
+:grid
+grid:
+/name /P def
+/units (mb) def
+ordered
+values: 925 500 250 200 :values
+:grid
+grid:
+/name /T def
+/units (pentads since 1960-01-01) def
+periodic
+0.5 1 72.5
+:grid
+:dataset
+\end{ingrid}

@@ -1,0 +1,138 @@
+\begin{ingrid}
+
+/description (Tropical Storms, 20km buffers, wind speed >= 63) def
+
+continuedataset:
+
+/count {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (count_pcod) [(pcode)] open_column_by
+/long_name (Number of Tropical Storms) def
+startcolormap
+DATA 0 9 RANGE
+transparent grey grey 0 VALUE
+LightYellow 1 VALUE
+yellow 2 VALUE
+gold 3 VALUE
+orange 4 VALUE
+DarkOrange 5 VALUE
+red 6 VALUE
+brown 7 VALUE
+DarkRed 9 VALUE
+DarkRed endcolormap
+}defasvarsilentnoreuse
+
+/engtype_1{
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (engtype_1) [(pcode)] open_column_by
+/long_name (eng Type) def
+}defasvarsilentnoreuse
+
+/frequency {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (frequency) [(pcode)] open_column_by
+/long_name (Frequency of Tropical Storms) def
+}defasvarsilentnoreuse
+
+/hasc_1{
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (hasc_1) [(pcode)] open_column_by
+/long_name (hasc) def
+}defasvarsilentnoreuse
+
+/iso {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (iso) [(pcode)] open_column_by
+/long_name (Country Name ISO) def
+}defasvarsilentnoreuse
+
+/name_0 {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (name_0) [(pcode)] open_column_by
+/long_name (Country Name) def
+}defasvarsilentnoreuse
+
+/name_1 {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (name_1) [(pcode)] open_column_by
+/long_name (Region Name) def
+}defasvarsilentnoreuse
+
+/objectid {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (objectid) [(pcode)] open_column_by
+/long_name (Object ID) def
+}defasvarsilentnoreuse
+
+/objectid_1 {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (objectid_1) [(pcode)] open_column_by
+/long_name (Object ID) def
+}defasvarsilentnoreuse
+
+/objectid_2 {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (objectid_2) [(pcode)] open_column_by
+/long_name (Object ID) def
+}defasvarsilentnoreuse
+
+/pcode_lo_1 {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (pcode_lo_1) [(pcode)] open_column_by
+/long_name (Province Code) def
+}defasvarsilentnoreuse
+
+/pcode_long {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (pcode_long) [(pcode)] open_column_by
+/long_name (Province Code) def
+}defasvarsilentnoreuse
+
+/pcode_shor {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (pcode_shor) [(pcode)] open_column_by
+/long_name (Province Code) def
+}defasvarsilentnoreuse
+
+/Region {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (region) [(pcode)] open_column_by
+/long_name (Region) def
+}defasvarsilentnoreuse
+
+/shap_area {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (shape_area) [(pcode)] open_column_by
+/long_name (Area) def
+}defasvarsilentnoreuse
+
+/shape_le_1 {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (shape_le_1) [(pcode)] open_column_by
+/long_name (Length) def
+}defasvarsilentnoreuse
+
+/shape_le_2 {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (shape_le_2) [(pcode)] open_column_by
+/long_name (Length) def
+}defasvarsilentnoreuse
+
+/shape_leng {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (shape_leng) [(pcode)] open_column_by
+/long_name (Length) def
+}defasvarsilentnoreuse
+
+/type_1 {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (type_1) [(pcode)] open_column_by
+/long_name (Type) def
+}defasvarsilentnoreuse
+
+/validfr_1 {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (validfr_1) [(pcode)] open_column_by
+/long_name (Valid from) def
+}defasvarsilentnoreuse
+
+/validto_1 {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (validto_1) [(pcode)] open_column_by
+/long_name (Valid to) def
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) (geom) [(pcode)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (phlts200212wind63_provinces_buf51020thr3463output_20140205) ((name_1 || ', ' || region || ', ' ||  iso) as label) [(pcode)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+shape_le_1 .pcode name exch def
+
+\end{ingrid}

@@ -1,0 +1,86 @@
+\begin{ingrid}
+  continuedataset:
+    /source (<a href="http://faostat.fao.org/default.aspx">FAOSTAT</a>) def
+    grid:
+      /name (T) def
+      monthtime
+      /pointwidth 12 def
+      1 Jul 1961 ensotime
+      12
+      1 Jul 2009 ensotime
+    :grid
+    grid:
+      /name (code) def
+      /units (ids) def
+      /fullname (item code) def
+      values:
+1626
+1604
+1633
+1627
+1628
+      :values
+    :grid
+
+    variable:
+      /name /Name def
+      grids: code :grids
+      /long_name (item name) def
+      values:
+(Other Indust Roundwd(NC))
+(Sawlogs+Veneer Logs (NC))
+(Sawnwood (NC))
+(Wood Fuel(C))
+(Wood Fuel(NC))
+  :values
+    :variable
+
+    /Prod_Vol {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliForesProdVol.csv)
+      readdatafile:
+        ((/,(85X,49(F8.0,7X)))) formatted
+      :readdatafile
+      /long_name (forest production volume) def
+      /units (m3) def
+      /scale_min 0 def
+    }defasvarsilent
+
+    /Flag {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliProdAnimals.csv)
+      readdatafile:
+        ((/,(101X,48(14X,F1.0,)))) formatted
+      :readdatafile
+      /long_name (data quality) def
+      /CLIST [
+        (Official data)
+        (Unofficial figure)
+        (FAO estimate)
+        (Data not available)
+        (FAO calculated)
+        (Estimated data using trading partners database)
+        (Manual Estimation)        (Country data reported by International Organizations where the country is a member (Semi-official))
+        (Official data reported on FAO Questionnaires from countries)
+      ] def
+      startcolormap
+        /maxncolor 12 def
+        DATA 0 8 RANGE
+        white white
+        black
+        LightBlue
+        red
+        grey
+        orange
+        yellow
+        purple
+        NavyBlue
+        blue
+        white
+      endcolormap
+    }defasvarsilent
+
+  /history (FAOSTAT | © FAO Statistics Division 2010) def
+
+  :dataset
+\end{ingrid}

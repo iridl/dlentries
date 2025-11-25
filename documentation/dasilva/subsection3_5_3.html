@@ -1,0 +1,102 @@
+<HEAD>
+<TITLE> Correcting estimated winds in COADS</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html193 HREF=subsection3_5_4.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html191 HREF=section3_5.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html185 HREF=subsection3_5_2.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html194 HREF=subsection3_5_4.html> Sensitivity study</A>
+<B>Up:</B> <A NAME=tex2html192 HREF=section3_5.html> A revised Beaufort </A>
+<B> Previous:</B> <A NAME=tex2html186 HREF=subsection3_5_2.html> Assessing current Beaufort </A>
+<HR> <P>
+<H2><A NAME=SECTION0005300000000000000> Correcting estimated winds in COADS</A></H2>
+<P>
+<A NAME=secnewscale><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A>
+<P>
+The main objective of this section 
+is to devise a correction to the Code 1100 Beaufort
+equivalent scale that would bring not only average measured/estimated
+wind speed in closer agreement, but also produce consistent 
+mean estimates of nonlinear quantities
+such as the average pseudo wind stress
+(<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2931.xbm">). It would seem that a simple linear regression formula
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation328.xbm"><P>
+would bring measured/estimated wind speeds in Fig. <A HREF=subsection3_5_2.html#figws4>2</A>a in close
+agreement, as discussed in the previous section.
+In the above formula
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2933.xbm"> and
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2935.xbm"> stand for the corrected and old WMO 
+Code 1100 wind speed, respectively, and <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2937.xbm">, <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2939.xbm"> 
+constants to be determined.
+However,
+consistency between measured/estimated average pseudo wind stress
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2941.xbm"> requires not only the mean speeds to be consistent
+(<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2943.xbm">), but also a consistency of standard deviations 
+(<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2945.xbm">).  Such consistency
+of standard deviations cannot be accomplished with a simple linear
+regression. As mentioned earlier, a correction 
+to the old WMO
+scale should increase low wind speeds and decrease high wind speeds. 
+After much experimentation it was determined that such correction can
+be accomplished by a function of the form
+<P><A NAME=eqcorr><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation338.xbm"><P>
+All of the three alternative Beaufort equivalent scales of the last section 
+can accurately be
+expressed in the form of eq. (<A HREF=subsection3_5_3.html#eqcorr>5</A>). The constants <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2937.xbm">,
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2939.xbm"> are determined by means of a least squares fit.
+<P>
+Figure <A HREF=subsection3_5_3.html#figws9>3</A> shows the results of these computations based on northern
+hemisphere data, base years 1970-89.  Each ``row'' in this diagram
+corresponds to a different set of constants <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2937.xbm">/<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2939.xbm">, and each
+``column'' corresponds to test data for a particular period (annual,
+January or July).  For example, the diagonal depicts estimated vs.
+measured wind speeds with the corrected Beaufort equivalent scale
+developed for that particular month.
+<P>
+<P><A NAME=figws9><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_figure*346.gif"><P>
+<P>
+It is clear from Figs. <A HREF=subsection3_5_3.html#figws9>3</A>a,d,g that any of the new Beaufort equivalent 
+scales
+performs better on climatological annual winds than the CMM-IV scale
+(Fig. <A HREF=subsection3_5_2.html#figws4>2</A>b), the ``best'' among the current scales. The new January
+scale (middle row) performs nearly as well on annual data as the
+optimal annual scale,
+with standard errors equal to 0.17 and 0.16 m/s, respectively (compare
+Figs. <A HREF=subsection3_5_3.html#figws9>3</A>d and <A HREF=subsection3_5_3.html#figws9>3</A>a).  A close examination of
+Fig. <A HREF=subsection3_5_3.html#figws9>3</A> reveals that on
+January/July data the January scale is slightly more accurate than the annual
+scale.  The July scale only outperforms the annual/January scales on
+the July data, but marginally so.  The seasonal dependence of the
+scales is modest and does not warrant the use of a different scale
+for each month.  Based on this analysis, and additional plots for
+other oceans, we selected the January scale as our primary scale.  
+In this case eq. (<A HREF=subsection3_5_3.html#eqcorr>5</A>) reads:
+<P><A NAME=eqjan><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation357.xbm"><P>
+Notice that when this equation is applied to climatological winds 
+the second term on
+the right hand side (RHS) should be the average of <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2957.xbm">,
+(<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2959.xbm">) rather than the square-root of the average
+wind, (<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2961.xbm">).
+<P>
+The wind speed correction given in eq. (<A HREF=subsection3_5_3.html#eqjan>6</A>) can be used to
+derive a revised Beaufort equivalent scale for use in COADS.  In
+Table <A HREF=subsection3_5_1.html#tabcodes>5</A> the mean equivalent wind speed and respective
+interval of wind speeds for the WMO Code 1100 scale have been mapped
+using eq. (<A HREF=subsection3_5_3.html#eqjan>6</A>) to produce a new corrected scale.
+Figure <A HREF=subsection3_5_2.html#figbars>1</A> depicts the difference between this corrected
+scale and the other Beaufort equivalent scales.  Consistent with the
+other scales, the UWM scale indicates that the old WMO Code 1100 scale
+underestimates low wind speeds and overestimates high wind speeds.
+However, the magnitude of the correction is generally smaller than
+previous alternatives to the old WMO scale.
+<P>
+<HR> <A NAME=tex2html193 HREF=subsection3_5_4.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html191 HREF=section3_5.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html185 HREF=subsection3_5_2.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html194 HREF=subsection3_5_4.html> Sensitivity study</A>
+<B>Up:</B> <A NAME=tex2html192 HREF=section3_5.html> A revised Beaufort </A>
+<B> Previous:</B> <A NAME=tex2html186 HREF=subsection3_5_2.html> Assessing current Beaufort </A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>
+Fri Oct 20 12:28:33 EDT 1995</I>
+</ADDRESS>

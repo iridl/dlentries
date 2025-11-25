@@ -1,0 +1,29 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Togo_147_1) def
+/Districts
+/description ( Districts) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select newfield1,first_name,id,the_geom from new_districts_togo order by id) (id) openqueryby
+        newfield1
+            /long_name (New Field1 code) def
+        CopyStream
+        name exch def
+        first_name
+            /long_name (District name) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (District geometry) def
+        name exch def
+}defasvarcachesilent
+/last_modified
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select max ( last_modified ) as last_modified from new_districts_togo) openquery .last_modified
+}def
+\end{ingrid}

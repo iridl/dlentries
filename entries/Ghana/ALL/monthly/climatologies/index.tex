@@ -1,0 +1,37 @@
+\begin{ingrid}
+
+continuedataset:
+
+/rfe {
+ SOURCES .Ghana .ALL .dekadly .rainfall .rfe
+monthlyAverage 3. mul
+yearly-climatology
+/long_name (rfe 1983-2014 average) def
+%precip_colors
+startcolormap transparent DarkRed DarkRed red OrangeRed DarkOrange LightSalmon yellow LemonChiffon LightYellow LightCyan cyan SteelBlue RoyalBlue MediumBlue MediumBlue endcolormap
+%DATA 0 300 RANGE
+}defasvarcache
+
+/tmin {
+ SOURCES .Ghana .ALL .dekadly .temperature .tmin
+monthlyAverage
+yearly-climatology
+/long_name (tmin 1961-2014 average) def
+temp_colors
+/scale_symmetric false def
+  DATA 8 34 RANGE
+}defasvarcache
+
+/tmax {
+ SOURCES .Ghana .ALL .dekadly .temperature .tmax
+monthlyAverage
+yearly-climatology
+/long_name (tmax 1961-2014 average) def
+temp_colors
+/scale_symmetric false def
+  DATA 20 45 RANGE
+}defasvarcache
+
+:dataset
+
+\end{ingrid}

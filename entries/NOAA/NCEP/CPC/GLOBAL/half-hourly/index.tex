@@ -1,0 +1,147 @@
+\begin{ingrid}
+continuedataset:
+/references (Janowiak_etal2001) def
+%dataareIRIonly
+/IRIAccess dataareRestricted
+datasetdefs:
+    grid:
+       /name /T def
+       /units (days since 1999-12-01) def
+       0.5 1 systemtime
+          systemtime2ymd ymd2rjt
+          1
+           Dec 1999 julian_day
+           sub
+          0.5 add
+          :grid
+    /Td T
+      { (/Data/data23/blyon/IR/%Y%m/merg_%Y%m%d23[T]_4km-pixel) [T]}removeextrausing
+last
+ 1
+           Dec 1999 julian_day
+           add
+3 add rjt2ymd ymd2systemtime 3600 7 mul add /expires exch def
+      def
+    grid:
+       /name /T def
+       /units (days since 1999-12-01) def
+       1
+        48. div
+        1
+         24. div
+         Td .last
+          0.5 1
+            48. div
+            sub
+           add
+/last_modified Td .last_modified def
+/expires Td .expires def
+          :grid
+    /Th T def
+    :datasetdefs
+
+    grid:
+       /name /X def
+       degE periodic
+       0.0182 0.03637834 360.
+          1 index sub
+          :grid
+    grid:
+       /name /Y def
+       degN
+       59.982 -0.03638368 -59.982 :grid
+    grid:
+       /name /T def
+       /units (days since 1999-12-01) def
+/defaultvalue {last} def
+       1
+        96. div
+        1
+         48. div
+         Td .last
+          1175
+           2400. div
+           add
+/last_modified Td .last_modified def
+/expires Td .expires def
+          :grid
+\end{ingrid}
+This is correct in theory -- but it is very slow
+
+/ir {
+   [X
+     Y |
+     T] (/Data/data23/blyon/IR/%Y%m/merg_%Y%m%d%H[T]_4km-pixel) [Th]readdatafile:
+       /add_offset 75 def
+       /scale_min 75 def
+       /scale_max 254
+         75 add
+         def
+       /missing_value 255 def
+       /units /degreeK def
+       ui*1 :readdatafile} defasvarsilent
+\end{ingrid}
+This is equivalent, but faster
+\begin{ingrid}
+/ir {
+   [X
+     Y | /IH 2 NewIntegerGRID
+     Th] (/Data/data23/blyon/IR/%Y%m/merg_%Y%m%d%H[T]_4km-pixel) [Th]readdatafile:
+       /add_offset 75 def
+       /scale_min 75 def
+       /scale_max 254
+         75 add
+         def
+       /missing_value 255 def
+       /units /degreeK def
+       ui*1 :readdatafile
+[ IH T ] 3 index .T replaceGRIDstream
+} defasvarsilent
+
+link:
+/name (data source) def
+/href (ftp://ftp.cpc.ncep.noaa.gov/precip/global_full_res_IR/) def
+:link
+link:
+/name (Full Resolution IR Data page at CPC) def
+/href (http://www.cpc.ncep.noaa.gov/products/global_precip/html/wpage.full_res.html) def
+:link
+%link:
+%/name (dataset_documentation) def
+%/href
+%(http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCEP/.CPC/.GLOBAL/.half-hourly/.dataset_documentation.html) def
+%:link
+
+    :dataset
+\end{ingrid}
+
+Original version
+
+T 1 24. div splitgrid
+(/Data/data23/blyon/merg_%Y%m%d%H_4km-pixel) strftimes
+exch Y exch twogridcount
+exch
+2 matchachunk
+X .npts
+1 index .bufferwordsize
+PS2 .PSgetlun
+-1
+0
+5 integerarray astore
+0 3 getinterval
+readui10
+STREAM TaskParameterBlock 0 get NewRealBuffer
+1 SetStreamIndex*
+X
+Y T *
+/name /ir def
+/add_offset 75 def
+/scale_min 75 def
+/scale_max 254 75 add def
+/missing_value 255  def
+/units /degreeK preferredunitname def
+/last_modified Ingrid: .code_last_modified def
+/dataset 2 index def
+/fullname [ dataset .fullname aload pop /ir ] def
+/myproc undef
+name exch def

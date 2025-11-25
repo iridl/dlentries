@@ -1,0 +1,102 @@
+\begin{ingrid}
+continuedataset:
+%/iridl:hasSemantics [(irigaz:Asia_3329_1)] def
+/references (Giorgi_F_etal1993a Giorgi_F_etal1993b) def 
+datasetdefs:
+/long_name (RegCM with 0.1126deg grids over North China Plain) def
+grid:
+/name /X def
+degE
+ 110.00 0.1126 121.0348 
+:grid
+grid:
+/name /Y def
+degN
+29.00 0.1126 43.075 
+:grid
+
+grid:
+/name /T def
+      /units (days since 1960-01-01) def
+      /calendar /365 def
+      1951
+       1 1 ymd2d365c
+       0.5 add
+       1 2100
+         12 31 ymd2d365c
+         0.5 add
+:grid
+
+grid:
+/name /P def
+/units (mb) def
+values: 850 500 200 :values
+:grid
+
+dataset: /name /PressureLevel def :dataset
+dataset: /name (Surface) def :dataset
+
+
+
+[X Y |/NVZ 2 NewIntegerGRID T]
+(/data/chao/RegCM3_NCP/TMAX_MIN/%Y[T].dat)  [T yearlyedgesgrid
+ first secondtolast 1 add subgrid]
+readdatafile:
+/missing_value -1.e34 def
+decdirect
+:readdatafile
+definevariables:
+Surface 0 Zvariable:/name (t2max) def /long_name (Max air temperature at 2 meters AGL) def /units (Kelvin_scale) def :Zvariable
+Surface 0 Zvariable:/name (t2min) def /long_name (Min air temperature at 2 meters AGL) def /units (Kelvin_scale) def :Zvariable
+:definevariables
+
+[X Y |/NVZ 1 NewIntegerGRID T]
+(/data/chao/RegCM3_NCP/PRECIPITATION/%Y[T].dat)  [T yearlyedgesgrid
+ first secondtolast 1 add subgrid]
+readdatafile:
+/missing_value -1.e30 def
+decdirect
+:readdatafile
+definevariables:
+Surface 0 Zvariable:/name (rt) def /long_name (Total precipitation) def /units (mm) def :Zvariable
+:definevariables
+
+[X Y |/NVZ 1 NewIntegerGRID T]
+(/data/chao/RegCM3_NCP/SOLAR/%Y[T].dat)  [T yearlyedgesgrid
+ first secondtolast 1 add subgrid]
+readdatafile:
+/missing_value -1.e30 def
+decdirect
+:readdatafile
+definevariables:
+Surface 0 Zvariable:/name (swi) def /long_name (Solar incident) def  /units (W/m2) def :Zvariable
+:definevariables
+
+[X Y |/NVZ 1 NewIntegerGRID T]
+(/data/chao/RegCM3_NCP/SLP/%Y[T].dat)  [T yearlyedgesgrid
+ first secondtolast 1 add subgrid]
+readdatafile:
+/missing_value -1.e30 def
+decdirect
+:readdatafile
+definevariables:
+Surface 0 Zvariable:/name (slp) def /long_name (Sea level pressure) def /units (mb) def :Zvariable
+:definevariables
+
+[X Y |/NVZ 6 NewIntegerGRID T]
+(/data/chao/RegCM3_NCP/ATMP/%Y[T].dat)  [T yearlyedgesgrid
+ first secondtolast 1 add subgrid]
+readdatafile:
+/missing_value -1.e34 def
+decdirect
+:readdatafile
+definevariables:
+PressureLevel grid:/name /P def values: 500 :values :grid 1 Pvariable:/name (gz) def /long_name (geopotential geight) def /units (gm) def :Pvariable
+PressureLevel grid:/name /P def values: 200 850 :values :grid [2 4] Pvariable:/name (u) def /long_name (U wind) def /units (m/s) def /P P def :Pvariable
+PressureLevel grid:/name /P def values: 200 850 :values :grid [3 5] Pvariable:/name (v) def /long_name (V wind) def /units (m/s) def /P P def :Pvariable
+
+PressureLevel  grid:/name /P def values: 850 :values :grid 1 Pvariable:/name (q) def /long_name (specific humidity) def /units (g/kg) def :Pvariable
+:definevariables
+PressureLevel dataset .P name exch put
+:dataset
+\end{ingrid}

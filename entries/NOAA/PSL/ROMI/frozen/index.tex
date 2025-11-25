@@ -1,0 +1,57 @@
+\begin{ingrid}
+
+continuedataset:
+
+
+%DEFINE DAILY DATA
+%Time Grid from Frozen Data
+grid:
+/name /T def
+/standard_name (time) def
+/long_name ( Frozen) def
+/units (days since 1960-01-01 00:00:00) def
+/pointwidth 0 def
+01 Jan 2002 julian_day 01 Jan 1960 julian_day sub
+1.0
+31 Dec 2020 julian_day 01 Jan 1960 julian_day sub
+:grid
+
+
+link:
+  /name (website) def
+  /description (https://psl.noaa.gov/mjo/mjoindex/)def
+  /href (https://psl.noaa.gov/mjo/mjoindex/)def
+:link
+
+link:
+  /name (data source) def
+  /description (Text file of PC1 and PC2 values for 2002 to present. ) def
+  /href (https://psl.noaa.gov/mjo/mjoindex/romi.1x.txt) def
+:link
+
+ /title (The Real-time OLR MJO Index) def
+
+/history (MJO Indices) def
+
+
+/PC1 {
+(/Data/data1/noaa/indices/romi/Frozen_ROMI_PC1_2002-2010.nc) readCDF .PC1_frozen
+}defasvarsilent
+
+
+/PC2 {
+(/Data/data1/noaa/indices/romi/Frozen_ROMI_PC2_2002-2010.nc) readCDF .PC2_frozen
+}defasvarsilent
+
+/amplitude {
+ (/Data/data1/noaa/indices/romi/Frozen_ROMI_amplitude_2002-2010.nc) readCDF .amplitude_frozen
+}defasvarsilent
+
+/phase {
+   (/Data/data1/noaa/indices/romi/Frozen_ROMI_phase_2002-2010.nc) readCDF .phase_frozen
+}defasvarsilent
+
+
+:dataset
+\end{ingrid}
+

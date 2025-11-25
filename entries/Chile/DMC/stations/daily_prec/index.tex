@@ -1,0 +1,95 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+  grid:
+    /name (micol) def
+    1 1 1
+  :grid
+
+  grid:
+    /name (STN_NAME) def
+    /units (ids) def
+    /long_name (Station) def
+    values:
+    (Arica) (Iquique) (Antofagasta) (Copiapò) (La_Serena) (Valparaiso) (Santiago) (Juan_Fernández) (Curico) (Chillan) (Concepcion) (Temuco) (Valdivia) (Osorno) (Puerto_Montt) (Castro) (Futaleufu) (Alto_Palena) (Puerto_Aysen) (Coyhaique) (Balmaceda) (Chile_Chico) (Punta_Arenas) (Rapa_Nui) (Vallenar) (Calama) (Pudahuel) (Quellon) (Lord_Cochrane) (Puerto_Williams) (Chimbarongo_CV) (Putre) (Ovalle) (Illapel) (San_Felipe) (Rodelillo) (Tobalaba) (Santo_Domingo) (Los_Angeles) (Porvenir) (Lagunitas) (El_Yeso_Embalse) (San_Fernando) (Talca) (Parral) (Angol) (Pucon) (Torres_del_Paine)
+    :values
+  :grid
+
+:datasetdefs
+
+  grid:
+   /name (STNID) def
+   /units (ids) def
+   /long_name (Station) def
+   1 1 48
+  :grid
+
+  grid:
+    /name /T def
+    /units (julian_day) def
+    /standard_name (time) def
+    /defaultvalue { last } def
+    1 Jan 1981 julian_day
+    1
+    31 Dec 2023 julian_day
+    /pointwidth 1. def
+  :grid
+
+  /lon {
+    [ STNID micol | ]
+    (/Data/data6/Chile/DMC/meteorological/RR_diario.txt)
+    readdatafile:
+      [1 1] r*8astsv
+    :readdatafile
+    micol 1. VALUE
+    /name (lon) def
+    /long_name (longitude) def
+    /units (degree_east) def
+    /scale_min -77. def
+    /scale_max -65. def
+    /micol removeGRID
+  }defasvarsilent
+  
+  /lat {
+    [ STNID micol | ]
+    (/Data/data6/Chile/DMC/meteorological/RR_diario.txt)
+    readdatafile:
+      [2 1] r*8astsv
+    :readdatafile
+    micol 1. VALUE
+    /name (lat) def
+    /long_name (latitude) def
+    /units (degree_north) def
+    /scale_min -56. def
+    /scale_max -17. def
+    /micol removeGRID
+  }defasvarsilent
+
+  /label {
+    dataset .daily_prec
+     STN_NAME CopyStream defivars
+      /name /label def
+     STN_NAME STNID replaceGRID
+    exch pop
+    /units (ids) def
+    /long_name (label) def 
+  }defasvar
+
+  /prcp {
+         [ STNID  T | ] (/Data/data6/Chile/DMC/meteorological/RR_diario.txt)
+        readdatafile:
+         [3 1] r*8astsv
+        :readdatafile
+        /long_name ( Precipitación ) def
+        /missing_value -999. def
+        /units (mm/day) def
+        [ STNID ] REORDER
+        DATA 0.0 10.0 RANGE
+        } defasvarsilent
+
+
+
+ :dataset
+\end{ingrid}

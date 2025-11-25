@@ -1,0 +1,88 @@
+\begin{ingrid}
+continuedataset:
+%/name (echamcout)def
+% /binaryfilename (/data/dstore4/iri/modelling/daved/COUPLED.D/ECHAM4.5.D/TESTING.D/MOM3MedRes2pl.D/Post.D/echamcout.%mc%y4) def
+ /history (ECHAM4.5 AMIP2a) def
+ /missing_value -999. def
+ /description (ECHAM4.5 AMIP2a) def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.8125 357.1875
+:grid
+\end{ingrid}
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 87.860001 85.099998 82.309998 79.529999 76.739998 73.949997 71.160004 68.370003 65.580002 62.790001 60. 57.209999 54.419998 51.630001 48.84 46.040001 43.25 40.459999 37.669998 34.880001 32.09 29.299999 26.51 23.719999 20.93 18.139999 15.35 12.56 9.7700005 6.98 4.1900001 1.4 -1.4 -4.1900001 -6.98 -9.7700005 -12.56 -15.35 -18.139999 -20.93 -23.719999 -26.51 -29.299999 -32.09 -34.880001 -37.669998 -40.459999 -43.25 -46.040001 -48.84 -51.630001 -54.419998 -57.209999 -60. -62.790001 -65.580002 -68.370003 -71.160004 -73.949997 -76.739998 -79.529999 -82.309998 -85.099998 -87.860001 :values
+:grid
+\begin{ingrid}
+64 gaussianlat
+    high low subgrid
+name exch def
+grid:
+/name (T)def
+/units (months since 1960-01-01)def
+/calendar /360 def
+16 Jan 1986 ensotime
+1.
+16 Nov 2006 ensotime
+:grid
+grid: /name /P def
+/units  (mb)  def
+values: 1000 950 850 700 500 400 300 200 100
+:values
+ :grid
+dataset:
+/name /PressureLevel def
+:dataset
+dataset:
+/name /surface def
+:dataset
+dataset:
+/name /top def
+:dataset
+%dataset:
+%/name /total_air_column def
+%:dataset
+dataset:
+/name /above_ground def
+:dataset
+
+[X
+    Y |
+    /NVZ 6
+      9 mul
+      16 add
+      NewIntegerGRID
+     T] (/data/dstore4/iri/modelling/daved/COUPLED.D/ECHAM4.5.D/TESTING.D/MOM3MedRes2pl.D/Post.D/echamcout.%s[lcmon]%Y[T]) [T dup
+        (%b) strftimes
+        tolower
+        /name /lcmon def
+        ]readdatafile: sequential :readdatafile
+definevariables:
+surface 0 Pvariable: /name (sg) def /long_name (surface geopotential) def  :Pvariable
+surface 0 Pvariable: /name (pl) def /long_name (large scale precipitation) def /units (m/s) def :Pvariable
+surface 0 Pvariable: /name (cp) def /long_name (convective precipitation) def /units (m/s) def :Pvariable
+surface 0 Pvariable: /name (sh) def /long_name (surface sensible heat flux) def /units (W/m2) def :Pvariable
+surface 0 Pvariable: /name (lh) def /long_name (surface latent heat flux) def /units (W/m2) def :Pvariable
+surface 0 Pvariable: /name (slp) def /long_name (sea level pressure) def /units (Pascals) def :Pvariable
+surface 0 Pvariable: /name (cld) def /long_name (total cloud cover) def :Pvariable
+above_ground 0 Pvariable: /name (t2m) def /long_name (temperature at 2m) def /units (Kelvin_scale) def :Pvariable
+surface 0 Pvariable: /name (st) def /long_name (surface temperature) def :Pvariable
+surface 0 Pvariable: /name (nswg) def /long_name (net shortwave at ground) def /units (W/m2) def :Pvariable
+surface 0 Pvariable: /name (nlwg) def /long_name (net longwave at ground) def /units (W/m2) def :Pvariable
+top 0 Pvariable: /name (nswt) def /long_name (net shortwave at toa) def /units (W/m2) def :Pvariable
+top 0 Pvariable: /name (olr) def /long_name (olr) def /units (W/m2) def :Pvariable
+surface 0 Pvariable: /name (taux) def /long_name (surface zonal wind stress) def /units (N/m2) def :Pvariable
+surface 0 Pvariable: /name (tauy) def /long_name (surface meridional wind stress)def /units(N/m2) def :Pvariable
+surface 0 Pvariable: /name (evap) def /long_name (evaporation) def /units (meters/second) def :Pvariable
+PressureLevel 9 Pvariable: /name(tmp) def /long_name (temperature) def /units (Kelvin_scale) def :Pvariable
+PressureLevel 9 Pvariable: /name(u) def /long_name (zonal velocity) def /units (meters/second) def :Pvariable
+PressureLevel 9 Pvariable: /name(v) def /long_name (meridional velocity) def /units (meters/second) def :Pvariable
+PressureLevel 9 Pvariable: /name(q) def /long_name (specific humidity) def /units (kg/kg) def :Pvariable
+PressureLevel 9 Pvariable: /name(omg) def /long_name (vertical pressure velocity) def :Pvariable
+PressureLevel 9 Pvariable: /name(gz) def /long_name (geopotential height) def /units (gpm) def :Pvariable
+:definevariables
+:dataset
+\end{ingrid}

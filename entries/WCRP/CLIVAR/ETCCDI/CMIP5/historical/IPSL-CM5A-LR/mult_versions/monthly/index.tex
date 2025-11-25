@@ -1,0 +1,302 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+
+grid:
+/name /N def
+/long_name (realization) def
+/units /ids def
+1 1 6 
+:grid
+
+variable:
+/name (version) def
+/long_name (Version Number) def
+/units (ids) def
+grids: N :grids
+values: /v20110915 /v20110406 /v20110406 /v20120114 /v20111119 /v20120526 :values
+:variable
+
+:datasetdefs
+
+ /experiment (historical) def
+ /branch_time 1850.0 def
+ /title (ETCCDI indices computed on IPSL-CM5A-LR model output prepared for CMIP5 historical) def
+ /physics_version 1 def
+ /ETCCDI_software (climdex.pcic) def
+ /initialization_method 1 def
+ /input_creation_date (2011-01-07T23:42:44Z) def
+ /contact (bronaugh@uvic.ca) def
+ /product (output) def
+ /institution (IPSL (Institut Pierre Simon Laplace, Paris, France)) def
+ /input_frequency (day) def
+ /source (IPSL-CM5A-LR (2010) : atmos : LMDZ4 (LMDZ4_v5, 96x95x39); ocean : ORCA2 (NEMOV2_3, 2x2L31); seaIce : LIM2 (NEMOV2_3); ocnBgchem : PISCES (NEMOV2_3); land : ORCHIDEE (orchidee_1_9_4_AR5)) def
+ /ETCCDI_software_version (0.6.1) def
+ /forcing (Nat, Ant, GHG, SA, Oz, LU, SS, Ds, BC, MD, OC, AA) def
+ /input_tracking_id (14b481b6-ef09-4800-bd24-229f659abd58) def
+ /input_title (IPSL-CM5A-LR model output prepared for CMIP5 historical) def
+ /parent_experiment_id (piControl) def
+ /experiment_id (historical) def
+ /modeling_realm (atmos) def
+ /ETCCDI_institution (Pacific Climate Impacts Consortium) def
+ /cmor_version (2.5.1) def
+ /ETCCDI_indices_archive (Please check http://www.cccma.ec.gc.ca/data/climdex/climdex.shtml for errata or updates.) def
+ /nco_openmp_thread_number 1 def
+ /Conventions (CF-1.4) def
+ /references (http://www.cccma.ec.gc.ca/data/climdex/) def
+ /institute_id (IPSL) def
+ /IPSL_references (Model documentation and further reference available here : http://icmc.ipsl.fr) def
+ /table_id (Table day (30 November 2010) 124740b2ad2bc003e05675678080dc82) def
+ /creation_date (2012-07-15T02:31:14Z) def
+ /parent_experiment (pre-industrial control) def
+ /comment (This 20th century simulation include natural and anthropogenic forcings.) def
+ /model_id (IPSL-CM5A-LR) def
+ /frequency (monClim) def
+ /ETCCDI_institution_id (PCIC) def
+ /IPSL_contact (ipsl-cmip5 _at_ ipsl.jussieu.fr Data manager : Sebastien Denvil) def
+ /project_id (CMIP5) def 
+/references (Sillmann_etal2013a Sillmann_etal2013b) def
+
+grid:
+/name (lon)def
+/long_name (longitude) def
+/standard_name (longitdue) def
+periodic
+/units (degree_east)def
+ 0.0 3.75 356.25
+:grid
+
+grid:
+/name (lat)def
+/long_name (latitude) def
+/standard_name (latitude) def
+/units (degree_north)def
+ -90.0 1.8947369 90.0
+:grid
+
+grid:
+/name (time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/pointwidth 1 def
+16 Jan 1850 ensotime
+1
+16 Dec 2005 ensotime
+:grid
+
+grid:
+/name /N def
+/long_name (realization) def
+/standard_name (realization) def
+/units /ids def
+1 1 6 
+:grid
+
+grid:
+/name /M def
+/long_name (initialization method) def
+/units /ids def
+values: 1 :values
+:grid
+
+grid:
+/name /L def
+/long_name (perturbed physics) def
+/units /ids def
+values: 1 :values
+:grid
+
+variable:
+/name (version) def
+/long_name (Version Number) def
+/units (ids) def
+grids: N :grids
+values: /v20110915 /v20110406 /v20110406 /v20120114 /v20111119 /v20120526 :values
+:variable
+
+/dtr { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/dtrETCCDI_mon_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_185001-200512.nc) [ N M L version ] readdatafile:
+/name (dtrETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Mean Diurnal Temperature Range) def
+ /iridl:hasSemantics [ (climdex:DTR) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/rx1day { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/rx1dayETCCDI_mon_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_185001-200512.nc) [ N M L version ] readdatafile:
+/name (rx1dayETCCDI) def
+ /units (mm) def
+ /long_name (Monthly Maximum 1-day Precipitation) def
+ /iridl:hasSemantics [ (climdex:Rx1day) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/rx5day { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/rx5dayETCCDI_mon_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_185001-200512.nc) [ N M L version ] readdatafile:
+/name (rx5dayETCCDI) def
+ /units (mm) def
+ /long_name (Monthly Maximum Consecutive 5-day Precipitation) def
+ /iridl:hasSemantics [ (climdex:Rx5day) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tn10p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tn10pETCCDI_mon_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_185001-200512.nc) [ N M L version ] readdatafile:
+/name (tn10pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Minimum Temperature is Below the 10th Percentile) def
+ /iridl:hasSemantics [ (climdex:TN10p) ] def
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tn90p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tn90pETCCDI_mon_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_185001-200512.nc) [ N M L version ] readdatafile:
+/name (tn90pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Minimum Temperature is Above the 90th Percentile) def
+ /iridl:hasSemantics [ (climdex:TN90p) ] def 
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tnn { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tnnETCCDI_mon_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_185001-200512.nc) [ N M L version ] readdatafile:
+/name (tnnETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Minimum of Daily Minimum Temperature) def
+ /iridl:hasSemantics [ (climdex:TNn) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+ 
+/tnx { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tnxETCCDI_mon_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_185001-200512.nc) [ N M L version ] readdatafile:
+/name (tnxETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Maximum of Daily Minimum Temperature) def
+ /iridl:hasSemantics [ (climdex:TNx) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+ 
+/tx10p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tx10pETCCDI_mon_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_185001-200512.nc) [ N M L version ] readdatafile:
+/name (tx10pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Maximum Temperature is Below the 10th Percentile) def
+ /iridl:hasSemantics [ (climdex:TX10p) ] def
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tx90p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tx90pETCCDI_mon_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_185001-200512.nc) [ N M L version ] readdatafile:  
+/name (tx90pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Maximum Temperature is Above the 90th Percentile) def
+ /iridl:hasSemantics [ (climdex:TX90p) ] def
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+ 
+/txn { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/txnETCCDI_mon_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_185001-200512.nc) [ N M L version ] readdatafile: 
+/name (txnETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Minimum of Daily Maximum Temperature) def
+ /iridl:hasSemantics [ (climdex:TXn) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/txx { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/txxETCCDI_mon_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_185001-200512.nc) [ N M L version ] readdatafile:
+/name (txxETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Maximum of Daily Maximum Temperature) def
+ /iridl:hasSemantics [ (climdex:TXx) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/r95thresh { [ lon lat | N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (r95thresh) def
+ /long_name (95th_percentile_baseline_wet_day_pr) def
+ /missing_value 1.00000002E20 def
+ /units (kg m-2 d-1)cvn def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/r99thresh { [ lon lat | N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (r99thresh) def
+ /long_name (99th_percentile_baseline_wet_day_pr) def
+ /missing_value 1.00000002E20 def
+ /units (kg m-2 d-1)cvn def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+grid:
+/name (bnds)def
+/units (unitless)def
+ 1.0 1.0 2.0
+:grid
+
+grid:
+/name (time2) def
+/standard_name (time) def
+/units (days since 1850-01-01 00:00:00)def
+/calendar /365 def
+45625.0 1.0 45989.0
+:grid
+
+/time_bnds { [ bnds | time2 N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (time_bnds) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/tn10thresh { [ lon lat | time2 N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (tn10thresh) def
+ /long_name (10th_percentile_running_baseline_tasmin) def
+ /missing_value 1.00000002E20 def
+ /units /degree_Celsius def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+ time2 /time renameGRID
+}defasvarsilent
+
+/tn90thresh { [ lon lat | time2 N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (tn90thresh) def
+ /long_name (90th_percentile_running_baseline_tasmin) def
+ /missing_value 1.00000002E20 def
+ /units /degree_Celsius def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+ time2 /time renameGRID
+}defasvarsilent
+
+/tx10thresh { [ lon lat | time2 N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (tx10thresh) def
+ /long_name (10th_percentile_running_baseline_tasmax) def
+ /missing_value 1.00000002E20 def
+ /units /degree_Celsius def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+ time2 /time renameGRID
+}defasvarsilent
+
+/tx90thresh { [ lon lat | time2 N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/IPSL-CM5A-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_IPSL-CM5A-LR_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (tx90thresh) def
+ /long_name (90th_percentile_running_baseline_tasmax) def
+ /missing_value 1.00000002E20 def
+ /units /degree_Celsius def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+ time2 /time renameGRID
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

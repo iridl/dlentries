@@ -1,0 +1,98 @@
+\begin{ingrid}
+
+/description (Tree Cover) def
+
+continuedataset:
+
+grid:
+/name /X def
+/units /degree_east def
+116.023016 0.002083 2 copy 5514. 1. sub mul add 
+/long_name (Longitude) def
+:grid
+
+X partialgrid
+step 128 mul partitiongrid
+name 3 index !
+name 2 index !
+
+grid:
+/name /Y def
+/units /degree_north def
+22.024745 0.002083 2 copy 8793. 1. sub mul sub
+/long_name (Latitude) def
+:grid
+
+Y partialgrid
+step 128 mul partitiongrid
+name 3 index !
+name 2 index !
+
+grid:
+/name /T def
+/units (monthtime) def
+/defaultvalue { last } def
+1 Jul 2000  ensotime
+12. 10. mul
+1 Jul 2010 ensotime
+/pointwidth 12. def
+:grid
+
+/treecoverperc {
+[ X2 Y2 | X Y T ]
+(/data/remic/mydatafiles/WFP/Philippines/ICA_PHL/Data/Rasters/phl_phy_treecoverperc%Y[T]_wfp.tif) [T]
+%[X2 Y2 | X Y]
+%(/data/remic/mydatafiles/WFP/Philippines/ICA_PHL/Data/Rasters/phl_phy_treecoverperc2010_wfp.tif)
+readdatafile:
+/stringtype tiledtiffimage
+:readdatafile
+/long_name (Tree Cover Density) def
+/units /percent def
+  startcolormap DATA
+    0 100 RANGE
+    transparent sienna sienna
+       0 VALUE
+       sienna sienna
+         5 bandmax
+         burlywood burlywood
+           10 bandmax
+           LemonChiffon LemonChiffon
+             30 bandmax
+             OliveDrab OliveDrab
+               50 bandmax
+               ForestGreen ForestGreen
+                 100 bandmax
+                 ForestGreen 100 VALUE
+                 aquamarine endcolormap
+}defasvarsilent
+
+/treecoverchange {
+[X2 Y2 | X Y]
+(/data/remic/mydatafiles/WFP/Philippines/ICA_PHL/Data/Rasters/phl_phy_treecoverchange20002010_wfp.tif)
+readdatafile:
+/stringtype tiledtiffimage
+:readdatafile
+/long_name (Tree Cover Change) def
+}defasvarsilent
+
+/treecoverchangeperc {
+  treecoverperc
+   100 maskgt
+   T differences
+T /pointwidth 12. 11. mul def pop
+/long_name (Change of Tree Cover) def
+   startcolormap DATA
+     -100 100 RANGE
+     transparent red red
+        -100 VALUE
+        yellow
+         0 VALUE
+         ForestGreen
+          100 VALUE
+          ForestGreen endcolormap
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

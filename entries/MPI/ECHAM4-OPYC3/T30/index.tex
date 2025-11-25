@@ -1,0 +1,96 @@
+\begin{ingrid}
+continuedataset:
+grid: /name /X def
+degE
+periodic
+0 3.75 356.25
+:grid
+grid:
+/name /Y def
+degN
+values:
+    87.15909
+    83.47894
+    79.77705
+    76.07024
+    72.36158
+    68.65202
+    64.94195
+    61.23157
+    57.52099
+    53.81027
+    50.09945
+    46.38856
+    42.67761
+    38.96661
+    35.25558
+    31.54452
+    27.83344
+    24.12235
+    20.41124
+    16.70012
+    12.98899
+     9.27785
+     5.56671
+     1.85557
+    -1.85557
+    -5.56671
+    -9.27785
+   -12.98899
+   -16.70012
+   -20.41124
+   -24.12235
+   -27.83344
+   -31.54452
+   -35.25558
+   -38.96661
+   -42.67761
+   -46.38856
+   -50.09945
+   -53.81027
+   -57.52099
+   -61.23157
+   -64.94195
+   -68.65202
+   -72.36158
+   -76.07024
+   -79.77705
+   -83.47894
+   -87.15909
+
+:values
+:grid
+grid:
+/name /T def
+/units /monthtime def
+16 Jan 0000 ensotime
+1
+1 index 4799 add
+:grid
+variable:
+/name /temp def
+/long_name (surface temperature) def
+/units (degreeK) def
+grids: X Y | T :grids
+crayfile:
+/name (/Data/data7/mpi/echam4-opyc3/T30/C45002_174-573_sst_ext_new) def
+/NSKP 1 def
+:crayfile
+%file:
+%/name (/ariel/disk04/usr/krishna/mozib/C45002_174-573_sst_ext_new) def
+%/nskp 12 def
+%crayr*8
+%:file
+:variable
+variable:
+/name /prcp def
+/long_name (precipitation rate) def
+/units (m/s) def
+grids: X Y | T :grids
+crayfile:
+/name (/Data/data7/mpi/echam4-opyc3/T30/C45002_174-573_prec_ext_new) def
+/NSKP 1 def
+:crayfile
+:variable
+:dataset
+\end{ingrid}

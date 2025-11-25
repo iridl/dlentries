@@ -1,0 +1,46 @@
+\begin{ingrid}
+
+%/description (Vietnam National Meteorological Agency) def
+
+continuedataset:
+
+/tmax{
+  SOURCES .Vietnam .ENACTS .ALL .dekadal .temperature .tmax
+  monthlyAverage
+  /long_name (Maximum Temperature - Monthly Average) def
+  T /defaultvalue { last } def pop
+  windspeed_colors
+  DATA 8 50 RANGE
+}defasvarcache
+
+/tmin{
+  SOURCES .Vietnam .ENACTS .ALL .dekadal .temperature .tmin
+  monthlyAverage
+  /long_name (Minimum Temperature - Monthly Average) def
+  T /defaultvalue { last } def pop
+  windspeed_colors
+  DATA 8 50 RANGE
+}defasvarcache
+
+% /tmean {
+%   tmax
+%   tmin
+%   add
+%   2.0 div
+%   /long_name (Mean Temperature) def
+% }defasvarcache
+
+/tmean {
+ SOURCES .Vietnam .ENACTS .ALL .dekadal .temperature .tmean
+ monthlyAverage
+/long_name (Temperature average - Monthly Average) def
+T /defaultvalue { last } def pop
+windspeed_colors
+DATA 8 50 RANGE
+}defasvar
+
+
+:dataset
+\end{ingrid}
+
+

@@ -1,0 +1,69 @@
+<INGRID>
+null /rootFolderId parameter
+dup null eq { pop
+/rootFolderId {
+(/about?fields=name,rootFolderId) googleDriveGet
+             /rootFolderId getknown 
+             {/rootFolderId exch def}
+{/rootFolderId undef}ifelse
+} def
+}
+{/rootFolderId exch def} ifelse
+rootFolderId
+rootFolder
+</INGRID><html>
+<body>
+<INGRID>parents length 0 gt {
+parents 
+0 get
+(<a href="?rootFolderId=) print 
+ .id ==ns (">up</a> )print
+} if</INGRID>
+<img src="<INGRID>iconLink print </INGRID>">
+<b><INGRID>title print</INGRID></b>
+<b><INGRID>owners 0 get .displayName print</INGRID></b>
+<dl>
+<INGRID>pop
+rootFolderChildren 
+items
+{ 
+currentobject /mimeType getknown { DriveShowTypes exch known}{false}ifelse
+{
+(<dt>)print
+currentobject /iconLink known {
+(<img src=") print
+iconLink print
+("/>)print
+} if
+currentobject /mimeType getknown { (application/x-netcdf) eq
+{
+( <a href=")print (/files/) id append url== (googleDriveOpen/">)print title print (</a>)print
+} if
+ } if
+currentobject /mimeType getknown { (application/vnd.google-apps.spreadsheet) eq
+{
+( <a href=")print (/files/) id append url== (/">)print title print (</a>)print
+} if
+ } if
+currentobject /mimeType getknown { (application/vnd.google-apps.folder) eq
+{ 
+( <a href="?rootFolderId=) print id ==ns (">) print title print (</a>)print
+} if
+ } if
+(<dd>)print
+title print ( ) print
+currentobject /modifiedDate getknown { ( modified: ) print print } if
+currentobject /thumbnailLink known {
+(<img src=") print
+thumbnailLink print
+("/>)print
+} if
+%(<br>)print dup ==
+} if
+pop
+} forall
+pop
+</INGRID>
+</dl>
+</body>
+</html>

@@ -1,0 +1,131 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+grid:
+/name /micol def
+1 1 1
+:grid
+:datasetdefs
+
+%DEFINE MONTHLY DATA
+
+    grid:
+      /name /T def
+      monthtime
+      /defaultvalue { last } def
+      /pointwidth 1 def
+        /standard_name (time) def
+      /long_name (DMI) def
+      values:
+        16 Jan 1870 ensotime
+        1
+        systemtime
+        systemtime2ymd
+        ymd:lastmonth
+        ymd:nextmonth 15 add
+        ymd2rm1960
+        {} for
+      :values
+
+     :grid
+
+T { (/Data/data1/noaa/indices/dmi/dmi-had_long/dmi_%Y[T]-%m[T].txt) [T]  } removeextrausing
+/expires
+  T last cvsunits
+    interp exch
+     0.5 add
+     6 ymd:nextmonth
+      6 add
+      ymd2systemtime
+      nip
+def
+  name exch def
+/expires T .expires  def
+
+
+link:
+  /name (website) def
+  /description (https://psl.noaa/gov/data/timeseries/DMI/)def
+  /href (https://psl.noaa/gov/data/timeseries/DMI/)def
+:link
+
+
+/institution (Physical Sciences Laboratory |  NOAA) def
+/description (Dipole Mode  Index) def 
+
+
+/DMI {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/dmi/dmi-had_long/dmi_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 1 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /units /degree_Celsius def
+   /missing_value -9999.000 def 
+   temp_anomaly_colors
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+ /long_name(Indian Ocean Dipole (IOD))def
+ /title (Dipole Mode Index: using SST anomaly 10S:10N,50E-70E minus 10S:0,90E-110E area averaged ) def
+ /description (Calculated at NOAA PSL ) def
+ /institution (Physical Sciences Laboratory |  NOAA) def
+ link:
+  /name (ftp_url) def
+  /description (https://psl.noaa.gov/gcos_wgsp/Timeseries/Data/dmi.had.long.data) def
+  /href (https://psl.noaa.gov/gcos_wgsp/Timeseries/Data/dmi.had.long.data) def
+ :link
+}defasvarsilent
+
+/DMI-WEST {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/dmi/dmiwest-had_long/dmi_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 1 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /units /degree_Celsius def
+   /missing_value -9999.000 def
+   /long_name (DMI WEST HadISST1.1) def
+   temp_anomaly_colors
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+ /title (Dipole Mode Index: using SST anomaly area 10S:0,90E-110E  area averaged ) def
+ /description (Calculated at NOAA PSL ) def
+ /institution (Physical Sciences Laboratory |  NOAA) def
+ link:
+  /name (ftp_url) def
+  /description (https://psl.noaa.gov/gcos_wgsp/Timeseries/Data/dmiwest.had.long.data) def
+  /href (https://psl.noaa.gov/gcos_wgsp/Timeseries/Data/dmiwest.had.long.data) def
+ :link
+}defasvarsilent
+
+/DMI-EAST {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/dmi/dmieast-had_long/dmi_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 1 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /units /degree_Celsius def
+   /missing_value -9999.000 def
+   /long_name (DMI EAST HadISST1.1) def
+   temp_anomaly_colors
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+ /title (Dipole Mode Index: using SST anomaly area  10S:10N, 50E-70E  area averaged ) def
+ /description (Calculated at NOAA PSL ) def
+ /institution (Physical Sciences Laboratory |  NOAA) def
+ link:
+  /name (ftp_url) def
+  /description (https://psl.noaa.gov/gcos_wgsp/Timeseries/Data/dmieast.had.long.data) def
+  /href (https://psl.noaa.gov/gcos_wgsp/Timeseries/Data/dmieast.had.long.data) def
+ :link
+}defasvarsilent
+
+
+:dataset
+\end{ingrid}
+

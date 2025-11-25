@@ -1,0 +1,118 @@
+\begin{ingrid}
+continuedataset:  
+
+%% -50.00S --  50.00N Northward;
+%%         180.00W -- 180.00E Eastward  
+%%        7200 grid points in east - west direction
+%%        2000 grid points in south - north direction
+
+datasetdefs:
+/prcp_monthlyrate_max1500_smooth {
+  startcolormap
+    0.0 1500.0 RANGE
+    LightGrey white white
+       0.0 VALUE
+       LightCyan
+        25.0 VALUE
+        SkyBlue
+         37.5 VALUE
+         DodgerBlue
+          125.0 VALUE
+          MediumBlue
+           250.0 VALUE
+           DarkSeaGreen
+            375.0 VALUE
+            MediumSeaGreen
+             500.0 VALUE
+             LightSeaGreen
+              750.0 VALUE
+              khaki
+               1000.0 VALUE
+               SandyBrown
+                1250.0 VALUE
+                firebrick 1500.0 VALUE
+                firebrick endcolormap
+} defcolorscale
+:datasetdefs
+
+link:
+/name (USGS Data Series 832) def
+/description (Reference paper PDF) def
+/href (http://pubs.usgs.gov/ds/832/) def
+:link
+
+link:
+/name (CHIRPS Home Page) def
+/description (CHIRPS page at UCSB Climate Hazards Group) def
+/href (http://chg.geog.ucsb.edu/data/chirps/) def
+:link 
+
+link:
+/name (v2p0) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.UCSB/.CHIRPS/.v2p0/.monthly/.global/) def
+/description (v2.0 replaces v1.8) def
+/semantics /dcterm:isReplacedBy def
+:link
+
+
+%latitude 
+grid: 
+/name /Y def 
+/units (degree_north) def
+ordered 
+50 0.05 2 div sub to -50 0.05 2 div add N= 2000 pts 
+:grid
+
+%longitude 
+grid: 
+/name /X def 
+/units (degree_east) def 
+periodic 
+-180 to 180 0.05 sub  N= 7200 pts 
+:grid
+
+grid: 
+/name /T def 
+monthtime 
+/defaultvalue {last} def
+/long_name (Time) def
+/standard_name (time) def
+16 Jan 1981 ensotime 
+1 
+16 Feb 2015 ensotime
+:grid
+
+/precipitation{
+[X Y | T] 
+(/Data/ingridcache/ftp/chg-ftpout.geog.ucsb.edu/pub/org/chg/products/CHIRPS-1.8/global_monthly/tifs/chirps-v1.8.%Y[T].%m[T].tif) [T]readdatafile:
+      /realarraytype tiffimage
+      /missing_value -9999.0 def
+/name (precipitation) def
+/long_name (CHIRPS precipitation) def
+/standard_name (lwe_precipitation_rate) def
+/units (mm/month) def
+      :readdatafile
+prcp_monthlyrate_max1500_smooth
+} defasvarsilent
+
+/references (Funk_etal2014) def
+
+dataset:
+
+/name (c8113) def
+/description (1981-2013 climatology) def
+
+/precipitation {
+ SOURCES .UCSB .CHIRPS .v1p8 .monthly .global .precipitation
+  T first (Dec 2013) RANGE
+  T 12 splitstreamgrid
+  [X Y T2]REORDER
+  [X Y]REORDER
+  [T2]average
+}defasvarcache
+
+:dataset
+
+:dataset
+
+\end{ingrid}

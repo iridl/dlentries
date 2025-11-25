@@ -1,0 +1,50 @@
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name /X def
+/long_name (longitude) def
+/standard_name (longitude) def
+periodic
+0.5 1.0 359.5
+/units (degree_east) def
+:grid
+
+grid:
+/name /Y def
+/long_name (latitude) def
+/standard_name (latitude) def
+89.5 1.0 -89.5
+/units (degree_north) def
+:grid
+
+grid:
+/name /T def
+/long_name (time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/pointwidth 1 def 
+16 Dec 1981 ensotime
+1.0
+16 Apr 2021 ensotime
+:grid
+
+  /offset 0 def
+
+/scale_factor 100 def
+
+
+/sst { [ X Y | T ] (/Data/data23/NMME/Obs.D/sst.mnmean.good.nc) readdatafile:
+/name (sst) def
+/units (Celsius_scale) def
+/long_name (OIv2 SST) def
+/standard_name (sea_surface_temperature) def
+/missing_value -999  def
+/shortarraytype netcdfrecords :readdatafile
+ 100.0 div
+X 0 1 359 GRID
+Y -90 1 90 GRID
+} defasvarsilent 
+
+:dataset
+\end{ingrid}

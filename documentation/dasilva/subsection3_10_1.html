@@ -1,0 +1,83 @@
+<HEAD>
+<TITLE> Data source and method of analysis</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html461 HREF=section3_11.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html459 HREF=section3_10.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html455 HREF=section3_10.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html462 HREF=section3_11.html>  About this document </A>
+<B>Up:</B> <A NAME=tex2html460 HREF=section3_10.html> Assessing sampling errors </A>
+<B> Previous:</B> <A NAME=tex2html456 HREF=section3_10.html> Assessing sampling errors </A>
+<HR> <P>
+<H2><A NAME=SECTION00010100000000000000> Data source and method of analysis</A></H2>
+<P>
+<A NAME=secfwb_method><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A>
+<P>
+The European Center for Medium-Range Weather Forecasting (ECMWF)
+twice-daily analyses of 1000 hPa winds and surface air temperature
+(SAT) for the period 1980-87 are used as a surrogate for surface
+marine data. The original ECMWF analyses are interpolated from their
+2.5° <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2865.xbm"> 2.5° grid to the same 1° <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2865.xbm">
+1° UWM/COADS grid.  Each twice-daily interpolated value is
+considered to be an individual observation.  Raw monthly means are computed by
+sampling this ECMWF data in three different ways:
+<P>
+<DL ><DT>Full sampling:
+<DD> all the available data are included to compute
+our best estimate of the monthly means in each 1° box.
+<P>
+<DT>Ship-based sampling:
+<DD> only includes data for which at least one ship
+observation was made in the 12 hour period within the boundaries of
+the 1° box. This sampling method is intended to closely simulate
+COADS data coverage, and should reflect ship fair weather bias.
+<P>
+<DT>Random sampling:
+<DD> the total number of observations <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3847.xbm"> for each
+month in each 1° box is first recorded based on the actual COADS
+data availability. Subsequently, the same number <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3847.xbm"> of observations
+are randomly drawn from each 1° box in that month. This sampling
+method uses the same number of observations to compute monthly means
+as does the ship-based sampling method above, but by construction it is
+<em>unbiased</em>. By comparing results from ship-based and random sampling one
+can obtain an estimate of the effects of the fair weather bias.
+<P>
+ </DL>
+<P>
+Let us denote by <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3851.xbm"> the ``observations'' based on the
+interpolated ECMWF analysis for wind speed, for example. The number of
+grid-points is denoted by n.  The analyses based on ship-based and
+random sampling are given by
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_eqnarray1520.xbm"><P>
+where <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3853.xbm"> and <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3855.xbm">  denote the
+time-average with the ship-based and the random sampling methods;
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3857.xbm"> stands for the objective analysis with the Barnes'
+weighting function described in section <A HREF=section3_8.html#secanalysis>8</A>.
+Because of the smoothing introduced by the successive correction
+scheme, the estimates <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3859.xbm">/<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3861.xbm"> only resolve scales larger than
+approximately 770 km. In order to estimate error at these scales we
+define the <em>ground truth</em> as 
+<P><A NAME=eqgt><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1528.xbm"><P>
+where <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3863.xbm"> denotes the time-average with full sampling.
+Gridded error fields are now defined in terms of <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3865.xbm">,
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1531.xbm"><P>
+Notice that we are ignoring observational errors, both in the form of
+instrument errors and errors of <em>representativeness</em> (Daley 1991).
+The discussion below will be centered on spatially averaged
+root-mean-square errors, e.g., <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3867.xbm">, where
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1536.xbm"><P>
+In order to quantify the effects of fair weather bias in the analyzed
+fields, we define
+<P><A NAME=eqfwb><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1538.xbm"><P>
+The plausibility of this heuristic definition follows from the fact
+that the random sampling, as defined above, is not affected by the
+current weather condition<HR> <A NAME=tex2html461 HREF=section3_11.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html459 HREF=section3_10.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html455 HREF=section3_10.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html462 HREF=section3_11.html>  About this document </A>
+<B>Up:</B> <A NAME=tex2html460 HREF=section3_10.html> Assessing sampling errors </A>
+<B> Previous:</B> <A NAME=tex2html456 HREF=section3_10.html> Assessing sampling errors </A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>
+Fri Oct 20 12:28:33 EDT 1995</I>
+</ADDRESS>

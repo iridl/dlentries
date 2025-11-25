@@ -1,0 +1,72 @@
+\begin{ingrid}
+/CIESIN datadownloadsareIRIonlyPassword
+continuedataset:
+/references (Deichmann_etal2001) def
+datasetdefs:
+/popdensitycolors {
+startcolormap
+DATA 0 1500 RANGE
+white white LightCyan 0 VALUE
+LightCyan LightCyan 1 bandmax
+LightSkyBlue LightSkyBlue 5 bandmax
+DeepSkyBlue DeepSkyBlue 25 bandmax
+blue blue 50 bandmax
+MediumBlue MediumBlue 100 bandmax
+MediumAquamarine MediumAquamarine 250 bandmax
+MediumSeaGreen MediumSeaGreen 500 bandmax
+SpringGreen SpringGreen 1000 bandmax
+magenta magenta 1500 bandmax
+magenta endcolormap } def
+:datasetdefs
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+periodic
+-179.979166667 to 179.979166667 N= 8640 pts
+:grid
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+84.979166667 to -57.979166667 N= 3432 pts
+:grid
+
+variable:
+/name /apds95 def
+/long_name (1995 U.N. Adjusted Population Density) def
+/missing_value -9999 def
+/scale_min 0 def
+%/scale_max 1500 def
+/valid_min 0 def
+%/valid_max 64268 def
+/units (Persons per km2) def
+popdensitycolors
+grids: X Y :grids
+file:
+direct
+/name (/Data/data5/ciesin/gpwv2/glds95agi.r4) def
+:file
+:variable
+
+variable:
+/name /apct95 def
+/long_name (1995 U.N. Adjusted Population Counts) def
+/missing_value -9999 def
+/scale_min 0 def
+%/scale_max 15000 def
+/units (Number of Persons) def
+grids: X Y :grids
+file:
+direct
+/name (/Data/data5/ciesin/gpwv2/glp95agi.r4) def
+:file
+:variable
+
+link:
+/name (Gridded Population of the World, Version 2 (CIESIN)) def
+/href (http://sedac.ciesin.columbia.edu/gpw/) def
+:link
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,16 @@
+changed to flush SOURCES 2012/11/08
+\begin{ingrid}
+/description (the IRI/LDEO collection of climate data) def
+/Taiwan { 
+%(http://ingrid.cwb.gov.tw/SOURCES/.Taiwan/thredds.xml) readthredds
+(Not Available) leavemessage
+message? not
+{/NotOpen dataareIRIonlyPassword
+/iridl:hasSemantics (iridl:Taiwan) def
+dup /CWB known { CWB
+/iridl:hasSemantics (iridl:T-CWB) def
+name exch def 
+} if
+} if
+} defasvarKeepRestrictions
+\end{ingrid}

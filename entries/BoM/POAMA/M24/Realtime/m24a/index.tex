@@ -1,0 +1,180 @@
+\begin{ingrid}
+%(http://opendap.bom.gov.au:8080/thredds/catalog/poama/m24a/hindcasts/catalog.xml) continuewiththredds
+%/m24a_forecasts { (http://opendap.bom.gov.au:8080/thredds/fileServer/poama/realtime/monthly/m24a/ readdods } defasvarsilent
+
+link:
+/name (The New POAMA2 System) def
+/description (Description of the POAMA-2 (M24) Forecast System) def
+/href (http://poama.bom.gov.au/about_poama2.shtml#The_new_POAMA2_System) def
+:link
+
+link:
+/name (POAMA) def
+/description (POAMA Home Page) def
+/href (http://poama.bom.gov.au/) def
+:link
+
+link:
+/name (POAMA Forecast Data) def
+/description (THREDDS Data Server for POAMA Realtime Forecasts) def
+/href (http://opendap.bom.gov.au:8080/thredds/catalogs/bmrc-poama-multiweek-realtime-catalog.html) def
+:link
+
+/references (Hudson_etal2013) def
+
+continuedataset:
+/description (POAMA 2.4A Multiweek Real-time Forecasts) def
+
+grid:
+/name (X)def
+/long_name (longitude) def
+/standard_name (longitude) def
+/units (degree_east)def
+ periodic
+ 0.0 2.5 357.5
+:grid
+
+grid:
+/name (Y)def
+/long_name (latitude) def
+/standard_name (latitude) def
+/units (degree_north)def
+values: 88.09951 85.637589 83.161125 80.681381 78.200386 75.718796 73.236862 70.754723 68.272446 65.790077 63.307636 60.825146 58.342617 55.860062 53.37748 50.894875 48.412258 45.929626 43.446987 40.964333 38.481674 35.999012 33.516338 31.033663 28.550983 26.068298 23.585611 21.102922 18.62023 16.137537 13.654841 11.172145 8.6894474 6.2067485 3.7240493 1.2413498 -1.2413498 -3.7240493 -6.2067485 -8.6894474 -11.172145 -13.654841 -16.137537 -18.62023 -21.102922 -23.585611 -26.068298 -28.550983 -31.033663 -33.516338 -35.999012 -38.481674 -40.964333 -43.446987 -45.929626 -48.412258 -50.894875 -53.37748 -55.860062 -58.342617 -60.825146 -63.307636 -65.790077 -68.272446 -70.754723 -73.236862 -75.718796 -78.200386 -80.681381 -83.161125 -85.637589 -88.09951 :values
+:grid
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/units (hPa)def
+values: 850. 700. 500. 200. :values
+:grid
+
+grid:
+/name /L def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (months) def
+1. 1. 9.
+:grid
+
+grid:
+/name (M) def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+0 1 10
+:grid
+
+%grid:
+%/name /S def
+%/long_name (Start Time) def
+%/standard_name (forecast_reference_time) def
+%/units (days since 1960-01-01 00:00:00) def
+%04 Jul 2013 julian_day 01 Jan 1960 julian_day sub
+%03 May 2012 julian_day 01 Jan 1960 julian_day sub
+%7.
+%01 Sep 2013 julian_day 01 Jan 1960 julian_day sub
+%systemtime (%d %b %Y) 12 strftime interp julian_day
+%01 Jan 1960 julian_day sub
+%/pointwidth 0 def
+%/netcdfgrid true def
+%:grid
+
+grid:
+/name /S def
+/long_name (Start Time) def
+/standard_name (forecast_reference_time) def
+/units (days since 1960-01-01 00:00:00) def
+/pointwidth 0 def
+% POAMA Realtime forecast start times start on 3 May 2012
+  2012
+   5 3 ymd2rjt
+   1960
+    1 1 ymd2rjt
+    sub
+   7.0
+   2019
+    7 11 ymd2rjt
+    1960
+     1 1 ymd2rjt
+     sub
+:grid
+
+
+%/S S first 1 index
+%%{(/beluga/data/mbell/dldata/bom.d/poama.d/fcst.d/mac_%Y%m%d[S].nc) [S]} removeextrausing
+%{(http://opendap.bom.gov.au:8080/thredds/fileServer/poama/realtime/monthly/m24a/e%2.2d[M]/mac_%Y%m%d[S].nc) [S M]} remoteremoveextrausing
+
+%nip nip nip
+
+% /expires last 6 add 1960 1 1 ymd2rjt add rjt2ymd ymd2systemtime def
+%name exch def
+%/expires S .expires def
+%/last_modified S .last_modified def
+
+
+ /hr24_prcp{
+[ X Y | L S M ] (http://opendap.bom.gov.au:8080/thredds/fileServer/poama/realtime/monthly/m24a/e%2.2d[M]/mac_%Y%m%d[S].nc) [S M]
+readdatafile:
+/name (hr24_prcp) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units /mm def
+ /long_name (total precipitation) def
+ /standard_name (precipitation_rate) def
+ /dodsname /hr24_prcp def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /sfc_temp{
+[ X Y | L S M ] (http://opendap.bom.gov.au:8080/thredds/fileServer/poama/realtime/monthly/m24a/e%2.2d[M]/mac_%Y%m%d[S].nc) [S M]
+readdatafile:
+ /name (sfc_temp) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units (K) def
+ /long_name (surface temperature) def
+ /standard_name (surface_temperature) def
+ /dodsname /sfc_temp def
+ /realarraytype netcdfrecords
+:readdatafile
+}defasvarsilent
+
+ /tsaira{
+[ X Y | L S M ] (http://opendap.bom.gov.au:8080/thredds/fileServer/poama/realtime/monthly/m24a/e%2.2d[M]/mac_%Y%m%d[S].nc) [S M]
+readdatafile:
+%[ lon lat | time] filenames readdatafile:
+/name (tsaira) def
+ /level_type (single) def
+ /grid_type (spatial) def
+ /units /Kelvin_scale def
+ /long_name (temperature at 1.5m) def
+ /standard_name (air_temperature) def
+ /dodsname /tsaira def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+% /valid_date{
+%[ L | S ] (http://opendap.bom.gov.au:8080/thredds/fileServer/poama/realtime/monthly/m24a/e%2.2d[M]/mac_%Y%m%d[S].nc) [S M]
+%readdatafile:
+%/name (valid_date) def
+% /units /unitless def
+% /long_name (valid date (YYYYMMDD) of this segment) def
+% /integerarraytype netcdfrecords :readdatafile
+%}defasvarsilent
+
+:dataset
+\end{ingrid}
+
+%%
+ /air_temp{
+[ X Y P | L S M ] (http://opendap.bom.gov.au:8080/thredds/fileServer/poama/realtime/monthly/m24a/e%2.2d[M]/mac_%Y%m%2.2d[S].nc) [S M]
+readdatafile:
+/name (air_temp) def
+ /level_type (multi ) def
+ /grid_type (spatial) def
+ /units /Kelvin_scale def
+ /long_name (air temperature) def
+ /standard_name (air_temperature) def
+ /dodsname /air_temp def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent

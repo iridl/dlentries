@@ -1,0 +1,247 @@
+\begin{ingrid}
+  continuedataset:
+
+    dataset:
+      /name /History def
+      /description (Predictand, Hindcast and Skill) def
+
+        grid:
+            /name /X def
+            /units /degree_east def
+            /long_name (Longitude) def
+            -18.075 0.0375 -10.725
+        :grid
+
+        grid:
+            /name /Y def
+            /units /degree_north def
+            /long_name (Latitude) def
+            11.7 0.0375 17.2875
+        :grid
+
+        grid:
+            /name /S def
+            monthtime
+            /defaultvalue { last } def
+            /long_name (Issue Date) def
+            /pointwidth 0 def
+            1 Jan 1993 ensotime
+            1.
+            1 Dec 2016 ensotime
+        :grid
+
+grid:
+/name /T def
+monthtime
+/defaultvalue { last } def
+/long_name (Time) def
+/pointwidth 3 def
+16 Aug 1993 ensotime
+12.
+16 Aug 2016 ensotime
+:grid
+       
+        % grid:
+        %   /name /L def
+        %   /units /months def
+        %   /long_name (Forecast Lead Time in Months) def
+        %   2.5 1 2.5
+        % :grid
+
+       /CrossValHind {
+        [X Y last first subgrid S 12 splitgrid nip | S 12 splitgrid pop ]
+          (/data/Web/climate/iri_html/senegal/ENACTSPRCP_NMME_C3S_%b[S]_*_files/NextGen_PRCP_Jul-Sep_ini%b[S].tsv) [S 12 splitgrid pop]
+          readdatafile:
+            [2 1 2] r*4astsv
+          :readdatafile
+            Y last first RANGE
+            /long_name (cross-validated hindcasts) def
+            /units (mm/month) def
+            /missing_value -999. def
+              [S S2]REORDER
+          CopyStream
+          S unsplitstreamgrid
+          S
+          /pointwidth 0. def
+          12 shiftGRID
+            precip_colors
+          DATA 0 AUTO RANGE
+      }defasvarsilent
+
+      /obs {
+        [X Y last first subgrid T | ]
+          (/data/Web/climate/iri_html/senegal/ENACTSPRCP_NMME_C3S_May_2021_files/obs_PRCP_Jul-Sep.tsv)
+          readdatafile:
+            [2 1 3] r*4astsv
+          :readdatafile
+            Y last first RANGE
+            /long_name (input observations) def
+            /units (mm/month) def
+            /missing_value -999. def
+           precip_colors
+            DATA 0 AUTO RANGE
+      }defasvarsilent
+
+/hindcast_date {
+  S grid:
+     /name /Lc def
+     values:
+      7.5 5 {dup 1. sub} repeat 13.5 5 {dup 1. sub } repeat :values
+      :grid
+    0. add
+    /name /L def
+    Lc S
+      12 splitgrid pop
+      replaceGRID
+    add
+   /long_name (hindcast time) def
+   /pointwidth 3 def
+   /units (months since 1960-01-01) def
+}defasvar
+
+    :dataset
+
+%%%%%%%%%%%%%%%%%%
+dataset:
+    /name /Forecasts def
+    /description (Forecast and Error) def
+
+        grid:
+            /name /X def
+            /units /degree_east def
+            /long_name (Longitude) def
+            -18.075 0.0375 -10.725
+        :grid
+
+        grid:
+            /name /Y def
+            /units /degree_north def
+            /long_name (Latitude) def
+            11.7 0.0375 17.2875
+        :grid
+
+     % grid:
+      %   /name /L def
+      %   /units /months def
+      %   /long_name (Forecast Lead Time in Months) def
+      %   2.5 1 2.5
+      % :grid
+
+      grid:
+       /name /S def
+        monthtime
+        /long_name (Start time) def
+        /standard_name (forecast_reference_time) def
+        /defaultvalue { last } def
+        /pointwidth 0 def
+          1 Jun 2020 ensotime 
+          1.
+          1 Jun 2021 ensotime
+      :grid
+
+      /var {
+        [ X Y last first subgrid | S  ]
+        (/data/Web/climate/iri_html/senegal/ENACTSPRCP_NMME_C3S_%b_%Y[S]_files/NextGen_PRCPPRCP_CCAFCST_var_Jul-Sep_%b%Y[S].tsv) [S]
+        readdatafile:
+          [4 1] r*4astsv
+        :readdatafile
+         Y last first RANGE
+          /missing_value -999. def
+        /long_name (prediction error variance) def
+        /units (mm2/day2) def
+          rainbowcolorscale
+          DATA 0 AUTO RANGE
+      }defasvarsilent
+
+      /dof {
+%        [1
+%        /Dummy exch NewIntegerGRID | S ]
+%        (/data/asiebert/Niger_NextGen_FbF_March2021_rainfallmaproomfiles/Forecast_var/NextGen_PRCPPRCP_CCAFCST_var_*_%b%Y[S].tsv) [S]
+
+%        readdatafile:
+%         ((/,(37X,F2.0,141X))) formatted
+%        :readdatafile
+%        Dummy removeGRID
+c:
+ 24. 1. sub 
+        /long_name (Degree of Freedom) def
+:c
+      }defasvarsilent
+
+      /mu {
+        [ X Y last first subgrid | S  ]
+        (/data/Web/climate/iri_html/senegal/ENACTSPRCP_NMME_C3S_%b_%Y[S]_files/NextGen_PRCPPRCP_CCAFCST_mu_Jul-Sep_%b%Y[S].tsv) [S]
+        readdatafile:
+          [4 1] r*4astsv
+        :readdatafile
+         Y last first RANGE
+          /missing_value -999. def
+          /units (mm/month) def
+          /long_name (forecast) def
+          startcolormap
+            DATA 0 1000 RANGE
+            transparent gray gray 0 VALUE
+            gray gray 10 bandmax
+            orange orange 50 bandmax
+            yellow yellow 100 bandmax
+            202 255 112 RGB RGBdup 200 bandmax
+            162 205 90 RGB RGBdup 300 bandmax
+            102 205 0 RGB RGBdup 500 bandmax
+            ForestGreen ForestGreen 1000 bandmax
+            DarkGreen
+          endcolormap
+          DATA 0 AUTO RANGE
+      }defasvarsilent
+
+/target_date {
+  S grid:
+     /name /Lc def
+     2.5 1 13.5
+        /gridtype 1 def
+        :grid
+    0. add
+    /name /L def
+    Lc 2.5 dup S .npts
+        1 sub
+        add
+       RANGE
+    Lc S
+      last first subgrid
+      replaceGRID
+    S last first RANGE
+    add
+   /long_name (forecast time) def
+   /pointwidth 3 def
+   /units (months since 1960-01-01) def
+}defasvar
+
+      /target_length {
+        target_date .S
+         units /T exch
+           gridtype first
+             0.5 add
+             1 last
+               5.5 add
+               1.0 add
+               NewEvenGRID
+          nip c: 1 :c
+          /name /target_length def
+          exch
+          0 mul
+          add
+         T (days since 1960-01-01) streamgridunitconvert
+         T differential_mul
+         T (months since 1960-01-01) streamgridunitconvert
+         T differential_div
+         /units /days def
+         T 3 runningAverage
+         3. mul
+         target_date T sample-along
+      /long_name (Length of forecast time) def
+      }defasvar
+
+    :dataset
+
+  :dataset
+
+\end{ingrid}

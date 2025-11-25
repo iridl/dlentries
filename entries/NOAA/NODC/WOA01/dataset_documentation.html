@@ -1,0 +1,693 @@
+<INGRID>datasetdocumentationheader</INGRID>
+<CENTER>
+<P><B><FONT COLOR="#000066"><FONT SIZE=+3>World Ocean Atlas 2001 (WOA01)</FONT></FONT></B><FONT COLOR="#000066"></FONT>
+<P>This is adapted from<br>
+<B><FONT COLOR="#000066"><FONT SIZE=+2><a href="http://www.nodc.noaa.gov/OC5/WOA01/docwoa01.html">World Ocean Atlas 2001 CD-ROM Documentation</a></FONT></FONT></B><FONT COLOR="#000066"></FONT>
+<P><FONT COLOR="#000066"><FONT SIZE=+2>Ocean Climate Laboratory</FONT></FONT><FONT COLOR="#000066"></FONT>
+<P><FONT COLOR="#000066"><FONT SIZE=+2>National Oceanographic Data Center</FONT></FONT><FONT COLOR="#000066"></FONT>
+</CENTER>
+<BR>
+<HR WIDTH="100%">
+This documentation is for the data served <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.NOAA/.NODC/.WOA01/">here</a>.  
+Note: this is a summary of the <a href="http://www.nodc.noaa.gov/OC5/WOA01/readme.pdf">full documentation</a> offered by NOAA/OCL. 
+<p>
+<P><A NAME="1"></A><B>1. INTRODUCTION</B>
+<P>The World Ocean Atlas 2001 (WOA01) Series consists of two set of products.  The first set of products 
+consists of three DATA CD-ROMs containing global data statistics at standard depth levels by one-degree 
+and five-degree squares of several commonly measured ocean variables, as well as objectively analyzed fields 
+(on a one-degree grid) of these variables.  The ocean variables included in this series are: <i>in-situ</i> 
+temperature, salinity, dissolved oxygen, apparent oxygen utilization (aou), percent oxygen saturation, dissolved 
+inorganic nutrients (phosphate, nitrate, and silicate), and chlorophyll at standard depth levels, and plankton 
+biomass sampled between 0m and 200m depth. The second set of products consists of three FIGURE DVDs containing 
+PDF figures illustrating the fields found on the DATA CD-ROMs.  For more information on ordering these CD-ROMs, 
+see the <a href="http://www.nodc.noaa.gov/OC5/WOA01/pr_woa01.html">WOA01 website</a>.
+<P>
+This CD-ROM set is associated with the following products:
+<UL>
+<LI>
+NOAA Atlas NESDIS <B><I>World Ocean Atlas 2001</I> Series</B> (6 volumes):
+describes the methods used to generate the various statistics and objectively analyzed fields for each variable 
+and each climatological compositing period: annual, seasonal, and monthly.  It also includes figures at selected 
+standard depth levels for all variables, except plankton biomass for which the figures represent values 
+between the 0-200 meter depth layer;</LI>
+<BR>
+<LI>
+<B><I>World Ocean Database 2001</I> (WOD01) CD-ROM set</B>: contains observed
+and standard level data used to generate the WOA01 fields. WOD01
+consists of 8 CD-ROMs;</LI>
+<BR>
+<LI>
+<B><I>World Ocean Database 2001 </I>Atlas Series</B> (7 volumes): details the sources of the WOD01 data and 
+shows distribution plots for each variable and instrument type as a function of year.</LI>
+</UL>
+
+<b>2.  CONTENTS OF WOA01</b>
+<p>
+As with previous works, we have vertically interpolated ocean profile data from "observed" depth levels 
+to standard depth levels.  We define 33 standard depth levels extending from the sea surface to 5500m 
+depth as given in <a href="#Table1">Table 1</a>.  Several statistics are then computed, by one-degree 
+and five-degree squares, for the world ocean at the each standard depth level and for various climatological, 
+all-data, compositing periods as documented in <a href="#Table2">Table 2</a>.  
+<p>
+The DATA CD-ROMs contain objectively analyzed fields (one-degree grid) and statistics (unanalyzed) for 
+one-degree squares and five-degree squares at standard depth levels (<a href="#Table1">Table 1</a>) for all 
+ocean variables, and for the 0-200 meter layer for the plankton biomass values. The maximum depth for which 
+objective analyses and statistics were computed for each variable and for each climatological compositing period 
+is shown in <a href="#Table2">Table 2</a>.
+<p>
+The seasons are defined as Winter (January-March), Spring (April-June),
+Summer (July-September), Fall (October-December) (based on the Northern
+Hemisphere). 
+<p>
+The following fields are available at annual, seasonal, and monthly time scales:
+<p>
+<UL>
+<LI>
+<I>Analyzed mean fields (objectively analyzed mean)</I> - One-degree all-data objectively analyzed mean. For all variables, the annual 
+analyzed field is the average of the twelve monthly fields for each standard level for which monthly fields 
+exist - see <a href="#Table2">Table 2</a>. Below the deepest standard level for which a monthly field exists 
+for a variable (from the surface layer for chlorophyll and plankton biomass), the annual field is the average 
+of the four seasonal analyzed fields for each standard level for which seasonal fields exist. Below the 
+deepest standard level for which seasonal fields exist for a variable, the annual field is the objectively 
+analyzed mean field of all data.  Similarly, the seasonal analyzed field is the average of the corresponding 
+three monthly fields for each standard level for which monthly fields exist.  Below the deepest standard level 
+for which monthly fields exist, the seasonal field is the objectively analyzed mean field of all available data 
+taken in the corresponding season.  Monthly fields are the objectively analyzed mean fields of all data taken 
+in the corresponding month.
+<li><i>Difference fields (difference from annual)</i> - One-degree seasonal and monthly analyzed mean minus 
+annual analyzed fields.
+<li><I>Grid point fields (grid point of influence)</I> - One-degree number
+of grid points which contain data within the radius of influence for each
+grid box.</FONT></LI>
+<li><i>Number of observations</i> - One-degree and five-degree geographic distribution of data used in analysis
+<li><i>Standard deviation</i> - One-degree and five-degree standard deviation from the mean
+<li><i>Standard error</i> - One-degree and five-degree standard error from the mean
+<li><i>Mean (unanalyzed mean)</i> - One-degree and five-degree unanalyzed mean for all data used in analysis
+<li><i>Interpolation error</i> - One-degree analyzed field subtracted from one-degree unanalyzed (raw) mean
+</ul>
+The available fields for plankton biomass include:
+<ul>
+<li>annual and seasonal <i>number of observations</i> by one-degree square in the 0-200 meter layer;
+<li>annual and seasonal fields of the <i>unanalyzed mean</i> by one-degree in the 0-200 meter layer.
+</ul>
+Two masks used in the analyses are also available:
+<ul>
+<li><i>basin</i> - definition of basins used in the objective analysis.  <a href="#Table3">Table 3</a> lists the 
+numeric value which identifies each basin (columns 1 and 4), the basin name, and the shallowest standard depth 
+level for which each basin is defined (columns 3 and 6).  The basin mask has 33 levels.
+<li><i>landsea</i> -  bottom depth (standard depth levels given in <a href="#Table1">Table 1</a>) assigned to each 
+one-degree latitude by one-degree longitude square.  There are additional standard levels in the land-sea mask 
+corresponding to areas where the bottom depth is greater than 5500m (additional seven levels starting at 6000m and 
+incrementing by 500m to a depth of 9000m).
+</ul>
+
+
+<P><A NAME="Table1"></A><FONT FACE="Times New Roman,Times"><FONT SIZE=+1>Table
+1. Standard levels and depths (meters)</FONT></FONT>
+<BR>
+<CENTER><TABLE BORDER WIDTH="100%" >
+<TR VALIGN=TOP>
+<TD ALIGN=CENTER><B>Depth</FONT></B></TD>
+
+<TD ALIGN=CENTER><B>Level</FONT></B></TD>
+
+<TD ALIGN=CENTER><B>Depth</FONT></B></TD>
+
+<TD ALIGN=CENTER><B>Level</FONT></B></TD>
+
+<TD ALIGN=CENTER><B>Depth</FONT></B></TD>
+
+<TD ALIGN=CENTER><B>Level</FONT></B></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>0</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>1</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>300</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>12</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>1400</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>23</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>10</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>2</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>400</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>13</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>1500</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>24</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>20</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>3</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>500</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>14</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>1750</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>25</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>30</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>4</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>600</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>15</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>2000</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>26</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>50</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>5</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>700</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>16</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>2500</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>27</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>75</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>6</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>800</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>17</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>3000</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>28</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>100</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>7</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>900</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>18</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>3500</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>29</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>125</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>8</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>1000</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>19</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>4000</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>30</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>150</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>9</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>1100</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>20</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>4500</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>31</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>200</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>10</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>1200</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>21</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>5000</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>32</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>250</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>11</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>1300</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>22</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>5500</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>33</FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<BR>&nbsp;
+<P><A NAME="Table2"></A><FONT FACE="Times New Roman,Times"><FONT SIZE=+1>Table
+2. Availability of objective analyses and statistics by climatological compositing periods 
+for each ocean variable, and the maximum depth (meters) for which objective analyses and statistics 
+were computed. A dash character "-" indicates these products were not computed for the 
+specified variable and climatological period.</FONT></FONT>
+<BR>
+<TABLE BORDER WIDTH="100%" >
+<TR VALIGN=TOP>
+<TD ALIGN=CENTER>Variable</FONT></TD>
+
+<TD ALIGN=CENTER>Annual</FONT></TD>
+
+<TD ALIGN=CENTER>Seasonal</FONT></TD>
+
+<TD ALIGN=CENTER>Monthly</FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD>Temperature</FONT></TD>
+
+<TD ALIGN=CENTER>5500</FONT></TD>
+
+<TD ALIGN=CENTER>5500</FONT></TD>
+
+<TD ALIGN=CENTER>1500</FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD>Salinity</FONT></TD>
+
+<TD ALIGN=CENTER>5500</FONT></TD>
+
+<TD ALIGN=CENTER>5500</FONT></TD>
+
+<TD ALIGN=CENTER>1500</FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD>Dissolved Oxygen</FONT></TD>
+
+<TD ALIGN=CENTER>5500</FONT></TD>
+
+<TD ALIGN=CENTER>5500</FONT></TD>
+
+<TD ALIGN=CENTER>1500</FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD>Apparent Oxygen Utilization</FONT></TD>
+
+<TD ALIGN=CENTER>5500</FONT></TD>
+
+<TD ALIGN=CENTER>5500</FONT></TD>
+
+<TD ALIGN=CENTER>1500</FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD>Percent Oxygen Saturation</FONT></TD>
+
+<TD ALIGN=CENTER>5500</FONT></TD>
+
+<TD ALIGN=CENTER>5500</FONT></TD>
+
+<TD ALIGN=CENTER>1500</FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD>Phosphate</FONT></TD>
+
+<TD ALIGN=CENTER>5500</FONT></TD>
+
+<TD ALIGN=CENTER>500</FONT></TD>
+
+<TD ALIGN=CENTER>500</FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD>Nitrate</FONT></TD>
+
+<TD ALIGN=CENTER>5500</FONT></TD>
+
+<TD ALIGN=CENTER>500</FONT></TD>
+
+<TD ALIGN=CENTER>500</FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD>Silicate</FONT></TD>
+
+<TD ALIGN=CENTER>5500</FONT></TD>
+
+<TD ALIGN=CENTER>500</FONT></TD>
+
+<TD ALIGN=CENTER>500</FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD>Chlorophyll</FONT></TD>
+
+<TD ALIGN=CENTER>100</FONT></TD>
+
+<TD ALIGN=CENTER>surface</FONT></TD>
+
+<TD ALIGN=CENTER>-</FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD>Total Plankton Biomass: All biomass types+</FONT></TD>
+
+<TD ALIGN=CENTER>0-200*</FONT></TD>
+
+<TD ALIGN=CENTER>-</FONT></TD>
+
+<TD ALIGN=CENTER>-</FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD>Total Plankton Biomass: Calculated carbon mass</FONT></TD>
+
+<TD ALIGN=CENTER>0-200*</FONT></TD>
+
+<TD ALIGN=CENTER>0-200*</FONT></TD>
+
+<TD ALIGN=CENTER>-</FONT></TD>
+</TR>
+
+</TABLE>
+
++ - Includes Displacement Volume, Settled Volume, Wet Mass, Dry Mass, and Ash-free Dry Mass.
+<br>* - Plankton Biomass is a mean of net tows covering 0-200 meters.
+
+<P><A NAME="Table3"></A><FONT FACE="Times New Roman,Times"><FONT SIZE=+1>Table
+3. Basins defined for objective analysis and the shallowest standard depth
+level for which each basin is defined.</FONT></FONT>
+<BR>&nbsp;
+<CENTER><TABLE BORDER WIDTH="100%" >
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>#</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>BASIN</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>STANDARD&nbsp;</FONT></FONT>
+<BR><FONT SIZE=-1>DEPTH LEVEL</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>#</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>BASIN</FONT></FONT></TD>
+
+<TD><FONT SIZE=-1>STANDARD&nbsp;</FONT></FONT>
+<BR><FONT SIZE=-1>DEPTH LEVEL</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>1</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Atlantic Ocean</FONT></FONT></TD>
+<TD><FONT SIZE=-1>1</FONT></FONT></TD>
+<TD><FONT SIZE=-1>30</FONT></FONT></TD>
+<TD><FONT SIZE=-1>North American Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>29</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>2</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Pacific Ocean</FONT></FONT></TD>
+<TD><FONT SIZE=-1>1</FONT></FONT></TD>
+<TD><FONT SIZE=-1>31</FONT></FONT></TD>
+<TD><FONT SIZE=-1>West European Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>29</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>3</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Indian Ocean</FONT></FONT></TD>
+<TD><FONT SIZE=-1>1</FONT></FONT></TD>
+<TD><FONT SIZE=-1>32</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Southeast Indian Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>29</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>4</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Mediterranean Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>1</FONT></FONT></TD>
+<TD><FONT SIZE=-1>33</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Coral Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>29</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>5</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Baltic Sea&nbsp;</FONT></FONT></TD>
+<TD><FONT SIZE=-1>1</FONT></FONT></TD>
+<TD><FONT SIZE=-1>34</FONT></FONT></TD>
+<TD><FONT SIZE=-1>East Indian Ocean</FONT></FONT></TD>
+<TD><FONT SIZE=-1>29</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>6</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Black Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>1</FONT></FONT></TD>
+<TD><FONT SIZE=-1>35</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Central Indian Ocean</FONT></FONT></TD>
+<TD><FONT SIZE=-1>29</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>7</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Red Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>1</FONT></FONT></TD>
+<TD><FONT SIZE=-1>36</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Southwest Atlantic</FONT></FONT></TD>
+<TD><FONT SIZE=-1>29</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>8</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Persian Gulf</FONT></FONT></TD>
+<TD><FONT SIZE=-1>1</FONT></FONT></TD>
+<TD><FONT SIZE=-1>37</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Southeast Atlantic</FONT></FONT></TD>
+<TD><FONT SIZE=-1>29</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>9</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Hudson Bay</FONT></FONT></TD>
+<TD><FONT SIZE=-1>1</FONT></FONT></TD>
+<TD><FONT SIZE=-1>38</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Southeast Pacific</FONT></FONT></TD>
+<TD><FONT SIZE=-1>29</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>10</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Southern Ocean</FONT></FONT></TD>
+<TD><FONT SIZE=-1>1</FONT></FONT></TD>
+<TD><FONT SIZE=-1>39</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Guatemala Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>29</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>11</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Arctic Ocean</FONT></FONT></TD>
+<TD><FONT SIZE=-1>1</FONT></FONT></TD>
+<TD><FONT SIZE=-1>40</FONT></FONT></TD>
+<TD><FONT SIZE=-1>East Caroline Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>30</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>12</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Sea of Japan</FONT></FONT></TD>
+<TD><FONT SIZE=-1>1</FONT></FONT></TD>
+<TD><FONT SIZE=-1>41</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Marianas Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>30</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>13</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Kara Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>8</FONT></FONT></TD>
+<TD><FONT SIZE=-1>42</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Philippine Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>30</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>14</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Sulu Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>10</FONT></FONT></TD>
+<TD><FONT SIZE=-1>43</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Arabian Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>30</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>15</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Baffin Bay</FONT></FONT></TD>
+<TD><FONT SIZE=-1>14</FONT></FONT></TD>
+<TD><FONT SIZE=-1>44</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Chile Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>30</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>16</FONT></FONT></TD>
+<TD><FONT SIZE=-1>East Mediterranean</FONT></FONT></TD>
+<TD><FONT SIZE=-1>16</FONT></FONT></TD>
+<TD><FONT SIZE=-1>45</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Somali Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>30</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>17</FONT></FONT></TD>
+<TD><FONT SIZE=-1>West Mediterranean</FONT></FONT></TD>
+<TD><FONT SIZE=-1>19</FONT></FONT></TD>
+<TD><FONT SIZE=-1>46</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Mascarene Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>30</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>18</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Sea of Okhotsk</FONT></FONT></TD>
+<TD><FONT SIZE=-1>19</FONT></FONT></TD>
+<TD><FONT SIZE=-1>47</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Crosat Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>30</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>19</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Banda Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>23</FONT></FONT></TD>
+<TD><FONT SIZE=-1>48</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Guinea Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>30</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>20</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Caribbean Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>23</FONT></FONT></TD>
+<TD><FONT SIZE=-1>49</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Brazil Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>31</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>21</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Andaman Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>25</FONT></FONT></TD>
+<TD><FONT SIZE=-1>50</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Argentine Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>31</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>22</FONT></FONT></TD>
+<TD><FONT SIZE=-1>North Caribbean</FONT></FONT></TD>
+<TD><FONT SIZE=-1>26</FONT></FONT></TD>
+<TD><FONT SIZE=-1>51</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Tasman Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>30</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>23</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Gulf of Mexico</FONT></FONT></TD>
+<TD><FONT SIZE=-1>26</FONT></FONT></TD>
+<TD><FONT SIZE=-1>52</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Atlantic Indian Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>31</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>24</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Beaufort Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>28</FONT></FONT></TD>
+<TD><FONT SIZE=-1>53</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Caspian Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>1</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>25</FONT></FONT></TD>
+<TD><FONT SIZE=-1>South China Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>28</FONT></FONT></TD>
+<TD><FONT SIZE=-1>54</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Sulu Sea II</FONT></FONT></TD>
+<TD><FONT SIZE=-1>14</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>26</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Barents Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>28</FONT></FONT></TD>
+<TD><FONT SIZE=-1>55</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Venezuela Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>14</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>27</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Celebes Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>25</FONT></FONT></TD>
+<TD><FONT SIZE=-1>56</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Bay of Bengal</FONT></FONT></TD>
+<TD><FONT SIZE=-1>1&nbsp;</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>28</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Aleutian Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>28</FONT></FONT></TD>
+<TD><FONT SIZE=-1>57</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Java Sea</FONT></FONT></TD>
+<TD><FONT SIZE=-1>6</FONT></FONT></TD>
+</TR>
+
+<TR VALIGN=TOP>
+<TD><FONT SIZE=-1>29</FONT></FONT></TD>
+<TD><FONT SIZE=-1>Fiji Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>29</FONT></FONT></TD>
+<TD><FONT SIZE=-1>58</FONT></FONT></TD>
+<TD><FONT SIZE=-1>East Indian Atlantic Basin</FONT></FONT></TD>
+<TD><FONT SIZE=-1>32</FONT></FONT></TD>
+</TR>
+</TABLE></CENTER>
+<INGRID>datasetdocumentationtrailer</INGRID>

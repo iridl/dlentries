@@ -1,0 +1,75 @@
+\begin{ingrid}
+continuedataset:
+
+dataset:
+/name /ERSST def
+/SST_cpl{ (/Data/data24/ECHAM5_3.23.D/EXP.D/biasSST_proj_2080-2099.D/ERSSTv3b/sst_ERSST_0.9x1.25_1870_2014_140701_cpl_T42.nc) readCDF 
+lon
+(degree_east) setunits
+pop
+lat
+(degree_north) setunits
+pop
+.SST_cpl
+}defasvarsilent
+:dataset
+
+dataset:
+/name /CMIP5_Bias_2080-2099 def
+%/Multi-Model_Mean_Bias
+/bias{ (/Data/data24/ECHAM5_3.23.D/EXP.D/biasSST_proj_2080-2099.D/ERSSTv3b/MMM_SST_Bias_2080-2099_T42_rn.nc) readCDF
+lon
+(degree_east) setunits
+pop
+lat
+(degree_north) setunits
+pop
+.bias
+%.Multi-Model_Mean_Bias
+}defasvarsilent
+:dataset
+
+%%%SSTchange%%%
+dataset:
+/name /SST_change_2080-2099 def
+/delta_SST{ (/Data/data24/ECHAM5_3.23.D/EXP.D/biasSST_proj_2080-2099_SSTchange.D/ERSSTv3b/MMM_SST_Bias_2080-2099_T42_rn.nc) readCDF
+lon
+(degree_east) setunits
+pop
+lat
+(degree_north) setunits
+pop
+.delta_SST
+}defasvarsilent
+:dataset
+
+dataset:
+/name /SST_proj def
+/SST_cpl{ (/Data/data24/ECHAM5_3.23.D/EXP.D/biasSST_proj_2080-2099.D/ERSSTv3b/biasSST_2080-2099_T42.nc) readCDF
+lon
+(degree_east) setunits
+pop
+lat
+(degree_north) setunits
+pop
+.SST_cpl
+}defasvarsilent
+:dataset
+%:dataset
+
+dataset:
+/name /SST_proj_change def
+/SST_cpl{ (/Data/data24/ECHAM5_3.23.D/EXP.D/biasSST_proj_2080-2099_SSTchange.D/ERSSTv3b/biasSST_2080-2099_T42.nc) readCDF
+lon
+(degree_east) setunits
+pop
+lat
+(degree_north) setunits
+pop
+.SST_cpl
+}defasvarsilent
+:dataset
+:dataset
+
+\end{ingrid}
+

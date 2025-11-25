@@ -1,0 +1,38 @@
+\begin{ingrid}
+
+continuedataset:
+
+/rr_mrg {
+   SOURCES .Ethiopia .NMA .ENACTS_v4 .rainfall .MRG .MON .dekadly .rr_mrg
+     T (1 Jan 1983) (31 Dec 1983) RANGE
+   SOURCES .Ethiopia .NMA .ENACTS_v4 .rainfall .MRG .MON .dekadly .rr_mrg
+     T (1 Jan 1983) (31 Dec 2012) RANGE
+     T name
+      npts NewIntegerGRID
+      replaceGRID
+    T 36 splitstreamgrid
+    [T2]average
+    T 2 index
+      T dekadaledgesgrid partialgrid
+       2 1 roll
+       pop
+      replaceGRID
+    T (days since 1983-01-01) streamgridunitconvert
+    T T dekadaledgesgrid
+      first secondtolast subgrid
+      /calendar /365 def
+      gridS
+       365 store modulus
+       pop
+      periodic setgridtype
+      partialgrid replaceGRID
+        [X Y]REORDER
+        2 1 roll pop
+/fullname (Rainfall Dekad Climatology 1983-2012) def
+/long_name (Rainfall Dekad Climatology 1983-2012) def
+cmorph_dekad_colors
+}defasvar
+
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,68 @@
+\begin{ingrid}
+
+continuedataset:
+
+/c7100 {
+ SOURCES .IRI .FD .GFDL .AM2p12b .History .climatology .c7100
+}defasvar
+
+/c6998 {
+ SOURCES .IRI .FD .GFDL .AM2p12b .History .climatology .c6998
+}defasvar
+
+/c6190 {
+ SOURCES .IRI .FD .GFDL .AM2p12b .History .ensemble_mean .monthly
+  T (1961) (1990) RANGE
+  {}
+   {yearly-climatology name exch def}foralldatasets2
+  /T t2m .T def
+}defasvar
+
+/c8110 {
+ SOURCES .IRI .FD .GFDL .AM2p12b .History .ensemble_mean .monthly
+  T (1981) (2010) RANGE
+  {}
+   {yearly-climatology name exch def}foralldatasets2
+  /T t2m .T def
+}defasvar
+
+/m7100 {
+ SOURCES .IRI .FD .GFDL .AM2p12b .History .ensemble_mean .monthly
+  T (1971) (2000) RANGE
+  {}
+   {T 12 splitstreamgrid
+     [T2]0.5 0.0 replacebypercentile name exch def}foralldatasets2
+  /T t2m .T def
+}defasvar
+
+/m6998 {
+ SOURCES .IRI .FD .GFDL .AM2p12b .History .ensemble_mean .monthly
+  T (1969) (1998) RANGE
+  {}
+   {T 12 splitstreamgrid
+     [T2]0.5 0.0 replacebypercentile name exch def}foralldatasets2
+  /T t2m .T def
+}defasvar
+
+/m6190 {
+ SOURCES .IRI .FD .GFDL .AM2p12b .History .ensemble_mean .monthly
+  T (1961) (1990) RANGE
+  {}
+   {T 12 splitstreamgrid
+     [T2]0.5 0.0 replacebypercentile name exch def}foralldatasets2
+  /T t2m .T def
+}defasvar
+
+/m8110 {
+ SOURCES .IRI .FD .GFDL .AM2p12b .History .ensemble_mean .monthly
+  T (1981) (2010) RANGE
+  {}
+   {T 12 splitstreamgrid
+     [T2]0.5 0.0 replacebypercentile name exch def}foralldatasets2
+  /T t2m .T def
+}defasvar
+
+
+:dataset
+
+\end{ingrid}

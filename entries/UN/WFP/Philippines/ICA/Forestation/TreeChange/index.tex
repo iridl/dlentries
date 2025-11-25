@@ -1,0 +1,47 @@
+\begin{ingrid}
+
+/description (Tree Cover) def
+
+continuedataset:
+
+grid:
+/name /X def
+/units /degree_east def
+116.023016 0.002083 2 copy 5514. 1. sub mul add 
+/long_name (Longitude) def
+:grid
+
+X partialgrid
+step 128 mul partitiongrid
+name 3 index !
+name 2 index !
+
+grid:
+/name /Y def
+/units /degree_north def
+22.024745 0.002083 2 copy 8793. 1. sub mul sub
+/long_name (Latitude) def
+:grid
+
+Y partialgrid
+step 64 mul partitiongrid
+name 3 index !
+name 2 index !
+
+/treecover2010change2000 {
+[ X2 Y2 | X Y ]
+(/data/remic/mydatafiles/WFP/Philippines/ICA_PHL/Data/Rasters/phl_phy_treecover2010andchange2000_wfp.tif)
+readdatafile:
+/stringtype tiledtiffimage
+:readdatafile
+/long_name (Tree Cover Density in 2010 and change from 2000) def
+  /scale_min 1 def
+  /scale_max 11 def
+  /CLIST [ (Moderate/high density, high increase) (Moderate/high density, low increase) (Moderate/high density, stable) (Low density, high increase) (Low density, low increase) (Low density, stable) (Moderate/high density, low decrease) (Moderate/high density, high decrease) (Low density, low decrease) (Low density, high decrease) (Water Body) ]def
+  startcolormap transparent ForestGreen ForestGreen LimeGreen green GreenYellow LemonChiffon yellow orange salmon red brown aquamarine aquamarine endcolormap
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

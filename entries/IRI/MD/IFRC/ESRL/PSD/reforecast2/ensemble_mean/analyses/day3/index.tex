@@ -1,0 +1,156 @@
+\begin{ingrid}
+/S SOURCES .NOAA .ESRL .PSD .reforecast2 .ensemble_mean .S def
+continuedataset:
+S .last_modified /last_modified exch def
+
+grid:
+/name /X def
+degE
+periodic
+-180.0 1.0 179.0
+:grid
+
+grid:
+/name /Y def
+degN
+-65.0 1.0 75.0
+:grid
+
+grid:
+ /name (L) def
+ /long_name (Lead Time) def
+ /standard_name (forecast_period) def
+ /units (days) def
+ 0.5 1 5.5
+:grid
+
+/forecasttime {S L add /long_name (Forecast Time) def /standard_name (time) def /pointwidth 1 def L 2.5 VALUE } defasvarsilent
+
+/apcp {
+SOURCES .NOAA .ESRL .PSD .reforecast2 .ensemble_mean .apcp
+  S (0000 1 Jan 2008) last RANGE
+  X -180 179 RANGE
+  Y -65 75 RANGEEDGES
+  L 54 60 66 72 VALUES
+  [L]sum
+  /long_name (Day 3 Forecast Total Precipitation) def
+  /units (mm/day) def
+startcolormap
+0 150 RANGE
+transparent transparent transparent 0.0 VALUE
+224 255 255 RGB RGBdup 12.5 bandmax
+176 226 255 RGB RGBdup 25.0 bandmax
+0 191 255 RGB RGBdup 37.5 bandmax
+65 105 255 RGB RGBdup 50.0 bandmax
+39 64 139 RGB RGBdup 75.0 bandmax
+47 47 79 RGB RGBdup 100.0 bandmax
+firebrick firebrick 125.0 bandmax
+VioletRed VioletRed 150.0 bandmax
+VioletRed endcolormap
+} defasvarsilent
+
+/apcpanom {
+  SOURCES .NOAA .ESRL .PSD .reforecast2 .ensemble_mean .apcp
+  S (0000 1 Jan 2008) last RANGE
+  X -180 179 RANGE
+  Y -65 75 RANGEEDGES
+  L 54 60 66 72 VALUES
+  [L]sum
+  SOURCES .IRI .MD .IFRC .ESRL .PSD .reforecast2 .ensemble_mean .pentad .climatology .c8512 .day3fcst .apcp
+   X -180 179 RANGE
+   Y -65 75 RANGEEDGES
+   [S]regridLinear
+   sub
+   /units (mm/day) def
+  /long_name (Day 3 Precipitation Anomaly from 1985-2012 Mean) def
+startcolormap
+DATA -500 500 RANGE
+transparent sienna sienna -500 VALUE
+sienna sienna -450 bandmax
+130 90 80 RGB RGBdup -400 bandmax
+130 90 80 RGB RGBdup -350 bandmax
+150 110 100 RGB RGBdup -300 bandmax
+170 130 120 RGB RGBdup -250 bandmax
+180 140 130 RGB RGBdup -200 bandmax
+190 150 140 RGB RGBdup -150 bandmax
+200 160 150 RGB RGBdup -100 bandmax
+220 185 175 RGB RGBdup -50 bandmax
+240 215 210 RGB RGBdup -25 bandmax
+250 235 230 RGB RGBdup -10 bandmax
+white white 10 bandmax
+224 255 255 RGB RGBdup 25 bandmax
+191 239 255 RGB RGBdup 50 bandmax
+176 226 255 RGB RGBdup 100 bandmax
+135 206 250 RGB RGBdup 150 bandmax
+  0 191 255 RGB RGBdup 200 bandmax
+   30 144 255 RGB RGBdup 250 bandmax
+    65 105 255 RGB RGBdup 300 bandmax
+      0 0 205 RGB RGBdup 350 bandmax
+       39 64 139 RGB RGBdup 400 bandmax
+	 0 0 128 RGB RGBdup 450 bandmax
+	  47 47 79 RGB RGBdup 500 bandmax
+	   47 47 79 RGB
+	   endcolormap
+  DATA -50 -40 -30 -20 -10 10 20 30 40 50 VALUES
+} defasvarsilent
+
+/apcppctmonthlyclim {
+ SOURCES .NOAA .ESRL .PSD .reforecast2 .ensemble_mean .apcp
+  S (0000 1 Jan 2008) last RANGE
+  X -180 179 RANGE
+  Y -65 75 RANGEEDGES
+  L 54 60 66 72 VALUES
+  [L]sum
+  SOURCES .IRI .MD .IFRC .ESRL .PSD .reforecast2 .ensemble_mean .monthly .c8512 .day3fcst .apcp
+   [S]regridLinear
+   div
+  100 mul
+  /units (percent) def
+  /long_name (Day 3 Precipitation as Percent of 1985-2012 Mean Monthly Total) def
+  startcolormap
+0 300 RANGE
+transparent transparent transparent 0. VALUE
+transparent transparent 25. bandmax
+176 226 255 RGB RGBdup 50. bandmax
+  0 191 255 RGB RGBdup 75. bandmax
+   65 105 255 RGB RGBdup 100. bandmax
+    39 64 139 RGB RGBdup 150. bandmax
+     47 47 79 RGB RGBdup 200. bandmax
+      firebrick firebrick 250. bandmax
+       VioletRed VioletRed 300. bandmax
+	VioletRed endcolormap
+} defasvarsilent
+
+/apcppctlenoseasonal {
+  SOURCES .NOAA .ESRL .PSD .reforecast2 .ensemble_mean .apcp
+  S (0000 1 Jan 2008) last RANGE
+  X -180 179 RANGE
+  Y -65 75 RANGEEDGES
+  L 54 60 66 72 VALUES
+  [L]sum
+  SOURCES .IRI .MD .IFRC .ESRL .PSD .reforecast2 .ensemble_mean .noseasonal .percentile .c8512 .day3fcst .apcp
+   X -180 179 RANGE
+   Y -65 75 RANGEEDGES
+   [percentile X Y]REORDER
+   CopyStream
+   1 RECHUNK
+   [percentile]CofA=B-bounded
+  2 RECHUNK
+  /long_name (Day 3 Total Precipitation Percentile from 1985-2012 Base Period - No Seasonality) def
+  startcolormap DATA
+    0.85 1.0 RANGE
+    transparent transparent transparent
+       0.85 VALUE
+       transparent transparent
+         0.9 bandmax
+         PaleTurquoise PaleTurquoise
+           0.95 bandmax
+           DodgerBlue DodgerBlue
+             0.99 bandmax
+             MediumBlue MediumBlue
+               1.0 bandmax
+               MediumBlue endcolormap
+} defasvarsilent
+
+:dataset
+\end{ingrid}

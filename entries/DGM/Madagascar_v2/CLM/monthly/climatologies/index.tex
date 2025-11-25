@@ -1,0 +1,50 @@
+
+\begin{ingrid}
+
+continuedataset:
+
+/rfe {
+ SOURCES .DGM .Madagascar_v2 .CLM .dekadal .rainfall .rfe
+monthlyAverage 3. mul
+yearly-climatology
+/long_name (Rainfall 1983-2014 average) def
+%precip_colors
+startcolormap transparent white ivory NavajoWhite PeachPuff BrightMustard gold yellow GreenYellow chartreuse green aquamarine cyan DarkTurquoise DeepSkyBlue DodgerBlue blue MediumBlue DarkSlateBlue BlueViolet MediumOrchid magenta magenta endcolormap
+%DATA 0 300 RANGE
+}defasvarcache
+
+/tmax{
+  SOURCES .DGM .Madagascar_v2 .CLM .dekadal .temperature .tmax
+ 1. monthlyAverage
+yearly-climatology
+/long_name (Maximum Temperature 1961-2013 average) def
+temp_colors
+/scale_symmetric false def
+  DATA 20 45 RANGE
+}defasvarcache
+
+/tmin{
+  SOURCES .DGM .Madagascar_v2 .CLM .dekadal .temperature .tmin
+ 1. monthlyAverage
+yearly-climatology
+/long_name (Minimum Temperature 1961-2013 average) def
+temp_colors
+/scale_symmetric false def
+  DATA 10 30 RANGE
+}defasvarcache
+
+
+/tmean{
+  SOURCES .DGM .Madagascar_v2 .CLM .dekadal .temperature .tmean
+ 1. monthlyAverage
+yearly-climatology
+/long_name (Mean Temperature 1961-2013 average) def
+temp_colors
+/scale_symmetric false def
+  DATA 15 40 RANGE
+}defasvar
+
+:dataset
+
+\end{ingrid}
+

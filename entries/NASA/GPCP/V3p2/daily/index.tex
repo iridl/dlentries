@@ -1,0 +1,101 @@
+\begin{ingrid}
+
+continuedataset:
+		/LongName (GPCP Precipitation Level 3 Daily 0.5-Degree V3.2) def
+		/VersionID (3.2) def
+		/Conventions (CF-1.5) def
+		/Entry_ID (GPCPMON_3.2) def
+		/Entry_Title (GPCP Precipitation Level 3 Daily 0.5-Degree V3.2 (GPCPMON) at GES DISC) def
+		/Title (GPCP Precipitation Level 3 Daily 0.5-Degree V3.2) def
+		/Science_Keywords (EARTH SCIENCE > ATMOSPHERE > PRECIPITATION > PRECIPITATION RATE) def
+		/ISO_Topic_Category (Climatology/Meteorology/Atmosphere) def
+		/Data_Center_ShortName (NASA/GSFC/SED/ESD/GCDC/GESDISC) def
+		/Data_Center_LongName (Goddard Earth Sciences Data and Information Services Center (formerly Goddard DAAC),Global Change Data Center, Earth Sciences Division, Science and Exploration Directorate, Goddard Space Flight Center, NASA) def
+		/Data_Center_URL (https://disc.gsfc.nasa.gov/) def
+		/Data_Center_Role (DATA CENTER CONTACT) def
+		/Data_Center_Last_Name (GES DISC help Desk Support Group) def
+		/Data_Center_Email (gsfc-dl-help-disc@mail.nasa.gov) def
+		/Data_Center_Address (Goddard Earth Sciences Data and Information Services Center, Code 610.2, NASA Goddard Space Flight Center, Greenbelt, MD, 20771, USA) def
+		/Data_Set_Progress (Stable Version) def
+		/DataSetQuality (Gridbox-by-gridbox estimates of random error are under development.  A current scheme does not exist for a similar estimate of bias.  However, the Monthly GPCP Satellite-Gauge estimates are constructed using calibration to state-of-the-art climatologies.  Validation studies are being undertaken where sufficient data exist, mostly over land, with some coverage in tropical ocean regions.) def
+		/Validation_Data (Validation of the GPCPV3 data sets is currently in process.  Previous validation efforts for GPCPV2.2 included comparisons with high-density rain gauge data sets (not part of the GPCC gauge analysis) and PACRAIN atoll gauges.) def
+		/Source (The GPM IMERG V06B Final, TOVS, and AIRS V6 IR-only L2G daily estimates and GPCP V3.2 Monthly estimates all enter the analysis as pre-computed precipitation fields.  See the ATBD for more information.) def
+		/MapProjection (Cylindrical Equidistant) def
+		/RelatedURL (https://earthdata.nasa.gov/esds/competitive-programs/measures/long-term-gpcp-precipitation) def
+		/Dataset_Creator (George J. Huffman and David T. Bolvin) def
+		/Dataset_Title (GPCP Precipitation Level 3 Daily 0.5-Degree V3.2) def
+		/Dataset_Series_Name (GPCPDAY) def
+		/Dataset_Release_Place (Greenbelt, MD, USA) def
+		/Dataset_Publisher (Goddard Earth Sciences Data and Information Services Center (GES DISC)) def
+		/IdentifierProductDOI (10.5067/MEASURES/GPCP/DATA304) def
+		/Data_Presentation_Form (Digital Science Data) def
+		/Use_Constraints (This data set continues to be validated. Please contact George Huffman, email: george.j.huffman@nasa.gov, for current known problems and updates.) def
+		/Distribution_Media (Online Archive) def
+		/Distribution_Format (NetCDF-4) def
+		/ProcessingLevel (Level 3) def
+		/Institution (Mesoscale Atmospheric Processes Laboratory, NASA GSFC) def
+
+link:
+/name (webpage) def
+/description (GPCP Version 3.2 Daily Precipitation Data Set (GPCPDAY)) def
+/href (https://disc.gsfc.nasa.gov/datasets/GPCPDAY_3.2/summary) def
+:link
+
+grid:
+/name /X def
+/units /degree_east def
+/long_name (Longitude) def
+periodic
+-179.75 0.5 179.75
+:grid
+
+grid:
+/name /Y def
+/units /degree_north def
+/long_name (Latitude) def
+-89.75 0.5 89.75
+:grid
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue {last} def
+/long_name (Time) def
+/standard_name (time) def
+1 Jun 2006 julian_day 1 Jan 1960 julian_day sub 0.5 add
+1.
+30 Sep 2021 julian_day 1 Jan 1960 julian_day sub 0.5 add
+/netcdfgrid true def
+:grid
+
+/precip {
+ [X Y last first subgrid | T]
+ (/Data/data7/nasa/gpcp/v3p2/daily/GPCPDAY_L3_%Y%m%d[T]_V3.2.nc4) [T] readdatafile:
+ /name (precip) def
+ /missing_value -99999. def
+ /valid_min 0.0 def
+ /valid_max 500.0 def
+ /long_name (precipitation) def
+ /units (mm/day)cvn def
+ /realarraytype netcdfrecords
+ :readdatafile
+ Y last first RANGE
+ DATA 0 AUTO RANGE
+} defasvarsilent
+
+/probability_liquid_phase {
+    [X Y last first subgrid | T]
+    (/Data/data7/nasa/gpcp/v3p2/daily/GPCPDAY_L3_%Y%m%d[T]_V3.2.nc4) [T] readdatafile:
+    /name (probability_liquid_phase) def
+    /missing_value -9999 def
+    /valid_min 0.0 def
+	/valid_max 100.0 def
+    /long_name (probability of liquid phase) def
+    /units /percent def
+    /shortarraytype netcdfrecords
+    :readdatafile
+    Y last first RANGE
+} defasvarsilent
+
+:dataset
+\end{ingrid}

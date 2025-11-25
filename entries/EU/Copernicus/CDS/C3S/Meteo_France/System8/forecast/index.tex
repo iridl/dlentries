@@ -1,0 +1,200 @@
+\begin{ingrid}
+continuedataset:
+
+/note (Generated using Copernicus Climate Change Service information [2018]) def
+
+link:
+/name (source) def
+/description (Data Downloaded from the Copernicus Climate Change Service, implemented by ECMWF) def
+/href (https://cds.climate.copernicus.eu/cdsapp#!/home) def
+:link
+
+link:
+/name (license) def
+/description (Licence Agreement to Use Copernicus Products, Version 1.2) def
+/href (https://iridl.ldeo.columbia.edu/documentation/eu/copernicus/cds/c3s/licence-to-use-copernicus-products.pdf) def
+:link
+
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.5 1.0 359.5
+periodic
+:grid 
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ 89.5 1.0 -89.5
+:grid
+
+grid:
+/name (M)def
+/long_name (member) def
+/units (unitless)def
+ 1 1 51
+:grid
+
+grid:
+/name (L)def
+/units (months) def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+0.5 1. 5.5
+:grid
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 925 850 700 500 400 300 200 100 50 30 10 :values
+/netcdfgrid true def
+:grid
+
+grid:
+/name (S) def
+/long_name (Forecast Start Time) def
+/units (months since 1960-01-01) def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+1 Jul 2021 ensotime
+1
+1 Apr 2025 ensotime
+:grid
+
+/T { S L add
+/long_name (Time) def
+/standard_name (time) def } defasvarsilent
+
+/sst {
+[ X Y | M L S ] (/Data/data21/EC/Copernicus/CDS/C3S/Meteo_France/System8/forecast/sst_C3S_MeteoFrance_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (sst) def
+%/calendar /standard def
+%/PTVersion 2 def
+ /gribparam 34 def
+%/GRIBgridcode 98 def
+ /gribcenter 98 def
+%/PDS_TimeRange 3 def
+ /grib_name /SSTK def
+ /scale_max 365.39999 def
+ /gribNumBits 16 def
+ /gribleveltype 1 def
+ /scale_min 180.0 def
+ /process 142 def
+ /missing_value 9.999000E+20 def
+ /units (Kelvin_scale)cvn def
+ /long_name (sea surface temperature) def
+ /standard_name (sea_surface_temperature) def
+ GRIB1record :readdatafile
+ decompress
+ 9.999000E+20 maskge
+}defasvarsilent
+
+/t2m {
+[ X Y | M L S ] (/Data/data21/EC/Copernicus/CDS/C3S/Meteo_France/System8/forecast/t2m_C3S_MeteoFrance_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (t2m) def
+%/calendar /standard def
+%/PTVersion 2 def
+ /gribparam 167 def
+%/GRIBgridcode 98 def
+ /gribcenter 98 def
+%/PDS_TimeRange 3 def
+ /grib_name /2T def
+ /scale_max 330.00000 def
+ /gribNumBits 16 def
+ /gribleveltype 1 def
+ /scale_min 180.0 def
+ /process 147 def
+ /units (Kelvin_scale)cvn def
+ /missing_value 9.999000E+20 def
+ /long_name (2-meter temperature) def
+ /standard_name (air_temperature) def
+ GRIB1record :readdatafile
+ decompress
+ 9.999000E+20 maskge
+}defasvarsilent
+
+/prcp {
+[ X Y | M L S ] (/Data/data21/EC/Copernicus/CDS/C3S/Meteo_France/System8/forecast/prcp_C3S_MeteoFrance_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (prcp) def
+%/calendar /standard def
+%/PTVersion 2 def
+ /gribparam 228 def
+%/GRIBgridcode 98 def
+ /gribcenter 98 def
+%/PDS_TimeRange 3 def
+ /grib_name /TP def
+%/scale_max 330.00000 def
+ /gribNumBits 16 def
+ /gribleveltype 1 def
+ /scale_min 0.0 def
+ /process 147 def
+ /units (m s-1)cvn def
+ /missing_value 9.999000E+20 def
+ /long_name (total precipitation) def
+ /standard_name (lwe_precipitation_rate) def
+ GRIB1record :readdatafile
+ decompress
+ 9.999000E+20 maskge
+}defasvarsilent
+
+/z {
+[ X Y | P M L S ] (/Data/data21/EC/Copernicus/CDS/C3S/Meteo_France/System8/forecast/z_C3S_MeteoFrance_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (z) def
+ /gribparam 129 def
+ /gribcenter 85 def
+ /process 231 def
+ /grib_name /Z def
+ /gribNumBits 16 def
+ /units (m2 s-2)cvn def
+ /missing_value 9.999000E+20 def
+ /long_name (geopotential) def
+ /standard_name (geopotential) def
+ GRIB1record :readdatafile
+ decompress
+ 9.999000E+20 maskge
+} defasvarsilent
+
+/ua {
+[ X Y | P M L S ] (/Data/data21/EC/Copernicus/CDS/C3S/Meteo_France/System8/forecast/u_C3S_MeteoFrance_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (ua) def
+ /gribparam 131 def
+ /gribcenter 85 def
+ /process 128 def
+ /grib_name /UGRD def
+ /gribNumBits 16 def
+ /units (m s-1)cvn def
+ /missing_value 9.999000E+20 def
+ /long_name (U-component of wind) def
+ /standard_name (eastward_wind) def
+ GRIB1record :readdatafile
+ decompress
+ 9.999000E+20 maskge
+} defasvarsilent
+
+/va {
+[ X Y | P M L S ] (/Data/data21/EC/Copernicus/CDS/C3S/Meteo_France/System8/forecast/v_C3S_MeteoFrance_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (va) def
+ /gribparam 132 def
+ /gribcenter 85 def
+ /process 128 def
+ /grib_name /VGRD def
+ /gribNumBits 16 def
+ /units (m s-1)cvn def
+ /missing_value 9.999000E+20 def
+ /long_name (V-component of wind) def
+ /standard_name (northward_wind) def
+ GRIB1record :readdatafile
+ decompress
+ 9.999000E+20 maskge
+} defasvarsilent
+
+:dataset
+\end{ingrid}

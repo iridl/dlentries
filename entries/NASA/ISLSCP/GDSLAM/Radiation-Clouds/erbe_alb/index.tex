@@ -1,0 +1,38 @@
+\begin{ingrid}
+continuedataset:
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 1 -89.5
+:grid
+grid:
+/name /T def
+monthtime
+/fullname (Month) def
+16 Jan 1987 ensotime
+1.
+16 Dec 1988 ensotime
+:grid
+variable:
+/name /albedo def
+/long_name (Monthly Mean Albedo) def
+/missing_value -99.000 def
+/scale_min 0 def
+/scale_max 1 def
+grids: X Y | T :grids
+/references (Barkstrom_etal1990) def
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/radiation/erbe_alb/alb87_88.r4) def
+:file
+:variable         
+:dataset
+\end{ingrid}
+
+

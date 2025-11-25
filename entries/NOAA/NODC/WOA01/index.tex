@@ -1,0 +1,40 @@
+/references (M.E. Conkright, et al. 2002: World Ocean Atlas 2001: Objective Analyses, Data Statistics, and Figures, CD-ROM Documentation. National Oceanographic Data Center, Silver Spring, MD, 17 pp.) def
+\begin{ingrid}
+continuedataset:
+/description (World Ocean Atlas 2001, an atlas of objectively analyzed fields of major ocean parameters at monthly, seasonal, and annual time scales.  Superseded by WOA05) def
+/references (Conkright_etal2002 Levitus1982)def
+link:
+/name (WOA05) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NODC/.WOA05/) def
+/description (World Ocean Atlas 2005) def
+/semantics (dcterm:isReplacedBy) def
+:link
+/iridl:hasSemantics (iridl:Ocean) def
+grid: /name (T) def
+/long_name (Time) def
+periodic
+month
+Jan 1 Dec
+:grid
+grid: /name (X) def
+/long_name(Longitude) def
+/units /degreeE def
+periodic 
+0.5 to 359.5 N= 360 pts
+:grid
+grid: /name (Y) def
+/long_name(Latitude) def
+/units /degreeN def
+-89.5 to 89.5 N= 180 pts
+:grid
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. 600. 700. 800. 900. 1000. 1100. 1200. 1300. 1400. 1500. 1750. 2000. 2500. 3000. 3500. 4000. 4500. 5000. 5500.]
+:grid
+:dataset
+\end{ingrid}
+
+
+

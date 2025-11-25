@@ -1,0 +1,459 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+
+grid:
+/name /N def
+/long_name (realization) def
+/standard_name (realization) def
+/units /ids def
+1 1 10
+:grid
+
+variable:
+/name (version) def
+/long_name (Version Number) def
+/units (ids) def
+grids: N :grids
+values: /v20120612 /v20120612 /v20120612 /v20120612 /v20120612 /v20120612 /v20120612 /v20120131 /v20120131 /v20120612 :values
+:variable
+
+:datasetdefs
+
+ /branch_time_YMDH (2521:01:01:00) def
+ /CCCma_parent_runid (IGA) def
+ /CCCma_runid (DHFP1N_E009) def
+ /input_creation_date (2012-02-01T01:08:03Z) def
+ /experiment (historical) def
+ /branch_time 244915.0 def
+ /parent_experiment (pre-industrial control) def
+ /Conventions (CF-1.4) def
+ /physics_version 1 def
+ /CCCma_references (http://www.cccma.ec.gc.ca/models) def
+ /frequency (yr) def
+ /project_id (CMIP5) def
+ /ETCCDI_institution_id (PCIC) def
+ /institute_id (CCCma) def
+ /forcing (GHG,Oz,SA,BC,OC,LU,Sl,Vl (GHG includes CO2,CH4,N2O,CFC11,effective CFC12)) def
+ /table_id (Table day (28 March 2011) f9d6cfec5981bb8be1801b35a81002f0) def
+ /ETCCDI_indices_archive (Please check http://www.cccma.ec.gc.ca/data/climdex/climdex.shtml for errata or updates.) def
+ /input_title (CanCM4 model output prepared for CMIP5 historical) def
+ /parent_experiment_id (piControl) def
+ /institution (CCCma (Canadian Centre for Climate Modelling and Analysis, Victoria, BC, Canada)) def
+ /cmor_version (2.8.0) def
+ /ETCCDI_institution (Pacific Climate Impacts Consortium) def
+ /input_frequency (day) def
+ /ETCCDI_software (climdex.pcic) def
+ /comment (These experiments serve as unitialized comparisons for CCCma CanCM4 decadal experiments.) def
+ /experiment_id (historical) def
+ /CCCma_contact (cccma_info@ec.gc.ca) def
+ /contact (bronaugh@uvic.ca) def
+%/parent_experiment_rip (r1i1p1) def
+ /ETCCDI_software_version (0.6.2) def
+ /initialization_method 1 def
+%/realization 9 def
+ /history (Processed by climdex.pcic 0.6.2 on Thu Apr 18 17:21:22 2013 
+2012-02-01T01:08:03Z CMOR rewrote data to comply with CF standards and CMIP5 requirements.) def
+ /modeling_realm (atmos) def
+ /CCCma_data_licence (1. GRANT OF LICENCE - The Government of Canada (Environment Canada) is the 
+owner of all intellectual property rights (including copyright) that may exist in this Data 
+product. You (as "The Licensee") are hereby granted a non-exclusive, non-assignable, 
+non-transferable unrestricted licence to use this data product for any purpose including 
+the right to share these data with others and to make value-added and derivative 
+products from it. This licence is not a sale of any or all of the owner's rights.
+2. NO WARRANTY - This Data product is provided "as-is"; it has not been designed or 
+prepared to meet the Licensee's particular requirements. Environment Canada makes no 
+warranty, either express or implied, including but not limited to, warranties of 
+merchantability and fitness for a particular purpose. In no event will Environment Canada 
+be liable for any indirect, special, consequential or other damages attributed to the 
+Licensee's use of the Data product.) def
+ /title (ETCCDI indices computed on CanCM4 model output prepared for CMIP5 historical) def
+%/input_tracking_id (0997173f-10a9-452c-895e-950395ccf613) def
+ /creation_date (2013-04-18T17:21:22Z) def
+ /product (output) def
+ /source (CanCM4 2010 atmosphere: CanAM4 (AGCM15i, T63L35) ocean: CanOM4 (OGCM4.0, 256x192L40) sea ice: CanSIM1 (Cavitating Fluid, T63 Gaussian Grid) land: CLASS2.7) def
+ /model_id (CanCM4) def
+ /references (http://www.cccma.ec.gc.ca/data/climdex/) def
+ /references (Sillmann_etal2013a Sillmann_etal2013b) def
+
+grid:
+/name (lon)def
+/long_name (longitude) def
+/standard_name (longitude) def
+periodic
+/units (degree_east)def
+ 0.0 2.8125 357.1875
+:grid
+
+grid:
+/name (lat)def
+/long_name (latitude) def
+/standard_name (latitude) def
+/units (degree_north)def
+values: -87.8638 -85.096527 -82.312912 -79.525612 -76.7369 -73.947517 -71.157753 -68.36776 -65.577606 -62.787354 -59.997021 -57.206635 -54.416203 -51.625736 -48.835243 -46.044727 -43.254196 -40.46365 -37.673092 -34.882523 -32.091946 -29.301363 -26.510773 -23.720177 -20.929577 -18.138973 -15.348368 -12.557758 -9.767148 -6.9765363 -4.1859231 -1.3953094 1.3953094 4.1859231 6.9765363 9.767148 12.557758 15.348368 18.138973 20.929577 23.720177 26.510773 29.301363 32.091946 34.882523 37.673092 40.46365 43.254196 46.044727 48.835243 51.625736 54.416203 57.206635 59.997021 62.787354 65.577606 68.36776 71.157753 73.947517 76.7369 79.525612 82.312912 85.096527 87.8638 :values
+:grid
+
+grid:
+/name (time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/pointwidth 12 def
+01 Jul 1961 ensotime
+12
+01 Jul 2005 ensotime
+:grid
+
+grid:
+/name /N def
+/long_name (realization) def
+/standard_name (realization) def
+/units /ids def
+1 1 10
+:grid
+
+grid:
+/name /M def
+/long_name (initialization method) def
+/units /ids def
+values: 1 :values
+:grid
+
+grid:
+/name /L def
+/long_name (perturbed physics) def
+/units /ids def
+values: 1 :values
+:grid
+
+variable:
+/name (version) def
+/long_name (Version Number) def
+/units (ids) def
+grids: N :grids
+values: /v20120612 /v20120612 /v20120612 /v20120612 /v20120612 /v20120612 /v20120612 /v20120131 /v20120131 /v20120612 :values
+:variable
+
+/altcdd { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/altcddETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (altcddETCCDI) def
+ /units (days) def
+ /long_name (Maximum Number of Consecutive Days Per Year with Less Than 1 mm of Precipitation) def
+ /iridl:hasSemantics [ (climdex:ALTCDD) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/altcsdi { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/altcsdiETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (altcsdiETCCDI) def
+ /units (days) def
+ /base_period (1961-1990) def
+ /long_name (Cold Spell Duration Index Spanning Years) def
+ /iridl:hasSemantics [ (climdex:ALTCSDI) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/altcwd { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/altcwdETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (altcwdETCCDI) def
+ /units (days) def
+ /long_name (Maximum Number of Consecutive Days Per Year with At Least 1mm of Precipitation) def
+ /iridl:hasSemantics [ (climdex:ALTCWD) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/altwsdi { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/altwsdiETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (altwsdiETCCDI) def
+ /units (days) def
+ /base_period (1961-1990) def
+ /long_name (Warm Spell Duration Index Spanning Years) def
+ /iridl:hasSemantics [ (climdex:ALTWSDI) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/cdd { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/cddETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (cddETCCDI) def
+ /units (days) def
+ /long_name (Maximum Number of Consecutive Days with Less Than 1mm of Precipitation) def
+ /iridl:hasSemantics [ (climdex:CDD) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/csdi { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/csdiETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (csdiETCCDI) def
+ /units (days) def
+ /base_period (1961-1990) def
+ /long_name (Cold Spell Duration Index) def
+ /iridl:hasSemantics [ (climdex:CSDI) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/cwd { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/cwdETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (cwdETCCDI) def
+ /units (days) def
+ /long_name (Maximum Number of Consecutive Days with At Least 1mm of Precipitation) def
+ /iridl:hasSemantics [ (climdex:CWD) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/dtr { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/dtrETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (dtrETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Mean Diurnal Temperature Range) def
+ /iridl:hasSemantics [ (climdex:DTR) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/fd { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/fdETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (fdETCCDI) def
+ /units (days) def
+ /long_name (Number of Frost Days) def
+ /iridl:hasSemantics [ (climdex:FD) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/gsl { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/gslETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (gslETCCDI) def
+ /units (days) def
+ /long_name (Growing Season Length) def
+ /iridl:hasSemantics [ (climdex:GSL) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/id { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/idETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (idETCCDI) def
+ /units (days) def
+ /long_name (Number of Icing Days) def
+ /iridl:hasSemantics [ (climdex:ID) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/prcptot { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/prcptotETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (prcptotETCCDI) def
+ /units (mm) def
+ /long_name (Annual Total Precipitation in Wet Days) def
+ /iridl:hasSemantics [ (climdex:PRCPTOT) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/r10mm { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/r10mmETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (r10mmETCCDI) def
+ /units (days) def
+ /long_name (Annual Count of Days with At Least 10mm of Precipitation) def
+ /iridl:hasSemantics [ (climdex:R10mm) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/r1mm { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/r1mmETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (r1mmETCCDI) def
+ /units (days) def
+ /long_name (Annual Count of Days with At Least 1mm of Precipitation) def
+ /iridl:hasSemantics [ (climdex:R01mm) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/r20mm { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/r20mmETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (r20mmETCCDI) def
+ /units (days) def
+ /long_name (Annual Count of Days with At Least 20mm of Precipitation) def
+ /iridl:hasSemantics [ (climdex:R20mm) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/r95p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/r95pETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (r95pETCCDI) def
+ /units (mm) def
+ /base_period (1961-1990) def
+ /long_name (Annual Total Precipitation when Daily Precipitation Exceeds the 95th Percentile of Wet Day Precipitation) def
+ /iridl:hasSemantics [ (climdex:R95pTOT) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/r99p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/r99pETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (r99pETCCDI) def
+ /units (mm) def
+ /base_period (1961-1990) def
+ /long_name (Annual Total Precipitation when Daily Precipitation Exceeds the 99th Percentile of Wet Day Precipitation) def
+ /iridl:hasSemantics [ (climdex:R99pTOT) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/rx1day { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/rx1dayETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (rx1dayETCCDI) def
+ /units (mm) def
+ /long_name (Annual Maximum 1-day Precipitation) def
+ /iridl:hasSemantics [ (climdex:Rx1day) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/rx5day { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/rx5dayETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (rx5dayETCCDI) def
+ /units (mm) def
+ /long_name (Annual Maximum Consecutive 5-day Precipitation) def
+ /iridl:hasSemantics [ (climdex:Rx5day) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/sdii { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/sdiiETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (sdiiETCCDI) def
+ /units (mm/day) def
+ /long_name (Simple Precipitation Intensity Index) def
+ /iridl:hasSemantics [ (climdex:SDII) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/su { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/suETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (suETCCDI) def
+ /units (days) def
+ /long_name (Number of Summer Days) def
+ /iridl:hasSemantics [ (climdex:SU) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tn10p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tn10pETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (tn10pETCCDI) def
+ /units (percent) def
+ /base_period (1961-1990) def
+ /long_name (Percentage of Days when Daily Minimum Temperature is Below the 10th Percentile) def
+ /iridl:hasSemantics [ (climdex:TN10p) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tn90p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tn90pETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (tn90pETCCDI) def
+ /units (percent) def
+ /base_period (1961-1990) def
+ /long_name (Percentage of Days when Daily Minimum Temperature is Above the 90th Percentile) def
+ /iridl:hasSemantics [ (climdex:TN90p) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tnn { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tnnETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (tnnETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Annual Minimum of Daily Minimum Temperature) def
+ /iridl:hasSemantics [ (climdex:TNn) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tnx { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tnxETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (tnxETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Annual Maximum of Daily Minimum Temperature) def
+ /iridl:hasSemantics [ (climdex:TNx) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tr { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/trETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (trETCCDI) def
+ /units (days) def
+ /long_name (Number of Tropical Nights) def
+ /iridl:hasSemantics [ (climdex:TR) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tx10p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tx10pETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (tx10pETCCDI) def
+ /units (percent) def
+ /base_period (1961-1990) def
+ /long_name (Percentage of Days when Daily Maximum Temperature is Below the 10th Percentile) def
+ /iridl:hasSemantics [ (climdex:TX10p) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tx90p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tx90pETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (tx90pETCCDI) def
+ /units (percent) def
+ /base_period (1961-1990) def
+ /long_name (Percentage of Days when Daily Maximum Temperature is Above the 90th Percentile) def
+ /iridl:hasSemantics [ (climdex:TX90p) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/txn { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/txnETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (txnETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Annual Minimum of Daily Maximum Temperature) def
+ /iridl:hasSemantics [ (climdex:TXn) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/txx { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/txxETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (txxETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Annual Maximum of Daily Maximum Temperature) def
+ /iridl:hasSemantics [ (climdex:TXx) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/wsdi { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/CanCM4/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/wsdiETCCDI_yr_CanCM4_historical_r%d[N]i%d[M]p%d[L]_1961-2005.nc) [ N M L version ] readdatafile:
+/name (wsdiETCCDI) def
+ /units (days) def
+ /base_period (1961-1990) def
+ /long_name (Warm Spell Duration Index) def
+ /iridl:hasSemantics [ (climdex:WSDI) ] def
+ /missing_value 1.00000002E20 def
+%/history (Created by climdex.pcic 0.7.1 on Sat Jun 29 21:17:34 2013) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+:dataset
+\end{ingrid}
+

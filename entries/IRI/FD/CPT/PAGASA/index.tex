@@ -1,0 +1,185 @@
+\begin{ingrid}
+
+continuedataset:
+
+    grid:
+      /name (STNID) def
+      /units (ids) def
+      /long_name (Station) def
+      1 1 77
+    :grid
+    grid:
+      /name (T) def
+      monthtime
+      /units (month) def
+      periodic
+      Jan to Dec N= 12 pts
+    :grid
+    grid:
+      /name (T2) def
+      monthtime
+      /pointwidth 12 def
+      1 Jul 1977 ensotime
+      12
+      1 Jul 2003 ensotime
+      /long_name (Training period) def
+    :grid
+    grid:
+      /name /S def
+      monthtime
+      /long_name (Start time) def
+      /standard_name (forecast_reference_time) def
+      /defaultvalue { last } def
+      /pointwidth 0 def
+      values:
+%        16 Mar 2009 ensotime
+%        1
+%        16 Mar 2009 ensotime
+        1 Jan 2010 ensotime
+        1
+        systemtime
+        systemtime2ymd
+        ymd:lastmonth
+        ymd:nextmonth 15 add
+        ymd2rm1960
+%        16 Jan 2009 ensotime
+        {} for
+      :values
+      /expires
+        systemtime
+        last_modified sub
+        86400 lt {
+          null
+        }{
+          last_modified
+          systemtime2ymd pop dup 12 lt {
+            1 add
+          }{
+            pop 1 add 1
+          }ifelse
+          9 ymd2systemtime
+        }ifelse
+      def
+    :grid
+S { (/Data/data1/iri/forecast/data/echam/PAGASA/Forecasts_%Y_Start%-m[S]_Lead1.txt) [S] } removeextrausing 
+   name exch def
+    grid:
+      /name (L) def
+      /units (months) def
+      /fullname (Forecast Lead Time in Months) def
+      2.5 1 5.5
+    :grid
+    grid:
+      /name (NVZ) def
+      1 1 3
+    :grid
+    /target_date {S L add /long_name (forecast time) def /pointwidth 3 def} defasvar
+    /hindcast_date {T2 6 sub T 0.5 sub add L add /long_name (hindcast time) def /pointwidth 3 def} defasvar
+    /PearsonR {
+      [ NVZ STNID | T L ]
+      (/Data/data1/iri/forecast/data/echam/PAGASA/PearsonR_Start%-m[T]_Lead%d[L].txt) [T L 1.5 sub] 
+      readdatafile: 
+        [4 1] r*4astsv
+      :readdatafile
+        /name (PearsonR) def
+        /long_name (Pearson correlation skill values) def
+        /fullname (Pearson R) def
+        /units (unitless) def
+        /missing_value -999. def
+        correlationcolorscale
+        /scale_min -1. def
+        /scale_max 1. def
+        NVZ 3 VALUE /NVZ removeGRID
+    }defasvarsilent
+%    /PearsonR {
+%      PearsonR_fake fake 3 VALUE /fake removeGRID
+%    }defasvarsilent
+    /lon {
+      [ NVZ STNID | ]
+      (/Data/data1/iri/forecast/data/echam/PAGASA/PearsonR_Start6_Lead1.txt)
+      readdatafile:
+        [4 1] r*4astsv
+      :readdatafile
+        /name (lon) def
+        /long_name (longitude) def
+        /units (degree_east) def
+        /scale_min 114. def
+        /scale_max 132. def
+        NVZ 2 VALUE /NVZ removeGRID
+    }defasvarsilent
+    /lat {
+      [ NVZ STNID | ]
+      (/Data/data1/iri/forecast/data/echam/PAGASA/PearsonR_Start6_Lead1.txt)
+      readdatafile:
+        [4 1] r*4astsv
+      :readdatafile
+        /name (lat) def
+        /long_name (latitude) def
+        /units (degree_north) def
+        /scale_min 3. def
+        /scale_max 22. def
+        NVZ 1 VALUE /NVZ removeGRID
+    }defasvarsilent
+    /CrossValHind {
+      [ STNID T2 | T L ]
+      (/Data/data1/iri/forecast/data/echam/PAGASA/CrossValPred_Start%-m[T]_Lead%d[L].txt) [T L 1.5 sub]
+      readdatafile:
+        [7 1] r*4astsv
+      :readdatafile
+        /name (CrossValHind) def
+        /long_name (cross-validated hindcasts) def
+        /fullname (Hindcast) def
+        /units (mm/day) def
+        /missing_value -999. def
+    }defasvarsilent
+    /Forecast {
+      [ STNID | S L ]
+      (/Data/data1/iri/forecast/data/echam/PAGASA/Forecasts_%Y_Start%-m[S]_Lead%d[L].txt) [S L 1.5 sub]
+      readdatafile:
+        [7 1] r*4astsv
+      :readdatafile
+        /missing_value -999. def
+        /name (Forecast) def
+        /long_name (current forecast) def
+        /fullname (Forecast) def
+        /units (mm/day) def
+      prcp_0to500_colors
+    }defasvarsilent
+    /PredErrorVars {
+      [ STNID | S L ]
+      (/Data/data1/iri/forecast/data/echam/PAGASA/PredErrorVars_%Y_Start%-m[S]_Lead%d[L].txt) [S L 1.5 sub]
+      readdatafile:
+        [7 1] r*4astsv
+      :readdatafile
+        /missing_value -999. def
+      /name (PredErrorVars) def
+      /long_name (prediction error variance) def
+      /fullname (Error) def
+      /units (mm/day) def
+      /scale_min 0. def
+    }defasvarsilent
+    /InputObs {
+      [ STNID T2 | T L]
+      (/Data/data1/iri/forecast/data/echam/PAGASA/YinputData_Start%-m[T]_Lead%d[L].txt) [T L 1.5 sub]
+      readdatafile:
+        [7 1] r*4astsv
+      :readdatafile
+        /name (InputObs) def
+        /long_name (input observations) def
+        /fullname (Obs) def
+        /units (mm/day) def
+        /missing_value -999. def
+    }defasvarsilent
+
+/location {
+lon lat geopt
+}defasvar
+
+/label {
+ SOURCES .PAGASA .daily .stations
+.STATION_NAME
+}defasvar
+
+  /history (Output from CPT for 12 3-month running seasons for 1977-2003 between Echam4.5 CASST GCM and PAGASA stations dataset, CPT recompiled on Mac 9.04 version) def
+  :dataset
+\end{ingrid}

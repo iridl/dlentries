@@ -1,0 +1,43 @@
+\begin{ingrid}
+continuedataset:
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 1 -89.5
+:grid
+grid:
+/name /T def
+monthtime
+/fullname (Month) def
+16 Jan 1987 ensotime
+1.
+16 Dec 1988 ensotime
+:grid
+/references (Nomura_Grumbine1995) def
+variable:
+/name /seaice def
+/long_name (Sea Ice Concentration) def
+/units (percent) def
+/scale_min 0 def
+/scale_max 100 def
+grids: X Y | T :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/snowice/sea/sea_ice/sic87_88.i2) def
+:file
+:variable         
+:dataset
+\end{ingrid}
+
+
+
+
+
+
+

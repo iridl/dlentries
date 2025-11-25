@@ -1,0 +1,34 @@
+\begin{ingrid}
+continuedataset:
+%/name (lsmask)def
+%/binaryfilename (/data/dstore4/iri/modelling/daved/NMME_Data.D/Obs.D/lsmask.dat) def
+ /binaryfilename (/Data/data23/NMME/Obs.D/lsmask.dat) def
+ /missing_value 9.99900026E20 def
+% /history (flxf_1x1.grb) def
+% /description (flxf_1x1.grb) def
+grid:
+/name (X)def
+/units (degree_east)def
+/standard_name (longitude) def
+ 0.0 1. 359.
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+/standard_name (latitude) def
+ 90. 1. -90.
+:grid
+ /land{
+%[ X Y | ] (/data/dstore4/iri/modelling/daved/NMME_Data.D/Obs.D/lsmask.dat) readdatafile:
+[ X Y | ] (/Data/data23/NMME/Obs.D/lsmask.dat) readdatafile:
+/name (land) def
+ /long_name (Surface Land cover) def
+/iridl:hasSemantics (iridl:LandCover) def
+ /missing_value 9.99900026E20 def
+direct
+:readdatafile
+}defasvarsilent
+:dataset
+
+
+\end{ingrid}

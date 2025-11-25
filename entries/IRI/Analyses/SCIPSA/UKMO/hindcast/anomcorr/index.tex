@@ -1,0 +1,150 @@
+\begin{ingrid} 
+continuedataset:
+grid:
+/name /X def
+/long_name (Longitude) def
+/units (degree_east) def
+periodic
+0. 1.0 359.0
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units (degree_north) def
+-90. 1.0 90.
+:grid
+
+grid:
+/name /S def
+/long_name (Forecast Start Time) def
+/units (months since 01-Jan) def
+periodic
+0.0 1.0 11.0
+/pointwidth 0 def
+:grid
+
+grid:
+/name /L def
+/long_name (Lead) def
+/units (months) def
+1.5 1.0 10.5
+:grid
+dataset: 
+X name exch def	
+Y name exch def	
+L name exch def	
+S name exch def	
+/name (prec) def 
+
+/correlation { 
+/long_name (prec) def 
+ SOURCES .EU .Copernicus .CDS .C3S .UKMO .GloSea5-GC2 .System14 .hindcast .prcp
+  S (0000 1 Jan 1993) (0000 1 Dec 2016) RANGE
+  [M]average
+  L 3 runningAverage
+  c:
+   1000 (mm m-1) :c
+   mul
+  c:
+   86400 (s day-1) :c
+   mul
+  SOURCES .IRI .Analyses .SCIPSA .UKMO  .hindcast .sc .prec sub
+  SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+   T (Dec 1979) last RANGE
+   T 3 runningAverage
+   SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+    T (Dec 1993) (Jan 2017) RANGE
+    T 3 runningAverage
+    T 12 splitstreamgrid
+    [T2]average
+    sub
+   [X Y]regridLinear
+   SOURCES .EU .Copernicus .CDS .C3S .UKMO .GloSea5-GC2 .System14 .hindcast .T
+    S (0000 1 Jan 1993) (0000 1 Dec 2016) RANGE
+    T sample-along
+   2 {exch S 12 splitstreamgrid[X Y]REORDER}repeat
+   [X Y L S S2]REORDER
+   2 RECHUNK
+   [S2]correlate
+  2 RECHUNK
+  DATA -1 1 RANGE } defasvarcache
+:dataset 
+
+dataset: 
+X name exch def	
+Y name exch def	
+L name exch def	
+S name exch def	
+
+/name (temp) def 
+/correlation {
+/long_name (temp) def
+ SOURCES .EU .Copernicus .CDS .C3S .UKMO .GloSea5-GC2 .System14 .hindcast .t2m
+  S (0000 1 Jan 1993) (0000 1 Dec 2016) RANGE
+  [M]average
+  L 3 runningAverage
+  (Celsius_scale) unitconvert
+  SOURCES .IRI .Analyses .SCIPSA .UKMO  .hindcast .sc .temp sub
+  SOURCES .NOAA .NCEP .CPC .GHCN_CAMS .gridded .deg0p5 .temp
+   T (Dec 1980) last RANGE
+   T 3 runningAverage
+   SOURCES .NOAA .NCEP .CPC .GHCN_CAMS .gridded .deg0p5 .temp
+    T (Dec 1993) (Jan 2016) RANGE
+    T 3 runningAverage
+    T 12 splitstreamgrid
+    [T2]average
+    sub
+   [X Y]regridLinear
+   SOURCES .EU .Copernicus .CDS .C3S .UKMO .GloSea5-GC2 .System14 .hindcast .T
+    S (0000 1 Jan 1993) (0000 1 Dec 2016) RANGE
+    T sample-along
+   2 {exch S 12 splitstreamgrid[X Y]REORDER}repeat
+   [X Y L S S2]REORDER
+   2 RECHUNK
+   [S2]correlate
+  2 RECHUNK
+  DATA -1 1 RANGE
+ } defasvarcache
+
+:dataset 
+
+dataset: 
+X name exch def	
+Y name exch def	
+L name exch def	
+S name exch def	
+/name (sst) def 
+
+/correlation {
+/long_name (sst) def 
+SOURCES .EU .Copernicus .CDS .C3S .UKMO .GloSea5-GC2 .System14 .hindcast .sst
+  S (0000 1 Jan 1993) (0000 1 Dec 2016) RANGE
+  [M]average
+  L 3 runningAverage
+  (Celsius_scale) unitconvert
+  SOURCES .IRI .Analyses .SCIPSA .UKMO .hindcast .sc .sst sub
+  SOURCES .NOAA .NCDC .ERSST .version5 .sst
+   T (Dec 1980) last RANGE
+   T 3 runningAverage
+   SOURCES .NOAA .NCDC .ERSST .version5 .sst
+    T (Dec 1980) (Jan 2011) RANGE
+    T 3 runningAverage
+    T 12 splitstreamgrid
+    [T2]average
+    sub
+   zlev removeGRID
+   [X Y]regridLinear
+   SOURCES .EU .Copernicus .CDS .C3S .UKMO .GloSea5-GC2 .System14 .hindcast .T
+    S (0000 1 Jan 1993) (0000 1 Dec 2016) RANGE
+    T sample-along
+   2 {exch S 12 splitstreamgrid[X Y]REORDER}repeat
+   [X Y L S S2]REORDER
+   2 RECHUNK
+   [S2]correlate
+  2 RECHUNK
+  DATA -1 1 RANGE
+ } defasvarcache
+:dataset
+:dataset
+\end{ingrid}

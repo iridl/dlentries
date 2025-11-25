@@ -1,0 +1,311 @@
+\begin{ingrid}
+
+/iridl:hasSemantics (iridlsemantics:PRISM) def
+
+continuedataset:
+
+/description (Daily gridMET) def
+
+link:
+/name (Climatology Home Page) def
+/description (Climatology Lab at the University of California, Merced) def
+/href (http://www.climatologylab.org/) def
+:link
+
+link:
+/name (gridMET Home Page) def
+/description (About page for gridMET) def
+/href (http://www.climatologylab.org/gridmet.html) def
+:link
+
+link:
+/name (Permanenent Subdirectory) def
+/description (Subdirectory of permanent data outputs for 1979-current year) def
+/href (https://www.northwestknowledge.net/metdata/data/permanent/) def
+:link
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units (degree_east) def
+periodic
+-124.7666666333333 1. 24. div -67.0583333
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units (degree_north) def
+25.0666666666667 1. 24. div 49.40
+:grid
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue {last} def
+1 Jan 1979 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0 
+
+systemtime systemtime2ymd
+    3 1 roll
+    1
+     2 {ymd:lastmonth} repeat
+     pop
+    exch
+julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+/netcdfgrid true def
+:grid
+
+ T {(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc)[T]}remoteremoveextrausing
+/expires
+last_modified systemtime2ymd ymd2rjt
+  1 add
+   rjt2ymd ymd2systemtime
+def
+name exch
+def
+
+/expires
+T .expires
+def
+
+/precipitation_amount{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T] 
+readdatafile:
+/name (precipitation_amount) def
+/missing_value -32767. def
+/units (mm) def
+/long_name (Daily Accumulated Precipitation) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+precip_colors
+DATA AUTO AUTO RANGE
+}defasvarsilent %reading data from a file
+
+/maximum_relative_humidity{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T]
+readdatafile:
+/name (maximum_relative_humidity) def
+/missing_value -32767. def
+/units /percent def
+/long_name (Daily Maximum Relative Humidity) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+DATA 0 100 RANGE
+}defasvarsilent
+
+/minimum_relative_humidity{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T]
+readdatafile:
+/name (minimum_relative_humidity) def
+/missing_value -32767. def
+/units /percent def
+/long_name (Daily Minimum Relative Humidity) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+DATA 0 100 RANGE
+}defasvarsilent
+
+/minimum_air_temperature{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T]
+readdatafile:
+/name (minimum_air_temperature) def
+/missing_value -32767. def
+/units /Kelvin_scale def
+/long_name (Daily Minimum Temperature) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+temp_colors
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+/maximum_air_temperature{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T]
+readdatafile:
+/name (maximum_air_temperature) def
+/missing_value -32767. def
+/units /Kelvin_scale def
+/long_name (Daily Maximum Temperature) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+temp_colors
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+/wind_speed{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T]
+readdatafile:
+/name (wind_speed) def
+/missing_value -32767. def
+/units (m/s) def
+/long_name (Daily Mean Wind Speed) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+windspeed_colors
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+/mean_vapor_pressure_deficit{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T]
+readdatafile:
+/name (mean_vapor_pressure_deficit) def
+/missing_value -32767. def
+/units (kPa) def
+/long_name (Daily mean vapor pressure deficit) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+/specific_humidity{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T]
+readdatafile:
+/name (specific_humidity) def
+/missing_value -32767. def
+/units (kg/kg) def
+/long_name (Daily Mean Specific Humidity) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+/wind_from_direction{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T]
+readdatafile:
+/name (wind_from_direction) def
+/missing_value -32767. def
+/units (degrees_clockwise_from_north) def
+/long_name (Daily Mean Wind Direction) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+/surface_downwelling_shortwave_flux_in_air{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T]
+readdatafile:
+/name (surface_downwelling_shortwave_flux_in_air) def
+/missing_value -32767. def
+/units (W m-2) def
+/long_name (Daily Mean downward shortwave radiation at surface) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+/reference_evapotranspiration_grass{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T]
+readdatafile:
+/name (reference_evapotranspiration_grass) def
+/missing_value -32767. def
+/units (mm) def
+/long_name (Daily reference evapotranspiration (grass)) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+/energy_release_component-g{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T]
+readdatafile:
+/name (energy_release_component-g) def
+/missing_value -32767. def
+/units (unitless) def
+/long_name (ERC-G) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+/dead_fuel_moisture_100hr{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T]
+readdatafile:
+/name (dead_fuel_moisture_100hr) def
+/missing_value -32767. def
+/units /percent def
+/long_name (100 Hour Fuel Moisture) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+/dead_fuel_moisture_1000hr{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T]
+readdatafile:
+/name (dead_fuel_moisture_1000hr) def
+/missing_value -32767. def
+/units /percent def
+/long_name (1000 Hour Fuel Moisture) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+/reference_evapotranspiration_alfalfa{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T]
+readdatafile:
+/name (reference_evapotranspiration_alfalfa) def
+/missing_value -32767. def
+/units (mm) def
+/long_name (Daily reference evapotranspiration (alfalfa)) def
+/realarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+
+for some reason the reading of this variable causes a stack overflow
+But I don't know why
+If they want it, we'll investigate further
+
+/burning_index_g{
+[X Y last first subgrid | T ]
+(https://www.northwestknowledge.net/metdata/data/permanent/%Y[T]/permanent_gridmet_%Y%m%d[T].nc) [T]
+readdatafile:
+/name (burning_index_g) def
+%/missing_value -32767. def
+%/units (unitless) def
+%/long_name (BI-G) def
+/realarraytype netcdfrecords
+:readdatafile
+%Y last first RANGE
+%DATA AUTO AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

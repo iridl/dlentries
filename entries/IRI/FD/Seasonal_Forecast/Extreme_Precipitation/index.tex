@@ -1,0 +1,150 @@
+\documentstyle[code,ingrid]{article}
+\begin{document}
+\section{IRI Extreme Precipitation Dataset Entry}
+\subsection{hidden function definitions}
+\begin{ingrid}
+
+ continuedataset:
+/references (Barnston_etal2003 Barnston_Mason2011) def
+%Barnston, A.G., S.J. Mason, L. Goddard, D.G. DeWitt, S.E. Zebiak. 2003. Multimodel Ensembling in Seasonal Climate Forecasting at IRI. Bull. Amer. Met. Soc. 84 (12): 1783-1796. DOI: 10.1175/BAMS-84-12-1783
+%Barnston, A. G. and S. J. Mason, 2011: Evaluation of IRI's seasonal climate forecasts for the extreme 15% tails. Wea. Forecasting, 26, 545-554. DOI: 10.1175/WAF-D-10-05009.1
+\end{ingrid}
+\begin{ingrid}
+ datasetdefs:
+/myprcpanomscale2 {
+startcolormap
+DATA -100 100 RANGEEDGES
+white 100 60 0 RGB
+100 60 0 RGB RGBdup -50 bandmax
+200 110 0 RGB RGBdup -40 bandmax
+250 205 0 RGB RGBdup -25 bandmax
+transparent transparent 25 bandmax
+200 250 200 RGB RGBdup 40 bandmax
+0 150 0 RGB RGBdup 50 bandmax
+0 80 0 RGB RGBdup 100 bandmax
+0 80 0 RGB 100 VALUE
+white
+endcolormap 
+} def
+\end{ingrid}
+\begin{ingrid}
+/togetherfn2 {
+ 0 replaceNaN
+ a:
+    C /Below_Normal VALUE
+    -1 mul
+    :a:
+     C /Above_Normal VALUE
+    :a
+  add
+ myprcpanomscale2 
+ /missing_value 0 def
+ -9 replaceNaN
+ /missing_value -9 def
+} def      
+\end{ingrid}
+\begin{ingrid}
+   grid:
+ /name (T2) def
+ /units (months since 01-Jan) def
+ periodic
+ 0.5 1 11.5
+ :grid
+variable:
+ /name /seasabbrev def
+ grids: T2 :grids
+ values: (djf) (jfm) (fma) (mam) (amj) (mjj) (jja) (jas) (aso) (son) (ond) (ndj) :values
+:variable
+:datasetdefs
+\end{ingrid}
+\begin{ingrid}
+ grid:
+ /name (X) def
+ /units (degreeE) def
+ /fullname (Longitude) def
+ periodic
+ -178.75 2.5 178.75 
+ :grid
+\end{ingrid}
+\begin{ingrid}
+ grid:
+ /name (Y) def
+ /units (degreeN) def
+ /fullname (Latitude) def
+ 88.75 2.5 -88.75
+ :grid
+\end{ingrid}
+\begin{ingrid}
+ grid:
+ /name (F) def
+ monthtime
+ /fullname (Month Forecast Issued) def
+ /defaultvalue { last } def
+ /pointwidth 1 def
+values:
+16 Mar 1998 ensotime
+3
+16 Jun 2001 ensotime
+{} for
+16 Jul 2001 ensotime
+1 
+16 Mar 2017 ensotime %enddate
+{} for
+:values
+:grid
+\end{ingrid}
+\begin{ingrid}
+ grid:
+ /name (L) def
+ /units (months) def
+ /fullname (Forecast Lead Time in Months) def
+ values: 1 :values
+ :grid
+\end{ingrid}
+\begin{ingrid}
+ grid:
+ /name (C) def
+ /units (ids) def
+ /fullname (Tercile Classes) def
+ values: /Below_Normal /Normal /Above_Normal :values
+ :grid
+\end{ingrid}
+\begin{ingrid}
+ /target_date {F L add 1 add /long_name (forecast time) def /pointwidth 3 def} defasvar
+\end{ingrid}
+\begin{ingrid}
+/target_season {seasabbrev target_date T2 sample-along} defasvar
+\end{ingrid}
+\begin{ingrid}
+/prob {
+[ C X Y | L F] (/Data/data1/iriforecasts/P1y%Ys%m[T]%s[target_season]x) [L F 2 copy add 1 add /name /T def target_season] readdatafile:
+((13X,3F4.0))formatted
+ /missing_value -9 def
+ /long_name (Tercile Probability) def
+/scale_min 0 def
+/scale_max 100 def
+ startcolormap
+DATA 0 100 RANGE
+white white
+transparent transparent 25.0 bandmax
+175 238 238 RGB RGBdup 40 bandmax
+200 255   0 RGB RGBdup 50 bandmax
+176  48  96 RGB RGBdup 100 bandmax
+176  48  96 RGB 100 VALUE
+176  48  96 RGB
+endcolormap
+:readdatafile
+ /long_name (Tercile Probability) def
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /dominant {
+ prob togetherfn2
+ /long_name (Extreme Precipitation Risk) def 
+ } defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ :dataset
+\end{ingrid}
+\end{document}
+

@@ -1,0 +1,48 @@
+\begin{ingrid}
+continuedataset:
+        /description (1-degree daily combination precipitation estimates) def
+        /long_name (Version 1.1) def
+%	/reference (Huffman, G.J., R.F. Adler, M. Morrissey, D.T. Bolvin, S. Curtis, R. Joyce, B McGavock, J. Susskind, 2001: Global Precipitation at One-Degree Daily Resolution from Multi-Satellite Observations. J. Hydrometeor., 2, 36-50.) def
+/references (Huffman_etal2001) def
+        grid:
+                /name /X def
+                degE
+                periodic
+                0.5 1.0 359.5
+        :grid
+        grid:
+                /name /Y def
+                degN
+                89.5 1.0 -89.5
+        :grid
+        grid:
+                /name /T def
+
+                /units (days since 1996-10-01 12:00:00) def
+		0 
+		1
+		(/Data/data7/nasa/gpcp/1DD/enddate) readfile julian_day
+%dup
+% rjt2ymd
+%      3 {ymd:nextmonth}repeat
+%      14 add
+%      ymd2systemtime
+%/expires exch def
+		1 Oct 1996 julian_day
+		sub
+			(/Data/data7/nasa/gpcp/1DD/enddate) deflastmod
+        :grid
+%/expires T .expires def
+%:dataset
+/prcp { 
+       [X Y | T] (/Data/data7/nasa/gpcp/1DD/gpcp_1dd_p1d.%Y%m[T]) [T monthlyedgesgrid
+       first secondtolast subgrid]
+
+        readdatafile: 1440 set:file_byteoffset direct :readdatafile
+	/long_name (precipitation) def
+	/missing_value -99999. def
+	/units (mm/day) def
+
+} defasvarsilent
+:dataset
+\end{ingrid}

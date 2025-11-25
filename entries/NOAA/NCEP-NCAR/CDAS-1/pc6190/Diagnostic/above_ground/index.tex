@@ -1,0 +1,78 @@
+
+
+ maximum
+             NOAA NCEP-NCAR CDAS-1 DAILY Diagnostic above_ground maximum[temp ]
+ minimum
+             NOAA NCEP-NCAR CDAS-1 DAILY Diagnostic above_ground minimum[temp ]
+ Specific humidity
+             NOAA NCEP-NCAR CDAS-1 DAILY Diagnostic above_ground qa 2 m_above_gnd 1 Jan 1948[ XY Z | T]
+ Temperature
+             NOAA NCEP-NCAR CDAS-1 DAILY Diagnostic above_ground temp 2 m_above_gnd 1 Jan 1948[ XY Z | T]
+ zonal wind
+             NOAA NCEP-NCAR CDAS-1 DAILY Diagnostic above_ground u 10 m_above_gnd 1 Jan 1948[ XY Z | T]
+ meridional wind
+             NOAA NCEP-NCAR CDAS-1 DAILY Diagnostic above_ground v 10 m_above_gnd 1 Jan 1948
+\begin{ingrid}
+continuedataset:
+/qa
+{
+SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Diagnostic
+  .above_ground .qa
+  T (1 Jan 1961) (31 Dec 1990) RANGE
+  T pentadAverage
+  T 73. splitstreamgrid
+  [T2]average /expires undef
+} defasvarcache
+/temp
+{
+SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Diagnostic
+  .above_ground .temp
+  T (1 Jan 1961) (31 Dec 1990) RANGE
+  T pentadAverage
+  T 73. splitstreamgrid
+  [T2]average /expires undef
+} defasvarcache
+/u
+{
+SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Diagnostic
+  .above_ground .u
+  T (1 Jan 1961) (31 Dec 1990) RANGE
+  T pentadAverage
+  T 73. splitstreamgrid
+  [T2]average /expires undef
+} defasvarcache
+/v
+{
+SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Diagnostic
+  .above_ground .v
+  T (1 Jan 1961) (31 Dec 1990) RANGE
+  T pentadAverage
+  T 73. splitstreamgrid
+  [T2]average /expires undef
+} defasvarcache
+dataset:
+/name /maximum def
+/temp
+{
+SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Diagnostic
+  .above_ground .maximum .temp
+  T (1 Jan 1961) (31 Dec 1990) RANGE
+  T pentadAverage
+  T 73. splitstreamgrid
+  [T2]average /expires undef
+} defasvarcache
+:dataset
+dataset:
+/name /minimum def
+/temp
+{
+SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Diagnostic
+  .above_ground .minimum .temp
+  T (1 Jan 1961) (31 Dec 1990) RANGE
+  T pentadAverage
+  T 73. splitstreamgrid
+  [T2]average /expires undef
+} defasvarcache
+:dataset
+:dataset
+\end{ingrid}

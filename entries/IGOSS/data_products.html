@@ -1,0 +1,223 @@
+<INGRID>
+last_modified
+1 index {pop} {/last_modified getknown{ imax} if } foralldatasets2
+cvi /last_modified exch def mimeheader
+</INGRID>
+<html><head>
+    <title>JCOMM Data Products</title>
+<table border>
+<tr><td><a href="http://www.unesco.org/ioc/"><img
+src="http://iri.ldeo.columbia.edu/climate/monitoring/ipb/ioct.gif" border=0></a></td>
+<th><h1>Joint WMO/IOC Technical Commission for Oceanography and Marine Meteorology Products
+Bulletin<br>Data Products</h1></ht>
+<td><a href="http://www.wmo.ch/"><img src="http://iri.ldeo.columbia.edu/climate/monitoring/ipb/wmot.gif" border=0></a></td></tr>
+</table>
+<p>
+Pictures, data, subsets, and calculations are available for the
+    following products (the <img src="/icons/movie002.gif" border=0 width=34
+height=34 align=top> symbols are linked to our animation viewer):
+<h2>Global</h2>
+<h3>Weekly</h3>
+<ul>
+<li> <a
+	href=".nmc/.Reyn_SmithOIv2/.weekly/.sst/figviewer.html?map.X.plotfirst=30.5&map.X.plotlast=389.5&map.url=X+Y+fig-+colors+land+-fig&map.T.value=<INGRID>nmc .Reyn_SmithOIv2 .weekly .T .last ==ns</INGRID>">Weekly Mean Sea Surface Temperature</a>
+<INGRID>nmc .Reyn_SmithOIv2 .weekly .T firstedge printlowunits ( to )print lastedge printhighunits pop</INGRID>
+<INGRID>
+(<a href=".nmc/.Reyn_SmithOIv2/.weekly/.sst/figviewer.html?map.T.plotvalue=) print
+[
+nmc .Reyn_SmithOIv2 .weekly .T
+last 180 sub nearvalue cvsunits exch  (+to+) exch
+last cvsunits nip ] concat urlprint
+</INGRID>&map.url=X+Y+fig-+colors+land+-fig&map.X.plotfirst=30.5&map.X.plotlast=389.5"><img src="/icons/movie002.gif" border=0 width=34
+height=34 align=top alt="SST Animation"></a>
+</ul>
+<h3>Monthly</h3>
+<ul>
+<li>
+ <a
+	href=".sio/.monthly/.heat_storage/.anomalies/figviewer.html?map.X.plotfirst=30.5&map.X.plotlast=389.5&map.url=X+Y+fig-+colors+land+-fig&map.color_smoothing=null&map.T.value=<INGRID>sio .monthly .heat_storage .T last ==ns</INGRID>">Heat Storage</a>
+<INGRID>sio .monthly .heat_storage .T first printunits ( to )print last printunits pop
+</INGRID>
+<INGRID>
+(<a href=".sio/.monthly/.heat_storage/.anomalies/figviewer.html?map.T.plotvalue=) print
+[
+sio .monthly .heat_storage .T
+last 12 sub nearvalue cvsunits exch  (+to+) exch
+last cvsunits nip ] concat urlprint
+</INGRID>&map.Y.units=degree_north&map.Y.plotlast=60N&map.url=X+Y+fig-+colors+land+-fig&map.Y.plotfirst=60S&map.color_smoothing=auto"><img src="/icons/movie002.gif" border=0 width=34
+height=34  align=top alt="Heat Storage Animation"></a>
+<li> <a
+	href=".nmc/.Reyn_SmithOIv2/.monthly/.sst/figviewer.html?map.X.plotfirst=30.5&map.X.plotlast=389.5&map.url=X+Y+fig-+colors+land+-fig&map.T.value=<INGRID>nmc .Reyn_SmithOIv2 .monthly .T last ==ns </INGRID>">Monthly Mean Sea Surface Temperature</a>
+<INGRID>nmc .Reyn_SmithOIv2 .monthly .T first printunits ( to )print last printunits pop</INGRID>
+<INGRID>
+(<a href=".nmc/.Reyn_SmithOIv2/.monthly/.sst/figviewer.html?map.T.plotvalue=) print
+[
+nmc .Reyn_SmithOIv2 .monthly .T
+last 12 sub nearvalue cvsunits exch  (+to+) exch
+last cvsunits nip ] concat urlprint
+</INGRID>&map.url=X+Y+fig-+colors+land+-fig&map.X.plotfirst=30.5&map.X.plotlast=389.5"><img src="/icons/movie002.gif" border=0 width=34
+height=34 align=top alt="SST Animation"></a>
+<li> <a
+	href=".nmc/.Reyn_SmithOIv2/.monthly/.ssta/figviewer.html?map.X.plotfirst=30.5&map.X.plotlast=389.5&map.url=X+Y+fig-+colors+land+-fig&map.T.value=<INGRID>nmc .Reyn_SmithOIv2 .monthly .T last ==ns </INGRID>">Monthly Mean Sea Surface Temperature Anomaly</a>
+<INGRID>nmc .Reyn_SmithOIv2 .monthly .T first printunits ( to )print last printunits pop</INGRID>
+<INGRID>
+(<a href=".nmc/.Reyn_SmithOIv2/.monthly/.ssta/figviewer.html?map.T.plotvalue=) print
+[
+nmc .Reyn_SmithOIv2 .monthly .T
+last 12 sub nearvalue cvsunits exch  (+to+) exch
+last cvsunits nip ] concat urlprint
+</INGRID>&map.url=X+Y+fig-+colors+land+-fig&map.X.plotfirst=30.5&map.X.plotlast=389.5"><img src="/icons/movie002.gif" border=0 width=34
+height=34 align=top alt="SSTA Animation"></a>
+<li> <a
+	href=".fsu/|u|u+|u|v/figviewer.html?map.X.plotfirst=30.5&map.X.plotlast=389.5&map.url=X+Y+fig-+vectors+land+-fig&map.T.value=<INGRID> fsu .T .last ==ns</INGRID>">Monthly Mean Surface Pseudo-Stress</a>
+<INGRID> fsu .T first printunits ( to )print last printunits pop</INGRID>
+<li> <a
+	href=".australia/u+v/html+viewer?X.value=-150&plottype=vectoramplitudecolor&plotcoast=on&T.value=<INGRID> australia .T .last ==ns</INGRID>">Monthly Mean Surface Winds</a>
+<INGRID> australia .T first printunits ( to )print last printunits pop</INGRID>
+<li> Surface Winds over SST
+<INGRID>
+(<a href="a:/.nmc/.Reyn_SmithOIv2/.monthly/.sst/:a:/.australia/.u/:a:/.australia/.v/:a/(CSCALE)cvn/0.1/def/figviewer.html?map.T.plotvalue=) print
+[
+australia .T
+last 12 sub nearvalue cvsunits exch  (+to+) exch
+last cvsunits nip ] concat urlprint
+</INGRID>&map.url=X+Y+fig-+colors+vectors+land+-fig&map.X.plotfirst=30.5&map.X.plotlast=387.5"><img src="/icons/movie002.gif" border=0 width=34
+height=34 align=top alt="SST and Winds Animation"></a>
+<li> <a
+	href=".TOPEX/.NOAA/.ssha/figviewer.html?map.X.plotfirst=30.5&map.X.plotlast=389.5&map.url=X+Y+fig-+colors+land+-fig">TOPEX Sea Surface Height Anomaly (NOAA)</a>
+<INGRID> TOPEX .NOAA .T first printunits ( to )print last printunits pop</INGRID>
+<INGRID>
+(<a href=".TOPEX/.NOAA/.ssha/figviewer.html?map.T.plotvalue=) print
+[
+TOPEX .NOAA  .T
+last 12 sub nearvalue cvsunits exch  (+to+) exch
+last cvsunits nip ] concat urlprint
+</INGRID>&map.url=X+Y+fig-+colors+land+-fig&map.X.plotfirst=30.5&map.X.plotlast=389.5"><img src="/icons/movie002.gif" border=0 width=34
+height=34 align=top alt="SSH Animation"></a>
+<li> <a
+	href=".TOPEX/.UTCSR/.ssha/figviewer.html?map.X.plotfirst=30.5&map.X.plotlast=389.5&map.url=X+Y+fig-+colors+land+-fig">TOPEX Sea Surface Height Anomaly (UTCSR)</a>
+<INGRID> TOPEX .UTCSR .T first printunits ( to )print last printunits pop</INGRID>
+</ul>
+<h3>Climatology</h3>
+<ul>
+<li> <a
+	href=".nmc/.Reyn_SmithOIv2/.climatology/.c6190/.sst/figviewer.html?map.X.plotfirst=30.5&map.X.plotlast=389.5&map.url=X+Y+fig-+colors+land+-fig">Climatological Monthly Mean Sea Surface Temperature</a>
+<INGRID>nmc .Reyn_SmithOIv2 .climatology .c6190 .T first printunits ( to )print last printunits pop</INGRID>
+<li> <a
+	href=".sio/.climatology/.heat_storage/figviewer.html?map.X.plotfirst=30.5&map.X.plotlast=389.5&map.url=X+Y+fig-+colors+land+-fig&map.color_smoothing=null">Climatological Monthly Heat Storage</a>
+<INGRID>sio .climatology .T first printunits ( to )print last printunits pop</INGRID>
+<li> <a
+	href=".sio/.climatology/.mld/figviewer.html?map.X.plotfirst=30.5&map.X.plotlast=389.5&map.url=X+Y+fig-+colors+land+-fig">Climatological Monthly Mixed Layer Depth</a>
+<INGRID>sio .climatology .T first printunits ( to )print last printunits pop</INGRID>
+<li> <a
+	href=".sio/.climatology/.temp/figviewer.html?map.X.plotfirst=30.5&map.X.plotlast=389.5&map.url=X+Y+fig-+colors+land+-fig">Climatological Monthly Temperature</a>
+<INGRID>sio .climatology .T first printunits ( to )print last printunits pop</INGRID>
+</ul>
+<hr width=90%>
+<h2>Pacific</h2>
+<h3>Weekly</h3>
+<ul>
+<li> <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.NOAA/.NCEP/.EMC/.CMB/.Pacific/.weekly/figviewer.html?map.Y.plotvalue=0&map.T.plotvalue=&map.Z.units=m&map.Z.plotlast=0&map.url=a-+.temp+-a+X+Z+fig-+colors+-fig&map.domain=+%7B+/Y+0.0+plotvalue+/T+707.+889.+plotrange+Z+800.+0+plotrange+%7D&map.zoom=Zoom&map.Z.plotfirst=800.&map.X.plotfirst=121.5E&map.X.units=degree_east&map.X.modulus=360&map.X.plotlast=70.5W&map.temp.plotfirst=-2&map.temp.units=degree_Celsius&map.temp.plotlast=35&map.newurl.grid0=X&map.newurl.grid1=Z&map.newurl.vars.0=.temp&map.newurl.plot=colors&map.plotborder=72&map.fnt=Helvetica&map.fntsze=12&map.color_smoothing=&map.XOVY=auto" OnMouseOver="self.status='Click here to explore the data';return true">Thermocline</a>
+<INGRID>
+[
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .weekly .temp
+.T firstedge cvslowunits exch  ( to ) exch
+lastedge cvshighunits nip ] concat print
+</INGRID>
+ <a href="/SOURCES/.NOAA/.NCEP/.EMC/.CMB/.Pacific/.weekly/figviewer.html?map.Y.plotvalue=0&map.T.plotvalue=<INGRID>
+[
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .weekly .temp
+.T
+last 180 sub nearvalue cvsunits exch  (+to+) exch
+last cvsunits nip ] concat urlprint
+</INGRID>&map.Z.units=m&map.Z.plotlast=0&map.url=a-+.temp+-a+X+Z+fig-+colors+-fig&map.domain=+%7B+/Y+0.0+plotvalue+/T+364.+546.+plotrange+Z+800+0+plotrange+%7D&map.zoom=Zoom&map.Z.plotfirst=800E&map.X.units=degree_east&map.X.modulus=360&map.temp.plotfirst=-2&map.temp.units=degree_Celsius&map.temp.plotlast=35&map.plotborder=72&map.color_smoothing=1&map.XOVY=auto&map.iftime=25&map.mftime=25&map.fftime=200" OnMouseOver="self.status='Click here to explore the data';return true"><img src="/icons/movie002.gif" border=0 width=34
+height=34 align=top alt="Thermocline Animation"></a>
+<li> <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.NOAA/.NCEP/.EMC/.CMB/.Pacific/.weekly/figviewer.html?map.Z.plotvalue=5.&map.T.plotvalue=&map.Y.units=degree_north&map.Y.plotlast=45N&map.url=a:+.temp+:a:+.u+:a:+.v+:a+X+Y+fig:+colors+vectors+land+:fig&map.domain=+%7B+/Z+5.+plotvalue+/T+889.+plotvalue+X+122.25+288.75+plotrange+Y+-35+45+plotrange+%7D&map.zoom=Zoom&map.Y.plotfirst=35S&map.X.plotfirst=122.25E&map.X.units=degree_east&map.X.modulus=360&map.X.plotlast=71.25W&map.temp.plotfirst=-2&map.temp.units=degree_Celsius&map.temp.plotlast=35&map.plotborder=72">Ocean velocity and temperature</a>
+<INGRID>
+[
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .weekly .temp
+.T firstedge cvslowunits exch  ( to ) exch
+lastedge cvshighunits nip ] concat print
+</INGRID>
+<a href="http://ingrid.ldgo.columbia.edu/SOURCES/.NOAA/.NCEP/.EMC/.CMB/.Pacific/.weekly/figviewer.html?map.Z.plotvalue=5.&map.T.plotvalue=<INGRID>
+[
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .weekly .temp
+.T
+last 180 sub nearvalue cvsunits exch  (+to+) exch
+last cvsunits nip ] concat urlprint
+</INGRID>&map.Y.units=degree_north&map.Y.plotlast=45N&map.url=a:+.temp+:a:+.u+:a:+.v+:a+X+Y+fig:+colors+vectors+land+:fig&map.domain=+%7B+/Z+5.+plotvalue+/T+889.+plotvalue+X+122.25+288.75+plotrange+Y+-35+45+plotrange+%7D&map.zoom=Zoom&map.Y.plotfirst=35S&map.X.plotfirst=122.25E&map.X.units=degree_east&map.X.modulus=360&map.X.plotlast=71.25W&map.temp.plotfirst=-2&map.temp.units=degree_Celsius&map.temp.plotlast=35&map.plotborder=72"><img src="/icons/movie002.gif" border=0 width=34
+height=34 align=top alt="Ocean velocity and temperature Animation"></a>
+</ul><h3>Monthly</h3>
+<ul>
+<li> <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.NOAA/.NCEP/.EMC/.CMB/.Pacific/.monthly/figviewer.html?map.Y.plotvalue=0&map.T.plotvalue=&map.Z.units=m&map.Z.plotlast=0&map.url=a-+.temp+-a+X+Z+fig-+colors+-fig&map.domain=+%7B+/Y+0.0+plotvalue+/T+707.+889.+plotrange+Z+800.+0+plotrange+%7D&map.zoom=Zoom&map.Z.plotfirst=800.&map.X.plotfirst=121.5E&map.X.units=degree_east&map.X.modulus=360&map.X.plotlast=70.5W&map.temp.plotfirst=-2&map.temp.units=degree_Celsius&map.temp.plotlast=35&map.newurl.grid0=X&map.newurl.grid1=Z&map.newurl.vars.0=.temp&map.newurl.plot=colors&map.plotborder=72&map.fnt=Helvetica&map.fntsze=12&map.color_smoothing=&map.XOVY=auto" OnMouseOver="self.status='Click here to explore the data';return true">Thermocline</a>
+<INGRID>
+[
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .monthly .temp
+.T firstedge cvslowunits exch  ( to ) exch
+lastedge cvshighunits nip ] concat print
+</INGRID>
+ <a href="/SOURCES/.NOAA/.NCEP/.EMC/.CMB/.Pacific/.monthly/figviewer.html?map.Y.plotvalue=0&map.T.plotvalue=<INGRID>
+[
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .monthly .temp
+.T
+last 12 sub nearvalue cvsunits exch  (+to+) exch
+last cvsunits nip ] concat urlprint
+</INGRID>&map.Z.units=m&map.Z.plotlast=0&map.url=a-+.temp+-a+X+Z+fig-+colors+-fig&map.domain=+%7B+/Y+0.0+plotvalue+/T+364.+546.+plotrange+Z+800+0+plotrange+%7D&map.zoom=Zoom&map.Z.plotfirst=800E&map.X.units=degree_east&map.X.modulus=360&map.temp.plotfirst=-2&map.temp.units=degree_Celsius&map.temp.plotlast=35&map.plotborder=72&map.color_smoothing=1&map.XOVY=auto&map.iftime=25&map.mftime=25&map.fftime=200" OnMouseOver="self.status='Click here to explore the data';return true"><img src="/icons/movie002.gif" border=0 width=34
+height=34 align=top alt="Thermocline Animation"></a>
+<li> <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.NOAA/.NCEP/.EMC/.CMB/.Pacific/.monthly/figviewer.html?map.Z.plotvalue=5.&map.T.plotvalue=&map.Y.units=degree_north&map.Y.plotlast=45N&map.url=a:+.temp+:a:+.u+:a:+.v+:a+X+Y+fig:+colors+vectors+land+:fig&map.domain=+%7B+/Z+5.+plotvalue+/T+889.+plotvalue+X+122.25+288.75+plotrange+Y+-35+45+plotrange+%7D&map.zoom=Zoom&map.Y.plotfirst=35S&map.X.plotfirst=122.25E&map.X.units=degree_east&map.X.modulus=360&map.X.plotlast=71.25W&map.temp.plotfirst=-2&map.temp.units=degree_Celsius&map.temp.plotlast=35&map.plotborder=72">Ocean velocity and temperature</a>
+<INGRID>
+[
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .monthly .temp
+.T firstedge cvslowunits exch  ( to ) exch
+lastedge cvshighunits nip ] concat print
+</INGRID>
+<a href="http://ingrid.ldgo.columbia.edu/SOURCES/.NOAA/.NCEP/.EMC/.CMB/.Pacific/.monthly/figviewer.html?map.Z.plotvalue=5.&map.T.plotvalue=<INGRID>
+[
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .monthly .temp
+.T
+last 12 sub nearvalue cvsunits exch  (+to+) exch
+last cvsunits nip ] concat urlprint
+</INGRID>&map.Y.units=degree_north&map.Y.plotlast=45N&map.url=a:+.temp+:a:+.u+:a:+.v+:a+X+Y+fig:+colors+vectors+land+:fig&map.domain=+%7B+/Z+5.+plotvalue+/T+889.+plotvalue+X+122.25+288.75+plotrange+Y+-35+45+plotrange+%7D&map.zoom=Zoom&map.Y.plotfirst=35S&map.X.plotfirst=122.25E&map.X.units=degree_east&map.X.modulus=360&map.X.plotlast=71.25W&map.temp.plotfirst=-2&map.temp.units=degree_Celsius&map.temp.plotlast=35&map.plotborder=72"><img src="/icons/movie002.gif" border=0 width=34
+height=34 align=top alt="Ocean velocity and temperature Animation"></a>
+<li> <a
+href=".leetma/u/v/figviewer.html?map.url=X+Y+fig-+vectors+land+-fig&map.T.value=<INGRID>
+leetma .u .T .last ==ns</INGRID>">Ocean surface currents</a>
+<INGRID> leetma .u .T first printunits ( to )print last printunits pop</INGRID>
+<li><INGRID> leetma .d20C .T</INGRID> <a
+href=".leetma/d20C/figviewer.html?map.url=X+T+fig-+colors+-fig<INGRID>(&map.T.plotlast=)
+print last 59 sub ==ns (&map.T.plotfirst=)print last ==ns (&T.width=60)print
+(&T.value=)print last 29.5 sub ==ns</INGRID>&map.XOVY=.625&map.color_smoothing=null">
+      equatorial thermocline depth</a>
+<INGRID> first printunits ( to )print last printunits pop</INGRID>
+<li> <a
+href=".TOGA-TAO.cdf/html+togaviewer?plottype=vectorcontour&plotcoast=on&time.value=<INGRID>TOGA-TAO.cdf
+.time .last ==ns</INGRID>">TOGA-TAO</a>
+<INGRID> TOGA-TAO.cdf .time first printunits ( to )print last printunits pop</INGRID>
+<li> <a
+	href=".sio/.coastal/index.html?map.url=STA+datasetlabelplot&map.domain=+%7B+X+-121.5278+-119.5278+plotrange+Y+33.55141+35.55141+plotrange+%7D&map.X.width=2&map.Y.width=2&ptlbls=STA&VGRID=STA&map.x=260&map.y=169&labeltype=Label">Santa Barbara Channel Buoys</a>
+<INGRID> sio .coastal .T first printunits ( to )print last printunits pop</INGRID>
+<li> <a
+	href=".ers1/.sealevel/html+viewer?plottype=plaincontour&plotcoast=on">Monthly Pacific Sea Level Anomaly</a>
+<INGRID> ers1 .sealevel .T first printunits ( to )print last printunits pop</INGRID>
+</ul>
+<hr width=90%>
+Just pictures are available for:
+<ul>
+<li> <a href="canadaplots/">Drifting Buoys</a>
+<li> <a
+href="http://iri.ldeo.columbia.edu/climate/monitoring/ipb/products/russia/arctic/">Arctic Ice</a>
+<li> <a
+href="http://iri.ldeo.columbia.edu/climate/monitoring/ipb/products/russia/antarctic/">Antarctic Ice</a>
+</ul>
+Older pictures are available for:
+<ul>
+<li> <a href="australiaplots/">Monthly Mean Surface Winds</a>
+</ul>
+<p>
+<a href="outline.html">outline</a>
+</body></html>
+
+
+
+
+

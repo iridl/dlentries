@@ -1,0 +1,51 @@
+\begin{ingrid}
+
+/description (SAMER Extended Logistic Regression SubX Forecast. GEFSv12 model) def
+
+continuedataset:
+
+grid:
+/name /L def
+/long_name (Lead Time) def
+/units /days def
+15. 7. 22.
+/pointwidth 14. def
+:grid
+
+grid:
+/name /S def
+/long_name (Start Time) def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+%/netcdfgrid true def
+5 Jan 2024 julian_day 01 Jan 1960 julian_day sub
+7
+systemtime
+(%d %b %Y) 12 strftime interp julian_day
+    6
+        Jan 2023 julian_day
+        sub
+       7 div
+       1 add
+       7 mul
+       2 index add
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+S { (/Data/data21/iri/FD/PepsiCo/Subx_forecast/flexible_forecast/weekly_precip/GEFSv12/Subx_SAMER_precip_issue_Fri_%d_%b_%Y[S]_weekly_fcst_mean.nc) [S] } removeextrausing
+   name exch def
+
+S
+/expires
+S last 6 add cvsunits nip interp exch 0.5 add 4 -2 roll exch pop ymd2systemtime
+def
+name exch def
+
+/expires S .expires def
+
+    /target_date {S L add /long_name (forecast time) def /pointwidth 7 def} defasvar
+
+:dataset
+
+\end{ingrid}

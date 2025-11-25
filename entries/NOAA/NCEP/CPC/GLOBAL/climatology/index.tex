@@ -1,0 +1,38 @@
+\begin{ingrid}
+datasetdefs:
+:datasetdefs
+continuedataset:
+grid:
+/name /X def
+degE
+periodic
+1.25 2.5 358.75
+:grid
+grid:
+/name /Y def
+degN
+-90 2.5 90
+:grid
+grid:
+/name /T def
+month
+periodic
+Jan
+1.
+Dec
+:grid
+/iridl:hasSemantics (iridl:climatology) def
+variable:
+/name /olr def
+/units (W/m2) def
+/long_name (outgoing longwave radiation) def
+/missing_value -9999. def
+grids: X Y | T :grids
+file:
+/name (/Data/data5/noaa/cpc/olr/olrclim.dat) def
+random
+:file
+/dataset_documentation.html { dataset .olr.html } def
+:variable
+:dataset
+\end{ingrid}

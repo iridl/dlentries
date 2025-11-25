@@ -1,0 +1,24 @@
+<INGRID>datasetdocumentationheader</INGRID>
+
+	<ol>
+	 	<li style="text-align:justify; list-style-type:none; font-weight:bold; font-size: 25px; padding-top:10px;">Palay and Corn: Yield anomalies estimation by Croptype, by Period and by Province, 1987-2015</li>
+	 	<li style="text-align:justify; list-style-type:none; font-weight:bold; font-size: 20px;">Irrigated Palay, Rainfed Palay, Palay, White Corn, Yellow Corn, Corn</li>
+	</ol>
+	
+	<div style="padding-bottom:50px; padding-top:25px; padding-left:30px; text-align:justify;">
+	  	<p><span style="font-style:italic; font-weight:bold;">Method:</span> This yield dataset is an estimation that removes confounding factors such as technology and policy improvement as well as impact of marginal areas where yield is degradated, so that the estimated anomalies can be mostly attributed to climate variability. Yield (Y) is the ratio of Production (P) and Area Harvested (AH). Tradionnally, Y, P and AH exhibit a monotic low frequency positive trend that is typically attributable to technology and policy improvements and needs to be removed in order to analyze the impact of climate variability. Moreover, AH that exhibits high frequency (year-to-year) variability suggests that factors foreign to local climate may have motivated cultivation of new lands, possibly by untrained farmers, that will produce lower yields and therefore affect negatively the estimation of Y for a whole Province in a given year. Therefore, two different methods must be applied to estimate climate-related yield anomalies by Province and Quarter of the year to take those confounding factors out of the equation. For Provinces/Quarters that have an AH with low high frequency variance, the yield anomalies are the departure from a low-pass-filter (LPF) with half-power cutting period at 10 years of the yield itself (Method 1 -- M1). For Provinces/Quarters that have an AH with high high frequency variance, the yield anomalies are the departure from the previous year yield (Method 2 -- M2).</p>
+                <p><span style="font-style:italic; font-weight:bold;">Gaps:</span> P and AH data have some gaps. They are partially filled with data from the previous year. If the previous year is missing as well, the data is left missing. The LPF can not be computed for gappy time series, those Provinces/Quarters that still have gaps after this basic gap filling are applied M2 regardless of their AH variance type.</p>
+                <p><span style="font-style:italic; font-weight:bold;">AH Variance Type Categories:</span> For each crop, we attribute a variance type category (low or high) to each Province/Quarter. We compute the RMS of [AH-LPF(AH)]/LPF(AH). We then look at the distribution of that variance among Provinces by Quarter. We visually pick a variance value as a threshold to define which Provinces/Quarters belong to which of the two categories. Choices for the thresholds are listed below. AH_Cat dataset is the set of those categorical variables.</p>
+                <p><span style="font-style:italic; font-weight:bold;">Additional Information:</span> For the first year, there is no previous year to compute the departure from for M2. Yield anomaly is set to 0 then.</p>
+                <p><span style="font-style:italic; font-weight:bold;">Irrigated Palay Thresholds:</span> JFM: var=0.25; AMJ: var=0.30; JAS: var=0.45; OND: var=0.25</p>
+                <p><span style="font-style:italic; font-weight:bold;">Rainfed Palay Thresholds:</span> JFM: var=0.05; AMJ: var=0.05; JAS: var=0.05; OND: var=0.45</p>
+                <p><span style="font-style:italic; font-weight:bold;">Palay Thresholds:</span> JFM: var=0.25; AMJ: var=0.40; JAS: var=0.45; OND: var=0.20</p>
+		<p><span style="font-style:italic; font-weight:bold;">White Corn Thresholds:</span> JFM: var=0.30; AMJ: var=0.40; JAS: var=0.35; OND: var=0.20</p>
+                <p><span style="font-style:italic; font-weight:bold;">Yellow Corn Thresholds:</span> JFM: var=0.05; AMJ: var=0.05; JAS: var=0.05; OND: var=0.05</p>
+                <p><span style="font-style:italic; font-weight:bold;">Corn Thresholds:</span> JFM: var=0.30; AMJ: var=0.45; JAS: var=0.30; OND: var=0.20</p>
+	</div>
+
+
+
+
+<INGRID>datasetdocumentationtrailer</INGRID>

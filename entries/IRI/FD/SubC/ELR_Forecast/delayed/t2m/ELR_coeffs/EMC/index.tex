@@ -1,0 +1,44 @@
+\begin{ingrid}
+
+/description (Global Extended Logistic Regression SubC Forecast. SubCEMC forecast model: through Apr 30, 2021, EMC-GEFSv11; from May 7, 2021, EMC-GEFSv12) def
+
+continuedataset:
+
+grid:
+/name /S def
+/long_name (Start Time) def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+/netcdfgrid true def
+1 Nov 2019 julian_day 01 Jan 1960 julian_day sub
+7
+systemtime
+(%d %b %Y) 12 strftime interp julian_day
+    1
+        Nov 2019 julian_day
+        sub
+       7 div
+       1 add
+       7 mul
+       2 index add
+4 7 mul sub
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+S
+/expires
+S last 4 7 mul add 6 add cvsunits nip interp exch 0.5 add 4 -2 roll exch pop ymd2systemtime
+def
+name exch def
+
+/expires S .expires def
+
+/target_date {S
+SOURCES .IRI .FD .SubC .ELR_Forecast .t2m .ELR_coeffs .EMC .L add /long_name (forecast time) def /pointwidth 14 def} defasvarsilent
+
+:dataset
+
+target_date .L name exch def
+
+\end{ingrid}

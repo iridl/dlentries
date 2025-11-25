@@ -1,0 +1,125 @@
+These data are in a variety of files, some netCDF, some direct access.
+\begin{ingrid}
+dataset:
+link:
+/name /LEVITUS94 def
+/href (/SOURCES/.LEVITUS94/) def
+:link
+link:
+/name (LEVITUS94) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.LEVITUS94/) def
+/description (superceded by LEVITUS 1994) def
+/semantics /dcterm:isReplacedBy def
+:link
+/references (Levitus1982)def
+/iridl:hasSemantics [(iridl:NOAA)(iridl:Ocean)] def
+/description (Objectively analyzed fields of major ocean parameters at the annual, seasonal, and monthly time scales; Superceded by LEVITUS94) def
+/dataset_documentation.html descriptions  /nasa1234.html get def
+/name /LEVITUS cvx def
+grid: /name /Z def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. 600. 700. 800. 900. 1000. 1100. 1200. 1300. 1400. 1500. 1750. 2000. 2500. 3000. 3500. 4000. 4500. 5000. 5500.]
+:grid
+grid: /name (X) def
+/units /degreeE def
+periodic 
+0.5 to 359.5 N= 360 pts
+:grid
+grid: /name (Y) def
+/units /degreeN def
+-89.5 to 89.5 N= 180 pts
+:grid
+dataset: 
+/name /ANNUAL def
+/PO4 (/Data/data1/ocean/levitus/PO4CDF) readCDF >PO4 
+/units (micro mol/kg) def
+/history (Levitus annual mean climatology) def
+/fullname [ /LEVITUS /ANNUAL /PO4 ] def 
+/dataset 3 index def
+def
+/NO3 (/Data/data1/ocean/levitus/NO3CDF) readCDF >NO3 
+/fullname [ /LEVITUS /ANNUAL /NO3 ] def 
+/dataset 3 index def
+/units (micro mol/kg) def
+/history PO4 >history def
+def
+/SIO2 (/Data/data1/ocean/levitus/SIO2CDF) readCDF >SIO2
+/fullname [ /LEVITUS /ANNUAL /SIO2 ] def 
+/dataset 3 index def
+/units (micro mol/kg) def
+/history PO4 >history def
+ def
+(/Data/data1/ocean/levitus/levitusannual.cdf) readCDF
+exch /temp temp 
+/fullname [ /LEVITUS /ANNUAL /temperature ] def 
+/dataset 3 index def
+/units /Celsius def
+/history PO4 >history def
+/X X /fullname (Longitude) def def
+/Y Y /fullname (Latitude) def def
+/Z Z /fullname (Depth) def def
+def
+/sal sal
+/fullname [ /LEVITUS /ANNUAL /salinity ] def 
+/dataset 3 index def
+/units (psu) def
+/history PO4 >history def
+/X X /fullname (Longitude) def def
+/Y Y /fullname (Latitude) def def
+/Z Z /fullname (Depth) def def
+ def
+nip
+variable:
+/name (O2SAT) def
+/units (pct) def
+/history PO4 >history def
+/missing_value -1e10 def
+grids: Y Z X :grids
+file:
+/name (/Data/data1/ocean/levitus/pct) def
+random
+:file
+:variable
+variable:
+/name (O2) def
+/units (mll) def
+/history PO4 >history def
+/missing_value -1e10 def
+grids: Y Z X :grids
+file:
+/name (/Data/data1/ocean/levitus/mll) def
+random
+:file
+:variable
+/SIO2CDF undef
+/PO4CDF undef
+/levitusannual undef
+/NO3CDF undef
+:dataset
+:dataset
+/SEASONAL
+{(/Data/data1/ocean/levitus/levitusseas.cdf) readCDF
+/name /SEASONAL cvx def
+/temp temp /units /Celsius def
+/fullname [ /LEVITUS /SEASONAL /temp ] def
+def
+/sal sal /units /p.s.u. def 
+/fullname [ /LEVITUS /SEASONAL /sal ] def
+def
+/fullname [ /LEVITUS /SEASONAL ] def
+} defasvar
+%/levitusseas undef
+/MONTHLY
+%(/breadbox/wheat/benno/nasa/levitusmonthly.cdf) readCDF
+{(/Data/data1/ocean/levitus/levmonthlytemp.cdf) readCDF
+/temp temp /units /Celsius def 
+/fullname [ /LEVITUS /MONTHLY /temp ] def
+def
+T monthclimoname setunits pop
+/name /MONTHLY cvx def
+/fullname [ /LEVITUS /MONTHLY ] def
+Z /m setunits pop
+}defasvar
+%/levmonthlytemp undef
+\end{ingrid}
+

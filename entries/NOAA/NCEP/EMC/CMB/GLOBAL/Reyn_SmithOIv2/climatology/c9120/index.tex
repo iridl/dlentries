@@ -1,0 +1,33 @@
+\begin{ingrid}
+continuedataset:
+/long_name (1991-2020) def
+
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+periodic
+0.5 1. 359.5
+:grid
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+-89.5 1. 89.5
+:grid
+grid:
+/name /T def
+/units monthclimoname def
+%/defaultvalue { last } def
+periodic
+Jan 1. Dec
+:grid
+
+/sst {
+ SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .Reyn_SmithOIv2 .monthly .sst
+ T (1991) (2020) RANGE
+ yearly-climatology
+}defasvar
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,28 @@
+\begin{ingrid}
+continuedataset:
+/description (Nepal Provinces from Francis Colledge, UK Metoffice 2020) def
+\end{ingrid}
+
+\begin{ingrid}
+dataset:
+/name /Provinces def
+
+/state_code
+{ IRIDB (provincial_wgs1984) (state_code) [(gid)]open_column_by
+/long_name (Province Code) def
+}defasvarsilentnoreuse
+
+/the_geom
+{ IRIDB (provincial_wgs1984) (the_geom) [(gid)]open_column_by
+/long_name (Province Geometry) def 
+}defasvarsilentnoreuse
+:dataset
+
+\end{ingrid}
+
+\begin{ingrid}
+:dataset
+
+Provinces state_code .gid name exch put
+\end{ingrid}
+ 

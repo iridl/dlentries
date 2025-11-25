@@ -1,0 +1,76 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (ELR forecast coefficients) def
+
+grid:
+/name /S def
+/long_name (Start Time) def
+monthtime
+/defaultvalue { last } def
+/pointwidth 0. def
+/netcdfgrid true def
+values:
+1 Jan 2011 ensotime
+1.
+        systemtime systemtime2ymd 6 {ymd:lastmonth} repeat
+        ymd2rm1960
+        {}for
+:values
+    :grid
+
+S
+/expires
+S last
+    6 add
+    cvsunits
+    interp exch
+       0.5 add
+       7 ymd2systemtime
+      nip nip nip
+        def
+name exch def
+
+/expires S .expires def
+
+/target_date {S SOURCES .IRI .FD .NMME_Seasonal_Forecast .preview .ELR_coeffsv2 .paramfcst2 .L add /long_name (forecast time) def /pointwidth 3 def} defasvar
+
+/precip_b0 {
+SOURCES .IRI .FD .NMME_Seasonal_Forecast .preview .ELR_coeffsv2 .paramfcst2 .precip_b0
+S first target_date .S .last RANGE
+}defasvarsilent
+
+/precip_b1 {
+SOURCES .IRI .FD .NMME_Seasonal_Forecast .preview .ELR_coeffsv2 .paramfcst2 .precip_b1
+S first target_date .S .last RANGE
+}defasvarsilent
+
+/precip_b2 {
+SOURCES .IRI .FD .NMME_Seasonal_Forecast .preview .ELR_coeffsv2 .paramfcst2 .precip_b2
+S first target_date .S .last RANGE
+}defasvarsilent
+
+/tref_b0 {
+SOURCES .IRI .FD .NMME_Seasonal_Forecast .preview .ELR_coeffsv2 .paramfcst2 .tref_b0
+S first target_date .S .last RANGE
+}defasvarsilent
+
+/tref_b1 {
+SOURCES .IRI .FD .NMME_Seasonal_Forecast .preview .ELR_coeffsv2 .paramfcst2 .tref_b1
+S first target_date .S .last RANGE
+}defasvarsilent
+
+/tref_b2 {
+SOURCES .IRI .FD .NMME_Seasonal_Forecast .preview .ELR_coeffsv2 .paramfcst2 .tref_b2
+S first target_date .S .last RANGE
+}defasvarsilent
+
+:dataset
+
+tref_b0 .X name exch def
+tref_b0 .Y name exch def
+tref_b0 .L name exch def
+tref_b0 .modl name exch def
+
+\end{ingrid}

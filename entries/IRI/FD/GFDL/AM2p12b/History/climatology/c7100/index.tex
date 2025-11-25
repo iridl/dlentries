@@ -1,0 +1,31 @@
+\begin{ingrid}
+continuedataset: 
+/long_name (1971-2000) def
+grid: /name /T def monthtime
+periodic
+16 Jan 1960 ensotime 1 16 Dec 1960 ensotime :grid
+grid: /name /Y def degN 89 -2 -89 :grid
+grid: /name /X def degE periodic 1.25 2.5 358.75 :grid
+variable:
+/name /prcp def
+/long_name (precipitation rate) def
+/units (mm/day) def
+grids: X Y | T :grids
+file:
+decsequential
+/name (/beluga/data/forecast/DATA/gfdl/pcp/gfdl.pcp.7100.clm) def
+:file
+:variable
+variable:
+/name /t2m def
+/long_name (temperature at 2m) def
+/units (Kelvin_scale) def
+grids: X Y | T :grids
+file:
+decsequential
+/name (/beluga/data/forecast/DATA/gfdl/2mt/gfdl.2mt.7100.clm) def
+:file
+:variable
+:dataset
+\end{ingrid}
+

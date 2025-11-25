@@ -1,0 +1,4 @@
+#! /usr/freeware/bin/perl
+require "/home/datag/perl/getdatafiles.pl";
+chdir "/beluga/data/datag/NOAA/NCEP/CPC/PRECL";
+getdatafiles("ftp://ftp.cpc.ncep.noaa.gov/precip/50yr/gauge/2.5deg/format_bin/",qr/precl_mon_v1.0.sgi\..*\.gz/);

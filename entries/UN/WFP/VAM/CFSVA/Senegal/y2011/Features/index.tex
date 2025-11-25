@@ -1,0 +1,513 @@
+\begin{ingrid}
+continuedataset:
+/description (Senegal zoning systems from WFP VAM) def
+\end{ingrid}
+\begin{ingrid}
+
+dataset:
+/name /ZonesAEZ def
+        /arachide
+	{IRIDB (zea_dd) (arachide) [ (gid) ]open_column_by
+            /long_name (arachide) def
+	    }defasvarsilent
+	/count
+	{IRIDB (zea_dd) (count) [ (gid) ]open_column_by
+            /long_name (count) def
+	    }defasvarsilent
+        /csi
+	{IRIDB (zea_dd) (csi) [ (gid) ]open_column_by
+            /long_name (coping strategy index) def
+	    }defasvarsilent
+        /dep_ali
+	{IRIDB (zea_dd) (dep_ali) [ (gid) ]open_column_by
+            /long_name (dep alimentaire) def
+	    }defasvarsilent
+        /fcs_pauvre
+	{IRIDB (zea_dd) (fcs_pauvre) [ (gid) ]open_column_by
+            /long_name (food consumption score pauvres) def
+	    }defasvarsilent
+        /fcs_pl
+	{IRIDB (zea_dd) (fcs_pl) [ (gid) ]open_column_by
+            /long_name (food consumption score pl) def
+	    }defasvarsilent
+        /legumes
+	{IRIDB (zea_dd) (legumes) [ (gid) ]open_column_by
+            /long_name (légumes) def
+	    }defasvarsilent
+        /mais
+	{IRIDB (zea_dd) (mais) [ (gid) ]open_column_by
+            /long_name (maïs) def
+	    }defasvarsilent
+        /mil
+	{IRIDB (zea_dd) (mil) [ (gid) ]open_column_by
+            /long_name (mil) def
+	    }defasvarsilent
+        /niebe
+	{IRIDB (zea_dd) (niebe) [ (gid) ]open_column_by
+            /long_name (niébé) def
+	    }defasvarsilent
+        /nom_zae
+	{IRIDB (zea_dd) (nom_zae) [ (gid) ]open_column_by
+            /long_name (noms zones agro-écologiques) def
+	    /units (unitless) def
+	    }defasvarsilent
+        /sorgho
+	{IRIDB (zea_dd) (sorgho) [ (gid) ]open_column_by
+            /long_name (sorgho) def
+	    }defasvarsilent
+        /wi_pauvres
+	{IRIDB (zea_dd) (wi_pauvres) [ (gid) ]open_column_by
+            /long_name (wealth index pauvres) def
+	    }defasvarsilent
+        /wi_tres_pa
+	{IRIDB (zea_dd) (wi_tres_pa) [ (gid) ]open_column_by
+            /long_name (wealth index très pauvres) def
+	    }defasvarsilent
+        /zae
+	{IRIDB (zea_dd) (zae) [ (gid) ]open_column_by
+            /long_name (zones agro-écologiques) def
+	    /units /ids def
+	    /CLIST [
+	    (Basse et Moyenne Casamance)
+	    (Bassin Arachidier)
+	    (Fleuve)
+	    (Haute Casamance et Senegal Oriental)
+	    (Niayes)
+	    (Nord Bassin Arachidier)
+	    (Sylvo-Pastoral)
+            ] def
+            startcolormap
+            /maxncolor 10 def
+            DATA 1 7 RANGE
+            white white
+	    PaleGreen
+	    khaki
+	    LightBlue
+	    gold
+	    YellowGreen
+	    SpringGreen
+	    wheat
+            white
+            endcolormap
+	    }defasvarsilent
+	    /the_geom
+	    {IRIDB (zea_dd) (the_geom) [ (gid) ]open_column_by
+	    /long_name (Zones geometry) def
+	    }defasvarsilent
+/correspondance_with_AGVSAN ()def
+/description (Zones Agro-Ecologiques) def
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Strata_CO def
+        /strate
+	{IRIDB (sen_strata_co) (strate) [ (gid) ]open_column_by
+            /long_name (strate) def
+            /units /ids def
+            /CLIST [
+            (Dakar)
+            (Guédiawaye)
+	    (Rufisque)
+	    (Diourbel)
+	    (Fatick)
+	    (Kaffrine)
+	    (Kaolack)
+	    (Kédougou)
+	    (Kédougou - Urbain)
+	    (Salémata)
+	    (Saraya)
+	    (Kolda)
+	    (Médina Yoro Foulah)
+	    (Velingara)
+	    (Louga)
+	    (Kanel)
+	    (Matam)
+	    (Ranérou)
+	    (Saint-Louis)
+	    (Bounkiling)
+	    (Goudomp)
+	    (Sédhion)
+	    (Bakel)
+	    (Goudiry)
+	    (Koumpentoum)
+	    (Tambacounda)
+	    (Tambacounda - Urbain)
+	    (Thiès)
+	    (Bignona)
+	    (Oussouye)
+	    (Bignona - Urbain)
+	    (Ziguinchor)
+	    (Oussouye - Urbain)
+	    ] def
+	    startcolormap
+            /maxncolor 36 def
+	    DATA 0 32 RANGE
+            white white
+            0   0   256   RGB
+	    0   256   256   RGB
+	    0   256   0   RGB
+	    256   256   0   RGB
+	    256   0   0   RGB
+	    256   0   256   RGB
+            0   0   256   RGB
+            0   256   256   RGB 
+            0   256   0   RGB 
+            256   256   0   RGB 
+            256   0   0   RGB 
+            256   0   256   RGB
+            0   0   256   RGB
+            0   256   256   RGB 
+            0   256   0   RGB 
+            256   256   0   RGB 
+            256   0   0   RGB 
+            256   0   256   RGB
+            0   0   256   RGB
+            0   256   256   RGB
+            0   256   0   RGB
+            256   256   0   RGB
+            256   0   0   RGB
+            256   0   256   RGB
+            0   0   256   RGB
+            0   256   256   RGB 
+            0   256   0   RGB 
+            256   256   0   RGB 
+            256   0   0   RGB 
+            256   0   256   RGB
+            0   0   256   RGB
+            0   256   256   RGB
+            0   256   0   RGB
+	    white
+	    endcolormap 
+	    }defasvarsilent
+	    /the_geom
+{IRIDB (sen_strata_co) (the_geom) [ (gid) ]open_column_by
+            /long_name (Strata geometry) def
+	    }defasvarsilent
+/correspondance_with_AGVSAN (strate/Strate_ok/) def
+/description (Strata from Country Office) def
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Zonage_PAM def
+        /nomcr
+	{IRIDB (zonage_pam_dd) (nomcr) [ (gid) ]open_column_by
+            /long_name (nom commune rurale) def
+            /units (unitless) def
+	    }defasvarsilent
+        /nomreg
+	{IRIDB (zonage_pam_dd) (nomreg) [ (gid) ]open_column_by
+            /long_name (nom région) def
+            /units (unitless) def
+	    }defasvarsilent
+        /objectid
+	{IRIDB (zonage_pam_dd) (objectid) [ (gid) ]open_column_by
+            /long_name (object ID) def
+            /units /ids def
+            /CLIST [
+            (Péri-urbain)
+            (Agro-Pastorale/Niébé)
+            (Sylvo-Pastorale)
+            (Agro-Sylvo-Pêche)
+            (Sylvicole)            
+            (Agro-Sylvo-Pastorale/Minière)
+            (Agro-Pastorale/Anacarde)
+            (Mangrove)
+            (Petite-Côte-Estuaire)
+            (Niayes-horticulture/Pêche)
+            (Basse-Vallée)
+            (Agro-Pastorale/Arachide)
+            (Agro-Pastorale/Manioc)
+            (Sylvo-Pastorale/Diéri)
+            (Moyenne vallée)
+            (Dakar)
+            (Petite-Côte-Arboriculture)
+            (Agro-Sylvo-Pastorale)
+            (Agro-Sylvo-Pastorale/Coton)
+            (Agro-Sylvo-Pastorale/Arachide)
+            (Agro-Sylvo-Pastorale/Vivrière)
+            (Agricole)
+            (Agro-Forestière)
+            ] def
+            startcolormap
+            /maxncolor 26 def
+            DATA 1 23 RANGE
+            white white
+            red
+            LightGoldenrod
+            wheat
+            DarkGreen
+            OliveDrab
+            LightSeaGreen
+            LimeGreen
+            DarkKhaki
+            coral
+            pink
+            blue
+            gold
+            salmon
+            LightYellow
+            LightBlue
+            white
+            orange
+            DarkGoldenrod
+            cyan
+            turquoise
+            khaki
+            SeaGreen
+            YellowGreen
+            white
+            endcolormap
+	    }defasvarsilent
+        /shape_area
+	{IRIDB (zonage_pam_dd) (shape_area) [ (gid) ]open_column_by
+            /long_name (shape area) def
+            /units (m2) def
+	    }defasvarsilent
+        /shape_leng
+	{IRIDB (zonage_pam_dd) (shape_leng) [ (gid) ]open_column_by
+            /long_name (shape length) def
+            /units (m) def
+	    }defasvarsilent
+        /zone
+	{IRIDB (zonage_pam_dd) (zone_) [ (gid) ]open_column_by
+            /long_name (zone AGVSAN) def
+            /units (unitless) def
+	    }defasvarsilent
+        /zones
+	{IRIDB (zonage_pam_dd) (zones) [ (gid) ]open_column_by
+            /long_name (zones AGVSAN) def
+            /units (unitless) def
+	    }defasvarsilent
+	    /the_geom
+	    {IRIDB (zonage_pam_dd) (the_geom) [ (gid) ]open_column_by
+	    /long_name (Zones geometry) def
+	    }defasvarsilent
+/correspondance_with_AGVSAN (nomreg/NOM_REG | objectid/OBJECTID | zone(s)/Zoning_AGVSAN/VN1162) def
+/description (Zonage Programme Alimentaire Mondial) def
+:dataset
+
+\end{ingrid}
+\begin{ingrid}
+
+dataset:
+/name /Region def
+/code_regio {IRIDB
+  (sen_region) (code_regio) [ (gid) ] open_column_by
+              /long_name (code région) def
+1.0 sub
+/CLIST[ (DAKAR) (DIOURBEL) (FATICK) (KAFFRINE) (KAOLACK) (KEDOUGOU) (LOUGA) (KOLDA) (MATAM)
+(SAINT-LOUIS) (SEDHIOU) (TAMBACOUNDA) (THIES) (ZIGUINCHOR) ]def
+startcolormap
+/maxncolor 17 def
+DATA 0 13 RANGE
+white white 0
+256 256 RGB
+0
+0 256 RGB
+0
+256 0 RGB
+256
+256 0 RGB
+256
+0 0 RGB
+0
+0 256 RGB
+0
+0 256 RGB
+0
+256 256 RGB
+0
+256 0 RGB
+256
+256 0 RGB
+256
+0 0 RGB
+256 0 256
+RGB
+256 0 256
+RGB
+0 256 256
+RGB
+white endcolormap
+}defasvarsilent
+/hig_repric {IRIDB
+  (sen_region) (hig_repric) [ (gid) ] open_column_by
+              /long_name (hig repric) def
+}defasvarsilent
+/ia {IRIDB
+  (sen_region) (ia) [ (gid) ] open_column_by
+              /long_name (insécurité alimentaire) def
+}defasvarsilent
+/maln_prev {IRIDB
+  (sen_region) (maln_prev) [ (gid) ] open_column_by
+              /long_name (maln prev) def
+}defasvarsilent
+/malnu_prev {IRIDB
+  (sen_region) (malnu_prev) [ (gid) ] open_column_by
+              /long_name (malnu prev) def
+}defasvarsilent
+/malprev_ai {IRIDB
+(sen_region) (malprev_ai) [ (gid) ] open_column_by
+/long_name (malprev ai) def
+}defasvarsilent
+/reg_malnu {IRIDB
+(sen_region) (reg_malnu) [ (gid) ] open_column_by
+/long_name (reg malnu) def
+}defasvarsilent
+/reg_stunt {IRIDB
+(sen_region) (reg_stunt) [ (gid) ] open_column_by
+/long_name (reg stunt) def
+}defasvarsilent
+/region {IRIDB
+(sen_region) (region) [ (gid) ] open_column_by
+/long_name (région) def
+}defasvarsilent
+/region_1 {IRIDB
+(sen_region) (region_1) [ (gid) ] open_column_by
+/long_name (région 1) def
+}defasvarsilent
+/stun_2011 {IRIDB
+(sen_region) (stun_2011) [ (gid) ] open_column_by
+/long_name (stun 2011) def
+}defasvarsilent
+/stunt_2011 {IRIDB
+(sen_region) (stunt_2011) [ (gid) ] open_column_by
+/long_name (stunt 2011) def
+}defasvarsilent
+/the_geom {IRIDB
+(sen_region) (the_geom) [ (gid) ] open_column_by
+/long_name (Region geometry) def
+}defasvarsilent
+/correspondance_with_AGVSAN (code_regio/REGION_ok | region/NOM_REG | region_1/NOM_REG) def
+/description (Régions) def
+:dataset
+
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Dept_2010 def
+   /count
+   {IRIDB (sen_dept_2010) (count) [ (gid) ]open_column_by
+            /long_name (count) def
+	    }defasvarsilent
+        /echant
+	{IRIDB (sen_dept_2010) (echant) [ (gid) ]open_column_by
+            /long_name (echant) def
+	    }defasvarsilent
+        /fcg_26_40
+	{IRIDB (sen_dept_2010) (fcg_26_40) [ (gid) ]open_column_by
+            /long_name (Groupes de consommation alimentaire (26)) def
+	    }defasvarsilent
+        /nomdepa
+	{IRIDB (sen_dept_2010) (nomdepa) [ (gid) ]open_column_by
+            /long_name (nom département) def
+	    }defasvarsilent
+        /région
+	{IRIDB (sen_dept_2010) (région) [ (gid) ]open_column_by
+            /long_name (région) def
+	    }defasvarsilent
+        /strate
+	{IRIDB (sen_dept_2010) (strate) [ (gid) ]open_column_by
+            /long_name (strate) def
+	    }defasvarsilent
+        /wi_pauvres
+	{IRIDB (sen_dept_2010) (wi_pauvres) [ (gid) ]open_column_by
+            /long_name (wealth index pauvres) def
+	    }defasvarsilent
+	    /the_geom {IRIDB
+	    (sen_dept_2010) (the_geom) [ (gid) ] open_column_by
+	    /long_name (Department geometry) def
+	    }defasvarsilent
+grid:
+/name /DeptName def
+/units /ids def
+values: (BAKEL) (BAMBEY) (BIGNONA) (BIGNONA - URB) (BIRKILANE) (BOUNKILING) (DAGANA) (DAKAR) (DIOURBEL)
+(FATICK) (FOUNDIOUGNE) (GOSSAS) (GOUDIRY) (GOUDOMP) (GUEDIAWAYE) (GUINGUINE) (KAFFRINE) (KANEL) (KAOLACK)
+(KEBEMER) (KEDOUGOU) (KEDOUGOU - URB) (KOLDA) (KOUMPENTOUM) (KOUNGHEUL) (LINGUERE) (LOUGA) (MALEM HODDAR)
+(MATAM) (MBACKE) (MBOUR) (MEDINA Y. FOUL) (NIORO DU RIP) (OUSSOUYE) (OUSSOUYE - URB) (PIKINE) (PODOR)
+(RANEROU) (RUFISQUE) (SAINT-LOUIS) (SALEMATA) (SARAYA) (SEDHIOU) (TAMBACOUNDA) (THIES) (TIVAOUANE)
+(VELINGARA) (ZIGUINCHOR) (TAMBA - URB) :values
+:grid
+
+/correspondance_with_AGVSAN (fcg_26_40/FCG_26_40 | nomdepa/NOM_DEPA | région/REGION_ok | strate/Strate_ok)def
+/description (Départements 2010) def
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /CommRur2002 def
+        /admi1
+	{IRIDB (sen_commrur2002) (admi1) [ (gid) ]open_column_by
+	/long_name (administration 1) def
+	}defasvarsilent
+        /admi2
+	{IRIDB (sen_commrur2002) (admi2) [ (gid) ]open_column_by
+            /long_name (administration 2) def
+	    }defasvarsilent
+        /admi3
+	{IRIDB (sen_commrur2002) (admi3) [ (gid) ]open_column_by
+            /long_name (administration 3) def
+	    }defasvarsilent
+        /admi4
+	{IRIDB (sen_commrur2002) (admi4) [ (gid) ]open_column_by
+            /long_name (administration 4) def
+	    }defasvarsilent
+        /area
+	{IRIDB (sen_commrur2002) (area) [ (gid) ]open_column_by
+            /long_name (area) def
+            /units (m2) def
+	    }defasvarsilent
+        /com_ru_nom
+	{IRIDB (sen_commrur2002) (com_ru_nom) [ (gid) ]open_column_by
+            /long_name (commune rurale) def
+	    }defasvarsilent
+        /food_ins_1
+	{IRIDB (sen_commrur2002) (food_ins_1) [ (gid) ]open_column_by
+            /long_name (food insecurity 1) def
+	    }defasvarsilent
+        /food_insec
+	{IRIDB (sen_commrur2002) (food_insec) [ (gid) ]open_column_by
+            /long_name (food insecurity) def
+	    }defasvarsilent
+        /niv_ris_ia
+	{IRIDB (sen_commrur2002) (niv_ris_ia) [ (gid) ]open_column_by
+            /long_name (niveau risque insécurité alimentaire) def
+	    }defasvarsilent
+        /nomarro
+	{IRIDB (sen_commrur2002) (nomarro) [ (gid) ]open_column_by
+            /long_name (nom arrondissement) def
+	    }defasvarsilent
+        /nomcr
+	{IRIDB (sen_commrur2002) (nomcr) [ (gid) ]open_column_by
+            /long_name (nom commune rurale) def
+	    }defasvarsilent
+        /nomdepa
+	{IRIDB (sen_commrur2002) (nomdepa) [ (gid) ]open_column_by
+            /long_name (nom département) def
+	    }defasvarsilent
+        /nomregion
+	{IRIDB (sen_commrur2002) (nomregion) [ (gid) ]open_column_by
+            /long_name (nom région) def
+	    }defasvarsilent
+        /pasef
+	{IRIDB (sen_commrur2002) (pasef) [ (gid) ]open_column_by
+            /long_name (pasef) def
+	    }defasvarsilent
+        /zar_7class
+	{IRIDB (sen_commrur2002) (zar_7class) [ (gid) ]open_column_by
+            /long_name (Zones agro-écologiques) def
+	    }defasvarsilent
+	    /the_geom
+	    {IRIDB (sen_commrur2002) (the_geom) [ (gid) ]open_column_by
+	    /long_name (Communes geometry) def
+	    }defasvarsilent
+/correspondance_with_AGVSAN (admi1/ADMI1 | admi2/ADMI2 | admi3/ADMI3 | admi4/ADMI4 | nomarro/NOM_ARR | nomcr/NOM_COM_RUR | nomdepa/NOM_DEPA | nomregion/NOM_REG | zar_7class/ZAE)def 
+/description (Communes Rurales 2002) def
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+\end{ingrid}
+

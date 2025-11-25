@@ -1,0 +1,64 @@
+\begin{ingrid}
+
+continuedataset:
+
+/historical {
+ home .remic .NMA .daily .rfe
+  T (1983)
+    /YearStart parameter
+    (2010)
+     /YearEnd parameter
+     RANGEEDGES
+  (TotRain)
+   /seasonalStat parameter
+   (PerDA) eq
+   {dataflag}if
+  (11)
+   /DayStart parameter
+   ( ) append
+   (Jan)
+    /seasonStart parameter
+    append
+   ( - ) append
+   (31)
+    /DayEnd parameter
+    append
+   ( ) append
+   (Jan)
+    /seasonEnd parameter
+    append
+   (5)
+    /spellThreshold parameter
+    interp
+    (1)
+     /wetThreshold parameter
+     interp
+     (0.5)
+      /minFrac parameter
+      interp
+      /seasonalStat get_parameter
+       (TotRain) eq
+       {nip nip flexseastotAvgFill}if
+  /seasonalStat get_parameter
+   (NumWD) eq
+   {3 -1 roll pop flexseasonalfreqGT}if
+  /seasonalStat get_parameter
+   (RainInt) eq
+   {3 -1 roll pop flexseasonalmeandailyvalueGT}if
+  /seasonalStat get_parameter
+   (NumDS) eq
+   {flexseasonalnonoverlapDSfreq}if
+  /seasonalStat get_parameter
+   (NumWS) eq
+   {flexseasonalnonoverlapWSfreq}if
+  /seasonalStat get_parameter
+   (PerDA) eq
+   {pop pop pop T exch 0.0 seasonalAverage}if
+  /seasonalStat get_parameter
+   (PerDA) eq
+   {[T]average (percent) unitconvert /long_name (Availability) def rainbowcolorscale DATA 0 100 RANGE}{ (Mean) /yearlyStat parameter (Mean) eq {[T]average /seasonalStat get_parameter (TotRain) eq { /long_name (Precipitation) def /units (mm) def precip_colors DATA 0 null RANGE}if /seasonalStat get_parameter (NumWD) eq { /long_name (count) def wetday_freq_colors DATA 0 null RANGE}if /seasonalStat get_parameter (RainInt) eq { /long_name (Precipitation) def /units (mm/day) def precip_colors DATA 1 30 RANGE}if /seasonalStat get_parameter dup (NumDS) eq exch (NumWS) eq or { /long_name (count) def /units (unitless) def wetday_freq_colors DATA 0 12 RANGE}if}if /yearlyStat get_parameter (StdDev) eq {dup dataflag[T]sum dup 1.0 sub div sqrt exch[T]0.0 rmsaover mul /seasonalStat get_parameter (TotRain) eq { /long_name (Precipitation) def /units (mm) def daily_precip_colors DATA 0 600 RANGE}if /seasonalStat get_parameter (NumWD) eq { /long_name (count) def daily_precip_colors DATA 0 30 RANGE}if /seasonalStat get_parameter (RainInt) eq { /long_name (Precipitation) def /units (mm/day) def daily_precip_colors DATA 0 20 RANGE}if /seasonalStat get_parameter dup (NumDS) eq exch (NumWS) eq or { /long_name (count) def /units (unitless) def startcolormap 0 5 RANGE white white white 0.0 VALUE DarkGreen DarkGreen 0.5 bandmax ForestGreen ForestGreen 1.5 bandmax LimeGreen LimeGreen 2.5 bandmax yellow yellow 3.5 bandmax orange orange 4.5 bandmax red red 5 bandmax endcolormap}if}if /yearlyStat get_parameter (PoE) eq {DATA 0 300 1 RANGESTEP[X Y]distrib1D dup 0.0[aprod]integrate aprod 300.5 VALUE aprod removeGRID div /name (pdf) def DATA null null RANGE 0.0[aprod]integrate /name (pdf) def DATA 0 0.02 0.17 0.5 0.83 0.98 1.0001 VALUES -1 mul 1 add aprod /seasonalStat get_parameter (TotRain) eq { (150) /probExcThresh1 parameter interp}if /seasonalStat get_parameter (NumWD) eq { (30) /probExcThresh2 parameter interp}if /seasonalStat get_parameter (RainInt) eq { (10) /probExcThresh3 parameter interp}if /seasonalStat get_parameter (NumDS) eq { (3) /probExcThresh4 parameter interp}if /seasonalStat get_parameter (NumWS) eq { (3) /probExcThresh5 parameter interp}if VALUE (percent) unitconvert /long_name (Probability) def correlationcolorscale DATA 0 100 RANGE}if}ifelse
+}defasvar
+
+:dataset
+
+\end{ingrid}

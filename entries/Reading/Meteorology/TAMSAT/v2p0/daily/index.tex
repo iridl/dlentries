@@ -1,0 +1,118 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+
+/prcp_dailyrate_max100_smooth {
+  startcolormap
+    0.0 100.0 RANGE
+    LightGrey white white
+       0.0 VALUE
+       LightCyan
+        2.0 VALUE
+        SkyBlue
+         4.0 VALUE
+         DodgerBlue
+          9.0 VALUE
+          MediumBlue
+           16.0 VALUE
+           DarkSeaGreen
+            25.0 VALUE
+            MediumSeaGreen
+             33.0 VALUE
+             LightSeaGreen
+              50.0 VALUE
+              khaki
+               67.0 VALUE
+               SandyBrown
+                83.0 VALUE
+                firebrick 100.0 VALUE
+                firebrick endcolormap
+} defcolorscale
+
+:datasetdefs
+ /title (TAMSAT Rain Fall Estimate (RFE)) def
+ /latres 0.0375 def
+ /latmin -35.962502 def
+ /lonmin -19.012501 def
+ /lonmax 51.974998 def
+ /contact (tamsat@reading.ac.uk) def
+ /lonres 0.0375 def
+ /Conventions (CF-1.5) def
+ /institution (TAMSAT Research Group, Meteorology Department, University of Reading, UK) def
+ /latmax 38.025002 def
+ /references (Tarnavsky_etal2014 Maidment_etal2014) def
+ /note (Please see the TAMSAT Data Policy in the "Documents" section of the page for terms of use) def
+
+link:
+/name (documentation) def
+/description (PDF document: TAMSAT Daily Rainfall Estimates: information for users) def
+/href (http://www.tamsat.org.uk/docs/TAMSAT_DailyRainfallEstimates_UsersGuide.pdf) def
+:link
+
+link:
+/name (TAMSAT) def
+/description (TAMSAT Data Web Page) def
+/href (http://www.tamsat.org.uk/cgi-bin/data/index.cgi) def
+:link
+
+link:
+/name (data_policy) def
+/description (PDF document: TAMSAT Data Policy) def
+/href (http://www.tamsat.org.uk/docs/TAMSAT_Data_Policy_TARCATv2.0_2014.pdf) def
+:link
+
+grid:
+/name (lon)def
+/long_name (longitude) def
+/standard_name (longitude) def
+/units (degree_east)def
+ -19.012501 0.0375 51.975002
+:grid
+
+grid:
+/name (lat)def
+/long_name (latitude) def
+/standard_name (latitude) def
+/units (degree_north)def
+ 38.025002 0.0375 -35.962502
+:grid
+
+grid:
+/name (time) def
+/standard_name (time) def
+/units (julian_day) def
+/defaultvalue { last } def
+11 Jan 1983 julian_day
+1.0
+%systemtime (%d %b %Y) 12 strftime interp julian_day
+10 Oct 2018 julian_day
+/netcdfgrid true def
+:grid
+
+%time {(http://www.tamsat.org.uk/public_data/%Y[time]/%m[time]/rfe%Y[time]_%m[time]_%d[time].nc) [ time ]} remoteremoveextrausing
+%name exch def
+
+%time /expires {last 2 add rjt2ymd ymd2systemtime}def
+%   /expires expires def
+%   name exch def
+%  /expires time .expires def
+%  /last_modified time .last_modified def
+
+ /rfe {
+[ lon lat | time ] (/Data/data21/Reading/Meteorology/TAMSAT/TARCAT/v2p0/%Y[time]/%m[time]/rfe%Y[time]_%m[time]_%d[time].nc) [ time ] readdatafile:
+%[ lon lat | time ] (http://www.tamsat.org.uk/public_data/%Y[time]/%m[time]/rfe%Y[time]_%m[time]_%d[time].nc) [ time ] readdatafile:
+/name (rfe) def
+ /units (mm/day) def
+ /short_name (rfe) def
+ /long_name (Rain Fall Estimate) def
+ /standard_name (lwe_precipitation_rate) def
+%/missing_value [ 216 ] def
+%/stringtype 1 netcdfrecords :readdatafile
+ /stringtype netcdfrecords :readdatafile
+ /missing_value undef
+ 255.0 maskge
+prcp_dailyrate_max100_smooth
+}defasvarsilent
+
+:dataset
+\end{ingrid}

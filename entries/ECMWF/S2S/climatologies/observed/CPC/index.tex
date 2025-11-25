@@ -1,0 +1,147 @@
+\begin{ingrid}
+
+continuedataset:
+
+link:
+/name (original_dataset) def
+/description (CPC Global Daily Temperature ) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCEP/.CPC/.temperature/.daily/) def
+:link
+
+        grid:
+         /name (X)def
+         /long_name (longitude) def
+         /units (degree_east)def
+	 0.25 0.5 359.75
+        :grid
+
+        grid:
+         /name (Y)def
+	 /long_name (latitude) def
+         /units (degree_north)def
+	 -89.75 0.5 89.75
+        :grid
+
+
+	grid:
+	 /name /T def
+	 /long_name (Day-of-Year) def
+	/units (days since 1960-01-01) def
+	/long_name (forecast start time) def
+	/standard_name (forecast_reference_time) def
+	01 Jan 2000 julian_day 01 Jan 1960 julian_day sub
+	1.0
+	31 Dec 2000 julian_day 01 Jan 1960 julian_day sub
+	/pointwidth 0. def
+	:grid
+
+
+%Temperature 
+        /tmeanClim{
+                [ X Y | T ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Observed/CPC/1995-01-01.2010-12-31.day_clim_tmed.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+		/units (Celsius_scale) def
+                /long_name (Mean Temperature - climatology ) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+        }defasvarsilent
+
+       /tmeanSmooth {
+                [ X Y | T ]
+                (/Data/data25/ECMWF/S2S/Climatologies/Observed/CPC/1995-01-01.2010-12-31.smooth_day_clim_tmed.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /long_name (Mean Temperature  - triangular smoothing climatology ) def
+                /units (Celsius_scale) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+        }defasvarsilent
+
+
+       /tmeanharm {
+                [ X Y | T ]
+                (/Data/data25/ECMWF/S2S/Climatologies/Observed/CPC/CPC_tmean_1995_2010_Harmonics_L0.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /long_name (Mean Temperature  - Harmonic climatology ) def
+                /standard_name (air_temperature) def
+                /units (Celsius_scale) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+        }defasvarsilent
+
+        /tminClim{
+                [ X Y | T ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Observed/CPC/1995-01-01.2010-12-31.day_clim_tmin.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /units (Celsius_scale) def
+                /long_name (Minimum Temperature - climatology ) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+        }defasvarsilent
+
+       /tminSmooth {
+                [ X Y | T ]
+                (/Data/data25/ECMWF/S2S/Climatologies/Observed/CPC/1995-01-01.2010-12-31.smooth_day_clim_tmin.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /long_name (Manimum Temperature  - triangular smoothing climatology ) def
+                /units (Celsius_scale) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+        }defasvarsilent
+
+       /tminharm {
+                [ X Y | T ]
+                (/Data/data25/ECMWF/S2S/Climatologies/Observed/CPC/CPC_tmin_1995_2010_Harmonics_L0.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /long_name (Minimum Temperature  - Harmonic climatology ) def
+                /standard_name (air_temperature) def
+                /units (Celsius_scale) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+        }defasvarsilent
+
+        /tmaxClim{
+                [ X Y | T ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Observed/CPC/1995-01-01.2010-12-31.day_clim_tmax.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /units (Celsius_scale) def
+                /long_name (Maximum Temperature - climatology ) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+        }defasvarsilent
+
+       /tmaxSmooth {
+                [ X Y | T ]
+                (/Data/data25/ECMWF/S2S/Climatologies/Observed/CPC/1995-01-01.2010-12-31.smooth_day_clim_tmax.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /long_name (Maximum Temperature  - triangular smoothing climatology ) def
+                /units (Celsius_scale) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+        }defasvarsilent
+
+
+       /tmaxharm {
+                [ X Y | T ]
+                (/Data/data25/ECMWF/S2S/Climatologies/Observed/CPC/CPC_tmax_1995_2010_Harmonics_L0.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /long_name (Maximum Temperature  - Harmonic climatology ) def
+                /standard_name (air_temperature) def
+                /units (Celsius_scale) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+        }defasvarsilent
+
+
+:dataset
+
+\end{ingrid}

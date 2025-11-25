@@ -1,0 +1,18 @@
+#!/bin/bash
+export PATH=/home/datag/programs:/home/datag/programsLinux:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
+. /usr/share/Modules/init/sh
+
+curdir="/volume1/DataLibrary/SubX/NCEP/CFSv2"
+
+cd /volume1/DataLibrary/SubX/NCEP/CFSv2
+
+if [ "$(pwd)" = "$curdir" ] 
+then
+ echo "Successfully changed directory" 
+ module load nco
+ echo "Running get_NCEP_SubX_fcst.pl update script"
+ perl -w get_NCEP_SubX_fcst.pl 
+# source get_NCEP_SubX_fcst.pl
+else
+ echo "Unable to change directory"
+fi

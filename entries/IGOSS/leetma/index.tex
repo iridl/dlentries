@@ -1,0 +1,99 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/|u| {umag} defasvarsilent
+:datasetdefs
+/dataset_documentation.html currentobject 1 index get def
+/description (Pacific surface currents and equatorial thermocline depth) def
+%/long_name(monthly mean surface currents) def
+/iridl:hasSemantics (iriref:Leetmaa_A) def
+grid:
+/name /X def
+degE
+120. 1.5 291.
+:grid
+grid:
+/name /Y def
+degN
+-19.5 1.5 19.5
+:grid
+\end{ingrid}
+grid:
+/name /T def
+monthtime
+16 Sep 1994 ensotime
+1.
+16    FEB 1999 ensotime % currentenddate
+/defaultvalue { last } def
+:grid
+variable:
+/name /u def
+/long_name (zonal surface velocity) def
+/units (cm/s) def
+/CSCALE 1. def 
+/missing_value -999.9 def
+/history [(Monthly mean surface currents in the tropical Pacific from a "Nowcasting" ocean model.) (<B>USA</B>)]def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data1/igoss/leetma/u) def
+:file
+:variable
+variable:
+/name /v def
+/long_name (meridional surface velocity) def
+/units (cm/s) def
+/missing_value -999.9 def
+/CSCALE 1. def 
+/history [(Monthly mean surface currents in the tropical Pacific from a "Nowcasting" ocean model.) (<B>USA</B>)]def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data1/igoss/leetma/v) def
+:file
+:variable
+grid:
+/name /X def
+degE
+124.5 1.5 291.
+:grid
+grid:
+/name /T def
+monthtime
+16 Oct 1989 ensotime
+1.
+16    FEB 1999 ensotime % currentenddate
+:grid
+%variable:
+%/name /d20C def
+%/long_name (depth of the 20C isotherm) def
+%/units (m) def
+%/missing_value -999.9 def
+%/history [(Depth of the 20C isotherm along the equatorial Pacific.) (<B>USA</B>)]def
+%grids: X | T :grids
+%file:
+%random
+%/name (/Data/data1/igoss/leetma/d20C) def
+%:file
+%:variable
+\begin{ingrid}
+/d20C
+{SOURCES .NOAA .NCEP .EMC .CMB .Pacific .monthly .D20eq}
+defasvar
+/u
+{SOURCES .NOAA .NCEP .EMC .CMB .Pacific .monthly .u Z 0 VALUE}
+defasvar
+/v
+{SOURCES .NOAA .NCEP .EMC .CMB .Pacific .monthly .v Z 0 VALUE}
+defasvar
+/umag { u dup mul v dup mul add sqrt
+/fullname [/IGOSS /leetma /|u| ] def /history u >history def
+/long_name (surface speed) def
+/CI 50. def} defasvar
+:dataset
+u .T name exch def
+\end{ingrid}
+
+
+
+

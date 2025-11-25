@@ -1,0 +1,57 @@
+\begin{ingrid}
+continuedataset:
+ 
+/history (Bias correction has been done following International CLIVAR Project Office (2011).The observataion data is NCEP/NCAR Reanalysis from http://www.esrl.noaa.gov/)def 
+grid:
+/name (lon)def
+/units (degree_east)def
+ 0.0 1.25 358.75
+:grid
+grid:
+/name (lat)def
+/units (degree_north)def
+ -90. 0.9424084 90.
+:grid
+grid:
+/name (M)def
+/units (unitless)def
+/long_name (Member) def
+ 1. 1. 10.
+:grid
+grid:
+/name (L)def
+/units (months)def
+/calendar /360 def
+ 0.0 1. 119.
+:grid
+grid:
+/name (S)def
+/units (months since 1960-01-01)def
+/standard_name(forecast reference time) def 
+/pointwidth 0 def
+/calendar /360 def
+ 12. 5. 12 mul 46. 12 mul
+:grid
+ /slp{
+[ lon lat M L | S] (/Data/data21/ucar/cmdecadal/CCSM4/cort/slp.CCSM4.dp.hd.nc) readdatafile:
+/name (slp) def
+ /cell_methods (time: mean) def
+ /long_name (sea level pressure) def
+ /units /hPa def
+ /missing_value 1.00000002E20 def
+ /Fill_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+/tas{
+[ lon lat M L | S] (/Data/data21/ucar/cmdecadal/CCSM4/cort/tas.CCSM4.dp.hd.nc) readdatafile:
+/name (tas) def
+ /cell_methods (time: mean) def
+ /long_name (Reference height temperature) def
+ /units /Kelvin_scale def
+ /Fill_value 1.00000002E20 def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,133 @@
+\begin{ingrid}
+
+/iridl:hasSemantics [(iridl:ecology)(iridl:ebird)] def
+
+continuedataset:
+
+datasetdefs:
+grid:
+/name /mycol def
+1 1 2
+:grid
+:datasetdefs
+
+grid:
+/name /taxon_order def
+values:
+32501
+32577
+32557
+26739
+30329
+2339
+10805
+10831
+11150
+10620
+11284
+8011
+7351
+7338
+:values
+:grid
+
+grid:
+/name /gid def
+/units /ids def
+/long_name (Geometry ID) def
+1 1 351
+:grid
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+6 Jan 2005 julian_day 01 Jan 1960 julian_day sub 0.5 add
+7.0
+3 Jan 2019 julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 7. def 
+:grid
+
+variable:
+/name /species_acode def
+	/long_name (Species Alpha Codes) def
+	grids: taxon_order | :grids
+	values:
+(rwbl)
+(cogr)
+(bhco)
+(eust)
+(hosp)
+(modo)
+(dowo)
+(hawo)
+(piwo)
+(rbwo)
+(nofl)
+(rtha)
+(ospr)
+(tuvu)
+	:values
+:variable
+
+/the_geom {
+SOURCES .Features .Political .UnitedStates .MA .town 
+.the_geom
+}defasvar
+
+/label {
+SOURCES .Features .Political .UnitedStates .MA .town
+.label
+}defasvar
+
+/RF {
+[mycol T gid | taxon_order ]
+	(/Data/PRISM/eBird/derived/detectionProbability/editedTSV/%=[species_acode]_weekly_DP_MAtowns_05_18.tsv) [taxon_order species_acode]
+readdatafile:
+[0 2 1] r*4astsv
+:readdatafile
+mycol 1 VALUE %is this the column number of the ds being read?
+mycol removeGRID
+/long_name (Random Forest Detection Probability) def
+}defasvarsilent
+
+/RF_SE {
+[mycol T gid | taxon_order ]
+(/Data/PRISM/eBird/derived/detectionProbability/editedTSV/%=[species_acode]_weekly_DP_MAtowns_05_18.tsv) [taxon_order species_acode]
+readdatafile:
+[0 2 1] r*4astsv
+:readdatafile
+mycol 2 VALUE
+mycol removeGRID
+/long_name (Inverse of standard error for detection probability) def
+}defasvarsilent
+
+/species_code {
+IRIDB (stateyr) (species_code) [(taxon_order)] open_column_by
+taxon_order species_acode .taxon_order .gridvalues VALUES
+IRIDB (stateseas) (species_code) [(taxon_order)] open_column_by
+taxon_order species_acode .taxon_order .gridvalues VALUES
+appendstream
+/long_name (Species Code) def
+}defasvarsilentnoreuse
+
+/sci_name {
+IRIDB (stateyr) (sci_name) [(taxon_order)] open_column_by
+taxon_order species_acode .taxon_order .gridvalues VALUES
+IRIDB (stateseas) (sci_name) [(taxon_order)] open_column_by
+taxon_order species_acode .taxon_order .gridvalues VALUES
+appendstream
+/long_name (Scientific Name) def
+}defasvarsilentnoreuse
+
+/cm_name {
+IRIDB (stateyr) (cm_name) [(taxon_order)] open_column_by
+taxon_order species_acode .taxon_order .gridvalues VALUES
+IRIDB (stateseas) (cm_name) [(taxon_order)] open_column_by
+taxon_order species_acode .taxon_order .gridvalues VALUES
+appendstream
+/long_name (Common Name) def
+}defasvarsilentnoreuse
+
+:dataset
+\end{ingrid}

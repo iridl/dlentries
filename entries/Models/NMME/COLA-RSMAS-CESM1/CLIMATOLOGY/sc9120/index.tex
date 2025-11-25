@@ -1,0 +1,89 @@
+\begin{ingrid}
+continuedataset: 
+
+/evap { 
+  SOURCES .Models .NMME .COLA-RSMAS-CESM1 .MONTHLY .evap 
+  S (1 Jan 1991) (1 Dec 2020) RANGEEDGES 
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average 
+  L 3 runningAverage
+} defasvar 
+
+/gz {	
+  SOURCES .Models .NMME	.COLA-RSMAS-CESM1 .MONTHLY .gz 
+  S (1 Jan 1991) (1 Dec	2020) RANGEEDGES 
+ [M] average 
+ S 12 splitstreamgrid
+  [S2] average 
+  L 3 runningAverage
+} defasvar
+
+/prec {	
+  SOURCES .Models .NMME	.COLA-RSMAS-CESM1 .MONTHLY .prec 
+  S (1 Jan 1991) (1 Dec	2020) RANGEEDGES 
+  [M] average 
+ S 12 splitstreamgrid
+  [S2] average 
+  L 3 runningAverage
+} defasvar
+
+/runoff {	
+  SOURCES .Models .NMME	.COLA-RSMAS-CESM1 .MONTHLY .runoff 
+  S (1 Jan 1991) (1 Dec	2020) RANGEEDGES 
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average 
+  L 3 runningAverage
+} defasvar
+
+/sst {	
+  SOURCES .Models .NMME	.COLA-RSMAS-CESM1 .MONTHLY .sst 
+  S (1 Jan 1991) (1 Dec	2020) RANGEEDGES 
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average 
+  L 3 runningAverage
+} defasvar
+
+
+/soilw {	
+  SOURCES .Models .NMME	.COLA-RSMAS-CESM1 .MONTHLY .soilw 
+  S (1 Jan 1991) (1 Dec	2020) RANGEEDGES 
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average 
+  L 3 runningAverage
+} defasvar
+
+
+/tref {	
+  SOURCES .Models .NMME	.COLA-RSMAS-CESM1 .MONTHLY .tref 
+  S (1 Jan 1991) (1 Dec	2020) RANGEEDGES 
+  [M] average 
+ S 12 splitstreamgrid
+  [S2] average
+ L 3 runningAverage
+} defasvar
+
+/tsmn {	
+  SOURCES .Models .NMME	.COLA-RSMAS-CESM1 .MONTHLY .tsmn 
+  S (1 Jan 1991) (1 Dec	2020) RANGEEDGES 
+ [M] average
+  S 12 splitstreamgrid
+  [S2] average
+  L 3 runningAverage 
+} defasvar
+
+/tsmx {	
+  SOURCES .Models .NMME	.COLA-RSMAS-CESM1 .MONTHLY .tsmx 
+  S (1 Jan 1991) (1 Dec	2020) RANGEEDGES 
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+ L 3 runningAverage 
+} defasvar
+
+
+:dataset 
+\end{ingrid} 

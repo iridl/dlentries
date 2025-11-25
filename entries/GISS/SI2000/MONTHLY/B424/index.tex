@@ -1,0 +1,476 @@
+\begin{ingrid}
+continuedataset:
+/references (Hansen_etal2002) def
+/description (GISS GCM monthly mean simulation data from the version "SI2000" with radiative forcings) def
+grid:
+/name /X def
+degE
+periodic
+-177.5 5 177.5
+:grid
+grid:
+/name /Y def
+degN
+-90 4 90
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1951 ensotime
+1
+16 Oct 1999 ensotime
+:grid
+grid:
+/name /M def
+/long_name (member) def
+/units /ids def
+values: /a /b /c /d /e
+:values
+:grid
+dataset: /name /Surface def
+/X X def
+/Y Y def
+/T T def
+/M M def
+:dataset
+dataset: /name /Ground def
+/X X def
+/Y Y def
+/T T def
+/M M def
+dataset:
+/name /combined def
+/X X def
+/Y Y def
+/T T def
+/M M def
+:dataset
+dataset:
+/name /bare def
+/X X def
+/Y Y def
+/T T def
+/M M def
+:dataset
+dataset:
+/name /vegetated def
+/X X def
+/Y Y def
+/T T def
+/M M def
+:dataset
+dataset:
+/name /root def
+/X X def
+/Y Y def
+/T T def
+/M M def
+:dataset
+:dataset
+dataset: /name /PressureLevel def
+/X X def
+/Y Y def
+/T T def
+/M M def
+grid: /name /P def
+/units (mb) def
+values: 300 500 700 850 1000
+:values
+:grid
+variable: /name /Hoffset def
+/units (m) def
+grids: P :grids
+values: 
+9500 5600 3000 1500 0
+:values
+:variable
+:dataset
+:dataset
+Surface
+/temp {
+STREAM 11 object
+/long_name (temperature) def
+/units (Celsius_scale) def
+2 SetStreamIndex* X Y M T *
+T 1 onegridcounter copyachunk
+M
+(/Data/data6/giss/SI2000/Tsurf.B424%sM12) sprintf
+copyachunk
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 20 add 2 add
+21
+PS2 .PSgetlun
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+} defasvarsilent
+/prcp {
+STREAM 11 object
+/long_name (precipitation) def
+/units (mm/day) def
+2 SetStreamIndex* X Y M T *
+T 1 onegridcounter copyachunk
+M
+(/Data/data6/giss/SI2000/Precip.B424%sM12) sprintf
+copyachunk
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 20 add 2 add
+21
+PS2 .PSgetlun
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+} defasvarsilent
+/u {
+STREAM 11 object
+/long_name (zonal velocity) def
+/units (m/s) def
+2 SetStreamIndex* X Y M T *
+T 1 onegridcounter copyachunk
+M
+(/Data/data6/giss/SI2000/Usurf.B424%sM12) sprintf
+copyachunk
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 20 add 2 add
+21
+PS2 .PSgetlun
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+} defasvarsilent
+/v {
+STREAM 11 object
+/long_name (meridional velocity) def
+/units (m/s) def
+2 SetStreamIndex* X Y M T *
+T 1 onegridcounter copyachunk
+M
+(/Data/data6/giss/SI2000/Vsurf.B424%sM12) sprintf
+copyachunk
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 20 add 2 add
+21
+PS2 .PSgetlun
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+} defasvarsilent
+/w {
+STREAM 11 object
+/long_name (wind speed) def
+/units (m/s) def
+2 SetStreamIndex* X Y M T *
+T 1 onegridcounter copyachunk
+M
+(/Data/data6/giss/SI2000/Wsurf.B424%sM12) sprintf
+copyachunk
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 20 add 2 add
+21
+PS2 .PSgetlun
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+} defasvarsilent
+/psl {
+STREAM 11 object
+/long_name (sea level pressure) def
+/units (mb) def
+/add_offset 1000. def
+2 SetStreamIndex* X Y M T *
+T 1 onegridcounter copyachunk
+M
+(/Data/data6/giss/SI2000/SeaLPr.B424%sM12) sprintf
+copyachunk
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 20 add 2 add
+21
+PS2 .PSgetlun
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+} defasvarsilent
+name exch def
+Ground
+combined
+/gwet {
+STREAM 11 object
+/long_name (ground wetness) def
+/units (percent) def
+/scale_min 0. def
+/scale_max 100. def
+/missing_value -9999. def
+2 SetStreamIndex* X Y M T *
+T 1 onegridcounter copyachunk
+M
+(/Data/data6/giss/SI2000/GWet_comp.B424%sM12) sprintf
+copyachunk
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 20 add 2 add
+21
+PS2 .PSgetlun
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+} defasvarsilent
+name exch def
+bare
+/gwet {
+STREAM 11 object
+/long_name (ground wetness) def
+/units (percent) def
+/scale_min 0. def
+/scale_max 100. def
+/missing_value -9999. def
+2 SetStreamIndex* X Y M T *
+T 1 onegridcounter copyachunk
+M
+(/Data/data6/giss/SI2000/GWet_bare.B424%sM12) sprintf
+copyachunk
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 20 add 2 add
+21
+PS2 .PSgetlun
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+} defasvarsilent
+name exch def
+vegetated
+/gwet {
+STREAM 11 object
+/long_name (ground wetness) def
+/units (percent) def
+/scale_min 0. def
+/scale_max 100. def
+/missing_value -9999. def
+2 SetStreamIndex* X Y M T *
+T 1 onegridcounter copyachunk
+M
+(/Data/data6/giss/SI2000/GWet_vege.B424%sM12) sprintf
+copyachunk
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 20 add 2 add
+21
+PS2 .PSgetlun
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+} defasvarsilent
+name exch def
+root
+/gwet {
+STREAM 11 object
+/long_name (ground wetness) def
+/units (percent) def
+/scale_min 0. def
+/scale_max 100. def
+/missing_value -9999. def
+2 SetStreamIndex* X Y M T *
+T 1 onegridcounter copyachunk
+M
+(/Data/data6/giss/SI2000/GWet_root.B424%sM12) sprintf
+copyachunk
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 20 add 2 add
+21
+PS2 .PSgetlun
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+} defasvarsilent
+name exch def
+name exch def
+PressureLevel
+/H {
+STREAM 11 object
+/long_name (height) def
+/units (m) def
+/add_offset Hoffset def
+2 SetStreamIndex* X Y P M T *
+T 1 onegridcounter copyachunk
+P (/Data/data6/giss/SI2000/H%dmb) sprintf copyachunk
+M
+(.B424%sM12) sprintf copyachunk
+sappend
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 20 add 2 add
+21
+PS2 .PSgetlun
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+} defasvarsilent
+/U {
+STREAM 11 object
+/long_name (zonal velocity) def
+/units (m/s) def
+2 SetStreamIndex* X Y 
+/P (mb) 0 180 247 338 470 635 787 894 959 8 integerarray astore NewGRID
+ M T *
+T 1 onegridcounter copyachunk
+P (/Data/data6/giss/SI2000/U%dmb) sprintf copyachunk
+M
+(.B424%sM12) sprintf copyachunk
+sappend
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 20 add 2 add
+21
+PS2 .PSgetlun
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+} defasvarsilent
+/V {
+STREAM 11 object
+/long_name (meridional velocity) def
+/units (m/s) def
+2 SetStreamIndex* X Y 
+/P (mb) 0 180 247 338 470 635 787 894 959 8 integerarray astore NewGRID
+ M T *
+T 1 onegridcounter copyachunk
+P (/Data/data6/giss/SI2000/V%dmb) sprintf copyachunk
+M
+(.B424%sM12) sprintf copyachunk
+sappend
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 20 add 2 add
+21
+PS2 .PSgetlun
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+} defasvarsilent
+/RH {
+STREAM 11 object
+/long_name (relative humidity) def
+/units (percent) def
+2 SetStreamIndex* X Y 
+/P (mb) 0 180 247 338 470 635 787 894 959 8 integerarray astore NewGRID
+ M T *
+T 1 onegridcounter copyachunk
+P (/Data/data6/giss/SI2000/RH%dmb) sprintf copyachunk
+M
+(.B424%sM12) sprintf copyachunk
+sappend
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 20 add 2 add
+21
+PS2 .PSgetlun
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+} defasvarsilent
+/temp {
+STREAM 11 object
+/long_name (temperaturey) def
+/units (Celsius_scale) def
+2 SetStreamIndex* X Y 
+/P (mb) 0 180 247 338 470 635 787 894 959 8 integerarray astore NewGRID
+ M T *
+T 1 onegridcounter copyachunk
+P (/Data/data6/giss/SI2000/T%dmb) sprintf copyachunk
+M
+(.B424%sM12) sprintf copyachunk
+sappend
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 20 add 2 add
+21
+PS2 .PSgetlun
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+} defasvarsilent
+name exch def
+\end{ingrid}
+

@@ -1,0 +1,160 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (In this dataset the Start Time designates the latest month with real observations, NOT a forecast start time at 0000 1 Jan, for example.  So, for SPI3, with a Jan start time and lead of 1, the forecast is for Feb, and there are 2 months of overlap (Dec and Jan) between SPI3 and SPI2.  For SPI3 with a Jan start time and a lead of 2, the forecast is for Mar, and there is 1 month of overlap (Jan) between SPI3 and SPI1) def
+
+dataset:
+/name (spi3) def
+
+grid:
+/name /X def
+/units (degree_east) def
+periodic
+0.0 1.0 359.0
+:grid
+
+grid:
+/name /Y def
+/units (degree_north) def
+-89.0 1.0 89.0
+:grid
+
+grid:
+/name (L) def
+/long_name (lead) def
+/units (months) def
+1 1 2
+:grid
+
+grid:
+/name (S) def
+/long_name (Start Time) def
+/units monthclimoname def
+periodic
+Jan 1. Dec
+:grid
+
+/corrSPI3 { [ X Y | L S ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/resampled/SPIcorrel.d/SPI3.d/corrSPI03_%b[S]_start_%02d[L]_lead.r4) [ S L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (spi6) def
+
+grid:
+/name /X def
+/units (degree_east) def
+periodic
+0.0 1.0 359.0
+:grid
+
+grid:
+/name /Y def
+/units (degree_north) def
+-89.0 1.0 89.0
+:grid
+
+grid:
+/name (L) def
+/long_name (lead) def
+/units (months) def
+1 1 5
+:grid
+
+grid:
+/name (S) def
+/long_name (Start Time) def
+/units monthclimoname def
+periodic
+Jan 1. Dec
+:grid
+
+/corrSPI6 { [ X Y | L S ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/resampled/SPIcorrel.d/SPI6.d/corrSPI06_%b[S]_start_%02d[L]_lead.r4) [ S L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (spi9) def
+
+grid:
+/name /X def
+/units (degree_east) def
+periodic
+0.0 1.0 359.0
+:grid
+
+grid:
+/name /Y def
+/units (degree_north) def
+-89.0 1.0 89.0
+:grid
+
+grid:
+/name (L) def
+/long_name (lead) def
+/units (months) def
+1 1 8
+:grid
+
+grid:
+/name (S) def
+/long_name (Start Time) def
+/units monthclimoname def
+periodic
+Jan 1. Dec
+:grid
+
+/corrSPI9 { [ X Y | L S ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/resampled/SPIcorrel.d/SPI9.d/corrSPI09_%b[S]_start_%02d[L]_lead.r4) [ S L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (spi12) def
+
+grid:
+/name /X def
+/units (degree_east) def
+periodic
+0.0 1.0 359.0
+:grid
+
+grid:
+/name /Y def
+/units (degree_north) def
+-89.0 1.0 89.0
+:grid
+
+grid:
+/name (L) def
+/long_name (lead) def
+/units (months) def
+1 1 11 
+:grid
+
+grid:
+/name (S) def
+/long_name (Start Time) def
+/units monthclimoname def
+periodic
+Jan 1. Dec
+:grid
+
+/corrSPI12 { [ X Y | L S ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/resampled/SPIcorrel.d/SPI12.d/corrSPI12_%b[S]_start_%02d[L]_lead.r4) [ S L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}

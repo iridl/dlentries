@@ -1,0 +1,38 @@
+\begin{ingrid}
+
+/description (Bloomberg Commodity Index) def
+
+continuedataset:
+
+datasetdefs:
+grid:
+/name /mycol def
+1 1 1
+:grid
+:datasetdefs
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+2 Jan 1990 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+31 Dec 2019 julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+:grid
+
+
+/PX_LAST {
+[mycol T | ]
+(/Data/PRISM/Finance/commodities/BCOM/dataBloomberg.tsv)
+readdatafile:
+[1 1] r*4astsv
+:readdatafile
+mycol 1 VALUE
+mycol removeGRID
+/missing_value -999 def
+/iridl:hasSemantics (iridl:price) def
+}defasvarsilent
+
+:dataset
+\end{ingrid}

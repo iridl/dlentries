@@ -1,0 +1,54 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/COADS_SLPclim.cuf {COADS_SLPclim} def
+/COADS_clim2x2.cdf {COADS_clim2x2} def
+/COADS_clim4x4.cdf {COADS_clim4x4} def
+/COADS_windclim.cuf {COADS_windclim} def
+/RSA_MOHSST5.cuf {RSA_MOHSST5} def
+/OSxbNCEP.cuf {OSxbNCEP} def
+/OSxbNCEP2.cuf {OSxbNCEP2}def
+/RSA_COADS_SLP1.cuf {RSA_COADS_SLP1}def
+/RSA_COADS_SLPold.cuf {RSA_COADS_SLPold}def
+/TGsm.cdf{TGsm}def
+/TPsm.cdf{TPsm}def
+/TPTGsm.cdf{TPTGsm}def
+/unf.cdf{unf}def
+:datasetdefs
+/description (Various datasets by Kaplan et. al) def
+/iridl:hasSemantics [(iridl:LDEO)(iriref:Kaplan_A)] def
+/EXTENDED currentobject /EXTENDED get def
+/Indices currentobject /Indices get def
+/COADS_SLPclim currentobject 1 index get def
+/COADS_clim2x2 { (/Data/data2/kaplan/COADS_clim2x2.cdf)readfile} defasvarsilent
+/COADS_clim4x4 { (/Data/data2/kaplan/COADS_clim4x4.cdf)readfile} defasvarsilent
+/COADS_windclim{(/Data/data2/kaplan/COADS_windclim.cuf)readfile} defasvarsilent
+/RSA_MOHSST5 {(/Data/data2/kaplan/RSA_MOHSST5.cuf)readfile
+/references (Kaplan_etal1998) def
+/dataset_documentation.html 3 index /RSA_MOHSST5.html get def
+}defasvarsilent
+/OSxbNCEP {(/Data/data2/kaplan/OSxbNCEP.cuf)readfile
+/references (Kaplan_etal1998 Parker_etal1994 Reynolds_Smith1994) def
+/dataset_documentation.html 3 index /OSxbNCEP.html get def
+} defasvarsilent
+/OSxbNCEP2 {(/Data/data2/kaplan/OSxbNCEP2.cuf)readfile
+/references (Kaplan_etal1998 Reynolds_Smith1994) def
+/description(Statistically homogenous concatenation of Kaplan et al [1998] OS SST and Reynolds and Smith [1994] NCEP OI analyses; the latter gets degraded to the resolution of the former) def
+ssta /long_name (SST anomaly) def
+/history  (OS extended by NCEP) def 
+name exch def
+}defasvarsilent
+/RSA_COADS_SLP1{(/Data/data2/kaplan/RSA_COADS_SLP1.cuf)readfile
+/references (Kaplan_etal2000) def
+/dataset_documentation.html 3 index /RSA_COADS_SLP1.html get def
+}defasvarsilent
+/RSA_COADS_SLPold{(/Data/data2/kaplan/RSA_COADS_SLPold.cuf)readfile
+/dataset_documentation.html 3 index /RSA_COADS_SLPold.html get def
+}defasvarsilent
+/TGsm{(/Data/data2/kaplan/TGsm.cdf)readfile}defasvarsilent
+/TPsm{(/Data/data2/kaplan/TPsm.cdf)readfile}defasvarsilent
+/TPTGsm{(/Data/data2/kaplan/TPTGsm.cdf)readfile}defasvarsilent
+/unf{(/Data/data2/kaplan/unf.cdf)readfile}defasvarsilent
+:dataset
+\end{ingrid}
+

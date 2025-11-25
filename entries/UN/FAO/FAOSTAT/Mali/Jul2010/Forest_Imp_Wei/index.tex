@@ -1,0 +1,116 @@
+\begin{ingrid}
+  continuedataset:
+    /source (<a href="http://faostat.fao.org/default.aspx">FAOSTAT</a>) def
+    grid:
+      /name (T) def
+      monthtime
+      /pointwidth 12 def
+      1 Jul 1961 ensotime
+      12
+      1 Jul 2009 ensotime
+    :grid
+    grid:
+      /name (code) def
+      /units (ids) def
+      /fullname (item code) def
+      values:
+1663
+1661
+1617
+1656
+1616
+1618
+1676
+1671
+1668
+1675
+1622
+1683
+1674
+1669
+1655
+1612
+1615
+1630
+1681
+1621
+ :values
+    :grid
+
+    variable:
+      /name /Name def
+      grids: code :grids
+      /long_name (item name) def
+      values:
+(Bleached Sulphate Pulp)
+(Bleached Sulphite Pulp)
+(Case Materials)
+(Chemical Wood Pulp)
+(Coated Papers)
+(Folding Boxboard)
+(Household+Sanitary Paper)
+(Newsprint)
+(Other Fibre Pulp)
+(Other Paper+Paperboard)
+(Other Papers Packaging)
+(Paper+Paperboard NES)
+(Printing+Writing Paper)
+(Recovered Paper)
+(Semi-Chemical Wood Pulp)
+(Uncoated Mechanical)
+(Uncoated Woodfree)
+(Wood Charcoal)
+(Wrapg+Packg Paper+Board)
+(Wrapping Papers)
+ :values
+    :variable
+
+    /Imp_Wei {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliForesImpWei.csv)
+      readdatafile:
+        ((/,(90X,49(F5.0,4X)))) formatted
+      :readdatafile
+      /long_name (forest importation weight) def
+      /units (tonne) def
+      /scale_min 0 def
+    }defasvarsilent
+
+    /Flag {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliProdAnimals.csv)
+      readdatafile:
+        ((/,(101X,48(14X,F1.0,)))) formatted
+      :readdatafile
+      /long_name (data quality) def
+      /CLIST [
+        (Official data)
+        (Unofficial figure)
+        (FAO estimate)
+        (Data not available)
+        (FAO calculated)
+        (Estimated data using trading partners database)
+        (Manual Estimation)        (Country data reported by International Organizations where the country is a member (Semi-official))
+        (Official data reported on FAO Questionnaires from countries)
+      ] def
+      startcolormap
+        /maxncolor 12 def
+        DATA 0 8 RANGE
+        white white
+        black
+        LightBlue
+        red
+        grey
+        orange
+        yellow
+        purple
+        NavyBlue
+        blue
+        white
+      endcolormap
+    }defasvarsilent
+
+  /history (FAOSTAT | © FAO Statistics Division 2010) def
+
+  :dataset
+\end{ingrid}

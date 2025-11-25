@@ -1,0 +1,33 @@
+\begin{ingrid}
+/ndb017 
+insertdataset:
+/references (Olson_etal1983) def
+/long_name (MAJOR WORLD ECOSYSTEM COMPLEXES RANKED BY CARBON IN LIVE VEGETATION) def
+/description (Major world ecosystem complexes ranked by carbon in live vegetation) def
+grid:
+/name /X def
+degE
+periodic
+-179.75 .5 179.75
+:grid
+grid:
+/name /Y def
+degN
+89.75 -.5 -89.75
+:grid
+/dataset_documentation.html descriptions  /olson.html get def
+/source (<a href="ftp://grid2.cr.usgs.gov/pub/data/datafile_descriptions/olson.ecosystem.html">Olson Vegetation Complexes</a>)def
+variable:
+/name /class def
+/long_name (land ecosystem class) def
+/units (ids) def
+grids: X Y :grids
+file:
+/name (/Data/data1/cdiac/ndb017/olson.ecosystem) def
+i*1
+:file
+:variable
+:insertdataset
+\end{ingrid}
+
+

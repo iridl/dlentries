@@ -1,0 +1,100 @@
+\begin{ingrid}
+continuedataset:
+
+link:
+/name (dataset_documentation) def
+/description (Word Document: CFSv2 Retrospecitve Forecast Calibration Climatologies) def
+/href (http://cfs.ncep.noaa.gov/cfsv2.info/CFSv2.Calibration.Data.doc) def
+:link
+
+link:
+/name (data source) def
+/description (NCEP ftp Site Hosting CFSv2 Hindcast Climatologies) def
+/href (http://cfs.ncep.noaa.gov/pub/raid1/cfsv2/climo_9mon_mmtser/) def
+:link
+
+grid:
+/name (S) def
+/long_name (Forecast Start Time) def
+/units (days since 1984-01-01 00:00:00) def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+0.0
+0.25
+366.0 0.25 sub
+%periodic
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+/standard_name (forecast_period) def
+1.5 1.0 9.5
+:grid
+
+grid:
+/name (X) def
+/units (degree_east) def
+periodic
+0.0 1.0 359.0
+/long_name (Longitude) def
+/standard_name (longitude) def
+:grid
+
+grid:
+/name (Y) def
+/units (degree_north) def
+90.0 1.0 -90.0
+/standard_name (latitude) def
+/long_name (Latitude) def
+:grid
+
+dataset:
+/name /dc8210 def
+/long_name (1982-2010 climatology) def
+/description (Climatology:  Full period) def
+
+X name exch def
+Y name exch def
+S name exch def
+L name exch def
+
+/ocnsst { [ X Y | S L ] (/Data/data23/NMME/NCEP_CFSv2.D/climo_9mon_mmtser.D/ocnsst.fclm.l%02d[LD].all.clim.1982.2010.grb2) [ L dup 0.5 sub /name /LD def] readdatafile:
+/name (ocnsst) def
+1 GRIB2record
+/long_name (sea surface temperature) def
+/standard_name (sea_surface_temperature) def
+/units (Kelvin_scale) def
+:readdatafile
+/missing_value 0. def
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name /dc9910 def
+/long_name (1999-2010 climatology) def
+/description (Climatology:  ATOVS period) def
+
+X name exch def
+Y name exch def
+S name exch def
+L name exch def
+
+/ocnsst { [ X Y | S L ] (/Data/data23/NMME/NCEP_CFSv2.D/climo_9mon_mmtser.D/ocnsst.fclm.l%02d[LD].all.clim.1999.2010.grb2) [ L dup 0.5 sub /name /LD def] readdatafile:
+/name (ocnsst) def
+1 GRIB2record
+/long_name (sea surface temperature) def
+/standard_name (sea_surface_temperature) def
+/units (Kelvin_scale) def
+:readdatafile
+/missing_value 0. def
+} defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}
+
+

@@ -1,0 +1,82 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (ELR climatological coefficients) def
+
+
+grid:
+/name /ind def
+/long_name (Coefficients Index) def
+0 2 2
+:grid
+
+/target_date 1 index .dataset  .dataset  .target_date defasvar
+
+dataset:
+/name /Precipitation def
+
+    [ S L ind ] { name exch def } forall
+
+    grid:
+        /name /X def
+        /long_name (Longitude) def
+        /units /degree_east def
+        215.5 360.0 sub 1.0 314.5 360.0 sub
+    :grid
+
+    grid:
+        /name /Y def
+        /long_name (Latitude) def
+        /units /degree_north def
+        15.5 1.0 59.5
+    :grid
+
+    /precip {
+    [ X Y last first subgrid ind L | S ]
+    (/Data/data21/iri/FD/PepsiCo/Subx_forecast/flexible_forecast/biweekly_precip_MME/Subx_USCA_precip_issue_Fri_%d_%b_%Y[S]_biweekly_clim_coeff_MMEmean.nc) [S]
+    readdatafile:
+    /name (prob) def
+    /doublearraytype netcdfrecords
+    :readdatafile
+    Y last first RANGE
+    /missing_value NaN def
+    /long_name (Precipitation Climatological Coefficients) def
+    }defasvarsilent
+:dataset
+
+dataset:
+/name /T2M def
+
+    [ S L ind ] { name exch def } forall
+
+    grid:
+        /name /X def
+        /long_name (Longitude) def
+        /units /degree_east def
+        215.0 360.0 sub 1.0 315.0 360.0 sub
+    :grid
+
+    grid:
+        /name /Y def
+        /long_name (Latitude) def
+        /units /degree_north def
+        15.0 1.0 60.0
+    :grid
+
+    /temperature {
+    [ X Y last first subgrid ind L | S ]
+    (/Data/data21/iri/FD/PepsiCo/Subx_forecast/flexible_forecast/biweekly_T2M_MME/Subx_USCA_t2m_issue_Fri_%d_%b_%Y[S]_biweekly_clim_coeff_MMEmean.nc) [S]
+    readdatafile:
+    /name (prob) def
+    /doublearraytype netcdfrecords
+    :readdatafile
+    Y last first RANGE
+    /missing_value NaN def
+    /long_name (Temperature Climatological Coefficients) def
+    }defasvarsilent
+:dataset
+
+:dataset
+
+\end{ingrid}

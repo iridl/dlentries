@@ -1,0 +1,29 @@
+\begin{ingrid}
+
+%%%  continuedataset:
+
+    /source (<a href="http://faostat.fao.org/default.aspx">FAOSTAT</a>) def
+
+/Crops {
+ home .remic .remic_SenegalProdCrop
+ extraction_rate .year
+ grid:
+    /name /T def
+    /long_name (Time) def
+    /units (months since 1960-01-01) def
+    /pointwidth 12 def
+    1 Jul 1961 ensotime
+    12
+    1 Jul 2010 ensotime
+  :grid 
+ replaceGRID
+
+/flags (* = Unofficial figure | O = Official data | A = May include official, semi-official or estimated data 
+| F = FAO estimate | Fc = Calculated data | Im = FAO data based on imputation methodology | M = Data not availab
+le) def
+}defasvar
+
+/history (FAOSTAT | © FAO Statistics Division 2012 | 24 February 2012 Updated: 23 February 2012) def
+
+%  :dataset
+\end{ingrid}

@@ -1,0 +1,84 @@
+\begin{ingrid}
+
+/long_name (IRI Forecast Products) def
+/description (IRI Forecast Products for the Precipitation Forecast in Context Map Tool) def
+
+/F SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .F def
+/last_modified F .last_modified def
+F /expires getknownnotnull { /expires exch def } if
+
+/L SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .L def
+
+continuedataset:
+
+(iri.columbia.edu/terms/forecast/1) cvn datadownloadsareRestricted
+/Cookie varies_on
+
+grid:
+/name (LG) def
+/long_name (Lag Time) def
+/units (months) def
+values: -2 :values
+:grid
+
+/forecasttime {F L 1 add add /long_name (Forecast Time) def /standard_name (time) def /pointwidth 3 def
+/bounds undef
+} defasvarsilent
+
+/observationtime { F LG add /long_name (Observation Time) def /standard_name (time) def /pointwidth 3 def } defasvarsilent
+
+/prcp_fcst { SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant
+ /long_name (Dominant Tercile Probability:  Precipitation) def
+ X -180.0 180.0 RANGEEDGES
+ Y -65.0 75.0 RANGE
+startcolormap
+DATA -100 100 RANGEEDGES
+null 100 60 0 RGB
+100 60 0 RGB RGBdup -52.5 bandmax
+200 110 0 RGB RGBdup -42.5 bandmax
+250 205 0 RGB RGBdup -37.5 bandmax
+white RGBdup -1 bandmax
+grey RGBdup 1 bandmax
+white RGBdup 37.5 bandmax
+PaleTurquoise PaleTurquoise 42.5 bandmax
+DodgerBlue DodgerBlue 52.5 bandmax
+MediumBlue MediumBlue 100 bandmax
+MediumBlue
+endcolormap
+} defasvarsilent
+
+/pic3mo_reversed { 
+ SOURCES .IRI .FD .NMME_Seasonal_Forecast .PiC .pic3mo_reversed
+ /long_name (Reversed Tendency Between Forecast and 3-Month Precipitation Observation) def
+ X -180.0 180.0 RANGEEDGES
+ Y -65.0 75.0 RANGE
+} defasvarsilent
+
+/pic3mo_same { 
+ SOURCES .IRI .FD .NMME_Seasonal_Forecast .PiC .pic3mo_same 
+ /long_name (Same Tendency in Forecast and 3-Month Precipitation Observation) def
+ X -180.0 180.0 RANGEEDGES
+ Y -65.0 75.0 RANGE
+} defasvarsilent
+
+/extreme_prcp_fcst { SOURCES .IRI .FD .Seasonal_Forecast .Extreme_Precipitation .dominant
+ /long_name (Probability of Extreme Precipitation) def
+ X -180.0 180.0 RANGEEDGES
+ Y -65.0 75.0 RANGE
+ startcolormap
+ DATA -100 100 RANGEEDGES
+ white 100 60 0 RGB
+ 100 60 0 RGB RGBdup -50 bandmax
+ 200 110 0 RGB RGBdup -40 bandmax
+ 250 205 0 RGB RGBdup -25 bandmax
+ transparent transparent 25 bandmax
+ PaleTurquoise PaleTurquoise 40 bandmax
+ DodgerBlue DodgerBlue 50 bandmax
+ MediumBlue MediumBlue 100 bandmax
+ MediumBlue 100 VALUE
+ white
+ endcolormap
+} defasvarsilent
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,118 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+
+/prcp_dailyrate_max100_smooth {
+  startcolormap
+    0.0 100.0 RANGE
+    LightGrey white white
+       0.0 VALUE
+       LightCyan
+        2.0 VALUE
+        SkyBlue
+         4.0 VALUE
+         DodgerBlue
+          9.0 VALUE
+          MediumBlue
+           16.0 VALUE
+           DarkSeaGreen
+            25.0 VALUE
+            MediumSeaGreen
+             33.0 VALUE
+             LightSeaGreen
+              50.0 VALUE
+              khaki
+               67.0 VALUE
+               SandyBrown
+                83.0 VALUE
+                firebrick 100.0 VALUE
+                firebrick endcolormap
+} defcolorscale
+
+:datasetdefs
+
+ /creator_name (Pete Peterson) def
+ /creator_email (pete@geog.ucsb.edu) def
+ /title (CHIRPS Version 2.0) def
+ /documentation (http://pubs.usgs.gov/ds/832/) def
+ /version (Version 2.0) def
+ /website (https://www.chc.ucsb.edu/data/chirps/) def
+ /acknowledgements (The Climate Hazards Group InfraRed Precipitation with Stations development process was carried out through U.S. Geological Survey (USGS) cooperative agreement #G09AC000001 "Monitoring and Forecasting Climate, Water and Land Use for Food Production in the Developing World" with funding from: U.S. Agency for International Development Office of Food for Peace, award #AID-FFP-P-10-00002 for "Famine Early Warning Systems Network Support," the National Aeronautics and Space Administration Applied Sciences Program, Decisions award #NN10AN26I for "A Land Data Assimilation System for Famine Early Warning," SERVIR award #NNH12AU22I for "A Long Time-Series Indicator of Agricultural Drought for the Greater Horn of Africa," The National Oceanic and Atmospheric Administration award NA11OAR4310151 for "A Global Standardized Precipitation Index supporting the US Drought Portal and the Famine Early Warning System Network," and the USGS Land Change Science Program.) def
+ /reference (Funk, C.C., Peterson, P.J., Landsfeld, M.F., Pedreros, D.H., Verdin, J.P., Rowland, J.D., Romero, B.E., Husak, G.J., Michaelsen, J.C., and Verdin, A.P., 2014, A quasi-global precipitation time series for drought monitoring: U.S. Geological Survey Data Series 832, 4 p., http://dx.doi.org/110.3133/ds832. ) def
+ /date_created (2015-02-20) def
+ /history (created by Climate Hazards Center) def
+ /faq (http://chg-wiki.geog.ucsb.edu/wiki/CHIRPS_FAQ) def
+ /ftp_url (ftp://ftp.chc.ucsb.edu/pub/org/chc/products/CHIRPS-2.0) def
+ /institution (Climate Hazards Center.  University of California at Santa Barbara) def
+
+link:
+/name (source) def
+/href (ftp://ftp.chc.ucsb.edu/pub/org/chc/products/CHIRPS-2.0/global_daily/tifs/p05/) def
+:link
+
+link:
+/name (USGS Data Series 832) def
+/description (Reference paper PDF) def
+/href (http://pubs.usgs.gov/ds/832/) def
+:link
+
+link:
+/name (CHIRPS Home Page) def
+/description (CHIRPS page at UCSB Climate Hazards Center) def
+/href (https://www.chc.ucsb.edu/data/chirps/) def
+:link
+
+/note (There is an improved temporal downscaling procedure for estimating the final daily CHIRPS.  The previous daily data will be supported through the end of 2015. Since CHIRPS pentads and monthly remain unchanged there will be no change in the CHIRPS version number. This is not a new version of CHIRPS, it is an improvement on the temporal downscaling to daily estimates.  The Problem:  When temporally downscaling CHIRPS to daily maps, there are many locations with significant residuals.  (Residual here is the difference between monthly CHIRPS and the sum of daily CHIRPS for that month) In fact for over 80 percent of the locations with residuals, the residual was 100 percent of the monthly CHIRPS. These are places where the daily CCD fails, often due to warm precipitation.  The Solution:  Add an extra step to distribute the monthly precipitation to across days in the month only for pixels where the monthly residual is > 1 mm.  The first challenge was to decide the appropriate number of days of precipitation for a given month. We used the locations with zero residual to derive a relationship between total monthly CHIRPS and number of rain days.  Now, using the total residual and number of rain days, we use the highest N values of daily CHIRP for the month to proportionally distribute the monthly total across those days.) def
+
+grid:
+/name /X def
+degE
+periodic
+-179.975 0.05 179.975
+:grid
+
+grid:
+/name /Y def
+degN
+49.975 0.05 -49.975
+:grid
+
+grid:
+/name /T def
+/standard_name (time) def
+/units (julian_day) def
+1 Jan 1981 julian_day
+1.0
+systemtime systemtime2ymd pop 1 ymd2rjt 
+:grid
+
+T { (/Data/data23/UCSB/CHIRPS/v2p0/daily-improved/p05/%Y[T]/chirps-v2.0.%Y[T].%m[T].%d[T].tif) [T]} removeextrausing
+name exch def
+
+T 
+/expires last rjt2ymd ymd:nextmonth ymd:nextmonth ymd2systemtime def
+   name exch def
+   /expires T .expires def
+   /last_modified T .last_modified def
+
+ T /defaultvalue {last} def pop
+\end{ingrid}
+\begin{ingrid}
+/prcp {
+ [X Y | T ]
+(/Data/data23/UCSB/CHIRPS/v2p0/daily-improved/p05/%Y[T]/chirps-v2.0.%Y[T].%m[T].%d[T].tif) [T] readdatafile:
+/realarraytype tiffimage
+/long_name (precipitation) def
+/standard_name (lwe_precipitation_rate) def
+/missing_value -9999. def
+/units (mm/day) def
+      :readdatafile
+prcp_dailyrate_max100_smooth
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+/references (Funk_etal2014) def
+
+:dataset
+\end{ingrid}

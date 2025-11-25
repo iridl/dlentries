@@ -1,0 +1,116 @@
+<INGRID>datasetdocumentationheader</INGRID>
+<p>
+<br>
+<i>The following information is from the readme_ftp.txt file available at the CIESIN website.</i>
+<br><p>
+
+Created 20 April 2000<br>
+Updated 1 May 2000<br>
+Updated 11 November 2000<br>
+Updated 13 February 2001<br>
+Updated 29 March 2001
+<br>
+<h3>Gridded Population of the World, Version 2 (GPW)</h3>
+<p>
+Contents:
+<p>
+DESCRIPTION<br>
+CITATION<br>
+NOTES FOR ARCVIEW USERS<br>
+DATA RESTRICTIONS<br>
+DATA ERRORS, CORRECTIONS AND QUALITY ASSESSMENT<br>
+NO WARRANTY OR LIABILITY<br>
+<p>
+
+DESCRIPTION
+<p>
+This ftp archive contains the final release of CIESIN, the International Food
+Policy Research Institute and the World Resources Institute's Gridded Population of
+the World, Version 2 (GPW) data product.  Documentation for these data is
+available on the GPW web site at:
+<p>
+<a href="http://sedac.ciesin.columbia.edu/plue/gpw/">http://sedac.ciesin.columbia.edu/plue/gpw/</a>
+<p>
+This is the final release of the GPW product. If you should discover any
+problems or errors, please inform us at:
+<p><address>
+gpw@ciesin.columbia.edu
+</address>
+<p>
+The archive contains grid for the world, continental breakdowns and individual
+countries as zipped individual ArcInfo interchange files and tarred Band
+Interleaved by Line (BIL) formats.  The BIL format grids have been
+rounded to the nearest whole number and are stored in integer format while
+the ArcInfo interchange files store floating point (decimal) values. The grids
+are contained by region on CIESIN's ftp site (ftp.ciesin.columbia.edu) in
+subdirectories as follows:
+<p><pre>
+pub/gpw/global		Grids for the World
+pub/gpw/africa		Grids for Africa
+pub/gpw/asia		Grids for Asia
+pub/gpw/europe		Grids for Europe
+pub/gpw/n_america 	Grids for North America
+pub/gpw/oceania		Grids for Oceania
+pub/gpw/s_america 	Grids for South America
+</pre>
+<p>
+See the file n_convention.txt on the ftp site in /pub/gpw/ for details on 
+the naming conventions of the grids.
+<p>
+Ancillary data are available in pub/gpw/ancillary/ and low resolution versions
+of the grids are available in /pub/gpw/lowres/
+<p>
+CITATION
+<p>
+We recommend the following for citing the database:
+<p>
+Center for International Earth Science Information Network (CIESIN), Columbia
+Policy Research Institute (IFPRI); and World
+(GPW), Versionitute (WRI). 2000. Gridded Population of the World
+2. Palisades, NY: CIESIN, Columbia University. Available at
+<a href="http://sedac.ciesin.columbia.edu/plue/gpw">http://sedac.ciesin.columbia.edu/plue/gpw</a>.
+<p>
+NOTES FOR ARCVIEW USERS
+<p>
+The ArcInfo interchange files on the ftp server can be converted to 
+grids using ESRI's Import71 utility.  However, this utility is much slower at 
+creating the global and continental grids than the ArcInfo import command.  
+Downloading the BIL format data and converting them to grids using ArcView's 
+'Convert to Grid' option is a quicker way to access the grids.
+<p>
+There seems to be a bug in arcview which prevents the correct display of
+some grids in a view or a layout according to the legend.  The bug
+affects grids with a range greater than 1-1,000,000 for floating point grids  
+and 1-100,000 for integer grids.  The grid values are correct but the colors
+are not the ones in the legend.  The workaround around is to reclass the 
+grid into the classes that you want to draw (as long as you don't want > 
+100,000 colors on your map!).  
+<p>
+DATA RESTRICTIONS
+<p>
+These data are for noncommercial use only. No third party distribution of all, 
+or parts, of the electronic files is authorized. Additionally, due to 
+restrictions on the input data for China, the data from the China portion of 
+GPW v2 are restricted to scientific research use only. The data used in the 
+creation of this product were provided to CIESIN by the organizations identified
+in the source data table (available via <a href="http://sedac.ciesin.columbia.edu/plue/gpw/">http://sedac.ciesin.columbia.edu/plue/gpw/</a>).
+<p>
+No third party distribution of all, or parts, of the electronic files is 
+authorized. The data used in the creation of GPW were provided to CIESIN by 
+the organizations identified in the source data.
+<p>
+DATA ERRORS, CORRECTIONS AND QUALITY ASSESSMENT
+<p>
+CIESIN follows procedures designed to ensure that data disseminated by CIESIN 
+are of reasonable quality. If, despite these procedures, users encounter 
+apparent errors or misstatements in the data, they should contact CIESIN 
+Customer Services at 914/365-8920 or via Internet e-mail at 
+ciesin.info@ciesin.org. Neither CIESIN nor NASA verifies or guarantees the 
+accuracy, reliability, or completeness of any data provided.
+<p>
+NO WARRANTY OR LIABILITY
+<p>
+CIESIN provides this data without any warranty of any kind whatsoever, either 
+express or implied. CIESIN shall not be liable for incidental, consequential, 
+or special damages arising out of the use of any data provided by CIESIN.
+<INGRID>datasetdocumentationtrailer</INGRID>

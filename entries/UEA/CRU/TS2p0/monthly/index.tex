@@ -1,0 +1,235 @@
+\begin{ingrid}
+%/CRU05Access RestrictAccess
+/CRU05Access datadownloadsareIRIonlyPassword
+continuedataset:
+grid:
+/name /X def
+degE
+periodic
+-179.75 0.5 179.75
+:grid
+grid:
+/name /Y def
+degN
+-89.75 0.5 89.75
+:grid
+grid:
+/name /T def
+/units (monthtime) def
+16 Jan 1901 ensotime
+1
+16 Dec 2002 ensotime
+:grid
+
+dataset: 
+/name /mean def
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /temp def
+/long_name (temperature) def
+/units (Celsius_scale) def
+/scale_factor 0.1 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.tmp.i2) def
+i*2
+:file
+:variable
+:dataset
+
+dataset: 
+/name /minimum def
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /temp def
+/long_name (temperature) def
+/units (Celsius_scale) def
+/scale_factor 0.1 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.tmn.i2) def
+i*2
+:file
+:variable
+:dataset
+
+dataset: 
+/name /maximum def
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /temp def
+/long_name (temperature) def
+/units (Celsius_scale) def
+/scale_factor 0.1 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.tmx.i2) def
+i*2
+:file
+:variable
+:dataset
+
+dataset:
+/name (stations) def
+/long_name (number of stations within range of grid box) def
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /cloud def
+/long_name (percent cloud cover) def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.10_1901-2002.cld.stn.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /dtr def
+/long_name (diurnal temperature range) def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.10_1901-2002.dtr.stn.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /prcp def
+/long_name (precipitation) def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.10_1901-2002.pre.stn.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /temp def
+/long_name (temperature) def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.10_1901-2002.tmp.stn.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /vap def
+/long_name (vapor pressure) def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.10_1901-2002.vap.stn.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /wet def
+/long_name (wet day frequency) def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.10_1901-2002.wet.stn.i2) def
+i*2
+:file
+:variable
+:dataset
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /prcp def
+/long_name (precipitation) def
+/units (mm/month) def
+/scale_factor 0.1 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.pre.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /cloud def
+/long_name (percent cloud cover) def
+/units (percent) def
+/scale_factor 0.1 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.cld.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /dtr def
+/long_name (diurnal temperature range) def
+/units (Celsius_scale) def
+/scale_factor 0.1 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.dtr.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /frost def
+/long_name (frost day frequency) def
+/units (days/month) def
+/scale_factor 0.01 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.frs.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /vap def
+/long_name (vapor pressure) def
+/units (hPa) def
+/scale_factor 0.1 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.vap.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /wet def
+/long_name (wet day frequency) def
+/units (days/month) def
+/scale_factor 0.01 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.wet.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y :grids
+/missing_value -999 def
+/name /elev def
+/long_name (elevation) def
+/units (km) def
+/scale_factor 0.001 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/halfdeg.elv.i2) def
+i*2
+:file
+:variable
+:dataset
+
+%/references (Mitchell, T.D., Carter, T.R., Jones, P.D., Hulme,M., New, M., 2003: A comprehensive set of high-resolution grids of monthly climate for Europe and the globe: the observed record [1901-2000] and 16 scenarios [2001-2100]. Journal of Climate: submitted.) def
+\end{ingrid}

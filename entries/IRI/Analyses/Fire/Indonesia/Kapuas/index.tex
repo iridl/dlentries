@@ -1,0 +1,91 @@
+\begin{ingrid}
+continuedataset:
+/description (Fire risk data for Kapuas) def
+
+grid: /name /X def 
+/units /degreeE def
+113.525896 to 114.784860 N= 4647 pts 
+:grid 
+
+grid: /name /Y def 
+/units /degreeN def
+-0.517303
+to
+-3.436465
+ N= 10775 pts 
+:grid 
+
+/risk {
+ [X Y |] (/Data/data7/iri/indonesia/kapuas/firerisk/Reclass_bil1.bil) readdatafile:
+      /long_name (Fire Risk) def
+      /missing_value  -9  def
+      /units (ids) def
+      ui*1 :readdatafile
+/scale_min 1 def
+/scale_max 3 def
+startcolormap
+/maxncolor 6 def
+DATA 1 3 RANGE
+white white
+247 237 38 RGB
+221 109 38 RGB
+213 37 37 RGB
+white endcolormap
+/CLIST [
+(low)
+(medium)
+(high) ] def
+
+} defasvarsilent
+
+ dataset:
+/name /CMA def
+/description (Three-class model of fire vulnerability in Kapuas district determined from Composite Mapping Analysis (CMA)) def
+
+grid: /name /X def 
+/units /degreeE def
+112.59096155 
+0.00012617
+115.68073868 
+%npts 24490
+:grid 
+
+grid: /name /Y def 
+/units /degreeN def
+-0.19411545
+0.00012617
+-3.70302932
+%npts 27812
+:grid 
+
+/vulnerability {
+ [ X Y | ] (/Data/data7/iri/indonesia/kapuas/firevuln/Reclass_firevuln_tif31.bil) readdatafile:
+%[ X Y | ] (/data/mbell/dldata/indonesia.d/ccrom.d/kapuas_fire_risk.d/griddedversion.d/bilfile.d/Reclass_firevuln_tif31.bil) readdatafile:
+      /long_name (fire vulnerability) def
+      /missing_value 127 def
+      /units (ids) def
+      ui*1 :readdatafile
+/valid_min 1 def
+/valid_max 3 def
+/scale_min 1 def
+/scale_max 3 def
+startcolormap
+/maxncolor 6 def
+DATA 1 3 RANGE
+white white
+247 237 38 RGB
+221 109 38 RGB
+213 37 37 RGB
+white endcolormap
+/CLIST [
+(Low)
+(Medium)
+(High) ] def
+} defasvarsilent
+
+
+ :dataset
+
+:dataset
+\end{ingrid}
+

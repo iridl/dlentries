@@ -1,0 +1,46 @@
+\begin{ingrid}
+continuedataset:
+
+link:
+/name (source) def
+/href (ftp://ftp.cpc.ncep.noaa.gov/NMME/obs/) def
+:link
+
+grid:
+/name /X def
+/long_name (longitude) def
+/standard_name (longitude) def
+periodic
+0.0 1.0 359.0
+/units (degree_east) def
+:grid
+
+grid:
+/name /Y def
+/long_name (latitude) def
+/standard_name (latitude) def
+-90.0 1.0 90.0
+/units (degree_north) def
+:grid
+
+grid:
+/name /T def
+/long_name (time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+16 Jan 1982 ensotime
+1.0
+16 Dec 2014 ensotime
+:grid
+
+/t2m { [ X Y | T ] (/Data/data23/NMME/Obs.D/t2m.1x1.dat) readdatafile:
+/name (t2m) def
+/units (Celsius_scale) def
+/long_name (GHCN+CAMS 2 m temperature (land only)) def
+/standard_name (air_temperature) def
+/missing_value -999.0 def
+decdirect :readdatafile
+} defasvarsilent 
+
+:dataset
+\end{ingrid}

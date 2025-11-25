@@ -1,0 +1,101 @@
+\begin{ingrid}
+
+/description (East Africa IPC gridded 2009-2021) def
+
+continuedataset:
+
+datasetdefs:
+
+grid:
+  /name /T15 def
+  /units (monthtime) def
+  /defaultvalue {last}def
+  /long_name (Time) def
+  /pointwidth 1 def
+  16 Jul 2009 ensotime
+  3
+  16 Oct 2015 ensotime
+:grid
+
+grid:
+  /name /T16 def
+  /units (monthtime) def
+  /defaultvalue {last}def
+  /long_name (Time) def
+  /pointwidth 1 def
+  16 Feb 2016 ensotime
+  4
+  16 Jun 2021 ensotime
+:grid
+
+:datasetdefs
+
+/T
+T15 /name /T def T16 /name /T def
+appendgrid
+def
+
+grid:
+  /name /X def
+  /units /degree_east def
+  20 0.01 55
+  /long_name (Longitude) def
+:grid
+
+grid:
+  /name /Y def
+  /units /degree_north def
+  -7 0.01 25
+  /long_name (Latitude) def
+:grid
+
+
+/ipc{
+	SOURCES .IPC .CurSit .EAF
+	mark exch
+
+	{.name} { name /label eq  {
+          pop SOURCES .WORLDBATH .bath
+        	X 20 0.01 55 GRID
+        	Y -7 0.01 25 GRID
+        	                  }if
+
+        	name /the_geom eq {
+          0.01 geometrytoposimplify
+          rasterize
+          0.0 maskle
+          [gid] weighted-average
+
+        	/CLIST undef
+        	/units /unitless def
+        	startcolormap
+        	DATA 1 5 RANGE
+        	transparent LightCyan LightCyan 1 VALUE yellow 2 VALUE orange 3 VALUE red 4 VALUE brown 5 VALUE brown
+        	endcolormap
+
+        	exch
+        	/name exch def    }if
+          }foralldatasets2
+
+  counttomark
+  1 sub
+  ds
+  nip
+  {}{.name}foralldatasets2
+  counttomark
+  1 sub
+  array astore
+  grouptogrid
+  nip
+
+  M
+  T
+  replaceGRID
+
+  /long_name (Integrated Phase Classification Gridded) def
+
+}defasvarcachesilent
+
+
+:dataset
+\end{ingrid}

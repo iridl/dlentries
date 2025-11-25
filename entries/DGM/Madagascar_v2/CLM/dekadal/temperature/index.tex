@@ -1,0 +1,89 @@
+
+\begin{ingrid}
+% First statement for Ingrid
+
+% New dataset
+continuedataset:
+
+% Time Grid
+datasetdefs:
+/T
+1 Jan 1961 julian_day
+30 Jun 2015 julian_day
+dekadGRID
+/defaultvalue {last} def
+def
+:datasetdefs
+
+% Latitude Grid
+grid:
+/name /Y def
+/units (degree_north) def
+/long_name (Latitude) def
+-25.9875 0.0375 dup 373.0 mul 2 index add
+%-25.9875 0.0375 -12.
+:grid
+
+% Longitude Grid
+grid:
+/name /X def
+/units (degree_east) def
+/long_name (Longitude) def
+42. 0.0375 dup 266.0 mul 2 index add
+%42. 0.0375 51.975
+:grid
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% tmax Temperatures Grid
+/tmax{
+[X Y | T]
+(/Data/data23/madagascar_v2/CLM/dekadal/temperature/tmax/tmax_mrg_%Y[T]%m[T]%d[dekad]_CLM.nc)
+[T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+
+readdatafile:
+/missing_value -99. def
+/units /DegC def
+/name (temp) def
+/fullname (Maximum Temperature - Reanalysis merged with station) def
+/long_name (Maximum Temperature) def
+/realarraytype netcdfrecords
+:readdatafile
+}defasvarsilent
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+% tmin Temperatures Grid
+/tmin{
+[X Y | T]
+(/Data/data23/madagascar_v2/CLM/dekadal/temperature/tmin/tmin_mrg_%Y[T]%m[T]%d[dekad]_CLM.nc)
+[T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+
+
+readdatafile:
+/missing_value -99. def
+/units /DegC def
+/name (temp) def
+/fullname (Minimum Temperature - Reanalysis merged with station) def
+/long_name (Minimum Temperature) def
+/realarraytype netcdfrecords
+:readdatafile
+}defasvarsilent
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Mean Temperatures
+
+/tmean {
+tmax
+tmin
+add
+2.0 div
+/long_name (Mean Temperature) def
+} defasvarcachesilent
+
+
+:dataset
+\end{ingrid}
+

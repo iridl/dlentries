@@ -1,0 +1,41 @@
+\begin{ingrid}
+
+continuedataset:
+
+/cabaseline_full {
+   home .mbell .wasp_functions .CMAP-latest_WASP12
+  X -30 55 RANGEEDGES
+  Y -40 40 RANGEEDGES
+    X -29.75 0.5 54.75 GRID
+    Y -39.75 0.5 39.75 GRID
+     [X Y]REORDER
+     T /Baseline renameGRID
+     Baseline
+	 /pointwidth 12 def
+         /long_name (Month of the year baseline starts) def
+ pop
+%    dup
+home .mbell .MDG .Africa .queriesCMAPlatest .countryquery .the_geom
+%rasterize
+[X Y]weighted-average
+   home .mbell .wasp_functions .CMAP-latest_WASP12
+      X 0 VALUE
+      Y 0 VALUE
+      0 mul
+      add
+     Baseline dup
+       (pointwidth) 1.0 def
+       replaceGRID
+     Baseline 12 splitstreamgrid
+     Baseline -5.5 shiftGRID
+     Baseline /long_name (Month of the year baseline starts) def
+ pop
+     Baseline2 -5.5 shiftGRID
+     Baseline2 (BaseYears) renameGRID
+     /long_name (Country-Average CMAP 12-Month WASP Baseline) def
+     /fullname (Country-Average CMAP 12-Month WASP Baseline) def
+} defasvarsilent
+
+:dataset
+
+\end{ingrid}

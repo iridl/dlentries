@@ -1,0 +1,55 @@
+\begin{ingrid}
+dataset:
+/description (Australian river flow data) def
+/name /River def
+/iridl:hasSemantics (iridl:LDEO) def
+/references (Simpson_elal1993) def
+grid:
+/name /T def
+monthtime
+1 Jul 1891 ensotime
+12
+1 Jul 1990 ensotime
+:grid
+dataset:
+/name /Flow def
+dataset:
+/name /Australia def
+file:
+/missing_value -999. def
+grids:  [/MUDANat /DANat /MUDAAct /DAAct /MUNat /MUAct] T :grids
+/name (/Data/data1/rivers/australia/Qupdate.ch) def
+formatted
+/format ((1x//((23x,6F24.0)))) def
+variable: 
+/name /MUDANat def
+/long_name (Murray to South Australia (Natural)) def
+:variable
+variable:
+/name /DANat def
+/long_name (Darling (Natural)) def
+:variable
+variable:
+/name /MUDAAct def
+/long_name (Murray to South Australia (Actual)) def
+:variable
+variable:
+/name /DAAct def
+/long_name (Darling (Actual)) def
+:variable
+variable:
+/name /MUNat def
+/long_name (Murray (Natural)) def
+:variable
+variable:
+/name /MUAct def
+/long_name (Murray (Actual)) def
+:variable
+:file
+[ MUDANat DANat MUDAAct DAAct MUNat MUAct ]
+{name exch /fullname [ allnames pop long_name ] def def} forall
+
+:dataset
+:dataset
+:dataset
+\end{ingrid}

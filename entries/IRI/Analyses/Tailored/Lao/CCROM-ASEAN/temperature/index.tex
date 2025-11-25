@@ -1,0 +1,154 @@
+\begin{ingrid}
+
+continuedataset:
+
+/CCROM-ASEAN dataareRestricted
+
+/historical {
+ SOURCES .CCROM .Lao .stations
+  T (1980)
+    /YearStart parameter
+    (2010)
+     /YearEnd parameter
+     RANGEEDGES
+  (MinTemp)
+   /seasonalStat parameter
+   (PerDA) eq
+   {a: .Tmin dataflag :a: .Tmax dataflag :a mul }if
+  (1)
+   /DayStart parameter
+   ( ) append
+   (Jan)
+    /seasonStart parameter
+    append
+   ( - ) append
+   (31)
+    /DayEnd parameter
+    append
+   ( ) append
+   (Jan)
+    /seasonEnd parameter
+    append
+   (0)
+    /hotThreshold parameter
+    interp
+    (0.5)
+     /minFrac parameter
+     interp
+     (MinTemp)
+      /seasonalStat parameter
+      (MinTemp) eq
+      {nip 3 -1 roll .Tmin T 4 -2 roll seasonalAverage}if
+  /seasonalStat get_parameter
+   (MaxTemp) eq
+   {nip 3 -1 roll .Tmax T 4 -2 roll seasonalAverage}if
+  /seasonalStat get_parameter
+   (HDD) eq
+   {4 -1 roll a: .Tmax :a: .Tmin :a add 2.0 div 3 -1 roll sub 0 maskge abs 3 -2 roll flexseastotZeroFill -1 replaceNaN}if
+  /seasonalStat get_parameter
+   (NumCD) eq
+   {4 -1 roll .Tmin 4 -3 roll flexseasonalfreqLT}if
+  /seasonalStat get_parameter
+   (NumHD) eq
+   {4 -1 roll .Tmax 4 -3 roll flexseasonalfreqGT}if
+  /seasonalStat get_parameter
+   (PerDA) eq
+   {pop pop T exch 0.0 seasonalAverage}if
+  /seasonalStat get_parameter
+   (PerDA) eq
+   {[T]average (percent) unitconvert /long_name (Availability) def rainbowcolorscale DATA 0 100 RANGE}
+{
+  (Mean)
+   /yearlyStat parameter
+   (Mean) eq
+   {[T]average /seasonalStat get_parameter (MinTemp) eq { /long_name (Minimum Temperature) def temp_colors /scale_symmetric false def DATA AUTO AUTO RANGE}if /seasonalStat get_parameter (MaxTemp) eq { /long_name (Maximum Temperature) def temp_colors /scale_symmetric false def DATA AUTO AUTO RANGE}if /seasonalStat get_parameter (HDD) eq { /long_name (Heating Degree Days) def}if /seasonalStat get_parameter dup (NumCD) eq exch (NumHD) eq or { /long_name (count) def wetday_freq_colors DATA 0 null RANGE}if}if
+  /yearlyStat get_parameter
+   (StdDev) eq
+   {dup dataflag[T]sum dup 1.0 sub div sqrt exch[T]0.0 rmsaover mul /seasonalStat get_parameter (MinTemp) eq { /long_name (Minimum Temperature) def std_anomaly_colors DATA 0 null RANGE}if /seasonalStat get_parameter (MaxTemp) eq { /long_name (Maximum Temperature) def std_anomaly_colors DATA 0 null RANGE}if /seasonalStat get_parameter (HDD) eq { /long_name (Heating Degree Days) def DATA 0 null RANGE}if /seasonalStat get_parameter dup (NumCD) eq exch (NumHD) eq or { /long_name (count) def wetday_freq_colors DATA 0 null RANGE}if
+   Infinity maskge
+   }if
+  /yearlyStat get_parameter
+   (CoV) eq
+   {  dup
+   [T]rmsaover
+   exch
+   [T]average
+   div
+/seasonalStat get_parameter (MinTemp) eq { /long_name (Minimum Temperature) def}if
+/seasonalStat get_parameter (MaxTemp) eq { /long_name (Maximum Temperature) def}if
+/seasonalStat get_parameter (HDD) eq { /long_name (Heating Degree Days) def}if
+/seasonalStat get_parameter dup (NumCD) eq exch (NumHD) eq or { /long_name (count) def}if
+  /percent unitconvert
+  /scale_symmetric false def
+  startcolormap DATA
+    0 400 RANGE
+    transparent black navy
+       0 VALUE
+       navy navy
+         10 bandmax
+         blue blue
+           25 bandmax
+           DeepSkyBlue DeepSkyBlue
+             50 bandmax
+             aquamarine aquamarine
+               75 bandmax
+               PaleGreen PaleGreen
+                 90 bandmax
+                 moccasin moccasin
+                   120 bandmax
+                   yellow yellow 150
+                     bandmax
+                     DarkOrange DarkOrange 200
+                     bandmax
+                     red red 250
+                     bandmax
+                     DarkRed DarkRed 300
+                     bandmax
+                     brown brown 400
+                     bandmax
+                     brown endcolormap}if
+/yearlyStat get_parameter (RbyP) eq {
+  [T]0.1 0.25 0.75 0.9 0 replacebypercentile
+/seasonalStat get_parameter (MinTemp) eq { /long_name (Minimum Temperature) def}if
+/seasonalStat get_parameter (MaxTemp) eq { /long_name (Maximum Temperature) def}if
+/seasonalStat get_parameter (HDD) eq { /long_name (Heating Degree Days) def
+DATA 0 null RANGE
+}if
+/seasonalStat get_parameter dup (NumCD) eq exch (NumHD) eq or { /long_name (count) def
+wetday_freq_colors DATA 0 null RANGE
+}if
+}if
+  /yearlyStat get_parameter
+   (PoE) eq
+   {DATA /seasonalStat get_parameter dup (MinTemp) eq exch (MaxTemp) eq or {-40 40 0.1}if /seasonalStat get_parameter (HDD) eq {0 1000 1}if /seasonalStat get_parameter dup (NumCD) eq exch (NumHD) eq or {0 300 1}if RANGESTEP /name /aprod def[Station]distrib1D dup 0.0[aprod]integrate aprod last VALUE aprod removeGRID div /name (pdf) def DATA null null RANGE 0.0[aprod]integrate /name (pdf) def DATA 0 0.02 0.17 0.5 0.83 0.98 1.0001 VALUES -1 mul 1 add aprod /seasonalStat get_parameter (MinTemp) eq { (0) /probExcThresh1 parameter interp}if /seasonalStat get_parameter (MaxTemp) eq { (0) /probExcThresh2 parameter interp}if /seasonalStat get_parameter (HDD) eq { (100) /probExcThresh3 parameter interp}if /seasonalStat get_parameter (NumCD) eq { (30) /probExcThresh4 parameter interp}if /seasonalStat get_parameter (NumHD) eq { (30) /probExcThresh5 parameter interp}if VALUE (percent) unitconvert /long_name (Probability) def correlationcolorscale DATA 0 100 RANGE}if
+}ifelse
+}defasvar
+
+/lon {
+ SOURCES .CCROM .Lao .stations
+.lon
+}defasvar
+
+/lat {
+ SOURCES .CCROM .Lao .stations
+.lat
+}defasvar
+
+/location {
+ SOURCES .CCROM .Lao .stations
+.location
+}defasvar
+
+/label {
+ SOURCES .CCROM .Lao .stations
+.label
+}defasvar
+
+:dataset
+
+/Station
+SOURCES .CCROM .Lao .stations
+.Station
+def
+
+\end{ingrid}

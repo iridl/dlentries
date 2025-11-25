@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>SSST = Scenario SST anomalies</title>
+</head>
+<INGRID>standardHeader</INGRID>
+<h2>SSST = Scenario SST anomalies</h2>
+ The anomalous SST fields include more than one
+scenario for the SST anomalies predicted in at least one ocean basin. This
+design began in June 2004, when three possible SST scenarios were defined
+for the tropical Pacific SST, each representing the prediction from one of
+three SST prediction tools: (1) the NCEP coupled model, (2) the Lamont-
+Doherty Earth Observatory (LDEO) simple coupled model, and (3) the NCEP/
+Climate Prediction Center's constructed analogue statistical model.
+<p>
+For each atmospheric model, an ensemble of runs is forced with each SST
+scenario.
+<p>
+The benefit of the multiple scenario design is that uncertainty in the SST
+prediction is included explicitly. Uncertainty in the future seasonal climate
+now includes both uncertainty in the initial climate state and uncertainty
+in the evolution of the bourndary forcing (i.e. SSTs).
+<p>
+The method of defining and using multiple SST scenarios may evolve over time.
+<p>
+
+Beginning June 2004, the following numbers of ensemble members are produced
+by each of the several AGCMs used in the multi-model ensemble:
+<pre>
+                  SSST              PSST
+            Scen1 Scen2 Scen3
+
+Echam4.5       8     8     8        24
+
+NCEP          10    10    10
+
+Scripps        4     4     4        10
+
+NSIPP          4     4     4
+
+COLA          10    10    10
+</pre>
+<h4>Internal Note</h4>
+In the naming of files representing the AGCM ensemble runs, for models
+other than Echam4.5, 6 digits are now used instead of 5 digits. For
+Echam4.5, 9 digits are still used, as has been the case. When the
+first digit is 2, the PSST scenario is used. When it is 3, the former
+"ASST" scenario is used. For the new multiple scenario SST forecasts
+(SSST), the first digit is 4. In the case of SSST, files representing
+members coming from any one of the multiple SST scenarios are
+distinguishable: The first one-third of the ensemble members are forced
+by the NCEP coupled model SST prediction, the second one-third of the members by the LDEO simple coupled model SST prediction, and the third
+one-third by the CPC constructed analogue SST prediction.
+</body>
+</html>

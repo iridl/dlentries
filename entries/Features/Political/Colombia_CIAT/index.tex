@@ -1,0 +1,47 @@
+\begin{ingrid}
+continuedataset:
+/description (CIAT provided admin boundaries) def
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /States def
+/adm1_name
+{ IRIDB (colombia_states_union) (adm1_name) [(adm1_code)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (colombia_states_union) (the_geom) [(adm1_code)]open_column_by
+}defasvarsilentnoreuse
+/label {
+IRIDB (colombia_states_union) ((adm1_name || ', Colombia') as label) [(adm1_code)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Municipalities def
+/adm2_name
+{ IRIDB (colombia_muni_union) (adm2_name) [(adm2_code)]open_column_by
+}defasvarsilentnoreuse
+/adm1_name
+{ IRIDB (colombia_muni_union) (adm1_name) [(adm2_code)]open_column_by
+}defasvarsilentnoreuse
+/adm1_code
+{ IRIDB (colombia_muni_union) (adm1_code) [(adm2_code)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (colombia_muni_union) (the_geom) [(adm2_code)]open_column_by
+}defasvarsilentnoreuse
+/label {
+IRIDB (colombia_muni_union) ((adm2_name ||', ' || adm1_name || ', Colombia') as label) [(adm2_code)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+States adm1_name .adm1_code name exch put
+Municipalities adm2_name .adm2_code name exch put
+\end{ingrid}
+
+

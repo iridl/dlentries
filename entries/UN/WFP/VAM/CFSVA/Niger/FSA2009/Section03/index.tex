@@ -1,0 +1,125 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9741
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 289
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_rapid_FSAdec_2009.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Élevage) def
+/Q18 {
+mytable
+myquestion 
+27 VALUE
+ myquestion removeGRID
+/long_name (Q18 : Le ménage possède t-il des animaux (y compris la volai)) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q18A1 {
+mytable
+myquestion 
+28 VALUE
+ myquestion removeGRID
+/long_name (Q18a : Si oui, combien pour les espèces suivantes ? Bovins) def 
+}defasvarsilent
+
+/Q18A2 {
+mytable
+myquestion 
+29 VALUE
+ myquestion removeGRID
+/long_name (Q18a : Si oui, combien pour les espèces suivantes ? Ovins) def 
+}defasvarsilent
+
+/Q18A3 {
+mytable
+myquestion 
+30 VALUE
+ myquestion removeGRID
+/long_name (Q18a : Si oui, combien pour les espèces suivantes ? Caprins) def 
+}defasvarsilent
+
+/Q18A4 {
+mytable
+myquestion 
+31 VALUE
+ myquestion removeGRID
+/long_name (Q18a : Si oui, combien pour les espèces suivantes ? Camelins) def 
+}defasvarsilent
+
+/Q18A5 {
+mytable
+myquestion 
+32 VALUE
+ myquestion removeGRID
+/long_name (Q18a : Si oui, combien pour les espèces suivantes ? Asins) def 
+}defasvarsilent
+
+/Q18A6 {
+mytable
+myquestion 
+33 VALUE
+ myquestion removeGRID
+/long_name (Q18a : Si oui, combien pour les espèces suivantes ? Equins) def 
+}defasvarsilent
+
+/Q18A7 {
+mytable
+myquestion 
+34 VALUE
+ myquestion removeGRID
+/long_name (Q18a : Si oui, combien pour les espèces suivantes ? Poulets) def 
+}defasvarsilent
+
+/Q18A8 {
+mytable
+myquestion 
+35 VALUE
+ myquestion removeGRID
+/long_name (Q18a : Si oui, combien pour les espèces suivantes ? Pintades) def 
+}defasvarsilent
+
+/Q18A9 {
+mytable
+myquestion 
+36 VALUE
+ myquestion removeGRID
+/long_name (Q18a : Si oui, combien pour les espèces suivantes ? Canards) def 
+}defasvarsilent
+
+/Q18A10 {
+mytable
+myquestion 
+37 VALUE
+ myquestion removeGRID
+/long_name (Q18a : Si oui, combien pour les espèces suivantes ? Pigeons) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

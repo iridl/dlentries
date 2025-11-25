@@ -1,0 +1,417 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/Tlast2filename
+{
+last 12 mod floor cvi
+[ (jan) (feb) (mar) (apr) (may)(jun)(jul)(aug)(sep)(oct)(nov)(dec) ]
+exch get (/Data/data1/iri/forecast/data/echam4/longrun/post/24/EC4AMIP24_)
+exch append
+last 12 idiv floor cvi 1960 add s== append
+} def
+/removeextratime
+{
+Tlast2filename
+dup fileexists? 
+{deflastmod}
+{ pop first secondtolast subgrid
+removeextratime} ifelse
+} def
+grid: 
+/name /Z def
+/units (mb) def
+values:
+1000 925 850 775 700 600 500 450 400 350 300 250 200 150 100 50 25
+:values
+:grid
+:datasetdefs
+grid:
+/name /X def
+degE
+periodic
+0 2.8125  360 1 index sub
+:grid
+64 gaussianlat high low subgrid name exch def
+grid: 
+/name /P def
+/long_name (Pressure) def
+/units (mb) def
+values:
+1000 925 850 775 700 600 500 450 400 350 300 250 200 150 100 50 25
+:values
+:grid
+grid:
+/name /M def
+/long_name (member) def
+/units (ids) def
+1 1 85
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1950 ensotime
+1.
+16 Sep 2003 ensotime
+% 16 Dec 2003 ensotime % missing data starting in Oct 2003 (see Note below)
+:grid
+\end{ingrid}
+\begin{ingrid}
+variable:
+/name /dirname def
+grids: M :grids
+values:
+(ReProcess_Original24.D/IriLong1.D)
+(ReProcess_Original24.D/IriLong2.D)
+(ReProcess_Original24.D/IriLong3.D)
+(ReProcess_Original24.D/IriLong4.D)
+(ReProcess_Original24.D/IriLong5.D)
+(ReProcess_Original24.D/IriLong6.D)
+(ReProcess_Original24.D/IriLong7.D)
+(ReProcess_Original24.D/IriLong8.D)
+(ReProcess_Original24.D/IriLong9.D)
+(ReProcess_Original24.D/IriLong10.D)
+(ReProcess_Original24.D/IriLong11.D)
+(ReProcess_Original24.D/IriLong12.D)
+(ReProcess_Original24.D/IriLong13.D)
+(ReProcess_Original24.D/IriLong14.D)
+(ReProcess_Original24.D/IriLong15.D)
+(ReProcess_Original24.D/IriLong16.D)
+(ReProcess_Original24.D/IriLong17.D)
+(ReProcess_Original24.D/IriLong18.D)
+(ReProcess_Original24.D/IriLong19.D)
+(ReProcess_Original24.D/IriLong20.D)
+(ReProcess_Original24.D/IriLong21.D)
+(ReProcess_Original24.D/IriLong22.D)
+(ReProcess_Original24.D/IriLong23.D)
+(ReProcess_Original24.D/IriLong24.D)
+(IriLong1a.D)
+(IriLong2a.D)
+(IriLong3a.D)
+(IriLong4a.D)
+(IriLong5a.D)
+(IriLong6a.D)
+(IriLong7a.D)
+(IriLong8a.D)
+(IriLong9a.D)
+(IriLong10a.D)
+(IriLong11a.D)
+(IriLong12a.D)
+(IriLong13a.D)
+(IriLong14a.D)
+(IriLong15a.D)
+(IriLong16a.D)
+(IriLong17a.D)
+(IriLong18a.D)
+(IriLong19a.D)
+(IriLong20a.D)
+(IriLong21a.D)
+(IriLong22a.D)
+(IriLong23a.D)
+(IriLong24a.D)
+(IriLong1b.D)
+(IriLong2b.D)
+(IriLong3b.D)
+(IriLong4b.D)
+(IriLong5b.D)
+(IriLong6b.D)
+(IriLong7b.D)
+(IriLong8b.D)
+(IriLong9b.D)
+(IriLong10b.D)
+(IriLong11b.D)
+(IriLong12b.D)
+(IriLong13b.D)
+(IriLong14b.D)
+(IriLong15b.D)
+(IriLong16b.D)
+(IriLong17b.D)
+(IriLong18b.D)
+(IriLong19b.D)
+(IriLong20b.D)
+(IriLong21b.D)
+(IriLong22b.D)
+(IriLong23b.D)
+(IriLong24b.D)
+(IriLong1c.D)
+(IriLong2c.D)
+(IriLong3c.D)
+(IriLong4c.D)
+(IriLong5c.D)
+(IriLong6c.D)
+(IriLong7c.D)
+(IriLong8c.D)
+(IriLong9c.D)
+(IriLong10c.D)
+(IriLong11c.D)
+(IriLong12c.D)
+(IriLong13c.D)
+:values
+:variable
+  [X
+    Y | 
+/NVZ 116 NewIntegerGRID
+    M T] (/Data/data1/iri/forecast/forecast_usr/ECHAM4_3.23.D/EXP.D/LongRun1.D/%s[dirname]/echamcout.%s[lcmon]) [M T dirname T
+          (%b%Y) strftimes
+          tolower
+          /name /lcmon def
+          ]readdatafile:
+decsequential % M 1-24
+%sequential % M 25-85
+:readdatafile
+definevariables:
+0 Zvariable:
+/name /sh def
+/long_name (surface sensible heat flux) def
+/units (W/m2) def
+/gribparam 146 def
+:Zvariable
+0 Zvariable:
+/name /lh def
+/long_name (surface latent heat flux) def
+/units (W/m2) def
+/gribparam 147 def
+:Zvariable
+0 Zvariable:
+/name /slp def
+/long_name (sea level pressure) def
+/units (Pa) def
+/gribparam 151 def
+:Zvariable
+0 Zvariable:
+/name /cld def
+/long_name (total cloud cover) def
+/gribparam 164 def
+:Zvariable
+0 Zvariable:
+/name /t2m def
+/long_name (temperature at 2m) def
+/gribparam 167 def
+/units (Kelvin_scale) def
+:Zvariable
+0 Zvariable:
+/name /st def
+/long_name (surface Temperature) def
+/units (Kelvin_scale) def
+/gribparam 169 def
+:Zvariable
+0 Zvariable:
+/name /nswg def
+/long_name (net shortwave at ground) def
+/units (W/m2) def
+/gribparam 176 def
+:Zvariable
+0 Zvariable:
+/name /nlwg def
+/long_name (net longwave at ground) def
+/units (W/m2) def
+/gribparam 177 def
+:Zvariable
+0 Zvariable:
+/name /nswt def
+/long_name (net shortwave at top) def
+/units (W/m2) def
+/gribparam 178 def
+:Zvariable
+0 Zvariable:
+/name /olr def
+/long_name (outgoing longwave radiation) def
+/units (W/m2) def
+/gribparam 179 def
+:Zvariable
+0 Zvariable:
+/name /taux def
+/long_name (surface zonal wind stress) def
+/units (Newton/m2) def
+/gribparam 180 def
+:Zvariable
+0 Zvariable:
+/name /tauy def
+/long_name (surface meridional wind stress) def
+/units (Newton/m2) def
+/gribparam 181 def
+:Zvariable
+0 Zvariable:
+/name /evap def
+/long_name (evaporation) def
+/units (m/s) def
+/gribparam 182 def
+:Zvariable
+0 Zvariable:
+/name /prcp def
+/long_name (Total Precipitation) def
+/units (m/s) def
+:Zvariable
+17 Zvariable:
+/name /tmp def
+/long_name (temperature) def
+/units (Kelvin_scale) def
+/gribparam 130 def
+:Zvariable
+17 Zvariable:
+/name /u def
+/long_name (zonal velocity) def
+/units (m/s) def
+/gribparam 131 def
+:Zvariable
+17 Zvariable:
+/name /v def
+/long_name (meridional velocity) def
+/units (m/s) def
+/gribparam 132 def
+:Zvariable
+17 Zvariable:
+/name /q def
+/long_name (specific humidity) def
+/units (kg/kg) def
+/scale_min 0 def
+/gribparam 133 def
+:Zvariable
+17 Zvariable:
+/name /omg def
+/long_name (vertical pressure velocity) def
+/gribparam 135 def
+/units (Pa/s) def
+:Zvariable
+17 Zvariable:
+/name /zg def
+/long_name (geopotential height) def
+/units (gpm) def
+/gribparam 156 def
+:Zvariable
+:definevariables
+\end{ingrid}
+Restructures dataset
+\begin{ingrid}
+:dataset
+continuedataset:
+datasetdefs:
+:datasetdefs
+/X X def
+/Y Y def
+/P P def
+/M M def
+/T T def
+dataset:
+/name /surface def
+/taux { dataset .taux} defasvarcachesilent
+/tauy { dataset .tauy} defasvarcachesilent
+/evs { dataset .evap} defasvarcachesilent
+/olr { dataset .olr} defasvarcachesilent
+/stemp { dataset .st} defasvarcachesilent
+/slp { dataset .slp} defasvarcachesilent
+/hfls { dataset .lh} defasvarcachesilent
+/hfss { dataset .sh} defasvarcachesilent
+/prcp { dataset .prcp} defasvarcachesilent
+/cld { dataset .cld} defasvarcachesilent
+dataset:
+/name /net def
+/swflx { dataset .dataset .nswg} defasvarcachesilent
+/lwflx { dataset .dataset .nlwg} defasvarcachesilent
+:dataset
+:dataset
+dataset:
+/name /top def
+dataset:
+/name /net def
+/swflx { dataset .dataset .nswt} defasvarcachesilent
+:dataset
+:dataset
+dataset:
+/name /above_ground def
+/t2m { dataset .t2m} defasvarcachesilent
+:dataset
+dataset:
+/name /PressureLevel-SF def
+/long_name (Pressure Level: Smoothed and Filled) def
+/phi { dataset .zg Z /P renameGRID} defasvarcachesilent 
+/omega { dataset .omg Z /P renameGRID} defasvarcachesilent 
+/hus { dataset .q Z /P renameGRID} defasvarcachesilent
+/ua { dataset .u Z /P renameGRID} defasvarcachesilent 
+/va { dataset .v Z /P renameGRID} defasvarcachesilent 
+/ta { dataset .tmp Z /P renameGRID} defasvarcachesilent 
+:dataset
+\end{ingrid}
+\begin{ingrid}
+/griblist.html {(griblist)htmlprint} def
+/note (When using the data, please include the acknowledgement: The computing for this project was provided (or partially provided) by a grant from the NCAR CSL program to the IRI) def
+:dataset
+\end{ingrid}
+
+
+DSET  ^echamcout.%mc%y4
+UNDEF  -999.0
+TITLE ECHAM4.5 AMIP2a
+options template sequential big_endian yrev
+**headerbytes 8
+*
+XDEF 128 LINEAR  0.0 2.8125
+*
+YDEF 64 LEVELS -87.86 -85.10 -82.31 -79.53 -76.74 -73.95 -71.16 -68.37
+ -65.58 -62.79 -60.00 -57.21 -54.42 -51.63 -48.84 -46.04 -43.25 -40.46
+ -37.67 -34.88 -32.09 -29.30 -26.51 -23.72 -20.93 -18.14 -15.35 -12.56
+ -9.77  -6.98  -4.19  -1.40   1.40   4.19   6.98   9.77  12.56  15.35
+ 18.14  20.93  23.72  26.51  29.30  32.09  34.88  37.67  40.46  43.25
+ 46.04  48.84  51.63  54.42  57.21  60.00  62.79  65.58  68.37  71.16
+ 73.95  76.74  79.53  82.31  85.10  87.86
+*
+ZDEF 17 LEVELS 1000 925 850 775 700 600 500 450 400 350 300 250 200 150 100 50 25
+*
+TDEF  4 LINEAR may1977 1mon
+*
+VARS 20
+sh 0 99   surface sensible heat flux watts/sq meter
+lh 0 99   surface latent heat flux watts/sq meter
+slp 0 99  sea level pressure pascals
+cld 0 99  total cloud cover
+t2m 0 99  temperature at 2m Kelvin
+st  0 99  surface temperature
+nswg 0 99 net shortwave at ground watts/sq meter
+nlwg 0 99 net longwave at ground watts/sq meter
+nswt 0 99 net shortwave at toa watts/sq meter
+olr  0 99 olr watts/sq meter
+taux 0 99 surface zonal wind stress newton/ sq meter
+tauy 0 99 surface meridional wind stress newton/ sq meter
+evap 0 99 evaporation meters/second
+prec 0 99 total precipitation
+tmp 17 99 temperature
+u 17 99 zonal velocity meters/second
+v 17 99 meridional velocity meters/second
+q 17 99 specific humidity kg/kg
+omg 17 99 vertical pressure velocity
+gz  17 99 geopotential height
+endvars
+
+
+
+
+Notes on missing data
+
+From: Lisa Goddard [mailto:goddard@iri.columbia.edu]
+Sent: Wednesday, April 26, 2006 9:17 AM
+To: Vincent MORON
+Cc: Benno Blumenthal
+Subject: Re: added info about the 85 members
+
+ 
+
+Dear Vincent,
+
+ The missing numbers are because those months were not run.
+So, there's not much that can be done at this point.
+We should just fix the data library (documentation, at least) to reflect the fact that
+data is only complete though Sept 2003.
+
+Thanks for the reminder about this.
+ Lisa
+
+Vincent MORON wrote:
+
+Lisa
+
+ 
+
+The NaN are systematically located in the last months of the integration. The worst case is for run 73 where Oct-Dec 2003 are set as missing values, run 74-79 have November-December 2003 as missing values and run 49-72 have missing value in December 2003 only. I verified also directly on web site and it seems that missing values are observed everywhere for this field for these months. It seems also to affect other surface fileds (I didn t check for altitude).
+
+ 
+
+Ciao

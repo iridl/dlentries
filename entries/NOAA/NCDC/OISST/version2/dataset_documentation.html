@@ -1,0 +1,78 @@
+<INGRID>datasetdocumentationheader</INGRID>
+<h1>NOAA Optimum Interpolation 1/4 Degree Daily Sea Surface Temperature 
+Analysis, Version 2</h1>
+<p>
+<i>The following documentation is taken from the "Overview" page describing the Daily Optimal Interpolation Sea Surface Temperature dataset at the NCDC website:  <a href="http://www.ncdc.noaa.gov/oa/climate/research/sst/description.php">http://www.ncdc.noaa.gov/oa/climate/research/sst/description.php</a></i>
+<p>
+Two new high resolution sea surface temperature (SST) analysis products have been developed using optimum interpolation (OI). The analyses have a spatial grid resolution of 0.25 deg. and temporal resolution of 1 day. One product uses Advanced Very High Resolution Radiometer (AVHRR) infrared satellite SST data. The other uses AVHRR and Advanced Microwave Scanning Radiometer (AMSR) on the NASA Earth Observing System satellite SST data. Both products also use in situ data from ships and buoys and include a large-scale adjustment of satellite biases with respect to the in situ data. Two products are needed because there is an increase in signal variance when AMSR became available in June 2002 due to its near all-weather coverage. For both products, the results show improved spatial and temporal resolution compared to previous weekly 1 . OI I analyses. 
+<p>
+The AVHRR-only product uses Pathfinder AVHRR data (currently available from September 1981 through December 2005) and operational AVHRR data for 2006 onwards. Pathfinder AVHRR was chosen, when available, because it agrees better with the in situ data. The AMSR+AVHRR product begins with the start of AMSR data in June 2002. In this product, the primary AVHRR contribution is in regions near land where AMSR is not available. However, in cloud-free regions, use of both infrared and microwave instruments can reduce systematic biases because their error characteristics are independent. A description of the OI analysis can be found in Reynolds, R. W., T. M. Smith, C. Liu, D. B. Chelton, K. S. Casey and M. G. Schlax, 2007: <a href="http://www.ncdc.noaa.gov/oa/climate/research/sst/papers/daily-sst.pdf">Daily High-resolution Blended Analyses for sea surface temperature.</a>  J. Climate, 20, 5473-5496.
+<p>
+<hr>
+<p>
+<i>The following information is from the <a href="http://www.ncdc.noaa.gov/oa/climate/research/sst/griddata.php">Gridded Data</a> page associated with the OISST version2 dataset pages at NCDC:</i>
+<p>
+<h2>Gridded Data via FTP</h2>
+<p>
+We recommended that you <a href="http://www.ncdc.noaa.gov/oa/climate/research/sst/registration.php">register</a>. In that case, we can notify you by e-mail if there are updates.
+<p>
+<a href="ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/README">README</a> is in all directories. Please see <a href="ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/README">README</a> for more details.
+<p>
+The analysis has been upgraded on 2008/11/12 to version 2.
+<p>
+For questions about the differrence between OISST version 1 and version 2, Please read <a href="http://www.ncdc.noaa.gov/oa/climate/research/sst/papers/whats-new-v2.pdf">What's New in Version 2</a>
+<p>
+Each file contains 4 fields for each day. The fields are: Daily sea surface temperature(SST), SST anomaly, estimated error standard deviation of analysed_sst, and sea ice concentration. There is also a land sea mask for each format.
+<p>
+The 1/4 degree AMSR+AVHRR or AVHRR only Daily OI SST are available in NetCDF format in:
+<a href="ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/NetCDF/">ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/NetCDF</a>
+<p>
+The 1/4 degree AMSR+AVHRR or AVHRR only Daily OI SST are available in IEEE files in:
+<a href="ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/IEEE/">ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/IEEE</a>
+<p>
+<h2>Gridded Data via NOMADS</h2>
+<p>
+The data are also available via NOMADS. You can get data through TDS: <a href="http://nomads.ncdc.noaa.gov/thredds/catalog/oisst/oisstDatasets.html">NCDC NOMADS THREDDS Data Server</a>
+This will let you download the daily SST.
+<p>
+You can also plot and extract the data using the <a href="http://nomads.ncdc.noaa.gov/las/getUI.do">NCDC NOMADS LAS Server</a>
+click choose dataset button
+select NOAA Optimum Interpolation Sea Surface Temperatures
+select AVHRR or AVHRR+AMSR
+select the dataset variable(s).
+There are several options in LAS. For example "MAPS (latitude-longitude)" gives spatial gridded or plotted values at a specified time, "LINE PLOTS" gives a time series at a spatial point, and "HOFMULLER PLOTS".
+Input the latitude, longitude, and time, you can plot or extract the temperatures for a space and time range. 
+
+<p>
+<hr>
+<p>
+<i>The following information is from the <a href="ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/README">README</a> file associated with the OISST version 2 dataset:</i>
+<p>
+DESCRIPTION OF THE DAILY OI SEA SURFACE TEMPERATURE (SST) ANALYSIS version2
+<p>
+A description of the complete analysis procedure can be found in 
+the paper by Reynolds et. al 2006: Daily High-resolution Blended Analyses. 
+(<a href="ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/daily-sst.pdf">ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/daily-sst.pdf</a>).
+<p>
+The SST analysis is computed daily on a 0.25 degree latitude/longitude
+grid. This is version 1.0. There are two products with different
+satellite data. Both products use in situ data from ships and buoys.
+Also SSTs are generated for sea-ice concentrations above 50%.
+<p>
+The SST analyses are available in individual daily files.
+They are available in both NetCDF and IEEE binary (big-endian) format.
+The data and README for each format are under the
+following directories:
+<p>
+ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/IEEE/<br>
+ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/NetCDF/<br>
+ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/NetCDF-uncompress/<br>
+<p>
+The files in the NetCDF directory are compressed by gzip.
+The files in the NetCDF-uncompress directory are uncompressed.
+<p>
+Each file contains 4 fields for each day. The fields are: 
+Daily sea surface temperature(SST), SST anomaly, estimated error 
+standard deviation of analysed_sst, and sea ice concentration. 
+There is also a land sea mask for each format.
+<INGRID>datasetdocumentationtrailer</INGRID>

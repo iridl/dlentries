@@ -1,0 +1,65 @@
+\begin{ingrid}
+
+continuedataset:
+
+(iri.columbia.edu/terms/forecast/1) cvn datadownloadsareRestricted
+/Cookie varies_on
+
+
+/description (ELR climatological coefficients) def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+0 1 359
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+-90.0 1 90.0
+:grid
+
+grid:
+/name /ind def
+/long_name (Coefficients Index) def
+0 2 2  
+:grid
+
+/L
+SOURCES .IRI .FD .SubC .ELR_Forecast .weekly_t2m .ELR_coeffs .GEFSv12 .L
+def
+
+/S
+SOURCES .IRI .FD .SubC .ELR_Forecast .weekly_t2m .ELR_coeffs .GEFSv12 .S
+def
+
+S { (/crunch/c10/jingyuan/Subx_forecast/Subx_flexible_forecast/Subx_flexible_weekly_T2M_ELR_forecast/GEFSv12/Subx_global_t2m_issue_Fri_%d_%b_%Y[S]_weekly_clim_coeff.nc) [S] } removeextrausing
+   name exch def
+
+S
+/expires
+S last 6 add cvsunits nip interp exch 0.5 add 4 -2 roll exch pop ymd2systemtime
+def
+name exch def
+
+/expires S .expires def
+
+/temperature {
+[ X Y last first subgrid ind L | S ]
+(/crunch/c10/jingyuan/Subx_forecast/Subx_flexible_forecast/Subx_flexible_weekly_T2M_ELR_forecast/GEFSv12/Subx_global_t2m_issue_Fri_%d_%b_%Y[S]_weekly_clim_coeff.nc) [S]
+readdatafile:
+/name (prob) def
+/doublearraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/missing_value NaN def
+/long_name (Temperature Climatological Coefficients) def
+}defasvarsilent
+
+
+:dataset
+
+\end{ingrid}

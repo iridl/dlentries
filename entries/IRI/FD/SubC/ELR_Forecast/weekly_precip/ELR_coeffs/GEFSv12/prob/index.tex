@@ -1,0 +1,77 @@
+\begin{ingrid}
+
+continuedataset:
+
+(iri.columbia.edu/terms/forecast/1) cvn datadownloadsareRestricted
+/Cookie varies_on
+
+/description (Derived Probabilities) def
+
+/precip_clim {
+SOURCES .IRI .FD .SubC .ELR_Forecast .weekly_precip .ELR_coeffs .GEFSv12
+  .paramclim .precip
+   a:
+     ind 2 VALUE
+     ind removeGRID
+     :a:
+      ind 0 VALUE
+      ind removeGRID
+      :a
+    grid:
+      /name (percentile) def
+      /long_name (Historical Percentile) def
+      0.05 0.05 0.95 :grid
+     dup
+      -1.0 mul
+      1.0 add
+      div
+     ln exch sub
+    exch div
+   dup dataflag
+    1 masklt
+    exch
+    0.0 max
+    mul
+/units /mm def
+/long_name (Historical Precipitation) def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvar
+
+/pne{
+precip_clim
+SOURCES .IRI .FD .SubC .ELR_Forecast .weekly_precip .ELR_coeffs .GEFSv12
+   a: .paramfcst2 .precip
+    a:
+      ind 2 VALUE
+      ind removeGRID
+      :a:
+       ind 0 VALUE
+       ind removeGRID
+       :a:
+        ind 1 VALUE
+        ind removeGRID
+        :a
+      :a: .fcstmean .precip :a mul
+      add
+     3 -2 roll
+     mul
+    add
+   eexp
+   dup
+    1. add
+    div
+   DATA 0 1 RANGE
+  /long_name (Probability of Non Exceeding) def
+}defasvar
+
+:dataset
+
+precip_clim .percentile name exch def
+precip_clim .X name exch def
+precip_clim .Y name exch def
+precip_clim .L name exch def
+precip_clim .S name exch def
+
+\end{ingrid}
+

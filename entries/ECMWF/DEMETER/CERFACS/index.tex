@@ -1,0 +1,468 @@
+\begin{ingrid}
+/description (Hindcasts from the CERFACS coupled model for the DEMETER Project) def
+/long_name (CERFACS) def
+
+/zonal_wind{
+(/beluga/data/datag/DEMETER/CERFACS_u.nc) readCDF
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1980 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+levelist /P renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+u
+[X Y P M L S]REORDER
+3 RECHUNK
+name exch def
+
+.u
+P high low RANGE
+} defasvarsilent
+
+/meridional_wind{
+(/beluga/data/datag/DEMETER/CERFACS_v.nc) readCDF
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1980 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+levelist /P renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+v
+[X Y P M L S]REORDER
+3 RECHUNK
+name exch def
+
+.v
+P high low RANGE
+} defasvarsilent
+
+/phi{
+(/beluga/data/datag/DEMETER/CERFACS_gzall.nc) readCDF
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1980 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+levelist /P renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+z
+[X Y P M L S]REORDER
+3 RECHUNK
+name exch def
+
+.z
+P high low RANGE
+} defasvarsilent
+
+/temp{
+(/beluga/data/datag/DEMETER/CERFACS_tall.nc) readCDF
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1980 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+levelist /P renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+t
+[X Y P M L S]REORDER
+3 RECHUNK
+name exch def
+
+.t
+P high low RANGE
+} defasvarsilent
+
+/tp{
+(/beluga/data/datag/DEMETER/CERFACS_pcp.nc) readCDF
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1980 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+tp
+[X Y M L S]REORDER
+2 RECHUNK
+name exch def
+
+.tp
+} defasvarsilent
+
+
+/t2m{
+(/beluga/data/datag/DEMETER/CERFACS_t2m.nc) readCDF
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1980 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+p2m_t
+[X Y M L S]REORDER
+2 RECHUNK
+name exch def
+
+.p2m_t
+} defasvarsilent
+
+/q {
+(/beluga/data/datag/DEMETER/CERFACS_q.nc) readCDF
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1980 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+levelist /P renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+q
+[X Y P M L S]REORDER
+3 RECHUNK
+name exch def
+
+.q
+P high low RANGE
+} defasvarsilent
+
+/u10m {
+(/beluga/data/datag/DEMETER/CERFACS_u10m.nc) readCDF
+.p10m_u
+date
+grid:
+/units (monthtime) def
+/name /S def
+1 Feb 1980 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number
+grid:
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y M L S]REORDER
+2 RECHUNK
+} defasvarsilent
+
+/v10m {
+(/beluga/data/datag/DEMETER/CERFACS_v10m.nc) readCDF
+.p10m_v
+date
+grid:
+/units (monthtime) def
+/name /S def
+1 Feb 1980 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number
+grid:
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y M L S]REORDER
+2 RECHUNK
+} defasvarsilent
+
+/mslp {
+(/beluga/data/datag/DEMETER/CERFACS_mslp.nc) readCDF
+.msl
+date
+grid:
+/units (monthtime) def
+/name /S def
+1 Feb 1980 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number
+grid:
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y M L S]REORDER
+2 RECHUNK
+} defasvarsilent
+
+/soiltemp {
+(/beluga/data/datag/DEMETER/CERFACS_soiltemp.nc) readCDF
+.st_stl1
+date
+grid:
+/units (monthtime) def
+/name /S def
+1 Feb 1980 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number
+grid:
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y M L S]REORDER
+2 RECHUNK
+} defasvarsilent
+
+temp .streamgridarray { name exch def } forall
+\end{ingrid}
+
+
+
+
+
+
+
+
+
+
+
+

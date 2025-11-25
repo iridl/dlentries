@@ -1,0 +1,518 @@
+\begin{ingrid}
+continuedataset:
+/description (Hourly and daily weather observations from Black Rock Forest) def
+/iridl:hasSemantics (iridl:BRF) def
+/OL_Hourly {
+%	/long_name (Open Lowland Station Hourly Observations) def
+	db:
+		/server IRIDB def
+		/dbname (grover) def
+	:db
+	(select * from brf_ol_all order by time) (time) openqueryby
+	time
+		(days since 1995-01-01 00:00:00) setunits
+		/pointwidth 0.041666667 def
+	pop	
+	barpresavg
+		/long_name (Average Barometric Pressure) def
+		/units (hPa) def
+        CopyStream
+	name exch def
+	barpresmax
+		/long_name (Maximum Barometric Pressure) def
+		/units (hPa) def
+        CopyStream
+	name exch def
+	barpresmin
+		/long_name (Minimum Barometric Pressure) def
+		/units (hPa) def
+		/missing_value [-0.071 99 100 101 102] def
+        CopyStream
+	name exch def
+	battvolt
+		/long_name (Battary Voltage) def
+		/units (volts) def
+		/missing_value -799 def
+        CopyStream
+	name exch def
+	co2
+		/long_name (Percent CO2) def
+		/units (percent) def
+        CopyStream
+	name exch def
+	dewptavg
+		/long_name (Average Dew Point) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	gsravg
+		/long_name (NG Solar Radiation) def
+		/units (W/m2) def
+        CopyStream
+	name exch def
+	partot
+		/long_name (Photosynthetically-Active Radiation) def
+		/units (PPFD) def
+		/note (Photosynthetic Photon Flux Density (PPFD): photons in the 400 to 700 nm waveband/s/m2) def
+        CopyStream
+	name exch def
+	raintot
+		/long_name (Precipitation Accumulation) def
+		/units (mm) def
+        CopyStream
+	name exch def
+	rhavg
+		/long_name (Average Relative Humidity) def
+		/units (percent) def
+        CopyStream
+	name exch def
+	rhmax
+		/long_name (Maximum Relative Humidity) def
+		/units (percent) def
+        CopyStream
+	name exch def
+	rhmin
+		/long_name (Minimum Relative Humidity) def
+		/units (percent) def
+        CopyStream
+	name exch def
+	stemp100avg
+		/long_name (Soil Temperature 100 cm) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	stemp10avg
+		/long_name (Soil Temperature 10 cm) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	stemp20avg
+		/long_name (Soil Temperature 20 cm) def
+		/units (Celsius_scale) def
+		/missing_value -99999 def
+        CopyStream
+	name exch def
+	tempavg
+		/long_name (Average Temperature) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	tempmax
+		/long_name (Maximum Temperature) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	tempmin
+		/long_name (Minimum Temperature) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	vappresavg
+		/long_name (Average Vapor Pressure) def
+		/units (kPa) def
+        CopyStream
+	name exch def
+	wdird1
+		/long_name (Wind Direction) def
+		/units (degree) def
+        CopyStream
+	name exch def
+	wdirsd1
+		/long_name (Wind Direction Std Dev) def
+		/units (degree) def
+        CopyStream
+	name exch def
+	wspd
+		/long_name (Wind Speed) def
+		/units (m/s) def
+		/missing_value 195.5 def
+        CopyStream
+	name exch def
+	wspdmax
+		/long_name (Maximum Wind Speed) def
+		/units (m/s) def
+        CopyStream
+	name exch def
+} defasvarcache
+
+/RT_Hourly {
+	db:
+		/server IRIDB def
+		/dbname (grover) def
+	:db
+	(select * from brf_rt_all order by time) (time) openqueryby
+	time
+		(days since 1995-01-01 00:00:00) setunits
+		/pointwidth 0.041666667 def
+	pop	
+	barpresavg
+		/long_name (Average Barometric Pressure) def
+		/units (hPa) def
+		/missing_value 0 def
+        CopyStream
+	name exch def
+	barpresmax
+		/long_name (Maximum Barometric Pressure) def
+		/units (hPa) def
+        CopyStream
+	name exch def
+	barpresmin
+		/long_name (Minimum Barometric Pressure) def
+		/units (hPa) def
+		/missing_value -6999 def
+        CopyStream
+	name exch def
+	battvolt
+		/long_name (Battary Voltage) def
+		/units (volts) def
+        CopyStream
+	name exch def
+	dewptavg
+		/long_name (Average Dew Point) def
+		/units (Celsius_scale) def
+		/missing_value -440.4 def
+        CopyStream
+	name exch def
+	gsravg
+		/long_name (NG Solar Radiation) def
+		/units (W/m2) def
+        CopyStream
+	name exch def
+	partot
+		/long_name (Photosynthetically-Active Radiation) def
+		/units (PPFD) def
+		/note (Photosynthetic Photon Flux Density (PPFD): photons in the 400 to 700 nm waveband/s/m2) def
+		/missing_value 99999 def
+        CopyStream
+	name exch def
+	raintot
+		/long_name (Precipitation Accumulation) def
+		/units (mm) def
+        CopyStream
+	name exch def
+	rhavg
+		/long_name (Average Relative Humidity) def
+		/units (percent) def
+        CopyStream
+	name exch def
+	rhmax
+		/long_name (Maximum Relative Humidity) def
+		/units (percent) def
+        CopyStream
+	name exch def
+	rhmin
+		/long_name (Minimum Relative Humidity) def
+		/units (percent) def
+        CopyStream
+	name exch def
+	stemp100avg
+		/long_name (Soil Temperature 100 cm) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	stemp10avg
+		/long_name (Soil Temperature 10 cm) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	stemp20avg
+		/long_name (Soil Temperature 20 cm) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	tempavg
+		/long_name (Average Temperature) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	tempmax
+		/long_name (Maximum Temperature) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	tempmin
+		/long_name (Minimum Temperature) def
+		/units (Celsius_scale) def
+		/missing_value [-7615 -5200] def
+        CopyStream
+	name exch def
+	vappresavg
+		/long_name (Average Vapor Pressure) def
+		/units (kPa) def
+        CopyStream
+	name exch def
+	wdird1
+		/long_name (Wind Direction) def
+		/units (degree) def
+        CopyStream
+	name exch def
+	wdirsd1
+		/long_name (Wind Direction Std Dev) def
+		/units (degree) def
+        CopyStream
+	name exch def
+	wspd
+		/long_name (Wind Speed) def
+		/units (m/s) def
+        CopyStream
+	name exch def
+	wspdmax
+		/long_name (Maximum Wind Speed) def
+		/units (m/s) def
+        CopyStream
+	name exch def
+} defasvarcache
+
+/OL_Daily {
+	db:
+		/server IRIDB def
+		/dbname (grover) def
+	:db
+	(select * from brf_ol_daily_all order by time) (time) openqueryby
+	time
+		(days since 1995-01-01 00:00:00) setunits
+		/pointwidth 0.041666667 def
+	pop	
+	barpresavg
+		/long_name (Average Barometric Pressure) def
+		/units (hPa) def
+        CopyStream
+	name exch def
+	barpresmax
+		/long_name (Maximum Barometric Pressure) def
+		/units (hPa) def
+        CopyStream
+	name exch def
+	barpresmin
+		/long_name (Minimum Barometric Pressure) def
+		/units (hPa) def
+		/missing_value [-0.071 99 100 101 102] def
+        CopyStream
+	name exch def
+	battvolt
+		/long_name (Battary Voltage) def
+		/units (volts) def
+		/missing_value -799 def
+        CopyStream
+	name exch def
+	co2
+		/long_name (Percent CO2) def
+		/units (percent) def
+        CopyStream
+	name exch def
+	dewptavg
+		/long_name (Average Dew Point) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	gsravg
+		/long_name (NG Solar Radiation) def
+		/units (W/m2) def
+        CopyStream
+	name exch def
+	partot
+		/long_name (Photosynthetically-Active Radiation) def
+		/units (PPFD) def
+		/note (Photosynthetic Photon Flux Density (PPFD): photons in the 400 to 700 nm waveband/s/m2) def
+        CopyStream
+	name exch def
+	raintot
+		/long_name (Precipitation Accumulation) def
+		/units (mm) def
+        CopyStream
+	name exch def
+	rhavg
+		/long_name (Average Relative Humidity) def
+		/units (percent) def
+        CopyStream
+	name exch def
+	rhmax
+		/long_name (Maximum Relative Humidity) def
+		/units (percent) def
+        CopyStream
+	name exch def
+	rhmin
+		/long_name (Minimum Relative Humidity) def
+		/units (percent) def
+        CopyStream
+	name exch def
+	stemp10avg
+		/long_name (Soil Temperature 10 cm) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	stemp20avg
+		/long_name (Soil Temperature 20 cm) def
+		/units (Celsius_scale) def
+		/missing_value -99999 def
+        CopyStream
+	name exch def
+	tempavg
+		/long_name (Average Temperature) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	tempmax
+		/long_name (Maximum Temperature) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	tempmin
+		/long_name (Minimum Temperature) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	vappresavg
+		/long_name (Average Vapor Pressure) def
+		/units (kPa) def
+        CopyStream
+	name exch def
+	wdird1
+		/long_name (Wind Direction) def
+		/units (degree) def
+        CopyStream
+	name exch def
+	wdirsd1
+		/long_name (Wind Direction Std Dev) def
+		/units (degree) def
+        CopyStream
+	name exch def
+	wspd
+		/long_name (Wind Speed) def
+		/units (m/s) def
+		/missing_value 195.5 def
+        CopyStream
+	name exch def
+	wspdmax
+		/long_name (Maximum Wind Speed) def
+		/units (m/s) def
+        CopyStream
+	name exch def
+} defasvarcache
+
+/RT_Daily
+{
+	db:
+		/server IRIDB def
+		/dbname (grover) def
+	:db
+	(select * from brf_rt_daily_all order by time) (time) openqueryby
+	time
+		(days since 1995-01-01 00:00:00) setunits
+		/pointwidth 0.041666667 def
+	pop	
+	barpresavg
+		/long_name (Average Barometric Pressure) def
+		/units (hPa) def
+		/missing_value 0 def
+        CopyStream
+	name exch def
+	barpresmax
+		/long_name (Maximum Barometric Pressure) def
+		/units (hPa) def
+        CopyStream
+	name exch def
+	barpresmin
+		/long_name (Minimum Barometric Pressure) def
+		/units (hPa) def
+		/missing_value -6999 def
+        CopyStream
+	name exch def
+	battvolt
+		/long_name (Battary Voltage) def
+		/units (volts) def
+        CopyStream
+	name exch def
+	dewptavg
+		/long_name (Average Dew Point) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	gsravg
+		/long_name (NG Solar Radiation) def
+		/units (W/m2) def
+        CopyStream
+	name exch def
+	partot
+		/long_name (Photosynthetically-Active Radiation) def
+		/units (PPFD) def
+		/note (Photosynthetic Photon Flux Density (PPFD): photons in the 400 to 700 nm waveband/s/m2) def
+		/missing_value 99999 def
+        CopyStream
+	name exch def
+	raintot
+		/long_name (Precipitation Accumulation) def
+		/units (mm) def
+        CopyStream
+	name exch def
+	rhavg
+		/long_name (Average Relative Humidity) def
+		/units (percent) def
+        CopyStream
+	name exch def
+	rhmax
+		/long_name (Maximum Relative Humidity) def
+		/units (percent) def
+        CopyStream
+	name exch def
+	rhmin
+		/long_name (Minimum Relative Humidity) def
+		/units (percent) def
+        CopyStream
+	name exch def
+	stemp10avg
+		/long_name (Soil Temperature 10 cm) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	stemp20avg
+		/long_name (Soil Temperature 20 cm) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	tempavg
+		/long_name (Average Temperature) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	tempmax
+		/long_name (Maximum Temperature) def
+		/units (Celsius_scale) def
+        CopyStream
+	name exch def
+	tempmin
+		/long_name (Minimum Temperature) def
+		/units (Celsius_scale) def
+		/missing_value [-7615 -5200] def
+        CopyStream
+	name exch def
+	vappresavg
+		/long_name (Average Vapor Pressure) def
+		/units (kPa) def
+        CopyStream
+	name exch def
+	wdird1
+		/long_name (Wind Direction) def
+		/units (degree) def
+        CopyStream
+	name exch def
+	wdirsd1
+		/long_name (Wind Direction Std Dev) def
+		/units (degree) def
+        CopyStream
+	name exch def
+	wspd
+		/long_name (Wind Speed) def
+		/units (m/s) def
+        CopyStream
+	name exch def
+	wspdmax
+		/long_name (Maximum Wind Speed) def
+		/units (m/s) def
+        CopyStream
+	name exch def
+} defasvarcache
+
+:dataset
+
+\end{ingrid}

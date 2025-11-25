@@ -1,0 +1,35 @@
+\begin{ingrid}
+continuedataset:
+ link:
+ /name (ETOPO2v2 Database) def
+ /description (ETOPO2v2 Global Gridded 2-minute Database at NGDC) def
+ /href (http://www.ngdc.noaa.gov/mgg/global/etopo2.html) def
+ :link
+ link:
+ /name (More Information) def
+ /description (ETOPO2v2 DVD, Data Sources & More Information) def
+ /href (http://www.ngdc.noaa.gov/mgg/fliers/06mgg01.html) def
+ :link
+ link:
+ /name (ETOPO2v2 FAQ) def
+ /description (Frequently Asked Questions about ETOPO2v2) def
+ /href (http://www.ngdc.noaa.gov/mgg/global/etopo2faq.html) def
+ :link
+
+/description (ETOPO2v2c Global Gridded 2-minute elevation and bathymetric data) def
+/iridl:hasSemantics (iridl:PlanetarySurface) def
+
+/z { (/Data/data7/noaa/ngdc/ETOPO2v2/ETOPO2v2c_f4.nc) readCDF .z
+ x /X
+    (degree_east) periodic -179.9833 0.03333334 179.9833 NewEvenGRID
+    replaceGRID
+  y /Y
+    (degree_north) ordered -89.98333 0.03333334 89.98333 NewEvenGRID
+    replaceGRID
+  /units (m) def
+  /long_name (elevation/bathymetry) def
+  /iridl:hasSemantics (iridl:Elevation) def
+} defasvarsilent
+
+:dataset
+\end{ingrid}

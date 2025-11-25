@@ -1,0 +1,144 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+1.25 2.5 358.75
+:grid
+grid:
+/name /Y def
+degN
+88.75 -2.5 -88.75
+:grid
+grid:
+/name /T def
+monthtime
+16 Nov 1986 ensotime
+1
+16 May 1989 ensotime
+:grid
+dataset:
+/name /total def
+variable: grids: X Y | T :grids
+/missing_value 999.99 def
+/name /sw def
+/long_name (shortwave radiation)def
+/units (W/m2) def
+file:
+/name (/Data/data7/nasa/erbe/NOAA10/totsw)def
+random
+:file
+:variable
+variable: grids: X Y | T :grids
+/missing_value 999.99 def
+/name /lw def
+/long_name (longwave radiation)def
+/units (W/m2) def
+file:
+/name (/Data/data7/nasa/erbe/NOAA10/totlw)def
+random
+:file
+:variable
+variable: grids: X Y | T :grids
+/missing_value 999.99 def
+/name /net def
+/long_name (net radiation)def
+/units (W/m2) def
+file:
+/name (/Data/data7/nasa/erbe/NOAA10/totnet)def
+random
+:file
+:variable
+variable: grids: X Y | T :grids
+/missing_value 999.99 def
+/name /albedo def
+/long_name (albedo)def
+/units (percent) def
+/scale_min 0 def
+/scale_max 100 def
+file:
+/name (/Data/data7/nasa/erbe/NOAA10/totalb)def
+random
+:file
+:variable
+:dataset
+dataset:
+/name /clear-sky def
+variable: grids: X Y | T :grids
+/missing_value 999.99 def
+/name /sw def
+/long_name (shortwave radiation)def
+/units (W/m2) def
+file:
+/name (/Data/data7/nasa/erbe/NOAA10/cssw)def
+random
+:file
+:variable
+variable: grids: X Y | T :grids
+/missing_value 999.99 def
+/name /lw def
+/long_name (longwave radiation)def
+/units (W/m2) def
+file:
+/name (/Data/data7/nasa/erbe/NOAA10/cslw)def
+random
+:file
+:variable
+variable: grids: X Y | T :grids
+/missing_value 999.99 def
+/name /net def
+/long_name (net radiation)def
+/units (W/m2) def
+file:
+/name (/Data/data7/nasa/erbe/NOAA10/csnet)def
+random
+:file
+:variable
+variable: grids: X Y | T :grids
+/missing_value 999.99 def
+/name /albedo def
+/long_name (albedo)def
+/units (percent) def
+/scale_min 0 def
+/scale_max 100 def
+file:
+/name (/Data/data7/nasa/erbe/NOAA10/csalb)def
+random
+:file
+:variable
+:dataset
+dataset:
+/name /cloud-forcing def
+variable: grids: X Y | T :grids
+/missing_value 999.99 def
+/name /sw def
+/long_name (shortwave radiation)def
+/units (W/m2) def
+file:
+/name (/Data/data7/nasa/erbe/NOAA10/cfsw)def
+random
+:file
+:variable
+variable: grids: X Y | T :grids
+/missing_value 999.99 def
+/name /lw def
+/long_name (longwave radiation)def
+/units (W/m2) def
+file:
+/name (/Data/data7/nasa/erbe/NOAA10/cflw)def
+random
+:file
+:variable
+variable: grids: X Y | T :grids
+/missing_value 999.99 def
+/name /net def
+/long_name (net radiation)def
+/units (W/m2) def
+file:
+/name (/Data/data7/nasa/erbe/NOAA10/cfnet)def
+random
+:file
+:variable
+:dataset
+:dataset
+\end{ingrid}

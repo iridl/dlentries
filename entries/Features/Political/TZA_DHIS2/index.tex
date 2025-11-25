@@ -1,0 +1,27 @@
+\begin{ingrid}
+continuedataset:
+/description (Tanzania 2nd Order Administrative Boundaries used in DHIS2) def
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Districts def
+/district_c
+{ IRIDB (tanzania_districts_update2) (district_c) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/district_n
+{ IRIDB (tanzania_districts_update2) (district_n) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/label
+{ IRIDB (tanzania_districts_update2) ((district_n) as label) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (tanzania_districts_update2) (the_geom) [(gid)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+Districts district_n .gid name exch put
+\end{ingrid}
+
+

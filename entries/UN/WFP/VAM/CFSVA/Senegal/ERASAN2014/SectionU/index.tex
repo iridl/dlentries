@@ -1,0 +1,166 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Meteorologie) def
+
+grid:
+/name /hhid def
+1. 1. 5270.
+:grid
+
+/u1 { IRIDB (erasan2014) (u1) [(hhid)] open_column_by
+/long_name (Connaissez-vous la prévision saisonnière ) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/u2 { IRIDB (erasan2014) (u2) [(hhid)] open_column_by
+/long_name (Par quel canal avez-vous connu la prévision saisonnière ) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(Radio)
+(Télévision)
+(Bouche à oreille)
+(Atelier formation)
+(Autre)
+] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilentnoreuse
+
+/u3 { IRIDB (erasan2014) (u3) [(hhid)] open_column_by
+/long_name (Avez-vous reçu une formation sur la prévision saisonnière ) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/u4 { IRIDB (erasan2014) (u4) [(hhid)] open_column_by
+/long_name (Si oui, avez-vous pratiqué les connaissances apprises cette année) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/u5_1 { IRIDB (erasan2014) (u5_1) [(hhid)] open_column_by
+/long_name (choix variétal) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/u5_2 { IRIDB (erasan2014) (u5_2) [(hhid)] open_column_by
+/long_name (date de semis) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/u5_3 { IRIDB (erasan2014) (u5_3) [(hhid)] open_column_by
+/long_name (Option d’intensification -engrais, produits phytosanitaires-) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/u6 { IRIDB (erasan2014) (u6) [(hhid)] open_column_by
+/long_name (Pensez-vous que la prévision saisonnière a eu -ou aura- un impact sur le rendeme) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/u7 { IRIDB (erasan2014) (u7) [(hhid)] open_column_by
+/long_name (Est-ce que la prévision saisonnière a été utile dans la gestion de vos activités) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/u8 { IRIDB (erasan2014) (u8) [(hhid)] open_column_by
+/long_name (Avez-vous essayé de rentrer en contact avec les services de la météo) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/u9 { IRIDB (erasan2014) (u9) [(hhid)] open_column_by
+/long_name (Si oui, par quel moyen ) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(téléphone)
+(courrier classique)
+(courrier électronique)
+(Autre)
+] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilentnoreuse
+
+/u10 { IRIDB (erasan2014) (u10) [(hhid)] open_column_by
+/long_name (Au-delà de la prévision saisonnière, quelle autre information serait capitale po) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/u11 { IRIDB (erasan2014) (u11) [(hhid)] open_column_by
+/long_name (Précisez les raisons de votre appréciation.) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+[/NVZ 2 NewIntegerGRID hhid |]
+(/Data/data6/WFP/senegal/ERASAN/2014ERASAN_matched_idnew_ll.txt)
+readdatafile:
+[1 1]r*4astsv
+:readdatafile
+/missing_value -999 def
+
+definevariables:
+
+0 Zvariable:
+/name /lat def
+/long_name (Latitude) def
+/units /degree_north def
+/scale_min 12.2 def
+/scale_max 16.8 def
+:Zvariable
+
+0 Zvariable:
+/name /lon def
+/long_name (Longitude) def
+/units /degree_east def
+/scale_min -17.7 def
+/scale_max -11.2 def
+:Zvariable
+
+:definevariables
+
+/location {
+lon lat geopt
+/long_name (Location) def
+}defasvar
+
+:dataset
+
+%u1 .hhid name exch def
+\end{ingrid}
+

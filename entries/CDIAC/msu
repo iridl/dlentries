@@ -1,0 +1,36 @@
+\begin{ingrid}
+/msu insertdataset:
+/description (MSU-measured precipitation from CDIAC) def
+grid:
+/name /X def
+degE
+periodic
+-178.75 2.5 178.75
+:grid
+grid:
+/name /Y def
+degN
+%88.75 -2.5 -88.75
+58.75 -2.5 -58.75
+:grid
+grid:
+/name /T def
+/units (julian_day) def
+2443875
+1
+2449504
+:grid
+variable:
+/name /precipitation def
+/long_name (precipitation) def
+/units (mm) def
+grids: X Y | T :grids
+/scale_factor .1 def
+/missing_value -999 def
+file:
+/name (/Data/data1/msu/msu.precip) def
+i*2
+:file
+:variable
+:insertdataset
+\end{ingrid}

@@ -1,0 +1,83 @@
+\begin{ingrid}
+continuedataset:
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 1 -89.5
+:grid
+grid:
+/name /T def
+monthtime
+/fullname (Month) def
+16 Jan 1987 ensotime
+1.
+16 Dec 1988 ensotime
+:grid
+/references (Rossow_etal1991 Rossow_Schiffer1991) def
+variable:
+/name /cld_amnt def
+/long_name (Avg. Freq. of Cloudy Pixels) def
+/units (percent) def
+/missing_value -99.000 def
+/scale_min 0 def
+/scale_max 100 def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/radiation/clouds/cam87_88.r4) def
+:file
+:variable         
+variable:
+/name /cld_opth def
+/long_name (Mean Optical Thickness) def
+/missing_value -99.000 def
+/scale_min 0 def
+/scale_max 120 def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/radiation/clouds/cot87_88.r4) def
+:file
+:variable         
+variable:
+/name /cld_path def
+/long_name (Cloud Water Path) def
+/units (g m-2) def
+/missing_value -99.000 def
+/scale_min 0 def
+/scale_max 760 def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/radiation/clouds/cwp87_88.r4) def
+:file
+:variable         
+variable:
+/name /cld_tppr def
+/long_name (Mean Cloud Top Pressure) def
+/units (millibars) def
+/missing_value -99.000 def
+/scale_min 10 def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/radiation/clouds/ctp87_88.r4) def
+:file
+:variable         
+:dataset
+\end{ingrid}
+
+
+
+
+
+
+
+
+

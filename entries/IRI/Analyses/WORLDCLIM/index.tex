@@ -1,0 +1,81 @@
+tiffinfo /data/pceccato/Worldclimtif/tmax_10.tif
+\begin{ingrid}
+continuedataset:
+
+grid: 
+  /name /X def
+  /units /degree_east def
+  periodic
+  -180.
+  360. 
+  43200 div
+  180.
+  1 index sub
+:grid
+
+X partialgrid
+step 64 mul partitiongrid
+name 3 index !
+name 2 index !
+
+grid: 
+  /name /Y def
+  /units /degree_north def
+  90.
+  -150. 
+  18000 div
+  -60.
+:grid
+
+Y partialgrid
+step 64 mul partitiongrid
+name 3 index !
+name 2 index !
+
+grid: 
+  /name /T def
+  /units monthtimename def
+  periodic
+  Jan
+  1.
+  Dec
+:grid
+
+/tmax
+{
+[X2 Y2][X Y T] (/data/pceccato/Worldclimtif/tmax_%d[Tcnt].tif) [T T 1 onegridcounter /name /Tcnt def] readdatafile:
+  /missing_value -32768 def
+  /shortarraytype tiledtiffimage
+  /scale_factor .1 def
+  /units (Celsius_scale) def
+:readdatafile
+CopyStream % needed to make it cachable
+temp_colors
+%LST_colors
+} defasvarcachesilent
+
+/tmin
+{
+[X2 Y2][X Y T] (/data/pceccato/Worldclimtif/tmin_%d[Tcnt].tif) [T T 1 onegridcounter /name /Tcnt def] readdatafile:
+  /missing_value -32768 def
+  /shortarraytype tiledtiffimage
+  /scale_factor .1 def
+  /units (Celsius_scale) def
+:readdatafile
+CopyStream % needed to make it cachable
+temp_colors
+%LST_colors
+} defasvarcachesilent
+
+/amplitude
+{
+tmax tmin sub
+/units (Celsius_scale) def
+/scale_symmetric false def
+/scale_min 0. def
+rainbowcolorscale
+%}defasvarcachesilent
+}defasvar
+
+:dataset
+\end{ingrid}

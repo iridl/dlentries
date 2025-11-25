@@ -1,0 +1,358 @@
+\begin{ingrid}
+
+continuedataset:
+
+link:
+/href (http://www.fao.org/faostat/en/#data/QC) def
+/name (FAOsource) def
+/description (Means of Dissemination) def
+:link
+
+/history (FAOSTAT | 19 October 2018 Updated: 28 May 2018) def
+
+
+datasetdefs:
+
+grid:
+/name /myline def
+1 1 6117
+:grid
+
+grid:
+/name /mycol def
+1 1 5
+:grid
+
+/mytable {
+[mycol myline | ]
+(/data/remic/mydatafiles/FAO/FAOSTAT/Senegal201810/FAOSTAT_data_10-19-2018_formated.txt)
+readdatafile:
+[1 0] r*4astsv
+:readdatafile
+/missing_value -9 def
+}defasvarsilent
+
+:datasetdefs
+
+grid:
+/name /item_codes def
+/units /ids def
+values:
+27
+56
+79
+83
+94
+108
+116
+122
+125
+156
+195
+203
+211
+217
+234
+236
+242
+249
+254
+256
+257
+289
+299
+328
+329
+339
+358
+367
+373
+388
+394
+397
+399
+401
+403
+414
+426
+430
+463
+486
+490
+507
+558
+567
+569
+571
+572
+603
+619
+689
+767
+826
+:values
+:grid
+
+variable:
+/name /items def
+/long_name (Items names) def
+grids: item_codes | :grids
+values:
+(Rice, paddy)
+(Maize)
+(Millet)
+(Sorghum)
+(Fonio)
+(Cereals, nes)
+(Potatoes)
+(Sweet potatoes)
+(Cassava)
+(Sugar cane)
+(Cow peas, dry)
+(Bambara beans)
+(Pulses, nes)
+(Cashew nuts, with shell)
+(Nuts, nes)
+(Soybeans)
+(Groundnuts, with shell)
+(Coconuts)
+(Oil palm fruit)
+(Palm kernels)
+(Oil, palm)
+(Sesame seed)
+(Melonseed)
+(Seed cotton)
+(Cottonseed)
+(Oilseeds nes)
+(Cabbages and other brassicas)
+(Asparagus)
+(Spinach)
+(Tomatoes)
+(Pumpkins, squash and gourds)
+(Cucumbers and gherkins)
+(Eggplants (aubergines))
+(Chillies and peppers, green)
+(Onions, dry)
+(Beans, green)
+(Carrots and turnips)
+(Okra)
+(Vegetables, fresh nes)
+(Bananas)
+(Oranges)
+(Grapefruit (inc. pomelos))
+(Berries nes)
+(Watermelons)
+(Figs)
+(Mangoes, mangosteens, guavas)
+(Avocados)
+(Fruit, tropical fresh nes)
+(Fruit, fresh nes)
+(Chillies and peppers, dry)
+(Cotton lint)
+(Tobacco, unmanufactured)
+:values
+:variable
+
+/area_harvested {
+mytable a:
+     mycol 4 VALUE
+     mycol removeGRID
+     :a:
+      mycol 1 VALUE
+      mycol removeGRID
+      /name /myvar def
+      classifyby
+     :a:
+      mycol 2 VALUE
+      mycol removeGRID
+      /name /item_codes def
+      classifyby
+     :a:
+      mycol 3 VALUE
+      mycol removeGRID
+      /name /T def
+      classifyby
+     :a
+   myvar (5312) VALUE
+   myvar removeGRID
+   [myline]sum
+   T
+    /units (years since 0000-01-01) def
+    0.5 shiftGRID
+   /units /hectare def
+   /long_name (Area harvested) def
+}defasvarsilent
+
+/flag_ah {
+mytable a:
+     mycol 5 VALUE
+     mycol removeGRID
+     :a:
+      mycol 1 VALUE
+      mycol removeGRID
+      /name /myvar def
+      classifyby
+     :a:
+      mycol 2 VALUE
+      mycol removeGRID
+      /name /item_codes def
+      classifyby
+     :a:
+      mycol 3 VALUE
+      mycol removeGRID
+      /name /T def
+      classifyby
+     :a
+   myvar (5312) VALUE
+   myvar removeGRID
+   [myline]sum
+   T
+    /units (years since 0000-01-01) def
+    0.5 shiftGRID
+   /long_name (Area harvested Flag) def
+/units /ids def
+/scale_min 1 def
+/scale_max 6 def
+/CLIST [(Data not available)(FAO estimate)(Official data)(FAO data based on imputation methodology)(Caluclated data)(Unofficial figure)] def
+startcolormap 
+DATA 1 6 RANGE
+transparent grey grey orange blue yellow red black black endcolormap
+}defasvarsilent
+
+/production {
+mytable a:
+     mycol 4 VALUE
+     mycol removeGRID
+     :a:
+      mycol 1 VALUE
+      mycol removeGRID
+      /name /myvar def
+      classifyby
+     :a:
+      mycol 2 VALUE
+      mycol removeGRID
+      /name /item_codes def
+      classifyby
+     :a:
+      mycol 3 VALUE
+      mycol removeGRID
+      /name /T def
+      classifyby
+     :a
+   myvar (5510) VALUE
+   myvar removeGRID
+   [myline]sum
+   T
+    /units (years since 0000-01-01) def
+    0.5 shiftGRID
+   /units /tonne def
+   /long_name (Production) def
+}defasvarsilent
+
+/flag_p {
+mytable a:
+     mycol 5 VALUE
+     mycol removeGRID
+     :a:
+      mycol 1 VALUE
+      mycol removeGRID
+      /name /myvar def
+      classifyby
+     :a:
+      mycol 2 VALUE
+      mycol removeGRID
+      /name /item_codes def
+      classifyby
+     :a:
+      mycol 3 VALUE
+      mycol removeGRID
+      /name /T def
+      classifyby
+     :a
+   myvar (5510) VALUE
+   myvar removeGRID
+   [myline]sum
+   T
+    /units (years since 0000-01-01) def
+    0.5 shiftGRID
+   /long_name (Production Flag) def
+/units /ids def
+/scale_min 1 def
+/scale_max 6 def
+/CLIST [(Data not available)(FAO estimate)(Official data)(FAO data based on imputation methodology)(Caluclated data)(Unofficial figure)] def
+startcolormap
+DATA 1 6 RANGE
+transparent grey grey orange blue yellow red black black endcolormap
+}defasvarsilent
+
+/yield {
+mytable a:
+     mycol 4 VALUE
+     mycol removeGRID
+     :a:
+      mycol 1 VALUE
+      mycol removeGRID
+      /name /myvar def
+      classifyby
+     :a:
+      mycol 2 VALUE
+      mycol removeGRID
+      /name /item_codes def
+      classifyby
+     :a:
+      mycol 3 VALUE
+      mycol removeGRID
+      /name /T def
+      classifyby
+     :a
+   myvar (5419) VALUE
+   myvar removeGRID
+   [myline]sum
+   T
+    /units (years since 0000-01-01) def
+    0.5 shiftGRID
+   /units (hectogram/hectare) def
+   /long_name (Yield) def
+}defasvarsilent
+
+/flag_y {
+mytable a:
+     mycol 5 VALUE
+     mycol removeGRID
+     :a:
+      mycol 1 VALUE
+      mycol removeGRID
+      /name /myvar def
+      classifyby
+     :a:
+      mycol 2 VALUE
+      mycol removeGRID
+      /name /item_codes def
+      classifyby
+     :a:
+      mycol 3 VALUE
+      mycol removeGRID
+      /name /T def
+      classifyby
+     :a
+   myvar (5419) VALUE
+   myvar removeGRID
+   [myline]sum
+   T
+    /units (years since 0000-01-01) def
+    0.5 shiftGRID
+   /long_name (Yield Flag) def
+/units /ids def
+/scale_min 1 def
+/scale_max 6 def
+/CLIST [(Data not available)(FAO estimate)(Official data)(FAO data based on imputation methodology)(Caluclated data)(Unofficial figure)] def
+startcolormap
+DATA 1 6 RANGE
+transparent grey grey orange blue yellow red black black endcolormap
+}defasvarsilent
+
+:dataset
+
+flag_y .T name exch def
+
+\end{ingrid}

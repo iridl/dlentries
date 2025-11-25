@@ -1,0 +1,28 @@
+\begin{ingrid}
+dataset:
+/name /TRENBERTH def
+/references (Trenberth:etal1989) def
+/iridl:hasSemantics (iridl:NCAR) def
+/description (Global ocean wind stress climatology based on ECMWF analyses by Trenberth et. al) def
+/dataset_documentation.html descriptions /trenberth.html get def
+grid:
+/name /X def
+degE
+periodic
+-180 to 177.5 N= 144 pts
+:grid
+grid:
+/name /Y def
+degN
+-90 to 90. N= 73 pts
+:grid
+grid:
+/name /T def
+/units (month) def
+periodic
+0.5 1 11.5
+:grid
+/Annual{/Annual (/Data/data3/senya/trenb/ecmwf_trenA.cdf) nameCDF }def
+/Monthly{/Monthly (/Data/data3/senya/trenb/ecmwf_trenM.cdf)nameCDF }def
+:dataset
+\end{ingrid}

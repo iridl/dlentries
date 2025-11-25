@@ -1,0 +1,42 @@
+\begin{ingrid}
+continuedataset:
+/long_name (Monthly to Pentad) def
+/iridl:hasSemantics (iriref:Blumenthal_MB) def
+grid:
+/name (T) def
+monthtime
+periodic
+Jan
+1
+Dec
+:grid
+grid:
+/name (T2) def
+/units (pentads since 1960-01-01) def
+periodic
+.5
+1
+72.5
+:grid
+variable:
+/name /avginv def
+grids: T T2 :grids
+file:
+r*8
+/name (/Data/data1/benno/Models/unaverage/pentad.r8) def
+:file
+correlationcolorscale DATA -1.2 1.2 RANGE
+:variable
+:dataset
+\end{ingrid}
+
+
+
+
+
+
+
+
+
+
+

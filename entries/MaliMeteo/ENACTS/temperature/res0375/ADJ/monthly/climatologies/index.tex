@@ -1,0 +1,33 @@
+\begin{ingrid}
+
+continuedataset:
+
+/tmin {
+  SOURCES .MaliMeteo .ENACTS .temperature .res0375 .ADJ .dekadly .tmin
+T (1981) (2010) RANGE
+monthlyAverage
+yearly-climatology
+/long_name (minimum temperature 1981-2010 average) def
+temp_colors
+/scale_symmetric false def
+%  DATA 14 26 RANGE
+DATA AUTO AUTO RANGE
+}defasvar
+
+/tmax {
+  SOURCES .MaliMeteo .ENACTS .temperature .res0375 .ADJ .dekadly .tmax
+T (1981) (2010) RANGE
+monthlyAverage
+yearly-climatology
+/long_name (maximum temperature 1981-2010 average) def
+temp_colors
+/scale_symmetric false def
+%  DATA 30 43 RANGE
+DATA AUTO AUTO RANGE
+}defasvar
+
+:dataset
+
+\end{ingrid}
+
+

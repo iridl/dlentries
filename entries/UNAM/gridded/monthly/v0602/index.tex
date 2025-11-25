@@ -1,0 +1,75 @@
+\begin{ingrid}
+continuedataset:
+/description (Cressman analysis of monthly precipitation for Mexico and surroundings based upon CLICOM daily station data, GHCN Version 2 monthly station data, and GPCC monthly gridded data, from the Centro de Ciencias de la Atm&#243;sfera) def
+/long_name (Version Released Feb 2006) def
+datasetdefs:
+/prcp_mmperday_colors {
+ startcolormap
+ DATA 0 22 RANGE
+ white white grey 0 VALUE
+ grey grey 0.1 bandmax
+ 210 255 215 RGB RGBdup 2 bandmax
+ 190 240 195 RGB RGBdup 4 bandmax
+ 150 225 155 RGB RGBdup 6 bandmax
+ 115 210 110 RGB RGBdup 8 bandmax
+ 100 195 105 RGB RGBdup 10 bandmax
+  90 180  90 RGB RGBdup 12 bandmax
+  80 165  80 RGB RGBdup 14 bandmax
+  70 150  70 RGB RGBdup 16 bandmax
+  60 135  60 RGB RGBdup 18 bandmax
+  50 120  50 RGB RGBdup 20 bandmax
+  40 105  40 RGB RGBdup 22 bandmax
+  30  90  30 RGB endcolormap } def
+:datasetdefs
+/iridl:hasSemantics (iriref:Mendez_M) def
+grid:
+ /name (X) def
+ /units (degreeE) def
+ /fullname (Longitude) def
+ periodic
+ -140.75 0.5 -59.25
+:grid
+grid:
+ /name (Y) def
+ /units (degreeN) def
+ /fullname (Latitude) def
+ 4.25 0.5 40.75
+:grid
+grid:
+ /name (T) def
+ monthtime
+ /fullname (Month) def
+ /defaultvalue { 16 Dec 2000 ensotime } def
+ /pointwidth 1 def
+ 16 Jan 1951 ensotime
+ 1
+ 16 Dec 2000 ensotime
+:grid
+
+variable:
+ /name (pcp) def
+ /long_name (Monthly Precipitation) def
+ /units (mm/day) def
+ /missing_value -99.99 def
+ prcp_mmperday_colors
+ grids: X Y | T :grids
+ file:
+ decdirect
+ /name (/Data/data6/unam/gridded/monthly/pcp1951-2000_gpcc-clicom-ghcn_ver2.bin) def
+ :file
+:variable
+:dataset
+\end{ingrid}
+
+
+
+
+
+
+
+
+
+
+
+
+

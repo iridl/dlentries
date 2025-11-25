@@ -1,0 +1,54 @@
+<html>
+<head><title>BCC-GODAS</title></head>
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+<INGRID>standardHeader</INGRID>
+<h2>BCC-GODAS</h2>
+BCC-GODAS, as one part of climate dynamic model operational system, has been employed to offer routinely 
+the ocean initial fields since October of 2001. This system mainly contains 4 parts, such as pre-processing 
+data, calculating realtime global wind stress, variational analysis and interpolating and ocean dynamic model.
+<p> 
+   Handling data includes collecting data, decoding data and data quality control. The observation data used in 
+this system contains both GTSPP data (from 1981) and Argo data (from 1998). The real-time GTSPP data are obtained
+from the data bank of Meteorological Information Center of CMA (China Meteorological administration). Argo data 
+are downloaded from French Research Institute for Exploitation of the Sea(IFREMER). It should be pointed out that
+we have used the observation data from NOAA and MEDS to retrieve history observation data.
+<p>
+   Having been calculated in the observation points, the wind stress data are processed by means of  optimal 
+interpolation. The wind data, we accessed, for years from 1982 to 1990 in the tropic Pacific are a bit lack.
+we will manage to retrieve these data.  
+<p>
+   The scheme of 3-dimensional variation is adopted in BCC-GODAS. Meanwhile, a time-window, about 4-weeks, is 
+opened in order to obtain as much observation information as possible. In BCC-GODAS, both sea temperature and
+salinity observation data, if available, are input. The background errors covariance involves a vertical weak
+correlation and a loose correlation between temperature and salinity. 
+<p>
+   The dynamic model used in this system is L30T63 OGCM Version 1.0, which is established and developed by  
+LASG/IAP. This model has the same horizontal resolution as T63 atmosphere model, and there are 30 layers in the 
+vertical direction, in which the first 10 layers are from 0 to 250m, the second 10 layers span from 250m to 1000m, 
+and the last 10 layers are located deeper till 5600m. There are two vertical mixing parameterization schemes in 
+this model. One is based on Richardson number applied in the tropic region from 30S to 30N. Another is Isopycnal 
+mixing scheme. While using this model, we have made some improvement on the vertical mixing parameterization
+scheme: a transition zone to connect two areas mentioned above is designed, and the criterion of gradient of 
+density in Isopycnal mixing scheme is redefined as a spatial function rather than a constant.
+<p>
+    Acknowledgment: we wish to thank IFREMER, CDC/NOAA, NODC/NOAA, MEDS(Canada) and China Argo Realtime Data Center 
+for their observation data.
+   
+                                  
+<h4>References</h4>
+<ol>
+<li> Yimin Liu, Jiangxing Zhou and Qiang Ma: Study on The Pacific and The Indian Oceanic Data Assimilation System,
+documents for national key project-studies on short-term climate prediction system in China (1996-2000), Chinese 
+Meteorological Press, 2000. 401-407 pp. In Chinese.
+<li> Yimin Liu ????Optimal estimation of the model covariance matrix of Ocean data assimilation system by neural 
+network method, a poster in "Workshop on Advances in Marine Climatology" held in Brussels on 3/11/2003
+<li> Yimin Liu, Renhe  Zhang, Yonghong Yin and Tao Niu: The application of Argo data to optimal estimation of the
+model errors covariance matrix of ocean data assimilation system, a poster in the first Argo Science workshop held 
+in Tokyo on 11/11/2003.
+<li> Yimin Liu, Weijing Li, Peiqun Zhang: "NCC 4-Dimensional Ocean Data Assimilation System and the Studies on Its 
+Results in the Middle Pacific", to be published.
+<li> Yimin Liu, Renhe  Zhang, Yonghong Yin and Tao Niu: "The Application of ARGO Data to NCC 4-Dimensional Ocean Data
+Assimilation System", to be published.
+</ol>
+</body>
+</html>

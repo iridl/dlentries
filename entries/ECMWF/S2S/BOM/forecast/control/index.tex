@@ -1,0 +1,662 @@
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/units (degree_east) def
+periodic
+0.0 2.5 358.5
+:grid
+
+grid:
+/name (Y) def
+/long_name (latitude) def
+/units (degree_north) def
+%88.099 2.5 -88.099
+values: 88.09951 85.63759 83.16113 80.68138 78.20039 75.7188 73.23686 70.75472 68.27245 65.79008 63.30764 60.82515 58.34262 55.86006 53.37748 50.89487 48.41226 45.92963 43.44699 40.96433 38.48167 35.99901 33.51634 31.03366 28.55098 26.0683 23.58561 21.10292 18.62023 16.13754 13.65484 11.17214 8.689447 6.206748 3.724049 1.24135 -1.24135 -3.724049 -6.206748 -8.689447 -11.17214 -13.65484 -16.13754 -18.62023 -21.10292 -23.58561 -26.0683 -28.55098 -31.03366 -33.51634 -35.99901 -38.48167 -40.96433 -43.44699 -45.92963 -48.41226 -50.89487 -53.37748 -55.86006 -58.34262 -60.82515 -63.30764 -65.79008 -68.27245 -70.75472 -73.23686 -75.7188 -78.20039 -80.68138 -83.16113 -85.63759 -88.09951 :values
+:grid
+
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+03 Jan 2016 julian_day 01 Jan 1960 julian_day sub
+%01 Jan 2015 julian_day 01 Jan 1960 julian_day sub
+1.0
+systemtime
+(%d %b %Y) 12 strftime interp julian_day
+%29  Dec 2016 julian_day 
+01 Jan 1960 julian_day sub
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+S {(/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_pl_zuvt%Y%m%d[S]%Y%m%d[S].grb) [S]} removeextrausing
+name exch def
+
+% a lead grid for instantaneous values starting at 0. 
+grid:
+/name /L def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+0. 1. 62.
+/pointwidth 0. def
+:grid
+
+% a lead grid for instantaneous values starting at 1. 
+grid:
+/name /L1 def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+1. 1. 62.
+/pointwidth 0. def
+:grid
+
+% a lead grid for daily averages
+grid:
+/name /LA def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+0.5 1. 61.5
+/pointwidth 1.0 def
+:grid
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+%values: 10 50 100 200 300 500 700 850 925 1000 :values
+values: 50 100 200 300 500 700 850 925 1000 :values
+:grid
+
+grid:
+/name (P1) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 500  :values
+:grid
+
+grid:
+/name (P2) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 200 300 500 700 850 925 1000 :values
+:grid
+
+% add standard names to all variables
+% done
+
+\end{ingrid}
+
+The data files for all S2S model datasets are in GRIB2 format from ECMWF.  In the both the hindcasts and forecasts there is a separate file for each start, or in the models with
+an evolving hindcast, a file for each start and each hindcast year associated with that start time.  In most cases there are multiple variables in each file, containing the full
+set of forecast leads, ensemble members, and pressure levels.  Different variables may have different lead grids because of differences in the time representation of the forecast
+values (instantaneous or daily average), or depending upon whether there is an analysis value available at lead 0.
+
+Each variable is defined separately in the index.tex file using the "GRIBvariable" word that uses a GRIB2 code for that variable.  This code (e.g., 04XXXX00010000 for the pressure-level 
+temperature variable below) is obtained by interpreting the GRIB2 file in the Data Library using Ingrid's "grib2inv.txt".  This is used in the following way in a Data Library URL:
+
+http://iridl.ldeo.columbia.edu/%28/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_pl_zuvt2016010720160107.grb%29/%28%29/grib2inv.txt/
+
+For this individual GRIB2 file containing real-time forecasts of temperature, height, u and v velocity on pressure levels, grib2inv.txt prints out information for each field in the
+GRIB2 file, in order, including, on line 4 for each field, the code for that variable.  In some cases the grib2inv.txt output may also include human-readable information about the
+variable, including the long name of the variable, units, GRIB center and subcenter, parameter template, category, number, and process, but the variable's name and units will not
+always be shown using grib2inv.txt.  The code for the variable will always begin with "04".  In most cases the short version of the GRIB2 code for a variable, shown in the second
+section of line 4 in the output for each field, such as 04XXXX00010000 for temperature, is sufficient.  However, for variables such as maximum and minimum temperature that both appear
+in the same GRIB2 file, the short 04 code will be identical for the two variables, and a longer portion of the code on line 4 will need to be used to distinguish between the two.
+For example:
+
+for maximum temperature:
+(04XXXX000B0000XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX02020) GRIBvariable
+
+for minimum temperature:
+(04XXXX000B0000XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX03020) GRIBvariable
+
+Note that XXs can be used where other sections of the code, beyond the initial section of the code that defines the base variable, are identical for the two variables.  Also note
+that these codes will be different between the hindcast and forecast for the exact same variable.
+
+If information about the variable name and units is not available from grib2inv.txt, use Wes Ebisuzaki's wgrib2 software to glean the metadata from each field in the GRIB2 file,
+and to help ensure that the grids are ordered correctly in the variable definition in the index.tex file, to ensure that the leads, ensemble members, and pressure levels are
+being read correctly and in the correct order.
+
+-mbell
+
+\begin{ingrid}
+
+dataset:
+[X Y P1 P2 L1 S ] {name exch def } forall
+
+/name /pressure_level_1 def
+
+/w { [ X Y | L1 P1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_pl_w%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (VVEL) def
+(04XXXX00010208) GRIBvariable
+:readdatafile
+/long_name (Vertical Velocity (Pressure)) def
+/standard_name (lagrangian_tendency_of_air_pressure) def
+/units (Pa/s) cvn def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+% done
+/q { [ X Y | P2 L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_pl_q%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (SPFH) def
+(04XXXX00010100) GRIBvariable
+:readdatafile
+/long_name (Specific Humidity) def
+/standard_name (specific_humidity) def
+/units (kg/kg) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+
+[ X Y P L1 S ] { name exch def } forall
+
+/name /pressure_level_2 def
+
+% done
+/t { [ X Y | P L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_pl_zuvt%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (TMP) def
+(04XXXX00010000) GRIBvariable
+:readdatafile
+/long_name (Temperature) def
+/standard_name (air_temperature) def
+/units (K) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+% done
+/gh { [ X Y | P L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_pl_zuvt%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (HGT) def
+(04XXXX00010305) GRIBvariable
+:readdatafile
+/long_name (Geopotential Height) def
+/standard_name (geopotential_height) def
+/units (gpm) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y P L1 S ] {name exch def } forall
+
+/name /pressure_level_wind def
+
+% done
+/u { [ X Y | P L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_pl_zuvt%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (UGRD) def
+(04XXXX00010202) GRIBvariable
+:readdatafile
+/long_name (U-Component of Wind) def
+/standard_name (eastward_wind) def
+/units (m/s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+% done
+/v { [ X Y | P L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_pl_zuvt%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (VGRD) def
+(04XXXX00010203) GRIBvariable
+:readdatafile
+/long_name (V-Component of Wind) def
+/standard_name (northward_wind) def
+/units (m/s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y LA S ] {name exch def } forall
+
+/name /sfc_snow_ice def
+%one-day average values 
+
+% done
+/ci { [ X Y | LA S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (ICEC) def
+(04XXXX000B0200) GRIBvariable
+:readdatafile
+/long_name (Ice Cover Proportion) def
+/standard_name (sea_ice_area_fraction) def
+/units (unitless) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+% BOM does not include Snow Albedo (asn) variable 
+
+% done
+/sd { [ X Y | LA S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (SDWE) def
+(04XXXX000B013C) GRIBvariable
+:readdatafile
+/long_name (Snow Depth Water Equivalent) def
+/standard_name (surface_snow_amount) def 
+/units (kg m-2) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+% BOM does not include Snow Density (rsn) variable
+
+:dataset
+
+dataset:
+[X Y LA S ] {name exch def } forall
+
+/name /sfc_temperature def
+
+% done
+/wtmp { [ X Y | LA S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (WTMP) def
+(04XXXX000B0300) GRIBvariable
+:readdatafile
+/long_name (Water Temperature) def
+/standard_name (sea_surface_temperature) def
+/units (K) def
+/missing_value 9.999000E+20 def
+0 maskle
+decompress
+} defasvarsilent
+
+% done
+/skt { [ X Y | LA S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (SKINT) def
+(04XXXX000B0011) GRIBvariable
+:readdatafile
+/long_name (Skin Temperature) def
+/standard_name (surface_temperature) def
+/units (K) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+% BOM does not include Soil Type (slt) variable
+
+dataset:
+[X Y L1 S ] {name exch def } forall
+
+/name /sfc_heat_flux def
+
+/sshf { [ X Y | L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (sshf) def
+(04XXXX000B000B) GRIBvariable
+:readdatafile
+/long_name (Daily Accumulated Surface Sensible Heat Net Flux) def
+%/standard_name (air_pressure_at_sea_level) def
+/units (W m-2 s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/slhf { [ X Y | L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (slhf) def
+(04XXXX000B000A) GRIBvariable
+:readdatafile
+/long_name (Daily Accumulated Surface Latent Heat Net Flux) def
+%/standard_name (air_pressure_at_sea_level) def
+/units (W m-2 s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y L1 S ] {name exch def } forall
+
+/name /sfc_pressure def
+
+% BOM does not include Surface Pressure (sp) variable
+
+/msl { [ X Y | L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (PRES) def
+(04XXXX00010300XXXXXXXXXXXXXXXXXXXXXX65) GRIBvariable
+:readdatafile
+/long_name (Mean Sea Level Pressure) def
+/standard_name (air_pressure_at_sea_level) def
+/units (Pa) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y L1 S ] {name exch def } forall
+
+/name /sfc_rad_flux def
+
+/ssrd { [ X Y | L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (ssrd) def
+(04XXXX000B0407) GRIBvariable
+:readdatafile
+/long_name (Daily Accumulated Surface Downward Short-Wave Radiation Flux) def
+/standard_name (surface_downwelling_shortwave_flux_in_air) def
+/units (W m-2 s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/strd { [ X Y | L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (strd) def
+(04XXXX000B0503) GRIBvariable
+:readdatafile
+/long_name (Daily Accumulated Surface Downward Long-Wave Radiation Flux) def
+/standard_name (surface_downwelling_longwave_flux_in_air) def
+/units (W m-2 s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/ssr { [ X Y | L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (ssr) def
+(04XXXX000B0409) GRIBvariable
+:readdatafile
+/long_name (Daily Accumulated Surface Net Short-Wave Radiation Flux) def
+/standard_name (surface_net_downward_shortwave_flux) def
+/units (W m-2 s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/str { [ X Y | L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (str) def
+%(04XXXX000B0505) GRIBvariable
+(040000000B0505XXXXXXXXXXXXXXXXXXXXXX01) GRIBvariable
+:readdatafile
+/long_name (Daily Accumulated Surface Net Long-Wave Radiation Flux) def
+/standard_name (surface_net_upward_longwave_flux) def
+/units (W m-2 s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+[ X Y L1 S ] {name exch def } forall
+
+/name /land_sfc def
+
+/lsm { [ X Y | L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (lsm) def
+(04XXXX00010000) GRIBvariable
+:readdatafile
+/long_name (Land-Sea Mask) def
+%/standard_name () def
+/units (unitless) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/orog { [ X Y | L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (orog) def
+(04XXXX00010305) GRIBvariable
+:readdatafile
+/long_name (Orography) def
+/standard_name (geopotential_height) def
+/units (gpm) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent 
+
+:dataset
+
+dataset:
+[X Y L1 S ] {name exch def } forall
+
+/name /sfc_stress def
+
+/ewss { [ X Y | L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (ewss) def
+(04XXXX000B0226) GRIBvariable
+:readdatafile
+/long_name (Accumulated Eastward Turbulent Surface Stress) def
+%parm 38
+%/standard_name () def
+/units (N m-2 s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/nsss { [ X Y | L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (nsss) def
+(04XXXX000B0225) GRIBvariable
+:readdatafile
+/long_name (Accumulated Northward Turbulent Surface Stress) def
+%parm 37
+%/standard_name () def
+/units (N m-2 s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y L1 S ] {name exch def } forall
+
+/name /sfc_precip def
+
+/cp { [ X Y | L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (cp) def
+(04XXXX000B0125) GRIBvariable
+:readdatafile
+/long_name (Accumulated Convective Precipitation Rate) def
+/standard_name (convective_precipitation_flux) def
+/units (kg m-2) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/sf { [ X Y | L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (sf) def
+(04XXXX000B0135) GRIBvariable
+:readdatafile
+/long_name (Accumulated Total Snowfall Rate Water Equivalent) def
+/standard_name (snowfall_flux) def
+/units (kg m-2 s-1) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/tp { [ X Y | L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (TPRATE) def
+(04XXXX000B0134) GRIBvariable
+:readdatafile
+/long_name (Accumulated Total Precipitation) def
+/standard_name (precipitation_amount) def 
+/units (kg m-2) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+% BOM model does not include surface water runoff (sro) variable
+
+% BOM model does not include surface water runoff and drainage (ro) variable
+
+dataset:
+/name (top_of_atmosphere) def
+[X Y L1 S ] {name exch def } forall
+
+/ttr { [ X Y | L1 S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (ttr) def
+%(04XXXX000B0505) GRIBvariable
+(040000000B0505XXXXXXXXXXXXXXXXXXXXXX08) GRIBvariable
+:readdatafile
+/long_name (Daily Accumulated Top of Atmosphere Net Long-Wave Radiation Flux) def
+/standard_name (toa_net_upward_longwave_flux) def
+/units (W m-2 s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (atmos_column) def
+[X Y L LA S ] {name exch def } forall
+
+% BOM model does not include cape variable
+
+%/tcw { [ X Y | LA S ] (/Data/data22/NWS-SMS/BOM_phoenix/REL/CF/bom_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/tcw { [ X Y | LA S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (TCWAT) def
+(04XXXX000B0133) GRIBvariable
+:readdatafile
+/long_name (Total Column Water (Vertically integrated total water (vapour cloud+water/ice))) def
+/standard_name (atmosphere_mass_content_of_water) def
+/units (kg m-2) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+% done
+/tcc { [ X Y | LA S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (TCDC) def
+(04XXXX000B0601) GRIBvariable
+:readdatafile
+/long_name (Total Cloud Cover) def
+/standard_name (cloud_area_fraction) def
+/units (%) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+% BOM model does not include 10-meter u wind (10u) or 10-meter v wind (10v)
+
+dataset:
+/name (2m_above_ground) def
+
+[X Y L LA S ] {name exch def } forall
+
+% done
+/2t { [ X Y | LA S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (TMP) def
+(04XXXX000B0000) GRIBvariable
+:readdatafile
+/long_name (2-meter Temperature) def
+/standard_name (air_temperature) def
+/units (K) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/mx2t6 { [ X Y | LA S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (mx2t6) def
+(04XXXX000B0000XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX02020) GRIBvariable
+:readdatafile
+/long_name (2-meter Maximum Temperature) def
+/standard_name (air_temperature) def
+/units (K) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/mn2t6 { [ X Y | LA S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (mn2t6) def
+(04XXXX000B0000XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX03020) GRIBvariable
+:readdatafile
+/long_name (2-meter Minimum Temperature) def
+/standard_name (air_temperature) def
+/units (K) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+% done
+%/2dt { [ X Y | LA S ] (/Data/data22/NWS-SMS/BOM_phoenix/REL/CF/bom_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/2dt { [ X Y | LA S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (DPT) def
+(04XXXX000B0006) GRIBvariable
+:readdatafile
+/long_name (2-meter Dewpoint Temperature) def
+/standard_name (dew_point_temperature) def
+/units (K) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (0-0p2_m_below_ground) def
+
+[X Y L LA S ] {name exch def } forall
+
+/sm20 { [ X Y | LA S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (SOIL_M) def
+%(04XXXX000B0016) GRIBvariable
+(04XXXX000B0016XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX02) GRIBvariable
+:readdatafile
+/long_name (Soil Moisture Top 20 cm) def
+/units (kg m-3) def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+% need to figure out how to set up separate soil temperature variable entries for 0-0.2m and 0-1m depths
+
+/st20 { [ X Y | LA S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (TSOIL) def
+(04XXXX000B0002XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX02) GRIBvariable
+:readdatafile
+/long_name (Soil Temperature Top 20 cm) def
+/units (K) def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (0-1_m_below_ground) def
+
+[X Y L LA S ] {name exch def } forall
+
+% BOM model does not include Soil Moisture in Top 100 cm (sm100)
+
+/st100 { [ X Y | LA S ] (/Data/data25/ECMWF/S2S/BOM/REL/CF/bom_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (TSOIL) def
+(04XXXX000B0002XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX0A) GRIBvariable
+:readdatafile
+/long_name (Soil Temperature Top 100 cm) def
+/units (K) def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+:dataset
+
+\end{ingrid}

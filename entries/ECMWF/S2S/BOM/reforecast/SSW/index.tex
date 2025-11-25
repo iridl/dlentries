@@ -1,0 +1,76 @@
+\begin{ingrid}
+continuedataset:
+
+\end{ingrid}
+%This definition is needed for making specific time steps, first, we create an S grid standard then modify it for the right time step
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+01 Jan 2014 julian_day 01 Jan 1960 julian_day sub
+1.0
+systemtime
+(%d %b %Y) 12 strftime interp julian_day
+01 Jan 1960 julian_day sub
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+\begin{ingrid}
+
+
+/S /julian_day 0 26
+ Dec 2014 julian_day
+ mark 01
+ Jan 2014 julian_day
+ null { dup jd2dmy 3 -1 roll 5 add dup 31 ge {pop exch 1 add dup 11 gt {pop 1 add 0}if exch 1} if 3 1 roll exch .5 add exch julian_day dup counttomark 1 add index gt {leave}if}repeat counttomark integerarray astore
+ nip nip NewGRID
+ /add_offset -.5 def
+ (days since 1960-01-01) gridunitconvert
+ /pointwidth 0. def
+ first secondtolast subgrid
+ /long_name (forecast start time) def
+ /standard_name (forecast_reference_time) def
+name exch def
+
+grid:
+/name /hdate def
+/units (months since 1960-01-01) def
+01 Jul 1981 ensotime
+12.0
+01 Jul 2013 ensotime
+/defaultvalue { last } def
+:grid
+
+grid:
+/name /L def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+0. 1. 32.
+/pointwidth 0. def
+:grid
+
+grid:
+/name /M def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+1 1 62
+:grid
+
+
+
+ /ensembles { [ M L | S hdate ] 
+ (/Data/data25/ECMWF/S2S/BOM/REF/SSW/%Y[S]/%m[S]/SSW.bom.%Y[hdate]%m%d[S].20140101) [ S hdate ]
+readdatafile:
+((32(62(26X,F6.7,/)),(61(26X,F6.7,/),(26X,F6.7)))) formatted
+:readdatafile
+/units (unitless) def
+} defasvarsilent
+
+
+
+:dataset
+\end{ingrid}

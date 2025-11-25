@@ -1,0 +1,66 @@
+\begin{ingrid}
+continuedataset:
+/description (IMD High Resolution (1&deg;x1&deg;) Daily Gridded Rainfall Data For the Indian Region 1951-2015 Version 4 (NCC1/2005)) def
+%/NotOpen dataareIRIonlyPassword
+/IMDPrecipERFS datadownloadsareRestricted
+link:
+/name (data CD ordering information) def
+/href (http://www.imd.ernet.in/nccraindata.htm) def
+/description (High Resolution Daily Gridded Rainfall Data) def
+:link
+
+link:
+/name (IMD-HP) def
+/description (IMD home page) def
+/href (http://www.imd.gov.in/) def
+:link
+
+grid:
+/name (X)def
+/units (degree_east)def
+ 66.5 1. 100.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 6.5 1. 38.5
+:grid
+grid:
+/name (T)def
+/units (days since 1951-01-01 12:00:00)def
+0 1 
+30 Sep 2018 julian_day
+1 Jan 1951 julian_day
+sub cvi
+:grid
+/rf{
+ [X
+    Y |
+    T] (/Data/data6/IMD/daily/gridded/precip/NCC1-2005-v4p0/RF_DATA_1951-2015/data/rf_grd/rf_%Y[T].grd) [T yearlyedgesgrid
+       first secondtolast subgrid
+       ]readdatafile:
+      /name (rf) def
+      /pointwidth 1. def
+      /step 1. def
+      /calendar /standard def
+      /long_name (GRIDDED RAINFALL) def
+      /missing_value -99.9 def
+      /units (mm/day) def
+      /standard_name (rainfall_rate) def
+      decdirect :readdatafile
+} defasvarsilent
+
+/stn { [X Y | T] (/Data/data6/IMD/daily/gridded/precip/NCC1-2005-v4p0/RF_DATA_1951-2015/data/stn_grd/stn%Y[T].grd) [T yearlyedgesgrid first secondtolast subgrid] readdatafile:
+      /name (stn) def 
+      /pointwidth 1. def
+      /step 1. def
+      /calendar /standard def
+      /long_name (Number of stations) def
+      /missing_value 0.0 def
+      /units (unitless) def
+      decdirect :readdatafile
+} defasvarsilent
+
+:dataset
+/references (Rajeevan_etal2005 Rajeevan_etal2006) def
+\end{ingrid}

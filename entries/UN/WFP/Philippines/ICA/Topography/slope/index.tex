@@ -1,0 +1,54 @@
+\begin{ingrid}
+
+/description (Slope) def
+
+continuedataset:
+
+grid:
+/name /x def
+/units /m def
+-174619.501294 92.666430 2 copy 11601. 1. sub mul add
+/long_name (Longitude) def
+:grid
+
+x partialgrid
+step 128 mul partitiongrid
+name 3 index !
+name 2 index !
+
+grid:
+/name /y def
+/units /m def
+2326634.217561 92.666430 2 copy 19602. 1. sub mul sub
+/long_name (Latitude) def
+:grid
+
+y partialgrid
+step 128 mul partitiongrid
+name 3 index !
+name 2 index !
+
+/slopePerc {
+[ x2 y2 | x y ]
+(/data/remic/mydatafiles/WFP/Philippines/ICA_PHL/Data/Rasters/phl_phy_slopePerc_srtm.tif)
+readdatafile:
+/realarraytype tiledtiffimage
+:readdatafile
+/missing_value -3.4028234663852886e+038 def
+/long_name (Terrain Slope) def
+/units /percent def
+   startcolormap DATA
+     0 220 RANGE
+     aquamarine ForestGreen ForestGreen
+        0 VALUE
+        yellow
+         110 VALUE
+         red
+          220 VALUE
+          red endcolormap
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

@@ -1,0 +1,86 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/Smonth { S first sub 12 mod /units unitless def } defasvarsilent
+/Smonthlast { S last first sub nip 12 mod } def
+/yearsinSmonth { S  last first sub cvi 12 idiv   Smonth Smonthlast flagle add nip /long_name(years) def } defasvarsilent
+/offsetyearsinSmonth { S  last first sub cvi 12 idiv   Smonth Smonthlast flagle add nip S first dup 11 add RANGE 
+ S sums
+   S first secondtolast RANGE
+   S name
+     units periodic first step last NewEvenGRID
+     replaceGRID
+/long_name(years) def } defasvarsilent
+/CASSTrecordindex {
+1 S first sub
+    12 div
+    toi4 
+  
+    L yearsinSmonth mul
+    offsetyearsinSmonth L .npts mul  add
+    add add
+/long_name (record number) def
+/units unitless def
+   toi4
+
+} defasvarsilent
+:datasetdefs
+/description (SST hindcasts/forecasts released Aug 2007) def
+link:
+/name (source) def
+/href (ftp://ftp.cpc.ncep.noaa.gov/wd51hd/sst/aug2007) def
+:link
+grid:
+/name /X def
+degE
+periodic
+0.  360 144. div 360  2 index add 1 index sub
+:grid
+grid:
+/name /Y def
+degN
+90 -2.5 -90
+:grid
+grid:
+/name /L def
+/long_name (CPC lead time) def
+/units (months) def
+0 1 11
+:grid
+grid:
+/name /M def
+/long_name (member) def
+1 1 12
+:grid
+grid:
+/name /S def
+/long_name (initial data) def
+/units (months since 1960-01-01) def
+/pointwidth 3. def
+16 Jan 1956 ensotime
+1 Jan 1960 ensotime sub
+1
+16 Jul 2007 ensotime
+1 Jan 1960 ensotime sub
+:grid
+/T { S L add 2 add /pointwidth 1. def /long_name (Forecast Time) def
+/standard_name (time) def
+} defasvarsilent
+/sst {[X
+    Y |
+    M L S] (/Data/data7/noaa/ncep/cpc/ca_sst/200708/caglobsst1_m%d[M]) [M]readdatafile: sequential
+      /openandreaddatafile {recordsandopenfiles nip exch CASSTrecordindex 0 RECHUNK copyachunk nip exch 3 -1 roll readdatafile}def
+      :readdatafile
+/units /Celsius_scale def
+/long_name (Sea Surface Temperature) def
+} defasvarcachesilent
+/landsea {
+[ X Y | ] (/Data/data7/noaa/ncep/cpc/ca_sst/mask.2.5.ieee) readdatafile: sequential :readdatafile
+} defasvarsilent
+\end{ingrid}
+data records are ordered  year lead startmonth 
+so start months after sept have to read one less record in going over years
+[ X Y | L S M ] (/Data/data7/noaa/ncep/cpc/ca_sst/200708/caglobsst1_m%d[M]) [M] readdatafile: sequential :readdatafile
+\begin{ingrid}
+:dataset
+\end{ingrid}

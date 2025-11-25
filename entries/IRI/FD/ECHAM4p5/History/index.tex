@@ -1,0 +1,32 @@
+\begin{ingrid}
+continuedataset:
+/description (ECHAM4.5 ensemble simulation runs) def
+:dataset
+Ingrid:
+/ECHAM6defs
+{
+T /pointwidth 0 def pop
+surface
+prl
+/units (m/s)preferredunitname def
+name exch def
+prc
+/units (m/s)preferredunitname def
+name exch def
+pop
+defaftervars
+above_ground
+/td2m
+{null  exec
+  /long_name (Specific Humidity) def
+  markunitless
+/grib_name /hus cvx def
+}
+dup 0 currentobject 
+/td2m get
+put
+defasvarsilent
+name exch def
+} def
+pop
+\end{ingrid}

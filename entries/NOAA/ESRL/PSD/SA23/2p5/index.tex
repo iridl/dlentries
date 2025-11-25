@@ -1,0 +1,52 @@
+\begin{ingrid}
+
+continuedataset:
+
+/references (Liebmann, B., and D. Allured, 2005: Daily precipitation grids for South America. Bull. Amer. Meteor. Soc., 86, 1567-1570.DOI: 10.1175/BAMS-86-11-1567) def
+
+grid:
+/name (T) def
+/long_name (Time) def
+/units (days since 1800-01-01) def
+51133.5 1 77246.5
+:grid
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units (degree_east) def
+-85. 2.5 -30.
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units (degree_north) def
+-60. 2.5 15.
+:grid
+
+/precip {
+[X Y T | ](/data/gonzalez/SESA_data/SA23_prec/sa23.daily.2.5.1940-2011.nc)readdatafile:
+/name (precip) def
+/realarraytype netcdfrecords
+/long_name (Daily precipitation) def
+/units (mm) def
+/missing_value -999. def
+/scale_min 0. def
+:readdatafile
+daily_precip_colors
+}defasvarsilent
+
+/count {
+[X Y T | ](/data/gonzalez/SESA_data/SA23_prec/sa23.daily.2.5.1940-2011.nc)readdatafile:
+/name (count) def
+/shortarraytype netcdfrecords
+/long_name (Station counts) def
+/missing_value -99. def
+/scale_min 0. def
+:readdatafile
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

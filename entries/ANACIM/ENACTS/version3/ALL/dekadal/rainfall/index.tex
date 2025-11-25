@@ -1,0 +1,183 @@
+\begin{ingrid}
+
+continuedataset:
+
+/T
+1 Jan 1983 julian_day
+%systemtime (%d %b %Y) 12 strftime interp julian_day
+31 Dec 2016 julian_day
+dekadGRID
+/defaultvalue { last } def
+def
+
+%  T
+%   { (/Data/data23/ANACIM/anacim_v3/ALL_block2/rr_mrg_dekad/rr_mrg_%Y%m[T]%d[dekad]_ALL.nc) [T dup day2dom 5. add 10. div toi4 /name /dekad def]}removeextrausing
+%   /expires last_modified systemtime2ymd dup
+%        20 lt
+%        {10 lt {11}{21}ifelse}{ymd:nextmonth}ifelse
+%       ymd2systemtime
+%     def
+%   name exch def
+%  /expires T .expires def
+%  /last_modified T .last_modified def
+
+grid:
+/name /X def
+/units /degree_east def
+ -18.075 0.0375 dup 196.0 mul 2 index add
+/long_name (Longitude) def
+:grid
+
+grid:
+/name /Y def
+/units /degree_north def
+ 11.7 0.0375 dup 149.0 mul 2 index add
+/long_name (Latitude) def
+:grid
+
+ /rfe{
+[ X Y | T] (/Data/data23/ANACIM/anacim_v3/ALL_block2/rr_mrg_dekad/rr_mrg_%Y%m[T]%d[dekad]_ALL.nc)
+[T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+readdatafile:
+/name (precip) def
+/long_name (Merged Station-Satellite Rainfall) def
+/units /mm def
+/missing_value -99 def
+/realarraytype netcdfrecords
+:readdatafile
+startcolormap transparent white white LightYellow LemonChiffon  LightCyan cyan SteelBlue RoyalBlue MediumBlue NavyBlue DarkSlateBlue SlateBlue LightSlateBlue violet PaleVioletRed LightPink pink pink endcolormap
+}defasvarsilent
+
+/SPI_1_dekad {
+rfe
+  1 36 gamma3par
+  pcpn_accum gmean gsd gskew pzero 1 gammaprobs
+  1 gammastandardize
+  /long_name (Standard Precipitation Index 1-dekad) def
+}defasvar
+
+/rfe_mergeddiff {
+  rfe
+  SOURCES .ANACIM .ENACTS .version3 .ALL .dekadal .climatologies .rfe
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   sub
+
+startcolormap -120 200 RANGE
+DimGray sienna
+sienna -120 VALUE
+sienna sienna -90 bandmax
+peru peru -50 bandmax
+burlywood burlywood -25 bandmax
+wheat wheat -5 bandmax
+LightYellow LightYellow 5 bandmax
+LightCyan LightCyan 25 bandmax
+PaleTurquoise PaleTurquoise 75 bandmax
+MediumAquamarine MediumAquamarine 150 bandmax
+CadetBlue CadetBlue 200 bandmax
+CadetBlue
+endcolormap
+
+/long_name (Rainfall Anomaly) def
+
+}defasvar
+
+/rfe_mergeddiff_percent {
+rfe
+  SOURCES .ANACIM .ENACTS .version3 .ALL .dekadal .climatologies .rfe
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   sub
+  SOURCES .ANACIM .ENACTS .version3 .ALL .dekadal .climatologies .rfe
+  1. add
+   % 10 maskle
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   div
+  100 mul
+  -1000 replaceNaN
+/units /percent def
+startcolormap
+    -100 500 RANGE
+    LightSteelBlue ivory SaddleBrown
+       -100 VALUE
+       SaddleBrown SaddleBrown
+         -60 bandmax
+         peru peru
+           -40 bandmax
+           burlywood burlywood
+             -20 bandmax
+             wheat wheat
+               0 bandmax
+               LightCyan LightCyan
+                 40 bandmax
+                 aquamarine aquamarine
+                   90 bandmax
+                   MediumAquamarine MediumAquamarine 160
+                     bandmax
+                     MediumSeaGreen MediumSeaGreen 240
+                     bandmax
+                     SeaGreen SeaGreen 350
+                     bandmax
+                     DarkSeaGreen DarkSeaGreen 500
+                     bandmax
+                     DarkSeaGreen endcolormap
+  /long_name (Rainfall Difference Expressed as Percent of Long-Term Average (%)) def
+
+}defasvar
+
+/rfe_merged_vs_meanrfe_merged {
+rfe
+  SOURCES .ANACIM .ENACTS .version3 .ALL .dekadal .climatologies .rfe
+  1. add
+   % 7 maskle
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   div
+  100 mul
+  -1000 replaceNaN
+/units /percent def
+startcolormap
+    0 600 RANGE
+    LightSteelBlue ivory SaddleBrown
+       0 VALUE
+       SaddleBrown SaddleBrown
+         50 bandmax
+         peru peru
+           100 bandmax
+           burlywood burlywood
+             150 bandmax
+             wheat wheat
+               200 bandmax
+               LightCyan LightCyan
+                 300 bandmax
+                 aquamarine aquamarine
+                   350 bandmax
+                   MediumAquamarine MediumAquamarine 400
+                     bandmax
+                     MediumSeaGreen MediumSeaGreen 450
+                     bandmax
+                     SeaGreen SeaGreen 500
+                     bandmax
+                     DarkSeaGreen DarkSeaGreen 600
+                     bandmax
+                     DarkSeaGreen endcolormap
+  /long_name (Rainfall data Expressed as Percentages of the Long-Term Average) def
+
+}defasvar
+
+:dataset
+
+\end{ingrid}

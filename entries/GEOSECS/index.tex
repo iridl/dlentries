@@ -1,0 +1,169 @@
+\begin{ingrid}
+(/Data/data1/ocean/geosecs/geosec.cdf)continuewithCDF
+continuedataset:
+/iridl:hasSemantics (iridl:SIO) def
+:dataset
+\end{ingrid}
+
+orginal dataset definition
+
+continuedataset:
+datasetdefs:
+(/Data/data1/ocean/geosecs/geosecs.id) readstnhead
+/idsdata ids def
+(/Data/data1/ocean/geosecs/geosecs.hdr) readstnhead
+:datasetdefs
+/description (Geochemical Ocean Sections Study, a global survey of the three-dimensional distribution of chemical, isotopic, and radiochemical tracers in the ocean.  The expeditions were in the Atlantic from July 1972 to May 1973; the Pacific from  August 1973 to June 1974, and the Indian Ocean from December 1977 to March 1978) def
+/ISTA dup /ids 2 ids NewGRID def
+variable:
+/name /lat def
+/long_name (latitude) def
+degN
+grids: ISTA :grids
+lats constantdata
+:variable
+variable:
+/name /lon def
+/long_name (longitude) def
+degE
+grids: ISTA :grids
+lons constantdata
+:variable
+grid:
+/name /IZ def
+/units /integer def 
+1 1 120
+:grid
+/ISTA dup /ids 2 idsdata NewGRID def
+
+file:
+%grids: IZ  { STA BOTTLE PRESS  DEPTH   TEMP    SAL     OXY      PO4
+%  NO3    NO2    SIO3   TCO2    PCO2 PCO2_TEMP TALK    AOU    THETA
+%  SIGMA0   SIGMA2   SIGMA4  Delta_C-14  Delta_C-13  Tritium_TU  }
+%cvlit ISTA :grids
+%/name (/Data/data1/ocean/geosecs/geosecs.r4) def
+grids: IZ  ISTA :grids
+/name (/Data/data1/ocean/geosecs/geosecs.r4b) def
+random
+/missing_value NaN def
+variable:
+/name /STA def
+/long_name (station) def
+:variable
+variable:
+/name /BOTTLE def
+/long_name (bottle number) def
+:variable
+variable:
+/name /PRESS def
+/long_name (pressure) def
+/units (dbar) def
+:variable
+variable:
+/name /DEPTH
+/long_name (depth) def
+/units (m) def
+def
+:variable
+variable:
+/name /TEMP
+/long_name (temperature) def
+/units /Celsius def
+def
+:variable
+variable:
+/name /SAL
+/long_name (salinity) def
+/units (PSU) def
+def
+:variable
+variable:
+/name /OXY def
+/long_name (oxygen) def
+/units (micromole/kg) def
+:variable
+variable:
+/name /PO4 def
+/long_name (phosphate) def
+/units (micromole/kg) def
+:variable
+variable:
+/name /NO3 def
+/long_name (nitrate) def
+/units (micromole/kg) def
+:variable
+variable:
+/name /NO2 def
+/long_name (nitrite) def
+/units (micromole/kg) def
+:variable
+variable:
+/name /SIO3 def
+/long_name (silicate) def
+/units (micromole/kg) def
+:variable
+variable:
+/name /TCO2 def
+/long_name (total $@ CO sub 2$) def
+/units (micromole/kg) def
+:variable
+variable:
+/name /PCO2 def
+/units (microatm) def
+:variable
+variable:
+/name /PCO2_TEMP
+/units /Celsius def
+def
+:variable
+variable:
+/name /TALK def
+/long_name (total alkalinity) def
+/units (microEquivalents/kg) def
+:variable
+variable:
+/name /AOU def
+/long_name (apparent oxygen utilization) def
+/units (micromole/kg) def
+:variable
+variable:
+/name /THETA def
+/long_name (potential temperature) def
+/units /Celsius def
+:variable
+variable:
+/name /SIGMA0 def
+/long_name ($sigma sub 0$) def
+/units (sigma) def
+:variable
+variable:
+/name /SIGMA2 def
+/units (sigma) def
+/long_name ($sigma sub 2$) def
+:variable
+variable:
+/name /SIGMA4 def
+/long_name ($sigma sub 4$) def
+/units (sigma) def
+:variable
+variable:
+/name /Delta_C-14 def
+/long_name ($Delta sup 14 @ C$) def
+/units (per mil) def
+:variable
+variable:
+/name /Delta_C-13 def
+/long_name ($Delta sup 13 @ C$) def
+/units (per mil) def
+:variable
+variable:
+/name /Tritium_TU def
+/long_name (tritium TU) def
+:variable
+:file
+:dataset
+/dataset_documentation.html 1 index /dataset_documentation.html
+get def
+
+
+

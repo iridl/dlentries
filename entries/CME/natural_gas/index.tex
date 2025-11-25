@@ -1,0 +1,46 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+grid:
+/name /mycol def
+1 1 2
+:grid
+:datasetdefs
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+2 Jan 1990 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+05 Nov 2019 julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+:grid
+
+/PX_LAST {
+[mycol T | ]
+%updated file name; original file (natural_gas_gridded.tsv) still in the file location
+(/Data/PRISM/Finance/commodities/natural_gas/natural_gas_updated.tsv)
+readdatafile:
+[1 2] r*4astsv
+:readdatafile
+mycol 1 VALUE
+mycol removeGRID
+/iridl:hasSemantics (iridl:price) def
+}defasvarsilent
+
+/PX_VOLUME {
+[mycol T | ]
+(/Data/PRISM/Finance/commodities/natural_gas/natural_gas_updated.tsv)
+readdatafile:
+[1 2] r*4astsv
+:readdatafile
+mycol 2 VALUE
+mycol removeGRID
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

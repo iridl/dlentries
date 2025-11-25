@@ -1,0 +1,57 @@
+\begin{ingrid}
+continuedataset:
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 1 -89.5
+:grid
+grid:
+/name /T def
+/fullname (Date) def
+/units /julian_day def
+1 Jan 1987 julian_day 
+1
+31 Dec 1988 julian_day 
+:grid
+grid:
+/name /C def
+/fullname (Hour of Day (Z)) def
+0
+6
+18
+:grid
+
+variable:
+/name /hyb_swdn def
+/long_name (Hybrid Surface Shortwave Down Radiation) def
+/units (W m-2) def
+/scale_min 0 def
+/scale_max 1200 def
+grids: X Y | C T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ecdly6hr/s87_88.r4) def
+:file
+:variable
+
+variable:
+/name /hyb_lwdn def
+/long_name (Hybrid Surface Longwave Down Radiation) def
+/units (W m-2) def
+/scale_min 0 def
+/scale_max 600 def
+grids: X Y | C T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ecdly6hr/l87_88.r4) def
+:file
+:variable
+
+:dataset
+\end{ingrid}

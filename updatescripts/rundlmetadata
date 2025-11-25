@@ -1,0 +1,45 @@
+#!/bin/bash
+source ~/.bashrc
+cd /home/datag/semantics
+date --iso-8601=minutes
+echo remove dlmetadatacache
+rm -r dlmetadata
+date --iso-8601=minutes
+echo Start rdfcache.
+export JAVAOPTS="-Dhttp.proxyHost=iridl.ldeo.columbia.edu -Dhttp.proxyPort=3128 -Xmx10g -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit"
+/usr/local/datalib/semantic_tools/bin/rdfcache \
+    -cache=dlmetadata \
+    -notimport=./urltoskip-dl.txt \
+    -construct=./extractdiscovery.ql \
+    -constructoutput=/home/datag/semantics/iridldiscovery.nt \
+    http://iridl.ldeo.columbia.edu/ontologies/iridlmetadata.owl > dlmetadata.log
+date --iso-8601=minutes
+echo Finish rdfcache.
+# temporary exit to check to make sure that iridldiscovery.nt is created
+#exit
+
+set finishTime=`date +%Y%m%d%H%M`
+echo Finish time $finishTime
+if [ -f dlmetadata/owlimMaxRepository.nt ]; then
+    rapper -i ntriples -o rdfxml iridldiscovery.nt > /data/datag/iri_html/iridldiscovery.owl
+    rapper -i ntriples -o rdfxml dlmetadata/owlimMaxRepository.nt > /data/datag/iri_html/iridlcacheExplicitOWL.owl
+set copyTime=`date +%Y%m%d%H%M`
+echo copyTime $copyTime
+echo update sesame 2 services
+fi
+/data/jdcorral/Sesame2/bin/sesame2_console.sh <<EOT
+connect http://dlcomputemon1.iri.columbia.edu:8280/openrdf-sesame.
+open dl-search .
+clear .
+load ./iridldiscovery.nt.
+exit.
+EOT
+
+/data/jdcorral/Sesame2/bin/sesame2_console.sh <<EOT
+connect http://dlcomputegeo2.iri.columbia.edu:8280/openrdf-sesame.
+open dl-search .
+clear .
+load ./iridldiscovery.nt.
+exit.
+EOT
+date --iso-8601=minutes

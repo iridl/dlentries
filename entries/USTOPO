@@ -1,0 +1,73 @@
+\begin{ingrid}
+dataset:
+/name /USTOPO cvx def
+/description (NOAA US topography with 1/120 degree resolution) def
+/iridl:hasSemantics (iridl:NOAA) def
+/dataset_documentation.html descriptions /ustopo.html get def
+grid: /name /X def 
+/units /degreeE def
+234. to 293.991667  N= 7200 pts :grid 
+grid: /name /Y def 
+/units /degreeN def
+25. to 49.991667 N= 3000 pts :grid 
+variable:
+/name /topo cvx def
+/long_name (topography) def
+/units (m) def
+/missing_value -6000. def
+grids: X | Y :grids
+file:
+i*2
+/name (/Data/data4/topog/US.igrid) def
+:file
+PS exch
+startcolormap
+-10000 8000 RANGE
+     black                    % land color is first
+     darkgrey                    % color for low values is second
+     DarkSeaGreen  -10000 value
+     DarkSeaGreen 	-8000 value
+	DarkSlateBlue
+     DarkSlateBlue      -6000 value
+     purple             -5000 value
+     blue               -4000 value
+     MediumSeaGreen	-3000 value
+     DeepSkyBlue        -2000 value
+     cyan		-1500 value
+     LightBlue          -1000 value	
+     LightSeaGreen	-500 value
+    63 255 122 RGB     0 value
+    green    stripe  % green zero contour
+YellowGreen
+ForestGreen	100 value
+OliveDrab	200 value
+khaki		300 value
+yellow		400 value
+gold
+gold	500 value
+DarkGoldenrod
+DarkGoldenrod	750 value
+RosyBrown
+RosyBrown	1000 value
+IndianRed
+IndianRed	1250 value
+SaddleBrown
+SaddleBrown	1500 value
+sienna		2000 value
+OrangeRed 3000 value
+salmon
+   salmon 4000 value
+pink
+pink 5000 value
+bisque
+   bisque 6000 value
+beige
+beige 7000 value
+white
+white 8000 value	
+     grey                        % color for high values
+     endcolormap                 % end of color map setting
+nip
+:variable
+:dataset
+\end{ingrid}

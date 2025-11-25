@@ -1,0 +1,172 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (SubC MMEv21 global weekly probability forecasts of below-normal, above-normal, and near-normal temperature for Saturday-Friday target. MMEv21 forecast starts from May 7 2021) def
+
+datasetdefs:
+
+/togetherfn {
+ a:
+    C /Below_Normal VALUE
+    :a:
+     C /Normal VALUE
+     masklt
+    :a:
+     C /Above_Normal VALUE
+     masklt
+    -1 mul
+    0 replaceNaN
+    :a:
+     C /Normal VALUE
+     :a:
+      C /Below_Normal VALUE
+      masklt
+     :a:
+      C /Above_Normal VALUE
+      masklt
+     37.5 masklt
+     0 mul
+     0 replaceNaN           
+     add
+    :a:
+     C /Above_Normal VALUE
+     :a:
+      C /Normal VALUE
+      masklt
+     :a:
+      C /Below_Normal VALUE
+      masklt
+     0 replaceNaN
+     add
+ :a:
+     C /Below_Normal VALUE
+     0 mul
+     add
+    :a:
+     C /Normal VALUE
+     :a:
+      C /Below_Normal VALUE
+      masklt
+     :a:
+      C /Above_Normal VALUE        
+      masklt
+     37.5 maskgt
+     0 mul
+     1 add
+     0 replaceNaN
+     /missing_value 1 def
+     add
+    :a
+
+startcolormap
+DATA -100.0 100.0 RANGEEDGES
+null 85 85 200 RGB
+85 85 200 RGB -100.0 VALUE
+85 85 200 RGB RGBdup -67.5 bandmax
+129 124 250 RGB RGBdup -57.5 bandmax
+153 163 250 RGB RGBdup -47.5 bandmax
+177 202 250 RGB RGBdup -42.5 bandmax
+200 240 250 RGB RGBdup -37.5 bandmax
+white RGBdup -1.0 bandmax
+gray RGBdup 1.0 bandmax
+white RGBdup 37.5 bandmax
+255 210 210 RGB RGBdup 42.5 bandmax
+242 170 170 RGB RGBdup 47.5 bandmax
+250 120 120 RGB RGBdup 57.5 bandmax
+255 40 40 RGB RGBdup 67.5 bandmax
+150 19 19 RGB RGBdup 100.0 bandmax
+150 19 19 RGB 100.0 VALUE
+150 19 19 RGB
+endcolormap
+} def 
+
+:datasetdefs
+
+
+grid:
+/name (X) def
+/units (degreeE) def
+/fullname (Longitude) def
+periodic
+0. 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/units (degreeN) def
+/fullname (Latitude) def
+-90.0 1.0 90.0
+:grid
+
+
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+values:
+02 Oct 2020 julian_day 01 Jan 1960 julian_day sub
+7
+systemtime
+(%d %b %Y) 12 strftime interp julian_day 3 add
+01 Jan 1960 julian_day sub
+{} for
+:values
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+S {(/data/shared/jingyuan/Subx_forecast/mat_weekly/MME_v21_Subx_forecast_T2M/MME_v21_Subx_global_t2m_Fri_%d[S]_%b[S]_%Y[S]_wk3_week1234_forecast.nc) [ S ]} removeextrausing
+name exch def
+
+S
+/expires
+S last 6 add cvsunits nip interp exch 0.5 add 4 -2 roll exch pop ymd2systemtime
+def
+name exch def
+
+/expires S .expires def
+
+grid:
+/name (L) def
+/units (days) def
+/fullname (Forecast_period) def
+4.5 7. 25.5 
+
+/pointwidth 7. def
+:grid
+
+grid:
+/name (C) def
+/units (ids) def
+/fullname (Tercile Classes) def
+values: /Below_Normal /Normal /Above_Normal :values
+:grid
+
+/target_date { S L add /long_name (forecast time) def /standard_name (time) def } defasvar
+
+/prob {
+(iri.columbia.edu/terms/forecast/1) cvn datadownloadsareRestricted
+/Cookie varies_on
+[ X Y C | L S ] (/data/shared/jingyuan/Subx_forecast/mat_weekly/MME_v21_Subx_forecast_T2M/MME_v21_Subx_global_t2m_Fri_%d[S]_%b[S]_%Y[S]_wk3_week1234_forecast.nc) [ S ] readdatafile:
+/name (prob) def
+/units (percent) def
+/doublearraytype netcdfrecords :readdatafile
+/missing_value NaN def
+/long_name (Tercile Probability) def
+/scale_min 0 def
+/scale_max 100 def
+tercileclassesscale
+} defasvarsilent
+
+/dominant {
+(iri.columbia.edu/terms/forecast/1) cvn datadownloadsareRestricted
+/Cookie varies_on
+prob togetherfn
+/long_name (Dominant Tercile Probability) def
+C removeGRID
+} defasvarsilent
+
+:dataset
+\end{ingrid}

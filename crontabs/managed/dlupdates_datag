@@ -1,0 +1,120 @@
+PATH=/usr/local/datalib/dlentries/updatescripts:/usr/local/datalib/dlentries/updatescripts/S2S:/usr/local/bin:/bin:/usr/bin
+15 1,6,13,19 * * * cfsv2_rotating_6hr.sh
+32 6,14,23 * * * getdata_cfsv2_gfs2.pl
+00  01  1-8 *   *   update_cfsv2_catchup.py
+35 2,14 * * * getrefcstv2.pl
+30      12      12-22   *       *       update_monthly_godas.pl
+20      1      3-15       *       *       newhttpmonthlyCDAS_mako8.pl
+50	9	5-15	*	*	update_COLA_CCSM4p0.py
+00  00  1-10    *   *   update_CESM1.py
+50	7,17	5-15	*	*	getGFDL_SPEAR.pl
+45	3-11,15	5-15	*	*	update_NASA_GEOSS2S.py
+48	2	6-10	*	*	getSOI_Indices.pl
+20	1	9,10,11,15,18,19	*	*	nhti_update.pl
+25	17	28-29,1-2	*	*	CRUTEM4p2update2.pl
+45	4,16	5-11	*	*	update_PRECL.pl
+45	21	5-12	*	*	update_ghcn_cams_temp3.pl
+20	6	13-18	*	*	getGloSea5ncdata.pl
+55	15	*	*	*	update_bom_rmm.pl
+05      02      *       *       *       getir.pl
+20	2	3-11	*	*	olrmonthlyupdate.pl
+25	1	*	*	*	dailyfewsafrica_mako8.pl
+35	15	*	*	*	s_asiadailyfews.pl
+30	16	*	*	*	cmorphdailyupdate.pl
+15	00	*	*	*	update_cmorph_3hrly.pl
+00,30  20,5   *   *   *   update_cmorph0.x_raw.py DLY_00Z
+00,30  21,5   *   *   *   update_cmorph0.x_raw.py 3HLY  
+50	15	2-4,12-14,22-24	*	*	dekadfewsafrica.pl
+01	2	*	*	*	dailycdas_mako8.pl
+05  */2 *   *   *   update_dailycdas.py
+00	00	3-15	*	*	update_cams-opi-v0208.pl
+00	00	2-10	*	*	write_enddate.pl
+25	10,15	2-15	*	*	update_gfs.pl
+# (needs /data/jdcorral, rapper) 30	2	*	*	6	rundlmetadata
+0	 8	15	*	*	update_IRI_NMME_Forecasts.py
+55  23  14-22   *   *   update_CHIRPS3.py
+50	23	18-22	*	*	getmonthlyCHIRPSv2p0.pl
+50  23  10-20   *   *   update_dkd_CHIRPS2.py
+55	23	18-22	*	*	getdailyimprovedCHIRPSp25.pl
+30	10	*	*	*	get_CPC_global_t2m_v0.x.pl
+05	16	3-11	*	*	ersstv5update.pl
+15      7,19    5-18   *       *       update_C3S.py SEAS51
+50	7,19	7-20	*	*	update_C3S.py METEOFRANCE
+50      7,19    5-18    *       *       update_C3S.py METEOFRANCE --hindcasts --current_month
+10	8,20	5-18	*	*	update_C3S.py SPSv4
+10      8,20    4-17    *       *       update_C3S.py SPSv4 --hindcasts --current_month
+20	8,20	6-18	*	*	update_C3S.py GCFS2p2 
+00  6,18    7-18    *   *   update_C3S.py GCFS2p2 --hindcasts --current_month
+00  6,18    8-18    *   *   update_C3S.py UKMO --hindcasts --current_month
+30  6,18    10-20   *   *   update_C3S.py UKMO
+45  6,18    10-20   *   *   update_C3S.py JMA 
+45	23	18-22	*	*	getdailyimprovedCHIRPSp05.pl
+30	11	*	*	*	get_Copernicus_SWI_V3p1p1.pl
+35	14	2,6,11,16,21,26,28-31	*	*	get_TARCATv3p0.pl
+00	00	4-8	*	*	get_PISCO_monthly_v2p1_unstable.pl
+00	00	3-11	*	*	get_PISCO_monthly_StreamV1p1.pl
+00	14-16	*	*	*	get_PISCO_daily_ope.pl
+10	17	5-13	*	*	cmap_mon_update.pl
+20	20	6-26	*	*	get_GPCP_1DD_V1p3.pl
+40	15	*	*	*	get_OISSTv2p1avhrrOnly.pl
+15	15	2,6,11,16,21,26,28-31	*	*	get_TARCATv3p1.pl
+45	11	*	*	0,2,4	getdailyCHIRPp05.pl
+30	00	3-10	*	*	qboIndexMonthly.py
+30      00      19-24      *       *    MERRA2Updating.py
+00      00      *       1-6,10-12       *       update_fews_chirps-etos_dek.py sa
+05      00      *       5-12       *       update_fews_chirps-etos_dek.py wa
+10      00      *       5-12       *       update_fews_chirps-etos_dek.py w1
+15      00      *       3-12       *       update_fews_chirps-etos_dek.py ee
+20      00      *       1-2,10-12       *       update_fews_chirps-etos_dek.py e1
+25      00      *       3-8       *       update_fews_chirps-etos_dek.py e2
+30      00      *       3-10       *       update_fews_chirps-etos_dek.py ek
+35      00      *       4-12       *       update_fews_chirps-etos_dek.py el
+40      00      *       1-3,10-12       *       update_fews_chirps-etos_dek.py et
+55  	01  	06	*	*	update_NOAA_indixes_Monthly.py amo
+55  	01  	06 	*	*	update_NOAA_indixes_Monthly.py dmi
+55  	02  	06	*	*	update_NOAA_indixes_Monthly.py pdo
+55  	02  	06	*	*	update_NOAA_indixes_Monthly.py nao
+00  	02  	06	*	*	update_NOAA_indixes_Monthly.py sam
+55  	02  	06	*	*	update_NOAA_indixes_Monthly.py amm-pmm
+50  	13  	*	*	*	update_NOAA_indixes_Daily.py romi.cpcolr
+# Synchronize the current month of  RMMS and SSW files from ECMWF daily
+0 	12      *       *       wed,sat get_rmms_lftp.py -v --previous 3 --models cma ecmwf
+30	12	*	*	sat     get_rmms_lftp.py -v --previous 3 --models cnrm eccc hmcr isac
+0       14      *       *       *       get_rmms_lftp.py -v --previous 3 --models jma kma ncep ukmo
+#
+10	08	*	*	*	ecmwf_get_data.py --user jefft --models cma cnrm cptec eccc ecmf hmcr iapcas isac jma kma ncep ukmo --timeout 14400
+0	22	*	*	*	ecmwf_get_data.py --user jefft --models ecmf --timeout 14400
+0	7	*/2	*	*	ecmwf_get_data.py --user jpt11 --models ecmf_ref
+0	11	*	*	3,6	ecmwf_get_data.py --user jpt11 --models eccc_ref
+5    10-11 	* 	* 	sat,sun,mon,tue 	  update_GEFSv12_SubX_fcst.py
+00,30    * * * thu,fri update_GEFSv12_SubX_fcst.py
+# SubX routines from Phoenix
+05 1,5,9,17	*	*	sun,mon,tue,fri,sat	get_FIMr1p1_SubX_fcst.pl
+00,30    *     	*       *       wed,thu			get_FIMr1p1_SubX_fcst.pl
+10    6,15	*	*	*			get_GEOS_V2p1_SubX_fcst.pl
+30 5,15,21	*	*	*			get_GEFS_SubX_fcst.pl
+40	06	*	*	*			get_CCSM4_SubX_fcst.pl
+25 3,9,15,23	*	*	sun,mon,tue,fri,sat	get_fcst_anom_file.pl
+05,35    *	*	*	wed,thu			get_fcst_anom_file.pl
+35    6,16	*	*	3-6			get_CWB1T1_SubX_fcst.pl
+20   */2	*	*	thu,fri			update_NCEP_SubX_fcst.py weeks
+20   */6	*	*	sun-wed			update_NCEP_SubX_fcst.py weeks
+50  1   1   *   *   update_NCEP_SubX_fcst.py months
+05,35   *   *   *   mon,tue,thu,fri update_geps8.py forecast
+05,35   *   *   *   mon,tue,thu,fri update_geps8.py hindcast
+35  8   *   *   wed,sat,sun update_geps8.py forecast
+35  8   *   *   wed,sat,sun update_geps8.py hindcast
+30   17,00   *   *   *   update_cbov1.py d NRT
+30   17,00   *   *   mon,tue   update_cbov1.py w NRT
+30   17,00   1-10   *   *   update_cbov1.py m NRT
+15   18,00   25-31   *   *   update_cbov1.py d Final
+30   18,00   25-31   *   *   update_cbov1.py w Final
+45   18,00   25-31   *   *   update_cbov1.py m Final
+00  01  1-25    *   *   update_gpcpv2p3.py
+00  12  5-15    *   *   update_VNP13C2.py
+05  00-06  1-5    *   *   update_CanSIPS-IC-4-forecasts.py
+00,30   22,23   *    *   *   update_UNIFIED_PRECIP_RT.py
+35  00  9-16    *   *   update_climddiv.py
+50  07  */3   *   *   update_MSG_ENH.py
+10  00  */3   *   *   update_dwd_gpcc.py v2020
+20  00  */3   *   *   update_dwd_gpcc.py v2022

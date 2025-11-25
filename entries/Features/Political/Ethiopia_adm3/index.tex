@@ -1,0 +1,65 @@
+\begin{ingrid}
+continuedataset:
+/description (Ethiopia 3rd level of Administrative Boundaries) def
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name
+/Ethiopia_level3
+def
+/adm0
+{ IRIDB (eth_woredas_dd) (name_0) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/adm1
+{ IRIDB (eth_woredas_dd) (name_1) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/adm2
+{ IRIDB (eth_woredas_dd) (name_2) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/adm3
+{ IRIDB (eth_woredas_dd) (name_3) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/id
+{ IRIDB (eth_woredas_dd) (id_3) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/id_2
+{ IRIDB (eth_woredas_dd) (id_2) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/id_1
+{ IRIDB (eth_woredas_dd) (id_1) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/id_0
+{ IRIDB (eth_woredas_dd) (id_0) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (eth_woredas_dd) (the_geom) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/label
+{ IRIDB (eth_woredas_dd) ((name_3 ||', '|| name_2 ||', '|| name_1 ||', '|| name_0) as label)
+[(gid)]open_column_by
+  /long_name (label) def
+  }defasvarsilentnoreuse
+/regionbb {
+ IRIDB
+  (select gid, xmin(extent(the_geom)) as xlo, xmax(extent(the_geom)) as xhi, ymin(extent(the_geom)) as ylo, ymax(extent(the_geom)) as yhi from eth_maplib group by gid) (gid) openqueryby
+  a: .xlo
+    (bb:%f:) sprintf
+    :a: .ylo
+     (%f:) sprintf
+     :a: .xhi
+      (%f:) sprintf
+      :a: .yhi
+       (%f:bb) sprintf
+       :a
+     3 {sappend}repeat
+%appendstream
+/long_name (Region bbox) def
+}defasvarsilent
+
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+Ethiopia_level3 id .gid name exch put
+\end{ingrid}
+ 

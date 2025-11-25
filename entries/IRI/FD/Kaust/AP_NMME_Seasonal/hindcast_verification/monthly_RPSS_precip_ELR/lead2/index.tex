@@ -1,0 +1,137 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (monthly Ranked Probability Skill Score for AP NMME seasoanl precipitation probability hindcast based on ELR method, with 5 NMME models and new normal period 1991-2020) def
+
+
+dataset:
+/name /NMME def
+/RPSS{
+(/Data/data21/iri/FD/Kaust/NMME_seasonal_hindcast_verification/NMME_seasonal_precip_hindcast_monthly_RPSS_1991_2020_5models_AP.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+T
+/units (months since 01-Jan) def
+/gridtype 1 def
+-0.5 shiftGRID
+
+lead 2 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+dataset:
+/name /CanSIPS-IC3 def
+/RPSS{
+(/Data/data21/iri/FD/Kaust/NMME_seasonal_hindcast_verification/NMME_seasonal_precip_hindcast_monthly_RPSS_1991_2020_CanSIPS-IC3_AP.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+T
+/units (months since 01-Jan) def
+/gridtype 1 def
+-0.5 shiftGRID
+
+lead 2 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+
+dataset:
+/name /COLA-RSMAS-CCSM4 def
+/RPSS{
+(/Data/data21/iri/FD/Kaust/NMME_seasonal_hindcast_verification/NMME_seasonal_precip_hindcast_monthly_RPSS_1991_2020_COLA-RSMAS-CCSM4_AP.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+T
+/units (months since 01-Jan) def
+/gridtype 1 def
+-0.5 shiftGRID
+
+lead 2 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+dataset:
+/name /GFDL-SPEAR def
+/RPSS{
+(/Data/data21/iri/FD/Kaust/NMME_seasonal_hindcast_verification/NMME_seasonal_precip_hindcast_monthly_RPSS_1991_2020_GFDL-SPEAR_AP.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+T
+/units (months since 01-Jan) def
+/gridtype 1 def
+-0.5 shiftGRID
+
+lead 2 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+dataset:
+/name /NASA-GEOSS2S def
+/RPSS{
+(/Data/data21/iri/FD/Kaust/NMME_seasonal_hindcast_verification/NMME_seasonal_precip_hindcast_monthly_RPSS_1991_2020_NASA-GEOSS2S_AP.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+T
+/units (months since 01-Jan) def
+/gridtype 1 def
+-0.5 shiftGRID
+
+lead 2 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+dataset:
+/name /NCEP-CFSv2 def
+/RPSS{
+(/Data/data21/iri/FD/Kaust/NMME_seasonal_hindcast_verification/NMME_seasonal_precip_hindcast_monthly_RPSS_1991_2020_NCEP-CFSv2_AP.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+T
+/units (months since 01-Jan) def
+/gridtype 1 def
+-0.5 shiftGRID
+
+lead 2 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+
+:dataset
+\end{ingrid}

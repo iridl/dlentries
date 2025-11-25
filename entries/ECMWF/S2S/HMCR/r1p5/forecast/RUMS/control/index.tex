@@ -1,0 +1,567 @@
+\begin{ingrid}
+continuedataset:
+
+dataset:
+/name /pressure_level_1 def
+
+/q {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .pressure_level_1 .q
+  exch
+  .RUMS22 .control
+  .pressure_level_1 .q
+  P 200 last RANGE
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name /pressure_level_2 def
+
+/t {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .pressure_level_2 .t
+  exch
+  .RUMS22 .control
+  .pressure_level_2 .t
+  P 50 last RANGE
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+
+/gh {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .pressure_level_2 .gh
+  exch
+  .RUMS22 .control
+  .pressure_level_2 .gh
+  P 50 last RANGE
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name /pressure_level_wind def
+
+/u {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .pressure_level_wind .u
+  exch
+  .RUMS22 .control
+  .pressure_level_wind .u
+  P 50 last RANGE
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+
+/v {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .pressure_level_wind .v
+  exch
+  .RUMS22 .control
+  .pressure_level_wind .v
+  P 50 last RANGE
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name /sfc_snow_ice def
+
+/ci {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  LA 0 45 RANGE
+  .sfc_snow_ice .ci
+  exch
+  .RUMS22 .control
+  .sfc_snow_ice .ci
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+
+/asn {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  LA 0 45 RANGE
+  .sfc_snow_ice .asn
+  exch
+  .RUMS22 .control
+  .sfc_snow_ice .asn
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+
+/sd {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  LA 0 45 RANGE
+  .sfc_snow_ice .sd
+  exch
+  .RUMS22 .control
+  .sfc_snow_ice .sd
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name /sfc_temperature def
+
+/wtmp {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  LA 0 45 RANGE
+  .sfc_temperature .wtmp
+  exch
+  .RUMS22 .control
+  .sfc_temperature .wtmp
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+
+/skt {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  LA 0 45 RANGE
+  .sfc_temperature .skt
+  exch
+  .RUMS22 .control
+  .sfc_temperature .skt
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name /sfc_heat_flux def
+
+/sshf {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .sfc_heat_flux .sshf
+  exch
+  .RUMS22 .control
+  .sfc_heat_flux .sshf
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+/slhf {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .sfc_heat_flux .slhf
+  exch
+  .RUMS22 .control
+  .sfc_heat_flux .slhf
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name /sfc_pressure def
+
+/sp {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .sfc_pressure .sp
+  exch
+  .RUMS22 .control
+  .sfc_pressure .sp
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+/msl {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .sfc_pressure .msl
+  exch
+  .RUMS22 .control
+  .sfc_pressure .msl
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name /sfc_rad_flux def
+
+/ssrd {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .sfc_rad_flux .ssrd
+  exch
+  .RUMS22 .control
+  .sfc_rad_flux .ssrd
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+/strd {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .sfc_rad_flux .strd
+  exch
+  .RUMS22 .control
+  .sfc_rad_flux .strd
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+/ssr {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .sfc_rad_flux .ssr
+  exch
+  .RUMS22 .control
+  .sfc_rad_flux .ssr
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+/str {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .sfc_rad_flux .str
+  exch
+  .RUMS22 .control
+  .sfc_rad_flux .str
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name /sfc_stress def
+
+/ewss {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .sfc_stress .ewss
+  exch
+  .RUMS22 .control
+  .sfc_stress .ewss
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+/nsss {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .sfc_stress .nsss
+  exch
+  .RUMS22 .control
+  .sfc_stress .nsss
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name /land_sfc def
+
+/lsm {
+1 index
+3 {.dataset} repeat
+  .RUMS22 .control
+  .land_sfc .lsm
+} defasvarsilent
+
+/orog {
+1 index
+3 {.dataset} repeat
+  .RUMS22 .control
+  .land_sfc .orog
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name /sfc_precip def
+
+/cp {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .sfc_precip .cp
+  exch
+  .RUMS22 .control
+  .sfc_precip .cp
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+/sf {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .sfc_precip .sf
+  exch
+  .RUMS22 .control
+  .sfc_precip .sf
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+/tp {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .sfc_precip .tp
+  exch
+  .RUMS22 .control
+  .sfc_precip .tp
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (top_of_atmosphere) def
+
+/ttr {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .top_of_atmosphere .ttr
+  exch
+  .RUMS22 .control
+  .top_of_atmosphere .ttr
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (atmos_column) def
+
+/tcc {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  LA 0 45 RANGE
+  .atmos_column .tcc
+  exch
+  .RUMS22 .control
+  .atmos_column .tcc
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (10m_above_ground) def
+
+/10u {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .10m_above_ground .10u
+  exch
+  .RUMS22 .control
+  .10m_above_ground .10u
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+/10v {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  L 0 46 RANGE
+  .10m_above_ground .10v
+  exch
+  .RUMS22 .control
+  .10m_above_ground .10v
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (2m_above_ground) def
+
+/2t {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  LA 0 45 RANGE
+  .2m_above_ground .2t
+  exch
+  .RUMS22 .control
+  .2m_above_ground .2t
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+
+
+/2dt {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  LA 0 45 RANGE
+  .2m_above_ground .2dt
+  exch
+  .RUMS22 .control
+  .2m_above_ground .2dt
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (0-0p2_m_below_ground) def
+
+/sm20 {
+ 1 index
+ 3 {.dataset} repeat
+  dup .RUMS1522 .control
+   LA 0 45 RANGE
+   .0-0p2_m_below_ground .sm20
+   exch
+   .RUMS22 .control
+   .0-0p2_m_below_ground .sm20
+   appendstream
+  S /defaultvalue { last } def pop
+} defasvarsilent
+
+ /st20 {
+ 1 index
+ 3 {.dataset} repeat
+  dup .RUMS1522 .control
+   LA 0 45 RANGE
+   .0-0p2_m_below_ground .st20
+   exch
+   .RUMS22 .control
+   .0-0p2_m_below_ground .st20
+   appendstream
+  S /defaultvalue { last } def pop
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (0-1_m_below_ground) def
+
+/sm100 {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  LA 0 45 RANGE
+  .0-1_m_below_ground .sm100
+  exch
+  .RUMS22 .control
+  .0-1_m_below_ground .sm100
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+/st100 {
+1 index
+3 {.dataset} repeat
+ dup .RUMS1522 .control
+  LA 0 45 RANGE
+  .0-1_m_below_ground .st100
+  exch
+  .RUMS22 .control
+  .0-1_m_below_ground .st100
+  appendstream
+ S /defaultvalue { last } def pop
+} defasvarsilent
+
+ :dataset
+
+:dataset
+
+%grids vars subdataset (17 in total) definition
+  mark
+   {counttomark interp 1 eq {.S name exch def}if pop}foralldatasets2 17 {pop}repeat
+   {counttomark interp 1 eq {.X name exch def}if pop}foralldatasets2 17 {pop}repeat
+   {counttomark interp 1 eq {.Y name exch def}if pop}foralldatasets2 17 {pop}repeat
+   {counttomark interp 1 eq {exch pop}{pop}ifelse}foralldatasets2 17{dup /LA known {.LA name exch def }{.L name exch def }ifelse pop} repeat
+   {counttomark interp 1 eq {exch pop}{pop}ifelse}foralldatasets2 17{dup /P known {.P name exch def }{pop}ifelse pop}repeat
+   pop
+ 
+ %get grids vars definitions in the top
+ 0-1_m_below_ground .st100 .S name exch def
+ 0-1_m_below_ground .st100 .LA name exch def
+ 0-1_m_below_ground .st100 .X name exch def
+ 0-1_m_below_ground .st100 .Y name exch def
+ pressure_level_2 .t .P name exch def
+ sfc_pressure .sp .L name exch def
+
+%target dates 
+/target_date {S L add /long_name (forecast time) def } defasvar
+/target_dateA {S LA add /long_name (forecast time) def } defasvar
+
+\end{ingrid}

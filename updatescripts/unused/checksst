@@ -1,0 +1,86 @@
+#! /usr/local/bin/perl
+
+use File::Basename;
+my $libdir = dirname(__FILE__) . "/perl";
+require "$libdir/credentials.pl";
+my ($user, $passwd) = get_credential("anonymous");
+
+%mons = (
+Jan => "01",
+Feb => "02",
+Mar => "03",
+Apr => "04",
+May => "05",
+Jun => "06",
+Jul => "07",
+Aug => "08",
+Sep => "09",
+Oct => 10,
+Nov => 11,
+Dec => 12,
+);
+$prog = "/Data/data3/ocean/nmc/weekconv0";
+$source  = "pub/cmb/sst/oiupdate";
+$lastdate = `/usr/local/bin/webcopy -o http://ingrid.ldgo.columbia.edu/expert/SOURCES/.IGOSS/.nmc/.Reyn_SmithOIv1/.weekly/.sst/T/7/shiftGRID/T/last/VALUE/T/dataunits.ch`;
+$lastfile=$lastdate;
+$lastdate=~m/(\d+) (...) \d\d(\d\d)/;
+if($1 < 10){
+	$day = "0" . $1;
+}
+else {
+	$day = $1;
+}
+	$mon = $mons{$2};
+	$yr = $3;
+$cmon = `date +%m`;
+chop $cmon;
+$cday = `date +%d`;
+chop $cday;
+$cyr = `date +$yr`;
+chop $cyr;
+print "next needed $mon/$day/$yr and it is $cmon/$cday/$cyr\n";
+if(($cyr eq "00" && $yr eq "99") || ($cyr > $yr) || ($cyr eq $yr && $mon < $cmon) || ($cyr eq $yr && $cmon eq $mon && $day < $cday)){
+$newfile="oi.mean.bias." . $yr . $mon . $day;
+print "Looking for $newfile\n";
+chdir "/Data/data3/ocean/nmc/";
+if (! -f "$newfile"){
+open(out,"|ftp -n ftp.ncep.noaa.gov");
+print out << "eoc";
+user $user $passwd;
+binary
+hash
+cd $source
+prompt
+get $newfile
+eoc
+close out;
+if (-f "$newfile"){
+open(in,"$prog W $newfile|");
+while(<in>){
+if(/([0-9\.]+)/){
+$jday = $1;
+}
+}
+close in;
+open(in, "/Data/data1/DataCatalog/entries/IGOSS/nmc/Reyn_SmithOIv1/weekly/index.tex");
+open(out,">newnmc");
+while(<in>){
+if(/endday/){
+s/^[0-9\.]+/$jday/;
+}
+print out;
+}
+close(in);
+close(out);
+system("mv /Data/data1/DataCatalog/entries/IGOSS/nmc/Reyn_SmithOIv1/weekly/index.tex nmcold");
+system("mv newnmc /Data/data1/DataCatalog/entries/IGOSS/nmc/Reyn_SmithOIv1/weekly/index.tex");
+}
+else {
+# print "need to try again\n";
+    open(out,"|at now + 6 hours");
+    print out "/home/datag/cronjobs/checksst\n";
+    close out;
+}
+}
+}
+

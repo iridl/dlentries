@@ -1,0 +1,27 @@
+\begin{ingrid}
+dataset:
+/description (Wind stress data from the National Meteorological Center - now known as the National Centers for Environmental Prediction) def
+/name /NMC9195 def
+/iridl:hasSemantics (iridl:NOAA) def
+grid: /name /X def degE periodic 0.0 to 358.52 N= 243 pts :grid 
+grid: /name /Y def degN  -88.875 to 88.875 N= 122 pts :grid 
+grid: /name /T def /units /month def 
+2 Jan 1991 ensotime to 10 Jan 1996 ensotime N= 262 pts :grid
+file: 
+/name (/Data/data3/rainbow/NMC91-95) def
+random
+grids: X Y [ /taux /tauy ] | T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+:file
+:dataset
+\end{ingrid}
+

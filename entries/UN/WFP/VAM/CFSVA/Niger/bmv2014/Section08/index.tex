@@ -1,0 +1,621 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 21668
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 345
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Base_menage_vulnerabilite_2014.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Alimentation) def
+/Q52B1 {
+mytable
+myquestion 
+182 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 01 Céréales Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52C1 {
+mytable
+myquestion 
+183 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 01 Céréales Nombre de jours) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q52D1 {
+mytable
+myquestion 
+184 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 01 Céréales Source principale) def 
+/units /ids def
+/CLIST [(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q52B2 {
+mytable
+myquestion 
+185 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 02 Racines Tubercules Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52C2 {
+mytable
+myquestion 
+186 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 02 Racines Tubercules Nombre de jours) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q52D2 {
+mytable
+myquestion 
+187 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 02 Racines Tubercules Source principale) def 
+/units /ids def
+/CLIST [(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q52B3 {
+mytable
+myquestion 
+188 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 03 Légumineuse Noix Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52C3 {
+mytable
+myquestion 
+189 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 03 Légumineuse Noix Nombre de jours) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q52D3 {
+mytable
+myquestion 
+190 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 03 Légumineuse noix Source principale) def 
+/units /ids def
+/CLIST [(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q52B4 {
+mytable
+myquestion 
+191 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 04 Légumes de couleur orange Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52C4 {
+mytable
+myquestion 
+192 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 04 Légumes de couleur orange Nombre de jo) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q52D4 {
+mytable
+myquestion 
+193 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 04 Légumes de couleur orange Source princ) def 
+/units /ids def
+/CLIST [(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q52B5 {
+mytable
+myquestion 
+194 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 05 Légumes à feuilles vertes Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52C5 {
+mytable
+myquestion 
+195 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 05 Légumes à feuilles vertes Nombre de jo) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q52D5 {
+mytable
+myquestion 
+196 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 05 Légumes à feuilles vertes Source princ) def 
+/units /ids def
+/CLIST [(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q52B6 {
+mytable
+myquestion 
+197 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 06 Autres Légumes Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52C6 {
+mytable
+myquestion 
+198 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 06 Autres Légumes Nombre de jours) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q52D6 {
+mytable
+myquestion 
+199 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 06 Autres Légumes Source principale) def 
+/units /ids def
+/CLIST [(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52B7 {
+mytable
+myquestion 
+200 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 07 Fruits de couleur orange Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)] def
+/scale_min 1 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q52C7 {
+mytable
+myquestion 
+201 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 07 Fruits de couleur orange Nombre de jou) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q52D7 {
+mytable
+myquestion 
+202 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 07 Fruits de couleur orange Source princi) def 
+/units /ids def
+/CLIST [(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q52B8 {
+mytable
+myquestion 
+203 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 08 Autres fruits Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52C8 {
+mytable
+myquestion 
+204 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 08 Autres fruits Nombre de jours) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q52D8 {
+mytable
+myquestion 
+205 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 08 Autres fruits Source principale) def 
+/units /ids def
+/CLIST [(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q52B9 {
+mytable
+myquestion 
+206 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 09 Viande Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52C9 {
+mytable
+myquestion 
+207 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 09 Viande Nombre de jours) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q52D9 {
+mytable
+myquestion 
+208 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 09 Viande Source principale) def 
+/units /ids def
+/CLIST [(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q52B10 {
+mytable
+myquestion 
+209 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 10 Foie Rognon Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52C10 {
+mytable
+myquestion 
+210 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 10 Foie Rognon Nombre de jours) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q52D10 {
+mytable
+myquestion 
+211 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 10 Foie Rognon Source principale) def 
+/units /ids def
+/CLIST [(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q52B11 {
+mytable
+myquestion 
+212 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 11 Poisson Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52C11 {
+mytable
+myquestion 
+213 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 11 Poisson Nombre de jours) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q52D11 {
+mytable
+myquestion 
+214 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 11 Poissons Source principale) def 
+/units /ids def
+/CLIST [(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q52B12 {
+mytable
+myquestion 
+215 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 12 Oeufs Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52C12 {
+mytable
+myquestion 
+216 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 12 Oeufs Nombre de jours) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q52D12 {
+mytable
+myquestion 
+217 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 12 Oeufs Source principale) def 
+/units /ids def
+/CLIST [(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q52B13 {
+mytable
+myquestion 
+218 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 13 Lait et autres prdts laitiers Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52C13 {
+mytable
+myquestion 
+219 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 13 Lait et autres prdts laitiers Nombre d) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q52D13 {
+mytable
+myquestion 
+220 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 13 Lait et autres prdts laitiers Source p) def 
+/units /ids def
+/CLIST [(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q52B14 {
+mytable
+myquestion 
+221 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 14 Huile/Gras/Beurre Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52C14 {
+mytable
+myquestion 
+222 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 14 Huile/Gras/Beurre Nombre de jours) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q52D14 {
+mytable
+myquestion 
+223 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 14 Huile/Gras/Beurre Source principale) def 
+/units /ids def
+/CLIST [(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q52B15 {
+mytable
+myquestion 
+224 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 15 Sucre ou autres prdts sucrés Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52C15 {
+mytable
+myquestion 
+225 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 15 Sucre ou autres prdts sucrés Nombre de) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q52D15 {
+mytable
+myquestion 
+226 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 15 Sucre ou autres prdts sucrés Source pr) def 
+/units /ids def
+/CLIST [(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q52B16 {
+mytable
+myquestion 
+227 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 16 Epices/Condiments Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52C16 {
+mytable
+myquestion 
+228 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 16 Epices/Condiments Nombre de jours) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire (Transferts monétaires ou des bons d'achats))(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt (Crédit de la boutique))(Chasse/cueillette/pêche)(Travail contre nourriture)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q52D16 {
+mytable
+myquestion 
+229 VALUE
+ myquestion removeGRID
+/long_name (Q52 Aliments consommés dans le ménage: 16 Epices/Condiments Source principale) def 
+/units /ids def
+/CLIST [(Propre production pluviale)] def
+/scale_min 1 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q53 {
+mytable
+myquestion 
+230 VALUE
+ myquestion removeGRID
+/long_name (Q53: Comment trouvez-vous votre consommation alimentaire actuellement......) def 
+/units /ids def
+/CLIST [(N'a pas changé)(S'est détériorée)(S'est améliorée)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

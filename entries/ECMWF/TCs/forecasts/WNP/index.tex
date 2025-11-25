@@ -1,0 +1,134 @@
+\begin{ingrid}
+
+/ECMWF-TrSt dataareRestricted
+
+continuedataset:
+
+/description (West Northern Pacific basin) def
+
+datasetdefs:
+
+grid:
+   /name /Smod def
+   0 3.5 52
+      7 mul
+      :grid
+:datasetdefs
+
+/S
+Smod
+  0 add
+  7 mod
+  0 maskgt
+  Smod add
+  Smod
+   0.5 add
+   replaceNaN
+  /name /S def
+  Smod
+   0 add
+   /name /Smod2 def
+   exch use_as_grid
+  .S
+  /units (days since 2015-01-01) def
+  /pointwidth 0 def
+/defaultvalue { last } def
+/long_name (Start time) def
+ def
+
+grid:
+/name /StormNum def
+1 1 35 
+:grid
+
+grid:
+/name /M def
+/long_name (ensemble member) def
+0 1 50
+:grid
+
+grid:
+/name /L def
+/long_name (lead time) def
+/units /days def
+0 0.5 46.5
+:grid
+
+/target_date {
+S L add
+/long_name (Forecast Time) def
+/pointwidth 0 def
+} defasvar
+
+/lon {
+[L StormNum | S M]
+(/Data/data22/ECMWF/TCs/WNP/forecasts/ncfiles/wnp.%Y%m%d[S]/wnp.%Y%m%d[S].%1$03d[M].nc) [S M]
+readdatafile:
+/name (lon) def
+/realarraytype netcdfrecords
+:readdatafile
+/long_name (longitude) def
+/units /degree_east def
+/missing_value 9.969210E+36 def
+/scale_min 85. def
+/scale_max 225. def
+}defasvarsilent
+
+/lat {
+[L StormNum | S M]
+(/Data/data22/ECMWF/TCs/WNP/forecasts/ncfiles/wnp.%Y%m%d[S]/wnp.%Y%m%d[S].%1$03d[M].nc) [S M]
+readdatafile:
+/name (lat) def
+/realarraytype netcdfrecords
+:readdatafile
+/long_name (latitude) def
+/units /degree_north def
+/missing_value 9.969210E+36 def
+/scale_min -4. def
+/scale_max 54. def
+}defasvarsilent
+
+/vmax {
+[L StormNum | S M]
+(/Data/data22/ECMWF/TCs/WNP/forecasts/ncfiles/wnp.%Y%m%d[S]/wnp.%Y%m%d[S].%1$03d[M].nc) [S M]
+readdatafile:
+/name (vmax) def
+/realarraytype netcdfrecords
+:readdatafile
+/missing_value 9.969210E+36 def
+/long_name (Maximum wind velocity) def
+/units /knot def
+windspeed_colors
+   DATA 0 AUTO RANGE
+}defasvarsilent
+
+/pmin {
+[L StormNum | S M]
+(/Data/data22/ECMWF/TCs/WNP/forecasts/ncfiles/wnp.%Y%m%d[S]/wnp.%Y%m%d[S].%1$03d[M].nc) [S M]
+readdatafile:
+/name (pmin) def
+/realarraytype netcdfrecords
+:readdatafile
+/missing_value 9.969210E+36 def
+/long_name (Minimum Pressure) def
+/units /mb def
+}defasvarsilent
+
+/StormId {
+[StormNum | S M]
+(/Data/data22/ECMWF/TCs/WNP/forecasts/ncfiles/wnp.%Y%m%d[S]/wnp.%Y%m%d[S].%1$03d[M].nc) [S M]
+readdatafile:
+/name (StormId) def
+/realarraytype netcdfrecords
+:readdatafile
+/missing_value 9.969210E+36 def
+/long_name (Storm ID) def
+}defasvarsilent
+
+/location {
+lon lat geopt
+}defasvar
+
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,660 @@
+\begin{ingrid}
+continuedataset:
+link:
+/name (WOA01) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NODC/.WOA01/.Grid-1x1/.Annual/) def
+/description (World Ocean Atlas 2001) def
+/semantics (dcterm:isReplacedBy) def
+:link
+grid: /name (X) def
+/long_name(Longitude) def
+/units /degreeE def
+periodic 
+0.5 to 359.5 N= 360 pts
+:grid
+grid: /name (Y) def
+/long_name(Latitude) def
+/units /degreeN def
+-89.5 to 89.5 N= 180 pts
+:grid
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. 600. 700. 800. 900. 1000. 1100. 1200. 1300. 1400. 1500. 1750. 2000. 2500. 3000. 3500. 4000. 4500. 5000. 5500.]
+:grid
+dataset:
+/name /analyzed def
+link:
+/name (WOA01) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NODC/.WOA01/.Grid-1x1/.Annual/.an/) def
+/description (World Ocean Atlas 2001) def
+/semantics (dcterm:isReplacedBy) def
+:link
+variable:
+/name /temperature def
+/long_name(temperature) def
+/units /Celsius_scale def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/temperat/annual/tan1.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/long_name (dissolved oxygen) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/oxygen/annual/oan1.r4) def
+:file
+:variable
+variable:
+/name /AOU def
+/long_name (apparent oxygen utilization) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/aou/annual/aan1.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/long_name(salinity) def
+/units /PSU def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/salinity/annual/san1.r4) def
+:file
+:variable
+variable:
+/name /silicate def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/silicate/annual/ian1.r4) def
+:file
+:variable
+variable:
+/name /nitrate def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/nitrate/annual/nan1.r4) def
+:file
+:variable
+variable:
+/name /phosphate def
+/long_name (Phosphate)def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/phosph/annual/pan1.r4) def
+:file
+:variable
+variable:
+/name /o2sat def
+/units (percent) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/o2sat/annual/xan1.r4) def
+:file
+:variable
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100.]
+:grid
+variable:
+/name /chlorophyll def
+/long_name (chlorophyll) def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/chloroph/annual/can1.r4) def
+:file
+:variable
+dataset .Z name exch def
+:dataset
+dataset:
+link:
+/name (WOA01) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NODC/.WOA01/.Grid-1x1/.Annual/.mn/) def
+/description (World Ocean Atlas 2001) def
+/semantics (dcterm:isReplacedBy) def
+:link
+/name /raw def
+variable:
+/name /temperature def
+/long_name(temperature) def
+/units /Celsius_scale def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/temperat/annual/tmn1.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/long_name (dissolved oxygen) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/oxygen/annual/omn1.r4) def
+:file
+:variable
+variable:
+/name /AOU def
+/long_name (apparent oxygen utilization) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/aou/annual/amn1.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/long_name(salinity) def
+/units /PSU def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/salinity/annual/smn1.r4) def
+:file
+:variable
+variable:
+/name /silicate def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/silicate/annual/imn1.r4) def
+:file
+:variable
+variable:
+/name /nitrate def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/nitrate/annual/nmn1.r4) def
+:file
+:variable
+variable:
+/name /phosphate def
+/long_name (Phosphate)def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/phosph/annual/pmn1.r4) def
+:file
+:variable
+variable:
+/name /o2sat def
+/units (percent) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/o2sat/annual/xmn1.r4) def
+:file
+:variable
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100.]
+:grid
+variable:
+/name /chlorophyll def
+/long_name (chlorophyll) def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/chloroph/annual/cmn1.r4) def
+:file
+:variable
+dataset .Z name exch def
+:dataset
+dataset:
+/name /sd def
+/long_name (standard deviation)def
+variable:
+/name /temperature def
+/long_name(temperature) def
+/units /Celsius_scale def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/temperat/annual/tsd1.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/long_name (dissolved oxygen) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/oxygen/annual/osd1.r4) def
+:file
+:variable
+variable:
+/name /AOU def
+/long_name (apparent oxygen utilization) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/aou/annual/asd1.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/long_name(salinity) def
+/units /PSU def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/salinity/annual/ssd1.r4) def
+:file
+:variable
+variable:
+/name /silicate def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/silicate/annual/isd1.r4) def
+:file
+:variable
+variable:
+/name /nitrate def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/nitrate/annual/nsd1.r4) def
+:file
+:variable
+variable:
+/name /phosphate def
+/long_name (Phosphate)def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/phosph/annual/psd1.r4) def
+:file
+:variable
+variable:
+/name /o2sat def
+/units (percent) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/o2sat/annual/xsd1.r4) def
+:file
+:variable
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100.]
+:grid
+variable:
+/name /chlorophyll def
+/long_name (chlorophyll) def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/chloroph/annual/csd1.r4) def
+:file
+:variable
+dataset .Z name exch def
+:dataset
+dataset:
+/name /se def
+/long_name (standard error) def
+variable:
+/name /temperature def
+/long_name(temperature) def
+/units /Celsius_scale def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/temperat/annual/tse1.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/long_name (dissolved oxygen) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/oxygen/annual/ose1.r4) def
+:file
+:variable
+variable:
+/name /AOU def
+/long_name (apparent oxygen utilization) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/aou/annual/ase1.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/long_name(salinity) def
+/units /PSU def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/salinity/annual/sse1.r4) def
+:file
+:variable
+variable:
+/name /silicate def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/silicate/annual/ise1.r4) def
+:file
+:variable
+variable:
+/name /nitrate def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/nitrate/annual/nse1.r4) def
+:file
+:variable
+variable:
+/name /phosphate def
+/long_name (Phosphate)def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/phosph/annual/pse1.r4) def
+:file
+:variable
+variable:
+/name /o2sat def
+/units (percent) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/o2sat/annual/xse1.r4) def
+:file
+:variable
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100.]
+:grid
+variable:
+/name /chlorophyll def
+/long_name (chlorophyll) def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/chloroph/annual/cse1.r4) def
+:file
+:variable
+dataset .Z name exch def
+:dataset
+dataset:
+/name /dist def
+/long_name (data distribution) def
+link:
+/name (WOA01) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NODC/.WOA01/.Grid-1x1/.Annual/.dd/) def
+/description (World Ocean Atlas 2001) def
+/semantics (dcterm:isReplacedBy) def
+:link
+
+variable:
+/name /temperature def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/temperat/annual/tdd1.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/oxygen/annual/odd1.r4) def
+:file
+:variable
+variable:
+/name /AOU def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/aou/annual/add1.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/salinity/annual/sdd1.r4) def
+:file
+:variable
+variable:
+/name /silicate def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/silicate/annual/idd1.r4) def
+:file
+:variable
+variable:
+/name /nitrate def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/nitrate/annual/ndd1.r4) def
+:file
+:variable
+variable:
+/name /phosphate def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/phosph/annual/pdd1.r4) def
+:file
+:variable
+variable:
+/name /o2sat def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/o2sat/annual/xdd1.r4) def
+:file
+:variable
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100.]
+:grid
+variable:
+/name /chlorophyll def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/chloroph/annual/cse1.r4) def
+:file
+:variable
+dataset .Z name exch def
+:dataset
+dataset:
+/name /gridpt def
+/long_name (grid points) def
+link:
+/name (WOA01) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NODC/.WOA01/.Grid-1x1/.Annual/.gp/) def
+/description (World Ocean Atlas 2001) def
+/semantics (dcterm:isReplacedBy) def
+:link
+variable:
+/name /temperature def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/temperat/annual/tgp1.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/oxygen/annual/ogp1.r4) def
+:file
+:variable
+variable:
+/name /AOU def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/aou/annual/agp1.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/salinity/annual/sgp1.r4) def
+:file
+:variable
+variable:
+/name /silicate def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/silicate/annual/igp1.r4) def
+:file
+:variable
+variable:
+/name /nitrate def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/nitrate/annual/ngp1.r4) def
+:file
+:variable
+variable:
+/name /phosphate def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/phosph/annual/pgp1.r4) def
+:file
+:variable
+variable:
+/name /o2sat def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/o2sat/annual/xgp1.r4) def
+:file
+:variable
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100.]
+:grid
+variable:
+/name /chlorophyll def
+/missing_value -100 def
+grids: X Y | Z :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/chloroph/annual/cse1.r4) def
+:file
+:variable
+dataset .Z name exch def
+:dataset
+:dataset
+\end{ingrid}

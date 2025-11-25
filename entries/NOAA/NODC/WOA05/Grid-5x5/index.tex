@@ -1,0 +1,1077 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+grid:
+/name (X)def
+/units (degree_east)def
+ 2.5 5. 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ -87.5 5. 87.5
+:grid
+grid:
+/name (Z)def
+/units (m)def
+/positive (down) def
+values: 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500.  :values
+:grid
+/Z500 Z def
+grid:
+/name (Z)def
+/units (m)def
+/positive (down) def
+values: 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. 600. 700. 800. 900. 1000. 1100. 1200. 1300. 1400. 1500. :values
+:grid
+/Z1500 Z def
+grid:
+/name (Z)def
+/units (m)def
+/positive (down) def
+values: 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. 600. 700. 800. 900. 1000. 1100. 1200. 1300. 1400. 1500. 1750. 2000. 2500. 3000. 3500. 4000. 4500. 5000. 5500. :values
+:grid
+/Z5500 Z def
+    /copyWOA05dims { 
+  { X Y Z500 Z1500 Z5500 } {dataset .dataset 1 index get def } forall  
+} def
+:datasetdefs
+  dataset: /name (Annual) def
+/X dataset .X def
+/Y dataset .Y def
+/Z dataset .Z5500 def
+    dataset: 
+  datasetdefs:
+    copyWOA05dims
+      :datasetdefs
+/name (dd) def
+/long_name (number of observations) def
+/X dataset .X def
+/Y dataset .Y def
+/Z dataset .Z def
+/aou{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/aou/A00dd5)readdatafile:
+       /name (aou) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (apparent oxygen utilization) def
+       /units (unitless) cvn def
+}defasvarsilent
+/nitrate{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/nitrate/n00dd5)readdatafile:
+       /name (nitrate) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (Nitrate) def
+       /units (unitless) cvn def
+}defasvarsilent
+/o2sat{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/o2sat/O00dd5)readdatafile:
+       /name (o2sat) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (o2sat) def
+       /units (unitless) cvn def
+}defasvarsilent
+/O2{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/oxygen/o00dd5)readdatafile:
+       /name (O2) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (dissolved oxygen) def
+       /units (unitless) cvn def
+}defasvarsilent
+/phosphate{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/phosphate/p00dd5)readdatafile:
+       /name (phosphate) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (Phosphate) def
+       /units (unitless) cvn def
+}defasvarsilent
+/salinity{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/salinity/s00dd5)readdatafile:
+       /name (salinity) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (Salinity) def
+       /units (unitless) cvn def
+}defasvarsilent
+/silicate{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/silicate/i00dd5)readdatafile:
+       /name (silicate) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (Silicate) def
+       /units (unitless) cvn def
+}defasvarsilent
+/temperature{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/temperature/t00dd5)readdatafile:
+       /name (temperature) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (Temperature) def
+       /units (unitless) cvn def
+}defasvarsilent
+    :dataset  
+    dataset: 
+  datasetdefs:
+    copyWOA05dims
+      :datasetdefs
+/name (mn) def
+/long_name (statistical mean) def
+/X dataset .X def
+/Y dataset .Y def
+/Z dataset .Z def
+/aou{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/aou/A00mn5)readdatafile:
+       /name (aou) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (apparent oxygen utilization) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/nitrate{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/nitrate/n00mn5)readdatafile:
+       /name (nitrate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Nitrate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/o2sat{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/o2sat/O00mn5)readdatafile:
+       /name (o2sat) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (o2sat) def
+       /units (percent) cvn def
+}defasvarsilent
+/O2{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/oxygen/o00mn5)readdatafile:
+       /name (O2) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (dissolved oxygen) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/phosphate{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/phosphate/p00mn5)readdatafile:
+       /name (phosphate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Phosphate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/salinity{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/salinity/s00mn5)readdatafile:
+       /name (salinity) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Salinity) def
+       /units (PSU) cvn def
+}defasvarsilent
+/silicate{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/silicate/i00mn5)readdatafile:
+       /name (silicate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Silicate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/temperature{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/temperature/t00mn5)readdatafile:
+       /name (temperature) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Temperature) def
+       /units (Celsius_scale) cvn def
+}defasvarsilent
+    :dataset  
+    dataset: 
+  datasetdefs:
+    copyWOA05dims
+      :datasetdefs
+/name (sd) def
+/long_name (standard deviation) def
+/X dataset .X def
+/Y dataset .Y def
+/Z dataset .Z def
+/aou{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/aou/A00sd5)readdatafile:
+       /name (aou) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (apparent oxygen utilization) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/nitrate{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/nitrate/n00sd5)readdatafile:
+       /name (nitrate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Nitrate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/o2sat{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/o2sat/O00sd5)readdatafile:
+       /name (o2sat) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (o2sat) def
+       /units (percent) cvn def
+}defasvarsilent
+/O2{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/oxygen/o00sd5)readdatafile:
+       /name (O2) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (dissolved oxygen) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/phosphate{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/phosphate/p00sd5)readdatafile:
+       /name (phosphate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Phosphate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/salinity{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/salinity/s00sd5)readdatafile:
+       /name (salinity) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Salinity) def
+       /units (PSU) cvn def
+}defasvarsilent
+/silicate{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/silicate/i00sd5)readdatafile:
+       /name (silicate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Silicate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/temperature{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/temperature/t00sd5)readdatafile:
+       /name (temperature) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Temperature) def
+       /units (Celsius_scale) cvn def
+}defasvarsilent
+    :dataset  
+    dataset: 
+  datasetdefs:
+    copyWOA05dims
+      :datasetdefs
+/name (se) def
+/long_name (standard error) def
+/X dataset .X def
+/Y dataset .Y def
+/Z dataset .Z def
+/aou{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/aou/A00se5)readdatafile:
+       /name (aou) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (apparent oxygen utilization) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/nitrate{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/nitrate/n00se5)readdatafile:
+       /name (nitrate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Nitrate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/o2sat{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/o2sat/O00se5)readdatafile:
+       /name (o2sat) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (o2sat) def
+       /units (percent) cvn def
+}defasvarsilent
+/O2{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/oxygen/o00se5)readdatafile:
+       /name (O2) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (dissolved oxygen) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/phosphate{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/phosphate/p00se5)readdatafile:
+       /name (phosphate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Phosphate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/salinity{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/salinity/s00se5)readdatafile:
+       /name (salinity) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Salinity) def
+       /units (PSU) cvn def
+}defasvarsilent
+/silicate{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/silicate/i00se5)readdatafile:
+       /name (silicate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Silicate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/temperature{ [X Y | Z5500 ]
+(/Data/data8/noaa/nodc/WOA05/temperature/t00se5)readdatafile:
+       /name (temperature) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Temperature) def
+       /units (Celsius_scale) cvn def
+}defasvarsilent
+    :dataset  
+  :dataset  
+\end{ingrid}
+\begin{ingrid}
+  dataset: /name (Monthly) def
+grid:
+/name (T)def
+/units (months since 1960-01-01)def
+/calendar /360 def
+periodic
+ 0.5 1. 11.5
+:grid
+/X dataset .X def
+/Y dataset .Y def
+/Z dataset .Z1500 def
+    dataset: 
+  datasetdefs:
+    copyWOA05dims
+      :datasetdefs
+/name (dd) def
+/long_name (number of observations) def
+/X dataset .X def
+/Y dataset .Y def
+/Z dataset .Z def
+/T dataset .T def
+/aou{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/aou/A%m[T]dd5)[T]readdatafile:
+       /name (aou) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (apparent oxygen utilization) def
+       /units (unitless) cvn def
+}defasvarsilent
+/nitrate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/nitrate/n%m[T]dd5)[T]readdatafile:
+       /name (nitrate) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (Nitrate) def
+       /units (unitless) cvn def
+}defasvarsilent
+/o2sat{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/o2sat/O%m[T]dd5)[T]readdatafile:
+       /name (o2sat) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (o2sat) def
+       /units (unitless) cvn def
+}defasvarsilent
+/O2{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/oxygen/o%m[T]dd5)[T]readdatafile:
+       /name (O2) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (dissolved oxygen) def
+       /units (unitless) cvn def
+}defasvarsilent
+/phosphate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/phosphate/p%m[T]dd5)[T]readdatafile:
+       /name (phosphate) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (Phosphate) def
+       /units (unitless) cvn def
+}defasvarsilent
+/salinity{ [X Y | Z1500 T]
+(/Data/data8/noaa/nodc/WOA05/salinity/s%m[T]dd5)[T]readdatafile:
+       /name (salinity) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (Salinity) def
+       /units (unitless) cvn def
+}defasvarsilent
+/silicate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/silicate/i%m[T]dd5)[T]readdatafile:
+       /name (silicate) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (Silicate) def
+       /units (unitless) cvn def
+}defasvarsilent
+/temperature{ [X Y | Z1500 T]
+(/Data/data8/noaa/nodc/WOA05/temperature/t%m[T]dd5)[T]readdatafile:
+       /name (temperature) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (Temperature) def
+       /units (unitless) cvn def
+}defasvarsilent
+    :dataset  
+\end{ingrid}
+\begin{ingrid}
+    dataset: 
+  datasetdefs:
+    copyWOA05dims
+      :datasetdefs
+/name (mn) def
+/long_name (statistical mean) def
+/X dataset .X def
+/Y dataset .Y def
+/Z dataset .Z def
+/T dataset .T def
+/aou{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/aou/A%m[T]mn5)[T]readdatafile:
+       /name (aou) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (apparent oxygen utilization) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/nitrate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/nitrate/n%m[T]mn5)[T]readdatafile:
+       /name (nitrate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Nitrate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/o2sat{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/o2sat/O%m[T]mn5)[T]readdatafile:
+       /name (o2sat) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (o2sat) def
+       /units (percent) cvn def
+}defasvarsilent
+/O2{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/oxygen/o%m[T]mn5)[T]readdatafile:
+       /name (O2) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (dissolved oxygen) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/phosphate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/phosphate/p%m[T]mn5)[T]readdatafile:
+       /name (phosphate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Phosphate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/salinity{ [X Y | Z1500 T]
+(/Data/data8/noaa/nodc/WOA05/salinity/s%m[T]mn5)[T]readdatafile:
+       /name (salinity) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Salinity) def
+       /units (PSU) cvn def
+}defasvarsilent
+/silicate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/silicate/i%m[T]mn5)[T]readdatafile:
+       /name (silicate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Silicate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/temperature{ [X Y | Z1500 T]
+(/Data/data8/noaa/nodc/WOA05/temperature/t%m[T]mn5)[T]readdatafile:
+       /name (temperature) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Temperature) def
+       /units (Celsius_scale) cvn def
+}defasvarsilent
+    :dataset  
+\end{ingrid}
+\begin{ingrid}
+    dataset: 
+  datasetdefs:
+    copyWOA05dims
+      :datasetdefs
+/name (sd) def
+/long_name (standard deviation) def
+/X dataset .X def
+/Y dataset .Y def
+/Z dataset .Z def
+/T dataset .T def
+/aou{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/aou/A%m[T]sd5)[T]readdatafile:
+       /name (aou) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (apparent oxygen utilization) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/nitrate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/nitrate/n%m[T]sd5)[T]readdatafile:
+       /name (nitrate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Nitrate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/o2sat{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/o2sat/O%m[T]sd5)[T]readdatafile:
+       /name (o2sat) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (o2sat) def
+       /units (percent) cvn def
+}defasvarsilent
+/O2{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/oxygen/o%m[T]sd5)[T]readdatafile:
+       /name (O2) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (dissolved oxygen) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/phosphate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/phosphate/p%m[T]sd5)[T]readdatafile:
+       /name (phosphate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Phosphate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/salinity{ [X Y | Z1500 T]
+(/Data/data8/noaa/nodc/WOA05/salinity/s%m[T]sd5)[T]readdatafile:
+       /name (salinity) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Salinity) def
+       /units (PSU) cvn def
+}defasvarsilent
+/silicate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/silicate/i%m[T]sd5)[T]readdatafile:
+       /name (silicate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Silicate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/temperature{ [X Y | Z1500 T]
+(/Data/data8/noaa/nodc/WOA05/temperature/t%m[T]sd5)[T]readdatafile:
+       /name (temperature) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Temperature) def
+       /units (Celsius_scale) cvn def
+}defasvarsilent
+    :dataset  
+\end{ingrid}
+\begin{ingrid}
+    dataset: 
+  datasetdefs:
+    copyWOA05dims
+      :datasetdefs
+/name (se) def
+/long_name (standard error) def
+/X dataset .X def
+/Y dataset .Y def
+/Z dataset .Z def
+/T dataset .T def
+/aou{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/aou/A%m[T]se5)[T]readdatafile:
+       /name (aou) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (apparent oxygen utilization) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/nitrate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/nitrate/n%m[T]se5)[T]readdatafile:
+       /name (nitrate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Nitrate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/o2sat{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/o2sat/O%m[T]se5)[T]readdatafile:
+       /name (o2sat) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (o2sat) def
+       /units (percent) cvn def
+}defasvarsilent
+/O2{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/oxygen/o%m[T]se5)[T]readdatafile:
+       /name (O2) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (dissolved oxygen) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/phosphate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/phosphate/p%m[T]se5)[T]readdatafile:
+       /name (phosphate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Phosphate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/salinity{ [X Y | Z1500 T]
+(/Data/data8/noaa/nodc/WOA05/salinity/s%m[T]se5)[T]readdatafile:
+       /name (salinity) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Salinity) def
+       /units (PSU) cvn def
+}defasvarsilent
+/silicate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/silicate/i%m[T]se5)[T]readdatafile:
+       /name (silicate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Silicate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/temperature{ [X Y | Z1500 T]
+(/Data/data8/noaa/nodc/WOA05/temperature/t%m[T]se5)[T]readdatafile:
+       /name (temperature) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Temperature) def
+       /units (Celsius_scale) cvn def
+}defasvarsilent
+    :dataset  
+  :dataset  
+\end{ingrid}
+\begin{ingrid}
+  dataset: /name (Seasonal) def
+grid:
+/name (T)def
+/units (months since 1960-01-01)def
+/calendar /360 def
+periodic
+ 1.5 3. 10.5
+:grid
+/X dataset .X def
+/Y dataset .Y def
+/Z dataset .Z5500 def
+    dataset: 
+  datasetdefs:
+    copyWOA05dims
+      :datasetdefs
+/name (dd) def
+/long_name (number of observations) def
+/X dataset .X def
+/Y dataset .Y def
+/Z dataset .Z def
+/T dataset .T def
+/aou{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/aou/A%d[Tcnt]dd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (aou) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (apparent oxygen utilization) def
+       /units (unitless) cvn def
+}defasvarsilent
+/nitrate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/nitrate/n%d[Tcnt]dd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (nitrate) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (Nitrate) def
+       /units (unitless) cvn def
+}defasvarsilent
+/o2sat{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/o2sat/O%d[Tcnt]dd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (o2sat) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (o2sat) def
+       /units (unitless) cvn def
+}defasvarsilent
+/O2{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/oxygen/o%d[Tcnt]dd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (O2) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (dissolved oxygen) def
+       /units (unitless) cvn def
+}defasvarsilent
+/phosphate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/phosphate/p%d[Tcnt]dd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (phosphate) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (Phosphate) def
+       /units (unitless) cvn def
+}defasvarsilent
+/salinity{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/salinity/s%d[Tcnt]dd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (salinity) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (Salinity) def
+       /units (unitless) cvn def
+}defasvarsilent
+/silicate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/silicate/i%d[Tcnt]dd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (silicate) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (Silicate) def
+       /units (unitless) cvn def
+}defasvarsilent
+/temperature{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/temperature/t%d[Tcnt]dd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (temperature) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (Temperature) def
+       /units (unitless) cvn def
+}defasvarsilent
+    :dataset  
+\end{ingrid}
+\begin{ingrid}
+    dataset: 
+  datasetdefs:
+    copyWOA05dims
+      :datasetdefs
+/name (mn) def
+/long_name (statistical mean) def
+/X dataset .X def
+/Y dataset .Y def
+/Z dataset .Z def
+/T dataset .T def
+/aou{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/aou/A%d[Tcnt]mn5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (aou) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (apparent oxygen utilization) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/nitrate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/nitrate/n%d[Tcnt]mn5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (nitrate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Nitrate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/o2sat{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/o2sat/O%d[Tcnt]mn5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (o2sat) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (o2sat) def
+       /units (percent) cvn def
+}defasvarsilent
+/O2{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/oxygen/o%d[Tcnt]mn5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (O2) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (dissolved oxygen) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/phosphate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/phosphate/p%d[Tcnt]mn5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (phosphate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Phosphate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/salinity{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/salinity/s%d[Tcnt]mn5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (salinity) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Salinity) def
+       /units (PSU) cvn def
+}defasvarsilent
+/silicate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/silicate/i%d[Tcnt]mn5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (silicate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Silicate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/temperature{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/temperature/t%d[Tcnt]mn5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (temperature) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Temperature) def
+       /units (Celsius_scale) cvn def
+}defasvarsilent
+    :dataset  
+\end{ingrid}
+\begin{ingrid}
+    dataset: 
+  datasetdefs:
+    copyWOA05dims
+      :datasetdefs
+/name (sd) def
+/long_name (standard deviation) def
+/X dataset .X def
+/Y dataset .Y def
+/Z dataset .Z def
+/T dataset .T def
+/aou{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/aou/A%d[Tcnt]sd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (aou) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (apparent oxygen utilization) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/nitrate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/nitrate/n%d[Tcnt]sd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (nitrate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Nitrate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/o2sat{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/o2sat/O%d[Tcnt]sd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (o2sat) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (o2sat) def
+       /units (percent) cvn def
+}defasvarsilent
+/O2{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/oxygen/o%d[Tcnt]sd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (O2) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (dissolved oxygen) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/phosphate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/phosphate/p%d[Tcnt]sd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (phosphate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Phosphate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/salinity{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/salinity/s%d[Tcnt]sd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (salinity) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Salinity) def
+       /units (PSU) cvn def
+}defasvarsilent
+/silicate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/silicate/i%d[Tcnt]sd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (silicate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Silicate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/temperature{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/temperature/t%d[Tcnt]sd5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (temperature) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Temperature) def
+       /units (Celsius_scale) cvn def
+}defasvarsilent
+    :dataset  
+\end{ingrid}
+\begin{ingrid}
+    dataset: 
+  datasetdefs:
+    copyWOA05dims
+      :datasetdefs
+/name (se) def
+/long_name (standard error) def
+/X dataset .X def
+/Y dataset .Y def
+/Z dataset .Z def
+/T dataset .T def
+/aou{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/aou/A%d[Tcnt]se5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (aou) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (apparent oxygen utilization) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/nitrate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/nitrate/n%d[Tcnt]se5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (nitrate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Nitrate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/o2sat{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/o2sat/O%d[Tcnt]se5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (o2sat) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (o2sat) def
+       /units (percent) cvn def
+}defasvarsilent
+/O2{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/oxygen/o%d[Tcnt]se5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (O2) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (dissolved oxygen) def
+       /units (ml/l) cvn def
+}defasvarsilent
+/phosphate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/phosphate/p%d[Tcnt]se5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (phosphate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Phosphate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/salinity{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/salinity/s%d[Tcnt]se5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (salinity) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Salinity) def
+       /units (PSU) cvn def
+}defasvarsilent
+/silicate{ [X Y | Z500 T]
+(/Data/data8/noaa/nodc/WOA05/silicate/i%d[Tcnt]se5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (silicate) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Silicate) def
+       /units (micro mole/l) cvn def
+}defasvarsilent
+/temperature{ [X Y | Z5500 T]
+(/Data/data8/noaa/nodc/WOA05/temperature/t%d[Tcnt]se5)[T dup 13 onegridcounter /name /Tcnt def]readdatafile:
+       /name (temperature) def
+       /missing_value -99.9999 def
+       ((10F8.4)) formatted
+       :readdatafile
+       /long_name (Temperature) def
+       /units (Celsius_scale) cvn def
+}defasvarsilent
+    :dataset  
+  :dataset  
+:dataset  
+\end{ingrid}

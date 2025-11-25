@@ -1,0 +1,33 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+-90 1 -30
+:grid
+grid:
+/name /Y def
+degN
+-60 1 15
+:grid
+grid:
+/name /T def
+/units (days since 2000-01-01 12:00:00) def
+/defaultvalue {last} def
+0 1 07 Mar 2012 julian_day 1 sub
+1 Jan 2000 julian_day sub
+:grid
+variable:
+/name /prcp def
+/units (mm/day) def
+/missing_value 9999. def
+grids:
+X Y | T
+:grids
+file: 
+/name (/Data/data7/noaa/ncep/regional/SA/S_Amer_daily_prcp) def
+direct
+:file
+:variable
+:dataset
+\end{ingrid}

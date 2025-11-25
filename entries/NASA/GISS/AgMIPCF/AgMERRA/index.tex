@@ -1,0 +1,195 @@
+\documentclass{article}
+\usepackage{code}
+\usepackage{ingrid}
+\begin{document}
+\section{AgMERRA Dataset Entry}
+
+\begin{ingrid}
+
+/description (AgMIP Modern-Era Restrospective Analysis for Research and Applications) def
+/references (Ruane2015) def
+
+link:
+/name /dataset_documentation  def
+/href (http://data.giss.nasa.gov/impacts/agmipcf/agmerra/) def
+:link
+
+continuedataset:
+
+\end{ingrid}
+
+\subsection{grid definitions}
+\word T ( -- grid ) time grid.
+
+\begin{ingrid}
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+1 Jan 1980 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+31 Dec 2010 julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+:grid
+
+\end{ingrid}
+
+\word X ( -- grid ) longitude grid.
+
+\begin{ingrid}
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+ 0.125 0.25 359.875
+:grid
+
+\end{ingrid}
+
+\word Y ( -- grid ) latitude grid.
+
+\begin{ingrid}
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+ 89.875 0.25 -89.875
+:grid
+
+\end{ingrid}
+\subsection{dependent variable definitions}
+\word prate ( -- var ) Precipitation Rate of longitude, latitude and time.
+\begin{ingrid}
+
+/prate {
+[X Y | T ]
+(/Data/data23/NASA/AgMERRA/AgMERRA_%Y[T]_prate.nc4) [T yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+/name (prate) def
+/shortarraytype netcdfrecords
+:readdatafile
+/missing_value 32767 def
+/long_name (Precipitation Rate) def
+/units (mm/day) def
+/scale_factor 0.1 def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+\end{ingrid}
+\word rhstmax ( -- var ) Relative Humidity at time of Maximum Temperature of longitude, latitude and time.
+\begin{ingrid}
+
+/rhstmax {
+[X Y | T ]
+(/Data/data23/NASA/AgMERRA/AgMERRA_%Y[T]_rhstmax.nc4) [T yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+/name (rhstmax) def
+/shortarraytype netcdfrecords
+:readdatafile
+/missing_value 32767 def
+/long_name (Relative Humidity at time of Maximum Temperature) def
+/units /percent def
+/scale_factor 0.01 def
+precip_colors
+DATA 0 100 RANGE
+}defasvarsilent
+
+\end{ingrid}
+\word srad ( -- var ) Solar Radiation Flux of longitude, latitude and time.
+\begin{ingrid}
+
+/srad {
+[X Y | T ]
+(/Data/data23/NASA/AgMERRA/AgMERRA_%Y[T]_srad.nc4) [T yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+/name (srad) def
+/shortarraytype netcdfrecords
+:readdatafile
+/missing_value 32767 def
+/long_name (Solar Radiation Flux) def
+/units (MJ/m2/day) def
+/scale_factor 0.01 def
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+\end{ingrid}
+\word tavg ( -- var ) Average Temperature of longitude, latitude and time.
+\begin{ingrid}
+
+/tavg {
+[X Y | T ]
+(/Data/data23/NASA/AgMERRA/AgMERRA_%Y[T]_tavg.nc4) [T yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+/name (tavg) def
+/shortarraytype netcdfrecords
+:readdatafile
+/missing_value 32767 def
+/long_name (Average Temperature) def
+/units /Celsius_scale def
+/scale_factor 0.01 def
+temp_colors
+}defasvarsilent
+
+\end{ingrid}
+\word tmax ( -- var ) Maximum Temperature of longitude, latitude and time.
+\begin{ingrid}
+
+/tmax {
+[X Y | T ]
+(/Data/data23/NASA/AgMERRA/AgMERRA_%Y[T]_tmax.nc4) [T yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+/name (tmax) def
+/shortarraytype netcdfrecords
+:readdatafile
+/missing_value 32767 def
+/long_name (Maximum Temperature) def
+/units /Celsius_scale def
+/scale_factor 0.01 def
+temp_colors
+}defasvarsilent
+
+\end{ingrid}
+\word tmin ( -- var ) Minimum Temperature of longitude, latitude and time.
+\begin{ingrid}
+
+/tmin {
+[X Y | T ]
+(/Data/data23/NASA/AgMERRA/AgMERRA_%Y[T]_tmin.nc4) [T yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+/name (tmin) def
+/shortarraytype netcdfrecords
+:readdatafile
+/missing_value 32767 def
+/long_name (Minimum Temperature) def
+/units /Celsius_scale def
+/scale_factor 0.01 def
+temp_colors
+}defasvarsilent
+
+\end{ingrid}
+\word wndspd ( -- var ) Wind Speed of longitude, latitude and time.
+\begin{ingrid}
+
+/wndspd {
+[X Y | T ]
+(/Data/data23/NASA/AgMERRA/AgMERRA_%Y[T]_wndspd.nc4) [T yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+/name (wndspd) def
+/shortarraytype netcdfrecords
+:readdatafile
+/missing_value 32767 def
+/long_name (Wind Speed) def
+/units (m/s) def
+/scale_factor 0.01 def
+windspeed_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+\end{document}

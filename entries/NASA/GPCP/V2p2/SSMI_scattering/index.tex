@@ -1,0 +1,69 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+periodic
+1.25 2.5 358.75
+:grid
+
+grid:
+/name /Y def
+degN
+88.75 -2.5 -88.75
+:grid
+
+grid:
+/name /T def
+monthtime
+%/defaultvalue {last} def
+16 Jan 1987 ensotime
+1.
+16 Dec 2015 ensotime
+%16 systemtime systemtime2ymd ymd:lastmonth pop exch ensotime
+:grid
+
+\end{ingrid}
+T 
+ { (/Data/data7/nasa/gpcp/v2p2/int/gpcp_v2.2_pss.%Y[T])[T]} 
+removeextrausing
+first last [X Y | T last 12 sub 12 div round 12 mul 0.5 add last subgrid ]
+(/Data/data7/nasa/gpcp/v2p2/int/gpcp_v2.2_pss.%Y[T]) [T last
+12 sub 12 div round 12 mul 0.5 add last subgrid yearlyedgesgrid first secondtolast subgrid ]
+readdatafile: direct 576 set:file_byteoffset :readdatafile
+[X Y]average
+0 flagle
+[T]sum
+getrealization 0 get sub subgrid last
+rm19602ymd ymd:nextmonth ymd:nextmonth ymd2systemtime
+/expires exch def
+name exch def
+/last_modified last_modified T .last_modified imax def
+/expires T .expires def
+\begin{ingrid}
+
+/prcp {
+ [X Y | T] (/Data/data7/nasa/gpcp/v2p2/int/gpcp_v2.2_pss.%Y[T]) [T yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+ /missing_value -99999.0 def
+ /units (mm/day) def
+ /long_name (precipitation rate) def
+ /standard_name (lwe_precipitation_rate) def
+ direct
+ 576 set:file_byteoffset
+:readdatafile
+ /iridl:hasSemantics (iridl:PrecipitationRate) def
+} defasvarsilent
+
+/nsamp {
+ [X Y | T] (/Data/data7/nasa/gpcp/v2p2/int/gpcp_v2.2_nss.%Y[T]) [T yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+ /missing_value -99999.0 def
+ /units (number of overpass days) def
+ /long_name (number of samples) def
+ direct
+ 576 set:file_byteoffset
+:readdatafile
+/iridl:hasSemantics (iridl:Count) def
+} defasvarsilent
+
+:dataset
+\end{ingrid}

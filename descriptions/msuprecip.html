@@ -1,0 +1,531 @@
+<INGRID>datasetdocumentationheader</INGRID>
+    <h1>MSU  TEMPERATURES AND RAINFALL DATASET VERSION 2</h1>
+
+The data is <a
+      href="http://ingrid.ldgo.columbia.edu/SOURCES/.NASA/.msu/">here</a>. 
+
+<h2>A TOVS Pathfinder Path C Product</h2>
+
+<h2>Daily 2.5 Degree Gridpoint Layer Temperatures and Oceanic 
+Rainfall
+for 1979-93</h2>
+
+
+produced by
+<address>
+Roy W. Spencer<br>
+Vanessa L. Griffin<br>
+ES43 NASA Marshall Space Flight Center<br>
+June 1994<br>
+</address>
+
+Read this documentation to ensure that the Version 2 dataset 
+error characteristics are compatible with your research 
+objectives.
+
+<pre>
+Documentation date: 29 June 1994.
+Table of Contents
+								           
+1.  Introduction							
+	1.1 Dataset Overview						
+	1.2 Our Guiding Philosophy					
+2.  The MSU Instrument						
+3.  What the MSU Measures						
+4.  Stability of the MSU Calibration					
+5.  Dataset Characteristics
+	5.1 Deep Layer Temperatures					
+		5.1.1  Averaging kernels
+		5.1.2  Drift in channel 3 calibration
+		5.1.3  Limb corrections and satellite 
+		          intercalibration	
+		5.1.4  Limb correction errors		
+		5.1.5  Gridpoint error estimates
+	5.2  Oceanic Rainfall	
+		5.2.1  Algorithm description
+		5.2.2  Rainfall errors				          
+6.  References							          
+7.  Figures  (NOTE: The figures and appendix are available only in 
+hardcopy)
+ 	Figure 1.  MSU weighting functions and averaging kernels.	
+        Figure 2.  Production procedures for the daily, 2.5 deg gridpoint 
+                   channel 2/3 dataset.
+	Figure 3.  Single satellite gridpoint standard error of 
+                   measurement (SEM) for channels "2/3" (a); "3/4" (b); 
+                   and channel 4 (c) computed during  the 1982 data 
+                   from NOAA-6 and NOAA-7, and the 1990 data from 
+                   NOAA-10 and NOAA-11.
+        Appendix.  Daily channel "2/3" coverage of the Earth during 
+                   1979-93 by seven TIROS-N series satellites. 
+</pre>
+<h2>1.  Introduction</h2>
+<h3>	1.1 Dataset Overview</h3>
+	Version 2 of this dataset includes daily 2.5 deg gridpoint fields of 
+deep-layer average temperatures derived from the Microwave Sounding 
+Units for:
+<dl compact>
+<dt>1<dd>  the lower troposphere (channel "2/3"); 
+<dt>2<dd>  the (tropical) upper troposphere (channel "3/4");
+<dt>3<dd>  the lower stratosphere (channel 4); and	
+<dt>4<dd>  oceanic rainfall estimates.
+</dl>
+	The dataset period of record is 1979-93 for the temperatures, and 
+1979- May 1994 for oceanic rainfall.  The NOAA satellites contributing 
+to this dataset are, in order of their launch, TIROS-N, NOAA-6, -7, -9,-
+10,-11, and NOAA-12.  NOAA-8 data were not used due to poor data 
+quality.  Each of the datasets have their own error characteristics, 
+discussed below.  Version 2 of the dataset will be replaced in 
+approximately one year by Version 3, which will include a 1994  update 
+to the time series, and will likely include various algorithm 
+improvements, the most important of which will be in the limb 
+correction procedure..  
+	<h3>1.2 Our Guiding Philosophy</h3>
+	No satellite dataset is perfect, and the MSU datasets are no 
+exception to this rule.   Issues such as satellite intercalibration, limb 
+correction, and algorithm improvement each involve a long list of 
+decisions which must be made,  and each of these decisions could be 
+improved upon. While we know we can improve the datasets beyond 
+their present state, we also recognize the need to make them available to 
+researchers whose research objects are already attainable with the 
+datasets in their present form.  
+<p>
+	We also find that these decisions often depend upon what purpose 
+the datasets would be used for, so that in general we believe that there is 
+no "best" version of a dataset of our  parameters.  Instead, datasets are 
+constructed  for specific purposes and the many decisions which must be 
+made in the construction of the dataset are made with those purposes in 
+mind.
+<p> 
+	We have decided to provide the present version of this dataset to 
+researchers so that they can be exploited for purposes which the dataset 
+error characteristics will allow, and with the hope that feedback from 
+the users will help to make Version 3 (and later versions) still more 
+useful for a wider range of research efforts.  
+<p>
+	The authors would appreciate a preprint of manuscripts submitted 
+for publication which include research based upon these datasets. Users 
+should always obtain the latest available dataset Version and 
+documentation to ensure best results.  Updates can be obtained from:
+<p>
+<pre>
+ 	MSFC DAAC User Services Office
+	Building 4492
+	NASA/George C. Marshall Space Flight Center
+	Huntsville, Alabama, 35812
+	phone: 205-544-6329
+	fax: 205-544-5147
+	e-mail: msfcuser@microwave.msfc.nasa.gov.
+</pre>
+<h2>2. The MSU Instrument</h2>
+	The Microwave Sounding Units were built by the Jet Propulsion 
+Laboratory for NOAA to fly as part of the TIROS Operational Vertical 
+Sounder (TOVS) instrument complement aboard the TIROS-N series of 
+sun-synchronous polar orbiting satellites.   The MSU is a four-channel 
+Dicke-type scanning microwave radiometer observing passive 
+microwave radiation at 50.3, 53.74, 54.96, and 57.95 GHz, which are 
+frequencies in the 50 to 60 GHz oxygen absorption complex.    As the 
+instrument scans, it measures microwave radiation at eleven beam 
+positions over a swath about 2000 km wide. The scan period is 25.6 
+seconds, which combined with the satellite orbital speed, results in scan-
+to-scan separation of about 150 km.   The spatial resolution of the 
+measurements, defined by the half-power (3 dB) beamwidth  of  7.5 deg
+and  the range from the satellite to the observed point on the earth,  
+varies from about 110 km at the nadir (#6) beam position to near 200 km 
+at the extreme (#1 and #11) beam positions.  
+<p>
+	Once every earth scan, the instrument  makes calibration 
+measurements, viewing deep space (2.7K) and high emissivity warm 
+targets.  There is one target for the two lower frequencies (channels 1 
+and 2) and  another for the two highest frequencies (channels 3 and 4).  
+The temperature of each  target is monitored with redundant platinum 
+resistance thermometers (PRT's).  Calibration of the instrument digital 
+counts into brightness temperatures (Tb) is simply a linear interpolation 
+of the Earth-viewing measurements between the space and warm target 
+measurements (see Spencer et al., 1990).    Please refer to Smith et al. 
+(1979) for further details of the MSU.
+<h2>3.  What the MSU Measures</h2>
+	The MSU was designed to be used together with the High 
+Resolution Infrared Sounder (HIRS) and Stratospheric Sounding Unit 
+(SSU) to obtain vertical atmospheric temperature profiles from space.  
+Compared to the HIRS channel weighting functions,  the MSU has 
+poorer vertical resolution in the troposphere and better vertical 
+resolution in the stratosphere.  It has considerably poorer spatial 
+resolution than the HIRS, but this gives the advantage of a much lower 
+data rate and thus a more manageable data volume for analyses of the 
+fifteen year data archive.  The MSU is essentially insensitive to non-
+precipitating cirriform clouds, and so should provide a more robust air 
+temperature signal than the HIRS.  It is considerably less sensitive to 
+liquid phase clouds than the HIRS.  Neither instrument can measure air 
+temperatures within precipitation.<p>
+	MSU channel 1 (50.3) GHz  (Fig. 1)  has only weak oxygen 
+absorption and so is sensitive to air temperature in only the lowest few 
+kilometers of the atmosphere.  However, this temperature information is 
+heavily contaminated by other influences such as surface temperature 
+and emissivity, as well as water vapor and liquid and precipitation-size 
+ice hydrometeors in the troposphere.  This limits the utility of channel 1 
+for monitoring lower tropospheric temperatures.  MSU channel 2  
+(53.74 GHz)  is sensitive to deep layer average tropospheric 
+temperatures with a weighting function peaking near 500 hPa.  It is only 
+very slightly affected by variations in tropospheric humidity (see Spencer 
+et al., 1990),  but is contaminated by precipitation-size ice in deep 
+convective clouds, which can cause Tb depressions of up to 15 deg C in 
+midlatitude squall lines.  High elevation terrain protruding into the MSU 
+channel 2 weighting function results in proportionally less of its 
+measured radiation coming from thermal emission by the air and more 
+coming from the surface.  The MSU channel 3 (54.96 GHz) weighting 
+function peaks near 250 hPa and  so often straddles the extratropical 
+tropopause.  MSU channel 4 (57.95 GHz) has its peak weighting at 70 
+hPa, and  provides a good measure of lower stratospheric deep-layer 
+temperatures.	<p>
+	Because  the four MSU weighting functions overlap, they  can be 
+combined to retrieve information over thinner layers than the individual 
+weighting functions represent (Conrath, 1972).  This is the fundamental 
+basis of satellite temperature retrieval schemes.  For instance, a fraction 
+of channel 3 can be subtracted from channel 2 to eliminate the lower 
+stratospheric influence on channel 2 for middle and lower tropospheric 
+temperature monitoring (Fig. 1).  Similarly, a fraction of channel 4 can 
+be subtracted from channel 3 for monitoring of upper tropospheric 
+temperatures in the tropics, where the tropopause is near 100 hPa.  In 
+addition, because the MSU scans across the satellite subtrack at eleven 
+different beam positions (six different Earth incidence angles symmetric 
+about the center footprint), each channel actually has six slightly 
+different weighting functions due to the variations of the view angle 
+through the atmosphere.  These different view angles can also be 
+combined into a new weighting function, although  this is done at the 
+expense  of any information about temperature gradients across the 
+swath and, if the combinations are symmetric about the nadir 
+measurement, the resulting retrieval represents an average temperature 
+for the entire swath (Spencer et al., 1992b).  This technique is more 
+useful for gridpoint temperature monitoring over long  time scales, or 
+zonal averages over short time scales,  where the errors due to 
+horizontal gradients are averaged out.   <p>
+	The lower tropospheric air temperature influence on channel 1 is 
+small compared to other influences, such as land emissivity and oceanic 
+air mass humidity and liquid water path.   In particular, we have used 
+channel 1  to retrieve oceanic rainfall since its variability over the  
+ocean is dominated by cloud and rain water activity. 
+<h2>4.  Stability of the MSU Calibration </h2>
+	The MSU is externally calibrated, with the warm target and cold 
+(deep space)  radiation traveling through the same instrumental paths as 
+the earth-view radiation.  Therefore, changes in instrument temperature 
+and gain are canceled out in the calibration procedure.   We have 
+quantitatively documented the high levels of stability for MSU  channels 
+2 (Spencer and Christy, 1992a) and 4 (Spencer and Christy, 1993).  We 
+perform our own calibration of the instrument, the procedures for which 
+were described by Spencer et al. (1990).  There is evidence of drift in 
+MSU channel 3 of up to 1 deg C (or more) in a couple of the satellites 
+(NOAA-6 and NOAA-9), and corrections for this are discussed below.   
+While drift in MSU channel 1 has not yet been rigorously addressed, the 
+rainfall retrievals we have made using channel 1 data show no obvious 
+evidence of drift in MSU channel 1, but further work needs to be done 
+to quantify this. <p>
+	We have found no evidence of calibration drift in any of the 
+channels on time scales that would significantly affect variations within 
+individual days, or the computations of day-to-day temperature changes.
+<h2>5. Dataset  Characteristics</h2>
+<h3>	5.1 Deep Layer Temperatures</h3>
+	MSU channels 2, 3, and 4  respond primarily to air temperature 
+through their sensitivity to thermal emission by molecular oxygen, a well 
+mixed and temporally stable atmospheric constituent.  The weighting 
+functions for these channels (Fig. 1)  are quite broad in their response to 
+temperature fluctuations at different altitudes.   By linearly combining 
+two or more channels, we can achieve sensitivity to shallower layers 
+than the raw MSU channels represent.  For the datasets described here,  
+linear "averaging kernels" (Conrath, 1972) are produced for the lower 
+troposphere; (tropical) upper troposphere;  and the lower stratospheric 
+measurements are taken from MSU channel 4 alone.  
+<h4>	5.1.1  Averaging kernels</h4>
+	MSU channels 2 and 3 are linearly combined to form an 
+averaging kernel (Tb23 = 1.6Tb2 - 0.6Tb3) which peaks near 500 hPa 
+and has most of its radiant energy originating below about  300 hPa 
+(Fig. 1).  We loosely call this our "lower tropospheric" temperature 
+measurement.   In regions of high terrain, especially over Greenland, the 
+Andes, Himalayas, and portions of Antarctica, most of the energy comes 
+from the surface and so can not be interpreted as an air temperature 
+measurement. The Tb23 data will have little utility in these regions.  <p>
+	MSU channels 3 and 4 are combined  to form an averaging 
+kernel (Tb34=1.35Tb3 - 0.35Tb4) which peaks near 250 hPa and 
+receives most of its energy from the 500 - 100 hPa layer.  We call this 
+retrieval the "upper tropospheric" temperature, however, we only 
+calculate it for latitudes 30 S to 30 N because the retrieval is only 
+applicable in the tropics where the tropopause generally lies above 100 
+hPa. Tb34 is only slightly affected by high terrain.  <p>
+	Our "lower stratospheric" measurements come from channel 4 
+alone.
+<h4>	5.1.2 Drift in channel 3 calibration</h4>
+	MSU channels 2 and 4 have been documented to have no 
+statistically significant  drift in their calibration.  All overlaps between 
+satellite coverage have revealed no trend in the differences between 
+satellites for these two channels at the level of a few hundredths of a 
+degree Celsius over several years (see Spencer and Christy, 1992a for 
+statistics on channel 2; Spencer and Christy, 1994 for channel 4).  <p>
+	Unfortunately, a couple of the MSU's (NOAA-6 and NOAA-9)  
+had considerable drift in MSU channel 3. This drift seems to have only a 
+low frequency component, occurring on a time scale of months to years, 
+rather than from day to day (although an abrupt change was noticed on 
+November 1, 1986 for NOAA-9).  Since the averaging kernels for 
+channels 2/3 and 3/4 both depend on channel 3, their fields needed 
+adjustment for this drift.  To achieve this adjustment for channel 2/3, we 
+have forced the monthly, 30 deg zonally averaged anomalies to match those 
+produced by channel 2R (see Spencer and Christy, 1992b).  Channel 2R 
+is a lower tropospheric retrieval which depends upon channel 2 alone 
+and which uses the different view angles of channel 2 to produce a lower 
+tropospheric averaging kernel.  The channel 2R averaging kernel peaks 
+somewhat lower in the troposphere than the channel "2/3" kernel, but 
+we assume that their differences in monthly, zonally averaged anomalies 
+are probably small.  The 2R trend-adjusted channel 2/3 data can be used 
+for long-term trend analyses on global, zonal, or gridpoint scales.  The 
+channel 2R procedures used here for satellite intercalibration (discussed 
+below) differ somewhat from those in Spencer and Christy (1992b), and 
+so can be expected to produce small differences in the resulting 
+anomalies and trends.<p>
+	The drift in channel 3 inferred from comparisons to channel 2R 
+was then used to adjust the channel 3/4 measurements as well, but these 
+adjustments have been made based upon only the tropical  drifts.  We do 
+not have as much confidence in the long-term stability of the channel 3/4 
+fields, and they are provided here as an experimental product which is 
+still undergoing evaluation and refinement. The interannual variability in 
+the tropics, however, should be quite stable.  The primary reason why 
+we have released this field for distribution is that it has interesting day-
+to-day and interannual variability in the deep tropics.<p>
+	The channel 4 fields have the best long term stability of the three 
+temperature products provided.  There has been no evidence of drift 
+during  any of the overlaps in satellite coverage.  The only calibration 
+problem we have noticed is for the NOAA-12 MSU, which showed an 
+annual cycle in polar temperatures that was significantly different from 
+all of the other satellites.  It was found that this could be corrected with 
+a simple linear scaling of the data which can be interpreted  as a 
+calibration slope error of about 2%.
+<h4>	5.1.3 Limb correction and satellite intercalibration</h4>
+	Because the MSU is a through-nadir scanner, the eleven 
+footprints across the MSU swath width come from six different earth 
+incidence angles (nadir, and two each at 11, 22, 33, 44, and 55 deg 
+earth incidence angles on either side of nadir).  Due to the longer 
+atmospheric path lengths that the non-nadir views have compared to the 
+nadir view, the corresponding weighting functions are lifted to higher 
+levels.  Thus, some sort of "limb correction" must be performed for all 
+three deep layer measurements (channels 2/3, 3/4, and 4) if a spatially 
+uniform field of temperatures is to be produced, i.e. temperatures on a 
+constant pressure "surface".   (Some numerical weather prediction 
+modeling efforts are now focusing on the assimilation of raw radiances 
+at their original view angles so that the data are not corrupted  by 
+assumptions inherent to limb corrections). <p>
+	The Version 1 limb correction procedure (see Fig. 2) relies on 
+the compilation of statistics over many years of the average relationships  
+between a nadir measurement and a non-nadir measurement at a specific 
+location (2.5 deg gridpoint); month; type of satellite (7:30 local time or 
+2:30 local time); and ascending or descending node of the satellite 
+(ascending is p.m.; descending is a.m.).  Third order polynomial 
+regression equations  then provide the Tb adjustments necessary to 
+"correct" the non-nadir measurements to nadir.  Thus, for each of the 
+three atmospheric layers, there are approximately 480,000 limb 
+correction equations (=10,000 gridpoints x 2 satellite times x 2 nodal 
+crossing times x 12 months).  These equations account for variations in 
+both atmospheric lapse rate and surface temperature which vary 
+seasonally and geographically.  In the case of channel 2/3 and 3/4, drift 
+in the calibration of channel 3 is inferred from the difference in channel 
+2/3  and 2R for monthly, 30 deg zonally averaged anomalies for the entire 
+period of record (see Fig. 2).<p>
+	Because channel 4 has not exhibited any evidence of calibration 
+drift (Spencer and Christy, 1993), the intercalibration between 
+successive satellites was accomplished by first limb correcting and 
+gridding the daily channel 4 data by the same procedure represented on 
+the left side of Fig. 2, then adjusting for the differences between 
+satellites during operational overlap periods with those adjustments being 
+averaged for each of 12 months  in 10 deg latitude bands.
+<h4>	5.1.4 Limb correction errors</h4>
+	All three layer temperature products  (channels 2/3; 3/4; and 4) 
+have varying amounts of residual effects resulting from imperfect limb 
+correction procedures.  These effects can sometimes be seen by 
+animating daily imagery and looking for east-west patterns in the daily 
+grid fields that have a spatial separation coinciding with the orbit 
+sampling of the earth, and which move eastward on successive days.   
+When these patterns are present, a spectrum analysis of the time series at 
+these individual gridpoints will reveal spectral peaks near 4.5 days and 8 
+days. These correspond to the usual rate at which the satellite orbits 
+progress eastward across the sky (a function of the orbital altitude and 
+inclination of a sun-synchronous satellite causing the number of orbits 
+per day to not be an exact integer multiple).   <p>
+	 The current channel 3/4 limb correction seems to work much 
+better in the deep tropics than in the extra-tropics, and work is 
+progressing on a different limb adjustment procedure suitable for the 
+channel 3/4 characteristics.  Detailed daily analyses of channel 3/4 
+patterns in the middle latitudes should await limb correction procedure 
+improvements in a later version.<p>
+	The channel 4 limb corrections seem to perform very  well for 
+most of the 15 year dataset.
+<h4>	5.1.5 Gridpoint error estimates</h4>
+	The precision with which daily gridpoint Tb can be measured 
+depends mostly upon the quality of the limb correction scheme, and to a 
+lesser extent upon the sampling errors inherent in estimating a daily 
+average with 1-4 "snapshots" provided by one or two satellites, and the 
+limiting radiometric resolution of a single  MSU measurement (0.2 -
+0.3 deg C).  There are probably other, smaller sources of error such as 
+slight variations in different MSUs' weighting functions for the same 
+channels.  It is important to note that all statistics reviewed below are for 
+a single satellite, and the corresponding errors are smaller during two-
+satellite coverage (which includes about 75% of the 15 year record, see 
+the Appendix).  <p>
+	 Estimates of the single-satellite standard error of measurement 
+(SEM)  for the  daily deep layer temperatures are shown  in Fig. 3.  The 
+statistics are computed by measuring the relative levels of  disagreement 
+between two satellites'  variations in daily Tb at individual gridpoints.  
+The (single satellite) standard error of measurement (SEM) is calculated 
+as
+<pre>
+	  	     SEM =  (2**0.5/2) sd(T(sat1)  -  T(sat2))	      (1)
+</pre>
+where sd is the standard deviation, T is the Tb for any layer temperature 
+product, and the single satellite factor (2**0.5/2) assumes that each  
+satellite contributes equally to the total error.  The sd  in (1) is  
+actually an average of the standard deviations for the individual years  
+of 1982 (NOAA-6 and NOAA-7) and 1990 (NOAA-10 and NOAA-11).    <p>
+	The channel 2/3  SEM (Fig. 3a) show that the daily gridpoint 
+errors in the deep tropics generally range from 0.3 to 0.4 deg C, except 
+over land areas where they usually range from 0.4 to 0.6 deg C range.  
+Most mid-latitude areas have from 0.5 to 1.0 deg C SEM's.  Many high 
+altitude regions, especially portions of Antarctica, Greenland, and the 
+Andes Mountains, show  high standard errors of measurement (over 1 deg C),
+and the highest errors occur in strongly sloping terrain (coastal 
+Antarctica and Greenland).<p>
+	The daily gridpoint noise estimates for channel 3/4 (Fig. 3b) are 
+generally less than 0.3 deg C in the deep tropics, increasing to 0.5 or 
+0.6 deg C in the middle latitudes.  The errors improve again at the high 
+latitudes.  Because we know that the current limb correction scheme for 
+channel 3/4 does not perform well in the middle latitudes, we expect a 
+new scheme to improve the mid-latitude noise estimates in Version 2 of 
+the dataset. <p>
+	The daily gridpoint noise estimates for channel 4 (Fig. 3c) are 
+usually below 0.2 deg C in the deep tropics, increasing to 0.3 to 0.4 deg C  
+in the Northern Hemisphere middle latitudes, but reaching 0.5 to 0.6 deg C  
+in the Southern Hemisphere middle latitudes.  It is believed that the large 
+noise figures are caused by the variable conditions near the boundary of 
+the wintertime polar vortex occurring in each hemisphere.
+<h3>	5.2 Oceanic Rainfall</h3>
+<h4>	5.2.1 Algorithm description</h4>
+	Daily gridpoint oceanic rainfall estimates equatorward of 60 deg
+latitude are made through a procedure similar to that described by 
+Spencer (1993), and numerous details such as algorithm justification and 
+detailed rain gauge comparisons can be found there.  <p>
+	Rainfall is diagnosed when a channel 1 Tb threshold is exceeded, 
+the threshold being a function of the air mass temperature deduced from 
+channels 2/3 . For each 1 deg increment of channel 2/3 Tb, a 15% 
+cumulative frequency distribution was calculated for the base year of 
+1982 (NOAA-6 and NOAA-7).   The 15% thresholds in channel 1 vs. 
+channel 2/3 Tb space was approximated by a line.  There are six of these 
+linear relationships, corresponding to the six view angles of the MSU, 
+which are used for all satellites.  Tb1 warming above the appropriate 
+threshold is assumed to be linearly related to a footprint-averaged rain 
+amount.  The conversion into rainfall units, however, was performed 
+after compilation of many years of average Tb1 warming above the 
+threshold from multiple satellites.  To accomplish this, careful 
+intercalibration between satellites during overlapping periods of 
+operation was performed in two steps.  First, we calculate a  Tb1 
+"offset"  of the second satellite which produces the same frequency of 
+rainfall diagnoses (typically near 15%) as that from the first satellite 
+during the overlap period.  Second,  the average DTb1 above that 
+threshold was then forced to equal that from the first satellite through a 
+"magnification factor" which is a function of beam position and satellite.  
+These two adjustments force the rain amounts diagnosed during the 
+overlap period to be equal between the two satellites.  The overlaps in 
+satellite coverage  which were used for intercalibration throughout the 
+15 year period ranged from three months to 1 year (see the Appendix).   
+[The additional step of  an air mass temperature correction described in 
+Spencer (1993) was not used in Version 2 of the rainfall dataset due to 
+insufficient rain gauge data at high latitudes where a large annual cycle 
+in temperature exists.  However, cursor comparisons to the few high 
+latitude gauges suggest that the resulting MSU rainfall diagnoses might 
+be biased low during the cold season.  Thus, studies of the annual cycle 
+in extratropical rainfall with this dataset might be compromised.]<p>
+	Monthly gridpoint averages of this warming were compared to 7-
+10 years of monthly rain gauge totals at 123 island and coastal locations 
+throughout the world, and a single scale factor was derived which scaled 
+the DTb1 into rain units.  The locations of these gauges (part of a dataset 
+described by Eischeid et al. (1991)) was shown by Spencer (1993).  The 
+subsequent production of daily rain grids simply used the monthly 
+calibration factor divided by the average number of days in a month 
+(30.4). <p>
+	The channel 1 signal is actually sensitive to cloud water as well 
+as rain water, an ambiguity common to all passive microwave emission 
+schemes for measuring rainfall, but which is particularly true at a 
+frequency as high as channel 1 (50.3 GHz).  The response of 50.3 GHz 
+radiation to liquid hydrometeors is so strong that it is not, in general,  
+sensitive to vertically integrated water contents exceeding (effective) rain 
+rates of only a few mmh-1, at which point the liquid water path becomes 
+essentially opaque to the transfer of the radiometrically cold radiation 
+emitted by the ocean.  Thus, the  variability in the MSU daily rainfall 
+fields is primarily related to the coverage of the grid squares by cloud 
+and rain activity, not to the variations in rain intensity per se.  
+Therefore, much of the accuracy of the method will depend upon a 
+significant positive climatological correlation between  the true footprint-
+averaged rain amount and the areal coverage of that footprint by cloud 
+and rain water.<p>
+	The Special Sensor Microwave/Imager (SSM/I) has a better range 
+of microwave frequencies for radiometric sensitivity to local rain 
+intensity, up to rain rates of about 15 mm/hr.  Thus, the SSM/I will 
+allow more accurate rain retrieval algorithms to be developed than are 
+possible with the MSU.  However, even a perfect instrument would not 
+be useful if it did not provide sufficient sampling of the earth.   The 
+MSU provides two advantages in this regard: 50% greater spatial 
+coverage than the SSM/I due to its wider swath,  and its 15 year period 
+of record is the longest of any passive microwave instrument. 
+<h4>	5.2.2  Rainfall errors	</h4>
+<h5>	5.2.2.1  Sea ice</h5>
+	Even though regions of multi-year sea ice have been largely 
+screened out by restricting the oceanic rainfall dataset to 60 N-60 S,  
+there remain a few regions in the dataset where seasonal sea ice occurs 
+and produces false rain signatures.  These include areas near Antarctica, 
+the Bering Sea, Labrador Sea, and Hudson Bay.  Users of the data in 
+these regions should be aware of these false rain signatures and screen 
+them out during the cold season.  We might attempt to remove these 
+areas in Version 3 of the dataset.
+<h5>	5.2.2.2  Climatology errors</h5>
+	Small  changes to the rainfall algorithm (particularly the assumed 
+slope of the channel 1 vs.  channel 2/3 15% cumulative frequency 
+distribution line) have been observed to cause significant  changes in the 
+annual cycle in diagnosed rainfall at high latitudes.   Thus,  there is 
+inherent uncertainty in the MSU rainfall climatology, especially at high 
+latitudes.  Therefore, research which examines the high-latitude annual 
+cycle in MSU rainfall could be compromised until the algorithm is 
+refined to correct for<p>
+	As discussed by Spencer (1993), rainfall in the extratropical 
+storm tracks appears to be too heavy, although there is surprisingly little 
+rain gauge information with which to validate this assumption.  
+Nevertheless, because of the inherent ambiguity between cloud water 
+and rain water signatures, it is certainly possible that the storm track 
+regions have a larger cloud/rain water ratio than other regions.
+
+<h2>6.  References</h2>
+
+Conrath, B.J., 1972: Vertical resolution of temperature profiles obtained 
+	from remote sensing measurements.  J. Atmos. Sci., 29, 1262-
+	1271.<br>
+Eischeid J.K., H.F. Diaz, R.S. Bradley, and P.D. Jones, 1991: A 
+	Comprehensive Precipitation Dataset for Global Land Areas.  
+	Department of Energy Carbon Dioxide Research Program 
+	Report TR051.  Oak Ridge National Laboratory, Oak Ridge, 
+	Tennessee<br>
+Smith, W.L., H.M. Woolf, C.M. Hayden, D.Q. Wark, and L.M. 
+	McMillin, 1979: The TIROS-N operational vertical sounder.  
+	Bull. Amer. Meteor. Soc., 60, 1177-1187.<br>
+Spencer, R.W. and J.R. Christy, 1990:  Precise monitoring of global 
+	temperature trends from satellites.  Science, 247, 1558-1562.<br>
+Spencer, R.W., J.R. Christy, and N.C. Grody, 1990:  Global 
+	atmospheric temperature	monitoring with satellite microwave 
+	measurements: Methods and results 1979-84.  J. Climate, 	3, 
+	1111-1128.<br>
+Spencer, R.W. and J.R. Christy, 1992a: Precision and radiosonde 
+	validation of satellite	gridpoint temperature anomalies, Part I: 
+	MSU channel 2. J. Climate, 5, 847-857.<br>
+Spencer, R.W. and J.R. Christy, 1992b: Precision and radiosonde 
+	validation of satellite	gridpoint temperature anomalies, Part II:  
+	A tropospheric retrieval and trends 1979-90. J. Climate, 5, 
+	858-866.<br>
+Spencer, R.W. and J.R. Christy, 1993: Precision lower stratospheric  
+	temperature  monitoring with the MSU: Technique, validation, 
+	and results 1979-91. J. Climate, 6, 1194-1204.<br>
+Spencer, R.W., 1993: Global oceanic precipitation from the MSU 
+	during 	1979-91 and comparisons to other climatologies. J. 
+	Climate, 6, 1301-1326.
+
+<INGRID>datasetdocumentationtrailer</INGRID>

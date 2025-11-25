@@ -1,0 +1,50 @@
+\begin{ingrid}
+continuedataset:
+/description (Senegal Livelihood Zones 2015 from WFP VAM) def
+
+        /class
+	{IRIDB (sn_lhz_2015) (class) [ (gid) ]open_column_by
+            /long_name (Class) def
+	    }defasvarsilentnoreuse
+	/country
+	{IRIDB (sn_lhz_2015) (country) [ (gid) ]open_column_by
+            /long_name (Country) def
+	    }defasvarsilentnoreuse
+        /eff_year
+	{IRIDB (sn_lhz_2015) (eff_year) [ (gid) ]open_column_by
+            /long_name (Effective Year) def
+	    }defasvarsilentnoreuse
+        /fnid
+	{IRIDB (sn_lhz_2015) (fnid) [ (gid) ]open_column_by
+            /long_name (FN ID) def
+	    }defasvarsilentnoreuse
+        /lzcode
+	{IRIDB (sn_lhz_2015) (lzcode) [ (gid) ]open_column_by
+            /long_name (Livlihood Zone Code) def
+	    }defasvarsilentnoreuse
+        /lznameen
+	{IRIDB (sn_lhz_2015) (lznameen) [ (gid) ]open_column_by
+            /long_name (Livelihood Zone Name) def
+	    }defasvarsilentnoreuse
+        /lznamefr
+	{IRIDB (sn_lhz_2015) (lznamefr) [ (gid) ]open_column_by
+            /long_name (Nom des Zones de Moyen d'Existence) def
+	    }defasvarsilentnoreuse
+        /lznum
+	{IRIDB (sn_lhz_2015) (lznum) [ (gid) ]open_column_by
+            /long_name (Liveliood Zone Number) def
+	    }defasvarsilentnoreuse
+        /the_geom
+	{IRIDB (sn_lhz_2015) (the_geom) [ (gid) ]open_column_by
+            /long_name (Geometry) def
+	    }defasvarsilentnoreuse
+        /label
+	{IRIDB (sn_lhz_2015) ((lznameen || ', ' || country) as label) [ (gid) ]open_column_by
+            /long_name (Label) def
+	    }defasvarsilentnoreuse
+
+:dataset
+
+eff_year .gid name exch def
+
+\end{ingrid}

@@ -1,0 +1,154 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/filenames
+{ (/data/dstore4/modelling/daved/WGSIP.D/SMIP_HFP.D/GMAO.D/ens%1.1d[ml1]_NSIPP1_tier-1._%Y[S]_%s[season].nc) [ M S season 2 index 1 sub /name /ml1 def ]
+} def
+:datasetdefs
+/iridl:hasSemantics (iridl:NASA) def
+/references (Vintzileos_etal2005) def
+/description (National Aeronautics and Space Administration, USA) def
+grid:
+/name /M def
+/long_name (members) def
+1 1 6
+:grid
+grid:
+/name /S def
+/standard_name (forecast_reference_time) def
+monthtime
+/pointwidth 0 def
+periodic
+1 Mar 1979 ensotime
+3.
+1 Dec 1979 ensotime
+:grid
+variable:
+/name /season def
+grids: S :grids
+values:
+(MAM)
+(JJA)
+(SON)
+(DJF)
+:values
+:variable
+grid:
+/name /S def
+/long_name (start time) def
+/standard_name (forecast_reference_time) def
+monthtime
+/pointwidth 0 def
+1 Feb 1993 ensotime
+3.
+1 Nov 2002 ensotime
+:grid
+grid:
+/name /L def
+/long_name (lead time) def
+/standard_name (forecast_period) def
+/units (months) def
+1.5 1. 3.5
+:grid
+/T { S L add /long_name (Forecast Time) def /pointwidth 1 def
+/standard_name (time) def
+} defasvar
+\end{ingrid}
+
+/name (ens0_NSIPP1_tier-1._1993_DJF.nc)def
+ /missing_value -999. 9.9692099683868690e+36 2 realarray astore def
+\begin{ingrid}
+grid:
+/name (lon)def
+/units (degree_east)def
+ -180. 2.5 177.5
+:grid
+grid:
+/name (lat)def
+/units (degree_north)def
+ -88. 2. 90.
+:grid
+\end{ingrid}
+grid:
+/name (time)def
+/units (days since 1993-12-01 00:00:00)def
+/calendar /Julian def
+ 0.0 31. 62.
+:grid
+\begin{ingrid}
+ /pr{
+[ lon lat | M L S] filenames readdatafile:
+/name (pr) def
+ /missing_value -999. 9.9692099683868690e+36 2 realarray astore def
+ /long_name (Total Precipitation rate) def
+ /units (kg/(m^2*s))cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /psl{
+[ lon lat | M L S] filenames readdatafile:
+/name (psl) def
+ /missing_value -999. 9.9692099683868690e+36 2 realarray astore def
+ /long_name (Mean sea-level pressure) def
+ /units /Pa def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+grid:
+/name (level)def
+/units (hPa)def
+values: 1000. 850. 700. 500. 200. :values
+:grid
+ /ta{
+[ lon lat level | M L S] filenames readdatafile:
+/name (ta) def
+ /missing_value -999. 9.9692099683868690e+36 2 realarray astore def
+ /long_name (Air Temperature) def
+ /units /Kelvin_scale def
+ /realarraytype netcdfrecords :readdatafile
+level 850 700 VALUES
+}defasvarcachesilent
+ /tas{
+[ lon lat | M L S] filenames readdatafile:
+/name (tas) def
+ /missing_value -999. 9.9692099683868690e+36 2 realarray astore def
+ /long_name (Surface (2m) air temperature) def
+ /units /Kelvin_scale def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /ts{
+[ lon lat | M L S] filenames readdatafile:
+/name (ts) def
+ /missing_value -999. 9.9692099683868690e+36 2 realarray astore def
+ /long_name (Ground Surface Temperature) def
+ /units /Kelvin_scale def
+ /realarraytype netcdfrecords :readdatafile
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+}defasvarcachesilent
+ /ua{
+[ lon lat level | M L S] filenames readdatafile:
+/name (ua) def
+ /missing_value -999. 9.9692099683868690e+36 2 realarray astore def
+ /long_name (Eastward wind) def
+ /units (m/s)cvn def
+ /realarraytype netcdfrecords :readdatafile
+level 850 200 VALUES
+}defasvarcachesilent
+ /va{
+[ lon lat level | M L S] filenames readdatafile:
+/name (va) def
+ /missing_value -999. 9.9692099683868690e+36 2 realarray astore def
+ /long_name (Northward wind) def
+ /units (m/s)cvn def
+ /realarraytype netcdfrecords :readdatafile
+level 850 200 VALUES
+}defasvarcachesilent
+ /zg{
+[ lon lat level | M L S] filenames readdatafile:
+/name (zg) def
+ /missing_value -999. 9.9692099683868690e+36 2 realarray astore def
+ /long_name (Geopotential height) def
+ /units /m def
+ /realarraytype netcdfrecords :readdatafile
+level 1000 500 VALUES
+}defasvarcachesilent
+:dataset
+\end{ingrid}

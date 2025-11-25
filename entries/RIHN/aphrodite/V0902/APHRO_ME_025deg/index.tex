@@ -1,0 +1,42 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics [(irigaz:Middle_East_328_0)] def
+datasetdefs:
+/long_name (Middle East daily precipitation with 0.25deg grids) def
+grid:
+/name /X def
+degE
+ 15.125 0.25 65. 0.125 sub
+:grid
+grid:
+/name /Y def
+degN
+25.125 0.25 45. 0.125 sub
+:grid
+
+grid:
+/name /T def
+      /units (days since 1960-01-01) def
+      /calendar /365 def
+      1961
+       1 1 ymd2d365c
+       0.5 add
+       1 2004
+         12 31 ymd2d365c
+         0.5 add
+:grid
+[ X Y T ] { name exch def } forall
+[X Y |/NVZ 2 NewIntegerGRID T]
+(/Data/data21/jpan/rihn/aphrodite/APHRO_ME_025deg/APHRO_ME_025deg_V0902.%Y[T])  [T yearlyedgesgrid
+ first secondtolast 1 add subgrid
+]
+readdatafile:
+/missing_value -99.9 def
+decdirect
+:readdatafile
+definevariables:
+0 Zvariable:/name (precip) def /long_name (precipitation) def /units (mm/day) def :Zvariable
+0 Zvariable:/name (rstn) def /long_name (ratio of 0.05 grid box contatining station(s)) def /units (percent) def :Zvariable
+:definevariables
+:dataset
+\end{ingrid}

@@ -1,0 +1,84 @@
+\begin{ingrid}
+continuedataset:
+/description (Analysis of monthly mean ERS-1 altimeter and tide gauge measurements at 30 island locations in the central and western Pacific) def
+/references (Miller_etal1993) def
+grid:
+/name /X def
+degE
+values:
+ 120.000 
+ 126.000 
+ 132.000 
+ 138.000 
+ 144.000 
+ 150.000 
+ 156.000 
+ 162.000 
+ 168.000 
+ 174.000 
+ 180.000 
+ 186.000 
+ 192.000 
+ 198.000 
+ 204.000 
+ 210.000 
+ 216.000 
+ 222.000 
+ 228.000 
+ 234.000 
+ 240.000 :values
+:grid
+grid:
+/name /Y def
+degN
+-40 40 N= 61 pts
+:grid
+grid:
+/name /T def
+monthtime
+/defaultvalue {last} def
+16 Aug 1994 ensotime
+1.
+16 aug 1995 ensotime % enddate
+:grid
+variable:
+/name /sealevel def
+/long_name (Sea Level Anomaly) def
+/units (cm) def
+/missing_value 999 def
+/CI 4. def
+link:
+/name (USA) def
+/href (http://rainbow.ldgo.columbia.edu/igoss/productsbulletin/descriptions/ers1.html) def
+:link
+/history [(Blended sea level anomaly from ERS-1 altimeter data and tide gauge data.)
+(Annual and semiannual signals have been removed, leaving only the interannual changes relative to the April 1985-86 mean.)]def
+grids: X Y | T :grids
+file:
+/name (/Data/data1/surface/ers1/sealevel) def
+random
+:file
+:variable
+dataset:
+/name /stations def
+grid:
+/name /I def
+1 1 28
+:grid
+file:
+grids: [ /lon /lat ] I :grids
+/name (/Data/data1/surface/ers1/stations) def
+formatted
+/format ((2F10.3))def
+variable:
+/name /lon def
+degE
+:variable
+variable:
+/name /lat def
+degN
+:variable
+:file
+:dataset
+:dataset
+\end{ingrid}

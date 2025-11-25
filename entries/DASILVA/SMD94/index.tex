@@ -1,0 +1,35 @@
+\begin{ingrid}
+datasetdefs:
+/climatology.cdf { mark
+WWWinfo .url (climatology.cdf)  search
+{ exch pop (climatology.cuf) 3 -1 roll ] concat  redirectto } if
+} def
+%/climatology.cuf {climatology} def
+:datasetdefs
+/climatology currentobject 1 index get def
+/halfbyhalf currentobject 1 index get def
+/anomalies currentobject 1 index get def
+ /long_name (Atlas of Surface Marine Data 1994) def
+  /description (a five-volume atlas series depicting the seasonal and yearly variations of the surface marine atmosphere over the global oceans) def
+/dataset_documentation.html {
+  (/Data/data1/DataCatalog/documentation/dasilva/)
+/index.html
+readfilein } def
+/references (daSilva:etal1994) def
+/iridl:hasSemantics (iridl:NOAA) def
+/X dup /degreeE 1 0.5 1. 359.5 NewEvenGRID def
+/Y dup /degreeN  0 -89.5 1. 89.5 NewEvenGRID def
+/T dup monthtimename 0 16 Jan 1945 ensotime 1. 16 dec 1993 ensotime
+NewEvenGRID def
+/GCMD_id(NOAA_ATLAS_SURFACE_MARINE_DATA)def
+\end{ingrid}
+
+
+
+
+
+
+
+
+
+

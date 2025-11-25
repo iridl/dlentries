@@ -1,0 +1,107 @@
+\begin{ingrid}
+continuedataset:
+/description (African Rainfall Climatology from the Famine Early Warning System) def
+datasetdefs:
+/dly_fews_prcp_colors {
+startcolormap
+DATA 0 600 RANGE
+white white LightCyan 0 VALUE
+PaleTurquoise PaleTurquoise 2.5 bandmax
+LightSkyBlue LightSkyBlue 5 bandmax
+DeepSkyBlue DeepSkyBlue 12.5 bandmax
+DodgerBlue DodgerBlue 25 bandmax
+blue blue 37.5 bandmax
+MediumBlue MediumBlue 50 bandmax
+DarkGreen DarkGreen 75 bandmax
+SeaGreen SeaGreen 100 bandmax
+MediumSeaGreen MediumSeaGreen 125 bandmax
+LimeGreen LimeGreen 150 bandmax
+green green 175 bandmax
+GreenYellow GreenYellow 200 bandmax
+yellow yellow 225 bandmax
+gold gold 250 bandmax
+orange orange 300 bandmax
+DarkOrange DarkOrange 350 bandmax
+red red 400 bandmax
+DeepPink DeepPink 450 bandmax
+HotPink HotPink 500 bandmax
+magenta magenta 550 bandmax
+orchid orchid 600 bandmax
+orchid endcolormap } def
+:datasetdefs
+
+link:
+/name (Data Source) def
+/href (ftp://ftp.cpc.ncep.noaa.gov/fews/fewsdata/africa/arc2/) def
+:link
+
+link:
+/name (Africa Rainfall Climatology Version 2 PDF Document) def
+/href (http://www.cpc.ncep.noaa.gov/products/fews/AFR_CLIM/AMS_ARC2a.pdf) def
+:link
+
+link:
+/name (CPC list of dates of missing ARC2 data) def
+/href (ftp://ftp.cpc.ncep.noaa.gov/fews/fewsdata/africa/arc2/ARC2_missing_dates.txt) def
+:link
+
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+-20 0.1 55
+:grid
+
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+-40 0.1 40
+:grid
+
+grid:
+/name /T def
+/units (days since 1960-01-01 12:00:00) def
+/defaultvalue { last } def
+/standard_name (time) def
+01 Jan 1983 julian_day 01 Jan 1960 julian_day sub
+1.0
+systemtime
+   (%d %b %Y) 12 strftime interp julian_day
+%31 Dec 2003 julian_day %enddate
+01 Jan 1960 julian_day sub
+:grid
+
+%T {(ftp://ftp.cpc.ncep.noaa.gov/fews/AFR_CLIM/ARC2/DATA/%Y[T]/daily_clim.bin.%Y%m%d[T].gz) [T]}
+T 
+/expires {last 2 add 1960 1 1 ymd2rjt add rjt2ymd ymd2systemtime 
+14 60 mul 35 add 60 mul add % 14:35 GMT
+}
+def
+{(ftp://ftp.cpc.ncep.noaa.gov/fews/fewsdata/africa/arc2/bin/daily_clim.bin.%Y%m[T]%d[T].gz) [T]}
+remoteremoveextrausing
+/expires expires def
+name exch def
+/expires T .expires def
+/last_modified T .last_modified def
+
+/est_prcp {
+[ X Y | T] 
+%(ftp://ftp.cpc.ncep.noaa.gov/fews/AFR_CLIM/ARC2/DATA/%Y[T]/daily_clim.bin.%Y%m%d[T].gz)
+(ftp://ftp.cpc.ncep.noaa.gov/fews/fewsdata/africa/arc2/bin/daily_clim.bin.%Y%m%d[T].gz)
+ [T] readdatafile:
+/missing_value -999.0 def
+/long_name (Estimated Precipitation) def
+/standard_name (lwe_precipitation_rate) def
+/scale_min 0 def
+/scale_max 600 def
+/units (mm/day) def
+dly_fews_prcp_colors
+/description (CPC/Africa Rainfall Climatology 2: Daily Values) def
+direct :readdatafile
+}defasvarsilent
+
+
+:dataset
+\end{ingrid}
+

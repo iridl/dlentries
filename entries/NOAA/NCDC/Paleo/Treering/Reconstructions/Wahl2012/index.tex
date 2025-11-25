@@ -1,0 +1,120 @@
+\begin{ingrid}
+continuedataset:
+/description (Western North America 500 Year Annual Temperature Reconstruction) def
+/references (Wahl_Smerdon2012) def
+link:
+/name (data source) def
+/description (NCDC ftp site) def
+/href (ftp://ftp.ncdc.noaa.gov/pub/data/paleo/contributions_by_author/wahl2012/) def
+:link
+link:
+/name (documentation) def
+/description (readme-wahl2012.txt) def
+/href (ftp://ftp.ncdc.noaa.gov/pub/data/paleo/contributions_by_author/wahl2012/readme-wahl2012.txt) def
+:link
+
+dataset:
+ /name /Recon def
+ /long_name (1500-1980 Temperature Reconstruction) def
+%/note () def
+link:
+/name (data source) def
+/description (NCDC ftp site) def
+/href (ftp://ftp.ncdc.noaa.gov/pub/data/paleo/contributions_by_author/wahl2012/) def
+:link
+link:
+/name (documentation) def
+/description (readme-wahl2012.txt) def
+/href (ftp://ftp.ncdc.noaa.gov/pub/data/paleo/contributions_by_author/wahl2012/readme-wahl2012.txt) def
+:link
+
+
+grid:
+ /name /X def
+ /long_name /Longitude def
+ /units (degree_east) def
+ -127.5 5.0 -97.5 
+:grid
+
+grid:
+ /name /Y def
+ /long_name /Latitude def
+ /units (degree_north) def
+ 32.5 5.0 52.5
+:grid
+
+grid:
+ /name /T def
+ /units (months since 1960-01-01) def
+ 01 Jul 1500 ensotime
+ 12
+ 01 Jul 1980 ensotime
+ /pointwidth 12 def
+:grid
+
+ /temp { [ T Y | X ] (/Data/data7/noaa/ncdc/paleo/treering/reconstructions/westnamerica/wahl2012/SW_NAm_Recon_Grid_1500-1980.nc) readdatafile:
+ /name (temp) def
+ /long_name (Temperature Anomaly) def
+ /standard_name (air_temperature_anomaly) def
+ /units (Celsius_scale) def
+ /missing_value -999.0 def
+ /doublearraytype netcdfrecords :readdatafile
+ temp_anomaly_colors_gcm
+ } defasvarsilent
+
+grid:
+ /name /MeanSD def
+ /units /ids def
+ 1 1.0 2 
+:grid
+
+ /mean { [ MeanSD T Y | X ] (/Data/data7/noaa/ncdc/paleo/treering/reconstructions/westnamerica/wahl2012/SW_NAm_Recon_Grid_Uncert_1500-1980_mean_sd.nc) readdatafile:
+ /name (temp) def
+ /long_name (Mean Temperature) def
+ /standard_name (air_temperature_anomaly) def
+ /units (Celsius_scale) def
+ /missing_value -999.0 def
+ /doublearraytype netcdfrecords :readdatafile
+  MeanSD 1 VALUE
+ temp_anomaly_colors_gcm
+} defasvarsilent
+
+ /SD { [ MeanSD T Y | X ] (/Data/data7/noaa/ncdc/paleo/treering/reconstructions/westnamerica/wahl2012/SW_NAm_Recon_Grid_Uncert_1500-1980_mean_sd.nc) readdatafile:
+ /name (temp) def
+ /long_name (Temperature Standard Deviation) def
+ /units (Celsius_scale) def
+ /missing_value -999.0 def
+ /doublearraytype netcdfrecords :readdatafile
+  MeanSD 2 VALUE
+} defasvarsilent
+
+dataset:
+ /name (iteration) def
+
+grid:
+/name (M) def
+/long_name (Monte Carlo Iterations) def
+/units (ids) def
+ 1 1.0 1000
+:grid
+
+ T name exch def
+ X name exch def
+ Y name exch def
+
+ /temp { [ M T Y | X ] (/Data/data7/noaa/ncdc/paleo/treering/reconstructions/westnamerica/wahl2012/SW_NAm_Recon_Grid_Uncert_1500-1980.nc) readdatafile:
+ /name (temp) def
+ /long_name (Temperature Anomaly) def
+ /standard_name (air_temperature_anomaly) def
+ /units (Celsius_scale) def
+ /missing_value -999.9 def
+ /doublearraytype netcdfrecords :readdatafile
+ temp_anomaly_colors_gcm
+} defasvarsilent
+
+ :dataset
+
+:dataset
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,63 @@
+\begin{ingrid}
+continuedataset:
+
+dataset:
+ /name (monthlyavg) def
+ 
+ /NDWI {
+ SOURCES .USGS .LandDAAC .MODIS .version_005 .SSA .reflectance
+  Y (30.0000S) (35.1000S) RANGEEDGES
+  X (58.9000W) (52.9000W) RANGEEDGES
+  a:
+    band (NIR) VALUE
+    T 0.9 monthlyAverage
+    :a:
+     band (MIR) VALUE
+     T 0.9 monthlyAverage
+     sub
+    :a:
+     band (NIR) VALUE
+     T 0.9 monthlyAverage
+     :a:
+      band (MIR) VALUE
+      T 0.9 monthlyAverage
+      add
+     :a
+   div
+  /name (NDWI) def
+   } defasvarcachesilent
+
+:dataset
+
+dataset:
+ /name (monthlyclim) def
+ /long_name (2005-2014 monthly climatology) def
+
+ /NDWI {
+ SOURCES .USGS .LandDAAC .MODIS .version_005 .SSA .reflectance
+  T (1 Jan 2005) (31 Dec 2014) RANGE
+  Y (30.0000S) (35.1000S) RANGEEDGES
+  X (58.9000W) (52.9000W) RANGEEDGES
+  a:
+    band (NIR) VALUE
+    T 0.9 monthlyAverage
+    :a:
+     band (MIR) VALUE
+     T 0.9 monthlyAverage
+     sub
+    :a:
+     band (NIR) VALUE
+     T 0.9 monthlyAverage
+     :a:
+      band (MIR) VALUE
+      T 0.9 monthlyAverage
+      add
+     :a
+   div
+  /name (NDWI) def
+  yearly-climatology } defasvarcachesilent
+
+:dataset
+
+:dataset
+\end{ingrid}

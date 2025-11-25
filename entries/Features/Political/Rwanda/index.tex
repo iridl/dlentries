@@ -1,0 +1,41 @@
+\begin{ingrid}
+continuedataset:
+/description (Rwanda 1st and 2nd Order Administrative Boundaries) def
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Provinces def
+/prov_na
+{ IRIDB (rw_province) (province) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/label
+{ IRIDB (rw_province) (label) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (rw_province) (the_geom) [(gid)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+
+dataset:
+/name /Districts def
+/prov_na
+{ IRIDB (rw_districts) (prov_name) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/dist_na
+{ IRIDB (rw_districts) (district) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/label
+{ IRIDB (rw_districts) (label) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (rw_districts) (the_geom) [(gid)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+Districts dist_na .gid name exch put
+Provinces prov_na .gid name exch put
+\end{ingrid}
+
+

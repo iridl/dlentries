@@ -1,0 +1,98 @@
+\begin{ingrid}
+/WFP-CCDRR dataareRestricted
+/Livelihood_Mali
+/description ( Livelihood Zones in Mali from WFP) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,zonage_sap,orig_fid,the_geom from mali_lhz_merged order by gid) (gid) openqueryby
+        zonage_sap
+            /long_name (Zonage SAP) def
+        CopyStream
+        name exch def
+        orig_fid 
+            /long_name (Original File ID) def
+            /units /ids def 
+	    /CLIST [ 
+(Agro-coton)
+(Agro-coton-fruit)
+(Agro-migration)
+(Agro-oignon)
+(Agro-pasteur)
+(Agro-rente)
+(Agro-elevage)
+(Culture de decrue)
+(Pasteur)
+(Riz irrigue (ON))
+(Riz submersion)
+(Salariat-commerce (Ville))
+] def
+startcolormap
+/maxncolor 15 def
+DATA 0 11 RANGE
+white white
+green
+ForestGreen
+LightYellow
+brown
+pink
+OliveDrab
+grey
+RoyalBlue
+yellow
+blue
+LightBlue
+red
+white
+endcolormap
+CopyStream
+        name exch def
+        the_geom
+            /long_name (Livelihood zone geometry) def
+        name exch def
+}defasvarsilent
+/Livelihood_Mali_PAM_SAP
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid, cast(code_zone as integer), libellé_zo as libelle_zo, the_geom from strate_pam_fromgeodb1 order by gid) (gid) openqueryby
+        code_zone
+            /long_name (Zone Code) def
+            /units /ids def
+/CLIST [
+(Sahelienne Sud)
+(Sahelienne Nord)
+(Soudanienne Nord)
+(Soudanienne Sud)
+(Desert)
+(Vallee du fleuve)
+(Delta du fleuve)
+(Bamako)
+] def
+startcolormap
+/maxncolor 11 def
+DATA 1 8 RANGE
+white white
+cyan
+plum
+PeachPuff
+DarkKhaki
+yellow
+firebrick
+blue
+red
+white
+endcolormap
+CopyStream
+        name exch def
+        libelle_zo 
+            /long_name (Libelle Zone) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Livelihood zone geometry) def
+        name exch def
+}defasvarsilent
+\end{ingrid}

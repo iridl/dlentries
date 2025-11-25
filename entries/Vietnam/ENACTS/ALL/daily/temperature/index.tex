@@ -1,0 +1,73 @@
+\begin{ingrid}
+
+continuedataset:
+
+grid:
+/name /T def
+/standard_name (time) def
+/units (days since 1961-01-01  12:00:00) def
+0 1.0
+%systemtime systemtime2ymd
+2021 12 31
+ymd2rjt
+1961 1 1 ymd2rjt
+sub
+/defaultvalue {last} def
+:grid
+
+grid:
+/name /X def
+/units /degree_east def
+102.025 0.05 109.475
+/long_name (Longitude) def
+:grid
+
+grid:
+/name /Y def
+/units /degree_north def
+8.025 0.05 23.475
+/long_name (Latitude) def
+:grid
+
+ /tmax{
+[ X Y | T] (/Data/data23/Vietnam/ENACTS_MERGED/ALL/TEMP/DAILY/TMAX/tmax_mrg_%Y%m%d[T]_ALL.nc) [T]
+readdatafile:
+/name (temp) def
+/long_name (Maximum Daily Temperature reanalysis merged with station) def
+/units /Celsius_scale def
+/missing_value -99. def
+/realarraytype netcdfrecords
+:readdatafile
+%0 masklt
+% cmorph_dekad_colors %applies a colorscale named cmorph_dekad_colors to the variable
+%DATA 0 40 RANGE
+}defasvarsilent
+
+ /tmin{
+[ X Y | T] (/Data/data23/Vietnam/ENACTS_MERGED/ALL/TEMP/DAILY/TMIN/tmin_mrg_%Y%m%d[T]_ALL.nc) [T]
+readdatafile:
+/name (temp) def
+/long_name (Minimum Daily Temperature reanalysis merged with station) def
+/units /Celsius_scale def
+/missing_value -99. def
+/realarraytype netcdfrecords
+:readdatafile
+%-20. masklt
+% cmorph_dekad_colors %applies a colorscale named cmorph_dekad_colors to the variable
+%DATA 0 40 RANGE
+}defasvarsilent
+
+/tmean {
+ SOURCES .Vietnam .ENACTS .ALL .daily .temperature .tmax
+ SOURCES .Vietnam .ENACTS .ALL .daily .temperature .tmin
+add
+2.0 div
+/long_name (Average Daily Temperature reanalysis merged with station) def
+windspeed_colors
+DATA 0 40 RANGE
+} defasvarsilent
+
+
+:dataset
+
+\end{ingrid}

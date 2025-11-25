@@ -1,0 +1,61 @@
+\begin{ingrid}
+/climatology insertdataset:
+/iridl:hasSemantics [(iriref:Walker_T) (iridl:climatology)] def
+/description (Climatological heat storage, mixed layer depth, and temperature data from Scripps Institution of Oceanography. ) def
+grid: /name /Z def /units (m) def
+[ 0.0 20.0 40.0 60.0 80.0 120.0 160.0 200.0 240.0 300.0 400.0 ]
+:grid
+grid:
+/name /X def
+degE
+periodic
+30. 5. 385.
+:grid
+grid:
+/name /Y def
+degN
+60. -2. -60.
+:grid
+grid: /name /T def /units /month def periodic Jan to Dec N= 12 pts :grid
+variable:
+/name /temp def
+/long_name (temperature) def
+/units (degreeC) def
+/missing_value 1e36 def
+grids: X Y | Z T :grids
+file:
+sequential
+/nskp 0 def
+/name (/Data/data1/igoss/sio/climo/xyzt.tc) def
+:file
+/units /Celsius def
+sstcolorscale
+:variable
+variable:
+/name /mld def
+/long_name (Mixed Layer Depth) def
+/units (meters) def
+/missing_value 1e36 def
+grids: X Y | T :grids
+file:
+sequential
+/name (/Data/data1/igoss/sio/climo/xyt.mld) def
+:file
+:variable
+variable:
+/name /heat_storage def
+/long_name (Heat Storage) def
+/units (10**7 Joules/m2) def
+/missing_value 1e36 def
+%/history [(Vertically averaged (0/400m) heat storage anomaly.  1979-1988 climatology) (<B><a href="http://rainbow.ldeo.columbia.edu/igoss/productsbulletin/descriptions/heatstorage.html">USA</a></B>)]def
+grids: X Y | T :grids
+file:
+sequential
+/name (/Data/data1/igoss/sio/climo/xyt.hs) def
+:file
+:variable
+:insertdataset
+
+
+\end{ingrid}
+

@@ -1,0 +1,126 @@
+
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Generator" content="Microsoft Word 97/98">
+   <meta name="Template" content="Macintosh HD:Microsoft Office 98:Templates:Web Pages:Blank Web Page">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; IRIX64 6.4 IP27) [Netscape]">
+   <title>GPCP Daily Combination Web Page</title>
+   <link REL=stylesheet TYPE="text/css" HREF="/site.html">
+</head>
+<INGRID>standardHeader</INGRID>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000FF" vlink="#800080">
+
+<center>
+<h2>
+Experimental GPCP 1-Degree Daily Combination</h2></center>
+<p>
+The data can found <a href="http://iridl.ldeo.columbia.edu/SOURCES/.NASA/.GPCP/.V1DD/">here</a>.
+<p>
+The following documentation is from the <a href="http://precip.gsfc.nasa.gov/">NASA Global Precipitation Analyss website</a>.
+ Please refer to that site for more information.
+<p>
+This data set is a companion to the <a href="http://precip.gsfc.nasa.gov/gpcp_v2_comb.html">GPCP Version
+2 Combination</a> (which the reader should see for descriptions,including
+references). <font size=+0>Many users need precipitation estimates at finer
+space and time scales than the operational data set provides. Starting
+in October 1996 the GPCP began producing 3-hourly merged global infrared
+(IR) brightness temperature (T<sub>b</sub>) histograms on a 1&deg;x1&deg;
+grid in the band 40&deg;N-40&deg;S, and this collection has prompted this
+new global One-Degree Daily (1DD) product.</font>
+<p><font size=+0>In this first official release, the 1DD uses the "best"
+quasi-global observational estimators of underlying statistics to adjust
+quasi-global observational datasets that have desirable time/space coverage.
+Specifically,</font>
+<dir><font size=+0>* Special Sensor/Microwave Imager (SSM/I; 0.5&deg;x0.5&deg;
+by orbit, GPROF6.0 algorithm) provides fractional occurrence, and</font>
+<p><font size=+0>* GPCP Version 2 Satellite-Gauge (SG) combination (2.5&deg;x2.5&deg;
+monthly) provides monthly accumulation</font>
+<p><font size=+0>to algorithms working on</font>
+<p><font size=+0>* geosynchronous-orbit IR (geo-IR) T<sub>b</sub> histograms
+(as above),</font>
+<p><font size=+0>* low-orbit IR (leo-IR) GOES Precipitation Index (GPI;
+same time/space grid as geo-IR), and</font>
+<p><font size=+0>* TIROS Operational Vertical Sounder (TOVS; 1&deg;x1&deg;
+on daily nodes, Susskind algorithm).</font></dir>
+<font size=+0>Even though microwave precipitation estimates and gauge analyses
+do not explicitly appear in this list due to sampling limitations, the
+calibration to the Version 2 SG ensures that they do have a strong influence
+on the overall scaling. The differences between the IR and TOVS datasets
+required that the 1DD be formulated in two parts, with smoothing from 40&deg;
+to 50&deg; in each hemisphere to patch the data boundary.</font>
+<p><font size=+0>In the band 40&deg;N-S the Threshold-Matched Precipitation
+Index (TMPI) produces approximate instantaneous precipitation from the
+geo-IR T<sub>b</sub> with fill-in by rescaled leo-IR GPI. It is a GPI-type
+algorithm with locally calibrated T<sub>b</sub> threshold and rainrate.
+To do this, time/space-matched geo-IR T<sub>b</sub> and GPROF fractional
+coverage data are used to set the T<sub>b</sub> threshold such that instantaneous
+geo-IR fractional coverage equals GPROF's. Then a single rainrate for "raining"
+geo-IR pixels is computed for each grid box that makes the full month of
+TMPI sum to the local SG (monthly) value. Mismatches in geo-IR and GPROF
+precipitation cause some unrealistic TMPI conditional rain rates, so an
+"auditing" technique was developed to fill in reasonable values and re-estimate
+the geo-IR threshold. A less tractable problem is that the warmest geo-IR
+histogram bin starts at T<sub>b</sub>=270K, which prevents correctly setting
+the threshold in regions with only warm-top clouds.</font>
+<p><font size=+0>The leo-IR GPI data tend to exhibit a very high number
+of rain days. To overcome this, the local number of leo-IR GPI rain days
+was reduced by the ratio of the total number of GPROF6.0 and leo-IR GPI
+rain days. The remaining non-zero daily rain amounts are rescaled to start
+at zero and sum over the month to the (local) SG value.</font>
+<p><font size=+0>Similarly, the original TOVS dataset tends to exhibit
+a very high number of rain days. To overcome this, in each hemisphere the
+local number of TOVS rain days was reduced by the ratio of the total number
+of TMPI and TOVS rain days at 40&deg;. The remaining non-zero daily rain
+amounts are rescaled to start at zero and sum over the month to the (local)
+SG value.</font>
+<p><font size=+0>The 1DD has been computed for 1997-1999, and the instantaneous
+TMPI show good consistency between hours and with the daily TMPI, GPI,
+and rescaled TOVS fields. The daily 1DD correctly sum to the monthly SG,
+except in the subtropical highs where geo-IR threshold saturation becomes
+a problem. Even before smoothing, there is good continuity across the 40&deg;
+N and S data boundary, perhaps in part because the IR and TOVS datasets
+both largely represent clouds. This dependence on scaled cloud information
+implies that users should expect large error bars on the individual daily
+values, and preliminary validation results support this view. Space and/or
+time averages should be more reliable.</font>
+<p><font size=+0>It is expected that the 1DD will see extensive development
+work. This might include: diurnally varying calibrations; extension back
+in time, even if at lower quality; additional sensors, including daily
+gauges and Microwave Sounding Unit; direct use of microwave estimates;
+and refined combination approaches.</font>
+<p>The current data set extends from January 1997--December 1999, and subsequently
+it will be extended from 1997--present (with some delay to allow the scaling
+to the monthly GPCP Version 2 Combination SG). The primary product in the
+1DD dataset is a combined observation-only dataset. That is, a gridded
+analysis based on satellite estimates of rainfall is constrained by a monthly
+analysis that is based on gauge and satellite observations. The initial
+product suite includes the "final" estimates of precipitation.
+<p>The data set archive consists of unformatted REAL*4 binary month files
+that contain 1 row (1440 B) of header and then all the days of the month,
+stacked sequentially.&nbsp; Missing days (if any) are filled with the missing
+flag -99999. These files are gzip'ed. Each gzip'ed file occupies about
+3.5 MB, and the whole data set contains about 126 MB. The grid on which
+each field of values is presented is a 1<font size=+0>&deg;</font>x1<font size=+0>&deg;</font>
+latitude--longitude (Cylindrical Equal Distance) global array of points.
+It is size 360x180, with X (longitude) incrementing most rapidly West to
+East from the Prime Meridian, and then Y (latitude) incrementing North
+to South. Whole- and half-degree values are at grid edges:
+<br>First point center = (89.5<font size=+0>&deg;</font>N,0.5<font size=+0>&deg;</font>E)
+<br>Second point center = (89.5<font size=+0>&deg;</font>N,1.5<font size=+0>&deg;</font>E)
+<br>Last point center = (89.5<font size=+0>&deg;</font>S,0.5<font size=+0>&deg;</font>W)
+<br>Missing values are denoted by the value -99999., and the units are
+mm/day.
+<p><br>
+<p>The dataset creator is:
+<p>Dr. George J. Huffman
+<br>Code 912
+<br>NASA Goddard Space Flight Center
+<br>Greenbelt, MD 20771 USA
+<br>Phone: +1 301-614-6308
+<br>Fax: +1 301-614-5492
+<br>Internet: huffman@agnes.gsfc.nasa.gov
+<p> <a href="ftp://rsd.gsfc.nasa.gov/pub/1dd">Data</a>
+</body>
+</html>

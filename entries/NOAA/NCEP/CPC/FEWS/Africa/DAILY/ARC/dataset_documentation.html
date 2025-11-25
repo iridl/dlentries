@@ -1,0 +1,55 @@
+<INGRID>datasetdocumentationheader</INGRID>
+<h3>Description of CPC/Famine Early Warning System Africa Rainfall Climatology (ARC) Daily Precipitation Estimates
+ </h3>
+<p>
+<i>For documentation on the ARC data set and how it differs from the RFE V2.0 operational data set, see the
+following web page:  <a
+href="http://www.cpc.ncep.noaa.gov/products/fews/AFR_CLIM/afr_clim.html">http://www.cpc.ncep.noaa.gov/products/fews/AFR_CLIM/afr_clim.html</a>
+<p>
+and the following CPC document: <a href="http://www.cpc.ncep.noaa.gov/products/fews/AFR_CLIM/appl_clim.pdf">RFE Climatology Paper for 2004 AMS Conference on Applied Climatology</a>.</i>
+
+<p>
+<i>The following information is excerpted from the "readme" file associated with this data set:</i>
+<p>
+<pre>
+
+This is the readme file for daily NOAA/Climate Prediction Center's Africa Rainfall 
+Climatology (ARC)
+files.
+
+There are a few missing days within this Jan 1995-Present dataset.  This is due to either
+ bad GTS rain gauge observations or bad raw Meteosat IR temperature data.
+
+For information about data methodology or other questions, see:
+
+http://www.cpc.ncep.noaa.gov/products/fews/AFR_CLIM/afr_clim.html
+
+or contact:
+
+Timothy Love  301-763-8000 x7549 tim.love@noaa.gov
+
+------------------------------------------------------------------------------
+
+
+Each day of data corresponds to the 24 hour temporal domain of 0600Z day 1 until 0530Z 
+day +1.  Spatial domain covers the entire Africa continent from 20.0W-55.0E and 
+40.0S-40.0N at a resolution of 0.1
+degrees.
+
+Each file is in binary format with a single record.  Created on a HPUX workstation, files 
+are in 4-byte big_endian format and thus must be byteswapped if reading on a 
+little_endian machine (Linux, SGI,
+x86 pc).
+
+File structure is a 751x801 array (constant 0.1 degree resolution) of floating point 
+precipitation estimate values.  Pixel 1,1 corresponds with the geographic coordinate 
+of 20.0W,40.0S.  Pixel 2,1 is 19.9W,40.0S.  Pixel 751,801 is 55.0E,40.0S.  Moving 
+northward a tenth of degree, pixel 1,2 is 20.0W,39.9S.  And so on.  The final pixel 
+in each file array is thus 751,801 = 55.0E,40.0N.
+
+Uncompressed file size:  2406204 bytes = 4 bytes/pixel * 751 lon points * 801 lat points
+
+
+For a GrADS control or GIS header file, contact me and I'll gladly set you up.
+</pre>
+<INGRID>datasetdocumentationtrailer</INGRID>

@@ -1,0 +1,35 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Final completed by NRT) def
+
+/olr {
+SOURCES .NOAA .NCEP .CPC .CBO_V1 .r512x256 .MON
+a: .Final .olr :a: .NRT .olr :a
+T 2 index .T .last 1. add last RANGE
+appendstream
+T /defaultvalue { last } def 
+/expires SOURCES .NOAA .NCEP .CPC .CBO_V1 .r512x256 .MON .NRT .expires
+pop
+/expires T .expires def
+}defasvar
+
+/anom {
+SOURCES .NOAA .NCEP .CPC .CBO_V1 .r512x256 .MON
+a: .Final .anom :a: .NRT .anom :a
+T 2 index .T .last 1. add last RANGE
+appendstream
+T /defaultvalue { last } def 
+/expires SOURCES .NOAA .NCEP .CPC .CBO_V1 .r512x256 .MON .NRT .expires
+pop
+/expires T .expires def
+}defasvar
+
+:dataset
+
+anom .X name exch def
+anom .Y name exch def
+anom .T name exch def
+
+\end{ingrid}

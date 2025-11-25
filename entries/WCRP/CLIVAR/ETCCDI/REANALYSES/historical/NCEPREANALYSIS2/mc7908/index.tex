@@ -1,0 +1,62 @@
+\begin{ingrid}
+continuedataset:
+
+/references (Sillmann_etal2013a Sillmann_etal2013b) def
+
+ dataset:
+ /name (r1i1p1) def
+
+grid:
+/name (lon) def
+/long_name (Longitude) def
+/units (degree_east) def
+periodic
+ 0.0 1.875 358.125
+:grid
+
+grid:
+/name (lat) def
+/long_name (Latitude) def
+/units (degree_north)def
+values: 88.542 86.653099 84.753197 82.8508 80.947304 79.043503 77.139397 75.2351 73.330704 71.426201 69.521698 67.617104 65.712502 63.807899 61.903301 59.9986 58.093899 56.189301 54.284599 52.379902 50.475201 48.570499 46.665798 44.761101 42.8564 40.951698 39.047001 37.1422 35.237499 33.332802 31.428101 29.523399 27.618601 25.7139 23.8092 21.9044 19.999701 18.094999 16.190201 14.2855 12.3808 10.47604 8.57131 6.6665702 4.7618399 2.8571 0.952368 -0.952368 -2.8571 -4.7618399 -6.6665702 -8.57131 -10.47604 -12.3808 -14.2855 -16.190201 -18.094999 -19.999701 -21.9044 -23.8092 -25.7139 -27.618601 -29.523399 -31.428101 -33.332802 -35.237499 -37.1422 -39.047001 -40.951698 -42.8564 -44.761101 -46.665798 -48.570499 -50.475201 -52.379902 -54.284599 -56.189301 -58.093899 -59.9986 -61.903301 -63.807899 -65.712502 -67.617104 -69.521698 -71.426201 -73.330704 -75.2351 -77.139397 -79.043503 -80.947304 -82.8508 -84.753197 -86.653099 -88.542 :values
+:grid
+
+grid:
+/name (time) def
+/units (months since 01-Jan) def
+periodic
+Jan 1.0 Dec
+:grid
+
+/r95thresh { (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/NCEPREANALYSIS2/r1i1p1/thresholds_monClim_NCEPREANALYSIS2_historical_r1i1p1_1979-2008.nc) readCDF .r95thresh } defasvarsilent
+
+/r99thresh { (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/NCEPREANALYSIS2/r1i1p1/thresholds_monClim_NCEPREANALYSIS2_historical_r1i1p1_1979-2008.nc) readCDF .r99thresh } defasvarsilent
+
+/tn10thresh {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/NCEPREANALYSIS2/r1i1p1/thresholds_monClim_NCEPREANALYSIS2_historical_r1i1p1_1979-2008.nc) readCDF
+  time name
+    (months since 01-Jan) periodic Jan 1.0 Dec NewEvenGRID
+    replaceGRID
+  .tn10thresh } defasvarsilent
+
+/tn90thresh {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/NCEPREANALYSIS2/r1i1p1/thresholds_monClim_NCEPREANALYSIS2_historical_r1i1p1_1979-2008.nc) readCDF
+  time name
+    (months since 01-Jan) periodic Jan 1.0 Dec NewEvenGRID
+    replaceGRID
+  .tn90thresh } defasvarsilent
+
+/tx10thresh {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/NCEPREANALYSIS2/r1i1p1/thresholds_monClim_NCEPREANALYSIS2_historical_r1i1p1_1979-2008.nc) readCDF
+  time name
+    (months since 01-Jan) periodic Jan 1.0 Dec NewEvenGRID
+    replaceGRID
+  .tx10thresh } defasvarsilent
+
+/tx90thresh {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/NCEPREANALYSIS2/r1i1p1/thresholds_monClim_NCEPREANALYSIS2_historical_r1i1p1_1979-2008.nc) readCDF
+  time name
+    (months since 01-Jan) periodic Jan 1.0 Dec NewEvenGRID
+    replaceGRID
+  .tx90thresh } defasvarsilent
+
+ :dataset
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,236 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+grid:
+/name (S) def
+monthtime
+/pointwidth 0 def
+/modulus 12 def
+1 Jan 1993 ensotime
+1
+1 Dec 1993 ensotime
+:grid
+/dirnameval {
+2016 S
+    12 mod
+    0 3 flagrange
+    add toi4 (%d)sprintf
+/name /dval def
+} def
+grid:
+/name (P)def
+/units (hPa)def
+values: 850 :values
+:grid
+/P850 P def
+grid:
+/name (P)def
+/units (hPa)def
+values: 925 :values
+:grid
+/P925 P def
+grid:
+/name (P)def
+/units (hPa)def
+values: 500 :values
+:grid
+/P500 P def
+:datasetdefs
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1. 359.
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 1. -90.
+:grid
+grid:
+/name (Z)def
+/units (m)def
+values: 1.5 :values
+:grid
+grid:
+/name (S) def
+monthtime
+/pointwidth 0. def
+1 Jan 1993 ensotime
+1
+1 Dec 2015 ensotime
+\end{ingrid}
+We used to pick and choose start times
+values:
+1993 1 2015
+{ 1 Jan 2 index ensotime
+1
+1 Mar 4 index ensotime {} for
+4 -1 roll
+1 Oct 2 index ensotime
+1
+1 Dec
+5 -1 roll
+ensotime {} for
+} for
+:values
+\begin{ingrid}
+:grid
+grid:
+/name (L) def
+/units (months) def
+1.5 1 5.5
+:grid
+grid:
+/name (M) def
+/units (unitless) def
+1 1 12
+:grid
+/T { S L add } defasvarsilent
+ /t1p5m{
+[ X Y | Z M L S] (/Data/data23/ukmo/GloSea5/1x1/d%s[dval]%m[S]/exeter_%Y%m[S]_%Y%m[Sp1]_%Y%m[Sp5]_run%2.2d[M].grb1)[M S dup 1 add /name/Sp1 def 1 index 5 add /name /Sp5 def dirnameval] readdatafile:
+/missing_value 9.999e20 def
+/name (T1p5M) def
+ /gribfield 1 def
+ /units (Kelvin_scale)cvn def
+ /PDS_TimeRange 3 def
+ /scale_min 218.74658 def
+ /gribparam 167 def
+ /gribcenter 74 def
+ /center (U.K. Met Office - Exeter) def
+ /gribleveltype 105 def
+ /gribNumBits 12 def
+ /calendar /standard def
+ /scale_max 307.56787 def
+ /process 1 def
+ /long_name (1.5m Air Temperature) def
+ /PTVersion 1 def
+ gribparam gribleveltype 1 GRIBvariable :readdatafile
+}defasvarsilent
+ /prcp{
+[ X Y | M L S] (/Data/data23/ukmo/GloSea5/1x1/d%s[dval]%m[S]/exeter_%Y%m[S]_%Y%m[Sp1]_%Y%m[Sp5]_run%2.2d[M].grb1)[M S dup 1 add /name/Sp1 def 1 index 5 add /name /Sp5 def dirnameval] readdatafile:
+/missing_value 9.999e20 def
+/name (prcp) def
+ /gribfield 1 def
+ /units (kg/m2/s) def
+ /PDS_TimeRange 3 def
+ /gribparam 228 def
+ /gribcenter 74 def
+ /center (U.K. Met Office - Exeter) def
+ /gribleveltype 1 def
+ /gribNumBits 12 def
+ /calendar /standard def
+ /process 1 def
+ /long_name (precipitation) def
+ /PTVersion 1 def
+ gribparam gribleveltype 1 GRIBvariable :readdatafile
+}defasvarsilent
+ /mslp{
+[ X Y | M L S] (/Data/data23/ukmo/GloSea5/1x1/d%s[dval]%m[S]/exeter_%Y%m[S]_%Y%m[Sp1]_%Y%m[Sp5]_run%2.2d[M].grb1)[M S dup 1 add /name/Sp1 def 1 index 5 add /name /Sp5 def dirnameval] readdatafile:
+/missing_value 9.999e20 def
+/name (mslp) def
+ /gribfield 1 def
+ /units (Pa) def
+ /PDS_TimeRange 3 def
+ /gribparam 151 def
+ /gribcenter 74 def
+ /center (U.K. Met Office - Exeter) def
+ /gribleveltype 102 def
+ /gribNumBits 12 def
+ /calendar /standard def
+ /process 1 def
+ /long_name (Mean Sea Level Pressure) def
+ /PTVersion 1 def
+ gribparam gribleveltype 1 GRIBvariable :readdatafile
+}defasvarsilent
+ /sst{
+[ X Y | M L S] (/Data/data23/ukmo/GloSea5/1x1/d%s[dval]%m[S]/exeter_%Y%m[S]_%Y%m[Sp1]_%Y%m[Sp5]_run%2.2d[M].grb1)[M S dup 1 add /name/Sp1 def 1 index 5 add /name /Sp5 def dirnameval] readdatafile:
+/missing_value  0.  def
+/name (sst) def
+ /gribfield 1 def
+ /units (Kelvin_scale) def
+ /PDS_TimeRange 3 def
+ /gribparam 34 def
+ /gribcenter 74 def
+ /center (U.K. Met Office - Exeter) def
+ /gribleveltype 1 def
+ /gribNumBits 12 def
+ /calendar /standard def
+ /process 1 def
+ /long_name (Sea Surface Temperature) def
+ /PTVersion 1 def
+ gribparam gribleveltype 1 GRIBvariable :readdatafile
+}defasvarsilent
+ /tmp{
+[ X Y | P850 M L S](/Data/data23/ukmo/GloSea5/1x1/d%s[dval]%m[S]/exeter_%Y%m[S]_%Y%m[Sp1]_%Y%m[Sp5]_run%2.2d[M].grb1)[M S dup 1 add /name/Sp1 def 1 index 5 add /name /Sp5 def dirnameval] readdatafile:
+/missing_value 0. def
+/name (tmp) def
+ /gribfield 1 def
+ /units (Kelvin_scale) def
+ /PDS_TimeRange 3 def
+ /gribparam 130 def
+ /gribcenter 74 def
+ /center (U.K. Met Office - Exeter) def
+ /gribleveltype 100 def
+ /gribNumBits 12 def
+ /calendar /standard def
+ /process 1 def
+ /long_name (Temperature) def
+ /PTVersion 1 def
+ gribparam gribleveltype 1 GRIBvariable :readdatafile
+}defasvarsilent
+ /gz{
+[ X Y | P500 M L S] (/Data/data23/ukmo/GloSea5/1x1/d%s[dval]%m[S]/exeter_%Y%m[S]_%Y%m[Sp1]_%Y%m[Sp5]_run%2.2d[M].grb1)[M S dup 1 add /name/Sp1 def 1 index 5 add /name /Sp5 def dirnameval] readdatafile:
+/missing_value 9.999e20 def
+/name (gz) def
+ /gribfield 1 def
+ /units (m) def
+ /PDS_TimeRange 3 def
+ /gribparam 129 def
+ /gribcenter 74 def
+ /center (U.K. Met Office - Exeter) def
+ /gribleveltype 100 def
+ /gribNumBits 12 def
+ /calendar /standard def
+ /process 1 def
+ /long_name (Geopotential Height) def
+ /PTVersion 1 def
+ gribparam gribleveltype 1 GRIBvariable :readdatafile
+}defasvarsilent
+ /u{
+[ X Y | P925 M L S] (/Data/data23/ukmo/GloSea5/1x1/d%s[dval]%m[S]/exeter_%Y%m[S]_%Y%m[Sp1]_%Y%m[Sp5]_run%2.2d[M].grb1)[M S dup 1 add /name/Sp1 def 1 index 5 add /name /Sp5 def dirnameval] readdatafile:
+/missing_value 9.999e20 def
+/name (u) def
+ /gribfield 1 def
+ /units (m/s) def
+ /PDS_TimeRange 3 def
+ /gribparam 131 def
+ /gribcenter 74 def
+ /center (U.K. Met Office - Exeter) def
+ /gribleveltype 100 def
+ /gribNumBits 12 def
+ /calendar /standard def
+ /process 1 def
+ /long_name (Zonal Velocity) def
+ /PTVersion 1 def
+ gribparam gribleveltype 1 GRIBvariable :readdatafile
+}defasvarsilent
+ /v{
+[ X Y | P925 M L S] (/Data/data23/ukmo/GloSea5/1x1/d%s[dval]%m[S]/exeter_%Y%m[S]_%Y%m[Sp1]_%Y%m[Sp5]_run%2.2d[M].grb1)[M S dup 1 add /name/Sp1 def 1 index 5 add /name /Sp5 def dirnameval] readdatafile:
+/missing_value 9.999e20 def
+/name (v) def
+ /gribfield 1 def
+ /units (m/s) def
+ /PDS_TimeRange 3 def
+ /gribparam 132 def
+ /gribcenter 74 def
+ /center (U.K. Met Office - Exeter) def
+ /gribleveltype 100 def
+ /gribNumBits 12 def
+ /calendar /standard def
+ /process 1 def
+ /long_name (Meridional Velocity) def
+ /PTVersion 1 def
+ gribparam gribleveltype 1 GRIBvariable :readdatafile
+}defasvarsilent
+:dataset
+\end{ingrid}

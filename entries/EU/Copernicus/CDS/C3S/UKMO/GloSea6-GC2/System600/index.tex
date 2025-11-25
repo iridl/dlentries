@@ -1,0 +1,52 @@
+\begin{ingrid}
+continuedataset:
+
+/note (Generated using Copernicus Climate Change Service information [2018]) def
+
+link:
+/name (source) def
+/description (Data Downloaded from the Copernicus Climate Change Service, implemented by ECMWF) def
+/href (https://cds.climate.copernicus.eu/cdsapp#!/home) def
+:link
+
+link:
+/name (license) def
+/description (Licence Agreement to Use Copernicus Products) def
+/href (https://cds.climate.copernicus.eu/api/v2/terms/static/20180314_Copernicus_License_V1.1.pdf) def
+:link
+
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.5 1.0 359.5
+periodic
+:grid 
+
+grid:
+/name (Y)def
+/units (degree_north)def
+89.5 1.0  -89.5
+:grid
+
+grid:
+/name (L)def
+/units (months) def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+0.5 1. 5.5
+:grid
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 925 850 700 500 400 300 200 100 50 30 10 :values
+/netcdfgrid true def
+:grid
+
+
+:dataset
+
+
+\end{ingrid}

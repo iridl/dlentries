@@ -1,0 +1,15 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/SIMULATIONS {dup} def
+/ECHAM4p5-MOM3 { ECHAM4p5-MOM3-DC1 } def
+/ECHAM4p5-GML  { ECHAM4p5-GML-cfsSST } def
+/ECHAM4p5-MOM3-AO1 { ECHAM4p5-MOM3-AC1 } def
+/ECHAM4p5-MOM3-realtime { ECHAM4p5-MOM3-AC1 } def
+/ECHAM-MOM3-DirectCoupled2 {ECHAM4p5-MOM3-DC2} def
+/SOMVD_AnnMeanSTDPacIV { ECHAM4p5-SOM-obsSST} def
+:datasetdefs
+{ ECHAM4p5-MOM3-DC1 ECHAM4p5-MOM3-DC2 ECHAM4p5-MOM3-AC1 ECHAM4p5-GML-cfsSST ECHAM4p5-SOM-obsSST} 
+{ currentobject 1 index get def } forall
+:dataset
+\end{ingrid}

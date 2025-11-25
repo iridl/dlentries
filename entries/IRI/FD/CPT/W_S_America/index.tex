@@ -1,0 +1,145 @@
+\begin{ingrid}
+  continuedataset:
+    grid:
+      /name (X) def
+      /units (degreeE) def
+      /fullname (Longitude) def
+      -84.75 to -49.75 N= 71 pts
+    :grid
+    grid:
+      /name (Y) def
+      /units (degreeN) def
+      /fullname (Latitude) def
+      14.75 to -50.25 N= 131 pts
+    :grid
+    grid:
+      /name (T) def
+      monthtime
+      /units (month) def
+      periodic
+      Jan to Dec N= 12 pts
+    :grid
+    grid:
+      /name (T2) def
+      monthtime
+      /pointwidth 12 def
+      1 Jul 1973 ensotime
+      12
+      1 Jul 2001 ensotime
+      /long_name (Training period) def
+    :grid
+    grid:
+      /name /S def
+      monthtime
+      /long_name (Start time) def
+      /standard_name (forecast_reference_time) def
+      /defaultvalue { last } def
+      /pointwidth 0 def
+      values:
+%        16 Mar 2009 ensotime
+%        1
+%        16 Mar 2009 ensotime
+        1 Jan 2010 ensotime
+        1
+        systemtime
+        systemtime2ymd
+        ymd:lastmonth
+        ymd:nextmonth 15 add
+        ymd2rm1960
+%        16 Jan 2009 ensotime
+        {} for
+      :values
+      /expires
+        systemtime
+        last_modified sub
+        86400 lt {
+          null
+        }{
+          last_modified
+          systemtime2ymd pop dup 12 lt {
+            1 add
+          }{
+            pop 1 add 1
+          }ifelse
+          9 ymd2systemtime
+        }ifelse
+      def
+    :grid
+%S { (/Data/data1/iri/forecast/data/echam/NEBrazil/Forecasts_%Y_Start%-m[S]_Lead1.txt) [S] } removeextrausing pstack
+%   name exch def
+    grid:
+      /name (L) def
+      /units (months) def
+      /fullname (Forecast Lead Time in Months) def
+      2.5 1 5.5
+    :grid
+    /target_date {S L add /long_name (forecast time) def /pointwidth 3 def} defasvar
+    /hindcast_date {T2 6 sub T 0.5 sub add L add /long_name (hindcast time) def /pointwidth 3 def} defasvar
+    /PearsonR {
+      [ X Y | T L ]
+      (/data/awr/CPT/WSAm/PearsonR_Start%-m[T]_Lead%d[L].txt) [T L 1.5 sub] 
+      readdatafile: 
+        [4 1] r*4astsv 
+      :readdatafile
+        /name (PearsonR) def
+        /long_name (Pearson correlation skill values) def
+        /fullname (Pearson R) def
+        /units (unitless) def
+        /missing_value -999. def
+        correlationcolorscale
+        /scale_min -1. def
+        /scale_max 1. def
+    }defasvarsilent
+    /CrossValHind {
+      [ X Y T2 | T L ]
+      (/data/awr/CPT/WSAm/CrossValPred_Start%-m[T]_Lead%d[L].txt) [T L 1.5 sub]
+      readdatafile:
+        [2 1 3] r*4astsv
+      :readdatafile
+        /name (CrossValHind) def
+        /long_name (cross-validated hindcasts) def
+        /fullname (Hindcast) def
+        /units (mm/month) def
+        /missing_value -999. def
+    }defasvarsilent
+    /Forecast {
+      [ X Y | S L ]
+      (/data/forecast/CPT/CPT/WSAm/Forecasts_%Y_Start%-m[S]_Lead%d[L].txt) [S L 1.5 sub]
+      readdatafile:
+        [5 1] r*4astsv
+      :readdatafile
+        /missing_value -999. def
+        /name (Forecast) def
+        /long_name (current forecast) def
+        /fullname (Forecast) def
+        /units (mm/month) def
+      prcp_0to500_colors
+    }defasvarsilent
+    /PredErrorVars {
+      [ X Y | S L ]
+      (/data/forecast/CPT/CPT/WSAm/PredErrorVars_%Y_Start%-m[S]_Lead%d[L].txt) [S L 1.5 sub]
+      readdatafile:
+        [5 1] r*4astsv
+      :readdatafile
+        /missing_value -999. def
+      /name (PredErrorVars) def
+      /long_name (prediction error variance) def
+      /fullname (Error) def
+      /units (mm/month) def
+      /scale_min 0. def
+    }defasvarsilent
+    /InputObs {
+      [ X Y T2 | T L]
+      (/data/awr/CPT/WSAm/YinputData_Start%-m[T]_Lead%d[L].txt) [T L 1.5 sub]
+      readdatafile:
+        [2 1 3] r*4astsv
+      :readdatafile
+        /name (InputObs) def
+        /long_name (input observations) def
+        /fullname (Obs) def
+        /units (mm/month) def
+        /missing_value -999. def
+    }defasvarsilent
+  /history (Output from CPT for 12 3-month running seasons for 1973-2001 between ECHAM4p5 GCM and CRU dataset, CPT recompiled on Mac 9.04 version) def
+  :dataset
+\end{ingrid}

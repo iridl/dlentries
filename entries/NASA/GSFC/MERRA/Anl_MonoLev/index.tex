@@ -1,0 +1,343 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+grid: 
+/name /T def
+/standard_name (time) def
+/units (days since 1979-01-01 00:30:00) def
+/pointwidth 1. 24. div def
+/defaultvalue {last} def
+values:
+1. 24. div 2 div 
+1993 1 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+% 200
+1993 1 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+
+2001 1 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+% 300
+2001 1 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+
+2010 6 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+% 301
+2010 6 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+
+2010 9 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+% 300
+2010 9 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+
+2016 01 01 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+:values
+:grid
+
+variable:
+/name /mver def
+grids: T :grids
+values: /100 /100 /200 /200 /300 /300 /301 /301 /300 /300 :values
+:variable
+:datasetdefs
+
+/description (2D Variables) def
+
+link:
+/name (link to MERRA project) def
+/description (MODERN-ERA RETROSPECTIVE ANALYSIS FOR RESEARCH AND APPLICATIONS) def
+/href (http://gmao.gsfc.nasa.gov/research/merra/) def
+:link
+
+grid: 
+/name /Y def
+/long_name (Latitude) def
+/standard_name (latitude) def
+/units /degree_north def
+-90.
+0.5
+90.
+:grid
+
+grid: 
+/name /X def
+/long_name (Longitude) def
+/standard_name (longitude) def
+/units /degree_east def
+-180.
+360. 
+540 div
+179.3333
+:grid
+
+grid: 
+/name /T def
+/standard_name (time) def
+/units (days since 1979-01-01 00:30:00) def
+/pointwidth 1. 24. div def
+/defaultvalue {last} def
+1. 24. div 2 div
+1. 24. div 
+2016 01 01 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+:grid
+
+ /cldprs{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (CLDPRS) def
+/standard_name (cloud_top_pressure) def
+/long_name (Cloud-top Pressure) def
+ /missing_value 9.99999987E14 def
+ /units (Pa) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /cldtmp{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (CLDTMP) def
+/standard_name (cloud_top_temperature) def
+/long_name (Cloud-top Temperature) def
+ /missing_value 9.99999987E14 def
+ /units (degree_kelvin) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /disph{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (DISPH) def
+/standard_name (zero_plane_displacement_height) def
+/long_name (Displacement Height) def
+ /missing_value 9.99999987E14 def
+ /units (m) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /ps{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (PS) def
+/standard_name (surface_pressure) def
+/long_name (Time averaged surface pressure) def
+ /missing_value 9.99999987E14 def
+ /units (Pa) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /qv10m{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (QV10M) def
+/standard_name (10-meter_specific_humidity) def
+/long_name (Specific humidity at 10 m above the displacement height) def
+ /missing_value 9.99999987E14 def
+ /units (unitless) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /qv2m{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (QV2M) def
+/standard_name (2-meter_specific_humidity) def
+/long_name (Specific humidity at 2 m above the displacement height) def
+ /missing_value 9.99999987E14 def
+ /units (unitless) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /slp{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (SLP) def
+/standard_name (sea_level_pressure) def
+/long_name (Sea level pressure) def
+ /missing_value 9.99999987E14 def
+ /units (Pa) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /t10m{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (T10M) def
+/standard_name (10-meter_air_temperature) def
+/long_name (Temperature at 10 m above the displacement height) def
+ /missing_value 9.99999987E14 def
+ /units (Kelvin_scale) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /t2m{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (T2M) def
+/standard_name (2-meter_air_temperature) def
+/long_name (Temperature at 2 m above the displacement height) def
+ /missing_value 9.99999987E14 def
+ /units (Kelvin_scale) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /troppb{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (TROPPB) def
+/standard_name (tropopause_pressure_based_on_blended_estimate) def
+/long_name (Blended tropopause pressure) def
+ /missing_value 9.99999987E14 def
+ /units (Pa) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /troppt{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (TROPPT) def
+/standard_name (tropopause_pressure_based_on_thermal_estimate) def
+/long_name (T based tropopause pressure) def
+ /missing_value 9.99999987E14 def
+ /units (Pa) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /troppv{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (TROPPV) def
+/standard_name (tropopause_pressure_based_on_EPV_estimate) def
+/long_name (PV based tropopause pressure) def
+ /missing_value 9.99999987E14 def
+ /units (Pa) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /tropq{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (TROPQ) def
+/standard_name (tropopause_specific_humidity_using_blended_TROPP_estimate) def
+/long_name (Tropopause specific humidity) def
+ /missing_value 9.99999987E14 def
+ /units (unitless) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /tropt{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (TROPT) def
+/standard_name (tropopause_temperature_using_blended_TROPP_estimate) def
+/long_name (Tropopause temperature) def
+ /missing_value 9.99999987E14 def
+ /units (Kelvin_scale) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /ts{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (TS) def
+/standard_name (surface_skin_temperature) def
+/long_name (Surface skin temperature) def
+ /missing_value 9.99999987E14 def
+ /units (Kelvin_scale) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /u10m{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (U10M) def
+/standard_name (10-meter_eastward_wind) def
+/long_name (Eastward wind at 10 m above displacement height) def
+ /missing_value 9.99999987E14 def
+ /units (m/s) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /u2m{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (U2M) def
+/standard_name (2-meter_eastward_wind) def
+/long_name (Eastward wind at 2 m above displacement height) def
+ /missing_value 9.99999987E14 def
+ /units (m/s) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /u50m{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (U50M) def
+/standard_name (eastward_wind_at_50_meters) def
+/long_name (Eastward wind at 50 m above surface) def
+ /missing_value 9.99999987E14 def
+ /units (m/s) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /v10m{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (V10M) def
+/standard_name (10-meter_northward_wind) def
+/long_name (Northward wind at 10 m above displacement height) def
+ /missing_value 9.99999987E14 def
+ /units (m/s) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /v250{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (V250) def
+/standard_name (northward_wind_at_250_hPa) def
+/long_name (Northward wind at 250 hPa) def
+ /missing_value 9.99999987E14 def
+ /units (m/s) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /v2m{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (V2M) def
+/standard_name (2-meter_northward_wind) def
+/long_name (Northward wind at 2 m above displacement height) def
+ /missing_value 9.99999987E14 def
+ /units (m/s) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /v50m{
+[ X Y | T] 
+(/Data/data20/jallen/MERRA/%Y[T]/Surf_Anal/%m[T]/MERRA%s[mver].prod.assim.tavg1_2d_slv_Nx.%Y%m%d[T].hdf) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (V50M) def
+/standard_name (northward_wind_at_50_meters) def
+/long_name (Northward wind at 50 m above surface) def
+ /missing_value 9.99999987E14 def
+ /units (m/s) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+:dataset
+\end{ingrid}

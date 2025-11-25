@@ -1,0 +1,15 @@
+\begin{ingrid}
+continuedataset:
+
+/description (CPC GOB monthly precipitation regridded to 1.0 deg. lat/lon resolution to match NMME) def
+
+/precipitation { 
+SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .monthly .prcp
+  X 1.0 1.0 360.0 0.25 evengridAverage
+  Y -89.0 1.0 89.0 0.25 evengridAverage
+  X 0.0 359.0 RANGE
+ /long_name (precipitation) def
+} defasvarcachesilent
+
+:dataset
+\end{ingrid}

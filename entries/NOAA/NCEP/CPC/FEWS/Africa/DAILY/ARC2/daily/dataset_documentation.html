@@ -1,0 +1,95 @@
+<INGRID>datasetdocumentationheader</INGRID>
+<h3>Description of CPC/Famine Early Warning System Daily Estimates
+ </h3>
+<p>
+<i>Original documentation can be found in the ARC2_readme.txt file at <a href="ftp://ftp.cpc.ncep.noaa.gov/fews/AFR_CLIM/ARC2/ARC2_readme.txt">ftp.cpc.ncep.noaa.gov/fews/AFR_CLIM/ARC2/</a>. </i>
+<p>
+<i>For more documentation, see: <a href="http://www.cpc.ncep.noaa.gov/products/fews/AFR_CLIM/AMS_ARC2a.pdf
+">Africa Rainfall Climatology Version 2 PDF Document</a> and the
+following web page:  <a
+href="http://www.cpc.ncep.noaa.gov/products/fews/AFR_CLIM/afr_clim.shtml
+">http://www.cpc.ncep.noaa.gov/products/fews/AFR_CLIM/afr_clim.shtml
+</a></i>
+<p>
+<i>The following information is excerpted from the "readme" file referred to above:</i>
+<p>
+<pre>
+
+
+#
+# This is the readme file for the Africa Rainfall Climatology (ARC) available
+#  on the Climate Prediction Center's ftp server.
+#
+# Modified:  March, 2012
+#
+
+
+OVERVIEW:
+
+This data is a result of a project to create a satellite-estimated precipitation
+climatology over the Africa domain.  This climatology has been created to 
+compliment the daily operational rainfall estimate product (RFE) in order to generate
+anomaly fields over Africa over various timescales.  
+
+In contrast to the operational daily rainfall estimate (RFE), where inputs include
+SSMI, AMSUB, half-hourly GPI, and GTS data, the climatology method (ARC)
+uses only 3-hourly GPI and GTS data, exclusively.  This is due to the absence of
+microwave-derved estimates over a long-term historical record, and the large amount of data 
+which makes up the operational half-hourly GPI input.  As such, the ARC algorithm itself 
+has been slightly modified in order to maintain a homogeneous and stable climate data record. 
+
+GTS rain gauge data used in both static and daily-updating climatology products
+is of the same source, though inputs used to create GPI estimates differ slightly
+in source.  For creation of the climatological GPI, 3-hourly Meteosat data was
+obtained directly from Eumetsat's archived data group, while daily-updating products
+use 3-hourly data pulled from NOAA's Meteosat data feed.
+
+Data resolution and specifications of the ARC dataset are identical to that of the RFE.
+Files consist of binary-formated grids at a 0.1 degree resolution 
+and one day's temporal domain is from 0600 GMT through 0600 GMT.  
+Spatial extent of all estimates spans 20.0W-55.0E and 40.0S-40.0N.
+
+As of March, 2012. The ARC dataset has been extended back to 1983 and is labeled as ARC2. 
+The former ARC dataset (ARC1) from 1995-present is listed under:
+
+ftp://ftp.cpc.ncep.noaa.gov/fews/AFR_CLIM/DATA/
+
+This data will eventually be removed. Please see following .pdf and weblink for ARC documentation:
+
+http://www.cpc.ncep.noaa.gov/products/fews/AFR_CLIM/AMS_ARC2a.pdf
+http://www.cpc.ncep.noaa.gov/products/fews/AFR_CLIM/afr_clim.shtml
+
+
+DATA DETAILS:
+
+For -  ftp://ftp.cpc.ncep.noaa.gov/fews/AFR_CLIM/ARC2/ 
+NAMING CONVENTION:  "daily_clim.bin.YYYYMMDD.gz"
+  (where: YYYY is 4-digit year, MM is 2-digit month, DD is 2-digit day)
+                           
+
+For -  ftp://ftp.cpc.ncep.noaa.gov/fews/AFR_CLIM/CLIMATOLOGY_DATA 
+NAMING CONVENTION:  /DAILY_MEANS/clim.daily.bin.MMDD.gz
+                    /MEAN_DEKADAL_TOTALS/clim.dek.bin.MMK
+		            /MEAN_MONTHLY_TOTALS/clim.mon.bin.MM
+  (where: YYYY is 4-digit year, MM is 2-digit month, DD is 2-digit day, K is dekad)
+					
+					
+FILE FORMAT FOR DATA ACCESS:
+
+Data files are written in binary data format and consist of one record (one array)
+of floating point rainfall estimates in mm (after unzipping).  Each array equals 
+751*801 elements, pertaining to 751 pixels in the x direction, and 801 pixels in 
+the y direction.  After reshaping to a 0.1 degree grid, this will yield a spatial 
+domain spanning -40S to 40N in latitude, and -20W to 55E in longitude encompassing the 
+Africa continent.  Missing data is denoted as -999.0.
+
+Sample fortran programs are also provided in the respective ARC directories to convert
+binary data to ascii (.txt) format.  The format of the ascii output will list each gridded 
+rainfall estimate. 
+
+This document will be updated as the need arises.  For questions or comments, or to 
+report errors and/or inconsistencies with this data, please contact:
+
+Nicholas.Novella@noaa.gov or 301-763-8000 ext 7513.
+</pre>
+<INGRID>datasetdocumentationtrailer</INGRID>

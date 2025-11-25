@@ -1,0 +1,115 @@
+\begin{ingrid}
+
+/description (Demographics in the Philippines) def
+
+continuedataset:
+
+dataset:
+/name /pop_settlem def
+/description (Population Settlements) def
+
+/admin1 {
+IRIDB (phl_pop_settlem_gnm) (admin1) [(objectid)] open_column_by
+/long_name (Region ID) def
+}defasvarsilentnoreuse
+
+/admin2 {
+IRIDB (phl_pop_settlem_gnm) (admin2) [(objectid)] open_column_by
+/long_name (Province ID) def
+}defasvarsilentnoreuse
+
+/admin3 {
+IRIDB (phl_pop_settlem_gnm) (admin3) [(objectid)] open_column_by
+/long_name (Administation Level 3 ID) def
+}defasvarsilentnoreuse
+
+/admin4 {
+IRIDB (phl_pop_settlem_gnm) (admin4) [(objectid)] open_column_by
+/long_name (Administration Level 4 ID) def
+}defasvarsilentnoreuse
+
+/alternaten {
+IRIDB (phl_pop_settlem_gnm) (alternaten) [(objectid)] open_column_by
+/long_name (Alternate Name) def
+}defasvarsilentnoreuse
+
+/continent {
+IRIDB (phl_pop_settlem_gnm) (continent) [(objectid)] open_column_by
+/long_name (Continent) def
+}defasvarsilentnoreuse
+
+/country {
+IRIDB (phl_pop_settlem_gnm) (country) [(objectid)] open_column_by
+/long_name (Country) def
+}defasvarsilentnoreuse
+
+/fcode {
+IRIDB (phl_pop_settlem_gnm) (fcode) [(objectid)] open_column_by
+/long_name (F code) def
+}defasvarsilentnoreuse
+
+/iso2 {
+IRIDB (phl_pop_settlem_gnm) (iso2) [(objectid)] open_column_by
+/long_name (Country Name ISO2) def
+}defasvarsilentnoreuse
+
+/iso3 {
+IRIDB (phl_pop_settlem_gnm) (iso3) [(objectid)] open_column_by
+/long_name (Country Name ISO3) def
+}defasvarsilentnoreuse
+
+/lat {
+IRIDB (phl_pop_settlem_gnm) (latitude) [(objectid)] open_column_by
+/long_name (Latitude) def
+/units /degree_north def
+/scale_min 4. def
+/scale_max 22. def
+}defasvarsilentnoreuse
+
+/lon {
+IRIDB (phl_pop_settlem_gnm) (longitude) [(objectid)] open_column_by
+/long_name (Longitude) def
+/units /degree_east def
+/scale_min 110. def
+/scale_max 132. def
+}defasvarsilentnoreuse
+
+/Name {
+IRIDB (phl_pop_settlem_gnm) (asciiname) [(objectid)] open_column_by
+/long_name (Settlement Name) def
+}defasvarsilentnoreuse
+
+/geonameid {
+IRIDB (phl_pop_settlem_gnm) (geonameid) [(objectid)] open_column_by
+/long_name (Geo Name ID) def
+}defasvarsilentnoreuse
+
+/population {
+IRIDB (phl_pop_settlem_gnm) (population) [(objectid)] open_column_by
+/long_name (Population) def
+}defasvarsilentnoreuse
+
+/Region {
+IRIDB (phl_pop_settlem_gnm) (region) [(objectid)] open_column_by
+/long_name (Region) def
+}defasvarsilentnoreuse
+
+/location {
+IRIDB (phl_pop_settlem_gnm) (geom) [(objectid)] open_column_by
+/long_name (Location) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (phl_pop_settlem_gnm) ((asciiname || ', Province ' || admin2 || ', Region ' || admin1 || ', ' || iso2) as label) [(objectid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+%Region .objectid name exch def
+
+:dataset
+
+pop_settlem Region .objectid name exch put
+
+\end{ingrid}

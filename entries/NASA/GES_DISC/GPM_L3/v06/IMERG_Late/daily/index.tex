@@ -1,0 +1,112 @@
+\begin{ingrid}
+continuedataset:
+
+/title (GPM Level 3 IMERG Late version 6) def
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+ -89.95 0.1 89.95
+:grid
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+periodic
+ -179.95 0.1 179.95
+:grid
+
+grid:
+/name /T def
+/long_name (Time) def
+1 Jun 2000 julian_day
+1.0
+1 Jun 2024 julian_day
+/units /julian_day def
+/defaultvalue { last } def
+/netcdfgrid true def
+:grid
+
+/HQprecipitation{
+[ Y X | T ] (/Data/data23/NASA/GES_DISC/GPM_L3/GPM_3IMERGDL.06/%Y[T]/%m[T]/3B-DAY-L.MS.MRG.3IMERG.%Y%m%d[T]-S000000-E235959.V06.nc4) [ T ] readdatafile:
+/name (HQprecipitation) def
+ /missing_value -9999.9 def
+ /units /mm def
+ /realarraytype netcdfrecords :readdatafile
+/long_name (Daily accumulated High Quality precipitation from all available MW sources) def
+prcp_0to1000_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+
+/HQprecipitation_cnt{
+[ Y X | T ] (/Data/data23/NASA/GES_DISC/GPM_L3/GPM_3IMERGDL.06/%Y[T]/%m[T]/3B-DAY-L.MS.MRG.3IMERG.%Y%m%d[T]-S000000-E235959.V06.nc4) [ T ] readdatafile:
+/name (HQprecipitation_cnt) def
+ /stringtype netcdfrecords :readdatafile
+/long_name (Count of all valid half-hourly HQprecipitation retrievals for the day) def
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+/HQprecipitation_cnt_cond{
+[ Y X | T ] (/Data/data23/NASA/GES_DISC/GPM_L3/GPM_3IMERGDL.06/%Y[T]/%m[T]/3B-DAY-L.MS.MRG.3IMERG.%Y%m%d[T]-S000000-E235959.V06.nc4) [ T ] readdatafile:
+/name (HQprecipitation_cnt_cond) def
+ /stringtype netcdfrecords :readdatafile
+/long_name (Count of valid half-hourly HQprecipitation retrievals for the day where precipitation is greater than 0) def
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+
+/precipitationCal{
+[ Y X | T ] (/Data/data23/NASA/GES_DISC/GPM_L3/GPM_3IMERGDL.06/%Y[T]/%m[T]/3B-DAY-L.MS.MRG.3IMERG.%Y%m%d[T]-S000000-E235959.V06.nc4) [ T ] readdatafile:
+/name (precipitationCal) def
+ /missing_value -9999.9 def
+ /units /mm def
+ /realarraytype netcdfrecords :readdatafile
+/long_name (Daily accumulated precipitation (combined microwave-IR) estimate) def
+prcp_0to1000_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+
+/precipitationCal_cnt{
+[ Y X | T ] (/Data/data23/NASA/GES_DISC/GPM_L3/GPM_3IMERGDL.06/%Y[T]/%m[T]/3B-DAY-L.MS.MRG.3IMERG.%Y%m%d[T]-S000000-E235959.V06.nc4) [ T ] readdatafile:
+/name (precipitationCal_cnt) def
+ /stringtype netcdfrecords :readdatafile
+/long_name (Count of all valid half-hourly precipitationCal retrievals for the day) def
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+/precipitationCal_cnt_cond{
+[ Y X | T ] (/Data/data23/NASA/GES_DISC/GPM_L3/GPM_3IMERGDL.06/%Y[T]/%m[T]/3B-DAY-L.MS.MRG.3IMERG.%Y%m%d[T]-S000000-E235959.V06.nc4) [ T ] readdatafile:
+/name (precipitationCal_cnt_cond) def
+ /stringtype netcdfrecords :readdatafile
+/long_name (Count of valid half-hourly precipitationCal retrievals for the day where precipitation is greater than 0) def
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+
+ /randomError{
+[ Y X | T ] (/Data/data23/NASA/GES_DISC/GPM_L3/GPM_3IMERGDL.06/%Y[T]/%m[T]/3B-DAY-L.MS.MRG.3IMERG.%Y%m%d[T]-S000000-E235959.V06.nc4) [ T ] readdatafile:
+/name (randomError) def
+ /missing_value -9999.9 def
+ /units /mm def
+ /realarraytype netcdfrecords :readdatafile
+/long_name (Daily total error of precipitation estimate) def
+prcp_0to1000_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+
+ /randomError_cnt{
+[ Y X | T ] (/Data/data23/NASA/GES_DISC/GPM_L3/GPM_3IMERGDL.06/%Y[T]/%m[T]/3B-DAY-L.MS.MRG.3IMERG.%Y%m%d[T]-S000000-E235959.V06.nc4) [ T ] readdatafile:
+/name (randomError_cnt) def
+ /stringtype netcdfrecords :readdatafile
+/long_name (Count of valid half-hourly randomError retrievals for the day) def
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+
+:dataset
+\end{ingrid}

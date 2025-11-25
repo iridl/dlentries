@@ -1,0 +1,62 @@
+\begin{ingrid}
+
+%For detailed commentaries see the temperature index.tex file. Here I will document only the specificities of that dataset
+
+%/CarterCenter dataareRestricted
+
+continuedataset:
+
+/T
+1 Jan 1961 julian_day
+31 Dec 2018 julian_day
+dekadGRID
+/defaultvalue { last } def
+def
+
+grid:
+/name /Y def
+/units /degree_north def
+ 3. 0.0375 15.
+ /long_name (Latitude) def
+:grid
+
+grid:
+/name /X def
+/units /degree_east def
+ 33. 0.0375 48.
+ /long_name (Longitude) def
+:grid
+
+ /tmax {
+[ X Y | T] (/Data/data23/NMA_Ethiopia_v7/ALL_NEW/Temperature/dekadal/tmax/tmax_mrg_%Y%m[T]%-d[dekad]_ALL.nc)
+[T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+readdatafile:
+/name (temp) def
+/realarraytype netcdfrecords
+:readdatafile
+/long_name (Merged Station-Downscaled Reanalysis Maximum Temperature) def
+/units /Celsius_scale def
+/missing_value -99. def
+temp_colors
+/scale_symmetric false def
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+/tmin {
+[ X Y | T] (/Data/data23/NMA_Ethiopia_v7/ALL_NEW/Temperature/dekadal/tmin/tmin_mrg_%Y%m[T]%-d[dekad]_ALL.nc)
+[T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+readdatafile:
+/name (temp) def
+/realarraytype netcdfrecords
+:readdatafile
+/long_name (Merged Station-Downscaled Reanalysis Minimum Temperature) def
+/units /Celsius_scale def
+/missing_value -99. def
+temp_colors
+/scale_symmetric false def
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

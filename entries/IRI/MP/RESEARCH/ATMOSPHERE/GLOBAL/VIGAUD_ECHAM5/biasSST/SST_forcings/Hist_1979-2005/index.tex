@@ -1,0 +1,60 @@
+\begin{ingrid}
+continuedataset:
+
+dataset:
+/name /ERSST def
+/SST_cpl{ (/Data/data24/ECHAM5_3.23.D/EXP.D/biasSST_hist.D/ERSSTv3b/sst_ERSST_0.9x1.25_1870_2014_140701_cpl_T42.nc) readCDF 
+lon
+(degree_east) setunits
+pop
+lat
+(degree_north) setunits
+pop
+.SST_cpl
+}defasvarsilent
+:dataset
+
+dataset:
+/name /CMIP5_Bias_1979-2005 def
+/MMM_Adj_SST_Bias{ (/Data/data24/ECHAM5_3.23.D/EXP.D/biasSST_hist.D/ERSSTv3b/MMM_SST_Bias_T42.nc) readCDF
+lon
+(degree_east) setunits
+pop
+lat
+(degree_north) setunits
+pop
+.MMM_Adj_SST_Bias
+}defasvarsilent
+:dataset
+
+dataset:
+/name /SST_hist def
+/SST_cpl{ (/Data/data24/ECHAM5_3.23.D/EXP.D/biasSST_hist.D/ERSSTv3b/biasSST_1979-2005_T42.nc) readCDF
+lon
+(degree_east) setunits
+pop
+lat
+(degree_north) setunits
+pop
+.SST_cpl
+}defasvarsilent
+:dataset
+
+%dataset:
+%/name /SST_hist_45S45N def
+%/SST_cpl45S45N{ (/Data/data24/ECHAM5_3.23.D/EXP.D/biasSST_hist.D/ERSSTv3b/biasSST_1979-2005_T42_45N45S.nc) readCDF
+%lon
+%(degree_east) setunits
+%pop
+%lat
+%(degree_north) setunits
+%pop
+%.SST_cpl45S45N
+%}defasvarsilent
+%:dataset
+
+:dataset
+
+
+\end{ingrid}
+

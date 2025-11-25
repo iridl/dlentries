@@ -1,0 +1,85 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9575
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 586
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAnov2008.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Chocs) def
+/Q901 {
+mytable
+myquestion 
+97 VALUE
+ myquestion removeGRID
+/long_name (Q901 1ère Difficulté) def 
+/units /ids def
+/CLIST [(PERTE D'EMPLOI)(BAISSE DE REVENU)(MALADIE DEPENSES DE SANTE EXCEPTIONNELLE)(DECES D'UN MEMBRE DE FAMILLE)(AUGMENTATION DES PRIX DE DENREES ALIMENTAIRES)(AUGMENTATION DES PRIX DU CARBURANT/ TRANSPORT)(AUGMENTATION DES PRIX DU LOYER)(AUGMENTATION DES PRIX DES INTRANTS AGRICOLES)(COUPURE D'ELECTRICITE)(INSECURITE / VOLS)(REMBOURSEMENT DE DETTES)(CHOMAGE DE LONGUE DUREE)(CATASTROPHE NATURELLES)(IRREGULARITE DES PLUIES)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 15 def
+}defasvarsilent
+
+/Q902 {
+mytable
+myquestion 
+98 VALUE
+ myquestion removeGRID
+/long_name (Q902 2ème Difficuté) def 
+/units /ids def
+/CLIST [(PERTE D'EMPLOI)(BAISSE DE REVENU)(MALADIE DEPENSES DE SANTE EXCEPTIONNELLE)(DECES D'UN MEMBRE DE FAMILLE)(AUGMENTATION DES PRIX DE DENREES ALIMENTAIRES)(AUGMENTATION DES PRIX DU CARBURANT/ TRANSPORT)(AUGMENTATION DES PRIX DU LOYER)(AUGMENTATION DES PRIX DES INTRANTS AGRICOLES)(COUPURE D'ELECTRICITE)(INSECURITE / VOLS)(REMBOURSEMENT DE DETTES)(CHOMAGE DE LONGUE DUREE)(CATASTROPHE NATURELLES)(IRREGULARITE DES PLUIES)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 15 def
+}defasvarsilent
+
+/Q903 {
+mytable
+myquestion 
+99 VALUE
+ myquestion removeGRID
+/long_name (Q903 3ème Difficulté) def 
+/units /ids def
+/CLIST [(PERTE D'EMPLOI)(BAISSE DE REVENU)(MALADIE DEPENSES DE SANTE EXCEPTIONNELLE)(DECES D'UN MEMBRE DE FAMILLE)(AUGMENTATION DES PRIX DE DENREES ALIMENTAIRES)(AUGMENTATION DES PRIX DU CARBURANT/ TRANSPORT)(AUGMENTATION DES PRIX DU LOYER)(AUGMENTATION DES PRIX DES INTRANTS AGRICOLES)(COUPURE D'ELECTRICITE)(INSECURITE / VOLS)(REMBOURSEMENT DE DETTES)(CHOMAGE DE LONGUE DUREE)(CATASTROPHE NATURELLES)(IRREGULARITE DES PLUIES)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 15 def
+}defasvarsilent
+
+/Q904 {
+mytable
+myquestion 
+100 VALUE
+ myquestion removeGRID
+/long_name (Q904 JUGEMENT DE L'IMPACT SUR LA SITUATION ALIMENTAIRE) def 
+}defasvarsilent
+
+/Q905 {
+mytable
+myquestion 
+101 VALUE
+ myquestion removeGRID
+/long_name (Q905 JUGEMENT DE L'IMPACT SUR LA SITUATION NUTRITIONNELLE DE) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

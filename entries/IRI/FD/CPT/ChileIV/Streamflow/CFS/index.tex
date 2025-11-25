@@ -1,0 +1,153 @@
+\begin{ingrid}
+
+/ID SOURCES .Chile .DGA .hydrological .regionIV .station .monthly .ID def
+
+continuedataset:
+
+   grid:
+      /name (T2) def
+      monthtime
+      /pointwidth 12 def
+      1 Jul 1981 ensotime
+      12
+      1 Jul 2005 ensotime
+      /long_name (Training period) def
+    :grid
+    grid:
+      /name /S def
+      monthtime
+      /long_name (Start time) def
+      /standard_name (forecast_reference_time) def
+      /defaultvalue { last } def
+      /pointwidth 0 def
+      values:
+        1 Apr 2010 ensotime
+        12
+        systemtime systemtime2ymd pop
+        pop
+        4 1 ymd2rm1960
+        {} for
+      :values
+   :grid
+S { (/beluga/data/verbist/chile/coquimbo/streamflowCFS/Forecasts_%Y[S]_Start4_Lead1.txt) [S] } removeextrausing
+      /expires
+        systemtime dup dup systemtime2ymd pop pop 4. 2. ymd2systemtime lt {
+          systemtime2ymd pop pop 1. sub 4. 2. ymd2systemtime
+        }{
+          systemtime2ymd pop pop 4. 2. ymd2systemtime
+        }ifelse
+        dup last_modified lt {
+          systemtime2ymd pop pop 1. add 4. 2. ymd2systemtime
+        }if
+      def
+   name exch def
+  /expires S .expires def
+  /last_modified S .last_modified def
+    grid:
+      /name (L) def
+      /units (months) def
+      /fullname (Forecast Lead Time in Months) def
+      8.
+    :grid
+    grid:
+      /name (NVZ) def
+      1 1 3
+    :grid
+    /target_date {S L add /long_name (forecast time) def /pointwidth 4 def} defasvar
+    /hindcast_date {T2 6 sub 3 add L add /long_name (hindcast time) def /pointwidth 4 def} defasvar
+    /PearsonR {
+      [ NVZ ID L | ]
+      (/beluga/data/verbist/chile/coquimbo/streamflowCFS/PearsonR_Start4_Lead1.txt) 
+      readdatafile: 
+        [4 1] r*4astsv
+      :readdatafile
+        /name (PearsonR) def
+        /long_name (Pearson correlation skill values) def
+        /fullname (Pearson R) def
+        /units (unitless) def
+        /missing_value -999. def
+        correlationcolorscale
+        /scale_min -1. def
+        /scale_max 1. def
+        NVZ 3 VALUE /NVZ removeGRID
+    }defasvarsilent
+   /lon {
+      [ NVZ ID | ]
+      (/beluga/data/verbist/chile/coquimbo/streamflowCFS/PearsonR_Start4_Lead1.txt)
+      readdatafile:
+        [4 1] r*4astsv
+      :readdatafile
+        /name (lon) def
+        /long_name (longitude) def
+        /units (degree_east) def
+        /scale_min -71.5 def
+        /scale_max -69.8 def
+        NVZ 2 VALUE /NVZ removeGRID
+    }defasvarsilent
+    /lat {
+      [ NVZ ID | ]
+      (/beluga/data/verbist/chile/coquimbo/streamflowCFS/PearsonR_Start4_Lead1.txt)
+      readdatafile:
+        [4 1] r*4astsv
+      :readdatafile
+        /name (lat) def
+        /long_name (latitude) def
+        /units (degree_north) def
+        /scale_min -32. def
+        /scale_max -29.3 def
+        NVZ 1 VALUE /NVZ removeGRID
+    }defasvarsilent
+    /CrossValHind {
+      [ ID T2 L | ]
+      (/beluga/data/verbist/chile/coquimbo/streamflowCFS/CrossValPred_Start4_Lead1.txt) 
+      readdatafile:
+        [6 1] r*4astsv
+      :readdatafile
+        /name (CrossValHind) def
+        /long_name (cross-validated hindcasts) def
+        /fullname (Hindcast) def
+        /units (m3/s) def
+        /missing_value -999. def
+    }defasvarsilent
+    /Forecast {
+      [ ID L | S ]
+      (/beluga/data/verbist/chile/coquimbo/streamflowCFS/Forecasts_%Y[S]_Start4_Lead1.txt) [S]
+      readdatafile:
+        [6 1] r*4astsv
+      :readdatafile
+        /missing_value -999. def
+        /name (Forecast) def
+        /long_name (current forecast) def
+        /fullname (Forecast) def
+        /units (m3/s) def
+        LST_colors
+        DATA 0 AUTO RANGE
+    }defasvarsilent
+    /PredErrorVars {
+      [ ID | L S ]
+      (/beluga/data/verbist/chile/coquimbo/streamflowCFS/PredErrorVars_%Y[S]_Start4_Lead1.txt) [S]
+      readdatafile:
+        [6 1] r*4astsv
+      :readdatafile
+        /missing_value -999. def
+      /name (PredErrorVars) def
+      /long_name (prediction error variance) def
+      /fullname (Error) def
+      /units (m3/s) def
+      /scale_min 0. def
+    }defasvarsilent
+    /InputObs {
+      [ ID T2 L | ]
+      (/beluga/data/verbist/chile/coquimbo/streamflowCFS/YinputData_Start4_Lead1.txt) 
+      readdatafile:
+        [6 1] r*4astsv
+      :readdatafile
+        /name (InputObs) def
+        /long_name (input observations) def
+        /fullname (Obs) def
+        /units (m3/s) def
+        /missing_value -999. def
+    }defasvarsilent
+  /history (Output from CPT http://iri.columbia.edu/CPT/v10/) def
+  :dataset
+\end{ingrid}

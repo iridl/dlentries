@@ -1,0 +1,46 @@
+\begin{ingrid}
+
+continuedataset:
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+1 Jan 1981 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+31 Dec 2016 julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+:grid
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+ -81.45 0.1 -67.05
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+1.35 0.1 -18.75
+:grid
+
+/tmax {
+[X Y | T ]
+(/Data/data23/SENAMHI/Temp/tmax/daily/PISCOdtx_v1.1.nc)
+readdatafile:
+/name (tx) def
+/realarraytype netcdfrecords
+:readdatafile
+/long_name (Maximum Temperature) def
+/units /Celsius_scale def
+/missing_value -3.4e+38 def
+temp_colors
+/scale_symmetric false def
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

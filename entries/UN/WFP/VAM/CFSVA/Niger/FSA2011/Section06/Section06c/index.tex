@@ -1,0 +1,412 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9354
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 475
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAJanv2011.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/Q65A {
+mytable
+myquestion 
+237 VALUE
+ myquestion removeGRID
+/long_name (Q65 : Bois de chauffe : aviez-vous effectué la dépense...) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q65B {
+mytable
+myquestion 
+238 VALUE
+ myquestion removeGRID
+/long_name (Q65 : Bois de chauffe : Montant en F CFA) def 
+}defasvarsilent
+
+/Q66A {
+mytable
+myquestion 
+239 VALUE
+ myquestion removeGRID
+/long_name (Q66 : Pétrole, gaz, charbon, piles : aviez-vous effectué la) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q66B {
+mytable
+myquestion 
+240 VALUE
+ myquestion removeGRID
+/long_name (Q66 : Pétrole, gaz, charbon, piles : Montant en F CFA) def 
+}defasvarsilent
+
+/Q67A {
+mytable
+myquestion 
+241 VALUE
+ myquestion removeGRID
+/long_name (Q67 : Savon en marceau en liquide ou en poudre : aviez-vous) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q67B {
+mytable
+myquestion 
+242 VALUE
+ myquestion removeGRID
+/long_name (Q67 : Savon en marceau en liquide ou en poudre : Montant en) def 
+}defasvarsilent
+
+/Q68A {
+mytable
+myquestion 
+243 VALUE
+ myquestion removeGRID
+/long_name (Q68 : Carburant/lubrifiants : aviez-vous effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q68B {
+mytable
+myquestion 
+244 VALUE
+ myquestion removeGRID
+/long_name (Q68 : Carburant/lubrifiants : Montant en F CFA) def 
+}defasvarsilent
+
+/Q69A {
+mytable
+myquestion 
+245 VALUE
+ myquestion removeGRID
+/long_name (Q69 : Soins d'entretien corporel (.;) : aviez-vous effectué) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q69B {
+mytable
+myquestion 
+246 VALUE
+ myquestion removeGRID
+/long_name (Q69 : Soins d'entretien corporel (.;) : Montant en F CFA) def 
+}defasvarsilent
+
+/Q70A {
+mytable
+myquestion 
+247 VALUE
+ myquestion removeGRID
+/long_name (Q70 : Dépenses de santé : aviez-vous effectué la dépense...) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q70B {
+mytable
+myquestion 
+248 VALUE
+ myquestion removeGRID
+/long_name (Q70 : Dépenses de santé : Montant en F CFA) def 
+}defasvarsilent
+
+/Q71A {
+mytable
+myquestion 
+249 VALUE
+ myquestion removeGRID
+/long_name (Q71 : Logement/eau/électricité : aviez-vous effectué la dépe) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q71B {
+mytable
+myquestion 
+250 VALUE
+ myquestion removeGRID
+/long_name (Q71 : Logement/eau/électricité : Montant en F CFA) def 
+}defasvarsilent
+
+/Q72A {
+mytable
+myquestion 
+251 VALUE
+ myquestion removeGRID
+/long_name (Q72 : Dépenses d'éducation : aviez-vous effectué la dépense.) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q72B {
+mytable
+myquestion 
+252 VALUE
+ myquestion removeGRID
+/long_name (Q72 : Dépenses d'éducation : Montant en F CFA) def 
+}defasvarsilent
+
+/Q73A {
+mytable
+myquestion 
+253 VALUE
+ myquestion removeGRID
+/long_name (Q73 : Equipements agricoles/outils/semence : aviez-vous effe) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q73B {
+mytable
+myquestion 
+254 VALUE
+ myquestion removeGRID
+/long_name (Q73 : Equipements agricoles/outils/semence : Montant en F CF) def 
+}defasvarsilent
+
+/Q74A {
+mytable
+myquestion 
+255 VALUE
+ myquestion removeGRID
+/long_name (Q74 : Achat d'animaux : aviez-vous effectué la dépense...) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q74B {
+mytable
+myquestion 
+256 VALUE
+ myquestion removeGRID
+/long_name (Q74 : Achat d'animaux : Montant en F CFA) def 
+}defasvarsilent
+
+/Q75A {
+mytable
+myquestion 
+257 VALUE
+ myquestion removeGRID
+/long_name (Q75 : Dépenses en produits zoo vétériniaire : aviez-vous eff) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q75B {
+mytable
+myquestion 
+258 VALUE
+ myquestion removeGRID
+/long_name (Q75 : Dépenses en produits zoo vétériniaire : Montant en F C) def 
+}defasvarsilent
+
+/Q76A {
+mytable
+myquestion 
+259 VALUE
+ myquestion removeGRID
+/long_name (Q76 : Equipement domestique : aviez-vous effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q76B {
+mytable
+myquestion 
+260 VALUE
+ myquestion removeGRID
+/long_name (Q76 : Equipement domestique : Montant en F CFA) def 
+}defasvarsilent
+
+/Q77A {
+mytable
+myquestion 
+261 VALUE
+ myquestion removeGRID
+/long_name (Q77 : Habillement/chaussures : aviez-vous effectué la dépens) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q77B {
+mytable
+myquestion 
+262 VALUE
+ myquestion removeGRID
+/long_name (Q77 : Habillement/chaussures : Montant en F CFA) def 
+}defasvarsilent
+
+/Q78A {
+mytable
+myquestion 
+263 VALUE
+ myquestion removeGRID
+/long_name (Q78 : Cérémonies/Funérailles/Festivités : aviez-vous effectu) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q78B {
+mytable
+myquestion 
+264 VALUE
+ myquestion removeGRID
+/long_name (Q78 : Cérémonies/Funérailles/Festivités : Montant en F CFA) def 
+}defasvarsilent
+
+/Q79A {
+mytable
+myquestion 
+265 VALUE
+ myquestion removeGRID
+/long_name (Q79 : Construction, réparation, habitation : aviez-vous effe) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q79B {
+mytable
+myquestion 
+266 VALUE
+ myquestion removeGRID
+/long_name (Q79 : Construction, réparation, habitation : Montant en F CF) def 
+}defasvarsilent
+
+/Q80A {
+mytable
+myquestion 
+267 VALUE
+ myquestion removeGRID
+/long_name (Q80 : Frais de transport : aviez-vous effectué la dépense...) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q80B {
+mytable
+myquestion 
+268 VALUE
+ myquestion removeGRID
+/long_name (Q80 : Frais de transport : Montant en F CFA) def 
+}defasvarsilent
+
+/Q81A {
+mytable
+myquestion 
+269 VALUE
+ myquestion removeGRID
+/long_name (Q81 : Remboursement d'emprunts ou dettes : aviez-vous effect) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q81B {
+mytable
+myquestion 
+270 VALUE
+ myquestion removeGRID
+/long_name (Q81 : Remboursement d'emprunts ou dettes : Montant en F CFA) def 
+}defasvarsilent
+
+/Q82A {
+mytable
+myquestion 
+271 VALUE
+ myquestion removeGRID
+/long_name (Q82 : Salaire payé (domestiques...) : aviez-vous effectué la) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q82B {
+mytable
+myquestion 
+272 VALUE
+ myquestion removeGRID
+/long_name (Q82 : Salaire payé (domestiques...) : Montant en F CFA) def 
+}defasvarsilent
+
+/Q83A {
+mytable
+myquestion 
+273 VALUE
+ myquestion removeGRID
+/long_name (Q83 : Autres : aviez-vous effectué la dépense...) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q83B {
+mytable
+myquestion 
+274 VALUE
+ myquestion removeGRID
+/long_name (Q83 : Autres : Montant en F CFA) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

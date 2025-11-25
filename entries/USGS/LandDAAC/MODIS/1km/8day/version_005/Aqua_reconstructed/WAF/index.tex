@@ -1,0 +1,19 @@
+\begin{ingrid}
+continuedataset:
+
+/tmax_rec {
+ SOURCES .USGS .LandDAAC .MODIS .1km .8day .version_005 .Aqua .WAF .Night .LST
+  (Celsius_scale) unitconvert
+  SOURCES .WORLDCLIM .amplitude
+   X 2 index .X
+     lowedge exch .highedge RANGEEDGES
+   Y 2 index .Y
+     lowedge exch .highedge exch RANGEEDGES
+   [X Y]unifygrids
+   [X Y T]regridLinear
+   add
+/long_name (reconstructed tmax) def
+}defasvarcache
+
+:dataset
+\end{ingrid}

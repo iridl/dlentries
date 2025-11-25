@@ -1,0 +1,663 @@
+\begin{ingrid}
+
+continuedataset:
+datasetdefs:
+
+grid:
+/name /mycol def
+1 1 13
+:grid
+
+grid:
+/name /WMOID def
+/units (ids) def
+values:
+82965
+82795
+83985
+83912
+83844
+83671
+83635
+83531
+83523
+83522
+83464
+83436
+83295
+83236
+83228
+83097
+82892
+82870
+82792
+82789
+82784
+82333
+82141
+82024
+83941
+83726
+83716
+83632
+83591
+83582
+83576
+83497
+83479
+83410
+83309
+83289
+83248
+83208
+83195
+83192
+83076
+83075
+83054
+83048
+82989
+82984
+82798
+82797
+82780
+82777
+82765
+82684
+82678
+82392
+82331
+82281
+82280
+82193
+82067
+83952
+83948
+83936
+83932
+83773
+83749
+83721
+83648
+83637
+83630
+83589
+83565
+83521
+83513
+83498
+83446
+83441
+83389
+83377
+83349
+83339
+83286
+83270
+83249
+83182
+83179
+83115
+83032
+82917
+82704
+82480
+82326
+82191
+82099
+83926
+83916
+83907
+83883
+83827
+83807
+83805
+83788
+83784
+83780
+83779
+83748
+83692
+83536
+83424
+83395
+83393
+83362
+83292
+83221
+83013
+83004
+82986
+82970
+82899
+82882
+82861
+82824
+82668
+82411
+82410
+82022
+83954
+83942
+83937
+83920
+83899
+83891
+83840
+83811
+83768
+83746
+83738
+83737
+83676
+83595
+83481
+83442
+83398
+83186
+83096
+83089
+82683
+82444
+82336
+82244
+82184
+82145
+82026
+83946
+83914
+83789
+83744
+83743
+83708
+83695
+83689
+83586
+83579
+83525
+83514
+83437
+83388
+83267
+83242
+83214
+82993
+82886
+82800
+82768
+82599
+82596
+82594
+82571
+82562
+82287
+83997
+83971
+83928
+83919
+83851
+83818
+83698
+83681
+83639
+83526
+83485
+83363
+83235
+83065
+83049
+83033
+82990
+82915
+82796
+82376
+82240
+82098
+83881
+83829
+83783
+83704
+83649
+83596
+83570
+83546
+83384
+83368
+83338
+83332
+82994
+82992
+82879
+82807
+82723
+82696
+82588
+82533
+82400
+82397
+82298
+82106
+83652
+83781
+83557
+83007
+83669
+83623
+83612
+83592
+83408
+83319
+83095
+82983
+82976
+82863
+82691
+82445
+82181
+83905
+83842
+83718
+83703
+83702
+83696
+83683
+83616
+83587
+83566
+83492
+83379
+83334
+83103
+82690
+82583
+82578
+82487
+82460
+82398
+82361
+82317
+82212
+82113
+83995
+83953
+83927
+83872
+83836
+83813
+83766
+83755
+83714
+83642
+83577
+83538
+83460
+83452
+83376
+83364
+83288
+83222
+83190
+83090
+83011
+82996
+82893
+82890
+82791
+82689
+82686
+82579
+82476
+82178
+83631
+83583
+83581
+83533
+83470
+83374
+83373
+83361
+83229
+83184
+83114
+83112
+82975
+82610
+82598
+82586
+82198
+83967
+83923
+83778
+83722
+83687
+83550
+83488
+83428
+83386
+83344
+82900
+82693
+82676
+82567
+82565
+82564
+82425
+83980
+83964
+83801
+83767
+83574
+83554
+83405
+83378
+83359
+83264
+83034
+83015
+82979
+82659
+82590
+82493
+82382
+82332
+82296
+82263
+82246
+83961
+83897
+83887
+83736
+83552
+83423
+83419
+83358
+83244
+83064
+82753
+82474
+82353
+82042
+83483
+82188
+83674
+83629
+83350
+83972
+83824
+83821
+83786
+83618
+83611
+83609
+83597
+83088
+83037
+82695
+82591
+82294
+:values
+
+:grid
+
+%grid:
+%/name /T2007 def
+%/units (days since 1960-01-01) def
+%/defaultvalue { last } def
+%1 Jan 2007 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%1.0
+%31 Dec 2007 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%:grid
+
+%/zevar2007 {
+%[mycol T2007 | WMOID ]
+%(/data/remic/mydatafiles/inmet/databank/SIM_NOVO/EC_2007_%d[WMOID].TXT) [WMOID]
+%readdatafile:
+%[0 1] r*4astsv
+%:readdatafile
+%/missing_value -999 def
+%}defasvarsilent
+
+%grid:
+%/name /T2008 def
+%/units (days since 1960-01-01) def
+%/defaultvalue { last } def
+%1 Jan 2008 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%1.0
+%31 Dec 2008 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%:grid
+
+%/zevar2008 {
+%[mycol T2008 | WMOID ]
+%(/data/remic/mydatafiles/inmet/databank/SIM_NOVO/EC_2008_%d[WMOID].TXT) [WMOID]
+%readdatafile:
+%[0 1] r*4astsv
+%:readdatafile
+%/missing_value -999 def
+%}defasvarsilent
+
+%grid:
+%/name /T2009 def
+%/units (days since 1960-01-01) def
+%/defaultvalue { last } def
+%1 Jan 2009 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%1.0
+%31 Dec 2009 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%:grid
+
+%/zevar2009 {
+%[mycol T2009 | WMOID ]
+%(/data/remic/mydatafiles/inmet/databank/SIM_NOVO/EC_2009_%d[WMOID].TXT) [WMOID]
+%readdatafile:
+%[0 1] r*4astsv
+%:readdatafile
+%/missing_value -999 def
+%}defasvarsilent
+
+%grid:
+%/name /T2010 def
+%/units (days since 1960-01-01) def
+%/defaultvalue { last } def
+%1 Jan 2010 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%1.0
+%31 Dec 2010 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%:grid
+
+%/zevar2010 {
+%[mycol T2010 | WMOID ]
+%(/data/remic/mydatafiles/inmet/databank/SIM_NOVO/EC_2010_%d[WMOID].TXT) [WMOID]
+%readdatafile:
+%[0 1] r*4astsv
+%:readdatafile
+%/missing_value -999 def
+%}defasvarsilent
+
+%grid:
+%/name /T2011 def
+%/units (days since 1960-01-01) def
+%/defaultvalue { last } def
+%1 Jan 2011 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%1.0
+%31 Dec 2011 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%:grid
+
+%/zevar2011 {
+%[mycol T2011 | WMOID ]
+%(/data/remic/mydatafiles/inmet/databank/SIM_NOVO/EC_2011_%d[WMOID].TXT) [WMOID]
+%readdatafile:
+%[0 1] r*4astsv
+%:readdatafile
+%/missing_value -999 def
+%}defasvarsilent
+
+%grid:
+%/name /T2012 def
+%/units (days since 1960-01-01) def
+%/defaultvalue { last } def
+%1 Jan 2012 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%1.0
+%1 Sep 2012 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%:grid
+
+%/zevar2012 {
+%[mycol T2012 | WMOID ]
+%(/data/remic/mydatafiles/inmet/databank/SIM_NOVO/EC_2012_%d[WMOID].TXT) [WMOID]
+%readdatafile:
+%[0 1] r*4astsv
+%:readdatafile
+%/missing_value -999 def
+%}defasvarsilent
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+1 Jan 2007 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+1 Dec 2012 julian_day 01 Jan 1960 julian_day sub 0.5 add
+:grid
+
+grid:
+/name /day366 def
+/units (days) def
+0.5 1 365.5 :grid
+
+grid:
+/name /zeyears def
+/units (months since 1960-01-01) def
+16 Jan 2007 ensotime
+12.
+16 Jan 2012 ensotime
+/pointwidth 1. def
+:grid
+
+/zevar {
+[mycol day366 | zeyears WMOID]
+(/data/remic/mydatafiles/inmet/databank/SIM_NOVO/EC_%Y[zeyears]_%d[WMOID].TXT)
+[zeyears WMOID]
+readdatafile:
+[0 1] r*4astsv
+:readdatafile
+/missing_value -999 def
+   [mycol WMOID]REORDER
+      [day366 zeyears] /I
+           nchunk NewIntegerGRID
+	        replaceGRIDstream
+		   I gridvalues {dup 366.0 eq 1 index 1098.0 eq or 1 index 1464.0 eq or 1 index 1830.0 eq or
+		   {pop}if}forall VALUES
+		      I T replaceGRID
+		         T first (1 Sep 2012) RANGE
+			 }defasvarsilent
+
+:datasetdefs
+
+/T zevar .T def
+/WMOID zevar .WMOID def
+
+/lat {
+zevar
+mycol 2 VALUE
+mycol removeGRID
+T first VALUE
+T removeGRID
+/long_name (Latitude) def
+/units (degree_north) def
+/scale_min -34 def
+/scale_max 6 def
+}defasvar
+
+/lon {
+zevar
+mycol 3 VALUE
+mycol removeGRID
+T first VALUE
+T removeGRID
+/long_name (Longitude) def
+/units (degree_east) def
+/scale_min -74 def
+/scale_max -34 def
+}defasvar
+
+/elev {
+zevar
+mycol 4 VALUE
+mycol removeGRID
+T first VALUE
+T removeGRID
+/long_name (elevation) def
+/units (m) def
+}defasvar
+
+/temp_med {
+zevar
+mycol 5 VALUE
+mycol removeGRID
+/long_name (Temperatura Média Compensada) def
+/units (Celsius_scale) def
+}defasvar
+
+/temp_max {
+zevar
+mycol 6 VALUE
+mycol removeGRID
+/long_name (Temperatura Máxima) def
+/units (Celsius_scale) def
+}defasvar
+
+/temp_min {
+zevar
+mycol 7 VALUE
+mycol removeGRID
+/long_name (Temperatura Mínima) def
+/units (Celsius_scale) def
+}defasvar
+
+/umidade_med {
+zevar
+mycol 8 VALUE
+mycol removeGRID
+/long_name (Umidade Relativa do Ar Média) def
+/units (percent) def
+}defasvar
+
+/pressao_med {
+zevar
+mycol 9 VALUE
+mycol removeGRID
+/long_name (Pressão Média ao Nível da Estação) def
+/units (mb) def
+}defasvar
+
+/insolacao {
+zevar
+mycol 10 VALUE
+mycol removeGRID
+/long_name (Insolação Total Diário) def
+/units (h) def
+}defasvar
+
+/vel_vento_med {
+zevar
+mycol 11 VALUE
+mycol removeGRID
+/long_name (Velocidade Média do Vento) def
+/units (m/s) def
+}defasvar
+
+/precipitacao {
+zevar
+mycol 12 VALUE
+mycol removeGRID
+/long_name (Precipitação Total Diária) def
+/units (mm) def
+}defasvar
+
+/evaporação_piche {
+zevar
+mycol 13 VALUE
+mycol removeGRID
+/long_name (Evaporação de Piche) def
+/units (mm) def
+}defasvar
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,81 @@
+\begin{ingrid}
+link:
+/name /VITO def
+/href (http://www.everyaware.eu/consortium/vito-flemish-institute-for-technological-research-antwerp-belgium/) def
+/description (Flemish Institute for Technological Research) def
+:link
+link:
+/name (DevCoCast Home) def
+/href (http://www.devcocast.eu/ViewContent.do?pageId=1) def
+:link
+link:
+/name /dataset_documentation.html def
+/href(http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5540242) def
+:link
+continuedataset:
+ 1
+  May 2010 julian_day
+% systemtime systemtime2ymd ymd2rjt 4 sub
+  2020 08 21 ymd2rjt 4 sub
+   dekadGRID first secondtolast subgrid
+/defaultvalue {last} def
+%{pop T get_bounds I_bounds 1 VALUE (/Data/data23/vito/devcolocust/MCD_GreenArea_%Y%m%d_LocustArea.tif) strftimes getrealization nip}removeextrausing
+% /expires last 15 add 1 Jan 1960 julian_day add rjt2ymd ymd2systemtime def
+name exch def
+% /expires T .expires def
+/last_modified T .last_modified def
+grid: 
+/name /X def
+degE
+-26.1018958
+ 104.3981042
+ 2 copy exch sub 
+62640 % number reported in file
+div
+exch
+%pop 2 copy 62720 mul add % calculate new right edge by multiple of tile size
+:grid
+X partialgrid name exch def
+X step 256 mul partitiongrid
+name 3 index !
+name 2 index !
+grid:
+/name /Y def
+degN
+40. 0 2 copy exch sub 19200 div exch
+:grid
+Y partialgrid name exch def
+Y step 256 mul partitiongrid
+name 3 index !
+name 2 index !
+/greenness {
+[ X2 Y2 | X Y T ] (/Data/data23/vito/devcolocust/MCD_GreenArea_%Y%m%d[lb]_LocustArea.tif)
+[ T   get_bounds 1 gridbyno
+        first VALUE
+        I_bounds removeGRID
+       /name /lb def
+       ]readdatafile:
+/stringtype tiledtiffimage
+/scale_min .5 def
+/scale_max 36.5 def
+/missing_value 0 def
+/valid_min 1 def
+/valid_max 36 def
+/units (dekads since vegetation_onset) def
+:readdatafile
+(/Data/data23/vito/devcolocust/MCD_GreenArea_20100501_LocustArea.tif)
+    37 setcolormapfromTiff
+\end{ingrid}
+Fix colormap -- they have grey as the color for zero, we remove it
+\begin{ingrid}
+/colormap
+[
+colormap 0 get
+colormap 1 get
+colormap 3 36 getinterval aload pop
+dup
+] def
+/ncolor colormap length def
+} defasvarsilent
+:dataset
+\end{ingrid}

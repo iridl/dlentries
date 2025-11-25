@@ -1,0 +1,59 @@
+\begin{ingrid}
+continuedataset:
+/description (forecast starting ) name cvntos append def
+dataset:
+/name /MONTHLY def
+[ /mem00 /mem01 /mem02 /mem03 /mem04 /mem05 /mem06 /mem07 /mem08 /mem09]
+{ /surface /prcp 3 namearray astore 
+{dataset .SIX-HOURLY .memxx .surface .prcp T 30 boxAverage 
+(mm/(30 days)) unitconvert
+0 500 green10colorscale
+}
+
+dup
+           length array copy cvx 
+dup 2 3 index 0 get cvpops put defasvar
+}forall
+:dataset
+dataset:
+/name /DAILY def
+[ /mem00 /mem01 /mem02 /mem03 /mem04 /mem05 /mem06 /mem07 /mem08 /mem09]
+{ /surface /prcp 3 namearray astore 
+{dataset .SIX-HOURLY .memxx .surface  .prcp T 1 boxAverage
+(mm/day) unitconvert
+0 20 green10colorscale
+}
+dup
+           length array copy cvx 
+dup 2 3 index 0 get cvpops put defasvar
+}forall
+:dataset
+:dataset
+MONTHLY
+/X dataset .SIX-HOURLY .X def
+/Y dataset .SIX-HOURLY .Y def
+/T dataset .SIX-HOURLY .T 
+name units gridtype 
+first 15 add .125 sub
+30.
+last  15 sub .125 add
+NewEvenGRID
+/calendar /360 def
+nip
+def
+pop
+DAILY
+/X dataset .SIX-HOURLY .X def
+/Y dataset .SIX-HOURLY .Y def
+/T dataset .SIX-HOURLY .T 
+name units gridtype 
+first .375 add
+1.
+last .375 sub
+NewEvenGRID
+/calendar /360 def
+nip
+def
+pop
+\end{ingrid}
+

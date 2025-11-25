@@ -1,0 +1,1060 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9195
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 554
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAavril2010.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/Q35B {
+mytable
+myquestion 
+129 VALUE
+ myquestion removeGRID
+/long_name (Q35.b En espèce (y compris la valeur des animaux)) def 
+}defasvarsilent
+
+/Q36 {
+mytable
+myquestion 
+130 VALUE
+ myquestion removeGRID
+/long_name (Q36 : Si oui le remboursement a-t-il déjà été fait ou engagé) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q37A1 {
+mytable
+myquestion 
+131 VALUE
+ myquestion removeGRID
+/long_name (Q37 : Riz : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q37A2 {
+mytable
+myquestion 
+132 VALUE
+ myquestion removeGRID
+/long_name (Q37 : Riz : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q37A3 {
+mytable
+myquestion 
+133 VALUE
+ myquestion removeGRID
+/long_name (Q37 : Riz : Quelle est la valeur en F CFA des produits auto.) def 
+}defasvarsilent
+
+/Q37A4 {
+mytable
+myquestion 
+134 VALUE
+ myquestion removeGRID
+/long_name (Q37 : Riz : Quelle est la valeur en F CFA des produits échan) def 
+}defasvarsilent
+
+/Q38A1 {
+mytable
+myquestion 
+135 VALUE
+ myquestion removeGRID
+/long_name (Q38 : Mil : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q38A2 {
+mytable
+myquestion 
+136 VALUE
+ myquestion removeGRID
+/long_name (Q38 : Mil : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q38A3 {
+mytable
+myquestion 
+137 VALUE
+ myquestion removeGRID
+/long_name (Q38 : Mil : Quelle est la valeur en F CFA des produits auto.) def 
+}defasvarsilent
+
+/Q38A4 {
+mytable
+myquestion 
+138 VALUE
+ myquestion removeGRID
+/long_name (Q38 : Mil : Quelle est la valeur en F CFA des produits échan) def 
+}defasvarsilent
+
+/Q39A1 {
+mytable
+myquestion 
+139 VALUE
+ myquestion removeGRID
+/long_name (Q39 : Sorgho : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q39A2 {
+mytable
+myquestion 
+140 VALUE
+ myquestion removeGRID
+/long_name (Q39 : Sorgho : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q39A3 {
+mytable
+myquestion 
+141 VALUE
+ myquestion removeGRID
+/long_name (Q39 : Sorgho : Quelle est la valeur en F CFA des produits au) def 
+}defasvarsilent
+
+/Q39A4 {
+mytable
+myquestion 
+142 VALUE
+ myquestion removeGRID
+/long_name (Q39 : Sorgho : Quelle est la valeur en F CFA des produits éc) def 
+}defasvarsilent
+
+/Q40A1 {
+mytable
+myquestion 
+143 VALUE
+ myquestion removeGRID
+/long_name (Q40 : Maïs : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q40A2 {
+mytable
+myquestion 
+144 VALUE
+ myquestion removeGRID
+/long_name (Q40 : Maïs : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q40A3 {
+mytable
+myquestion 
+145 VALUE
+ myquestion removeGRID
+/long_name (Q40 : Maïs : Quelle est la valeur en F CFA des produits auto) def 
+}defasvarsilent
+
+/Q40A4 {
+mytable
+myquestion 
+146 VALUE
+ myquestion removeGRID
+/long_name (Q40 : Maïs : Quelle est la valeur en F CFA des produits écha) def 
+}defasvarsilent
+
+/Q41A1 {
+mytable
+myquestion 
+147 VALUE
+ myquestion removeGRID
+/long_name (Q41 : Farine de manioc : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q41A2 {
+mytable
+myquestion 
+148 VALUE
+ myquestion removeGRID
+/long_name (Q41 : Farine de manioc : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q41A3 {
+mytable
+myquestion 
+149 VALUE
+ myquestion removeGRID
+/long_name (Q41 : Farine de manioc : Quelle est la valeur en F CFA des p) def 
+}defasvarsilent
+
+/Q41A4 {
+mytable
+myquestion 
+150 VALUE
+ myquestion removeGRID
+/long_name (Q41 : Farine de manioc : Quelle est la valeur en F CFA des p) def 
+}defasvarsilent
+
+/Q42A1 {
+mytable
+myquestion 
+151 VALUE
+ myquestion removeGRID
+/long_name (Q42 : Blé/farine : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q42A2 {
+mytable
+myquestion 
+152 VALUE
+ myquestion removeGRID
+/long_name (Q42 : Blé/farine : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q42A3 {
+mytable
+myquestion 
+153 VALUE
+ myquestion removeGRID
+/long_name (Q42 : Blé/farine : Quelle est la valeur en F CFA des produit) def 
+}defasvarsilent
+
+/Q42A4 {
+mytable
+myquestion 
+154 VALUE
+ myquestion removeGRID
+/long_name (Q42 : Blé/farine : Quelle est la valeur en F CFA des produit) def 
+}defasvarsilent
+
+/Q43A1 {
+mytable
+myquestion 
+155 VALUE
+ myquestion removeGRID
+/long_name (Q43 : Pain : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q43A2 {
+mytable
+myquestion 
+156 VALUE
+ myquestion removeGRID
+/long_name (Q43 : Pain : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q43A3 {
+mytable
+myquestion 
+157 VALUE
+ myquestion removeGRID
+/long_name (Q43 : Pain : Quelle est la valeur en F CFA des produits auto) def 
+}defasvarsilent
+
+/Q43A4 {
+mytable
+myquestion 
+158 VALUE
+ myquestion removeGRID
+/long_name (Q43 : Pain : Quelle est la valeur en F CFA des produits écha) def 
+}defasvarsilent
+
+/Q44A1 {
+mytable
+myquestion 
+159 VALUE
+ myquestion removeGRID
+/long_name (Q44 : Pâtes alimentaires : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q44A2 {
+mytable
+myquestion 
+160 VALUE
+ myquestion removeGRID
+/long_name (Q44 : Pâtes alimentaires : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q44A3 {
+mytable
+myquestion 
+161 VALUE
+ myquestion removeGRID
+/long_name (Q44 : Pâtes alimentaires : Quelle est la valeur en F CFA des) def 
+}defasvarsilent
+
+/Q44A4 {
+mytable
+myquestion 
+162 VALUE
+ myquestion removeGRID
+/long_name (Q44 : Pâtes alimentaires : Quelle est la valeur en F CFA des) def 
+}defasvarsilent
+
+/Q45A1 {
+mytable
+myquestion 
+163 VALUE
+ myquestion removeGRID
+/long_name (Q45 : Huile de cuisson : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q45A2 {
+mytable
+myquestion 
+164 VALUE
+ myquestion removeGRID
+/long_name (Q45 : Huile de cuisson : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q45A3 {
+mytable
+myquestion 
+165 VALUE
+ myquestion removeGRID
+/long_name (Q45 : Huile de cuisson : Quelle est la valeur en F CFA des p) def 
+}defasvarsilent
+
+/Q45A4 {
+mytable
+myquestion 
+166 VALUE
+ myquestion removeGRID
+/long_name (Q45 : Huile de cuisson : Quelle est la valeur en F CFA des p) def 
+}defasvarsilent
+
+/Q46A1 {
+mytable
+myquestion 
+167 VALUE
+ myquestion removeGRID
+/long_name (Q46 : Viande/Abats : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q46A2 {
+mytable
+myquestion 
+168 VALUE
+ myquestion removeGRID
+/long_name (Q46 : Viande/Abats : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q46A3 {
+mytable
+myquestion 
+169 VALUE
+ myquestion removeGRID
+/long_name (Q46 : Viande/Abats : Quelle est la valeur en F CFA des produ) def 
+}defasvarsilent
+
+/Q46A4 {
+mytable
+myquestion 
+170 VALUE
+ myquestion removeGRID
+/long_name (Q46 : Viande/Abats : Quelle est la valeur en F CFA des produ) def 
+}defasvarsilent
+
+/Q47A1 {
+mytable
+myquestion 
+171 VALUE
+ myquestion removeGRID
+/long_name (Q47 : Volaille : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q47A2 {
+mytable
+myquestion 
+172 VALUE
+ myquestion removeGRID
+/long_name (Q47 : Volaille : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q47A3 {
+mytable
+myquestion 
+173 VALUE
+ myquestion removeGRID
+/long_name (Q47 : Volaille : Quelle est la valeur en F CFA des produits) def 
+}defasvarsilent
+
+/Q47A4 {
+mytable
+myquestion 
+174 VALUE
+ myquestion removeGRID
+/long_name (Q47 : Volaille : Quelle est la valeur en F CFA des produits) def 
+}defasvarsilent
+
+/Q48A1 {
+mytable
+myquestion 
+175 VALUE
+ myquestion removeGRID
+/long_name (Q48 : Poisson : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q48A2 {
+mytable
+myquestion 
+176 VALUE
+ myquestion removeGRID
+/long_name (Q48 : Poisson : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q48A3 {
+mytable
+myquestion 
+177 VALUE
+ myquestion removeGRID
+/long_name (Q48 : Poisson : Quelle est la valeur en F CFA des produits a) def 
+}defasvarsilent
+
+/Q48A4 {
+mytable
+myquestion 
+178 VALUE
+ myquestion removeGRID
+/long_name (Q48 : Poisson : Quelle est la valeur en F CFA des produits é) def 
+}defasvarsilent
+
+/Q49A1 {
+mytable
+myquestion 
+179 VALUE
+ myquestion removeGRID
+/long_name (Q49 : Fromage : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q49A2 {
+mytable
+myquestion 
+180 VALUE
+ myquestion removeGRID
+/long_name (Q49 : Fromage : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q49A3 {
+mytable
+myquestion 
+181 VALUE
+ myquestion removeGRID
+/long_name (Q49 : Fromage : Quelle est la valeur en F CFA des produits a) def 
+}defasvarsilent
+
+/Q49A4 {
+mytable
+myquestion 
+182 VALUE
+ myquestion removeGRID
+/long_name (Q49 : Fromage : Quelle est la valeur en F CFA des produits é) def 
+}defasvarsilent
+
+/Q50A1 {
+mytable
+myquestion 
+183 VALUE
+ myquestion removeGRID
+/long_name (Q50 : Lait : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q50A2 {
+mytable
+myquestion 
+184 VALUE
+ myquestion removeGRID
+/long_name (Q50 : Lait : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q50A3 {
+mytable
+myquestion 
+185 VALUE
+ myquestion removeGRID
+/long_name (Q50 : Lait : Quelle est la valeur en F CFA des produits auto) def 
+}defasvarsilent
+
+/Q50A4 {
+mytable
+myquestion 
+186 VALUE
+ myquestion removeGRID
+/long_name (Q50 : Lait : Quelle est la valeur en F CFA des produits écha) def 
+}defasvarsilent
+
+/Q51A1 {
+mytable
+myquestion 
+187 VALUE
+ myquestion removeGRID
+/long_name (Q51 : Oeuf : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q51A2 {
+mytable
+myquestion 
+188 VALUE
+ myquestion removeGRID
+/long_name (Q51 : Oeuf : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q51A3 {
+mytable
+myquestion 
+189 VALUE
+ myquestion removeGRID
+/long_name (Q51 : Oeuf : Quelle est la valeur en F CFA des produits auto) def 
+}defasvarsilent
+
+/Q51A4 {
+mytable
+myquestion 
+190 VALUE
+ myquestion removeGRID
+/long_name (Q51 : Oeuf : Quelle est la valeur en F CFA des produits écha) def 
+}defasvarsilent
+
+/Q52A1 {
+mytable
+myquestion 
+191 VALUE
+ myquestion removeGRID
+/long_name (Q52 : Beurre : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q52A2 {
+mytable
+myquestion 
+192 VALUE
+ myquestion removeGRID
+/long_name (Q52 : Beurre : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q52A3 {
+mytable
+myquestion 
+193 VALUE
+ myquestion removeGRID
+/long_name (Q52 : Beurre : Quelle est la valeur en F CFA des produits au) def 
+}defasvarsilent
+
+/Q52A4 {
+mytable
+myquestion 
+194 VALUE
+ myquestion removeGRID
+/long_name (Q52 : Beurre : Quelle est la valeur en F CFA des produits éc) def 
+}defasvarsilent
+
+/Q53A1 {
+mytable
+myquestion 
+195 VALUE
+ myquestion removeGRID
+/long_name (Q53 : Arachide : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q53A2 {
+mytable
+myquestion 
+196 VALUE
+ myquestion removeGRID
+/long_name (Q53 : Arachide : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q53A3 {
+mytable
+myquestion 
+197 VALUE
+ myquestion removeGRID
+/long_name (Q53 : Arachide : Quelle est la valeur en F CFA des produits) def 
+}defasvarsilent
+
+/Q53A4 {
+mytable
+myquestion 
+198 VALUE
+ myquestion removeGRID
+/long_name (Q53 : Arachide : Quelle est la valeur en F CFA des produits) def 
+}defasvarsilent
+
+/Q54A1 {
+mytable
+myquestion 
+199 VALUE
+ myquestion removeGRID
+/long_name (Q54 : Niébé/Haricot/dolique : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q54A2 {
+mytable
+myquestion 
+200 VALUE
+ myquestion removeGRID
+/long_name (Q54 : Niébé/Haricot/dolique : Quel est le montant de la dépe) def 
+}defasvarsilent
+
+/Q54A3 {
+mytable
+myquestion 
+201 VALUE
+ myquestion removeGRID
+/long_name (Q54 : Niébé/Haricot/dolique : Quelle est la valeur en F CFA) def 
+}defasvarsilent
+
+/Q54A4 {
+mytable
+myquestion 
+202 VALUE
+ myquestion removeGRID
+/long_name (Q54 : Niébé/Haricot/dolique : Quelle est la valeur en F CFA) def 
+}defasvarsilent
+
+/Q55A1 {
+mytable
+myquestion 
+203 VALUE
+ myquestion removeGRID
+/long_name (Q55 : Petit pois/lentille : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q55A2 {
+mytable
+myquestion 
+204 VALUE
+ myquestion removeGRID
+/long_name (Q55 : Petit pois/lentille : Quel est le montant de la dépens) def 
+}defasvarsilent
+
+/Q55A3 {
+mytable
+myquestion 
+205 VALUE
+ myquestion removeGRID
+/long_name (Q55 : Petit pois/lentille : Quelle est la valeur en F CFA de) def 
+}defasvarsilent
+
+/Q55A4 {
+mytable
+myquestion 
+206 VALUE
+ myquestion removeGRID
+/long_name (Q55 : Petit pois/lentille : Quelle est la valeur en F CFA de) def 
+}defasvarsilent
+
+/Q56A1 {
+mytable
+myquestion 
+207 VALUE
+ myquestion removeGRID
+/long_name (Q56 : Voandzou : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q56A2 {
+mytable
+myquestion 
+208 VALUE
+ myquestion removeGRID
+/long_name (Q56 : Voandzou : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q56A3 {
+mytable
+myquestion 
+209 VALUE
+ myquestion removeGRID
+/long_name (Q56 : Voandzou : Quelle est la valeur en F CFA des produits) def 
+}defasvarsilent
+
+/Q56A4 {
+mytable
+myquestion 
+210 VALUE
+ myquestion removeGRID
+/long_name (Q56 : Voandzou : Quelle est la valeur en F CFA des produits) def 
+}defasvarsilent
+
+/Q57A1 {
+mytable
+myquestion 
+211 VALUE
+ myquestion removeGRID
+/long_name (Q57 : Sucre : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q57A2 {
+mytable
+myquestion 
+212 VALUE
+ myquestion removeGRID
+/long_name (Q57 : Sucre : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q57A3 {
+mytable
+myquestion 
+213 VALUE
+ myquestion removeGRID
+/long_name (Q57 : Sucre : Quelle est la valeur en F CFA des produits aut) def 
+}defasvarsilent
+
+/Q57A4 {
+mytable
+myquestion 
+214 VALUE
+ myquestion removeGRID
+/long_name (Q57 : Sucre : Quelle est la valeur en F CFA des produits éch) def 
+}defasvarsilent
+
+/Q58A1 {
+mytable
+myquestion 
+215 VALUE
+ myquestion removeGRID
+/long_name (Q58 : Oignon : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q58A2 {
+mytable
+myquestion 
+216 VALUE
+ myquestion removeGRID
+/long_name (Q58 : Oignon : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q58A3 {
+mytable
+myquestion 
+217 VALUE
+ myquestion removeGRID
+/long_name (Q58 : Oignon : Quelle est la valeur en F CFA des produits au) def 
+}defasvarsilent
+
+/Q58A4 {
+mytable
+myquestion 
+218 VALUE
+ myquestion removeGRID
+/long_name (Q58 : Oignon : Quelle est la valeur en F CFA des produits éc) def 
+}defasvarsilent
+
+/Q59A1 {
+mytable
+myquestion 
+219 VALUE
+ myquestion removeGRID
+/long_name (Q59 : Sel : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q59A2 {
+mytable
+myquestion 
+220 VALUE
+ myquestion removeGRID
+/long_name (Q59 : Sel : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q59A3 {
+mytable
+myquestion 
+221 VALUE
+ myquestion removeGRID
+/long_name (Q59 : Sel : Quelle est la valeur en F CFA des produits auto.) def 
+}defasvarsilent
+
+/Q59A4 {
+mytable
+myquestion 
+222 VALUE
+ myquestion removeGRID
+/long_name (Q59 : Sel : Quelle est la valeur en F CFA des produits échan) def 
+}defasvarsilent
+
+/Q60A1 {
+mytable
+myquestion 
+223 VALUE
+ myquestion removeGRID
+/long_name (Q60 : Manioc : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q60A2 {
+mytable
+myquestion 
+224 VALUE
+ myquestion removeGRID
+/long_name (Q60 : Manioc : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q60A3 {
+mytable
+myquestion 
+225 VALUE
+ myquestion removeGRID
+/long_name (Q60 : Manioc : Quelle est la valeur en F CFA des produits au) def 
+}defasvarsilent
+
+/Q60A4 {
+mytable
+myquestion 
+226 VALUE
+ myquestion removeGRID
+/long_name (Q60 : Manioc : Quelle est la valeur en F CFA des produits éc) def 
+}defasvarsilent
+
+/Q61A1 {
+mytable
+myquestion 
+227 VALUE
+ myquestion removeGRID
+/long_name (Q61 : Igname : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q61A2 {
+mytable
+myquestion 
+228 VALUE
+ myquestion removeGRID
+/long_name (Q61 : Igname : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q61A3 {
+mytable
+myquestion 
+229 VALUE
+ myquestion removeGRID
+/long_name (Q61 : Igname : Quelle est la valeur en F CFA des produits au) def 
+}defasvarsilent
+
+/Q61A4 {
+mytable
+myquestion 
+230 VALUE
+ myquestion removeGRID
+/long_name (Q61 : Igname : Quelle est la valeur en F CFA des produits éc) def 
+}defasvarsilent
+
+/Q62A1 {
+mytable
+myquestion 
+231 VALUE
+ myquestion removeGRID
+/long_name (Q62 : Feuilles vertes : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q62A2 {
+mytable
+myquestion 
+232 VALUE
+ myquestion removeGRID
+/long_name (Q62 : Feuilles vertes : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q62A3 {
+mytable
+myquestion 
+233 VALUE
+ myquestion removeGRID
+/long_name (Q62 : Feuilles vertes : Quelle est la valeur en F CFA des pr) def 
+}defasvarsilent
+
+/Q62A4 {
+mytable
+myquestion 
+234 VALUE
+ myquestion removeGRID
+/long_name (Q62 : Feuilles vertes : Quelle est la valeur en F CFA des pr) def 
+}defasvarsilent
+
+/Q63A1 {
+mytable
+myquestion 
+235 VALUE
+ myquestion removeGRID
+/long_name (Q63 : Pomme de terre : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q63A2 {
+mytable
+myquestion 
+236 VALUE
+ myquestion removeGRID
+/long_name (Q63 : Pomme de terre : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q63A3 {
+mytable
+myquestion 
+237 VALUE
+ myquestion removeGRID
+/long_name (Q63 : Pomme de terre : Quelle est la valeur en F CFA des pro) def 
+}defasvarsilent
+
+/Q63A4 {
+mytable
+myquestion 
+238 VALUE
+ myquestion removeGRID
+/long_name (Q63 : Pomme de terre : Quelle est la valeur en F CFA des pro) def 
+}defasvarsilent
+
+/Q64A1 {
+mytable
+myquestion 
+239 VALUE
+ myquestion removeGRID
+/long_name (Q64 : Autres condiments : Aviez effectué la dépense) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q64A2 {
+mytable
+myquestion 
+240 VALUE
+ myquestion removeGRID
+/long_name (Q64 : Autres condiments : Quel est le montant de la dépense) def 
+}defasvarsilent
+
+/Q64A3 {
+mytable
+myquestion 
+241 VALUE
+ myquestion removeGRID
+/long_name (Q64 : Autres condiments : Quelle est la valeur en F CFA des) def 
+}defasvarsilent
+
+/Q64A4 {
+mytable
+myquestion 
+242 VALUE
+ myquestion removeGRID
+/long_name (Q64 : Autres condiments : Quelle est la valeur en F CFA des) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

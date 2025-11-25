@@ -1,0 +1,117 @@
+\begin{ingrid}
+/description (Short-term (1995-1999) mean NDVIe from ADDS) def
+continuedataset:
+/long_name (Short-term average) def
+datasetdefs:
+/filename {T (/Data/data6/usgs/adds/ndvi/ndviesav/asm%m%d[dekad]nd.IMG) strftimes}def
+/adds_ndvi_colors {
+startcolormap
+DATA 0 1 RANGE
+white white white 0 VALUE
+234 233 189 RGB RGBdup 0.05 bandmax
+215 211 148 RGB RGBdup 0.1 bandmax
+202 189 119 RGB RGBdup 0.15 bandmax
+175 175 77 RGB RGBdup 0.2 bandmax
+128 169 5 RGB RGBdup 0.3 bandmax
+12 127 0 RGB RGBdup 0.4 bandmax
+0 94 0 RGB RGBdup 0.5 bandmax
+0 59 1 RGB RGBdup 0.6 bandmax
+0 9 0 RGB RGBdup 1. bandmax
+0 9 0 RGB 1. VALUE
+0 9 0 RGB
+endcolormap } def
+:datasetdefs
+/iridl:hasSemantics (iridl:climatology) def
+/Conventions (CF-1.0) def
+grid:
+/name /x def
+-4604000 8000 4604000 
+/standard_name (projection_x_coordinate) def
+:grid
+grid:
+/name /y def
+4604000 8000 -4604000
+/standard_name (projection_y_coordinate) def
+:grid
+variable:
+        /name /lat def
+        /units (degreeN) def
+        /fullname (Latitude) def
+	/standard_name (latitude) def
+        /scale_min -40 def
+        /scale_max 45 def
+        grids: x y :grids
+        file:
+                decrandom
+                /name (/Data/data6/usgs/adds/ndvi/lat_1152_geom.bin) def
+        :file
+:variable
+variable:
+        /name /lon def
+        /units (degreeE) def
+        /fullname (Longitude) def
+	/standard_name (longitude) def
+        /scale_min -24 def
+        /scale_max 65 def
+        grids: x y :grids
+        file:
+                decrandom
+                /name (/Data/data6/usgs/adds/ndvi/lon_1152_geom.bin) def
+        :file
+:variable
+
+1 Jan 1959 julian_day
+21 Dec 1959 julian_day %enddate
+dekadGRID
+/standard_name (time) def
+name exch def
+
+T dekadaledgesgrid
+first secondtolast subgrid
+/calendar /365 def
+gridS
+365 store modulus
+pop
+periodic setgridtype
+partialgrid
+name exch def
+
+/NDVI {[| T] (/Data/data6/usgs/adds/ndvi/ndviesav/asm%m[T]%d[dekad]nd.IMG) [T dup 1 object /calendar /standard
+def day2dom 5. add 10. div toi4 /name /dekad def ]
+readdatafile:
+IDAimage
+:readdatafile
+/valid_min 1 def
+/valid_max 250 def
+/scale_factor 0.004016 def
+/add_offset -0.004016 def
+/grid_mapping /Projection def
+/long_name (Normalized Difference Vegetation Index) def
+/standard_name (normalized_difference_vegetation_index) def
+/iridl:hasSemantics (iridl:NDVI) def
+/SpatialReferenceSystemDims {x y} cvlit def
+toNaN
+adds_ndvi_colors
+x /standard_name (projection_x_coordinate) def name exch def
+y /standard_name (projection_y_coordinate) def name exch def
+}defasvarsilent
+
+variable:
+ grids: :grids
+ values: 0 :values
+ /name (Projection) def
+ /grid_mapping_name (albers_conical_equal_area) def
+ /latitude_of_projection_origin 1 def
+ /longitude_of_central_meridian 20.0 def
+ /standard_parallel 21 -19 2 realarray astore def
+ /false_easting 0 def
+ /false_northing 0 def
+%/_CoordinateTransformType (Projection) def
+%/_CoordinateAxisTypes (GeoX GeoY) def
+:variable
+
+
+:dataset
+%T { (/Data/data6/usgs/adds/ndvi/ndviesav/asm%m[T]%d[dekad]nd.IMG) [T dup day2dom 5. add 10. div toi4 /name /dekad def]}removeextrausing
+%name exch def
+\end{ingrid}

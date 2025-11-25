@@ -1,0 +1,57 @@
+\begin{ingrid}
+continuedataset:
+/phi
+{ SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .PressureLevel .phi
+  T (Jan 1991) (Dec 2020) RANGE
+/expires undef
+  yearly-climatology
+} defasvarcache
+/temp
+{ SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .PressureLevel .temp
+  T (Jan 1991) (Dec 2020) RANGE
+/expires undef
+  yearly-climatology
+} defasvarcache
+/u
+{ SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .PressureLevel .u
+  T (Jan 1991) (Dec 2020) RANGE
+/expires undef
+  yearly-climatology 
+} defasvarcache
+/v
+{ SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .PressureLevel .v
+  T (Jan 1991) (Dec 2020) RANGE
+/expires undef
+  yearly-climatology
+} defasvarcache
+/qa
+{ SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .PressureLevel .qa
+  T (Jan 1991) (Dec 2020) RANGE
+/expires undef
+  yearly-climatology
+} defasvarcache
+grid:
+/name /X def
+degE
+periodic
+0 2.5 -2.5
+:grid
+grid:
+/name /Y def
+degN
+90 2.5 -90
+:grid
+grid:
+/name /P def
+/units (mb) def
+ordered
+values: 1000 925 850 700 600 500 400 300 250 200 150 100 70 50 30 20 10 :values
+:grid
+grid:
+/name /T def
+/units monthclimoname def
+periodic
+Jan 1. Dec
+:grid
+:dataset
+\end{ingrid}

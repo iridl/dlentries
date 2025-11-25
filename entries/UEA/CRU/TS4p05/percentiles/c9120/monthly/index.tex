@@ -1,0 +1,40 @@
+\begin{ingrid}
+continuedataset:
+
+/pre
+{
+ SOURCES .UEA .CRU .TS4p05 .monthly .pre
+  T (Jan 1991) (Dec 2020) RANGE
+  T 12 splitstreamgrid
+ [T2]0 .1 .2 0.33 .5 0.67 .8 .9 1 0.5 replacebypercentile
+ [percentile X Y]REORDER CopyStream
+} defasvar
+
+/tmp
+{
+ SOURCES .UEA .CRU .TS4p05 .monthly .tmp
+  T (Jan 1991) (Dec 2020) RANGE
+  T 12 splitstreamgrid
+  [T2]0 .1 .2 0.33 .5 0.67 .8 .9 1 0.5 replacebypercentile
+ [percentile X Y]REORDER CopyStream
+} defasvar
+grid:
+/name /X def
+degE
+periodic
+-179.75 .5 179.75
+:grid
+grid:
+/name /Y def
+degN
+-89.75 .5 89.75
+:grid
+grid:
+/name /T def
+/units monthclimoname def
+periodic
+Jan 1. Dec
+:grid
+:dataset
+\end{ingrid}
+

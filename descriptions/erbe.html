@@ -1,0 +1,139 @@
+<INGRID>datasetdocumentationheader</INGRID>
+<title>Shortwave Radiation Budgets at Surface and in the Atmosphere Derived from 5 Years of ERBE Measurements</title>
+<H1>
+          Shortwave Radiation Budgets at Surface and in the Atmosphere
+                     Derived from 5 Years of ERBE Measurements
+</H1> 
+<PRE>
+                                     Zhanqing Li
+                                  February 15, 1993
+</PRE>
+The data are <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.ERBE/">here</a>.
+<H2>I.  INTRODUCTION</H2>
+
+This document describes a set of abbreviated, monthly averaged results 
+of shortwave Surface Radiation Budget (SRB) and Atmospheric Radiation Budget 
+(ARB), i.e. the shortwave radiative fluxes absorbed at the surface and in the
+atmosphere. They are derived from the Earth Radiation Budget Experiment (ERBE)
+data set S-4 and the European Centre for Medium-range Weather Forecasts (ECMWF)
+analysis archive using the algorithm proposed by Li et al (1993). There are
+three input parameters: reflected flux or albedo on the top of the atmosphere,
+vertically integrated water vapor content and the solar zenith angle.
+S-4 data provides monthly-mean reflected fluxes and albedo on the top
+of the atmosphere at 2.5X2.5 degrees of latitude/longitude. Precipitable
+water is obtained from ECMWF data by vertical integration of humidity
+analyses from the bottom to the top of the atmosphere. Solar zenith angle
+is calculated according to latitude and time. <P>
+
+The ERBE consists of 3 satellites, NOAA 9, 10 and ERBS.  NOAA 
+satellites were in sun-synchronous polar orbits, while ERBS has an
+orbit inclined 57 degrees relative to the equator which allows
+observations at different local times. ERBE has both scanning
+and non-scanning radiometers.  Gridded product at 2.5X2.5 degrees was 
+derived from scaner observations.  ERBS scaner began observation in
+Nov. 1984 and failed in February 1990.  NOAA 9 scanner operated from
+Jan 1985 to Jan 1987, while NOAA 10 from Oct 1986 to May 1989. 
+The period covered by the S-4 product is not exactly same as the 
+scanner operation time but a bit shorter. 
+S-4 product contains both single data measured from one satellite and 
+combined data from more than one satellites.  The principle of data 
+selection in the acquisition of SRB and ARB is that single data were
+not used unless combined data were not available. <P>
+
+For detailed description of S-4 data, please refer to 
+The Regional, Zonal, and Global Averages, S-4, User's Guide, available from
+NASA Langley, Hampton, Virginia, USA <P>
+
+The procedure of deriving global SRB and ARB and discussion of the results
+were presented in <P>
+<CITE>
+Li, Z., and H.G. Leighton, 1993, Global climatology of the solar radiation
+budgets at the surface and in the atmosphere from 5 years of ERBE data, 
+J. Geophy. Res.- Atmosphere, 98, 4919-4930.
+</CITE> <P>
+
+For detailed description of the algorithm, please refer to <P>
+<CITE>Li, Z., H.G. Leighton, K. Masuda and T. Takashima, 1993, Estimation of SW
+flux absorbed at the surface from TOA reflected flux, J. Climate, 6, 317-330.
+</CITE> <P>
+Preliminary validation against surface observations can be found from <P>
+<CITE>Li, Z., H.G. Leighton, and R.D. Cess, 1993, Surface net solar radiation 
+estimated from satellite measurements: Comparisons with tower observations,
+J. Climate (September, 1993)
+</CITE> <P>
+
+<H2>II. DATA STRUCTURE 
+</H2>
+
+<PRE>
+                                erbe 
+                                  |                 
+             glob                 |              part
+               |                  |                |
+      srb      |       arb        |       srb      |       arb
+       |       |        |         |        |       |        |
+month  | mean  | month  |  mean   | month/ | mean  | month/ | mean  
+         / | \            / | \              / | \           / | \
+        /  |  \          /  |  \            /  |  \         /  |  \
+      clr cld for      clr cld for        clr cld for     clr cld for
+</PRE>
+
+
+<OL>
+<LI> GLOB/PART
+    The files under directory GLOB differ from those under PART in
+<OL>
+<LI> GLOB files cover the whole globe, i.e. 90S to 90N, while PART files
+    cover the region from 60S to 60N.
+<LI> GLOB files are 4-year results (1985 - 1988), while PART files
+    are nominally 5 years (1985-1989), except for January and July 
+    for which PART files contains 4 years of results.                   
+
+<LI> The results of 1989 contained in PART files are derived mainly from 
+    ERBS observations, as the NOAA scanner failed thereafter. The results
+    in polar region (60 north or south) contained in GLOB files are based on
+    NOAA ERBE observations only, as the ERBS satellite cannot view these areas.
+</OL>
+
+
+<LI> SRB/ARB
+    Files under SRB are shortwave surface radiation budget data, while those
+    under ARB are shortwave radiation budget in the atmosphere.
+
+
+<LI> MONTH/MEAN
+<DL COMPACT>
+<DT> MONTH
+<DD> contains the results for individual months and years under all-sky
+    condition.
+
+<DT>  MEAN
+<DD>  contains multi-year means of the monthly results that are obtained by
+    averaging the results of the same months from 4 or 5 years of SRB or ARB 
+    data.
+</DL>   
+
+
+<LI>   CLR/CLD/FOR
+    MEAN has three sub-directories that contain clear-sky results (CLR),
+    all-sky results (CLD) and cloud forcing (FOR) which is defined as the 
+    difference between all-sky and clear-sky results.
+</OL>
+<PRE>    
+<ADDRESS>
+Should you have any problem, please do not hesitate to contact
+
+Dr. Zhanqing Li       
+Global Monitoring Section
+Applications Division
+Canada Centre for Remote Sensing
+588 Booth Street
+Ottawa, Ontario 
+Canada K1A 0Y7
+
+Phone:     613-947-1311
+Fax:       613-947-1406
+INTERNET:  LI@CCRS.EMR.CA
+</ADDRESS>
+</PRE>
+<INGRID>datasetdocumentationtrailer</INGRID>

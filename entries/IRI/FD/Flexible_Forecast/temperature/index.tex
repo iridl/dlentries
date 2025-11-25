@@ -1,0 +1,98 @@
+\begin{ingrid}
+
+continuedataset:
+
+(1981)
+     /climStart parameter
+pop
+(2010)
+     /climEnd parameter
+pop
+
+50. /percentile parameter
+pop
+
+Ingrid:
+
+/prob_percentile_exc_temp {
+startcolormap DATA 0 1 RANGE transparent purple RGBdup 0 VALUE blue /percentile get_parameter 100. div -1. mul 1. add /probref parameter 0.05 sub 3. div VALUE LightSkyBlue /probref get_parameter 0.05 sub 3. div 2. mul VALUE azure /probref get_parameter 0.05 sub VALUE moccasin RGBdup /probref get_parameter 0.05 add bandmax yellow /probref get_parameter 0.05 add 0.005 add VALUE orange /probref get_parameter 0.05 add 2. mul 1. add 3. div VALUE red /probref get_parameter 0.05 add 2. add 3. div VALUE IndianRed 1 VALUE IndianRed endcolormap
+}defcolorscale
+
+/prob_percentile_nonexc_temp {
+startcolormap DATA 0 1 RANGE transparent IndianRed RGBdup 0 VALUE red /percentile get_parameter 100. div /probref parameter 0.05 sub 3. div VALUE orange /probref get_parameter 0.05 sub 3. div 2. mul VALUE yellow /probref get_parameter 0.05 sub VALUE moccasin RGBdup /probref get_parameter 0.05 add bandmax azure /probref get_parameter 0.05 add 0.005 add VALUE LightSkyBlue /probref get_parameter 0.05 add 2. mul 1. add 3. div VALUE blue /probref get_parameter 0.05 add 2. add 3. div VALUE purple 1 VALUE purple endcolormap
+}defcolorscale
+
+pop
+
+/clim_mean {
+ SOURCES .IRI .FD .Flexible_Forecast .temp_obs .temp
+  T2 /climStart get_parameter
+    /climEnd get_parameter RANGEEDGES
+   [T2]average
+ home .tippett .scratch .na .realtime .MM .t2m
+S SOURCES .IRI .FD .NOAA .NCEP .CPC .Forecast .Unites-States .mean .S
+a: .first :a: .last :a RANGE
+   a: .L
+     :a: .S :a
+    add
+   T sample-along
+  temp_colors
+  /long_name (climatology mean for IRI) def
+}defasvar
+
+/clim_stddev {
+ SOURCES .IRI .FD .Flexible_Forecast .temp_obs .anomaly
+  T2 /climStart get_parameter
+    /climEnd get_parameter RANGEEDGES
+  [T2]rmsaover
+  home .tippett .scratch .na .realtime .MM .t2m
+S SOURCES .IRI .FD .NOAA .NCEP .CPC .Forecast .Unites-States .mean .S
+a: .first :a: .last :a RANGE
+   a: .L
+     :a: .S :a
+    add
+   T sample-along
+  /scale_min 0.0 def
+  /long_name (climatology standard deviationi for IRI) def
+}defasvar
+
+/fcst_mean {
+%  SOURCES .IRI .FD .NOAA .NCEP .CPC .Forecast .Unites-States .mean .Txb
+ home .tippett .scratch .na .realtime .MM .t2m
+S SOURCES .IRI .FD .NOAA .NCEP .CPC .Forecast .Unites-States .mean .S
+a: .first :a: .last :a RANGE
+ SOURCES .IRI .FD .Flexible_Forecast .temp_obs
+a: .temp :a: .anomaly :a sub
+  T2 /climStart get_parameter
+    /climEnd get_parameter RANGEEDGES
+   [T2]average
+   L
+    S add
+    T sample-along
+   add
+  temp_colors
+  /long_name (IRI forecast mean) def
+
+}defasvar
+
+/fcst_stddev {
+%   SOURCES .IRI .FD .NOAA .NCEP .CPC .Forecast .Unites-States .standard_deviation .Tsd
+  home .tippett .scratch .na .realtime .MM .t2m_std 2 RECHUNK
+  /scale_min 0.0 def
+  /long_name (IRI forecast standard deviation) def
+}defasvar
+
+/target_date {
+fcst_mean a: .S :a: .L :a add
+   /long_name (forecast time) def
+   /pointwidth 3 def
+   /bounds undef
+}defasvar
+
+:dataset
+
+target_date .S
+name exch def
+
+
+\end{ingrid}

@@ -1,0 +1,85 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (iriref:White_W) def
+/description (Monthly heat storage data from Scripps Institution of Oceanography) def
+/long_name(heat storage) def
+grid:
+/name /X def
+degE
+periodic
+30. 5. 385.
+:grid
+grid:
+/name /Y def
+degN
+60. -2. -60.
+:grid
+grid:
+/name /T def
+monthtime
+1 Feb 1994 ensotime
+2.
+1 Feb 1997 ensotime 
+/defaultvalue { last } def
+:grid
+variable:
+/name /error def
+/long_name (Interpolation Error) def
+/missing_value 1e36 def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data1/igoss/hs/err) def
+:file
+:variable
+grid:
+/name /T def
+monthtime
+values:
+1 Feb 1994 ensotime
+2.
+1 Feb 1997 ensotime 
+{ } for
+16 Mar 1997 ensotime
+1.
+16 Dec 2003 ensotime %enddate
+{ } for
+:values
+/defaultvalue { last } def
+:grid
+variable:
+/name /anomalies def
+/long_name (Heat Storage Anomalies) def
+/units (10**9 J/m2) def
+/missing_value 1e36 def
+/history [(Vertically averaged (0/400m) heat storage anomaly.  1979-1988 climatology)]def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data1/igoss/hs/oi) def
+:file
+/CI .25 def
+PS exch
+  startcolormap
+  -3 3 RANGEEDGES
+white
+  black
+  navy -3 value
+  blue -2 bandmax
+  DeepSkyBlue -1. bandmax
+turquoise
+   -.1 bandmax
+        aquamarine
+  dup   .1 bandmax
+yellow
+  DarkOrange 1.0 bandmax
+  red 2.0 bandmax
+  DarkRed 3.0 bandmax
+  brown
+  endcolormap
+nip
+:variable
+:dataset
+\end{ingrid}
+
+

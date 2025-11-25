@@ -1,0 +1,139 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/ET1 { 
+S 1 add
+/long_name (Start target time) def
+/units (months since 1960-01-01) def
+/pointwidth 1 def
+/calendar /360 def
+ }defasvar
+/ET2 { 
+S  120 add
+/long_name (End target time) def
+/units (months since 1960-01-01) def
+/pointwidth 1 def
+/calendar /360 def
+ }defasvar
+/centerS {1 /centerS publicproc: S /pointwidth 1. def 0.5 shiftGRID L -0.5 shiftGRID :publicproc}def
+/putasvarsilent { defasvarsilent pop } def
+:datasetdefs
+ /Conventions (CF-1.0) def
+
+ /institute_id (CCCma) def
+ /model_id (CanCM4) def
+ /source (CanCM4 2010 atmosphere: CanAM4 (AGCM15i, T63L35) ocean: CanOM4 (OGCM4.0, 256x192L40) sea ice: CanSIM1 (Cavitating Fluid, T63 Gaussian Grid) land: CLASS2.7) def
+ /experiment_id (decadal1960) def
+ /institution (CCCma (Canadian Centre for Climate Modelling and Analysis, Victoria, BC, Canada)) def
+  /cmor_version (2.5.4) def
+
+ 
+ /modeling_realm (atmos) def
+ /contact (cccma_info@ec.gc.ca) def
+ /project_id (CMIP5) def
+
+
+ /forcing (GHG,Oz,SA,BC,OC,LU,Sl,Vl (GHG includes CO2,CH4,N2O,CFC11,effective CFC12)) def
+ /experiment (10- or 30-year run initialized in year 1960) def
+ 
+
+ /history (2011-03-07T23:19:04Z CMOR rewrote data to comply with CF standards and CMIP5 requirements.) def
+ /parent_experiment_rip (N/A) def
+ /Conventions (CF-1.4) def
+ /title (CanCM4 model output prepared for CMIP5 10- or 30-year run initialized in year 1960) def
+ /creation_date (2011-03-07T23:19:04Z) def
+ /table_id (Table Amon (31 January 2011) 53b766a395ac41696af40aab76a49ae5) def
+ /CCCma_runid (DHFP1B_E010_I1961_M01) def
+ /physics_version 1 def
+
+
+grid:
+/name (Y)def
+/units (degree_north)def
+values: -87.8638 -85.096527 -82.312912 -79.525612 -76.7369 -73.947517 -71.157753 -68.36776 -65.577606 -62.787354 -59.997021 -57.206635 -54.416203 -51.625736 -48.835243 -46.044727 -43.254196 -40.46365 -37.673092 -34.882523 -32.091946 -29.301363 -26.510773 -23.720177 -20.929577 -18.138973 -15.348368 -12.557758 -9.767148 -6.9765363 -4.1859231 -1.3953094 1.3953094 4.1859231 6.9765363 9.767148 12.557758 15.348368 18.138973 20.929577 23.720177 26.510773 29.301363 32.091946 34.882523 37.673092 40.46365 43.254196 46.044727 48.835243 51.625736 54.416203 57.206635 59.997021 62.787354 65.577606 68.36776 71.157753 73.947517 76.7369 79.525612 82.312912 85.096527 87.8638 :values
+:grid
+grid:
+/name /L def
+/units (months) def
+/calendar /360 def
+/standard_name (forecast_period) def
+/long_name (Lead time) def
+/pointwidth 1 def
+1.5 1. 660.5
+:grid
+grid:
+/name /M def
+/long_name (Member) def
+1 1 10
+:grid
+grid:
+/name /S def
+/long_name (Start time) def
+/standard_name (forecast_reference_time) def
+/units (months since 1960-01-01 00:00:00) def
+/pointwidth 0 def
+values:
+01 Dec 1960 ensotime
+:values
+:grid
+
+/T { 
+S L add
+/long_name (Forecast time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/pointwidth 1 def
+/calendar /360 def
+ }defasvar
+
+%grid:
+%/name /T def
+%/long_name (Forecast time) def
+%/standard_name (time) def
+%/units (months since 1960-01-01 00:00:00) def
+%/pointwidth 1 def
+%16 Jan 1961 ensotime
+%1.
+%16 Dec 2015 ensotime
+%:grid
+ 
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.8125 357.1875
+:grid
+
+dataset: /name /surface def :dataset
+surface [ X Y M L S  ] { name exch def } forall pop
+
+surface /pr{
+dataset
+[ X Y | M L S ] (/Data/data22/CCCma/historical/mon/atmos/pr/r%d[M]i9p1/pr_Amon_CanCM4_historical_r%d[M]i9p1_196101-201512.nc) [M S]
+readdatafile:
+/name (pr) def
+/long_name (Precipitation) def
+/standard_name (precipitation_flux) def
+/units (kg m-2 s-1)cvn def
+/missing_value 1.e+20 def
+/realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+%defasvarsilent
+
+
+surface /tas{
+dataset
+[ X Y | M L S ] (/Data/data22/CCCma/historical/mon/atmos/tas/r%d[M]i9p1/tas_Amon_CanCM4_historical_r%d[M]i9p1_196101-201512.nc) [M S]
+readdatafile:
+/name (tas) def
+/long_name (Near-Surface Air Temperature) def
+/standard_name (air_temperature) def
+/units (Kelvin_scale)cvn def
+/missing_value 1.e+20 def
+/realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+%defasvarsilent
+
+:dataset
+\end{ingrid}

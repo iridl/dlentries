@@ -1,0 +1,90 @@
+\begin{ingrid}
+continuedataset:
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 1 -89.5
+:grid
+grid:
+/name /T def
+monthtime
+/fullname (Month) def
+16 Jan 1987 ensotime
+1.
+16 Dec 1988 ensotime
+:grid
+/references (Darnell_etal1992) def
+variable:
+/name /sur_lwdn def
+/long_name (Surface Longwave Downward Radiation Flux) def
+/missing_value -999.0000 def
+/units (W m-2) def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/radiation/mth_mean/sld87_88.r4) def
+:file
+:variable
+
+variable:
+/name /sur_lwnt def
+/long_name (Surface Longwave Net Radiation Flux) def
+/missing_value -999.0000 def
+/units (W m-2) def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/radiation/mth_mean/sln87_88.r4) def
+:file
+:variable
+
+variable:
+/name /sur_swdn def
+/long_name (Surface Shortwave Downward Radiation Flux) def
+/missing_value -999.0000 def
+/units (W m-2) def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/radiation/mth_mean/ssd87_88m.r4) def
+:file
+:variable
+
+variable:
+/name /sur_swnt def
+/long_name (Surface Shortwave Net Radiation Flux) def
+/missing_value -999.0000 def
+/units (W m-2) def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/radiation/mth_mean/ssn87_88.r4) def
+:file
+:variable
+
+variable:
+/name /sur_tont def
+/long_name (Surface Total Net Radiation Flux) def
+/missing_value -999.0000 def
+/units (W m-2) def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/radiation/mth_mean/stn87_88.r4) def
+:file
+:variable
+
+:dataset
+\end{ingrid}
+
+
+
+
+
+

@@ -1,0 +1,165 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /T def
+monthtime
+16 Jan 1950 ensotime
+1.
+16 (/Data/data5/noaa/cpc/enddate) readfile exch ensotime 1 sub
+%16 systemtime systemtime2ymd ymd:lastmonth ymd:lastmonth pop exch ensotime
+:grid
+
+T /expires last rm19602ymd ymd:nextmonth ymd:nextmonth 3 add ymd2systemtime def pop
+/expires T .expires def
+/last_modified T .last_modified def
+
+/long_name (Northern Hemisphere Teleconnection Indices) def
+variable:
+/name /NAO def
+/units (unitless) def
+/long_name (North Atlantic Oscillation) def
+grids: T :grids
+file:
+/name (/Data/data5/noaa/cpc/tele_index.nh) def
+formatted
+/format ((///////////////////,(8X,F6.2))) def
+:file
+/missing_value -99.90 def
+:variable
+
+variable:
+/name /EA def
+/units (unitless) def
+/long_name (East Atlantic Pattern) def
+grids: T :grids
+file:
+/name (/Data/data5/noaa/cpc/tele_index.nh) def
+formatted
+/format ((///////////////////,(14X,F6.2))) def
+:file
+/missing_value -99.90 def
+:variable
+
+variable:
+/name /WP def
+/long_name (West Pacific Pattern) def
+grids: T :grids
+file:
+/name (/Data/data5/noaa/cpc/tele_index.nh) def
+formatted
+/format ((///////////////////,(20X,F6.2))) def
+:file
+/missing_value -99.90 def
+:variable
+
+variable:
+/name /EPNP def
+/long_name (East Pacific/North Pacific Pattern) def
+grids: T :grids
+file:
+/name (/Data/data5/noaa/cpc/tele_index.nh) def
+formatted
+/format ((///////////////////,(26X,F6.2))) def
+:file
+/missing_value -99.90 def
+:variable
+
+variable:
+/name /PNA def
+/long_name (Pacific - North American Pattern) def
+grids: T :grids
+file:
+/name (/Data/data5/noaa/cpc/tele_index.nh) def
+formatted
+/format ((///////////////////,(32X,F6.2))) def
+:file
+/missing_value -99.90 def
+:variable
+
+variable:
+/name /EAWR def
+/long_name (East Atlantic/West Russia Pattern) def
+grids: T :grids
+file:
+/name (/Data/data5/noaa/cpc/tele_index.nh) def
+formatted
+/format ((///////////////////,(38X,F6.2))) def
+:file
+/missing_value -99.90 def
+:variable
+
+variable:
+/name /SCA def
+/long_name (Scandinavia Pattern) def
+grids: T :grids
+file:
+/name (/Data/data5/noaa/cpc/tele_index.nh) def
+formatted
+/format ((///////////////////,(44X,F6.2))) def
+:file
+/missing_value -99.90 def
+:variable
+
+variable:
+/name /TNH def
+/long_name (Tropical - Northern Hemisphere Pattern) def
+grids: T :grids
+file:
+/name (/Data/data5/noaa/cpc/tele_index.nh) def
+formatted
+/format ((///////////////////,(50X,F6.2))) def
+:file
+/missing_value -99.90 def
+:variable
+
+variable:
+/name /POL def
+/long_name (Polar - Eurasia Pattern) def
+grids: T :grids
+file:
+/name (/Data/data5/noaa/cpc/tele_index.nh) def
+formatted
+/format ((///////////////////,(56X,F6.2))) def
+:file
+/missing_value -99.90 def
+:variable
+
+variable:
+/name /PT def
+/long_name (Pacific Transition Pattern) def
+grids: T :grids
+file:
+/name (/Data/data5/noaa/cpc/tele_index.nh) def
+formatted
+/format ((///////////////////,(62X,F6.2))) def
+:file
+/missing_value -99.90 def
+:variable
+
+variable:
+/name /ExplVar def
+/long_name (Explained Variance of leading 10 modes) def
+grids: T :grids
+file:
+/name (/Data/data5/noaa/cpc/tele_index.nh) def
+formatted
+/format ((///////////////////,(70X,F5.1))) def
+:file
+/missing_value -99.90 def
+/units (percent) def
+:variable
+
+/references (Barnston_Livezey1987 Bell_Halpert1995 Hurrell1995 Mo_Livezey1986 Wallace_Gutzler1981) def
+
+:dataset
+\end{ingrid}
+
+
+
+The following entry was replaced on 17 Mar 2014 on mako8
+
+
+
+(/Data/data5/noaa/cpc/nhti.cuf)continuewithCUF
+/references (Barnston_Livezey1987 Bell_Halpert1995 Hurrell1995 Mo_Livezey1986 Wallace_Gutzler1981) def
+\end{ingrid}

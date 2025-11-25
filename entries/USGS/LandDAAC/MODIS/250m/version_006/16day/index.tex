@@ -1,0 +1,460 @@
+
+\begin{ingrid}
+STREAM
+/ndvi_colorsMODIS {
+startcolormap
+DATA -.2 1.0 RANGE
+transparent
+blue
+cyan -.1 bandmax
+white 0.0 bandmax
+234 233 189 RGB RGBdup 0.05 bandmax
+215 211 148 RGB RGBdup 0.1 bandmax
+202 189 119 RGB RGBdup 0.15 bandmax
+175 175 77 RGB RGBdup 0.2 bandmax
+128 169 5 RGB RGBdup 0.3 bandmax
+12 127 0 RGB RGBdup 0.4 bandmax
+0 94 0 RGB RGBdup 0.5 bandmax
+0 59 1 RGB RGBdup 0.6 bandmax
+0 9 0 RGB RGBdup 1.0 bandmax
+0 9 0 RGB 1.0 VALUE
+0 9 0 RGB
+endcolormap } defcolorscale
+pop
+continuedataset:
+/description (MODIS version6 global NDVI, EVI, and reflectances in sinusoidal projection) def
+grid:
+/name /X def
+/units (m) def
+/add_offset  -20015109.354 def
+/scale_factor  1111950.5196666666 def
+0 1 1200. 4 mul div 36
+exch scale_factor mul exch scale_factor mul
+add_offset add
+3 -1 roll add_offset add 3 1 roll
+/scale_factor 1 def
+/add_offset 0. def
+:grid
+grid:
+/name /Y def
+/units (m) def
+/scale_factor  -1111950.5196666666 def
+/add_offset 10007554.677 def
+0. 1 1200. 4 mul div 18.
+3 { 3 1 roll scale_factor mul } repeat
+3 -1 roll add_offset add 3 1 roll
+add_offset add
+/scale_factor 1 def
+/add_offset 0. def
+:grid
+X partialgrid step 1200 4 mul mul partitiongrid
+name 3 index !
+name 2 index !
+Y partialgrid step 1200 4 mul mul partitiongrid
+name 3 index !
+name 2 index !
+
+variable:
+/name /modismask def
+grids: X Y :grids
+/SpatialReferenceSystemWKT (IRI:102111) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit  def
+values:
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+0 0 1 1 0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+0 1 0 1 0 0 0 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+1 1 1 0 0 0 0 0 1 1 1 1 1 1 0 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 0 0 0 1 1 1 1 1 1 1 0 1 0 1 1 1 1 1 1 0 1 0 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 0 0 0 0 1 1 1 1 1 0 0 1 0 1 1 1 1 1 0 0 0 1 1 1 1 1 1 1 1 1
+0 1 1 1 1 1 1 0 1 0 1 1 1 1 1 1 0 0 0 1 1 1 1 1 0 0 0 1 1 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 1 1 0 1 1 0 0 0 1 0 0 1 1 1 1 1 1 0 0 0
+0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0 1 0 0 1 1 1 0 0 0 0 0 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 0 1 0 0 0 1 0 0 0 0 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+:values
+:variable
+
+variable:
+/name /modismasksum def
+grids: X Y :grids
+/SpatialReferenceSystemWKT (IRI:102111) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit  def
+/missing_value NaN def
+values:
+nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	1	2	3	4	5	6	7	8	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	9	10	11	12	13	14	15	16	17	18	19	20	21	22	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	23	24	25	26	27	28	29	30	31	32	33	34	35	36	37	38	39	40	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	41	42	43	44	45	46	47	48	49	50	nan	51	52	53	54	55	56	57	58	59	60	61	62	63	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	64	65	66	67	68	69	70	nan	nan	71	72	73	74	75	76	77	78	79	80	81	82	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	83	84	85	86	87	88	nan	nan	89	90	91	92	93	94	95	96	97	98	99	100	101	102	103	104	nan	nan	nan	nan	nan	nan	nan	105	106	nan	nan	nan	107	108	109	110	111	nan	nan	nan	nan	112	113	114	115	116	117	118	119	120	121	122	123	124	125	126	127	nan	nan	nan	nan	nan	128	nan	129	nan	nan	nan	130	131	132	133	134	135	nan	nan	136	137	138	139	140	141	142	143	144	145	146	147	148	149	150	151	152	153	154	155	nan	156	157	158	nan	nan	nan	nan	nan	159	160	161	162	163	164	nan	nan	165	166	167	168	169	170	171	172	nan	173	174	175	176	177	178	179	180	181	182	183	184	185	186	187	188	nan	nan	nan	189	190	191	192	193	194	195	nan	196	nan	197	198	199	200	201	202	nan	203	nan	204	205	206	207	208	209	210	211	212	213	214	215	216	217	218	nan	nan	nan	nan	219	220	221	222	223	nan	nan	224	nan	225	226	227	228	229	nan	nan	nan	230	231	232	233	234	235	236	237	238	nan	239	240	241	242	243	244	nan	245	nan	246	247	248	249	250	251	nan	nan	nan	252	253	254	255	256	nan	nan	nan	257	258	259	260	261	262	263	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	264	265	266	nan	nan	267	268	nan	269	270	nan	nan	nan	271	nan	nan	272	273	274	275	276	277	nan	nan	nan	nan	nan	nan	nan	nan	278	nan	nan	nan	nan	nan	nan	279	280	nan	nan	nan	281	nan	nan	282	283	284	nan	nan	nan	nan	nan	285	286	287	288	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	289	290	291	292	nan	293	nan	nan	nan	294	nan	nan	nan	nan	295	296	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan	nan
+:values
+:variable
+
+
+
+/TILE 296 NewIntegerGRID
+name exch def
+
+variable:
+/name /XY def
+grids: TILE :grids
+values:
+14	15	16	17	18	19	20	21	47	48	49	50	51	52	53	54	55	56	57	58	59	60	81	82	83	84	85	86	87	88	89	90	91	92	93	94	95	96	97	98	114	115	116	117	118	119	120	121	122	123	125	126	127	128	129	130	131	132	133	134	135	136	137	152	153	154	155	156	157	158	161	162	163	164	165	166	167	168	169	170	171	172	187	188	189	190	191	192	195	196	197	198	199	200	201	202	203	204	205	206	207	208	209	210	218	219	223	224	225	226	227	232	233	234	235	236	237	238	239	240	241	242	243	244	245	246	247	253	255	259	260	261	262	263	264	267	268	269	270	271	272	273	274	275	276	277	278	279	280	281	282	283	284	285	286	288	289	290	296	297	298	299	300	301	304	305	306	307	308	309	310	311	313	314	315	316	317	318	319	320	321	322	323	324	325	326	327	328	332	333	334	335	336	337	338	340	342	343	344	345	346	347	349	351	352	353	354	355	356	357	358	359	360	361	362	363	364	365	370	371	372	373	374	377	379	380	381	382	383	387	388	389	390	391	392	393	394	395	397	398	399	400	401	402	404	406	407	408	409	410	411	415	416	417	418	419	423	424	425	426	427	428	429	443	444	445	448	449	451	452	456	459	460	461	462	463	464	473	480	481	485	488	489	490	496	497	498	499	517	518	519	520	522	526	531	532
+:values
+:variable
+\end{ingrid}
+\begin{ingrid}
+grid:
+/name /T def
+/units (days since 2003-01-01) def
+\end{ingrid}
+file 2004.05.08/MOD13Q1.A2004129.h17v07.004.2004148112503.hdf to  ../modus.2004/MOD13Q1.A2004129.h17v07.004.2004148112503.hdf
+
+file 2004.05.24/MOD13Q1.A2004145.h19v08.004.2004165081004.hdf to  ../modus.2004/MOD13Q1.A2004145.h19v08.004.2004165081004.hdf
+
+Turns out the first number is the first day of the interval, the second date is
+not the end of the interval (the interval is 16 days wide). 
+So I enter the edges grid and take the partial to get the right time grid.
+Filenames are generated from the left edge values.
+\begin{ingrid}
+/pointwidth 0 def
+values:
+2000 
+1
+2000
+{
+dup  1 1 ymd2rjt 48 add 2003 1 1 ymd2rjt sub
+exch
+16. exch
+1 add 1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+{} for
+} for
+2001
+1
+2022
+{
+dup  1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+exch
+16. exch
+1 add 1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+{} for
+} for
+
+2023
+1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+16.
+2023 2 17 ymd2rjt 2003 1 1 ymd2rjt sub
+2 index 
+     sub
+    16 div
+    cvi
+    16 mul
+2 index add
+{} for
+:values
+:grid
+
+/T T 
+partialgrid
+/defaultvalue {last} def
+def
+/last_modified T .last_modified def
+
+/NDVI_list
+{
+[ X2 Y2 | TILE T ]
+(/Data/data8/usgs/landdaac/MOLT/MOD13Q1.006/%Y.%m.%d/MOD13Q1.A%Y%j[T].h%2.2d[Xcnt]v%2.2d[Ycnt].006.*.hdf)
+ [ TILE T integralgrid first secondtolast subgrid
+XY
+  a:
+    36. div
+    toi4
+    /name /Ycnt def
+    :a: 1 index
+      36 mul
+      sub
+     /name /Xcnt def
+     :a] 
+readdatafile:
+/name (250m 16 days NDVI) def
+/missing_value -3000 def
+/shortarraytype netcdfrecords
+/valid_min -2000 def
+/valid_max 10000 def
+/scale_factor 1e-4 def
+ndvi_colorsMODIS
+/scale_min valid_min def
+/scale_max valid_max def
+:readdatafile
+} defasvarsilent
+
+
+/EVI_list
+{
+[ X2 Y2 | TILE T ]
+(/Data/data8/usgs/landdaac/MOLT/MOD13Q1.006/%Y.%m.%d/MOD13Q1.A%Y%j[T].h%2.2d[Xcnt]v%2.2d[Ycnt].006.*.hdf)
+ [ TILE T integralgrid first secondtolast subgrid
+XY
+  a:
+    36. div
+    toi4
+    /name /Ycnt def
+    :a: 1 index
+      36 mul
+      sub
+     /name /Xcnt def
+     :a] 
+readdatafile:
+/name (250m 16 days EVI) def
+/missing_value -3000 def
+/shortarraytype netcdfrecords
+/valid_min -2000 def
+/valid_max 10000 def
+/scale_factor 1e-4 def
+ndvi_colorsMODIS
+/scale_min valid_min def
+/scale_max valid_max def
+:readdatafile
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+/view_zenith_angle_list
+{
+[ X2 Y2 | TILE T ]
+(/Data/data8/usgs/landdaac/MOLT/MOD13Q1.006/%Y.%m.%d/MOD13Q1.A%Y%j[T].h%2.2d[Xcnt]v%2.2d[Ycnt].006.*.hdf)
+ [ TILE T integralgrid first secondtolast subgrid
+XY
+  a:
+    36. div
+    toi4
+    /name /Ycnt def
+    :a: 1 index
+      36 mul
+      sub
+     /name /Xcnt def
+     :a] 
+readdatafile:
+/name (250m 16 days view zenith angle) def
+/missing_value -10000 def
+/shortarraytype netcdfrecords
+/valid_min -9000 def
+/valid_max 9000 def
+/scale_factor 1e-2 def
+/units (degrees) def
+/scale_min valid_min def
+/scale_max valid_max def
+:readdatafile
+} defasvarsilent
+
+/reflectance_red_list
+{
+[ X2 Y2 | TILE T ]
+(/Data/data8/usgs/landdaac/MOLT/MOD13Q1.006/%Y.%m.%d/MOD13Q1.A%Y%j[T].h%2.2d[Xcnt]v%2.2d[Ycnt].006.*.hdf)
+ [ TILE T integralgrid first secondtolast subgrid
+XY
+  a:
+    36. div
+    toi4
+    /name /Ycnt def
+    :a: 1 index
+      36 mul
+      sub
+     /name /Xcnt def
+     :a] 
+readdatafile:
+/name (250m 16 days red reflectance) def
+/long_name (250m 16 days red reflectance) def
+ /missing_value -1000 def
+ /valid_range [ 0 10000 ] def
+ /scale_factor_err 0.0 def
+  /calibrated_nt 5 def
+ /units /reflectance def
+ /add_offset_err 0.0 def
+ /scale_factor 1e-4 def
+/shortarraytype netcdfrecords
+/valid_min 0 def
+/valid_max 10000 def
+/scale_min valid_min def
+/scale_max valid_max def
+:readdatafile
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+/reflectance_blue_list
+{
+[ X2 Y2 | TILE T ]
+(/Data/data8/usgs/landdaac/MOLT/MOD13Q1.006/%Y.%m.%d/MOD13Q1.A%Y%j[T].h%2.2d[Xcnt]v%2.2d[Ycnt].006.*.hdf)
+ [ TILE T integralgrid first secondtolast subgrid
+XY
+  a:
+    36. div
+    toi4
+    /name /Ycnt def
+    :a: 1 index
+      36 mul
+      sub
+     /name /Xcnt def
+     :a] 
+readdatafile:
+/name (250m 16 days blue reflectance) def
+ /long_name (250m 16 days blue reflectance) def
+ /missing_value -1000 def
+ /valid_range [ 0 10000 ] def
+ /scale_factor_err 0.0 def
+  /calibrated_nt 5 def
+ /units /reflectance def
+ /add_offset_err 0.0 def
+ /scale_factor 1e-4 def
+/shortarraytype netcdfrecords
+/valid_min 0 def
+/valid_max 10000 def
+/scale_min valid_min def
+/scale_max valid_max def
+:readdatafile
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+/reflectance_MIR_list
+{
+[ X2 Y2 | TILE T ]
+(/Data/data8/usgs/landdaac/MOLT/MOD13Q1.006/%Y.%m.%d/MOD13Q1.A%Y%j[T].h%2.2d[Xcnt]v%2.2d[Ycnt].006.*.hdf)
+ [ TILE T integralgrid first secondtolast subgrid
+XY
+  a:
+    36. div
+    toi4
+    /name /Ycnt def
+    :a: 1 index
+      36 mul
+      sub
+     /name /Xcnt def
+     :a] 
+readdatafile:
+/name (250m 16 days MIR reflectance) def
+ /missing_value -1000 def
+ /valid_range [ 0 10000 ] def
+ /scale_factor_err 0.0 def
+  /calibrated_nt 5 def
+ /units /reflectance def
+ /add_offset_err 0.0 def
+ /scale_factor 1e-4 def
+/shortarraytype netcdfrecords
+/valid_min 0 def
+/valid_max 10000 def
+/scale_min valid_min def
+/scale_max valid_max def
+:readdatafile
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+/reflectance_NIR_list
+{
+[ X2 Y2 | TILE T ]
+(/Data/data8/usgs/landdaac/MOLT/MOD13Q1.006/%Y.%m.%d/MOD13Q1.A%Y%j[T].h%2.2d[Xcnt]v%2.2d[Ycnt].006.*.hdf)
+ [ TILE T integralgrid first secondtolast subgrid
+XY
+  a:
+    36. div
+    toi4
+    /name /Ycnt def
+    :a: 1 index
+      36 mul
+      sub
+     /name /Xcnt def
+     :a] 
+readdatafile:
+/name (250m 16 days NIR reflectance) def
+ /missing_value -1000 def
+ /valid_range [ 0 10000 ] def
+ /scale_factor_err 0.0 def
+  /calibrated_nt 5 def
+ /units /reflectance def
+ /add_offset_err 0.0 def
+ /scale_factor 1e-4 def
+/shortarraytype netcdfrecords
+/valid_min 0 def
+/valid_max 10000 def
+/scale_min valid_min def
+/scale_max valid_max def
+:readdatafile
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+datasetdefs:
+:datasetdefs
+{ X Y X2 Y2 T } { currentobject 1 index get def } forall
+\end{ingrid}
+reorganized to square array of tiles
+\begin{ingrid}
+/NDVI
+{NDVI_list
+   modismasksum TILE sample-along
+/SpatialReferenceSystemWKT (IRI:102111) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit  def
+/iridl:hasSemantics (iridl:NDVI) def
+} defasvarsilent
+\end{ingrid}
+reorganized to square array of tiles
+\begin{ingrid}
+/EVI
+{EVI_list
+   modismasksum TILE sample-along
+/SpatialReferenceSystemWKT (IRI:102111) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit def
+/iridl:hasSemantics (iridl:EVI) def
+} defasvarsilent
+\end{ingrid}
+/view_zenith_angle_list
+\begin{ingrid}
+/view_zenith_angle
+{view_zenith_angle_list
+   modismasksum TILE sample-along
+/SpatialReferenceSystemWKT (IRI:102111) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit def
+} defasvarsilent
+\end{ingrid}
+reorganized to square array of tiles
+\begin{ingrid}
+/reflectance_red
+{reflectance_red_list
+  modismasksum TILE sample-along
+/SpatialReferenceSystemWKT (IRI:102111) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit def
+/iridl:hasSemantics (iridl:reflectance) def
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+/reflectance_blue
+{reflectance_blue_list
+  modismasksum TILE sample-along
+/SpatialReferenceSystemWKT (IRI:102111) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit def
+/iridl:hasSemantics (iridl:reflectance) def
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+/reflectance_MIR
+{reflectance_MIR_list
+  modismasksum TILE sample-along
+ /long_name (250m 16 days MIR reflectance) def
+/SpatialReferenceSystemWKT (IRI:102111) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit def
+/iridl:hasSemantics (iridl:reflectance) def
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+/reflectance_NIR
+{reflectance_NIR_list
+  modismasksum TILE sample-along
+ /long_name (250m 16 days NIR reflectance) def
+/SpatialReferenceSystemWKT (IRI:102111) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit def
+/iridl:hasSemantics (iridl:reflectance) def
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+/references (Huete_etal2002) def
+:dataset
+\end{ingrid}

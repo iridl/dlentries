@@ -1,0 +1,42 @@
+\begin{ingrid}
+continuedataset:
+/description (River Sub Basins in Ethiopia) def
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Sub_Basins def
+/basin
+{ IRIDB (eth_sub_basins) (basin) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/basin_cod
+{ IRIDB (eth_sub_basins) (basin_cod) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/basin_name
+{ IRIDB (eth_sub_basins) (basin_name) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/basin_nr
+{ IRIDB (eth_sub_basins) (basin_nr) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/etwshed01c
+{ IRIDB (eth_sub_basins) (etwshed01c) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/etwshed0_1
+{ IRIDB (eth_sub_basins) (etwshed0_1) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/sqkm
+{ IRIDB (eth_sub_basins) (sqkm) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/label
+{ IRIDB (eth_sub_basins) ((basin_name) || (', ') || (basin_cod) as label) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (eth_sub_basins) (the_geom) [(gid)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+Sub_Basins basin_cod .gid name exch put
+\end{ingrid}
+
+

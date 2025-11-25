@@ -1,0 +1,55 @@
+\begin{ingrid}
+
+/description (India Met. Dept. Extended Logistic Regression Forecast) def
+
+continuedataset:
+
+grid:
+/name /L def
+/long_name (Lead Time) def
+/units /months def
+2.5 1 5.5
+:grid
+
+grid:
+/name /S def
+/long_name (Start Time) def
+monthtime
+/defaultvalue { last } def
+/pointwidth 0. def
+/netcdfgrid true def
+1 Nov 2017 ensotime
+1.
+1 Jul 2018 ensotime
+    :grid
+
+    /target_date {S L add /long_name (forecast time) def /pointwidth 3 def} defasvar
+
+/target_length {
+ target_date .S
+   units /T exch
+     gridtype first
+       0.5 add
+       1 last
+         5.5 add
+         1.0 add
+         NewEvenGRID
+    nip c: 1 :c
+    /name /target_length def
+    exch
+    0 mul
+    add
+   T (days since 1960-01-01) streamgridunitconvert
+   T differential_mul
+   T (months since 1960-01-01) streamgridunitconvert
+   T differential_div
+   /units /days def
+   T 3 runningAverage
+   3. mul
+   target_date T sample-along
+   /long_name (Length of forecast time) def
+}defasvar
+
+:dataset
+
+\end{ingrid}

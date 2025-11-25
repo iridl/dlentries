@@ -1,0 +1,119 @@
+<HEAD>
+<TITLE> Overview of data products</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html63 HREF=section3_3.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html61 HREF=vol1.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html55 HREF=section3_1.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html64 HREF=section3_3.html> Data source and </A>
+<B>Up:</B> <A NAME=tex2html62 HREF=vol1.html> Atlas of Surface </A>
+<B> Previous:</B> <A NAME=tex2html56 HREF=section3_1.html> Introduction</A>
+<HR> <P>
+<H1><A NAME=SECTION0002000000000000000> Overview of data products</A></H1>
+<P>
+The UWM/COADS data set is a collection of global <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2721.xbm">  raw and
+analyzed gridded fields covering the period from January 1945 to
+December 1989.  These fields have been derived primarily from
+individual observations in COADS (see section <A HREF=section3_3.html#secdata>3</A>), with
+additional corrections as described in section <A HREF=section3_6.html#seccorrec>6</A>. Our
+quality control procedure uses a more stringent criterion over regions
+climatologically covered by sea ice; the climatological ice mask
+used was derived from the sea surface temperature and sea ice data set
+by Alexander and Mobley (1976).  In the calculation of buoyancy fluxes
+(section <A HREF=section3_7.html#secparameterizations>7</A>) we use the recent estimates of
+monthly mean salinity by Levitus <em>et al.</em>  (1994). These two data sets
+are included in UWM/COADS for the sake of completeness.
+<P>
+<P><A NAME=tabvars><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_table*78.gif"><P>
+<P>
+<P><A NAME=tabraw><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_table*103.gif"><P>
+<P>
+<P><A NAME=tabclm><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_table*124.gif"><P>
+<P>
+The data set is organized in 5 main subsets:
+<DL ><DT>Directly Observed Quantities.
+<DD> This subset contains the most
+basic surface marine parameters entering our calculations. Although
+monthly mean nonlinear fluxes cannot be directly derived from the
+monthly means of these parameters, many of the qualitative features in
+the fluxes can be traced to the seasonal and interannual
+characteristics of these basic fields. See
+Table <A HREF=section3_2.html#tabvars>1</A> for a list of these quantities.
+<P>
+<DT>Heat and Momentum Fluxes.
+<DD> This subset includes estimates of
+wind stress, sensible and latent heat fluxes, as well as radiational
+fluxes at the ocean surface. The wind speed entering these
+calculations has been corrected according to our revised Beaufort
+equivalent scale (section <A HREF=section3_5.html#secnew_beaufort>5</A>).  This correction
+eliminates much
+of the bias and artificial trends associated with the erroneous WMO
+Code 1100 scale used in COADS Release 1. Transfer coefficients are
+based on Large and Pond (1981, 1982). The estimates of heat and
+radiational fluxes, when combined to form the net heat flux at the
+ocean surface, do not yield a physically plausible implied oceanic heat
+transport. This problem is circumvented by a simple linear inverse
+calculation which provides a systematic way to fine tune parameters in
+the bulk formulas (section <A HREF=section3_9.html#sectuning>9</A>). Gridded sensitivity
+parameters are included in this subset to allow users to experiment
+with different ways of constraining the surface fluxes.
+<P>
+<DT>Fresh Water Fluxes.
+<DD> This subset includes estimates of
+evaporation, precipitation, and the corresponding buoyancy fluxes
+based on Levitus <em>et al.</em> (1994) climatological sea surface salinity.
+<P>
+<DT>Miscellaneous Derived Quantities.
+<DD> This subset contains several
+derived quantities of general interest, most of which are available in
+the original COADS Monthly Mean Summaries. Refer to
+Table <A HREF=section3_2.html#tabvars>1</A> for a list of these
+parameters.
+<P>
+<DT>Number of Observations.
+<DD> The distribution
+of surface marine data
+is highly variable in space and time. The surface marine observing
+system is clearly not adequate to truly resolve global anomalies,
+especially in the decade following World War II. Even today, large
+portions of the tropics and the southern oceans are extremely
+under-sampled. However, there is no simple way to determine the
+validity of
+our analysis over the oceans. Some regions of the tropics that were
+void of data in the early years have experienced an increase in
+coverage throughout the years. In order to assist users determining
+the reliability of our analyses we have included files with the number
+of observations for some of the basic quantities. Some issues related
+to sampling and fair weather bias are addressed in
+section <A HREF=section3_10.html#secfwb>10</A>.
+<P>
+ </DL>
+<P>
+The data is stored using Unidata's Network Common Data Format (NetCDF)
+described in Rew <em>et al.</em> (1993). NetCDF is self-describing and
+system-independent software for storing scientific data and is
+currently available for most Unix workstations, supercomputers and
+personal computers.  A description of the UWM/COADS data formats,
+FORTRAN subroutines needed to read the data, and a description of
+NetCDF commands can be found in Appendices <A HREF=#secfortran>C</A>-<A HREF=#secnetcdf>E</A>.
+FORTRAN access software and examples of how to read the data are also
+included in the data distribution.
+<P>
+The objectively analyzed anomaly and
+climatology files are listed in Table <A HREF=section3_2.html#tabvars>1</A>. The companion
+raw (non-analyzed) monthly mean files appear in Table <A HREF=section3_2.html#tabraw>2</A>.
+Table <A HREF=section3_2.html#tabclm>3</A> lists files with analyzed climatological
+statistics such as means, standard deviations and number of
+observations (see section <A HREF=section3_8.html#secanalysis>8</A> for definitions of these
+statistics).
+<P>
+<HR> <A NAME=tex2html63 HREF=section3_3.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html61 HREF=vol1.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html55 HREF=section3_1.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html64 HREF=section3_3.html> Data source and </A>
+<B>Up:</B> <A NAME=tex2html62 HREF=vol1.html> Atlas of Surface </A>
+<B> Previous:</B> <A NAME=tex2html56 HREF=section3_1.html> Introduction</A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>
+Fri Oct 20 12:28:33 EDT 1995</I>
+</ADDRESS>

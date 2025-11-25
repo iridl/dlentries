@@ -1,0 +1,62 @@
+\begin{ingrid}
+continuedataset:
+
+/references (Sillmann_etal2013a Sillmann_etal2013b) def
+
+ dataset:
+ /name (r1i1p1) def
+
+grid:
+/name /lat def
+/long_name /latitude def
+/units (degree_north) def
+90.0 1.5 -90.0
+:grid
+
+grid:
+/name /lon def
+/long_name /longitude def
+/units (degree_east) def
+periodic
+-180.0 1.5 178.5
+:grid
+
+grid:
+/name /time def
+/units (months since 01-Jan) def
+periodic
+Jan 1.0 Dec
+:grid
+
+/r95thresh { (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/thresholds_monClim_ERAInterim_historical_r1i1p1_1979-2008.nc) readCDF .r95thresh } defasvarsilent
+
+/r99thresh { (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/thresholds_monClim_ERAInterim_historical_r1i1p1_1979-2008.nc) readCDF .r99thresh } defasvarsilent
+
+/tn10thresh {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/thresholds_monClim_ERAInterim_historical_r1i1p1_1979-2008.nc) readCDF
+  time name
+    (months since 01-Jan) periodic Jan 1.0 Dec NewEvenGRID
+    replaceGRID
+  .tn10thresh } defasvarsilent
+
+/tn90thresh {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/thresholds_monClim_ERAInterim_historical_r1i1p1_1979-2008.nc) readCDF
+  time name
+    (months since 01-Jan) periodic Jan 1.0 Dec NewEvenGRID
+    replaceGRID
+  .tn90thresh } defasvarsilent
+
+/tx10thresh {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/thresholds_monClim_ERAInterim_historical_r1i1p1_1979-2008.nc) readCDF
+  time name
+    (months since 01-Jan) periodic Jan 1.0 Dec NewEvenGRID
+    replaceGRID
+  .tx10thresh } defasvarsilent
+
+/tx90thresh {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/thresholds_monClim_ERAInterim_historical_r1i1p1_1979-2008.nc) readCDF
+  time name
+    (months since 01-Jan) periodic Jan 1.0 Dec NewEvenGRID
+    replaceGRID
+  .tx90thresh } defasvarsilent
+
+ :dataset
+
+:dataset
+\end{ingrid}

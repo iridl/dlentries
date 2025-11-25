@@ -1,0 +1,56 @@
+\begin{ingrid}
+/description (Cross timescale interference) def
+/iridl:hasSemantics (iridl:Xtimescale) def
+
+continuedataset:
+
+/cllj {
+ SOURCES .NOAA .NCEP .CPC .UNIFIED_PRCP .GAUGE_BASED .GLOBAL .v1p0 .Monthly .extREALTIME .rain
+  T (Jan 1981) (Dec 2010) RANGE
+  T (days since 1960-01-01) streamgridunitconvert
+  T differential_mul
+  T (months since 1960-01-01) streamgridunitconvert
+  T differential_div
+  T 3 boxAverage
+  dup SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .PressureLevel .u
+    P 925 VALUE
+    Y 12.5 17.5 RANGE
+    X -80 -70 RANGE
+    [X Y]average
+    dup
+     T (1981) (2010) RANGE
+     [T]average
+     sub
+    -1 mul
+    [T]percentileover
+    {Negative 0.33 Weak 0.66 Positive} (CLLJ) classify
+    T 3 boxAverage
+    [T]weighted-average
+   exch
+   [T]average
+   sub
+  /description (Caribbean Low Level Jet ) def
+  /long_name (CLLJ) def
+  prcpanomscale
+  DATA -50 50 RANGE
+}defasvarsilent
+
+/mjo {
+ SOURCES .NOAA .NCEP .CPC .UNIFIED_PRCP .GAUGE_BASED .GLOBAL .v1p0 .extREALTIME .rain
+  T (1 Jan 2002) (31 Dec 2020) RANGE
+  SOURCES .NOAA .PSL .ROMI .frozen .phase
+   T (1 Jan 2002) (31 Dec 2020) RANGEEDGES
+   SOURCES .NOAA .PSL .ROMI .frozen .amplitude
+    T (1 Jan 2002) (31 Dec 2020) RANGEEDGES
+    1.0 flaggt
+    mul
+   /name /Phase def
+   classifyby
+   monthlyAverage
+   /description (Madden Julian Oscillation ) def 
+  /name /phases def
+  /long_name (phases-extREALTIME 2002-2020 ) def
+}defasvarsilent
+
+:dataset
+\end{ingrid}

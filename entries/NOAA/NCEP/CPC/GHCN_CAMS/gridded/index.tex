@@ -1,0 +1,54 @@
+\begin{ingrid}
+continuedataset:
+
+dataset:
+/name (deg0p5) def
+/description (CPC Monthly Global Surface Air Temperature Data Set at 0.5 degree from 1948-present) def
+/references (Fan_VanDenDool2004 Fan_VanDenDool2008) def
+grid:
+/name /X def
+/units (degree_east) def
+periodic
+0.25 0.5 359.75
+:grid
+
+grid:
+/name /Y def
+/units (degree_north) def
+-89.75 0.5 89.75
+:grid
+
+grid:
+/name /T def
+/standard_name (time) def
+monthtime
+/defaultvalue {last} def
+16 Jan 1948 ensotime
+1.
+16 (/Data/data6/noaa/cpc/ghcn_cams/monthly/gridded/endmonth.txt)
+dup filelast_modified last_modified imax /last_modified exch def
+ readfile ensotime %enddate
+dup
+rm19602ymd
+ymd:nextmonth
+ymd:nextmonth
+ ymd2systemtime
+/expires exch def
+:grid
+
+/last_modified T .last_modified def
+
+/temp { [X Y | T] (/Data/data6/noaa/cpc/ghcn_cams/monthly/gridded/ghcn_cams_1948_cur.grb)
+readdatafile:
+1 GRIB2record
+:readdatafile
+/missing_value 9.999E+20 def
+/long_name (Air Temperature) def
+/units (Celsius_scale) def
+/standard_name (air_temperature) def
+} defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}

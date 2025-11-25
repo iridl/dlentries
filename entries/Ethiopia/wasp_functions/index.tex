@@ -1,0 +1,103 @@
+\begin{ingrid}
+continuedataset:
+
+/EthiopiaNMA datadownloadsareRestricted
+
+/ENACT-1210_WASP12 {
+ SOURCES .Ethiopia .NMA .dekadal .rainfall .rfe_adj
+  T (1984) (2010) RANGE
+   monthlyAverage 3. mul
+  a:
+    :a: yearly-climatology sub
+    :a
+  [T]REORDER
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+  SOURCES .Ethiopia .NMA .dekadal .rainfall .rfe_adj
+  T (1984) (2010) RANGE
+   monthlyAverage 3. mul
+ yearly-climatology
+   [T]REORDER
+   a: :a:
+      [T]average
+      12 mul
+      0.001 masklt
+      div
+     :a
+   mul
+  T 12 runningAverage
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+  SOURCES .Ethiopia .NMA .dekadal .rainfall .rfe_adj
+  T (1984) (2010) RANGE
+   monthlyAverage 3. mul yearly-climatology 
+   [T]average
+   0.25 masklt
+   dup div
+   div
+/long_name (ENACT-1210_WASP12) def
+/valid_min undef
+/valid_max undef
+%/plotfirst -3.5 def
+%/plotlast 3.5 def
+std_wasp_colors
+} defasvarcachesilent
+
+/ENACT-1210_lag_WASP12 {
+ SOURCES .Ethiopia .NMA .dekadal .rainfall .rfe_adj monthlyAverage
+  T (1984) (2010) RANGE
+  3.0 mul
+  a:
+    :a: yearly-climatology sub
+    :a
+  [T]REORDER
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+  SOURCES .Ethiopia .NMA .dekadal .rainfall .rfe_adj monthlyAverage
+  T (1984) (2010) RANGE
+   3.0 mul
+   yearly-climatology
+   [T]REORDER
+   a: :a:
+      [T]average
+      12 mul
+      0.001 masklt
+      div
+     :a
+   mul
+  T 0 1 11 shiftdatashort
+  T_lag /mylag renameGRID
+  T 12 runningAverage
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+  SOURCES .Ethiopia .NMA .dekadal .rainfall .rfe_adj monthlyAverage
+  T (1984) (2010) RANGE
+   3.0 mul
+   yearly-climatology
+   [T]average
+   0.25 masklt
+   dup div
+   div
+  /long_name (ENACT-1210_WASP12) def
+  /valid_min undef
+  /valid_max undef
+%  /plotfirst -3.5 def
+%  /plotlast 3.5 def
+  std_wasp_colors
+} defasvarcachesilent
+
+
+:dataset
+\end{ingrid}

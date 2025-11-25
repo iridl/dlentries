@@ -1,0 +1,39 @@
+\begin{ingrid}
+
+continuedataset:
+
+/temp {
+ home .tippett .scratch .na .realtime .MM .t2m
+  SOURCES .NOAA .NCEP .CPC .GHCN_CAMS .gridded .deg0p5 .temp
+   (Celsius_scale) unitconvert
+   [X Y]regridLinear
+nip
+   T (Dec 1949) last RANGE
+   T 3 runningAverage
+   T 12 splitstreamgrid
+/long_name (Air Temperature) def
+}defasvar
+
+/anomaly {
+ SOURCES .NOAA .NCEP .CPC .CAMS .anomaly .temp
+   T (Dec 1950) last RANGE
+   T 3 runningAverage
+   T 12 splitstreamgrid
+/long_name (temperature anomaly) def
+}defasvar
+
+/temp_c8110 {
+temp
+T2 (1981) (2010) RANGE
+[T2]average
+}defasvar
+
+/temp_s8110 {
+temp
+T2 (1981) (2010) RANGE
+[T2]rmsaover
+}defasvar
+
+:dataset
+
+\end{ingrid}

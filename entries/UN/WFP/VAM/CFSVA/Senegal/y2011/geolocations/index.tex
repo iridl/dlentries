@@ -1,0 +1,53 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+
+grid:
+/name /mycol def
+1 1 2
+:grid
+
+:datasetdefs
+
+grid:
+/name /VNID def
+1. 1. 10333.
+:grid
+
+/lon {
+[mycol VNID | ]
+(/Data/data6/WFP/senegal/Basesdedonnees_AGVSAN2010/2010AGVSANg.txt)
+readdatafile:
+[1 1] r*4astsv
+:readdatafile
+mycol 2 VALUE
+mycol removeGRID
+/long_name (Longitude) def
+/units /degree_east def
+/scale_min -17.6 def
+/scale_max -11.2 def
+}defasvarsilent
+
+/lat {
+[mycol VNID | ]
+(/Data/data6/WFP/senegal/Basesdedonnees_AGVSAN2010/2010AGVSANg.txt)
+readdatafile:
+[1 1] r*4astsv
+:readdatafile
+mycol 1 VALUE
+mycol removeGRID
+/long_name (Latitude) def
+/units /degree_north def
+/scale_min 12.2 def
+/scale_max 16.8 def
+}defasvarsilent
+
+/location {
+lon lat geopt
+}defasvar
+
+:dataset
+
+\end{ingrid}

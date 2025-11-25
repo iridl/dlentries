@@ -1,0 +1,17 @@
+ (/Data/data6/noaa/cpc/dailyolr/olr.day.mean.cuf) continuewithCUF
+\begin{ingrid}
+
+(/Data/data6/noaa/cpc/dailyolr/olr.day.mean.nc) continuewithCDF
+continuedataset:
+  olr time
+    /pointwidth 0 def
+    first cvsunits
+     (0000 1 Jun 1974) eq
+     {name (days since 1974-01-01) ordered 151.5 1 npts 1 sub 2 index add NewEvenGRID replaceGRID name exch def olr .time name exch def info time olr .time replaceGRID name exch def}{pop pop}ifelse
+  info missing_value type
+    /stringtype eq
+    { /missing_value 32766 def}if
+   name exch def
+/references (Liebmann_Smith1996) def
+:dataset
+\end{ingrid}

@@ -1,0 +1,36 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (iridl:Ethiopia_49_1) def
+/description (Ethiopia Rainfall Climate Zones) def
+\end{ingrid}
+\begin{ingrid}
+
+dataset:
+/name /eth_clim def
+/clim_name
+{IRIDB
+   (eth_clim_zones) (clim_name) [ (gid) ]open_column_by
+            /long_name (Climate Zone Name) def
+}defasvarsilentnoreuse
+/clim_id
+{IRIDB
+   (eth_clim_zones) (clim_id) [ (gid) ]open_column_by
+            /long_name (Climate Zone ID) def
+}defasvarsilentnoreuse
+/label
+{IRIDB
+   (eth_clim_zones) (label) [ (gid) ]open_column_by
+            /long_name (Climate Zone Label) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+   (eth_clim_zones) (the_geom) [ (gid) ]open_column_by
+            /long_name (Climate Zone geometry) def
+}defasvarsilentnoreuse
+:dataset
+
+:dataset
+
+eth_clim clim_id .gid name exch put
+
+\end{ingrid}

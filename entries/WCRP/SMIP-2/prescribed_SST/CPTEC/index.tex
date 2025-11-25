@@ -1,0 +1,236 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/CPTECfilenames
+{
+(/Data/data1/iri/modelling/daved/WGSIP.D/SampleData.D/CPTEC.D/%s[season].D/GPOSNMC%Y%m[starttime]1%d[M]12%Y%m[T]0112P.mms.T062L28)
+[M L S S 25 sub /name /starttime def season T]
+} def
+:datasetdefs
+/description (Centro de Previsão de Tempo e Estudos Climáticos) def
+/iridl:hasSemantics (iridl:CPTEC) def
+grid:
+/name (longitude)def
+/units (degree_east)def
+ 0.0 1.875 360 1 index sub
+:grid
+grid:
+/name (latitude)def
+/units (degree_north)def
+values:
+-88.57217 -86.72253 -84.86197 -82.99894 -81.13498 -79.27056 -77.40589 -75.54106
+ -73.67613 -71.81113 -69.94608 -68.08099 -66.21587 -64.35073 -62.48557 -60.62040
+ -58.75521 -56.89001 -55.02481 -53.15960 -51.29438 -49.42915 -47.56393 -45.69869
+ -43.83346 -41.96822 -40.10298 -38.23774 -36.37249 -34.50724 -32.64199 -30.77674
+ -28.91149 -27.04624 -25.18099 -23.31573 -21.45048 -19.58522 -17.71996 -15.85470
+ -13.98945 -12.12419 -10.25893  -8.39367  -6.52841  -4.66315  -2.79789  -0.93263
+   0.93263   2.79789   4.66315   6.52841   8.39367  10.25893  12.12419  13.98945
+  15.85470  17.71996  19.58522  21.45048  23.31573  25.18099  27.04624  28.91149
+  30.77674  32.64199  34.50724  36.37249  38.23774  40.10298  41.96822  43.83346
+  45.69869  47.56393  49.42915  51.29438  53.15960  55.02481  56.89001  58.75521
+  60.62040  62.48557  64.35073  66.21587  68.08099  69.94608  71.81113  73.67613
+  75.54106  77.40589  79.27056  81.13498  82.99894  84.86197  86.72253  88.57217
+:values
+:grid
+latitude high low subgrid name exch def
+grid:
+/name /Z def
+/units (mb)def
+values:  1000.  850  700  500  300  200. :values
+:grid
+grid:
+/name /M def
+/long_name (members) def
+2 1 7
+:grid
+grid:
+/name /S def
+monthtime
+/pointwidth 0 def
+periodic
+1 Mar 1979 ensotime
+3.
+1 Dec 1979 ensotime
+:grid
+variable:
+/name /season def
+grids: S :grids
+values:
+(MAMJJA)
+(JJASON)
+(SONDJF)
+(DJFMAM)
+:values
+:variable
+grid:
+/name /S def
+/long_name (start time) def
+monthtime
+/pointwidth 0 def
+1 Mar 1979 ensotime
+3.
+1 Dec 2000 ensotime
+:grid
+grid:
+/name /L def
+/long_name (lead time) def
+/units (months) def
+0.5 1. 5.5
+:grid
+/NVZ 30 NewIntegerGRID name exch def
+/T { S L add /long_name (Forecast Time) def /pointwidth 1 def} defasvar
+[longitude latitude | NVZ M S L]CPTECfilenames readdatafile:
+sequential
+/missing_value
+-2.56E+33
+def
+:readdatafile
+definevariables:
+0 Zvariable:
+/name /TOPO def
+/units (M) def
+/long_name (topography) def
+:Zvariable
+0 Zvariable:
+/name /LSMK def
+/long_name (land mask) def
+:Zvariable
+6 Zvariable:
+/name /ua def
+/long_name (eastward wind) def
+/units (m/s) def
+:Zvariable
+6 Zvariable:
+/name /va def
+/long_name (northward wind) def
+/units (m/s) def
+:Zvariable
+6 Zvariable:
+/name /zg def
+/long_name(time mean geopotential height) def
+/units (m) def
+:Zvariable
+0 Zvariable:
+/name /psl def
+/long_name (time mean sea-level pressure) def
+/units (mb above 1000) def
+:Zvariable
+6 Zvariable:
+/name /ta def
+/long_name (air temperature) def
+/units (Kelvin_scale) def
+:Zvariable
+0 Zvariable:
+/name /pr def
+/long_name (total precipitation) def
+/units                      (Kg m-2 day-1) def
+:Zvariable
+0 Zvariable:
+/name /ts def
+/long_name (ground/surface cover temperature) def
+/units (Kelvin_scale) def
+:Zvariable
+0 Zvariable:
+/name /tcas def
+/long_name (temperature of canopy air space) def
+/units (Kelvin_scale) def
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+:Zvariable
+:definevariables
+:dataset
+ {zg ts TOPO ua psl pr tcas LSMK ta va}{exec cachevar pop}forall
+\end{ingrid}
+Hi Benno,
+The CPTEC SMIP2 data is now all here and ready to be put into the Data Library. I will outline here how the
+data is divided up. Please let me know if there is something that I can do to make the data easier for you
+to incorporate into the Data Library.
+The data is in the form of GrADS control file and associated data set with one pair of files for
+each ensemble member and each verification month. The labeling is:
+
+he file name is in the format GPOSNMCYYYYMMDDHHYYYYMM0112P.
+The first label (from the left) YYYYMMDDHH is the year, month, day and hour of the initial condition. The second label YYYYMM0112 represents the year and month of prediction. 0112 is meaningless, just to complete the correct number of characters in the string. The letter "P" means post-processed.
+
+So, for instance, for the 6 ensemble members that verify in November  1980 the control files would be:
+
+GPOSNMC19781112121980110112P.mms.T062L28.ctl
+GPOSNMC19781113121980110112P.mms.T062L28.ctl
+GPOSNMC19781114121980110112P.mms.T062L28.ctl
+GPOSNMC19781115121980110112P.mms.T062L28.ctl
+GPOSNMC19781116121980110112P.mms.T062L28.ctl
+GPOSNMC19781117121980110112P.mms.T062L28.ctl
+
+The part of the file:
+GPOSNMC1978111212 basically just denotes the different ensemble members.
+These cases are the so-called DJFMAM cases and are located in:
+/Data/data1/iri/modelling/daved/WGSIP.D/SampleData.D/CPTEC.D/DJFMAM.D
+
+The other "seasons" are located in:
+
+/Data/data1/iri/modelling/daved/WGSIP.D/SampleData.D/CPTEC.D/JJASON.D
+/Data/data1/iri/modelling/daved/WGSIP.D/SampleData.D/CPTEC.D/MAMJJA.D
+/Data/data1/iri/modelling/daved/WGSIP.D/SampleData.D/CPTEC.D/SONDJF.D
+
+I attach a sample control file which shows the fields.
+
+It would seem to me that I could make things easier for you by eliminating this rather long ensemble member
+prefix and putting all months for a particular forecast into a single data/control file pair. Please let me know if that would be
+helpful.
+
+Dave
+
+
+
+
+-- 
+Dr. David G. DeWitt
+223 Monell Building
+IRI - International Research Institute for Climate Prediction (IRI)
+Lamont-Doherty Earth Observatory
+Columbia University
+61 Route 9W
+Palisades, NY 10964-8000
+United States
+Phone: (845) 680-4415
+Fax: (845) 680-4865
+daved@iri.columbia.edu
+
+
+
+DSET ^GPOSNMC19981117122001050112P.mms.T062L28
+*
+OPTIONS SEQUENTIAL YREV BIG_ENDIAN
+*
+UNDEF -2.56E+33
+*
+TITLE PRESSURE HISTORY    CPTEC AGCM R1.2 2001  T062L28  warm
+*
+XDEF 192 LINEAR    0.000   1.8750000000
+YDEF  96 LEVELS
+ -88.57217 -86.72253 -84.86197 -82.99894 -81.13498 -79.27056 -77.40589 -75.54106
+ -73.67613 -71.81113 -69.94608 -68.08099 -66.21587 -64.35073 -62.48557 -60.62040
+ -58.75521 -56.89001 -55.02481 -53.15960 -51.29438 -49.42915 -47.56393 -45.69869
+ -43.83346 -41.96822 -40.10298 -38.23774 -36.37249 -34.50724 -32.64199 -30.77674
+ -28.91149 -27.04624 -25.18099 -23.31573 -21.45048 -19.58522 -17.71996 -15.85470
+ -13.98945 -12.12419 -10.25893  -8.39367  -6.52841  -4.66315  -2.79789  -0.93263
+   0.93263   2.79789   4.66315   6.52841   8.39367  10.25893  12.12419  13.98945
+  15.85470  17.71996  19.58522  21.45048  23.31573  25.18099  27.04624  28.91149
+  30.77674  32.64199  34.50724  36.37249  38.23774  40.10298  41.96822  43.83346
+  45.69869  47.56393  49.42915  51.29438  53.15960  55.02481  56.89001  58.75521
+  60.62040  62.48557  64.35073  66.21587  68.08099  69.94608  71.81113  73.67613
+  75.54106  77.40589  79.27056  81.13498  82.99894  84.86197  86.72253  88.57217
+ZDEF   6 LEVELS
+         1000  850  700  500  300  200
+TDEF 1 LINEAR 12z01may2001 1MO
+*
+VARS  10
+TOPO  0 99 TOPOGRAPHY                              (M               )
+LSMK  0 99 LAND SEA MASK                           (NO DIM          )
+UVMT  6 99 TIME MEAN ZONAL WIND (U)                (M/Sec           )
+VVMT  6 99 TIME MEAN MERIDIONAL WIND (V)           (M/Sec           )
+ZHMT  6 99 TIME MEAN GEOPOTENTIAL HEIGHT           (M               )
+MPMT  0 99 TIME MEAN SEA LEVEL PRESSURE            (Mb-1000         )
+ATMT  6 99 TIME MEAN ABSOLUTE TEMPERATURE          (K               )
+PREC  0 99 TOTAL PRECIPITATION                     (Kg M**-2 Day**-1)
+TGSC  0 99 GROUND/SURFACE COVER TEMPERATURE        (K               )
+TCAS  0 99 TEMPERATURE OF CANOPY AIR SPACE         (K               )
+ENDVARS

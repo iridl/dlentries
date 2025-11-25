@@ -1,0 +1,443 @@
+\begin{ingrid}
+continuedataset:
+link:
+/name (WOA01) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NODC/.WOA01/.Grid-1x1/.Monthly/) def
+/description (World Ocean Atlas 2001) def
+/semantics (dcterm:isReplacedBy) def
+:link
+grid: /name (T) def
+/long_name (Time) def
+periodic
+month
+Jan 1 Dec
+:grid
+grid: /name (X) def
+/long_name(Longitude) def
+/units /degreeE def
+periodic 
+0.5 to 359.5 N= 360 pts
+:grid
+grid: /name (Y) def
+/long_name(Latitude) def
+/units /degreeN def
+-89.5 to 89.5 N= 180 pts
+:grid
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. 600. 700. 800. 900. 1000. 1100. 1200. 1300. 1400. 1500. ]
+:grid
+dataset:
+/name /analyzed def
+link:
+/name (WOA01) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NODC/.WOA01/.Grid-1x1/.Monthly/.an/) def
+/description (World Ocean Atlas 2001) def
+/semantics (dcterm:isReplacedBy) def
+:link
+variable:
+/name /temperature def
+/long_name(temperature) def
+/units /Celsius_scale def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/temperat/monthly/tan1.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/long_name (dissolved oxygen) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/oxygen/monthly/oan1.r4) def
+:file
+:variable
+variable:
+/name /AOU def
+/long_name (apparent oxygen utilization) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/aou/monthly/aan1.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/long_name(salinity) def
+/units /PSU def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/salinity/monthly/san1.r4) def
+:file
+:variable
+%variable:
+%/name /silicate def
+%/units (micro mole/l) def
+%/missing_value -99.9999 def
+%grids: X Y | Z T :grids
+%file:
+%random
+%/name (/Data/data7/noaa/nodc/WOA98b/silicate/monthly/san1.r4) def
+%:file
+%:variable
+variable:
+/name /o2sat def
+/units (percent) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/o2sat/monthly/xan1.r4) def
+:file
+:variable
+:dataset
+dataset:
+/name /raw def
+link:
+/name (WOA01) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NODC/.WOA01/.Grid-1x1/.Monthly/.mn/) def
+/description (World Ocean Atlas 2001) def
+/semantics (dcterm:isReplacedBy) def
+:link
+variable:
+/name /temperature def
+/long_name(temperature) def
+/units /Celsius_scale def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/temperat/monthly/tmn1.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/long_name (dissolved oxygen) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/oxygen/monthly/omn1.r4) def
+:file
+:variable
+variable:
+/name /AOU def
+/long_name (apparent oxygen utilization) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/aou/monthly/amn1.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/long_name(salinity) def
+/units /PSU def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/salinity/monthly/smn1.r4) def
+:file
+:variable
+%variable:
+%/name /silicate def
+%/units (micro mole/l) def
+%/missing_value -99.9999 def
+%grids: X Y | Z T :grids
+%file:
+%random
+%/name (/Data/data7/noaa/nodc/WOA98b/silicate/monthly/smn1.r4) def
+%:file
+%:variable
+variable:
+/name /o2sat def
+/units (percent) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/o2sat/monthly/xmn1.r4) def
+:file
+:variable
+:dataset
+dataset:
+/name /sd def
+/long_name (standard deviation)def
+variable:
+/name /temperature def
+/long_name(temperature) def
+/units /Celsius_scale def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/temperat/monthly/tsd1.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/long_name (dissolved oxygen) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/oxygen/monthly/osd1.r4) def
+:file
+:variable
+variable:
+/name /AOU def
+/long_name (apparent oxygen utilization) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/aou/monthly/asd1.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/long_name(salinity) def
+/units /PSU def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/salinity/monthly/ssd1.r4) def
+:file
+:variable
+%variable:
+%/name /silicate def
+%/units (micro mole/l) def
+%/missing_value -99.9999 def
+%grids: X Y | Z T :grids
+%file:
+%random
+%/name (/Data/data7/noaa/nodc/WOA98b/silicate/monthly/ssd1.r4) def
+%:file
+%:variable
+variable:
+/name /o2sat def
+/units (percent) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/o2sat/monthly/xsd1.r4) def
+:file
+:variable
+:dataset
+dataset:
+/name /se def
+/long_name (standard error) def
+variable:
+/name /temperature def
+/long_name(temperature) def
+/units /Celsius_scale def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/temperat/monthly/tse1.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/long_name (dissolved oxygen) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/oxygen/monthly/ose1.r4) def
+:file
+:variable
+variable:
+/name /AOU def
+/long_name (apparent oxygen utilization) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/aou/monthly/ase1.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/long_name(salinity) def
+/units /PSU def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/salinity/monthly/sse1.r4) def
+:file
+:variable
+%variable:
+%/name /silicate def
+%/units (micro mole/l) def
+%/missing_value -99.9999 def
+%grids: X Y | Z T :grids
+%file:
+%random
+%/name (/Data/data7/noaa/nodc/WOA98b/silicate/monthly/sse1.r4) def
+%:file
+%:variable
+variable:
+/name /o2sat def
+/units (percent) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/o2sat/monthly/xse1.r4) def
+:file
+:variable
+:dataset
+dataset:
+/name /dist def
+/long_name (data distribution) def
+link:
+/name (WOA01) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NODC/.WOA01/.Grid-1x1/.Monthly/.dd/) def
+/description (World Ocean Atlas 2001) def
+/semantics (dcterm:isReplacedBy) def
+:link
+variable:
+/name /temperature def
+/missing_value -100 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/temperat/monthly/tdd1.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/missing_value -100 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/oxygen/monthly/odd1.r4) def
+:file
+:variable
+variable:
+/name /AOU def
+/missing_value -100 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/aou/monthly/add1.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/missing_value -100 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/salinity/monthly/sdd1.r4) def
+:file
+:variable
+%variable:
+%/name /silicate def
+%/missing_value -100 def
+%grids: X Y | Z T :grids
+%file:
+%random
+%/name (/Data/data7/noaa/nodc/WOA98b/silicate/monthly/sdd1.r4) def
+%:file
+%:variable
+variable:
+/name /o2sat def
+/missing_value -100 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/o2sat/monthly/xdd1.r4) def
+:file
+:variable
+:dataset
+dataset:
+/name /gridpt def
+/long_name (grid points) def
+link:
+/name (WOA01) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NODC/.WOA01/.Grid-1x1/.Monthly/.gp/) def
+/description (World Ocean Atlas 2001) def
+/semantics (dcterm:isReplacedBy) def
+:link
+variable:
+/name /temperature def
+/missing_value -100 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/temperat/monthly/tgp1.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/missing_value -100 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/oxygen/monthly/ogp1.r4) def
+:file
+:variable
+variable:
+/name /AOU def
+/missing_value -100 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/aou/monthly/agp1.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/missing_value -100 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/salinity/monthly/sgp1.r4) def
+:file
+:variable
+%variable:
+%/name /silicate def
+%/missing_value -100 def
+%grids: X Y | Z T :grids
+%file:
+%random
+%/name (/Data/data7/noaa/nodc/WOA98b/silicate/monthly/sgp1.r4) def
+%:file
+%:variable
+variable:
+/name /o2sat def
+/missing_value -100 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data7/noaa/nodc/WOA98b/o2sat/monthly/xgp1.r4) def
+:file
+:variable
+:dataset
+:dataset
+\end{ingrid}

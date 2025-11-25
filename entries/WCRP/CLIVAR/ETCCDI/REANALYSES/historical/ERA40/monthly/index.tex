@@ -1,0 +1,185 @@
+\begin{ingrid}
+continuedataset:
+
+/references (Sillmann_etal2013a Sillmann_etal2013b) def
+
+ dataset:
+ /name (r1i1p1) def
+
+grid:
+/name /lon def
+/units (degree_east) def
+periodic
+0 2.5 357.5
+:grid
+grid:
+/name /lat def
+/units (degree_north) def
+90 2.5 -90 
+:grid
+grid:
+/name /time def
+/units (months since 1960-01-01) def
+16 Sep 1957 ensotime
+1.0
+16 Aug 2002 ensotime
+:grid
+
+/dtr {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/dtrETCCDI_mon_ERA40_historical_r1i1p1_195701-200212.nc) readCDF
+  time name (months since 1960-01-01) ordered 16
+       Jan 1957 ensotime
+       1.0 16
+         Dec 2002 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (Sep 1957) (Aug 2002) RANGE
+  .dtrETCCDI
+/iridl:hasSemantics [ (climdex:DTR) ] def
+longitude /lon renameGRID
+latitude /lat renameGRID
+ } defasvarsilent
+
+/rx1day {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/rx1dayETCCDI_mon_ERA40_historical_r1i1p1_195701-200212.nc) readCDF
+  time name (months since 1960-01-01) ordered 16
+       Jan 1957 ensotime
+       1.0 16
+         Dec 2002 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (Sep 1957) (Aug 2002) RANGE
+  .rx1dayETCCDI 
+/iridl:hasSemantics [ (climdex:Rx1day) ] def
+longitude /lon renameGRID
+latitude /lat renameGRID
+} defasvarsilent
+
+/rx5day {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/rx5dayETCCDI_mon_ERA40_historical_r1i1p1_195701-200212.nc) readCDF
+  time name (months since 1960-01-01) ordered 16
+       Jan 1957 ensotime
+       1.0 16
+         Dec 2002 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (Sep 1957) (Aug 2002) RANGE
+  .rx5dayETCCDI
+/iridl:hasSemantics [ (climdex:Rx5day) ] def
+longitude /lon renameGRID
+latitude /lat renameGRID
+ } defasvarsilent
+
+/tn10p {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/tn10pETCCDI_mon_ERA40_historical_r1i1p1_195701-200212.nc) readCDF
+  time name (months since 1960-01-01) ordered 16
+       Jan 1957 ensotime
+       1.0 16
+         Dec 2002 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (Sep 1957) (Aug 2002) RANGE
+  .tn10pETCCDI
+/iridl:hasSemantics [ (climdex:TN10p) ] def 
+longitude /lon renameGRID
+latitude /lat renameGRID
+} defasvarsilent
+
+/tn90p {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/tn90pETCCDI_mon_ERA40_historical_r1i1p1_195701-200212.nc) readCDF
+  time name (months since 1960-01-01) ordered 16
+       Jan 1957 ensotime
+       1.0 16
+         Dec 2002 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (Sep 1957) (Aug 2002) RANGE
+  .tn90pETCCDI
+/iridl:hasSemantics [ (climdex:TN90p) ] def 
+longitude /lon renameGRID
+latitude /lat renameGRID
+} defasvarsilent
+
+/tnn {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/tnnETCCDI_mon_ERA40_historical_r1i1p1_195701-200212.nc) readCDF
+  time name (months since 1960-01-01) ordered 16
+       Jan 1957 ensotime
+       1.0 16
+         Dec 2002 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (Sep 1957) (Aug 2002) RANGE
+  .tnnETCCDI
+/iridl:hasSemantics [ (climdex:TNn) ] def 
+longitude /lon renameGRID
+latitude /lat renameGRID
+} defasvarsilent
+
+/tnx {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/tnxETCCDI_mon_ERA40_historical_r1i1p1_195701-200212.nc) readCDF
+  time name (months since 1960-01-01) ordered 16
+       Jan 1957 ensotime
+       1.0 16
+         Dec 2002 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (Sep 1957) (Aug 2002) RANGE
+  .tnxETCCDI
+/iridl:hasSemantics [ (climdex:TNx) ] def 
+longitude /lon renameGRID
+latitude /lat renameGRID
+} defasvarsilent
+
+/tx10p {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/tx10pETCCDI_mon_ERA40_historical_r1i1p1_195701-200212.nc) readCDF
+  time name (months since 1960-01-01) ordered 16
+       Jan 1957 ensotime
+       1.0 16
+         Dec 2002 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (Sep 1957) (Aug 2002) RANGE
+  .tx10pETCCDI
+/iridl:hasSemantics [ (climdex:TX10p) ] def 
+longitude /lon renameGRID
+latitude /lat renameGRID
+} defasvarsilent
+
+/tx90p {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/tx90pETCCDI_mon_ERA40_historical_r1i1p1_195701-200212.nc) readCDF
+  time name (months since 1960-01-01) ordered 16
+       Jan 1957 ensotime
+       1.0 16
+         Dec 2002 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (Sep 1957) (Aug 2002) RANGE
+  .tx90pETCCDI
+/iridl:hasSemantics [ (climdex:TX90p) ] def 
+longitude /lon renameGRID
+latitude /lat renameGRID
+} defasvarsilent
+
+/txn {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/txnETCCDI_mon_ERA40_historical_r1i1p1_195701-200212.nc) readCDF
+  time name (months since 1960-01-01) ordered 16
+       Jan 1957 ensotime
+       1.0 16
+         Dec 2002 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (Sep 1957) (Aug 2002) RANGE
+  .txnETCCDI 
+/iridl:hasSemantics [ (climdex:TXn) ] def
+longitude /lon renameGRID
+latitude /lat renameGRID
+} defasvarsilent
+
+/txx {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/txxETCCDI_mon_ERA40_historical_r1i1p1_195701-200212.nc) readCDF
+  time name (months since 1960-01-01) ordered 16
+       Jan 1957 ensotime
+       1.0 16
+         Dec 2002 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (Sep 1957) (Aug 2002) RANGE
+  .txxETCCDI
+/iridl:hasSemantics [ (climdex:TXx) ] def 
+longitude /lon renameGRID
+latitude /lat renameGRID
+} defasvarsilent
+
+ :dataset
+
+:dataset
+\end{ingrid}

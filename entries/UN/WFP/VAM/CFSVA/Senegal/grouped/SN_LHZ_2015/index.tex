@@ -1,0 +1,165 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Survey data aggregated by livelihood zones 2015) def
+
+grid:
+     /name /T def
+     /units (monthtime) def
+     /defaultvalue { last } def
+     values: 16
+       May 2010 ensotime
+       16
+        Jun 2013 ensotime
+        16
+         Oct 2014 ensotime
+         16
+          Jun 2019 ensotime
+          :values
+      /pointwidth 1. def
+      :grid
+
+/FCS {
+ SOURCES .UN .WFP .VAM .CFSVA .Senegal
+  a: .y2011 .Section5 .computed
+    VNID /hhid renameGRID
+    a: .FCS
+      :a: .location :a
+     2 array astore
+    :a: .ENSAN2013v3 .Section08
+     a: .FCS
+       :a: .location :a
+      2 array astore
+     :a: .ERASAN2014 .SectionI
+      a: .sca
+        :a: .location :a
+       2 array astore
+      :a: .ENSAR2019 .Autres
+       idm /hhid renameGRID
+       a: .SCA
+         :a: .location :a
+        :a
+      2 array astore
+     4 array astore
+  {dup 0 get toreal exch 1 get SOURCES .UN .WFP .VAM .CFSVA .Senegal .Features .SN_LHZ_2015 .the_geom geometryintersects 0.0 maskle /units /unitless def mul[hhid]REORDER[hhid]average}forall {FCS FCS13 FCS14 FCS19}ds
+  {FCS FCS13 FCS14 FCS19}grouptogrid
+  [M]REORDER
+  CopyStream
+  M T replaceGRID
+  /long_name (Food Consumption Score) def
+  DATA 0 112 RANGE
+}defasvar
+
+/pGCA {
+SOURCES .UN .WFP .VAM .CFSVA .Senegal
+  a: .y2011 .Section5 .computed
+    VNID /hhid renameGRID
+    a: .FCS
+      /name /GCA def
+      :a: .location :a
+     2 array astore
+    :a: .ENSAN2013v3 .Section08
+     a: .FCS
+       /name /GCA def
+       :a: .location :a
+      2 array astore
+     :a: .ERASAN2014 .SectionI
+      a: .sca
+        /name /GCA def
+        :a: .location :a
+       2 array astore
+      :a: .ENSAR2019 .Autres
+       idm /hhid renameGRID
+       a: .SCA
+         /name /GCA def
+         :a: .location :a
+        :a
+      2 array astore
+     4 array astore
+  {dup 0 get { (Poor) 28.1 (Borderline) 42.1 (Acceptable) }classify exch 1 get SOURCES .UN .WFP .VAM .CFSVA .Senegal .Features .SN_LHZ_2015 .the_geom geometryintersects 0.0 maskle /units /unitless def mul[hhid]REORDER[hhid]average /percent unitconvert rainbowcolorscale DATA 0 100 RANGE}forall {pGCA pGCA13 pGCA14 pGCA19}ds
+  {pGCA pGCA13 pGCA14 pGCA19}grouptogrid
+  [ M GCA ] REORDER
+  CopyStream
+  M T 
+    replaceGRID
+  /long_name (Proportion of hh per GCA) def
+}defasvar
+
+/pdadt {
+ SOURCES .UN .WFP .VAM .CFSVA .Senegal
+ a: .y2011 .Section6 .computed
+    VNID /hhid renameGRID
+    a: .PourcDepMensAlim
+      :a: .location :a
+     2 array astore
+    :a: .ENSAN2013v3 .Section08
+     a: .share_exp_food
+       :a: .location :a
+      2 array astore
+     :a: .ERASAN2014 .SectionV
+      a: .Part_depali
+        :a: .location :a
+       2 array astore
+      :a: .ENSAR2019 .Autres
+       idm /hhid renameGRID
+       a: .pdadt
+         :a: .location :a
+        2 array astore
+       :a
+     4 array astore
+  {dup 0 get toreal exch 1 get SOURCES .UN .WFP .VAM .CFSVA .Senegal .Features .SN_LHZ_2015 .the_geom geometryintersects 0.0 maskle /units /unitless def mul[hhid]REORDER[hhid]average}forall
+{pdadt pdadt13 pdadt14 pdadt19}ds
+  {pdadt pdadt13 pdadt14 pdadt19}grouptogrid
+  [M]REORDER
+  CopyStream
+  M T replaceGRID
+  /long_name (Part des dépenses alimentairs sur dépenses totales) def
+  /units /percent def
+  DATA 0 100 RANGE
+}defasvar
+
+/CSI {
+ SOURCES .UN .WFP .VAM .CFSVA .Senegal
+ a: .y2011 .Section0
+    VNID /hhid renameGRID
+    a: .CSI_reduit
+      :a: .location :a
+     2 array astore
+    :a: .ENSAN2013v3 .Section08
+     a: .CSI
+       :a: .location :a
+      2 array astore
+     :a: .ERASAN2014 .SectionI
+      a: .csi
+        :a: .location :a
+       2 array astore
+      :a: .ENSAR2019 .Autres
+       idm /hhid renameGRID
+       a: .ISA
+         :a: .location :a
+        2 array astore
+       :a
+     4 array astore
+  {dup 0 get toreal exch 1 get SOURCES .UN .WFP .VAM .CFSVA .Senegal .Features .SN_LHZ_2015 .the_geom geometryintersects 0.0 maskle /units /unitless def mul[hhid]REORDER[hhid]average}forall {CSI CSI13 CSI14 CSI19}ds
+  {CSI CSI13 CSI14 CSI19}grouptogrid
+  [M]REORDER
+  CopyStream
+  M T replaceGRID
+  /long_name (Coping Strategy Index) def
+  DATA 0 56 RANGE
+}defasvar
+
+/the_geom {
+ SOURCES .UN .WFP .VAM .CFSVA .Senegal .Features .SN_LHZ_2015 .the_geom
+}defasvar
+
+/label {
+ SOURCES .UN .WFP .VAM .CFSVA .Senegal .Features .SN_LHZ_2015 .label
+}defasvar
+
+:dataset
+
+label .gid name exch def
+
+\end{ingrid}

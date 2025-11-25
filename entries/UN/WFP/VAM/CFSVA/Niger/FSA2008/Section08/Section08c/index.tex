@@ -1,0 +1,416 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9575
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 586
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAnov2008.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/Q86_P13 {
+mytable
+myquestion 
+361 VALUE
+ myquestion removeGRID
+/long_name (Q86 CODE ALIMENTS) def 
+/units /ids def
+/CLIST [(MIL)(SORGHO)(MAIS)(RIZ)(AUTRES CEREALES (BLE FONIO....))(MANIOC (y compris gari))(IGNAME)(AUTRES TUBERCULES)(NIEBE/HARICOT)(NIEBE/ARACHIDE)(AUTRES LEGUMINEUSES)(FEUILLES VERTES (baobab, yoddo, mollohia))(FEUILLES VERTES (Moringa, tafassa, kaoutchi Guéra sp, etc))(AUTRES FEUILLES ET LEGUMES (gombo, oseille))(FRUITS)(VIANDE ABATS)(VIANDE JUSTE COMME CONDIMENT)(POISSON)(POISSON JUSTE COMME CONDIMENT)(VOLAILLE)(OEUFS)(LAIT FROMAGE YAOURT BEURRE)(SUCRE MIEL CONFITURE BOISSONS SUCREES DATTES)(HUILES GRAISSES)] def
+/scale_min 1 def
+/scale_max 24 def
+}defasvarsilent
+
+/Q86A_P13 {
+mytable
+myquestion 
+362 VALUE
+ myquestion removeGRID
+/long_name (Q86A NOMBRE DE JOURS DE CONSOMMATION AUCOURS DES 7 DERNIERS) def 
+}defasvarsilent
+
+/Q86B_P13 {
+mytable
+myquestion 
+363 VALUE
+ myquestion removeGRID
+/long_name (Q86B PRINCIPALE SOURCE) def 
+/units /ids def
+/CLIST [(NON APPLICABLE)(PROPRE PRODUCTION PLUVIALE)(PROPRE PRODUCTION CONTRE SAISON)(PROPRE PRODUCTION ANIMALE)(ACHATS)(DONS/ZAKAT)(TROC)(AIDE/ASSISTANCE)(EMPRUNT)(CHASSE/CEUILLETTE/PECHE)(AUTRE A PRECISER)] def
+/scale_min 0 def
+/scale_max 10 def
+}defasvarsilent
+
+/Q86_P14 {
+mytable
+myquestion 
+364 VALUE
+ myquestion removeGRID
+/long_name (Q86 CODE ALIMENTS) def 
+/units /ids def
+/CLIST [(MIL)(SORGHO)(MAIS)(RIZ)(AUTRES CEREALES (BLE FONIO....))(MANIOC (y compris gari))(IGNAME)(AUTRES TUBERCULES)(NIEBE/HARICOT)(NIEBE/ARACHIDE)(AUTRES LEGUMINEUSES)(FEUILLES VERTES (baobab, yoddo, mollohia))(FEUILLES VERTES (Moringa, tafassa, kaoutchi Guéra sp, etc))(AUTRES FEUILLES ET LEGUMES (gombo, oseille))(FRUITS)(VIANDE ABATS)(VIANDE JUSTE COMME CONDIMENT)(POISSON)(POISSON JUSTE COMME CONDIMENT)(VOLAILLE)(OEUFS)(LAIT FROMAGE YAOURT BEURRE)(SUCRE MIEL CONFITURE BOISSONS SUCREES DATTES)(HUILES GRAISSES)] def
+/scale_min 1 def
+/scale_max 24 def
+}defasvarsilent
+
+/Q86A_P14 {
+mytable
+myquestion 
+365 VALUE
+ myquestion removeGRID
+/long_name (Q86A NOMBRE DE JOURS DE CONSOMMATION AUCOURS DES 7 DERNIERS) def 
+}defasvarsilent
+
+/Q86B_P14 {
+mytable
+myquestion 
+366 VALUE
+ myquestion removeGRID
+/long_name (Q86B PRINCIPALE SOURCE) def 
+/units /ids def
+/CLIST [(NON APPLICABLE)(PROPRE PRODUCTION PLUVIALE)(PROPRE PRODUCTION CONTRE SAISON)(PROPRE PRODUCTION ANIMALE)(ACHATS)(DONS/ZAKAT)(TROC)(AIDE/ASSISTANCE)(EMPRUNT)(CHASSE/CEUILLETTE/PECHE)(AUTRE A PRECISER)] def
+/scale_min 0 def
+/scale_max 10 def
+}defasvarsilent
+
+/Q86_P15 {
+mytable
+myquestion 
+367 VALUE
+ myquestion removeGRID
+/long_name (Q86 CODE ALIMENTS) def 
+/units /ids def
+/CLIST [(MIL)(SORGHO)(MAIS)(RIZ)(AUTRES CEREALES (BLE FONIO....))(MANIOC (y compris gari))(IGNAME)(AUTRES TUBERCULES)(NIEBE/HARICOT)(NIEBE/ARACHIDE)(AUTRES LEGUMINEUSES)(FEUILLES VERTES (baobab, yoddo, mollohia))(FEUILLES VERTES (Moringa, tafassa, kaoutchi Guéra sp, etc))(AUTRES FEUILLES ET LEGUMES (gombo, oseille))(FRUITS)(VIANDE ABATS)(VIANDE JUSTE COMME CONDIMENT)(POISSON)(POISSON JUSTE COMME CONDIMENT)(VOLAILLE)(OEUFS)(LAIT FROMAGE YAOURT BEURRE)(SUCRE MIEL CONFITURE BOISSONS SUCREES DATTES)(HUILES GRAISSES)] def
+/scale_min 1 def
+/scale_max 24 def
+}defasvarsilent
+
+/Q86A_P15 {
+mytable
+myquestion 
+368 VALUE
+ myquestion removeGRID
+/long_name (Q86A NOMBRE DE JOURS DE CONSOMMATION AUCOURS DES 7 DERNIERS) def 
+}defasvarsilent
+
+/Q86B_P15 {
+mytable
+myquestion 
+369 VALUE
+ myquestion removeGRID
+/long_name (Q86B PRINCIPALE SOURCE) def 
+/units /ids def
+/CLIST [(NON APPLICABLE)(PROPRE PRODUCTION PLUVIALE)(PROPRE PRODUCTION CONTRE SAISON)(PROPRE PRODUCTION ANIMALE)(ACHATS)(DONS/ZAKAT)(TROC)(AIDE/ASSISTANCE)(EMPRUNT)(CHASSE/CEUILLETTE/PECHE)(AUTRE A PRECISER)] def
+/scale_min 0 def
+/scale_max 10 def
+}defasvarsilent
+
+/Q86_P16 {
+mytable
+myquestion 
+370 VALUE
+ myquestion removeGRID
+/long_name (Q86 CODE ALIMENTS) def 
+/units /ids def
+/CLIST [(MIL)(SORGHO)(MAIS)(RIZ)(AUTRES CEREALES (BLE FONIO....))(MANIOC (y compris gari))(IGNAME)(AUTRES TUBERCULES)(NIEBE/HARICOT)(NIEBE/ARACHIDE)(AUTRES LEGUMINEUSES)(FEUILLES VERTES (baobab, yoddo, mollohia))(FEUILLES VERTES (Moringa, tafassa, kaoutchi Guéra sp, etc))(AUTRES FEUILLES ET LEGUMES (gombo, oseille))(FRUITS)(VIANDE ABATS)(VIANDE JUSTE COMME CONDIMENT)(POISSON)(POISSON JUSTE COMME CONDIMENT)(VOLAILLE)(OEUFS)(LAIT FROMAGE YAOURT BEURRE)(SUCRE MIEL CONFITURE BOISSONS SUCREES DATTES)(HUILES GRAISSES)] def
+/scale_min 1 def
+/scale_max 24 def
+}defasvarsilent
+
+/Q86A_P16 {
+mytable
+myquestion 
+371 VALUE
+ myquestion removeGRID
+/long_name (Q86A NOMBRE DE JOURS DE CONSOMMATION AUCOURS DES 7 DERNIERS) def 
+}defasvarsilent
+
+/Q86B_P16 {
+mytable
+myquestion 
+372 VALUE
+ myquestion removeGRID
+/long_name (Q86B PRINCIPALE SOURCE) def 
+/units /ids def
+/CLIST [(NON APPLICABLE)(PROPRE PRODUCTION PLUVIALE)(PROPRE PRODUCTION CONTRE SAISON)(PROPRE PRODUCTION ANIMALE)(ACHATS)(DONS/ZAKAT)(TROC)(AIDE/ASSISTANCE)(EMPRUNT)(CHASSE/CEUILLETTE/PECHE)(AUTRE A PRECISER)] def
+/scale_min 0 def
+/scale_max 10 def
+}defasvarsilent
+
+/Q86_P17 {
+mytable
+myquestion 
+373 VALUE
+ myquestion removeGRID
+/long_name (Q86 CODE ALIMENTS) def 
+/units /ids def
+/CLIST [(MIL)(SORGHO)(MAIS)(RIZ)(AUTRES CEREALES (BLE FONIO....))(MANIOC (y compris gari))(IGNAME)(AUTRES TUBERCULES)(NIEBE/HARICOT)(NIEBE/ARACHIDE)(AUTRES LEGUMINEUSES)(FEUILLES VERTES (baobab, yoddo, mollohia))(FEUILLES VERTES (Moringa, tafassa, kaoutchi Guéra sp, etc))(AUTRES FEUILLES ET LEGUMES (gombo, oseille))(FRUITS)(VIANDE ABATS)(VIANDE JUSTE COMME CONDIMENT)(POISSON)(POISSON JUSTE COMME CONDIMENT)(VOLAILLE)(OEUFS)(LAIT FROMAGE YAOURT BEURRE)(SUCRE MIEL CONFITURE BOISSONS SUCREES DATTES)(HUILES GRAISSES)] def
+/scale_min 1 def
+/scale_max 24 def
+}defasvarsilent
+
+/Q86A_P17 {
+mytable
+myquestion 
+374 VALUE
+ myquestion removeGRID
+/long_name (Q86A NOMBRE DE JOURS DE CONSOMMATION AUCOURS DES 7 DERNIERS) def 
+}defasvarsilent
+
+/Q86B_P17 {
+mytable
+myquestion 
+375 VALUE
+ myquestion removeGRID
+/long_name (Q86B PRINCIPALE SOURCE) def 
+/units /ids def
+/CLIST [(NON APPLICABLE)(PROPRE PRODUCTION PLUVIALE)(PROPRE PRODUCTION CONTRE SAISON)(PROPRE PRODUCTION ANIMALE)(ACHATS)(DONS/ZAKAT)(TROC)(AIDE/ASSISTANCE)(EMPRUNT)(CHASSE/CEUILLETTE/PECHE)(AUTRE A PRECISER)] def
+/scale_min 0 def
+/scale_max 10 def
+}defasvarsilent
+
+/Q86_P18 {
+mytable
+myquestion 
+376 VALUE
+ myquestion removeGRID
+/long_name (Q86 CODE ALIMENTS) def 
+/units /ids def
+/CLIST [(MIL)(SORGHO)(MAIS)(RIZ)(AUTRES CEREALES (BLE FONIO....))(MANIOC (y compris gari))(IGNAME)(AUTRES TUBERCULES)(NIEBE/HARICOT)(NIEBE/ARACHIDE)(AUTRES LEGUMINEUSES)(FEUILLES VERTES (baobab, yoddo, mollohia))(FEUILLES VERTES (Moringa, tafassa, kaoutchi Guéra sp, etc))(AUTRES FEUILLES ET LEGUMES (gombo, oseille))(FRUITS)(VIANDE ABATS)(VIANDE JUSTE COMME CONDIMENT)(POISSON)(POISSON JUSTE COMME CONDIMENT)(VOLAILLE)(OEUFS)(LAIT FROMAGE YAOURT BEURRE)(SUCRE MIEL CONFITURE BOISSONS SUCREES DATTES)(HUILES GRAISSES)] def
+/scale_min 1 def
+/scale_max 24 def
+}defasvarsilent
+
+/Q86A_P18 {
+mytable
+myquestion 
+377 VALUE
+ myquestion removeGRID
+/long_name (Q86A NOMBRE DE JOURS DE CONSOMMATION AUCOURS DES 7 DERNIERS) def 
+}defasvarsilent
+
+/Q86B_P18 {
+mytable
+myquestion 
+378 VALUE
+ myquestion removeGRID
+/long_name (Q86B PRINCIPALE SOURCE) def 
+/units /ids def
+/CLIST [(NON APPLICABLE)(PROPRE PRODUCTION PLUVIALE)(PROPRE PRODUCTION CONTRE SAISON)(PROPRE PRODUCTION ANIMALE)(ACHATS)(DONS/ZAKAT)(TROC)(AIDE/ASSISTANCE)(EMPRUNT)(CHASSE/CEUILLETTE/PECHE)(AUTRE A PRECISER)] def
+/scale_min 0 def
+/scale_max 10 def
+}defasvarsilent
+
+/Q86_P19 {
+mytable
+myquestion 
+379 VALUE
+ myquestion removeGRID
+/long_name (Q86 CODE ALIMENTS) def 
+/units /ids def
+/CLIST [(MIL)(SORGHO)(MAIS)(RIZ)(AUTRES CEREALES (BLE FONIO....))(MANIOC (y compris gari))(IGNAME)(AUTRES TUBERCULES)(NIEBE/HARICOT)(NIEBE/ARACHIDE)(AUTRES LEGUMINEUSES)(FEUILLES VERTES (baobab, yoddo, mollohia))(FEUILLES VERTES (Moringa, tafassa, kaoutchi Guéra sp, etc))(AUTRES FEUILLES ET LEGUMES (gombo, oseille))(FRUITS)(VIANDE ABATS)(VIANDE JUSTE COMME CONDIMENT)(POISSON)(POISSON JUSTE COMME CONDIMENT)(VOLAILLE)(OEUFS)(LAIT FROMAGE YAOURT BEURRE)(SUCRE MIEL CONFITURE BOISSONS SUCREES DATTES)(HUILES GRAISSES)] def
+/scale_min 1 def
+/scale_max 24 def
+}defasvarsilent
+
+/Q86A_P19 {
+mytable
+myquestion 
+380 VALUE
+ myquestion removeGRID
+/long_name (Q86A NOMBRE DE JOURS DE CONSOMMATION AUCOURS DES 7 DERNIERS) def 
+}defasvarsilent
+
+/Q86B_P19 {
+mytable
+myquestion 
+381 VALUE
+ myquestion removeGRID
+/long_name (Q86B PRINCIPALE SOURCE) def 
+/units /ids def
+/CLIST [(NON APPLICABLE)(PROPRE PRODUCTION PLUVIALE)(PROPRE PRODUCTION CONTRE SAISON)(PROPRE PRODUCTION ANIMALE)(ACHATS)(DONS/ZAKAT)(TROC)(AIDE/ASSISTANCE)(EMPRUNT)(CHASSE/CEUILLETTE/PECHE)(AUTRE A PRECISER)] def
+/scale_min 0 def
+/scale_max 10 def
+}defasvarsilent
+
+/Q86_P20 {
+mytable
+myquestion 
+382 VALUE
+ myquestion removeGRID
+/long_name (Q86 CODE ALIMENTS) def 
+/units /ids def
+/CLIST [(MIL)(SORGHO)(MAIS)(RIZ)(AUTRES CEREALES (BLE FONIO....))(MANIOC (y compris gari))(IGNAME)(AUTRES TUBERCULES)(NIEBE/HARICOT)(NIEBE/ARACHIDE)(AUTRES LEGUMINEUSES)(FEUILLES VERTES (baobab, yoddo, mollohia))(FEUILLES VERTES (Moringa, tafassa, kaoutchi Guéra sp, etc))(AUTRES FEUILLES ET LEGUMES (gombo, oseille))(FRUITS)(VIANDE ABATS)(VIANDE JUSTE COMME CONDIMENT)(POISSON)(POISSON JUSTE COMME CONDIMENT)(VOLAILLE)(OEUFS)(LAIT FROMAGE YAOURT BEURRE)(SUCRE MIEL CONFITURE BOISSONS SUCREES DATTES)(HUILES GRAISSES)] def
+/scale_min 1 def
+/scale_max 24 def
+}defasvarsilent
+
+/Q86A_P20 {
+mytable
+myquestion 
+383 VALUE
+ myquestion removeGRID
+/long_name (Q86A NOMBRE DE JOURS DE CONSOMMATION AUCOURS DES 7 DERNIERS) def 
+}defasvarsilent
+
+/Q86B_P20 {
+mytable
+myquestion 
+384 VALUE
+ myquestion removeGRID
+/long_name (Q86B PRINCIPALE SOURCE) def 
+/units /ids def
+/CLIST [(NON APPLICABLE)(PROPRE PRODUCTION PLUVIALE)(PROPRE PRODUCTION CONTRE SAISON)(PROPRE PRODUCTION ANIMALE)(ACHATS)(DONS/ZAKAT)(TROC)(AIDE/ASSISTANCE)(EMPRUNT)(CHASSE/CEUILLETTE/PECHE)(AUTRE A PRECISER)] def
+/scale_min 0 def
+/scale_max 10 def
+}defasvarsilent
+
+/Q86_P21 {
+mytable
+myquestion 
+385 VALUE
+ myquestion removeGRID
+/long_name (Q86 CODE ALIMENTS) def 
+/units /ids def
+/CLIST [(MIL)(SORGHO)(MAIS)(RIZ)(AUTRES CEREALES (BLE FONIO....))(MANIOC (y compris gari))(IGNAME)(AUTRES TUBERCULES)(NIEBE/HARICOT)(NIEBE/ARACHIDE)(AUTRES LEGUMINEUSES)(FEUILLES VERTES (baobab, yoddo, mollohia))(FEUILLES VERTES (Moringa, tafassa, kaoutchi Guéra sp, etc))(AUTRES FEUILLES ET LEGUMES (gombo, oseille))(FRUITS)(VIANDE ABATS)(VIANDE JUSTE COMME CONDIMENT)(POISSON)(POISSON JUSTE COMME CONDIMENT)(VOLAILLE)(OEUFS)(LAIT FROMAGE YAOURT BEURRE)(SUCRE MIEL CONFITURE BOISSONS SUCREES DATTES)(HUILES GRAISSES)] def
+/scale_min 1 def
+/scale_max 24 def
+}defasvarsilent
+
+/Q86A_P21 {
+mytable
+myquestion 
+386 VALUE
+ myquestion removeGRID
+/long_name (Q86A NOMBRE DE JOURS DE CONSOMMATION AUCOURS DES 7 DERNIERS) def 
+}defasvarsilent
+
+/Q86B_P21 {
+mytable
+myquestion 
+387 VALUE
+ myquestion removeGRID
+/long_name (Q86B PRINCIPALE SOURCE) def 
+/units /ids def
+/CLIST [(NON APPLICABLE)(PROPRE PRODUCTION PLUVIALE)(PROPRE PRODUCTION CONTRE SAISON)(PROPRE PRODUCTION ANIMALE)(ACHATS)(DONS/ZAKAT)(TROC)(AIDE/ASSISTANCE)(EMPRUNT)(CHASSE/CEUILLETTE/PECHE)(AUTRE A PRECISER)] def
+/scale_min 0 def
+/scale_max 10 def
+}defasvarsilent
+
+/Q86_P22 {
+mytable
+myquestion 
+388 VALUE
+ myquestion removeGRID
+/long_name (Q86 CODE ALIMENTS) def 
+/units /ids def
+/CLIST [(MIL)(SORGHO)(MAIS)(RIZ)(AUTRES CEREALES (BLE FONIO....))(MANIOC (y compris gari))(IGNAME)(AUTRES TUBERCULES)(NIEBE/HARICOT)(NIEBE/ARACHIDE)(AUTRES LEGUMINEUSES)(FEUILLES VERTES (baobab, yoddo, mollohia))(FEUILLES VERTES (Moringa, tafassa, kaoutchi Guéra sp, etc))(AUTRES FEUILLES ET LEGUMES (gombo, oseille))(FRUITS)(VIANDE ABATS)(VIANDE JUSTE COMME CONDIMENT)(POISSON)(POISSON JUSTE COMME CONDIMENT)(VOLAILLE)(OEUFS)(LAIT FROMAGE YAOURT BEURRE)(SUCRE MIEL CONFITURE BOISSONS SUCREES DATTES)(HUILES GRAISSES)] def
+/scale_min 1 def
+/scale_max 24 def
+}defasvarsilent
+
+/Q86A_P22 {
+mytable
+myquestion 
+389 VALUE
+ myquestion removeGRID
+/long_name (Q86A NOMBRE DE JOURS DE CONSOMMATION AUCOURS DES 7 DERNIERS) def 
+}defasvarsilent
+
+/Q86B_P22 {
+mytable
+myquestion 
+390 VALUE
+ myquestion removeGRID
+/long_name (Q86B PRINCIPALE SOURCE) def 
+/units /ids def
+/CLIST [(NON APPLICABLE)(PROPRE PRODUCTION PLUVIALE)(PROPRE PRODUCTION CONTRE SAISON)(PROPRE PRODUCTION ANIMALE)(ACHATS)(DONS/ZAKAT)(TROC)(AIDE/ASSISTANCE)(EMPRUNT)(CHASSE/CEUILLETTE/PECHE)(AUTRE A PRECISER)] def
+/scale_min 0 def
+/scale_max 10 def
+}defasvarsilent
+
+/Q86_P23 {
+mytable
+myquestion 
+391 VALUE
+ myquestion removeGRID
+/long_name (Q86 CODE ALIMENTS) def 
+/units /ids def
+/CLIST [(MIL)(SORGHO)(MAIS)(RIZ)(AUTRES CEREALES (BLE FONIO....))(MANIOC (y compris gari))(IGNAME)(AUTRES TUBERCULES)(NIEBE/HARICOT)(NIEBE/ARACHIDE)(AUTRES LEGUMINEUSES)(FEUILLES VERTES (baobab, yoddo, mollohia))(FEUILLES VERTES (Moringa, tafassa, kaoutchi Guéra sp, etc))(AUTRES FEUILLES ET LEGUMES (gombo, oseille))(FRUITS)(VIANDE ABATS)(VIANDE JUSTE COMME CONDIMENT)(POISSON)(POISSON JUSTE COMME CONDIMENT)(VOLAILLE)(OEUFS)(LAIT FROMAGE YAOURT BEURRE)(SUCRE MIEL CONFITURE BOISSONS SUCREES DATTES)(HUILES GRAISSES)] def
+/scale_min 1 def
+/scale_max 24 def
+}defasvarsilent
+
+/Q86A_P23 {
+mytable
+myquestion 
+392 VALUE
+ myquestion removeGRID
+/long_name (Q86A NOMBRE DE JOURS DE CONSOMMATION AUCOURS DES 7 DERNIERS) def 
+}defasvarsilent
+
+/Q86B_P23 {
+mytable
+myquestion 
+393 VALUE
+ myquestion removeGRID
+/long_name (Q86B PRINCIPALE SOURCE) def 
+/units /ids def
+/CLIST [(NON APPLICABLE)(PROPRE PRODUCTION PLUVIALE)(PROPRE PRODUCTION CONTRE SAISON)(PROPRE PRODUCTION ANIMALE)(ACHATS)(DONS/ZAKAT)(TROC)(AIDE/ASSISTANCE)(EMPRUNT)(CHASSE/CEUILLETTE/PECHE)(AUTRE A PRECISER)] def
+/scale_min 0 def
+/scale_max 10 def
+}defasvarsilent
+
+/Q86_P24 {
+mytable
+myquestion 
+394 VALUE
+ myquestion removeGRID
+/long_name (Q86 CODE ALIMENTS) def 
+/units /ids def
+/CLIST [(MIL)(SORGHO)(MAIS)(RIZ)(AUTRES CEREALES (BLE FONIO....))(MANIOC (y compris gari))(IGNAME)(AUTRES TUBERCULES)(NIEBE/HARICOT)(NIEBE/ARACHIDE)(AUTRES LEGUMINEUSES)(FEUILLES VERTES (baobab, yoddo, mollohia))(FEUILLES VERTES (Moringa, tafassa, kaoutchi Guéra sp, etc))(AUTRES FEUILLES ET LEGUMES (gombo, oseille))(FRUITS)(VIANDE ABATS)(VIANDE JUSTE COMME CONDIMENT)(POISSON)(POISSON JUSTE COMME CONDIMENT)(VOLAILLE)(OEUFS)(LAIT FROMAGE YAOURT BEURRE)(SUCRE MIEL CONFITURE BOISSONS SUCREES DATTES)(HUILES GRAISSES)] def
+/scale_min 1 def
+/scale_max 24 def
+}defasvarsilent
+
+/Q86A_P24 {
+mytable
+myquestion 
+395 VALUE
+ myquestion removeGRID
+/long_name (Q86A NOMBRE DE JOURS DE CONSOMMATION AUCOURS DES 7 DERNIERS) def 
+}defasvarsilent
+
+/Q86B_P24 {
+mytable
+myquestion 
+396 VALUE
+ myquestion removeGRID
+/long_name (Q86B PRINCIPALE SOURCE) def 
+/units /ids def
+/CLIST [(NON APPLICABLE)(PROPRE PRODUCTION PLUVIALE)(PROPRE PRODUCTION CONTRE SAISON)(PROPRE PRODUCTION ANIMALE)(ACHATS)(DONS/ZAKAT)(TROC)(AIDE/ASSISTANCE)(EMPRUNT)(CHASSE/CEUILLETTE/PECHE)(AUTRE A PRECISER)] def
+/scale_min 0 def
+/scale_max 10 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

@@ -1,0 +1,47 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (International Water Management Institute - Integrated Drought Severity Index for Senegal - 2001 to 2018) def
+
+grid:
+/name /X def 
+/long_name (Longitude) def 
+/units (degrees_east) def
+-17.546917 0.004167 dup 1487 mul 2 index add
+:grid
+
+grid: 
+/name /Y def
+/long_name (Latitude) def 
+/units (degrees_north) def
+12.303244 0.004167 dup 1053 mul 2 index add
+:grid
+
+grid:
+/name /T def
+/units (monthtime) def 
+/defaultvalue { last } def
+1 Jul 2001 ensotime
+12
+1 Jul 2018 ensotime
+/pointwidth 12 def
+:grid 
+
+/IDSI {
+[X Y | T ]
+(/data/audreyv/mydatafiles/IDSI_Senegal/IDSI_%Y[T]_Senegal.tif)[T]
+
+readdatafile:
+/realarraytype tiffimage
+%/missing_value 0 def
+/long_name (Integrated Drought Severity Index) def
+%/units /unitless def
+:readdatafile
+
+}defasvarsilent
+
+
+:dataset
+
+\end{ingrid}

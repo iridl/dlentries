@@ -1,0 +1,19 @@
+\begin{ingrid}
+datasetdefs:
+/STATIONX.cuf
+{(http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCDC/.DAILY/.GLOBALSOD/)
+  redirectto} def
+/STATION.cuf
+{(http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCDC/.DAILY/.GLOBALSOD/)
+  redirectto} def
+/STATION
+{(http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCDC/.DAILY/.GLOBALSOD/)
+  redirectto} def
+/description (Global daily WMO weather station data) def
+/source
+(<a href="/descriptions/noaabasedal.html">NOAA NCDC Global Summary of Daily Data</a>) def
+:datasetdefs
+/STATION.html descriptions /noaabasedal.html get def
+/FSOD currentobject /FSOD get def
+/GLOBALSOD currentobject /GLOBALSOD get def
+\end{ingrid}

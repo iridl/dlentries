@@ -1,0 +1,65 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9195
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 554
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAavril2010.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Stocks) def
+/Q33 {
+mytable
+myquestion 
+104 VALUE
+ myquestion removeGRID
+/long_name (Q33 : Disposez-vous encore aujourd'hui de stocks.....) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q33A {
+mytable
+myquestion 
+105 VALUE
+ myquestion removeGRID
+/long_name (Q33.a : Si oui pensez-vous que votre stock ou vos moyens son) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q33B {
+mytable
+myquestion 
+106 VALUE
+ myquestion removeGRID
+/long_name (Q33.b : Combien de mois pensez-vous que votre stock ou appro) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

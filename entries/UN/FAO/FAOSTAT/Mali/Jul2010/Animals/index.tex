@@ -1,0 +1,127 @@
+\begin{ingrid}
+  continuedataset:
+    /source (<a href="http://faostat.fao.org/default.aspx">FAOSTAT</a>) def
+    grid:
+      /name (T) def
+      monthtime
+      /pointwidth 12 def
+      1 Jul 1961 ensotime
+      12
+      1 Jul 2008 ensotime
+    :grid 
+    grid:
+      /name (code) def
+      /units (ids) def
+      /fullname (item code) def
+      values:
+1062
+1130
+882
+1020
+982
+1130
+882
+1020
+982
+1058
+1127
+919
+867
+1017
+1025
+1097
+1108
+1035
+977
+995
+      :values
+    :grid
+
+    variable:
+      /name /Name def
+      grids: code :grids
+      /long_name (item name) def
+      values:
+        (Hen eggs, in shell)
+(Camel milk, whole, fresh)
+(Cow milk, whole, fresh)
+(Goat milk, whole, fresh)
+(Sheep milk, whole, fresh)
+(Camel milk, whole, fresh)
+(Cow milk, whole, fresh)
+(Goat milk, whole, fresh)
+(Sheep milk, whole, fresh)
+(Chicken meat)
+(Camel meat)
+(Cattle Hides)
+(Cattle meat)
+(Goat meat)
+(Goatskins)
+(Horse meat)
+(Meat of Asses)
+(Pig meat)
+(Sheep meat)
+(Sheepskins)
+  :values
+    :variable
+
+    /Head {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliProdAnimals.csv)
+      readdatafile:
+        ((/,(101X,48(F8.0,7X)))) formatted
+      :readdatafile
+      /long_name (animals) def
+      /units (count) def
+      /scale_min 0 def
+    }defasvarsilent
+
+    /Scale_Factor {
+      [code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliProdAnimals.csv)
+      readdatafile:
+        ((/,(110X,F4.0,707X))) formatted
+      :readdatafile
+      /long_name (scale factor) def
+    }defasvarsilent
+
+    /Flag {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliProdAnimals.csv)
+      readdatafile:
+        ((/,(101X,48(14X,F1.0,)))) formatted
+      :readdatafile
+      /long_name (data quality) def
+      /units /ids def
+      /CLIST [
+        (Official data)
+        (Unofficial figure)
+        (FAO estimate)
+        (Data not available)
+        (FAO calculated)
+        (Estimated data using trading partners database)
+        (Manual Estimation)
+        (Country data reported by International Organizations where the country is a member (Semi-official))
+        (Official data reported on FAO Questionnaires from countries)
+      ] def
+      startcolormap
+        /maxncolor 12 def
+        DATA 0 8 RANGE
+        white white
+        black
+        LightBlue
+        red
+        grey
+        orange
+        yellow
+        purple
+        NavyBlue
+        blue
+        white
+      endcolormap
+    }defasvarsilent
+
+  /history (FAOSTAT | © FAO Statistics Division 2010) def
+
+  :dataset
+\end{ingrid}

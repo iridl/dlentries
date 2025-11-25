@@ -1,0 +1,142 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (SubC v21 global bi-weekly T2M probability hindcast seasonal RPSS score for target week Saturday-Friday based on ELR method. SubCMME v21 hindcast from Jan 1999 to Dec 2016, using GESFv12, CFSv2 and ESRL 3 SubCmodels, 4 seasons: 1-DJF, 2-MAM, 3-JJA, 4-SON) def
+
+Ingrid:
+
+/RPSScolorscale{
+ startcolormap
+    DATA -0.1 0.2 RANGE
+    white DodgerBlue DodgerBlue
+       -0.05 bandmax
+       cyan cyan
+         -0.0125 bandmax
+         gray gray
+           0.0125 bandmax
+           yellow yellow
+             0.025 bandmax
+             gold gold
+               0.05 bandmax
+               orange orange
+                 0.075 bandmax
+                 DarkOrange DarkOrange
+                   0.1 bandmax
+                   tomato tomato 0.125
+                     bandmax
+                     OrangeRed OrangeRed 0.15
+                     bandmax
+                     red red 0.175
+                     bandmax
+                     magenta magenta 0.2
+                     bandmax
+                     magenta endcolormap
+}defcolorscale
+
+pop
+
+dataset:
+/name /MME_v21 def
+/RPSS{
+(/crunch/c10/jingyuan/Subx_forecast/Subx_verification_new/nc_files/MME_v21_Subx_global_biweek_T2M_season_RPSS_1999_2016_Sat_latflip.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+
+T grid:
+     /name /T def
+     /units (months since 01-Jan) def
+     /gridtype 1 def
+     Jan 3.0 Oct :grid
+     replaceGRID
+
+
+
+lead 1 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+
+dataset:
+/name /CFSv2_v21 def
+/RPSS{
+(/crunch/c10/jingyuan/Subx_forecast/Subx_verification_new/nc_files/CFSv2_v21_Subx_global_biweek_T2M_season_RPSS_1999_2016_Sat_latflip.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+
+T grid:
+     /name /T def
+     /units (months since 01-Jan) def
+     /gridtype 1 def
+     Jan 3.0 Oct :grid
+     replaceGRID
+
+lead 1 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+dataset:
+/name /GEFSv12 def
+/RPSS{
+(/crunch/c10/jingyuan/Subx_forecast/Subx_verification_new/nc_files/GEFSv12_Subx_global_biweek_T2M_season_RPSS_1999_2016_Sat_latflip.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+
+T grid:
+     /name /T def
+     /units (months since 01-Jan) def
+     /gridtype 1 def
+     Jan 3.0 Oct :grid
+     replaceGRID
+
+
+lead 1 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+dataset:
+/name /ESRL_v21 def
+/RPSS{
+(/crunch/c10/jingyuan/Subx_forecast/Subx_verification_new/nc_files/ESRL_v21_Subx_global_biweek_T2M_season_RPSS_1999_2016_Sat_latflip.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+
+T grid:
+     /name /T def
+     /units (months since 01-Jan) def
+     /gridtype 1 def
+     Jan 3.0 Oct :grid
+     replaceGRID
+
+
+lead 1 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,55 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+periodic
+0 2.5 357.50
+:grid
+grid:
+/name /Y def
+degN
+90 -2.5 -90
+:grid
+:dataset
+datasetdefs:
+/DegreeGrid {dup} def
+:datasetdefs
+/description (Climate Data Assimilation System I; NCEP-NCAR Reanalysis Project) def
+Ingrid:
+/NotYetAvailable
+{file:
+/name (Data/not/yet/available) def
+random
+:file
+/Note (Data is not yet available on-line here: please write <a href="mailto:benno@ldeo.columbia.edu">benno@ldeo.columbia.edu</a>.) def
+} def
+pop
+%continuedataset:
+%grid:
+%/name /X def
+%degE
+%periodic
+%0 2.5 357.50
+%:grid
+%grid:
+%/name /Y def
+%degN
+%90 -2.5 -90
+%:grid
+%:dataset
+dup /MONTHLY get /MONTHLY exch def
+dup /DAILY get /DAILY exch def
+dup /mc6190 get /mc6190 exch def
+dup /mc7100 get /mc7100 exch def
+dup /mc8110 get /mc8110 exch def
+dup /mc9120 get /mc9120 exch def
+dup /pc6190 get /pc6190 exch def
+dup /pc7100 get /pc7100 exch def
+dup /pc8110 get /pc8110 exch def
+dup /pc9913 get /pc9913 exch def
+dup /pc9920 get /pc9920 exch def
+dup /pc9120 get /pc9120 exch def
+%dup /SIX-HOURLY get /SIX-HOURLY exch def
+\end{ingrid}
+

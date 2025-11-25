@@ -1,0 +1,99 @@
+\begin{ingrid}
+continuedataset:
+
+link:
+/name (GEFS_Notes) def
+/description (GEFS Notes PDF Document) def
+/href (ftp://ftp.emc.ncep.noaa.gov/gc_wmb/esinsky/GEFS_SubX/Notes_SubX_GEFS.pdf) def
+:link
+
+grid:
+/name (X) def
+/units (degree_east) def
+periodic
+ 0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/units (degree_north) def
+90.0 1.0 -90.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+ 0.5 1.0 34.5
+/pointwidth 0.0 def
+:grid
+
+grid:
+/name (M) def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+0 1 10
+:grid
+
+ 
+grid:
+/name (S) def
+/long_name (Start Time) def
+/standard_name (forecast_reference_time) def
+04 Jan 1989 julian_day 01 Jan 1960 julian_day sub
+7.0
+ 28 Aug 2019 julian_day
+01 Jan 1960 julian_day sub
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+/pointwidth 0. def
+:grid
+
+
+
+
+
+
+
+
+
+/pr { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/hindcast/pr_sfc/%Y[S]/%m[S]/pr_sfc_GEFSv12_%d[S]%b:lc[S]%Y[S]_00Z_d01_d35_m%2.2d[M].nc) [ M S ] readdatafile:
+/name (precip) def
+/long_name (Total Precipitation) def
+/standard_name (precipitation_flux) def
+/level_type (surface) def
+/units (kg m-2) cvn def
+/missing_value 9.96921E+36 def
+/realarraytype netcdfrecords
+:readdatafile
+} defasvarsilent
+
+
+/tas { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/hindcast/tas_2m/%Y[S]/%m[S]/tas_2m_GEFSv12_%d[S]%b:lc[S]%Y[S]_00Z_d01_d35_m%2.2d[M].nc) [ M S ] readdatafile:
+/name (tmean) def
+/long_name (2-meter Mean Air Temperature) def
+/standard_name (air_temperature) def
+/level_type (2 meters above ground) def
+/units (K) cvn def
+/missing_value 9.96921E+36 def
+/realarraytype netcdfrecords
+:readdatafile
+} defasvarsilent
+
+
+/zg { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/hindcast/zg_500/%Y[S]/%m[S]/zg_500_GEFSv12_%d[S]%b:lc[S]%Y[S]_00Z_d01_d35_m%2.2d[M].nc) [ M S ] readdatafile:
+/name (500hgt) def
+/long_name (Geopotential Height) def
+/standard_name (geopotential_height) def
+/level_type (pressure level) def
+/units (gpm) cvn def
+/missing_value 9.96921E+36 def
+/realarraytype netcdfrecords
+:readdatafile
+} defasvarsilent
+
+
+:dataset
+\end{ingrid}

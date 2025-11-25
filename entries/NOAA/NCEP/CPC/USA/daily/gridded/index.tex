@@ -1,0 +1,56 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+-140 .25 -60
+:grid
+grid:
+/name /Y def
+degN
+20 .25 60
+:grid
+grid:
+/name /T def
+/units (days since 1948-01-01 12:00:00) def
+0 
+1
+31 Dec 1997 julian_day
+1 Jan 1948 julian_day sub
+:grid
+variable:
+/name /prcp def
+/units(inch) def
+grids: X Y | T :grids
+%file:
+%/name (/Data/data7/noaa/ncep/unified/prcp.r4) def
+%direct
+%:file
+dup
+   T (1 Jan) VALUES
+   .T
+   (/Data/data7/noaa/ncep/unified/unified.daily.%Y.ll) strftimes
+   [T]regridLB0
+ T
+    dup 3 index .T replaceGRID
+    (days since 1948-01-01 12:00:00) unitconvert
+    2 index .T 0 RECHUNK exch sub
+    1 add
+    toi4
+exch
+2 index .chunksize
+1 index .bufferwordsize
+1 index 2 add
+1
+PS2 .PSgetlun
+-1
+0
+255 8 integerarray astore
+0 5 getinterval
+readr40
+1 object 
+TaskParameterBlock 0 get NewRealBuffer
+  :variable
+
+:dataset
+\end{ingrid}

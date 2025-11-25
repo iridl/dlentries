@@ -1,0 +1,22 @@
+\begin{ingrid}
+continuedataset:
+/IRIONLY dataareIRIonlyPassword
+% Authentication method was changed on Nov. 18, 2010 to new "IRIONLY"
+% authorization realm from "NotOpen"
+% Data set restricted at the request of the folks at CGD/CAS
+/description (Dai and Chen combined global precipitation data set) def
+/P
+{
+%(/beluga/data/mbell/dldata/ncar.d/adai.d/P-dai-xie-1850-June2005_r2.5x2.5.nc) readCDF
+(/Data/data5/ucar/Dai/P-dai-xie-1850-June2005_r2.5x2.5.nc) readCDF
+.P  time name
+    npts NewIntegerGRID
+    replaceGRID
+  time /T renameGRID
+  T name
+    /monthtime ordered -1319.5 1 545.5 NewEvenGRID
+    replaceGRID
+  T (Jan 1850) (Jun 2005) RANGE
+} defasvarsilent
+:dataset
+\end{ingrid}

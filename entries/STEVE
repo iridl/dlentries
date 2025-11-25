@@ -1,0 +1,44 @@
+\begin{ingrid}
+/STEVE insertdataset:
+/description (Wind stress data for the Tropical Atlantic) def
+/iridl:hasSemantics (iridl:LDEO) def
+dataset:
+/name /TAU def
+grid:
+/name /X def
+degE
+-61.875 5.625 11.250
+:grid
+grid:
+/name /Y def
+degN
+-29 2 29
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1970 ensotime
+1.
+16 Dec 1986 ensotime
+:grid
+file:
+/name (/Data/data3/data/tau7088.anom) def
+sequential
+grids: X Y [/taux /tauy] | T :grids
+/scale_factor .02 def
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+/history (Atlantic anomaly data) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+/history (Atlantic anomaly data) def
+:variable
+:file
+:dataset
+:insertdataset
+\end{ingrid}

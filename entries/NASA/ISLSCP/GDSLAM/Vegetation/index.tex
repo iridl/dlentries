@@ -1,0 +1,133 @@
+\begin{ingrid}
+continuedataset:
+/description (Global data sets for land-atmosphere models, including the Normalized Difference Vegetation Index and other vegetation data parameters) def
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 -1 -89.5
+:grid
+variable:
+/name /class def
+/units /ids def
+grids: X Y :grids
+file:
+%formatted
+%/name (/Data/data3/nasa/islscp/gdslam/veg/veg_clss.vgc) def
+/name (/Data/data3/nasa/islscp/gdslam/veg/veg_clss.i2) def
+i*2
+:file
+/scale_min 0 def
+/scale_max 15 def
+/CLIST
+[ (water)
+(broadleaf evergreen forest)
+(broadleaf deciduous)
+(mixed coniferous/broadleaf deciduous)
+(coniferous forest and woodland)
+(high latitude deciduous)
+(forest and woodland)
+(wooded c4 grassland)
+(c4 grassland)
+(shrubs and bare ground)
+(tundra)
+(desert, bare ground)
+(cultivation)
+(ice)
+(c3 wooded grassland)
+(c3 grassland)
+] def
+:variable
+grid: 
+/name /T def
+/units (monthtime) def
+16 Jan 1987 ensotime
+1
+16 Dec 1988 ensotime
+:grid
+dataset:
+/name /snow-free cvx def
+variable:
+/name /albedo def
+/long_name (snow-free albedo) def
+/scale_factor 1e-4 def
+grids: X Y | T :grids
+file:
+%formatted
+%/name (/Data/data3/nasa/islscp/gdslam/veg/sf.alb) def
+/name (/Data/data3/nasa/islscp/gdslam/veg/sf_alb.i2) def
+i*2
+:file
+:variable
+:dataset
+variable:
+/name /zol def
+/long_name (roughness) def
+/scale_factor 1e-3 def
+grids: X Y | T :grids
+file:
+%formatted
+%/name (/Data/data3/nasa/islscp/gdslam/veg/zol.asc) def
+/name (/Data/data3/nasa/islscp/gdslam/veg/zol.i2) def
+i*2
+:file
+:variable
+variable:
+/name /ndvi def
+/long_name (normalized difference vegetation index)def
+grids: X Y | T :grids
+file:
+formatted
+/name (/Data/data3/nasa/islscp/gdslam/veg/ndv.asc) def
+:file
+:variable
+variable:
+/name /fpar def
+/description (Fraction of photosynthetic active radiation absorbed by the green vegetation canopy)def
+grids: X Y | T :grids
+file:
+formatted
+/name (/Data/data3/nasa/islscp/gdslam/veg/fpa.asc) def
+:file
+:variable
+variable:
+/name /fsr-ndvi def
+/description (Fourier-Adjustment, Solar zenith angle corrected, Interpolated Reconstructed (FASIR) Normalized Difference Vegetation Index)def
+grids: X Y | T :grids
+file:
+formatted
+/name (/Data/data3/nasa/islscp/gdslam/veg/fsr.asc) def
+:file
+:variable
+variable:
+/name /lai def
+/long_name (Leaf Area Index)def
+grids: X Y | T :grids
+file:
+formatted
+/name (/Data/data3/nasa/islscp/gdslam/veg/lai.asc) def
+:file
+:variable
+variable:
+/name /grn def
+/long_name (Greenness)def
+/description (Percentage green leaf area of total leaf area)def
+grids: X Y | T :grids
+file:
+formatted
+/name (/Data/data3/nasa/islscp/gdslam/veg/lai.asc) def
+:file
+:variable
+:dataset
+[1 index
+    {pop}{counttomark 1 add index 1 index .relativename cvnatos (.dataset_documentation.html) append exch 1 index getknown { /dataset_documentation.html exch def
+                     nip}{pop
+                     pop}ifelse}foralldatasets2
+           ]{undef}forall
+\end{ingrid}
+

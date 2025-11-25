@@ -1,0 +1,17 @@
+\begin{ingrid}
+
+/PepsiCo datadownloadsareRestricted
+/Cookie varies_on
+
+/description (Global Extended Logistic Regression Forecast) def
+
+continuedataset:
+
+ /target_date { S L add  /long_name (forecast time) def /standard_name (time) def } defasvar
+
+:dataset
+
+ CFSv2 .fcstmean .S name exch def
+ CFSv2 .fcstmean .L name exch def
+
+\end{ingrid}

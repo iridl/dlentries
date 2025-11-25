@@ -1,0 +1,201 @@
+\documentstyle[code,ingrid]{article}
+\topmargin -0.5in        % read Lamport p.163
+\oddsidemargin -0.04cm   % read Lamport p.163
+\evensidemargin -0.04cm  % same as oddsidemargin but for left-hand pages
+\textwidth 6.5in
+\textheight 8.5in
+%\pagestyle{empty}       % Uncomment if don't want page numbers
+\parskip 7.2pt           % sets spacing between paragraphs
+%\renewcommand{\baselinestretch}{1.5} 	% Uncomment for 1.5 spacing between lines
+\parindent 0pt		  % sets leading space for paragraphs
+
+\begin{document}
+\section{CPC Merged Analysis of Precipitation Dataset Entry}
+\begin{ingrid}
+/long_name (October 2019 Release) def
+continuedataset:
+\end{ingrid}
+\subsection{hidden function definitions}
+\begin{ingrid}
+ datasetdefs:
+\end{ingrid}
+\word prcp\_mmperday\_colors ( -- ) precipitation color scale in units of mm/day.
+\begin{ingrid}
+/prcp_mmperday_colors {
+ startcolormap
+ DATA 0 22 RANGE
+ white white grey 0 VALUE
+ grey grey 0.1 bandmax
+ 210 255 215 RGB RGBdup 2 bandmax
+ 190 240 195 RGB RGBdup 4 bandmax
+ 150 225 155 RGB RGBdup 6 bandmax
+ 115 210 110 RGB RGBdup 8 bandmax
+ 100 195 105 RGB RGBdup 10 bandmax
+  90 180  90 RGB RGBdup 12 bandmax
+  80 165  80 RGB RGBdup 14 bandmax
+  70 150  70 RGB RGBdup 16 bandmax
+  60 135  60 RGB RGBdup 18 bandmax
+  50 120  50 RGB RGBdup 20 bandmax
+  40 105  40 RGB RGBdup 22 bandmax
+  30  90  30 RGB endcolormap } def
+ :datasetdefs
+\end{ingrid}
+\subsection{grid definitions}
+\word X ( -- grid ) longitude grid.
+\begin{ingrid}
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+/standard_name (longitude) def
+periodic
+1.25 2.5 358.75
+:grid
+\end{ingrid}
+\word Y ( -- grid ) latitude grid.
+\begin{ingrid}
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+/standard_name (latitude) def
+-88.75 2.5 88.75
+:grid
+\end{ingrid}
+\word T ( -- grid ) time in months.
+\begin{ingrid}
+grid:
+/name /T def
+monthtime
+/fullname (Month) def
+/standard_name (time) def
+/defaultvalue { last } def
+/pointwidth 1 def
+16 Jan 1979 ensotime
+1.
+16 Sep 2019 ensotime %enddate
+:grid
+
+dataset:
+\end{ingrid}
+Copy X, Y, and T grids into CMAP version 1 dataset
+\begin{ingrid}
+
+X name exch def
+Y name exch def
+T name exch def
+
+\end{ingrid}
+Specify name, long\_name and description for CMAP version 1 dataset
+\begin{ingrid}
+ /name /ver1 def
+ /long_name (Version 1) def
+ /description (using rain gauge, satellite, and numerical model predictions) def
+
+\end{ingrid}
+\subsection{dependent variable definitions}
+The data for this dataset are held in text files -- one for each year of available data.
+Two variables are held in each text file.  Use the NVZ grid, which has two points, to index
+the two variables when reading data from the file.  Using the monthly T grid, apply a set of
+functions, "yearlyedgesgrid first secondtolast subgrid" to get the four-digit year values
+(interpolated in the file name using "\%y[T]") to cleanly generate the names of the yearly files 
+from which to read the monthly data.
+\begin{ingrid}
+
+ [ /NVZ 2 NewIntegerGRID X Y | T ] 
+(/Data/data5/noaa/cac/cmap/monthly/v1910/cmap_mon_v1910_%y[T].txt) 
+[T yearlyedgesgrid first secondtolast subgrid] readdatafile: 
+((24X,2F8.2))formatted
+  /missing_value -999.0 def
+:readdatafile
+
+definevariables:
+
+\end{ingrid}
+Assign attributes to the two variables read from the data files
+\word prcp\_est ( -- var ) estimated precipitation.
+\begin{ingrid}
+ 
+0 Zvariable:
+/name (prcp_est) def
+/long_name (CMAP Estimated Precipitation) def
+/units (mm/day) def
+prcp_mmperday_colors
+/standard_name (lwe_precipitation_rate) def
+:Zvariable
+
+\end{ingrid}
+\word error ( -- var ) estimated error of precipitation estimate.
+\begin{ingrid}
+0 Zvariable:
+/name /error def
+/units (percent) def
+:Zvariable
+
+:definevariables
+
+:dataset
+
+dataset:
+
+\end{ingrid}
+Copy X, Y, and T grids into CMAP version 2 dataset
+\begin{ingrid}
+X name exch def
+Y name exch def
+T name exch def
+
+\end{ingrid}
+Specify name, long\_name and description for CMAP version 2 dataset
+\begin{ingrid}
+ /name /ver2 def
+ /long_name (Version 2) def
+ /description (using rain gauge and satellite estimates) def
+
+\end{ingrid}
+
+\subsection{dependent variable definitions}
+The data for this dataset are held in text files -- one for each year of available data.
+Two variables are held in each text file.  Use the NVZ grid, which has two points, to index
+the two variables when reading data from the file.  Using the monthly T grid, apply a set of
+functions, "yearlyedgesgrid first secondtolast subgrid" to get the four-digit year values
+(interpolated in the file name using "\%y[T]") to cleanly generate the names of the yearly files 
+from which to read the monthly data.
+\begin{ingrid}
+ [ /NVZ 2 NewIntegerGRID X Y | T ] 
+(/Data/data5/noaa/cac/cmap/monthly/v1910/cmap_mon_v1910_%y[T].txt) 
+[T yearlyedgesgrid first secondtolast subgrid] readdatafile: 
+((40X,2F8.2))formatted
+  /missing_value -999.0 def
+:readdatafile
+
+definevariables:
+
+\end{ingrid}
+Assign attributes to the two variables read from the data files
+\word prcp\_est ( -- var ) estimated precipitation.
+\begin{ingrid}
+0 Zvariable:
+/name (prcp_est) def
+/long_name (CMAP Estimated Precipitation) def
+/units (mm/day) def
+prcp_mmperday_colors
+/standard_name (lwe_precipitation_rate) def
+:Zvariable
+
+\end{ingrid}
+\word error ( -- var ) estimated error of precipitation estimate.
+\begin{ingrid}
+0 Zvariable:
+/name /error def
+/units (percent) def
+:Zvariable
+
+:definevariables
+
+:dataset
+
+:dataset
+
+\end{ingrid}
+\end{document}

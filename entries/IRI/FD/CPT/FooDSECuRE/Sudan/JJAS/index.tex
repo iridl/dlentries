@@ -1,0 +1,266 @@
+\begin{ingrid}
+/description (JJAS Forecasts) def
+
+  continuedataset:
+
+50.0 /percentile parameter
+pop
+
+Ingrid:
+
+/prob_percentile_exc_rain {
+startcolormap DATA 0 1 RANGE transparent black RGBdup 0 VALUE brown /percentile get_parameter interp 100. div -1. mul 1. add /probref parameter 0.05 sub 3. div VALUE orange /probref get_parameter 0.05 sub 3. div 2. mul VALUE yellow /probref get_parameter 0.05 sub VALUE moccasin RGBdup /probref get_parameter 0.05 add bandmax LimeGreen /probref get_parameter 0.05 add 0.005 add VALUE turquoise /probref get_parameter 0.05 add 2. mul 1. add 3. div VALUE blue /probref get_parameter 0.05 add 2. add 3. div VALUE purple 1 VALUE purple endcolormap
+}defcolorscale
+
+/prob_percentile_nonexc_rain {
+startcolormap DATA 0 1 RANGE transparent purple RGBdup 0 VALUE blue /percentile get_parameter interp 100. div /probref parameter 0.05 sub 3. div VALUE turquoise /probref get_parameter 0.05 sub 3. div 2. mul VALUE LimeGreen /probref get_parameter 0.05 sub VALUE moccasin RGBdup /probref get_parameter 0.05 add bandmax yellow /probref get_parameter 0.05 add 0.005 add VALUE orange /probref get_parameter 0.05 add 2. mul 1. add 3. div VALUE brown /probref get_parameter 0.05 add 2. add 3. div VALUE black 1 VALUE black endcolormap
+}defcolorscale
+
+pop
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+22.25 0.5 35.75
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+%17.75 0.5 12.25
+9.25 0.5 17.75
+:grid
+
+  dataset:
+  /name /History def
+  /description (Predicand, Hindcast and Skill) def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+22.25 0.5 35.75
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+%17.75 0.5 12.25
+9.25 0.5 17.75
+:grid
+	
+    grid:
+      /name /S def
+      monthtime
+      /long_name (Start time) def
+      /standard_name (forecast_reference_time) def
+      /defaultvalue { last } def
+      /pointwidth 0 def
+        1 Jul 1950  ensotime
+        1
+        1 Jun 2013 ensotime
+   :grid
+
+/hindcast_date {
+S
+grid:
+/name /Lc def
+13 -1 2
+:grid
+0. add
+/name /L def
+Lc
+S 12 splitgrid pop replaceGRID
+add
+/long_name (hindcast time) def
+/pointwidth 4 def
+/units (months since 1960-01-01) def
+} defasvar
+
+/PearsonR_prcp {
+      [ X Y last first subgrid | S 12 splitgrid pop ]
+    (/data/ckelley/WFP/Sudan/201*%m[S]/Skill_prcp_JJAS_S%m[S].txt)  [S 12 splitgrid pop] 
+      readdatafile:
+        [3 1] r*8astsv 
+      :readdatafile
+        /long_name (Precipitation Pearson's Correlation) def
+        /units /unitless def
+        correlationcolorscale
+DATA -1 1 RANGE
+Y last first RANGE
+    }defasvarsilent
+
+/CrossValPred_prcp {
+      [ X Y last first subgrid S 12 splitgrid nip | S 12 splitgrid pop ]
+(/data/ckelley/WFP/Sudan/201*%m[S]/CrossValPred_prcp_JJAS_S%m[S].txt) [S 12 splitgrid pop]
+	  readdatafile:
+        [2 1 1] r*8astsv
+      :readdatafile
+S2 -12 shiftGRID
+[S S2]REORDER
+S unsplitstreamgrid
+S /pointwidth 0 def pop
+        /long_name (Precipitation cross-validated hindcasts) def
+        /units (mm/month) def
+        /missing_value -9999. def
+precip_colors
+DATA 0 AUTO RANGE
+Y last first RANGE
+    }defasvarsilent
+	
+/Input_prcp {
+      [ X Y last first subgrid S 12 splitgrid nip | S 12 splitgrid pop ]
+(/data/ckelley/WFP/Sudan/201*%m[S]/YInput_prcp_JJAS_S%m[S].txt) [S 12 splitgrid pop]
+          readdatafile:
+        [2 1 1] r*8astsv
+      :readdatafile
+S2 -12 shiftGRID
+[S S2]REORDER
+S unsplitstreamgrid
+S /pointwidth 0 def pop
+        /long_name (Precipitation input observations) def
+        /units (mm/month) def
+        /missing_value -9999. def
+precip_colors
+DATA 0 AUTO RANGE
+Y last first RANGE
+    }defasvarsilent
+
+  	:dataset
+
+  dataset:
+	/name /Forecast def
+	/description (Forecast and Error) def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+22.25 0.5 35.75
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+%17.75 0.5 12.25
+9.25 0.5 17.75
+:grid
+
+		grid:
+		 /name /C def
+		 /units /ids def
+		 /long_name (Tercile Classes) def
+		 values: (Below Normal) (Normal) (Above Normal) :values
+		:grid
+
+    grid:
+      /name /S def
+      monthtime
+      /long_name (Start time) def
+      /standard_name (forecast_reference_time) def
+      /defaultvalue { last } def
+      /pointwidth 0 def
+values:
+        1 Nov 2015  ensotime
+        1
+%        1 Jan 2016 ensotime
+        systemtime
+        systemtime2ymd
+        ymd:lastmonth
+        ymd:nextmonth 15 add
+        ymd2rm1960
+%        16 Jan 2009 ensotime
+        {} for
+      :values
+    :grid
+
+S { (/data/ckelley/WFP/Sudan/%Y%m[S]/Forecasts_prcp_JJAS_S%Y%m[S].txt) [S] } removeextrausing
+      /expires
+        systemtime
+        last_modified sub
+        86400 lt {
+          null
+        }{
+          last_modified
+          systemtime2ymd pop dup 12 lt {
+            1 add
+          }{
+            pop 1 add 1
+          }ifelse
+          6 ymd2systemtime
+        }ifelse
+      def
+   name exch def
+
+/expires S .expires def
+		
+/target_date {
+S
+grid:
+/name /Lc def
+values:
+9 8 7 6 5 4 3 2 13 12 11 10
+:values
+:grid
+0. add
+/name /L def
+Lc
+S 12 splitgrid pop replaceGRID
+add
+/long_name (forecast time) def
+/pointwidth 4 def
+/units (months since 1960-01-01) def
+} defasvar
+
+/Forecast_prcp {
+      [ X Y last first subgrid | S ]
+(/data/ckelley/WFP/Sudan/%Y%m[S]/Forecasts_prcp_JJAS_S%Y%m[S].txt) [S]
+      readdatafile:
+        [3 1] r*8astsv
+      :readdatafile
+        /missing_value -9999. def
+        /long_name (Precipitation current forecast) def
+/units (mm/month) def
+precip_colors
+DATA 0 AUTO RANGE
+Y last first RANGE
+    }defasvarsilent
+	
+%	/TercileProb_prcp {
+%	[X Y last first RANGE C | S ]
+%(/data/ckelley/WFP/Sudan/%Y%m[S]/TercileProbs_prcp_JJAS_S%Y%m[S].txt) [S]
+%	readdatafile:
+%	[ 2 1 2] r*8astsv
+%	:readdatafile
+%provcode2 provcode SAMPLE
+%provcode2 gid replaceGRID
+%	 /long_name (WD1 Tercile Probability) def
+%	/units /percent def
+%	/missing_value -1. def
+%	DATA 0 100 RANGE
+%	tercileclassesscale
+%	}defasvarsilent
+
+	
+	/PredErrVar_prcp {
+      [ X Y last first subgrid | S ]
+(/data/ckelley/WFP/Sudan/%Y%m[S]/PredErrVar_prcp_JJAS_S%Y%m[S].txt) [S]    
+  readdatafile:
+        [3 1] r*8astsv
+      :readdatafile
+      /missing_value -9999. def
+      /long_name (Precipitation prediction error variance) def
+      /units (mm2/month2) def
+precip_colors
+DATA 0 AUTO RANGE
+    }defasvarsilent
+
+	:dataset
+:dataset
+ 
+  
+\end{ingrid}

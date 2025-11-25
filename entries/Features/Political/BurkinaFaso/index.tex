@@ -1,0 +1,65 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Burkina_Faso_22_1) def
+/Health_Districts
+/description (Health Districts) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,gid as geom_id,name as h_name,lvlid,amap11,sqkm,namemaj,the_geom from bf_health2 order by gid) (gid) openqueryby
+        geom_id
+            /long_name (Geometry id) def
+        CopyStream
+        name exch def
+        h_name
+            /long_name (Health District name) def
+        CopyStream
+        name exch def
+        lvlid
+            /long_name (LVL id) def
+        CopyStream
+        name exch def
+        amap11
+            /long_name (AMAP 11 code) def
+        CopyStream
+        name exch def
+        sqkm
+            /long_name (Area) def
+            /units (km2) def
+        CopyStream
+        name exch def
+        namemaj
+            /long_name (Health District name in caps) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Health District geometry) def
+        name exch def
+}defasvarcachesilent
+/Regions
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,gid as geom_id,grp,the_geom from burkinafaso order by gid) (gid) openqueryby
+        geom_id
+            /long_name (Geometry id) def
+        CopyStream
+        name exch def
+        grp
+            /long_name (Region Abbrev.) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Region geometry) def
+        CopyStream
+        name exch def
+}defasvarcachesilent
+/last_modified
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select max ( last_modified ) as last_modified from burkinafaso) openquery .last_modified
+}def
+\end{ingrid}

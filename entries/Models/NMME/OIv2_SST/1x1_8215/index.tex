@@ -1,0 +1,41 @@
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name /X def
+/long_name (longitude) def
+/standard_name (longitude) def
+periodic
+0.0 1.0 359.0
+/units (degree_east) def
+:grid
+
+grid:
+/name /Y def
+/long_name (latitude) def
+/standard_name (latitude) def
+-90.0 1.0 90.0
+/units (degree_north) def
+:grid
+
+grid:
+/name /T def
+/long_name (time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+16 Jan 1982 ensotime
+1.0
+16 Sep 2015 ensotime
+:grid
+
+/sst { [ X Y | T ] (/Data/data23/NMME/Obs.D/OI.1982_curr.1x1.dat) readdatafile:
+/name (sst) def
+/units (Celsius_scale) def
+/long_name (OIv2 SST) def
+/standard_name (sea_surface_temperature) def
+/missing_value -999.0 def
+decdirect :readdatafile
+} defasvarsilent 
+
+:dataset
+\end{ingrid}

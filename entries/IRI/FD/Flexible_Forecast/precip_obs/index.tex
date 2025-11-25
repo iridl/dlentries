@@ -1,0 +1,24 @@
+\begin{ingrid}
+
+continuedataset:
+
+/prcp_est_sqrt {
+ SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+  T (Dec 1979) last RANGE
+  T 3 runningAverage
+  sqrt
+  T 12 splitstreamgrid
+/long_name (CMAP estimated precipitation) def
+}defasvar
+
+/prcp_est {
+ SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+  T (Dec 1979) last RANGE
+  T 3 runningAverage
+  T 12 splitstreamgrid
+/long_name (CMAP estimated precipitation) def
+}defasvar
+
+:dataset
+
+\end{ingrid}

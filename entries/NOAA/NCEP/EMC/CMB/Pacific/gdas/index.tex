@@ -1,0 +1,157 @@
+\begin{ingrid}
+continuedataset:
+/long_name (weekly with TOPEX altimetry) def
+grid:
+/name /X def
+degE
+122.2500    1.5       288.7500 
+:grid
+grid:
+/name /Y def
+degN
+-35.00000 1
+    45.00000    
+:grid
+grid:
+/name /Z def
+/units /m def
+values:
+5       15       25       35       45
+    55       65       75       85       95    
+    106.25       120       136.25       155       177.5
+    205       240       285       345       430    
+    550       720       967.5       1327.50       1821
+    2443.5       3126.5
+:values
+:grid
+grid:
+/name /T def
+/units (julian_day) def
+/add_offset 
+1 Jan 1997 julian_day def
+7 Jan 1998 julian_day
+add_offset sub 
+7.
+02 02 2005 julian_day %endday
+%Ingrid: /ymd2systemtime known {
+%dup
+%22 add
+%rjt2ymd
+%ymd2systemtime
+%/expires exch def
+%} if
+add_offset sub 
+/defaultvalue {last} def
+:grid
+variable:
+/name /u def
+/long_name (zonal velocity) def
+grids: X Z | Y T :grids
+/missing_value NaN def
+file:
+/name (/Data/data5/noaa/nmc/leetma/gdas/u) def
+random
+:file
+:variable
+variable:
+/name /v def
+/long_name (meridional velocity) def
+grids: X Z | Y T :grids
+/missing_value NaN def
+file:
+/name (/Data/data5/noaa/nmc/leetma/gdas/v) def
+random
+:file
+:variable
+variable:
+/name /temp def
+/long_name (temperature) def
+degC
+sstcolorscale
+grids: X Z | Y T :grids
+/missing_value NaN def
+file:
+/name (/Data/data5/noaa/nmc/leetma/gdas/t) def
+random
+:file
+:variable
+variable:
+/name /tcor def
+/long_name (temperature correction) def
+/units (degree_Celsius / hour) def
+grids: X Z | Y T :grids
+/missing_value NaN def
+file:
+/name (/Data/data5/noaa/nmc/leetma/gdas/tcor) def
+random
+:file
+:variable
+variable:
+/name /sal def
+/long_name (salinity) def
+/units (1 above .035) def
+/iridl:hasSemantics (iridl:Salinity) def
+grids: X Z | Y T :grids
+/missing_value NaN def
+file:
+/name (/Data/data5/noaa/nmc/leetma/gdas/s) def
+random
+:file
+:variable
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+grids: X Y | T :grids
+/missing_value NaN def
+file:
+/name (/Data/data5/noaa/nmc/leetma/gdas/taux) def
+random
+:file
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+grids: X Y | T :grids
+/missing_value NaN def
+file:
+/name (/Data/data5/noaa/nmc/leetma/gdas/tauy) def
+random
+:file
+:variable
+variable:
+/name /H def
+/long_name (sea level height anomaly) def
+/units (cm) def
+/scale_factor 1. 980 div def
+grids: X Y | T :grids
+/missing_value NaN def
+file:
+/name (/Data/data5/noaa/nmc/leetma/gdas/ps) def
+random
+:file
+:variable
+variable:
+/name /hflx def
+/long_name (heat flux) def
+/note (swfx + hflx = net heat flux) def
+/units (langley/s) def
+grids: X Y | T :grids
+/missing_value NaN def
+file:
+/name (/Data/data5/noaa/nmc/leetma/gdas/hflx) def
+random
+:file
+:variable
+variable:
+/name /swfx def
+/long_name (short wave flux) def
+/units (langley/s) def
+grids: X Y | T :grids
+/missing_value NaN def
+file:
+/name (/Data/data5/noaa/nmc/leetma/gdas/swfx) def
+random
+:file
+:variable
+:dataset
+\end{ingrid}

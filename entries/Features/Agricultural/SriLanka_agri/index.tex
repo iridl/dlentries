@@ -1,0 +1,56 @@
+\begin{ingrid}
+/Agri_zones
+/description ( Agricultural Zones in Sri Lanka) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,area,perimeter,agroeco_,agroeco_id,region,zone,rain75,zone1,code,the_geom from agrozone_dd order by gid) (gid) openqueryby
+        area
+            /long_name (Area) def
+        CopyStream
+        name exch def
+        perimeter 
+            /long_name (Perimeter) def
+        CopyStream
+        name exch def
+        agroeco_ 
+            /long_name (Agro Eco) def
+        CopyStream
+        name exch def
+        agroeco_id
+            /long_name (Agro Eco id) def
+        CopyStream
+        name exch def
+        region
+            /long_name (Zone Type, Rainfall, Elevation, Soils) def
+        CopyStream
+        name exch def
+        zone
+            /long_name (Rainfall Zone) def
+        CopyStream
+        name exch def
+        rain75
+            /long_name (Rainfall amount) def
+        CopyStream
+        name exch def
+        zone1
+            /long_name (Zone Type, Rainfall, Elevation) def
+        CopyStream
+        name exch def
+        code
+            /long_name (Zone Code) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Agricultural zone geometry) def
+        name exch def
+}defasvarsilent
+/last_modified
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select max ( last_modified ) as last_modified from agrozone_dd) openquery .last_modified
+}def
+\end{ingrid}

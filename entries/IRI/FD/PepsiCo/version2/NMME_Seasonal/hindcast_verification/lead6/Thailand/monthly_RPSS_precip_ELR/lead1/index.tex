@@ -1,0 +1,168 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (monthly Ranked Probability Skill Score for NMME Thailand long lead 6 seasoanl precipitation probability hindcast based on ELR method, with 5 NMME models and new normal period 1991-2020) def
+
+Ingrid:
+
+/RPSScolorscale{
+ startcolormap
+    DATA -0.1 0.2 RANGE
+    transparent DodgerBlue DodgerBlue
+       -0.05 bandmax
+       cyan cyan
+         -0.0125 bandmax
+         gray gray
+           0.0125 bandmax
+           yellow yellow
+             0.025 bandmax
+             gold gold
+               0.05 bandmax
+               orange orange
+                 0.075 bandmax
+                 DarkOrange DarkOrange
+                   0.1 bandmax
+                   tomato tomato 0.125
+                     bandmax
+                     OrangeRed OrangeRed 0.15
+                     bandmax
+                     red red 0.175
+                     bandmax
+                     magenta magenta 0.2
+                     bandmax
+                     magenta endcolormap
+}defcolorscale
+
+pop
+
+dataset:
+/name /NMME def
+/RPSS{
+(/Data/data21/iri/FD/PepsiCo/verification_hindcast/NMME_seasonal_precip_lead6_hindcast_monthly_RPSS_1991_2020_5models_THAI.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+T
+/units (months since 01-Jan) def
+/gridtype 1 def
+-0.5 shiftGRID
+
+lead 1 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+dataset:
+/name /CanSIPS-IC3 def
+/RPSS{
+(/Data/data21/iri/FD/PepsiCo/verification_hindcast/NMME_seasonal_precip_lead6_hindcast_monthly_RPSS_1991_2020_CanSIPS-IC3_THAI.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+T
+/units (months since 01-Jan) def
+/gridtype 1 def
+-0.5 shiftGRID
+
+lead 1 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+
+dataset:
+/name /COLA-RSMAS-CCSM4 def
+/RPSS{
+(/Data/data21/iri/FD/PepsiCo/verification_hindcast/NMME_seasonal_precip_lead6_hindcast_monthly_RPSS_1991_2020_COLA-RSMAS-CCSM4_THAI.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+T
+/units (months since 01-Jan) def
+/gridtype 1 def
+-0.5 shiftGRID
+
+lead 1 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+dataset:
+/name /GFDL-SPEAR def
+/RPSS{
+(/Data/data21/iri/FD/PepsiCo/verification_hindcast/NMME_seasonal_precip_lead6_hindcast_monthly_RPSS_1991_2020_GFDL-SPEAR_THAI.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+T
+/units (months since 01-Jan) def
+/gridtype 1 def
+-0.5 shiftGRID
+
+lead 1 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+dataset:
+/name /NASA-GEOSS2S def
+/RPSS{
+(/Data/data21/iri/FD/PepsiCo/verification_hindcast/NMME_seasonal_precip_lead6_hindcast_monthly_RPSS_1991_2020_NASA-GEOSS2S_THAI.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+T
+/units (months since 01-Jan) def
+/gridtype 1 def
+-0.5 shiftGRID
+
+lead 1 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+dataset:
+/name /NCEP-CFSv2 def
+/RPSS{
+(/Data/data21/iri/FD/PepsiCo/verification_hindcast/NMME_seasonal_precip_lead6_hindcast_monthly_RPSS_1991_2020_NCEP-CFSv2_THAI.nc) readCDF
+longitude /X renameGRID
+latitude /Y renameGRID
+
+T
+/units (months since 01-Jan) def
+/gridtype 1 def
+-0.5 shiftGRID
+
+lead 1 VALUE
+
+.rpss
+ lead removeGRID
+/long_name (Ranked Probability Skill Score) def
+RPSScolorscale
+} defasvarsilent
+:dataset
+
+
+:dataset
+\end{ingrid}

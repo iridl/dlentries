@@ -1,0 +1,145 @@
+\begin{ingrid}
+continuedataset:
+/BRF dataareRestricted
+/OLSSM_101_vars 
+/description (Open Lowland Snow Station Main Hourly Observations) def
+{
+        db:
+                /server IRIDB def
+                /dbname (grover) def
+        :db
+        (select time,battery,dstempf,dstime,dsdepth,dsretries from brf_olssm_hrly_101_2005_lt order by time) (time) openqueryby
+        time
+                (days since 2000-01-01 00:00:00) setunits
+                /pointwidth 0.0416666667 def
+        pop
+        dstempf
+                /long_name (Snow Depth Temperature) def
+                /units (Fahrenheit_scale) def
+        CopyStream
+        name exch def
+        dsdepth
+                /long_name (Snow Depth) def
+                /units (inches) def
+        CopyStream
+        name exch def
+        dsretries
+                /long_name (Snow Depth Retries) def
+                /units (unitless) def
+        CopyStream
+        name exch def
+        battery
+                /long_name (Battery) def
+                /units (volts) def
+        CopyStream
+        name exch def
+        dstime
+                /long_name (DSTime) def
+        CopyStream
+        name exch def
+} defasvarcachesilent
+/OLSSM_120_vars 
+/description (Open Lowland Snow Station Main Hourly Observations) def
+{
+        db:
+                /server IRIDB def
+                /dbname (grover) def
+        :db
+        (select time,battery,treflog from brf_olssm_hrly_120_2005_lt order by time) (time) openqueryby
+        time
+                (days since 2000-01-01 00:00:00) setunits
+                /pointwidth 0.0416666667 def
+        pop
+        battery
+                /long_name (Battery) def
+                /units (volts) def
+        CopyStream
+        name exch def
+        treflog
+                /long_name (treflog) def
+        CopyStream
+        name exch def
+} defasvarcachesilent
+/OLSSM_333_vars 
+/description (Open Lowland Snow Station Main Hourly Observations) def
+{
+        db:
+                /server IRIDB def
+                /dbname (grover) def
+        :db
+        (select time,rn_w_m2 from brf_olssm_hrly_333_2005_lt order by time) (time) openqueryby
+        time
+                (days since 2000-01-01 00:00:00) setunits
+                /pointwidth 0.0416666667 def
+        pop
+        rn_w_m2
+                /long_name (Rn_W_m2) def
+                /units (watts^m*m) def
+        CopyStream
+        name exch def
+} defasvarcachesilent
+/OLSSM_113_TC1
+/description (Open Lowland Snow Station Main Hourly Observations) def
+{
+        db:
+                /server IRIDB def
+                /dbname (grover) def
+        :db
+  (select tc_1_avg from brf_olssm_hrly_113_2005_lt where tid=%d[tid] AND time='%F %R[time]' ) [ (select time from brf_olssm_hrly_113_2005_lt group by time order by time) (select tid from brf_olssm_hrly_113_2005_lt group by tid order by tid) ]openquery .tc_1_avg
+                /long_name (TC1 Thermistor Temperature Avg) def
+                /units (Celsius_scale) def
+        CopyStream
+        time
+                (days since 2000-01-01 00:00:00) setunits
+                /pointwidth 0.0416666667 def
+        pop
+} defasvarcachesilent
+/OLSSM_113_trefmux
+/description (Open Lowland Snow Station Main Hourly Observations) def
+{
+        db:
+                /server IRIDB def
+                /dbname (grover) def
+        :db
+  (select trefmux_avg from brf_olssm_hrly_113_2005_lt where tid=%d[tid] AND time='%F %R[time]' ) [ (select time from brf_olssm_hrly_113_2005_lt group by time order by time) (select tid from brf_olssm_hrly_113_2005_lt group by tid order by tid) ]openquery .trefmux_avg
+                /long_name (trefmux avg) def
+        CopyStream
+        time
+                (days since 2000-01-01 00:00:00) setunits
+                /pointwidth 0.0416666667 def
+        pop
+} defasvarcachesilent
+/OLSSM_223_TC2
+/description (Open Lowland Snow Station Main Hourly Observations) def
+{
+        db:
+                /server IRIDB def
+                /dbname (grover) def
+        :db
+  (select tc_2_avg from brf_olssm_hrly_223_2005_lt where tid=%d[tid] AND time='%F %R[time]' ) [ (select time from brf_olssm_hrly_223_2005_lt group by time order by time) (select tid from brf_olssm_hrly_223_2005_lt group by tid order by tid) ]openquery .tc_2_avg
+                /long_name (TC2 Thermistor Temperature avg) def
+                /units (Celsius_scale) def
+        CopyStream
+        time
+                (days since 2000-01-01 00:00:00) setunits
+                /pointwidth 0.0416666667 def
+        pop
+} defasvarcachesilent
+/OLSSM_223_trefmux
+/description (Open Lowland Snow Station Main Hourly Observations) def
+{
+        db:
+                /server IRIDB def
+                /dbname (grover) def
+        :db
+  (select trefmux_avg from brf_olssm_hrly_223_2005_lt where tid=%d[tid] AND time='%F %R[time]' ) [ (select time from brf_olssm_hrly_223_2005_lt group by time order by time) (select tid from brf_olssm_hrly_223_2005_lt group by tid order by tid) ]openquery .trefmux_avg
+                /long_name (trefmux avg) def
+        CopyStream
+        time
+                (days since 2000-01-01 00:00:00) setunits
+                /pointwidth 0.0416666667 def
+        pop
+} defasvarcachesilent
+:dataset
+
+\end{ingrid}

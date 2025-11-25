@@ -1,0 +1,171 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/Smonth { S first sub 12 mod /units unitless def } defasvarsilent
+/Smonthlast { S last first sub nip 12 mod } def
+/yearsinSmonth { S  last first sub cvi 12 idiv   Smonth Smonthlast flagle add nip /long_name(years) def } defasvarsilent
+/offsetyearsinSmonth { S  last first sub cvi 12 idiv   Smonth Smonthlast flagle add nip S first dup 11 add RANGE 
+ S sums
+   S first secondtolast RANGE
+   S name
+     units periodic first step last NewEvenGRID
+     replaceGRID
+/long_name(years) def } defasvarsilent
+/CASSTrecordindex {
+1 S first sub
+    12 div
+    toi4 
+  
+    L yearsinSmonth mul
+    offsetyearsinSmonth L .npts mul  add
+    add add
+/long_name (record number) def
+/units unitless def
+   toi4
+
+} defasvarsilent
+:datasetdefs
+link:
+/name (source) def
+/href (ftp://ftp.cpc.ncep.noaa.gov/wd51hd/sst/) def
+:link
+grid:
+/name /X def
+degE
+periodic
+0.  360 144. div 360  2 index add 1 index sub
+:grid
+grid:
+/name /Y def
+degN
+90 -2.5 -90
+:grid
+grid:
+/name /L def
+/long_name (CPC lead time) def
+/units (months) def
+-1 1 13
+:grid
+grid:
+/name /S def
+/long_name (initial data) def
+
+
+/units (months since 1960-01-01) def
+/pointwidth 3. def
+16 May 2004 ensotime
+1 Jan 1960 ensotime sub
+1
+16 Apr 2019 ensotime
+%16 systemtime systemtime2ymd pop 1 sub exch ensotime
+1 Jan 1960 ensotime sub
+/defaultvalue { last } def
+:grid
+%S
+%   { (/Data/data7/noaa/ncep/cpc/ca_sst/updates/casst_ens_%s[lcmon]) [S dup 1 add (%b%Y) strftimes tolower /name /lcmon def]}removeextrausing
+% /expires last rm19602ymd ymd:nextmonth ymd:nextmonth ymd:nextmonth pop 5  ymd2systemtime def
+%name exch def
+%/expires S .expires def
+/last_modified S .last_modified def
+/T { S L add 2 add /pointwidth 1. def /long_name (Forecast Time) def} defasvarsilent
+
+\end{ingrid}
+
+/sst {
+ [X
+    Y |
+    L S] (/Data/data7/noaa/ncep/cpc/ca_sst/updates/casst_ens_%s[lcmon]) [S dup
+        1 add (%b%Y) strftimes
+        tolower
+        /name /lcmon def
+        ]readdatafile: sequential :readdatafile
+/units /Celsius_scale def
+/long_name (Sea Surface Temperature) def
+} defasvarsilent
+
+\begin{ingrid}
+
+/sst { SOURCES .NOAA .NCEP .CPC .CA_SST .updates .upto201305 .sst
+        SOURCES .NOAA .NCEP .CPC .CA_SST .updates .post201305 .sst appendstream
+} defasvarsilent
+
+dataset:
+/name /upto201305 def
+
+X name exch def
+Y name exch def
+L name exch def
+
+grid:
+/name /S def
+/long_name (initial data) def
+/units (months since 1960-01-01) def
+/pointwidth 3. def
+16 May 2004 ensotime
+1 Jan 1960 ensotime sub
+1
+16 May 2013 ensotime
+%16 systemtime systemtime2ymd pop 1 sub exch ensotime
+1 Jan 1960 ensotime sub
+:grid
+
+/sst {
+ [X
+    Y |
+    L S] (/Data/data7/noaa/ncep/cpc/ca_sst/updates/casst_ens_%s[lcmon]) [S dup
+        1 add (%b%Y) strftimes
+        tolower
+        /name /lcmon def
+        ]readdatafile: sequential :readdatafile
+/units /Kelvin_scale def
+/long_name (Sea Surface Temperature) def
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name /post201305 def
+
+X name exch def
+Y name exch def
+L name exch def
+
+grid:
+/name /S def
+/long_name (initial data) def
+/units (months since 1960-01-01) def
+/pointwidth 3. def
+16 Jun 2013 ensotime
+1 Jan 1960 ensotime sub
+1
+16 Apr 2019 ensotime
+%16 systemtime systemtime2ymd pop 1 sub exch ensotime
+1 Jan 1960 ensotime sub
+/defaultvalue { last } def
+:grid
+
+%S
+%   { (/Data/data7/noaa/ncep/cpc/ca_sst/updates/casst_ens_%s[lcmon]) [S dup 1 add (%b%Y) strftimes tolower /name /lcmon def]}removeextrausing
+% /expires last rm19602ymd ymd:nextmonth ymd:nextmonth ymd:nextmonth pop 5  ymd2systemtime def
+%name exch def
+%/expires S .expires def
+/last_modified S .last_modified def
+
+/sst {
+ [X
+    Y |
+    L S] (/Data/data7/noaa/ncep/cpc/ca_sst/updates/casst_ens_%s[lcmon]) [S dup
+        1 add (%b%Y) strftimes
+        tolower
+        /name /lcmon def
+        ]readdatafile: decsequential :readdatafile
+/units /Kelvin_scale def
+/long_name (Sea Surface Temperature) def
+} defasvarsilent
+
+:dataset
+
+\end{ingrid}
+\begin{ingrid}
+:dataset
+\end{ingrid}

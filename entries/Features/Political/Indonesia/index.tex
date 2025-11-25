@@ -1,0 +1,60 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Indonesia_69_1) def
+/Districts
+/description ( Provinces and Districts) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,gid as geom_id,name1,name2,the_geom,(name2||', '|| name1) as label from indonesia_dist order by gid) (gid) openqueryby
+        geom_id
+            /long_name (Geometry_id) def
+        CopyStream
+        name exch def
+        name1
+           /long_name (Province Name) def
+        CopyStream
+        name exch def
+        name2
+            /long_name (District Name) def
+        CopyStream
+        name exch def
+        label
+        CopyStream
+        name exch def
+        the_geom
+             /long_name (District Geometry) def
+        CopyStream
+        name exch def
+}defasvarcachesilent
+/Provinces
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,gid as geom_id,name1,name1 as label, the_geom from indonesia1 order by gid) (gid) openqueryby
+        geom_id
+            /long_name (Geometry_id) def
+        CopyStream
+        name exch def
+        name1
+            /long_name (Province Name) def
+        CopyStream
+        name exch def
+        label
+            /long_name (Label) def
+        CopyStream
+        name exch def
+        the_geom
+             /long_name (Province Geometry) def
+        CopyStream
+        name exch def
+}defasvarcachesilent
+/last_modified
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select max ( last_modified ) as last_modified from indonesia1) openquery .last_modified
+}def
+\end{ingrid}

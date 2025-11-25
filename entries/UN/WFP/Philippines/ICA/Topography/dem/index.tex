@@ -1,0 +1,56 @@
+\begin{ingrid}
+
+/description (Elevation) def
+
+continuedataset:
+
+grid:
+/name /X def
+/units /degree_east def
+116.929085 0.000833 2 copy 11614. 1. sub mul add 
+/long_name (Longitude) def
+:grid
+
+X partialgrid
+step 128 mul partitiongrid
+name 3 index !
+name 2 index !
+
+grid:
+/name /Y def
+/units /degree_north def
+20.932152 0.000833 2 copy 19579. 1. sub mul sub
+/long_name (Latitude) def
+:grid
+
+Y partialgrid
+step 128 mul partitiongrid
+name 3 index !
+name 2 index !
+
+/SRTM {
+[ X2 Y2 | X Y ]
+(/data/remic/mydatafiles/WFP/Philippines/ICA_PHL/Data/Rasters/phl_phy_dem90_srtm.tif)
+readdatafile:
+/integerarraytype tiledtiffimage
+:readdatafile
+/missing_value 2147483647 def
+/long_name (Digital Elevation) def
+/units /m def
+topographycolorscale
+}defasvarsilent
+
+/hillshade {
+[ X2 Y2 | X Y ]
+(/data/remic/mydatafiles/WFP/Philippines/ICA_PHL/Data/Rasters/phl_phy_hillshade.tif)
+readdatafile:
+/integerarraytype tiledtiffimage
+:readdatafile
+/missing_value 255 def
+/long_name (Hill Shade) def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

@@ -1,0 +1,63 @@
+\begin{ingrid}
+continuedataset:
+/index.html undef
+
+(lastgoodmonth) 
+1968 1
+systemtime (%Y) 4 strftime interp
+{
+s==
+[ (jan) (feb) (mar)(apr)(may)(jun)(jul)(aug)(sep)(oct)(nov)(dec) ]
+{
+1 index append 
+(/Data/data1/iri/fd/echam4.5/forecast/psst/rpsst) 1 index (.cuf) 3array astore concat
+dup fileexists?
+{ 
+4 -1 roll pop 1 index 4 1 roll
+exch cvn exch /readCUF cvx 2 array astore cvx 
+{defaftervars
+defPressureLevel-SF
+above_ground
+/td2m
+{null  exec
+  /long_name (Specific Humidity) def
+  markunitless
+/grib_name /hus cvx def
+}
+dup 0 currentobject 
+/td2m get
+put
+defasvarsilent
+name exch def
+} defasvarpartiallysilent
+} 
+{pop pop leave leave}ifelse
+} forall
+pop
+} for
+3 1 roll
+/ifvar? false def
+:dataset
+exch
+cvn cvx exec
+exch
+1 index .T
+(days since 1968-01-01 00:00:00) unitconvertbyattribute
+last scale_factor mul add_offset add
+nip
+/T
+(days since 1968-01-01 00:00:00)
+0
+0 .25 6 -1 roll 
+NewEvenGRID 
+name exch def
+1 index .X name exch def
+1 index .Y name exch def
+1 index .M name exch def
+nip
+
+\end{ingrid}
+
+
+
+

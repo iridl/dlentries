@@ -1,0 +1,455 @@
+<html>
+<head>
+<title> ccm3CAsstMOut01_jan1957.195701.nc structure</title>
+</head>
+<body bgcolor=white>
+<pre>
+
+400GB  (92736 files of length 4629172 bytes each)
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/cafilenames {
+1 index length 3 eq
+{(/Data/data1/iri/forecast/shuhua/ccm_retro.D/Retro_%2.2d[M].D/%b:lc[S]/ccm3CAsstMOut%2.2d[M]_%b:lc[S]%Y[S].%Y%m[forecasttime].nc) [M L S forecasttime ]}
+{(/Data/data1/iri/forecast/shuhua/ccm_retro.D/Retro_01.D/jan/ccm3CAsstMOut01_jan1957.195701.nc) } ifelse
+}def
+
+:datasetdefs
+grid:
+/name (M) def
+/units unitless def
+1 1 24
+:grid
+grid:
+/name (L) def
+/long_name (lead time) def
+/standard_name (forecast_period) def
+/netcdfgrid true def
+/units (months) def
+0.5 1. 6.5
+:grid
+grid:
+/name (S) def
+/long_name (start time) def
+/standard_name (forecast_reference_time) def
+/units monthtimename def
+/pointwidth 0 def
+1 Jan 1957 ensotime
+1.
+ systemtime systemtime2ymd pop 1 ymd2rm1960
+:grid
+/forecasttime { S L add /long_name (Forecast Time) def /standard_name (time) def [L S] REORDER } defasvarsilent
+
+ S
+   { (/Data/data1/iri/forecast/shuhua/ccm_retro.D/Retro_%2.2d[M].D/%b:lc[S]/ccm3CAsstMOut%2.2d[M]_%b:lc[S]%Y[S].%Y%m[forecasttime].nc) [M last subgridvalues L last subgridvalues S S L add /name /forecasttime def]}removeextrausing
+last rm19602ymd ymd:nextmonth ymd2systemtime /expires exch def
+ name exch def
+/expires S .expires def
+/last_modified last_modified S .last_modified imax def
+%/name (ccm3CAsstMOut01_jan1957.195701.nc)def
+ /Conventions (NCAR-CSM) def
+ /title (ccm3bld) def
+ /source (CCM) def
+% /case (ccm3bld_195701) def
+% /logname (lishu) def
+% /host (bs2601en) def
+grid:
+/name (lon)def
+/units (degree_east)def
+ 0.0 2.8125 357.1875
+:grid
+grid:
+/name (lat)def
+/units (degree_north)def
+values: -87.8638 -85.096527 -82.312912 -79.525604 -76.7369 -73.947517 -71.157753 -68.36776 -65.577606 -62.787354 -59.997021 -57.206631 -54.416199 -51.625732
+ -48.835239 -46.044727 -43.254196 -40.46365 -37.673088 -34.882523 -32.091946 -29.301359 -26.510769 -23.720175 -20.929575 -18.138971 -15.348365 -12.557756 -9.7671452 -6.9765334 -4.1859207 -1.3953069 1.3953069 4.1859207 6.9765334 9.7671452
+ 12.557756 15.348365 18.138971 20.929575 23.720175 26.510769 29.301359 32.091946 34.882523 37.673088 40.46365 43.254196 46.044727 48.835239 51.625732 54.416199 57.206631 59.997021 62.787354 65.577606 68.36776 71.157753 73.947517 76.7369 79.525604 82.312912 85.096527 87.8638 :values
+:grid
+dataset:
+/name (total_air_column) def
+{ lon lat M L S } {dataset exch get name exch def} forall
+
+ /CLDTOT{
+[ lon lat | M L S] dataset .cafilenames readdatafile:
+/name (CLDTOT) def
+ /units /unitless def
+ /long_name (Vertically-integrated total cloud) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+:dataset
+dataset:
+{ lat M L S } {dataset exch get name exch def} forall
+/name (parameters) def
+ /gw{
+[ lat |] dataset .cafilenames readdatafile:
+/name (gw) def
+ /units /unitless def
+ /long_name (gauss weights) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /P0{
+[ |] dataset .cafilenames readdatafile:
+/name (P0) def
+ /units /Pa def
+ /long_name (reference pressure) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /date{
+[ | M L S ] dataset .cafilenames readdatafile:
+/name (date) def
+ /units /unitless def
+ /long_name (current date (YYYYMMDD)) def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /date_written{
+[ | M L S] dataset .cafilenames readdatafile:
+/name (date_written) def
+ /units /unitless def
+ /stringtype 8 netcdfrecords :readdatafile
+}defasvarcachesilent
+ /datesec{
+[ | M L S ] dataset .cafilenames readdatafile:
+/name (datesec) def
+ /units /unitless def
+ /long_name (current seconds of current date) def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /mdt{
+[ |] dataset .cafilenames readdatafile:
+/name (mdt) def
+ /units /s def
+ /long_name (timestep) def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /nbdate{
+[ |] dataset .cafilenames readdatafile:
+/name (nbdate) def
+ /units /unitless def
+ /long_name (base date (YYYYMMDD)) def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /nbsec{
+[ |] dataset .cafilenames readdatafile:
+/name (nbsec) def
+ /units /unitless def
+ /long_name (seconds of base date) def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /ndbase{
+[ |] dataset .cafilenames readdatafile:
+/name (ndbase) def
+ /units /unitless def
+ /long_name (base day) def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /ndcur{
+[ | M L S] dataset .cafilenames readdatafile:
+/name (ndcur) def
+ /units /unitless def
+ /long_name (current day (from base day)) def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /nsbase{
+[ |] dataset .cafilenames readdatafile:
+/name (nsbase) def
+ /units /unitless def
+ /long_name (seconds of base day) def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /nscur{
+[ | M L S] dataset .cafilenames readdatafile:
+/name (nscur) def
+ /units /unitless def
+ /long_name (current seconds of current day) def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /nsteph{
+[ | M L S] dataset .cafilenames readdatafile:
+/name (nsteph) def
+ /units /unitless def
+ /long_name (current timestep) def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /ntrk{
+[ |] dataset .cafilenames readdatafile:
+/name (ntrk) def
+ /units /unitless def
+ /long_name (spectral truncation parameter K) def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /ntrm{
+[ |] dataset .cafilenames readdatafile:
+/name (ntrm) def
+ /units /unitless def
+ /long_name (spectral truncation parameter M) def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /ntrn{
+[ |] dataset .cafilenames readdatafile:
+/name (ntrn) def
+ /units /unitless def
+ /long_name (spectral truncation parameter N) def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /time_written{
+[ | M L S] dataset .cafilenames readdatafile:
+/name (time_written) def
+ /units /unitless def
+ /stringtype 8 netcdfrecords :readdatafile
+}defasvarcachesilent
+
+:dataset
+dataset:
+/name (surface) def
+{ lon lat M L S } {dataset exch get name exch def} forall
+
+ /FLNS{
+[ lon lat | M L S] dataset .cafilenames readdatafile:
+/name (FLNS) def
+ /units (W/m2)cvn def
+ /long_name (Net longwave flux at surface) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /FSNS{
+[ lon lat | M L S] dataset .cafilenames readdatafile:
+/name (FSNS) def
+ /units (W/m2)cvn def
+ /long_name (Net solar flux at surface) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /LHFLX{
+[ lon lat | M L S] dataset .cafilenames readdatafile:
+/name (LHFLX) def
+ /units (W/m2)cvn def
+ /long_name (Surface latent heat flux) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /SHFLX{
+[ lon lat | M L S] dataset .cafilenames readdatafile:
+/name (SHFLX) def
+ /units (W/m2)cvn def
+ /long_name (Surface sensible heat flux) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /TAUX{
+[ lon lat | M L S] dataset .cafilenames readdatafile:
+/name (TAUX) def
+ /units (N/m2)cvn def
+ /long_name (zonal surface stress) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /TAUY{
+[ lon lat | M L S] dataset .cafilenames readdatafile:
+/name (TAUY) def
+ /units (N/m2)cvn def
+ /long_name (meridional surface stress) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /TS{
+[ lon lat | M L S] dataset .cafilenames readdatafile:
+/name (TS) def
+ /units /Kelvin_scale def
+ /long_name (Surface temperature) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /PRECC{
+[ lon lat | M L S] dataset .cafilenames readdatafile:
+/name (PRECC) def
+ /units (m/s)cvn def
+ /long_name (Convective precipitation rate) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /PRECL{
+[ lon lat | M L S] dataset .cafilenames readdatafile:
+/name (PRECL) def
+ /units (m/s)cvn def
+ /long_name (Large-scale (stable) precipitation rate) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /ORO{
+[ lon lat | M L S] dataset .cafilenames readdatafile:
+/name (ORO) def
+ /units /FLAG def
+ /long_name (ocean (0), land (1), sea ice (2) flag) def
+ /missing_value 9.99999960E35 def
+ /time_op (instantaneous) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+:dataset % end of surface
+dataset:
+/name (toa) def
+/long_name (top of atmosphere) def
+{ lon lat M L S } {dataset exch get name exch def} forall
+ /FLNT{
+[ lon lat | M L S] dataset .cafilenames readdatafile:
+/name (FLNT) def
+ /units (W/m2)cvn def
+ /long_name (Net longwave flux at top) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /FSNT{
+[ lon lat | M L S] dataset .cafilenames readdatafile:
+/name (FSNT) def
+ /units (W/m2)cvn def
+ /long_name (Net solar flux at top) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+:dataset
+grid:
+/name (ilev)def
+/units (hybrid_sigma_pressure)def
+values: 2.5149946 7.1036053 19.042595 46.075607 81.818588 116.26782 161.15799 217.22421 285.255 364.43982 453.47113 549.07983 647.41748 742.92194 830.09796 902.71619 955.83582 985.05603 1000. :values
+:grid
+grid:
+/name (lev)def
+/units (hybrid_sigma_pressure)def
+values: 4.8092999 13.0731 32.559101 63.947098 99.043213 138.71291 189.1911 251.23962 324.84744 408.95547 501.27548 598.24872 695.16974 786.50995 866.40704 929.276 970.44598 992.52802 :values
+:grid
+dataset:
+/name (hybrid_lev) def
+{ lon lat ilev lev M L S } {dataset exch get  name exch def} forall
+ /hyai{
+[ ilev |] dataset .cafilenames readdatafile:
+/name (hyai) def
+ /units /unitless def
+ /long_name (hybrid A coefficient at layer interfaces) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /hyam{
+[ lev |] dataset .cafilenames readdatafile:
+/name (hyam) def
+ /units /unitless def
+ /long_name (hybrid A coefficient at layer midpoints) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /hybi{
+[ ilev |] dataset .cafilenames readdatafile:
+/name (hybi) def
+ /units /unitless def
+ /long_name (hybrid B coefficient at layer interfaces) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /hybm{
+[ lev |] dataset .cafilenames readdatafile:
+/name (hybm) def
+ /units /unitless def
+ /long_name (hybrid B coefficient at layer midpoints) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /OMEGA{
+[ lon lat lev | M L S] dataset .cafilenames readdatafile:
+/name (OMEGA) def
+ /units (Pa/s)cvn def
+ /long_name (Vertical velocity (pressure)) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /Q{
+[ lon lat lev | M L S] dataset .cafilenames readdatafile:
+/name (Q) def
+ /units /unitless def
+ /long_name (Q constituent tracer) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /RELHUM{
+[ lon lat lev | M L S] dataset .cafilenames readdatafile:
+/name (RELHUM) def
+ /units /unitless def
+ /long_name (Relative humidity) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /temp{
+[ lon lat lev | M L S] dataset .cafilenames readdatafile:
+/name (T) def
+ /units /Kelvin_scale def
+ /long_name (temperature) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /U{
+[ lon lat lev | M L S] dataset .cafilenames readdatafile:
+/name (U) def
+ /units (m/s)cvn def
+ /long_name (zonal wind) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /V{
+[ lon lat lev | M L S] dataset .cafilenames readdatafile:
+/name (V) def
+ /units (m/s)cvn def
+ /long_name (meridional wind) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /Z3{
+[ lon lat lev | M L S] dataset .cafilenames readdatafile:
+/name (Z3) def
+ /units /m def
+ /long_name (Geopotential Height (above sea level)) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+:dataset % end of hybrid_lev
+dataset:
+/name (mean_sea_level) def
+{ lon lat M L S } {dataset exch get name exch def} forall
+ /PSL{
+[ lon lat | M L S] dataset .cafilenames readdatafile:
+/name (PSL) def
+ /units /Pa def
+ /long_name (Sea level pressure) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+:dataset
+dataset:
+/name (above_ground) def
+{ lon lat M L S } {dataset exch get name exch def} forall
+ /TREFHT{
+[ lon lat | M L S] dataset .cafilenames readdatafile:
+/name (TREFHT) def
+ /units /Kelvin_scale def
+ /long_name (Reference height temperature) def
+ /missing_value 9.99999960E35 def
+ /time_op (average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+:dataset
+:dataset
+\end{ingrid}

@@ -1,0 +1,69 @@
+\begin{ingrid}
+continuedataset:
+/references (Parker_etal1995 Rayner_etal1996) def
+/description (Global SST and Ice Concentration (GISST)) def
+  grid:
+  /name (X) def
+	degE
+  periodic
+  -179.5 1 179.5
+  :grid
+  grid:
+  /name (Y) def
+	degN
+  89.5 1 -89.5
+  :grid
+  grid:
+  /name (T) def
+  /units monthtimename def
+16 Jan 1903 ensotime
+1.
+16 Dec 1994 ensotime
+  :grid
+/sst
+{
+ [X
+    Y |
+    T] (/Data/data6/GOSTA/data/gisst2_2/GSST%y[T]%y[Tp1].RAW) [grid:
+        /name /T def
+        /units monthtimename def
+        16
+         Jan 1903 ensotime
+         24. 16
+           Jan 1993 ensotime
+           :grid
+       /pointwidth 0 def
+       dup 12 add /name /Tp1 def
+        ]readdatafile:
+   i*2 
+/units (Celsius_scale) def
+512 set:file_byteoffset
+/scale_factor .01 def
+/missing_value -32768 def
+:readdatafile
+} defasvarsilent
+/ice
+{
+ [X
+    Y |
+    T] (/Data/data6/GOSTA/data/gisst2_2/GICE%y[T]%y[Tp1].RAW) [grid:
+        /name /T def
+        /units monthtimename def
+        16
+         Jan 1903 ensotime
+         24. 16
+           Jan 1993 ensotime
+           :grid
+       /pointwidth 0 def
+       dup 12 add /name /Tp1 def
+        ]readdatafile:
+   i*2 
+/units /unitless def
+512 set:file_byteoffset
+/scale_factor .1 def
+/missing_value -32768 def
+/long_name (ice concentration) def
+:readdatafile
+} defasvarsilent
+:dataset
+\end{ingrid}

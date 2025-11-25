@@ -1,0 +1,55 @@
+\begin{ingrid}
+
+/description (Global Extended Logistic Regression Forecast) def
+
+continuedataset:
+
+grid:
+/name /L def
+/long_name (Lead Time) def
+/units /months def
+2.5 1 5.5
+:grid
+
+grid:
+/name /S def
+/long_name (Start Time) def
+monthtime
+/defaultvalue { last } def
+/pointwidth 0. def
+/netcdfgrid true def
+%values:
+1 Jan 2011 ensotime
+1.
+1 Aug 2021 ensotime
+    :grid
+
+grid:
+/name /X_lag def
+/long_name (Longitude) def
+/units /degree_east def
+-4 1 4
+:grid
+
+grid:
+/name /Y_lag def
+/long_name (Latitude) def
+/units /degree_north def
+-4 1 4
+:grid
+
+    /target_date {S L add /long_name (forecast time) def /pointwidth 3 def} defasvar
+
+/smooth2a_Gaussian_9_9_75 {
+[X_lag Y_lag | ]
+(/data/remic/mydatafiles/IRI/ELR_coeffs/smooth2a_Gaussian_9_9_75.txt)
+readdatafile:
+[0 0] r*4astsv
+:readdatafile
+/long_name (Gaussian Weights) def
+/units /unitless def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

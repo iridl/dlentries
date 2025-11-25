@@ -1,0 +1,110 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.0 359
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+%-89.277000 dup 89.277000 exch sub 190 div exch 89.277000
+90 -1 -90
+:grid
+
+grid:
+/name (M) def
+/long_name (Initial time) def
+values:
+00 06 12 18
+:values
+:grid
+
+grid:
+/name /L def
+/units (months) def
+/standard_name (forecast_period) def
+0.5 1. 9.5
+:grid
+
+grid:
+/name (S) def
+/units (days since 2011-01-01) def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+31
+1
+systemtime
+systemtime2ymd ymd2rjt 1 sub
+2011 01 01 ymd2rjt
+sub
+/defaultvalue {last} def
+:grid
+%S{(/Data/data22/noaa/ncep/cfsv2/fcst/%Y[S]/%m[S]/%d[S]/18/ipvf.01.%Y[S]%m[S]%d[S]18.%Y[T]%m[T].avrg.grib.grb2) [S  dup L .last add /name /T def]}
+S{(/Data/data22/noaa/ncep/cfsv2/fcst/%Y[S]/%m[S]/%d[S]/filecount) [S  dup L .last add /name /T def]}
+removeextrausing
+/expires last 2 add 
+2011 01 01  ymd2rjt
+add
+rjt2ymd ymd2systemtime  3600 19 mul add
+     def
+name exch def
+/last_modified S .last_modified def
+/expires S .expires def
+/T{
+currentobject
+S 
+monthlyedgesgrid first secondtolast subgrid
+ first cvsunits
+    interp ensotime
+     nip cvi onegridcounter
+
+/units (months since 1960-01-01) def
+L  add
+[S] regridLB nip
+/long_name (Forecast Time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/calendar /360 def
+/pointwidth 1 def
+}defasvarsilent
+
+
+dataset: /name /surface def :dataset
+dataset: /name /isentropic_level def :dataset
+
+
+grid:
+/name /P def
+/long_name (Isentropic level) def
+/units (Kelvin_scale) def
+values:
+270 280 290 300 310 320 330 350 400 450 550 650 850 1000 1250 1500
+ :values
+:grid
+
+[ X Y M S L T ] { name exch def } forall
+[ X Y | /NVZ 114 NewIntegerGRID M L S ] 
+(/Data/data22/noaa/ncep/cfsv2/fcst/%Y[S]/%m[S]/%d[S]/%2.2d[M]/ipvf.01.%Y[S]%m[S]%d[S]%2.2d[M].%Y[T]%m[T].avrg.grib.grb2) [M L S T] 
+readdatafile: 
+
+/missing_value 9.9990003E+20 def
+%GRIB1record
+1 GRIB2record
+:readdatafile
+/P P def
+definevariables:
+ 
+surface 0  Pvariable:/name (PRES) def /long_name (Pressure) def /units (Pa) def :Pvariable
+surface 0 Pvariable:/name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def :Pvariable
+isentropic_level [3 10 17 24 31 38 45 52 59 66 73 80 87 94 101 108] Pvariable: /gribfield 1 def /name (UGRD) def /long_name (U-Component of wind) def /units (m s-1) def :Pvariable
+isentropic_level [3 10 17 24 31 38 45 52 59 66 73 80 87 94 101 108] Pvariable: /gribfield 2 def /name (VGRD) def /long_name (V-Component of wind) def /units (m s-1) def :Pvariable
+isentropic_level [4 11 18 25 32 39 46 53 60 67 74 81 88 95 102 109] Pvariable: /name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def :Pvariable
+isentropic_level [5 12 19 26 33 40 47 54 61 68 75 82 89 96 103 110] Pvariable: /name (PVORT) def /long_name (Potential Vorticity) def /units (Kelvin_scale m2 kg-1 s-1) def :Pvariable
+isentropic_level [6 13 20 27 34 41 48 55 62 69 76 83 90 97 104 111] Pvariable: /name (MNTSF) def /long_name (Montgomery Stream Function) def /units (m2 s-1) def :Pvariable
+isentropic_level [7 14 21 28 35 42 49 56 63 70 77 84 91 98 105 112] Pvariable: /name (LAPR) def /long_name (Lapse Rate) def /units (Kelvin_scale m-1) def :Pvariable
+isentropic_level [8 15 22 29 36 43 50 57 64 71 78 85 92 99 106 113] Pvariable: /name (RH) def /long_name (Relative Humidity) def /units (Kelvin_scale m-1) def :Pvariable
+isentropic_level [9 16 23 30 37 44 51 58 65 72 79 86 93 100 107 114] Pvariable: /name (VVEL) def /long_name (Vertical Velocity) def /units (Pa s-1) def :Pvariable
+:definevariables
+:dataset
+\end{ingrid}

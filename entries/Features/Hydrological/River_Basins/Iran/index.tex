@@ -1,0 +1,57 @@
+\begin{ingrid}
+
+continuedataset:
+
+dataset:
+
+/name /subbasins def
+/description (Iran Sub River Basins) def
+
+/code {
+IRIDB (iran_smbasin) (code) [(gid)] open_column_by
+/long_name (Code) def
+}defasvarsilentnoreuse
+
+/linkcode {
+IRIDB (iran_smbasin) (linkcode) [(gid)] open_column_by
+/long_name (Link Code) def
+}defasvarsilentnoreuse
+
+/mantaghe {
+IRIDB (iran_smbasin) (mantaghe) [(gid)] open_column_by
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (iran_smbasin) (the_geom) [(gid)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+:dataset
+
+dataset:
+
+/name /basins def
+/description (Iran River Basins) def
+
+/count {
+IRIDB (iran_bg_espg4326) (count) [(gid)] open_column_by
+/long_name (Count) def
+}defasvarsilentnoreuse
+
+/hozeh6 {
+IRIDB (iran_bg_espg4326) (hozeh6) [(gid)] open_column_by
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (iran_bg_espg4326) (the_geom) [(gid)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+:dataset
+
+:dataset
+
+subbasins code .gid name exch put
+basins hozeh6 .gid name exch put
+
+\end{ingrid}

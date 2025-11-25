@@ -1,0 +1,669 @@
+\begin{ingrid}
+continuedataset:
+
+ /CDO (Climate Data Operators version 1.7.1 (http://mpimet.mpg.de/cdo)) def
+ /Conventions (COARDS) def
+ /History (File written by MAPL_CFIO) def
+ /Contact (http://gmao.gsfc.nasa.gov) def
+ /Institution (NASA Global Modeling and Assimilation Office) def
+ /Title (yuri-S2S-2_1_UNSTABLE) def
+ /References (http://gmao.gsfc.nasa.gov) def
+ /Comment (yuri-S2S-2_1_UNSTABLE) def
+
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.0 359.0
+periodic
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ -90.0 1.0 90.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (days) def
+ 0.5 1.0 44.5
+/pointwidth 1.0 def
+/standard_name (forecast_period) def
+:grid
+
+grid:
+/name (M) def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+1 1 4
+:grid
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 850 500 200 100 50 30 10 :values
+/netcdfgrid true def
+:grid
+
+grid:
+/name /S def
+/long_name (Start Time) def
+/units (days since 1960-01-01) def
+/pointwidth 0 def
+values:
+  1999 1 2016 {
+    1 1 12 {
+      dup 1 eq 1 index 5 eq or {1 31 3 -1 roll}if
+      dup 2 eq {5 25 3 -1 roll}if
+      dup 3 eq 1 index 11 eq or 1 index 12 eq or {2 27 3 -1 roll}if
+      dup 4 eq {1 26 3 -1 roll}if
+      dup 6 eq 1 index 7 eq or {5 30 3 -1 roll}if
+      dup 8 eq {4 29 3 -1 roll}if
+      dup 9 eq 1 index 10 eq or {3 28 3 -1 roll}if
+      3 1 roll 5 exch {
+        3 copy ymd2rjt nip 1960 1 1 ymd2rjt sub 3 -2 roll
+      }for
+      pop
+    }for
+    pop
+  }for
+:values
+/standard_name (forecast_reference_time) def
+:grid
+
+ /pr{
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/pr_sfc/%Y[S]/%b:lc[S]/pr_sfc_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ]   readdatafile: 
+/name (pr) def
+ /long_name (Total Precipitation) def
+ /units (kg m-2 s-1)cvn def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /standard_name (precipitation_flux) def
+ /level_type (surface) def
+ /vmin -9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /rlut{
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/rlut_toa/%Y[S]/%b:lc[S]/rlut_toa_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (rlut) def
+ /long_name (Outgoing Longwave Radiation at Top of Atmosphere) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999987E14 def
+ /fmissing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /level_type (top of atmosphere) def
+ /standard_name (toa_outgoing_longwave_flux) def
+ /vmin -9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tas{
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/tas_2m/%Y[S]/%b:lc[S]/tas_2m_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (tas) def
+ /long_name (2-meter Air Temperature) def
+ /units /Kelvin_scale def
+ /missing_value 9.99999987E14 def
+ /fmissing_value 9.99999987E14 def
+ /level_type (2 meters above ground) def
+ /standard_name (air_temperature) def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ts{
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/ts_sfc/%Y[S]/%b:lc[S]/ts_sfc_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (ts) def
+ /fmissing_value 9.99999987E14 def
+ /long_name (Surface Temperature) def
+ /units /Kelvin_scale def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /level_type (surface) def
+ /standard_name (surface_temperature) def
+ /vmin -9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ua {
+[ X Y | L M S P ] (/Data/SubX/NASA/GEOS_V2p1/ua_%d[P]/%Y[S]/%b:lc[S]/ua_%d[P]_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ P S M ] readdatafile:
+/name (ua) def
+ /long_name (Zonal Velocity) def
+ /units (m s-1)cvn def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /level_type (pressure level) def
+ /standard_name (eastward_wind) def
+ /fmissing_value 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+ P 850 200 100 50 30 10 VALUES 
+}defasvarsilent
+
+ /va {
+[ X Y | L M S P ] (/Data/SubX/NASA/GEOS_V2p1/va_%d[P]/%Y[S]/%b:lc[S]/va_%d[P]_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ P S M ] readdatafile:
+/name (va) def
+ /long_name (Meridional Velocity) def
+ /units (m s-1)cvn def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /level_type (pressure level) def
+ /standard_name (northward_wind) def
+ /vmin -9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+ P 850 200 100 50 30 10 VALUES 
+}defasvarsilent
+
+ /zg {
+[ X Y | L M S P ] (/Data/SubX/NASA/GEOS_V2p1/zg_%d[P]/%Y[S]/%b:lc[S]/zg_%d[P]_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ P S M ] readdatafile:
+/name (zg) def
+ /long_name (Geopotential Height) def
+ /units /m def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /level_type (pressure level) def
+ /standard_name (geopotential_height) def
+ /vmin -9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+ P 850 500 200 50 30 10 VALUES 
+}defasvarsilent
+
+/cape {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/cape/%Y[S]/%b:lc[S]/cape_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (cape) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (atmosphere_convective_available_potential_energy) def
+ /long_name (Surface-Based Convective Available Potential Energy) def
+ /units (J kg-1)cvn def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/dlwrf {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/dlwrf_sfc/%Y[S]/%b:lc[S]/dlwrf_sfc_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (dlwrf) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (surface_downwelling_longwave_flux_in_air) def
+ /long_name (Surface Downward Long-Wave Radiation Flux) def
+ /units (W/m2)cvn def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/dswrf {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/dswrf_sfc/%Y[S]/%b:lc[S]/dswrf_sfc_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (dswrf) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (surface_downwelling_shortwave_flux_in_air) def
+ /long_name (Surface Downward Short-Wave Radiation Flux) def
+ /units (W/m2)cvn def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/hfls {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/hfls_sfc/%Y[S]/%b:lc[S]/hfls_sfc_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (hfls) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /long_name (Surface Latent Heat Net Flux) def
+ /units (W/m2)cvn def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/hfss {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/hfss_sfc/%Y[S]/%b:lc[S]/hfss_sfc_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (hfss) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /long_name (Surface Sensible Heat Net Flux) def
+ /units (W/m2)cvn def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/huss {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/huss_850/%Y[S]/%b:lc[S]/huss_850_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (huss) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (specific_humidity) def
+ /long_name (Specific Humidity at 850 hPa) def
+ /units /unitless def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/mrro {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/mrro/%Y[S]/%b:lc[S]/mrro_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (mrro) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (surface_runoff_flux) def
+ /long_name (Surface Water Runoff) def
+ /units (kg m-2 s-1)cvn def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/mrso {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/mrso/%Y[S]/%b:lc[S]/mrso_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (mrso) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (soil_moisture_content) def
+ /long_name (Vertically Integrated Soil Moisture) def
+ /units (kg m-2)cvn def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/psl {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/psl/%Y[S]/%b:lc[S]/psl_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (psl) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (air_pressure_at_sea_level) def
+ /long_name (Mean Sea Level Pressure) def
+ /units /Pa def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/sic {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/sic/%Y[S]/%b:lc[S]/sic_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (sic) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (sea_ice_area_fraction) def
+ /long_name (Sea Ice Concentration) def
+ /units /percent def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/snc {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/snc_sfc/%Y[S]/%b:lc[S]/snc_sfc_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (snc) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (surface_snow_area_fraction) def
+ /long_name (Surface Snow Cover Fraction) def
+ /units /unitless def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/snod {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/snodp/%Y[S]/%b:lc[S]/snodp_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (snodp) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (thickness_of_snowfall_amount) def
+ /long_name (Surface Snow Depth) def
+ /units /m def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/stx {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/stx_sfc/%Y[S]/%b:lc[S]/stx_sfc_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (stx) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (surface_downward_eastward_stress) def
+ /long_name (Eastward Surface Stress) def
+ /units (N m-2)cvn  def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/sty {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/sty_sfc/%Y[S]/%b:lc[S]/sty_sfc_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (sty) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (surface_downward_northward_stress) def
+ /long_name (Northward Surface Stress) def
+ /units (N m-2)cvn  def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+\end{ingrid}
+\begin{ingrid}
+
+/swe {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/swe/%Y[S]/%b:lc[S]/swe_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (swe) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (liquid_water_content_of_surface_snow) def
+ /long_name (Water Equivalent of Accumulated Snow Depth) def
+ /units (kg m-2)cvn  def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/ta {
+[ X Y | L M S P ] (/Data/SubX/NASA/GEOS_V2p1/ta_%d[P]/%Y[S]/%b:lc[S]/ta_%d[P]_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ P S M ] readdatafile:
+/name (ta) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (air_temperature) def
+ /long_name (Air Temperature) def
+ /units /Kelvin_scale def
+ /level_type (pressure level) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+ P 100 50 30 10 VALUES
+}defasvarsilent
+
+/tasmax {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/tasmax_2m/%Y[S]/%b:lc[S]/tasmax_2m_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (tasmax) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (air_temperature) def
+ /long_name (2-meter Maximum Air Temperature) def
+ /units /Kelvin_scale def
+ /level_type (2 meters above ground) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/tasmin {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/tasmin_2m/%Y[S]/%b:lc[S]/tasmin_2m_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (tasmin) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (air_temperature) def
+ /long_name (2-meter Minimum Air Temperature) def
+ /units /Kelvin_scale def
+ /level_type (2 meters above ground) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/tdps {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/tdps_2m/%Y[S]/%b:lc[S]/tdps_2m_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (tdps) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (dew_point_temperature) def
+ /long_name (2-meter Dew Point Temperature) def
+ /units /Kelvin_scale def
+ /level_type (2 meters above ground) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/uas {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/uas_10m/%Y[S]/%b:lc[S]/uas_10m_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (uas) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (eastward_wind) def
+ /long_name (10-meter U-Component of Wind) def
+ /units (m s-1) def
+ /level_type (10 meters above ground) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/ulwrf {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/ulwrf_sfc/%Y[S]/%b:lc[S]/ulwrf_sfc_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (ulwrf) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (surface_upwelling_longwave_flux_in_air) def
+ /long_name (Surface Upward Long-Wave Radiation) def
+ /units (W/m2) def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/uswrf {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/uswrf_sfc/%Y[S]/%b:lc[S]/uswrf_sfc_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (uswrf) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (surface_upwelling_shortwave_flux_in_air) def
+ /long_name (Surface Upward Short-Wave Radiation) def
+ /units (W/m2) def
+ /level_type (surface) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/vas {
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V2p1/vas_10m/%Y[S]/%b:lc[S]/vas_10m_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (vas) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (northward_wind) def
+ /long_name (10-meter V-Component of Wind) def
+ /units (m s-1) def
+ /level_type (10 meters above ground) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+\end{ingrid}
+\begin{ingrid}
+
+grid:
+/name (P1) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 500 :values
+/netcdfgrid true def
+:grid
+
+/wap {
+[ X Y | P1 L M S ] (/Data/SubX/NASA/GEOS_V2p1/wap_500/%Y[S]/%b:lc[S]/wap_500_GMAOGEOS_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (wap) def
+ /missing_value 9.99999987E14 def
+ /vmax 9.99999987E14 def
+ /vmin -9.99999987E14 def
+ /standard_name (lagrangian_tendency_of_air_pressure) def
+ /long_name (Pressure Vertical Velocity at 500 hPa) def
+ /units (Pa s-1) def
+ /level_type (pressure level) def
+ /fmissing_value 9.99999987E14 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+
+ dataset:
+
+ /name (dc9915) def
+ /description (1999-2015 Daily Hindcast Climatology) def
+ /title (SubX Climatology) def
+ /MatlabSource () def
+ /CreationDate (2018/02/22 08:43:19) def
+ /long_title (SubX Climatology) def
+ /institution (IRI) def
+ /CreatedBy (kpegion) def
+ /comments (SubX project http://cola.gmu.edu/~kpegion/subx/) def
+ /source (SubX IRI) def
+
+ grid:
+ /name (X) def
+ /units (degree_east) def
+ periodic
+ 0.0 1.0 359.0
+ :grid
+
+ grid:
+ /name (Y) def
+ /units (degree_north) def
+ -90.0 1.0 90.0
+ :grid
+
+ grid:
+ /name (P) def
+ /long_name (Pressure Level) def
+ /units (hPa) def
+ values: 850 500 200 100 50 30 10 :values
+ /standard_name (air_pressure) def
+ :grid
+
+ grid:
+ /name (S) def
+ /long_name (Start Time) def
+ /standard_name (forecast_reference_time) def
+ 01 Jan 1960 julian_day 01 Jan 1960 julian_day sub
+ 1.0
+ 31 Dec 1960 julian_day 01 Jan 1960 julian_day sub
+ /units (days since 1960-01-01) def
+ /pointwidth 0. def
+ :grid
+
+ grid:
+ /name (L) def
+ /long_name (Lead) def
+ /units (days) def
+ /standard_name (forecast_period) def
+ 0.5 1.0 44.5
+ /pointwidth 1.0 def
+ :grid
+
+ /pr{
+ [ X Y | L S ] (/Data/SubX/NASA/GEOS_V2p1/climatology/pr_sfc/pr_GMAO-GEOS_V2p1_%m%d[S].climo.p.nc) [ S ] readdatafile:
+ /name (pr) def
+ /missing_value 9.99999987E14 def
+ /long_name (Total Precipitation) def
+ /units (kg m-2 s-1)cvn def
+ /standard_name (precipitation_flux) def
+ /level_type (surface) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+  /rlut {
+ [ X Y | L S ] (/Data/SubX/NASA/GEOS_V2p1/climatology/rlut_toa/rlut_GMAO-GEOS_V2p1_%m%d[S].climo.p.nc) [ S ] readdatafile:
+ /name (rlut) def
+ /long_name (Outgoing Longwave Radiation at Top of Atmosphere) def
+ /missing_value 9.99999987E14 def
+ /standard_name (toa_outgoing_longwave_flux) def
+ /units (W/m2) def
+ /level_type (top of atmosphere) def
+ /realarraytype netcdfrecords :readdatafile
+ } defasvarsilent
+
+  /tas{
+ [ X Y | L S ] (/Data/SubX/NASA/GEOS_V2p1/climatology/tas_2m/tas_GMAO-GEOS_V2p1_%m%d[S].climo.p.nc) [ S ]  readdatafile:
+ /name (tas) def
+ /missing_value 9.99999987E14 def
+ /units (Kelvin_scale) def
+ /long_name (2-meter Mean Air Temperature) def
+ /standard_name (air_temperature) def
+ /level_type (2 meters above ground) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /ts{
+ [ X Y | L S ] (/Data/SubX/NASA/GEOS_V2p1/climatology/ts_sfc/ts_GMAO-GEOS_V2p1_%m%d[S].climo.p.nc) [ S ] readdatafile:
+ /name (ts) def
+ /long_name (ts) def
+ /missing_value 9.99999987E14 def
+ /long_name (Surface Temperature) def
+ /standard_name (surface_temperature) def
+ /units (Kelvin_scale) def
+ /level_type (surface) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /ua{
+ [ X Y | L S P ] (/Data/SubX/NASA/GEOS_V2p1/climatology/ua_%d[P]/ua_GMAO-GEOS_V2p1_%m%d[S].climo.p.nc) [ S P ] readdatafile:
+ /name (ua) def
+ /missing_value 9.99999987E14 def
+ /long_name (Zonal Velocity) def
+ /standard_name (eastward_wind) def
+ /level_type (pressure level) def
+ /units (m s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+ P 850 200 VALUES
+ }defasvarsilent
+
+ /va{
+ [ X Y | L S P ] (/Data/SubX/NASA/GEOS_V2p1/climatology/va_%d[P]/va_GMAO-GEOS_V2p1_%m%d[S].climo.p.nc) [ S P ] readdatafile:
+ /name (va) def
+ /missing_value 9.99999987E14 def
+ /long_name (Meridional Velocity) def
+ /standard_name (northward_wind) def
+ /level_type (pressure level) def
+ /units (m s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+ P 850 200 VALUES
+ }defasvarsilent
+
+ /zg{
+ [ X Y | L S P ] (/Data/SubX/NASA/GEOS_V2p1/climatology/zg_%d[P]/zg_GMAO-GEOS_V2p1_%m%d[S].climo.p.nc) [ S P ] readdatafile:
+ /name (zg) def
+ /missing_value 9.99999987E14 def
+ /long_name (Geopotential Height) def
+ /standard_name (geopotential_height) def
+ /level_type (pressure level) def
+ /units (m)cvn def
+ /realarraytype netcdfrecords :readdatafile
+ P 500 200 VALUES
+}defasvarsilent
+
+ :dataset
+
+:dataset
+\end{ingrid}
+

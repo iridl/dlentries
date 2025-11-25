@@ -1,0 +1,57 @@
+\begin{ingrid}
+    continuedataset:
+    /description (Member-averaged hindcasts + retrospective forecasts + forecasts) def
+    /prcp {
+        SOURCES .EU .Copernicus .CDS .C3S .ECMWF .SEAS51_Y180
+        a: .hindcast :a: .retroforecast :a: .forecast :a
+        3 {3 -1 roll [M]average .prcp} repeat 
+        appendstream appendstream
+        S /defaultvalue {last} def pop
+    } defasvar
+    /sst {
+        SOURCES .EU .Copernicus .CDS .C3S .ECMWF .SEAS51_Y180
+        a: .hindcast :a: .retroforecast :a: .forecast :a
+        3 {3 -1 roll [M]average .sst} repeat 
+        appendstream appendstream
+        S /defaultvalue {last} def pop
+    } defasvar
+    /t2m {
+        SOURCES .EU .Copernicus .CDS .C3S .ECMWF .SEAS51_Y180
+        a: .hindcast :a: .retroforecast :a: .forecast :a
+        3 {3 -1 roll [M]average .t2m} repeat 
+        appendstream appendstream
+        S /defaultvalue {last} def pop
+    } defasvar
+    /ua {
+        SOURCES .EU .Copernicus .CDS .C3S .ECMWF .SEAS51_Y180
+        a: .hindcast :a: .retroforecast :a: .forecast :a
+        3 {3 -1 roll [M]average .ua} repeat 
+        appendstream appendstream
+        S /defaultvalue {last} def pop
+    } defasvar
+    /va {
+        SOURCES .EU .Copernicus .CDS .C3S .ECMWF .SEAS51_Y180
+        a: .hindcast :a: .retroforecast :a: .forecast :a
+        3 {3 -1 roll [M]average .va} repeat 
+        appendstream appendstream
+        S /defaultvalue {last} def pop
+    } defasvar
+    /z {
+        SOURCES .EU .Copernicus .CDS .C3S .ECMWF .SEAS51_Y180
+        a: .hindcast :a: .retroforecast :a: .forecast :a
+        3 {3 -1 roll [M]average .z} repeat 
+        appendstream appendstream
+        S /defaultvalue {last} def pop
+    } defasvar
+    /T { z a: .S :a: .L :a add
+        /long_name (Time) def
+        /standard_name (time) def
+        S /defaultvalue {last} def pop
+    } defasvarsilent
+    :dataset
+    z .X name exch def
+    z .Y name exch def
+    z .S name exch def
+    z .L name exch def
+    z .P name exch def
+\end{ingrid}

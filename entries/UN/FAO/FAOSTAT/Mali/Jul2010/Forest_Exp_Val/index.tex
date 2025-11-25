@@ -1,0 +1,127 @@
+\begin{ingrid}
+  continuedataset:
+    /source (<a href="http://faostat.fao.org/default.aspx">FAOSTAT</a>) def
+    grid:
+      /name (T) def
+      monthtime
+      /pointwidth 12 def
+      1 Jul 1991 ensotime
+      12
+      1 Jul 2009 ensotime
+    :grid
+    grid:
+      /name (code) def
+      /units (ids) def
+      /fullname (item code) def
+      values:
+1617
+1616
+1618
+1647
+1676
+1651
+1670
+1657
+1650
+1648
+1675
+1622
+1683
+1646
+1640
+1674
+1669
+1633
+1615
+1634
+1630
+1629
+1620
+1681
+1621
+      :values
+    :grid
+
+    variable:
+      /name /Name def
+      grids: code :grids
+      /long_name (item name) def
+      values:
+(Case Materials)
+(Coated Papers)
+(Folding Boxboard)
+(Hardboard)
+(Household+Sanitary Paper)
+(Ind Rwd Wir (C))
+(Ind Rwd Wir (NC) Other)
+(Ind Rwd Wir (NC) Tropica)
+(Insulating Board)
+(MDF)
+(Other Paper+Paperboard)
+(Other Papers Packaging)
+(Paper+Paperboard NES)
+(Particle Board)
+(Plywood)
+(Printing+Writing Paper)
+(Recovered Paper)
+(Sawnwood (NC))
+(Uncoated Woodfree)
+(Veneer Sheets)
+(Wood Charcoal)
+(Wood Fuel Trd)
+(Wood Residues)
+(Wrapg+Packg Paper+Board)
+(Wrapping Papers)
+  :values
+    :variable
+
+    /Exp_Val {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliForesExpVal.csv)
+      readdatafile:
+        ((/,(88X,19(F5.0,9X)))) formatted
+      :readdatafile
+      /long_name (forest exportation value) def
+      /units ($) def
+      /scale_factor 1000. def
+      /scale_min 0 def
+    }defasvarsilent
+
+    /Flag {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliProdAnimals.csv)
+      readdatafile:
+        ((/,(101X,48(14X,F1.0,)))) formatted
+      :readdatafile
+      /long_name (data quality) def
+      /CLIST [
+        (Official data)
+        (Unofficial figure)
+        (FAO estimate)
+        (Data not available)
+        (FAO calculated)
+        (Estimated data using trading partners database)
+        (Manual Estimation)        (Country data reported by International Organizations where the country is a member (Semi-official))
+        (Official data reported on FAO Questionnaires from countries)
+      ] def
+      startcolormap
+        /maxncolor 12 def
+        DATA 0 8 RANGE
+        white white
+        black
+        LightBlue
+        red
+        grey
+        orange
+        yellow
+        purple
+        NavyBlue
+        blue
+        white
+      endcolormap
+    }defasvarsilent
+
+  /history (FAOSTAT | © FAO Statistics Division 2010) def
+
+  :dataset
+\end{ingrid}

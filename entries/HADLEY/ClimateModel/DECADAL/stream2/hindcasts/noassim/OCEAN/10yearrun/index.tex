@@ -1,0 +1,192 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+
+/ET { 
+S 120 add
+/long_name (End time) def
+/units (months since 1960-01-01) def
+/pointwidth 1 def
+/calendar /360 def
+ }defasvar
+/putasvarsilent { defasvarsilent pop } def
+:datasetdefs
+/Conventions (CF-1.0) def
+grid:
+/name /L def
+/units (months) def
+/long_name (Lead time) def
+/calendar /360 def
+/standard_name (forecast_period) def
+/pointwidth 3 def
+2.5 3. 116.5
+:grid
+grid:
+/name /M def
+/long_name (Member) def
+0 1 8
+:grid
+
+grid:
+/name /S def
+/long_name (Start time) def
+/standard_name (forecast_reference_time) def
+/units (months since 1960-01-01 00:00:00) def
+/pointwidth 0 def
+values:
+01 Nov 1960 ensotime  01 Nov 1961 ensotime  01 Nov 1962 ensotime  01 Nov 1963 ensotime  01 Nov 1964 ensotime 
+ 01 Nov 1966 ensotime  01 Nov 1967 ensotime 01 Nov 1968 ensotime  01 Nov 1969 ensotime 
+ 01 Nov 1970 ensotime 01 Nov 1971 ensotime 01 Nov 1972 ensotime 01 Nov 1973 ensotime 01 Nov 1974 ensotime 
+ 01 Nov 1976 ensotime 01 Nov 1977 ensotime 01 Nov 1978 ensotime 01 Nov 1979 ensotime 
+ 01 Nov 1980 ensotime 01 Nov 1981 ensotime 01 Nov 1982 ensotime 01 Nov 1983 ensotime 01 Nov 1984 ensotime
+ 01 Nov 1986 ensotime 01 Nov 1987 ensotime 01 Nov 1988 ensotime 01 Nov 1989 ensotime 
+ 01 Nov 1990 ensotime 01 Nov 1991 ensotime 01 Nov 1992 ensotime 01 Nov 1993 ensotime 01 Nov 1994 ensotime
+ 01 Nov 1996 ensotime 01 Nov 1997 ensotime 01 Nov 1998 ensotime 01 Nov 1999 ensotime  
+01 Nov 2000 ensotime 01 Nov 2001 ensotime 01 Nov 2002 ensotime 01 Nov 2003 ensotime 01 Nov 2004 ensotime
+:values
+:grid
+
+/T { 
+S L add
+/long_name (Forecast time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/calendar /360 def
+ }defasvar
+grid:
+/name (X)def
+/units (degree_east)def
+periodic
+0.625 1.25 360 0.625 sub
+:grid
+/X1 X def
+
+grid:
+/name (X)def
+/units (degree_east)def
+periodic
+0 1.25 360 1.25 sub
+:grid
+
+grid:
+/name (Y) def
+/units (degree_north)def
+-88.75 1.25 88.75
+:grid
+/Y1 Y def
+
+grid:
+/name (Y) def
+/units (degree_north)def
+-89.375 1.25 89.375
+:grid
+
+grid:
+/name /z def
+/long_name (Below sea surface) def
+/units (m) def
+values: 
+    5.00   15.00   25.00   35.10   47.85
+   67.00   95.75  138.90  203.70  301.00
+  447.05  666.30  995.55 1500.85 2116.15
+ 2731.40 3346.65 3961.90 4577.15 5192.45
+:values
+:grid
+
+dataset: /name /surface def :dataset
+surface [ X Y M S T ] { name exch def } forall pop
+dataset: /name /belowSeaSurface def :dataset
+belowSeaSurface [ X Y z M S L ] { name exch def } forall
+belowSeaSurface /so {
+dataset
+[ X Y | z M L S] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/stream2/NoAssim/z01u%d[M]/z01u%d[M]_sm_so%.2f[z]_%Y[S]11010000-%Y[ET]11010000.nc)[z M ET S]
+readdatafile: 
+/name (so) def
+/long_name (salinity (ocean)) def 
+/units (psu) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+belowSeaSurface /thetao {
+dataset
+[ X Y | z M L S] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/stream2/NoAssim/z01u%d[M]/z01u%d[M]_sm_thetao%.2f[z]_%Y[S]11010000-%Y[ET]11010000.nc)[z M ET S]
+readdatafile: 
+/name (thetao) def
+/long_name (potential temperature (ocean)) def 
+/units (Kelvin_scale) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+belowSeaSurface /uo {
+dataset
+[ X1 Y1 | z M L S] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/stream2/NoAssim/z01u%d[M]/z01u%d[M]_sm_uo%.2f[z]_%Y[S]11010000-%Y[ET]11010000.nc)[z M ET S]
+readdatafile: 
+/name (uo) def
+/realarraytype
+/missing_value 1e+20 def
+/long_name (total u-velocity (ocean)) def 
+/units (m s-1) def
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+belowSeaSurface /vo {
+dataset 
+[ X1 Y1 | z M L S] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/stream2/NoAssim/z01u%d[M]/z01u%d[M]_sm_vo%.2f[z]_%Y[S]11010000-%Y[ET]11010000.nc)[z M ET S]
+readdatafile: 
+/name (vo) def
+/realarraytype
+/missing_value 1e+20 def
+/long_name (total v-velocity (ocean)) def 
+/units (m s-1) def
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+surface /aic {
+dataset
+[ X Y | M L S] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/stream2/NoAssim/z01u%d[M]/z01u%d[M]_sm_aic-1_%Y[S]11010000-%Y[ET]11010000.nc)[M ET S]
+readdatafile: 
+/name (aic) def
+/long_name (sea ice concentration) def 
+/units (fraction) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+surface /sit {
+dataset
+[ X Y | M L S] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/stream2/NoAssim/z01u%d[M]/z01u%d[M]_sm_sit-1_%Y[S]11010000-%Y[ET]11010000.nc)[M ET S]
+readdatafile: 
+/name (sit) def
+/long_name (sea ice thickness) def 
+/units (m) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+:dataset
+\end{ingrid}
+

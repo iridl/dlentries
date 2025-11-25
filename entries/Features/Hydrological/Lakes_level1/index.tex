@@ -1,0 +1,21 @@
+\begin{ingrid}
+continuedataset:
+/description (Global Lakes and Wetlands Database Boundaries) def
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Lakes def
+/lake_name
+{ IRIDB (glwd_1) (lake_name) [(glwd_id)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (glwd_1) (the_geom) [(glwd_id)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+Lakes lake_name .glwd_id name exch put
+\end{ingrid}
+
+

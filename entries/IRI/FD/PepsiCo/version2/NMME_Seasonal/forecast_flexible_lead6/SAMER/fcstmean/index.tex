@@ -1,0 +1,94 @@
+\begin{ingrid}
+
+/PepsiCo datadownloadsareRestricted
+/Cookie varies_on
+
+continuedataset:
+
+/description (Forecast Ensemble Mean for NMME South America long lead 6 seasonal forecasts) def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+274.0 360 sub 1.0 326.0 360 sub 
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+-60.0 1.0 16.0
+:grid
+
+grid:
+/name /L def
+/long_name (Lead Time) def
+/units /months def
+1.0 1.0 6.0
+:grid
+
+grid:
+/name /modl def
+/long_name (Models) def
+1.0 1.0 8.0
+:grid
+
+grid:
+/name (S) def
+monthtime
+/fullname (Month Forecast Issued) def
+/defaultvalue { last } def
+/pointwidth 1 def
+16 Jul 2023 ensotime
+1.0
+16 systemtime (%b %Y) 10 strftime interp ensotime
+/netcdfgrid true def
+:grid
+
+S { (/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_lead6/forecast_mean_tref_%b%Y[S]_lead6_5models_SAMER.nc) [S] } removeextrausing
+
+/expires
+last_modified systemtime2ymd ymd:nextmonth
+pop 14 ymd2systemtime
+def
+/defaultvalue last def
+name exch def
+/expires S .expires def
+/last_modified S .last_modified def
+
+/target_date {S L
+	add 1 add /long_name (forecast time) def /bounds undef /pointwidth 3 def /standard_name (time) def } defasvar
+
+/precip {
+[ X Y modl L | S ]
+(/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_lead6/forecast_mean_precip_%b%Y[S]_lead6_5models_SAMER.nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+/missing_value NaN def
+/long_name (Ensemble Mean Precipitation) def
+/units (mm/month) def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+/tref {
+[ X Y modl L | S ]
+(/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_lead6/forecast_mean_tref_%b%Y[S]_lead6_5models_SAMER.nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+/missing_value NaN def
+/long_name (Ensemble Mean Temperature) def
+/units /Celsius_scale def
+temp_colors
+/scale_symmetric false def
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

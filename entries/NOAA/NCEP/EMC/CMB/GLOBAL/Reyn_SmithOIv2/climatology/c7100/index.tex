@@ -1,0 +1,37 @@
+\begin{ingrid}
+continuedataset:
+/long_name (1971-2000) def
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+periodic
+0.5 1. 359.5
+:grid
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+-89.5 1. 89.5
+:grid
+grid:
+/name /T def
+/units monthclimoname def
+%/defaultvalue { last } def
+periodic
+Jan 1. Dec
+:grid
+variable:
+/name /sst def
+/long_name (Sea Surface Temperature) def
+/units /Celsius def
+/missing_value -999.9 def
+sstcolorscale
+grids: X Y | T :grids
+file:
+direct
+/name (/Data/data3/ocean/nmc/RSOIver2/aoi.71.00.clim.gr) def
+:file
+:variable
+:dataset
+\end{ingrid}

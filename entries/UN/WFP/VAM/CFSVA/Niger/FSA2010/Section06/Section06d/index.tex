@@ -1,0 +1,128 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9195
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 554
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAavril2010.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/Q84 {
+mytable
+myquestion 
+281 VALUE
+ myquestion removeGRID
+/long_name (Q84 : Vos dépenses ont-elles changé comparées à celles de la) def 
+/units /ids def
+/CLIST [(N'ont pas changé)(Ont baissé)(Ont augmenté)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q8411 {
+mytable
+myquestion 
+282 VALUE
+ myquestion removeGRID
+/long_name (Q84.1.1 Quels types de dépenses ont changé : Alimentation) def 
+/units /ids def
+/CLIST [(N'ont pas changé)(Ont baissé)(Ont augmenté)(Non applicable)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q8412 {
+mytable
+myquestion 
+283 VALUE
+ myquestion removeGRID
+/long_name (Q84.1.2 Quels types de dépenses ont changé : Energie (cuisso)) def 
+/units /ids def
+/CLIST [(N'ont pas changé)(Ont baissé)(Ont augmenté)(Non applicable)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q8413 {
+mytable
+myquestion 
+284 VALUE
+ myquestion removeGRID
+/long_name (Q84.1.3 Quels types de dépenses ont changé : Logement) def 
+/units /ids def
+/CLIST [(N'ont pas changé)(Ont baissé)(Ont augmenté)(Non applicable)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q8414 {
+mytable
+myquestion 
+285 VALUE
+ myquestion removeGRID
+/long_name (Q84.1.4 Quels types de dépenses ont changé : Intrants agrico) def 
+/units /ids def
+/CLIST [(N'ont pas changé)(Ont baissé)(Ont augmenté)(Non applicable)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q8415 {
+mytable
+myquestion 
+286 VALUE
+ myquestion removeGRID
+/long_name (Q84.1.5 Quels types de dépenses ont changé : Santé) def 
+/units /ids def
+/CLIST [(N'ont pas changé)(Ont baissé)(Ont augmenté)(Non applicable)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q8416 {
+mytable
+myquestion 
+287 VALUE
+ myquestion removeGRID
+/long_name (Q84.1.6 Quels types de dépenses ont changé : Education) def 
+/units /ids def
+/CLIST [(N'ont pas changé)(Ont baissé)(Ont augmenté)(Non applicable)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q8417 {
+mytable
+myquestion 
+288 VALUE
+ myquestion removeGRID
+/long_name (Q84.1.7 Quels types de dépenses ont changé : Transport) def 
+/units /ids def
+/CLIST [(N'ont pas changé)(Ont baissé)(Ont augmenté)(Non applicable)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

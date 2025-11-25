@@ -1,0 +1,73 @@
+\begin{ingrid}
+
+continuedataset:
+
+/MMS2SAI dataareRestricted
+/Cookie varies_on
+
+        grid:
+                /name /X def
+                /long_name (longitude) def
+                /units /degree_east def
+                0. 0.5 359.5
+        :grid
+
+        grid:
+                /name /Y def
+                /long_name (latitude) def
+                /units /degree_north def
+                -90. 0.5 90.
+        :grid
+
+        grid:
+                /name /L def
+                /long_name (Lead Time) def
+                /units /days def
+                0.5 1. 35.5
+        :grid
+
+	grid:
+	 /name /S def
+	 /long_name (Day-of-Year) def
+	/units (days since 1960-01-01) def
+	/long_name (forecast start time) def
+	/standard_name (forecast_reference_time) def
+	01 Jan 2000 julian_day 01 Jan 1960 julian_day sub
+	1.0
+	31 Dec 2000 julian_day 01 Jan 1960 julian_day sub
+	/pointwidth 0. def
+	:grid
+
+%Precipitation
+        /APCPsfcSmooth{
+                [ X Y | L S ] %filenames
+                (/Data/data25/CFS/S2S/climatologies/hindcast/2003-01-04.2018-12-28.nsasfer_sc-APCPsfc.smooth_day_clim.nc) 
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /units (kg/m2) def
+                /long_name (Accumulated surface Total Precipitation - triangular smoothing climatology ) def
+		/missing_value NaN def
+                /doublearraytype netcdfrecords :readdatafile 
+                precip_colors
+        }defasvarsilent
+
+        /APCPsfcClim{
+                [ X Y | L S ] %filenames
+                (/Data/data25/CFS/S2S/climatologies/hindcast/2003-01-04.2018-12-28.nsasfer_sc-APCPsfc.day_clim.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /units (kg/m2) def
+                /long_name (Accumulated surface Total Precipitation - climatology ) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+                precip_colors
+        }defasvarsilent
+
+
+
+
+
+
+:dataset
+
+\end{ingrid}

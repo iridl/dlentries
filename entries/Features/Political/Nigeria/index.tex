@@ -1,0 +1,53 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Nigeria_111_1) def
+/description (Districts) def
+/Districts
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,lvlid,name as admin2_name,adm1name,dens90,pop_90,pop_9798,oldvlid,oldlvlid2,the_geom from admin2 order by gid) (gid) openqueryby
+        lvlid
+            /long_name (LVL ID) def
+        CopyStream
+        name exch def
+        admin2_name 
+            /long_name (Admin Lev 2 Name) def
+        CopyStream
+        name exch def
+        adm1name 
+            /long_name (Admin Lev 1 Name) def
+        CopyStream
+        name exch def
+        dens90
+            /long_name (Density 1990) def
+        CopyStream
+        name exch def
+        pop_90
+            /long_name (Population 1990) def
+        CopyStream
+        name exch def
+        pop_9798
+            /long_name (Population 1998-97) def
+        CopyStream
+        name exch def
+        oldvlid
+            /long_name (Old LVL ID) def
+        CopyStream
+        name exch def
+        oldlvlid2
+            /long_name (Old LVL ID2) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Admin Lev 2 geometry) def
+        name exch def
+}defasvarcachesilent
+/last_modified
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select max ( last_modified ) as last_modified from admin2) openquery .last_modified
+}def
+\end{ingrid}

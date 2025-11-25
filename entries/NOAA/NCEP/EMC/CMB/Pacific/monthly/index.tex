@@ -1,0 +1,235 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+122.2500    1.5       288.7500 
+:grid
+grid:
+/name /Y def
+degN
+-35.00000 1
+    45.00000    
+:grid
+grid:
+/name /Z def
+/units /m def
+/positive (down) def
+values:
+5       15       25       35       45
+    55       65       75       85       95    
+    106.25       120       136.25       155       177.5
+    205       240       285       345       430    
+    550       720       967.5       1327.50       1821
+    2443.5       3126.5
+:values
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1980 ensotime
+1.
+16 Jan 2005 ensotime %enddate
+/defaultvalue {last} def
+:grid
+datasetdefs:
+variable:
+%/name /u def
+/name /u_old def
+/long_name (zonal velocity) def
+/units (cm/s) def
+grids: X Z | Y T :grids
+/missing_value NaN def
+file:
+/name (/Data/data5/noaa/nmc/leetma/monthly/u) def
+random
+:file
+:variable
+variable:
+%/name /v def
+/name /v_old def
+/long_name (meridional velocity) def
+/units (cm/s) def
+grids: X Z | Y T :grids
+/missing_value NaN def
+file:
+/name (/Data/data5/noaa/nmc/leetma/monthly/v) def
+random
+:file
+:variable
+variable:
+%/name /temp def
+/name /temp_old def
+/long_name (temperature) def
+degC
+sstcolorscale
+grids: X Z | Y T :grids
+/missing_value NaN def
+file:
+%/name (/Data/data5/noaa/nmc/leetma/monthly/t) def
+/name (/Data/data5/noaa/nmc/leetma/monthly/temp) def
+random
+:file
+:variable
+variable:
+%/name /tcor def
+/name /tcor_old def
+/long_name (temperature correction) def
+/units (degree_Celsius / hour) def
+grids: X Z | Y T :grids
+/missing_value NaN def
+file:
+/name (/Data/data5/noaa/nmc/leetma/monthly/tcor) def
+random
+:file
+:variable
+variable:
+%/name /sal def
+/name /sal_old def
+/long_name (salinity) def
+/units (1 above .035) def
+grids: X Z | Y T :grids
+/missing_value NaN def
+file:
+%/name (/Data/data5/noaa/nmc/leetma/monthly/s) def
+/name (/Data/data5/noaa/nmc/leetma/monthly/sal) def
+random
+:file
+:variable
+variable:
+%/name /taux def
+/name /taux_old def
+/long_name (zonal wind stress) def
+grids: X Y | T :grids
+/missing_value NaN def
+file:
+/name (/Data/data5/noaa/nmc/leetma/monthly/taux) def
+random
+:file
+:variable
+variable:
+%/name /tauy def
+/name /tauy_old def
+/long_name (meridional wind stress) def
+grids: X Y | T :grids
+/missing_value NaN def
+file:
+/name (/Data/data5/noaa/nmc/leetma/monthly/tauy) def
+random
+:file
+:variable
+variable:
+%/name /H def
+/name /H_old def
+/long_name (sea level height anomaly) def
+/units (cm) def
+%/scale_factor 1. 980 div def
+grids: X Y | T :grids
+/missing_value NaN def
+file:
+%/name (/Data/data5/noaa/nmc/leetma/monthly/ps) def
+/name (/Data/data5/noaa/nmc/leetma/monthly/H) def
+random
+:file
+:variable
+:dataset
+%/D20eq {
+/D20eq_old {
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .monthly .temp
+%Y 0 VALUE0
+  Z exch
+   [ 20 ] Z toS
+ndim RECHUNK
+temp removeGRID 
+ startcolormap
+0 200 RANGE
+white
+purple
+blue 0 value
+blue 20 value
+cyan
+cyan 40 value
+PaleGreen
+PaleGreen 60 value
+LawnGreen
+dup 80 value
+green
+green 100 value
+YellowGreen
+YellowGreen 120 value
+yellow
+yellow 140 value
+orange
+orange 160 value
+red dup 180 value
+magenta dup 200 value
+brown
+endcolormap
+/long_name (Depth of 20C) def
+} defasvar
+:datasetdefs
+
+/D20eq { D20eq_old
+%home .mbell .EMC .CMB .Pacific .godas .D20eq
+%SOURCES .NOAA .NCEP .EMC .CMB .Pacific .godas .D20eq
+%monthlyAverage
+%appendstream
+} defasvarsilent
+
+/H { H_old
+%home .mbell .EMC .CMB .Pacific .godas .H
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .godas .H
+monthlyAverage
+appendstream
+} defasvarsilent
+
+/sal { sal_old
+%home .mbell .EMC .CMB .Pacific .godas .sal
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .godas .sal
+monthlyAverage
+appendstream
+} defasvarsilent
+
+/taux { taux_old
+%home .mbell .EMC .CMB .Pacific .godas .taux
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .godas .taux
+monthlyAverage
+appendstream
+} defasvarsilent
+
+/tauy { tauy_old
+%home .mbell .EMC .CMB .Pacific .godas .tauy
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .godas .tauy
+monthlyAverage
+appendstream
+} defasvarsilent
+
+/tcor { tcor_old
+%home .mbell .EMC .CMB .Pacific .godas .tcor
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .godas .tcor
+monthlyAverage
+appendstream
+} defasvarsilent
+
+/temp { temp_old
+%home .mbell .EMC .CMB .Pacific .godas .temp
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .godas .temp
+monthlyAverage
+appendstream
+} defasvarsilent
+
+/u { u_old
+%home .mbell .EMC .CMB .Pacific .godas .u
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .godas .u
+monthlyAverage
+appendstream
+} defasvarsilent
+
+/v { v_old
+%home .mbell .EMC .CMB .Pacific .godas .v
+SOURCES .NOAA .NCEP .EMC .CMB .Pacific .godas .v
+monthlyAverage
+appendstream
+} defasvarsilent
+{X Y Z T } { currentobject 1 index get def } forall
+\end{ingrid}

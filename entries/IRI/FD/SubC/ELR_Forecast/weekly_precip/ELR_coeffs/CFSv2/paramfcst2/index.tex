@@ -1,0 +1,64 @@
+\begin{ingrid}
+
+continuedataset:
+
+(iri.columbia.edu/terms/forecast/1) cvn datadownloadsareRestricted
+/Cookie varies_on
+
+/description (ELR forecast coefficients. CFSv2 from May 7, 2021, using GPCP v1.3 obs data) def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+0.5 1 359.5
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+-89.5 1 89.5
+:grid
+
+grid:
+/name /ind def
+/long_name (Coefficients Index) def
+0 1 2  
+:grid
+
+/L
+SOURCES .IRI .FD .SubC .ELR_Forecast .weekly_precip .ELR_coeffs .CFSv2 .L
+def
+
+/S
+SOURCES .IRI .FD .SubC .ELR_Forecast .weekly_precip .ELR_coeffs .CFSv2 .S
+def
+
+S { (/crunch/c10/jingyuan/Subx_forecast/Subx_flexible_forecast/Subx_flexible_weekly_pr_v21_ELR_forecast/CFSv2_v21/Subx_global_pr_issue_Fri_%d_%b_%Y[S]_weekly_fcst_coeff.nc) [S] } removeextrausing
+   name exch def
+
+S
+/expires
+S last 6 add cvsunits nip interp exch 0.5 add 4 -2 roll exch pop ymd2systemtime
+def
+name exch def
+
+/expires S .expires def
+
+/precip {
+[ X Y last first subgrid ind L | S ]
+(/crunch/c10/jingyuan/Subx_forecast/Subx_flexible_forecast/Subx_flexible_weekly_pr_v21_ELR_forecast/CFSv2_v21/Subx_global_pr_issue_Fri_%d_%b_%Y[S]_weekly_fcst_coeff.nc) [S]
+readdatafile:
+/name (prob) def
+/doublearraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/missing_value NaN def
+/long_name (Precipitation Forecast Coefficients) def
+}defasvarsilent
+
+
+:dataset
+
+\end{ingrid}

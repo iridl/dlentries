@@ -1,0 +1,48 @@
+\begin{ingrid}
+
+/description (Watersheds of the Philippines) def
+
+continuedataset:
+
+/ave_treeco {
+IRIDB (phl_hyd_watersheds_wfp) (ave_treeco) [(objectid)] open_column_by
+/long_name (Average Tree Cover) def
+}defasvarsilentnoreuse
+
+/first_leve {
+IRIDB (phl_hyd_watersheds_wfp) (first_leve) [(objectid)] open_column_by
+/long_name (First Level) def
+}defasvarsilentnoreuse
+
+/area {
+IRIDB (phl_hyd_watersheds_wfp) (shape_area) [(objectid)] open_column_by
+/long_name (Area) def
+/units /km2 def
+}defasvarsilentnoreuse
+
+/leng {
+IRIDB (phl_hyd_watersheds_wfp) (shape_leng) [(objectid)] open_column_by
+/long_name (Perimeter) def
+/units /km def
+}defasvarsilentnoreuse
+
+/wfp_waters {
+IRIDB (phl_hyd_watersheds_wfp) (wfp_waters) [(objectid)] open_column_by
+/long_name (WFP Waters) def
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (phl_hyd_watersheds_wfp) (geom) [(objectid)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (phl_hyd_watersheds_wfp) (('WFP waters: ' || wfp_waters) as label) [(objectid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+leng .objectid name exch def
+
+\end{ingrid}

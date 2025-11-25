@@ -1,0 +1,29 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Sudan_137_1) def
+/Horn_Region
+/description (Horn Region) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select suadmn1_,suadmn1_id,region,the_geom from gedaref order by suadmn1_id) (suadmn1_id) openqueryby
+        suadmn1_
+            /long_name (Sudan admn1) def
+        CopyStream
+        name exch def
+        region
+            /long_name (Region name) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Region geometry) def
+        name exch def
+}defasvarsilent
+/last_modified
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select max ( last_modified ) as last_modified from gedaref) openquery .last_modified
+}def
+\end{ingrid}

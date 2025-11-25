@@ -1,0 +1,99 @@
+\begin{ingrid}
+%/pdsiatlashtml changetolitentry
+/pdsiatlashtml (/Data/data2/LDEO/TRL/NADA2004/pdsiatlashtml) litdirdef
+continuedataset:
+/description (Reconstruction of Palmer Drought Severity Index for the United States based on tree ring data) def
+datasetdefs:
+:datasetdefs
+link:
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.LDEO/.TRL/.NADA2004/.pdsi-atlas.html)def
+/name (pdsi-atlas) def
+/description (discussion, results, documentation) def
+:link
+/long_name (North American Drought Atlas 2004) def
+/iridl:hasSemantics (gcmd:Tree_Rings) def
+/references (Cook_etal2004) def
+grid:
+/name (X) def
+degE
+-137.5 2.5 -57.5
+:grid
+grid:
+/name (Y) def
+degN
+17.5 2.5 62.5
+:grid
+grid:
+/name (T) def
+monthtime
+1 Jul -2 ensotime
+12
+1 Jul 2003 ensotime
+:grid
+/pdsi { [X
+    Y |
+    T] (/beluga/data/datag/LDEO/TRL/NADA2004/PDSIAnnualMapdata/%d[cnt]_pdsi.txt) [T dup
+        -1 onegridcounter
+        /name /cnt def
+        ]
+readdatafile: 
+/missing_value -999. def
+/iridl:hasSemantics (iridl:PalmerDroughtSeverityIndex) def
+lonlatdata :readdatafile
+startcolormap
+    /maxncolor 150 def
+    -6 6 RANGEEDGES
+    white grey 254
+       0 0 RGB
+       -6 value
+       RGBdup
+        -5 bandmax
+        255
+         74 8 RGB
+         RGBdup
+          -4 bandmax
+          255
+           110 2 RGB
+           RGBdup
+            -3 bandmax
+            255
+             167 0 RGB
+             RGBdup
+              -2 bandmax
+              253
+               189 3 RGB
+               RGBdup
+                -1 bandmax
+                255
+                 241 0 RGB
+                 RGBdup
+                  0 bandmax
+                  171
+                   255 251 RGB
+                   RGBdup
+                    1 bandmax
+                    123 255 255
+                     RGB
+                     RGBdup 2
+                     bandmax
+                     83 253 255
+                     RGB
+                     RGBdup 3
+                     bandmax
+                     2 207 252
+                     RGB
+                     RGBdup 4
+                     bandmax
+                     31 191 251
+                     RGB
+                     RGBdup 5
+                     bandmax
+                     31 159 255
+                     RGB
+                     RGBdup 6
+                     bandmax
+                     grey endcolormap
+  
+  } defasvarsilent
+:dataset
+\end{ingrid}

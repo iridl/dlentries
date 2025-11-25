@@ -1,0 +1,26 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (GR2M Sub-Basins of Peru) def
+
+/Region {
+IRIDB (subbasins_gr2m_peru) (region) [(gid)] open_column_by
+/long_name (Region ID) def
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (subbasins_gr2m_peru) (the_geom) [(gid)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (subbasins_gr2m_peru) (('subbasin ' || id || ', region ' || region) as label) [(gid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+Region .gid name exch def
+
+\end{ingrid}

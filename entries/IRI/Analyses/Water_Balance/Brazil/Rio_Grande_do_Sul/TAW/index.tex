@@ -1,0 +1,25 @@
+\begin{ingrid}
+
+continuedataset:
+
+/TAW {
+ SOURCES .Features .Agricultural .Embrapa .Brazil .Rio_Grande_do_Sul .solos .nivel1 toi4
+  home .remic .remic_RGdSTAW
+   a: .taw
+     :a: .nivel_1 toi4 :a
+    classify mul
+   [code]sum
+   nivel_1 /nivel1 renameGRID
+   [nivel1]BofA=C
+/scale_min 0. def
+/long_name (Total Available Water) def
+}defasvar
+
+/the_geom {
+ SOURCES .Features .Agricultural .Embrapa .Brazil .Rio_Grande_do_Sul .solos
+ .the_geom 
+}defasvar
+
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,24 @@
+\begin{ingrid}
+
+continuedataset:
+
+/spi {
+SOURCES .Vietnam .ENACTS .MON . monthly .rainfall .rfe_merged
+  3 gamma3par
+  pcpn_accum gmean gsd gskew pzero 3 gammaprobs
+  3 gammastandardize
+  T
+   /pointwidth 3 def
+   /defaultvalue {last} def
+   -1. shiftGRID
+  T first pointwidth
+     1 sub
+     add
+    last RANGE
+  /long_name (Standardized Precipitation Index) def
+  DATA -3 3 RANGE
+}defasvar
+
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,31 @@
+\begin{ingrid}
+
+continuedataset:
+
+grid:
+  /name (T) def
+  monthtime
+  /pointwidth 12 def
+  1 Jul 1901 ensotime
+  12
+  1 Jul 2065 ensotime
+:grid
+
+/tas {
+  [ T | ]
+  (/data/remic/mydatafiles/AR4/tas.txt)
+  readdatafile:
+%  [1 0] r*4asblank
+    ((25X,E24.18)) formatted
+%    (165(25X,F24.18)) formatted
+  :readdatafile
+  /units (Kelvin_scale) def
+  /long_name (temperature at surface) def
+}defasvarcachesilent
+
+/history (The global temperature signal is computed using an ensemble of general circulation models (GCMs). These models, which constitute a comprehensive representation of our current understanding of the mechanisms of climate variability and change, underlie much of the Fourth Assessment Report of the Intergovernmental Panel on Climate Change (IPCC, 2007). Simulations from the "Twentieth Century Climate in Coupled Models" (20C3M) experiment are used. To obtain an estimate of the forced response, we average together the 20th-century global mean temperature records from the members of this ensemble, which here includes 23 (nearly all) of the IPCC GCMs. The multimodel mean signal is further processed, by lowpass filtering.) def
+
+:dataset
+
+\end{ingrid}
+

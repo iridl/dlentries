@@ -1,0 +1,60 @@
+\begin{ingrid}
+
+/PISCOope1 dataareRestricted
+/Cookie varies_on
+
+continuedataset:
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+1 Jan 1981 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+%11 Mar 2019 julian_day 01 Jan 1960 julian_day sub 0.5 add
+systemtime systemtime2ymd exch 3 -1 roll julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+:grid
+
+T { (/Data/data23/SENAMHI/Prec/V1.0_O/daily/PISCO_Operativo%Y-%m-%d[T].tif) [T] } removeextrausing
+/expires
+last
+    1 add
+    cvsunits
+    interp exch
+      0.5 add
+      3 -1 roll
+      ymd2systemtime 
+def
+name exch def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+ -81.25 0.1 -68.05
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+0.95 0.1 -18.75
+:grid
+
+/Prec {
+[X Y | T ]
+(/Data/data23/SENAMHI/Prec/V1.0_O/daily/PISCO_Operativo%Y-%m-%d[T].tif) [T]
+readdatafile:
+/realarraytype tiffimage
+:readdatafile
+/long_name (Precipitation) def
+/units (mm/day) def
+/missing_value -3.4e+38 def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

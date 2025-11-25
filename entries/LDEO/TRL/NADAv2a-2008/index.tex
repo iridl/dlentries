@@ -1,0 +1,42 @@
+\begin{ingrid}
+continuedataset:
+/description (North American Drought Atlas Version 2a, 2008, North American Summer PDSI Reconstructions) def
+%/references (Jones_Moberg2003 Jones_etal2001 Brohan_etal2006) def
+link:
+/name (Data Source) def
+/href (ftp://ftp.ncdc.noaa.gov/pub/data/paleo/drought/NAmericanDroughtAtlas.v2/) def
+/description (NADAv2 Data at NCDC) def
+:link
+link:
+/name (readme-NADAv2-2008) def
+/href (ftp://ftp.ncdc.noaa.gov/pub/data/paleo/drought/NAmericanDroughtAtlas.v2/readme-NADAv2-2008.txt) def
+/description (NADAv2 Readme File at NCDC) def
+:link
+link:
+/name (NADA) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.LDEO/.TRL/.NADA2004/.pdsi-atlas.html) def
+/description (North American Drought Atlas Page at LDEO Tree Ring Lab) def
+:link
+
+/PDSI 
+{
+%(/beluga/data/mbell/dldata/LDEO.d/TRL.d/NADAv2-2008.nc) readCDF .PDSI
+(/beluga/data/datag/LDEO/TRL/NADAv2a2008/NADAv2-2008.nc) readCDF .PDSI
+ -999 replaceNaN
+ /missing_value -999 def
+  time name (months since 1960-01-01) ordered 16
+       Jul 2006 ensotime
+       12 16
+         Jul 0 ensotime
+         NewEvenGRID
+    replaceGRID
+  time
+   /pointwidth 3 def
+   pop
+  time last first RANGE
+ /scale_min -10 def
+ /scale_max 10 def
+} defasvarsilent
+
+:dataset
+\end{ingrid}

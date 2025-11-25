@@ -1,0 +1,51 @@
+\begin{ingrid}
+continuedataset:
+/long_name (1981-2010) def
+
+link:
+/name (source) def
+/href (https://www.cpc.ncep.noaa.gov/products/people/yxue/sstclim/) def
+/description (Source of NOAA/NCEP/CPC Reynolds and Smith OISSTv2 1981-2010 climatology data file) def
+:link
+
+link:
+/name (dataset_documentation) def
+/href (https://iridl.ldeo.columbia.edu/documentation/NOAA/NCEP/EMC/CMB/GLOBAL/Reyn_SmithOIv2/Note_SST_Climatology_1981-2010.pdf) def
+/description (PDF Document: New SST Climatology for the 1981-2010 Base Period) def
+:link
+
+
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+periodic
+0.5 1. 359.5
+:grid
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+-89.5 1. 89.5
+:grid
+grid:
+/name /T def
+/units monthclimoname def
+%/defaultvalue { last } def
+periodic
+Jan 1. Dec
+:grid
+variable:
+/name /sst def
+/long_name (Sea Surface Temperature) def
+/units /Celsius def
+/missing_value -9999. def
+sstcolorscale
+grids: X Y | T :grids
+file:
+direct
+/name (/Data/data3/ocean/nmc/RSOIver2/ersst_oisst_1x1_clim_81-10.dat) def
+:file
+:variable
+:dataset
+\end{ingrid}

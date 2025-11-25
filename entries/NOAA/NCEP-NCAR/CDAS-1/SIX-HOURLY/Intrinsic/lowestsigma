@@ -1,0 +1,56 @@
+\begin{ingrid}
+/lowestsigma insertdataset:
+/long_name (lowest sigma level) def
+/X SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DegreeGrid .X def
+/Y SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DegreeGrid .Y def
+/T dataset .T def
+variable:
+/name /rhum def
+/long_name (relative humidity) def
+/units (percent) def
+grids: X Y | T :grids
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .B def
+NotYetAvailable
+:variable
+variable:
+/name /u def
+/long_name (zonal wind) def
+/units (m/s) def
+grids: X Y | T :grids
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .B def
+NotYetAvailable
+:variable
+variable:
+/name /v def
+/long_name (meridional wind) def
+/units (m/s) def
+grids: X Y | T :grids
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .B def
+NotYetAvailable
+:variable
+variable:
+/name /temp def
+/long_name (temperature) def
+/units (degreeK) def
+grids: X Y |  T :grids
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .B def
+NotYetAvailable
+:variable
+variable:
+/name /theta def
+/long_name (potential temperature) def
+/units (degreeK) def
+grids: X Y |  T :grids
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .B def
+NotYetAvailable
+:variable
+variable:
+/name /pressure def
+/long_name (pressure) def
+/units (Pa) def
+grids: X Y | T :grids
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .B def
+NotYetAvailable
+:variable
+:insertdataset
+\end{ingrid}

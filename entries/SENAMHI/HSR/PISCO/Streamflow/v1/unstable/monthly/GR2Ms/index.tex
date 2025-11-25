@@ -1,0 +1,67 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (GR2M Streams) def
+
+datasetdefs:
+
+grid:
+/name /mycol def
+1 1 2
+:grid
+
+:datasetdefs
+
+link:
+/name (ShapefilesZip) def
+/description (Access to the shapefiles) def
+/href (https://iri.columbia.edu/~remic/files/Subbasins_GR2M_Peru/) def
+:link
+
+
+/gid /unitless 0 1 1 3594 NewEvenIntegerGRID 
+name exch def
+
+grid:
+/name /T def
+/units (monthtime) def
+/defaultvalue { last } def
+16 Jan 1981 ensotime
+1
+16 Sep 2020 ensotime
+/pointwidth 1. def
+:grid
+
+/the_geom {
+ SOURCES .Features .Hydrological .Peru .SubBasins
+.the_geom
+}defasvar
+
+/label {
+ SOURCES .Features .Hydrological .Peru .SubBasins
+.label
+}defasvar
+
+/Region {
+ SOURCES .Features .Hydrological .Peru .SubBasins
+.Region
+}defasvar
+
+/Discharge {
+[mycol gid | T]
+(/Data/data23/SENAMHI/Stream/v1/unstable/monthly/GR2M/Discharge/GR2M_unstable_Discharge_%Y%m[T].txt) [T]
+readdatafile:
+[1 0] r*4astsv
+:readdatafile
+mycol second VALUE
+mycol removeGRID
+/long_name (Discharge) def
+/units (m3/s) def
+daily_precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

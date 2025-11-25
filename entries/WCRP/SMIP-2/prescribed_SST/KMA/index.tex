@@ -1,0 +1,315 @@
+Notes:
+
+\begin{ingrid}
+continuedataset:
+/description (Korea Meteorological Agency) def
+/iridl:hasSemantics (iridl:KMA) def
+/references (Lee_etal2001)def
+grid:
+/name /M def
+/long_name (members) def
+1 1 6
+:grid
+grid:
+/name /S def
+/standard_name (forecast_reference_time) def
+monthtime
+/pointwidth 0 def
+periodic
+1 May 1979 ensotime
+6.
+1 Nov 1979 ensotime
+:grid
+variable:
+/name /season def
+grids: S :grids
+values: 
+(mjjason)
+(ndjfmam)
+:values
+:variable
+grid:
+/name /S def
+/long_name (start time) def
+/standard_name (forecast_reference_time) def
+monthtime
+/pointwidth 0 def
+1 May 1979 ensotime
+6.
+1 Nov 2002 ensotime
+:grid
+grid:
+/name /L def
+/long_name (lead time) def
+/standard_name (forecast_period) def
+/units (months) def
+0.5 1. 3.5
+:grid
+/T { S L add /long_name (Forecast Time) def /pointwidth 1 def
+/standard_name (time) def
+} defasvar
+\end{ingrid}
+dataset:
+/name (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/KMA.D/1979/mjjason/01)def
+dataset:
+/name (pr_kma_1979.mjjason.01_mm.nc)def
+\begin{ingrid}
+ /Conventions (CF-1.0) def
+grid:
+/name (latitude)def
+/units (degree_north)def
+ -90. 2.5 90.
+:grid
+ /bounds_latitude{
+[ grid:
+/name (bound)def
+/units (unitless)def
+ 1. 1. 2.
+:grid
+ | latitude] (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/KMA.D/1979/mjjason/01/pr_kma_1979.mjjason.01_mm.nc)readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+grid:
+/name (longitude)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+ /pr{
+[ longitude latitude | M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/KMA.D/%Y[S]/%s[season]/%2.2d[M]/pr_kma_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+ readdatafile:
+/name (pr) def
+ /long_name (Total precipitation rate) def
+ /title long_name def /units (kg/(m^2 s)) def
+ /missing_value 1.00000000E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (psl_kma_1979.mjjason.01_mm.nc)def
+ /Conventions (CF-1.0) def
+ /bounds_latitude{
+[ bound | latitude] filenames readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_longitude{
+[ bound | longitude] filenames readdatafile:
+/name (bounds_longitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+ /psl{
+[ longitude latitude | M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/KMA.D/%Y[S]/%s[season]/%2.2d[M]/psl_kma_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+ readdatafile:
+/name (psl) def
+ /long_name (Mean sea-level pressure) def
+ /title long_name def /units /Pa def
+ /missing_value 1.00000000E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (ta_kma_1979.mjjason.01_mm.nc)def
+ /Conventions (CF-1.0) def
+ /bounds_latitude{
+[ bound | latitude] filenames readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_longitude{
+[ bound | longitude] filenames readdatafile:
+/name (bounds_longitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+ /ta{
+[ longitude latitude 
+grid:
+/name (level)def
+/units (lev)def
+ 850. 150. 700.
+:grid
+| M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/KMA.D/%Y[S]/%s[season]/%2.2d[M]/ta_kma_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+ readdatafile:
+/name (ta) def
+ /long_name (Air Temperature) def
+ /title long_name def /units /Kelvin def
+ /missing_value 1.00000000E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (tas_kma_1979.mjjason.01_mm.nc)def
+ /Conventions (CF-1.0) def
+ /bounds_latitude{
+[ bound | latitude] filenames readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_longitude{
+[ bound | longitude] filenames readdatafile:
+/name (bounds_longitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+ /tas{
+[ longitude latitude | M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/KMA.D/%Y[S]/%s[season]/%2.2d[M]/tas_kma_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (tas) def
+ /long_name (Surface (2m) air temperature) def
+ /title long_name def /units /Kelvin def
+ /missing_value 1.00000000E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (ts_kma_1979.mjjason.01_mm.nc)def
+ /Conventions (CF-1.0) def
+ /bounds_latitude{
+[ bound | latitude] filenames readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_longitude{
+[ bound | longitude] filenames readdatafile:
+/name (bounds_longitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+ /ts{
+[ longitude latitude | M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/KMA.D/%Y[S]/%s[season]/%2.2d[M]/ts_kma_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+ readdatafile:
+/name (ts) def
+ /long_name (Ground Surface Temperature) def
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+ /title long_name def /units /Kelvin def
+ /missing_value 1.00000000E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (ua_kma_1979.mjjason.01_mm.nc)def
+ /Conventions (CF-1.0) def
+ /bounds_latitude{
+[ bound | latitude] filenames readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_longitude{
+[ bound | longitude] filenames readdatafile:
+/name (bounds_longitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+ /ua{
+[ longitude latitude 
+grid:
+/name (level)def
+/units (lev)def
+ 850. 650. 200.
+:grid
+| M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/KMA.D/%Y[S]/%s[season]/%2.2d[M]/ua_kma_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (ua) def
+ /long_name (Eastward wind) def
+ /title long_name def /units (m/s) def
+ /missing_value 1.00000000E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (va_kma_1979.mjjason.01_mm.nc)def
+ /Conventions (CF-1.0) def
+ /bounds_latitude{
+[ bound | latitude] filenames readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_longitude{
+[ bound | longitude] filenames readdatafile:
+/name (bounds_longitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+ /va{
+[ longitude latitude 
+grid:
+/name (level)def
+/units (lev)def
+ 850. 650. 200.
+:grid
+| M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/KMA.D/%Y[S]/%s[season]/%2.2d[M]/va_kma_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (va) def
+ /long_name (Northward wind) def
+ /title long_name def /units (m/s) def
+ /missing_value 1.00000000E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (zg_kma_1979.mjjason.01_mm.nc)def
+ /Conventions (CF-1.0) def
+ /bounds_latitude{
+[ bound | latitude] filenames readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_longitude{
+[ bound | longitude] filenames readdatafile:
+/name (bounds_longitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+ /zg{
+[ longitude latitude 
+grid:
+/name (level)def
+/units (lev)def
+ 1000. 500. 500.
+:grid
+| M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/KMA.D/%Y[S]/%s[season]/%2.2d[M]/zg_kma_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (zg) def
+ /long_name (Geopotential height) def
+ /title long_name def /units /m def
+ /missing_value 1.00000000E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+
+\begin{ingrid}
+:dataset
+T pop
+\end{ingrid}

@@ -1,0 +1,43 @@
+%lat_-40_-20 and lon_10_40
+\begin{ingrid}
+/SAWS_daily_precip_1971_2009 dataareIRIonlyPassword
+continuedataset:
+/description (daily gridded rainfall data ) def
+datasetdefs:
+grid:
+/name /X def
+/units (degree_east)def
+ 10 1.0 40  
+:grid
+
+grid:
+/name /Y def
+/units (degree_north)def
+-20 1.0 -40 
+:grid
+
+grid:
+/name /T def
+/long_name (Time) def
+ /standard_name (Time) def
+/units (days since 1970-01-01) def
+/calendar /365 def
+/pointwidth 0 def
+(0000 1 Jan 1971) 
+1.
+(0000 1 dec 2009) 
+:grid
+
+/precip{
+[X Y T |]
+
+(/data/dstore4/iri/monitoring/iridl/SAWS/SAWS_daily_1971-2009.tsv)
+readdatafile:
+[2 1 2] r*4astsv
+/missing_value -999.0000000000000 def
+/long_name (precipitation) def
+/units (mm/day) cvn def
+:readdatafile
+}defasvarcachesilent
+:dataset
+\end{ingrid}

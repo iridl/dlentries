@@ -1,0 +1,95 @@
+\begin{ingrid}
+
+datasetdefs:
+/prcp { v1p0 .deg2p5 .prcp } def
+/gauge { v1p0 .deg2p5 .gauge } def
+:datasetdefs
+
+/v1p0 currentobject /v1p0 get def
+
+continuedataset:
+/description (Global Land Precipitation: A 50-yr Monthly Gauge-Based Analysis) def
+:dataset
+
+\end{ingrid}
+
+
+continuedataset:
+	grid:
+		/name /X def
+		degE
+		periodic
+		1.25 2.5 358.75
+	:grid
+	grid:
+		/name /Y def
+		degN
+		-88.75 2.5 88.75
+	:grid
+	grid:
+		/name /T def
+		monthtime
+		16 Jan 1948 ensotime
+		1.
+		systemtime systemtime2ymd ymd:lastmonth ymd2rm1960 0.5 add
+	:grid
+
+:dataset
+T
+ { (/beluga/data/datag/NOAA/NCEP/CPC/PRECL/precl_mon_v1.0.sgi.%Y[T]) [T]}
+removeextrausing
+first last[X
+       Y |
+       /NVZ
+        2 NewIntegerGRID
+        T last
+          12 sub
+          12 div
+          round
+          12 mul
+          0.5 add
+          last subgrid
+         ] (/beluga/data/datag/NOAA/NCEP/CPC/PRECL/precl_mon_v1.0.sgi.%Y[T]) [T last
+           12 sub
+           12 div
+           round
+           12 mul
+           0.5 add
+           last subgrid
+          yearlyedgesgrid
+          first secondtolast subgrid
+          ]readdatafile: direct :readdatafile
+      NVZ 2 VALUE
+      [X Y]average
+      0 flagle
+      [T]sum
+      getrealization
+      0 get
+      sub
+     subgrid
+last
+    rm19602ymd ymd:nextmonth ymd:nextmonth ymd2systemtime
+    /expires exch def
+name exch def
+	[X Y | /NVZ 2 NewIntegerGRID  T] (/beluga/data/datag/NOAA/NCEP/CPC/PRECL/precl_mon_v1.0.sgi.%Y[T]) [T yearlyedgesgrid first secondtolast subgrid
+]
+	readdatafile: direct :readdatafile
+	definevariables:
+		0 Zvariable:
+			/name /prcp def
+			/long_name (precipitation rate) def
+			/units (mm/day) def
+			/missing_value -999 def
+			/scale_factor 0.1 def
+		:Zvariable
+		0 Zvariable:
+			/name /gauge def
+			/long_name (number of gauges) def
+			/units unitless def
+			/missing_value -999 def
+		:Zvariable
+	:definevariables	
+/expires T .expires def
+/last_modified T .last_modified def
+/iridl:hasSemantics (gcmdi:RAIN_GAUGES) def
+\end{ingrid}

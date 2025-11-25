@@ -1,0 +1,136 @@
+\begin{ingrid}
+continuedataset:
+
+link:
+ /name (ERSSTv4 Description) def
+ /description (ERSSTv4 Web Page at NCDC) def
+ /href (http://www.ncdc.noaa.gov/data-access/marineocean-data/extended-reconstructed-sea-surface-temperature-ersst-v4) def
+:link
+link:
+ /name (ERSSTv4 source) def
+ /description (Source of ERSSTv4 netCDF files at NCDC) def
+ /href (ftp://ftp.ncdc.noaa.gov/pub/data/cmb/ersst/v4/netcdf/) def
+:link
+link:
+ /name (ERSSTv4 Documentation Part 1) def
+ /description (Extended Reconstructed Sea Surface Temperature version 4 (ERSST.v4): Part I. Upgrades and intercomparisons) def
+ /href (http://journals.ametsoc.org/doi/abs/10.1175/JCLI-D-14-00006.1) def
+:link
+link:
+ /name (ERSSTv4 Documentation Part 2) def
+ /description (Extended Reconstructed Sea Surface Temperature version 4 (ERSST.v4): Part II. Parametric and structural uncertainty estimations) def
+ /href (http://journals.ametsoc.org/doi/abs/10.1175/JCLI-D-14-00007.1) def
+:link
+
+ /processing_level (L4) def
+ /keywords (Earth Science > Oceans > Ocean Temperature > Sea Sur face Temperature >) def
+ /creator_url (http://www.ncdc.noaa.gov) def
+ /cdm_data_type (Grid) def
+ /source (ICOADS R2.5 SST, NCEP GTS SST, HadISST ice, NCEP ice) def
+ /geospatial_lon_max 359.0 def
+ /Conventions (CF-1.6) def
+ /comment (SSTs were observed by conventional thermometers in Buckets (in sulated or un-insulated canvas and wooded buckets), Engine Room Intakers, or floats and drifters) def
+ /publisher_email (boyin.huang@noaa.gov) def
+ /institution (NOAA/NESDIS/NCEI/CCOG) def
+ /geospatial_lon_min -1.0 def
+ /project (NOAA Extended Reconstructed Sea Surface Temperature (ERSST)) def
+ /platform (Ship and Buoy SSTs from ICOADS R2.5 and NCEP GTS) def
+% /references (Huang et al, 2015: Extended Reconstructed Sea Surface Temperatures Version 4 (ERSST.v4), Part I. Upgrades and Intercomparisons. Journal of Climate, DOI: 10.1175/JCLI-D-14-00006.1.) def
+ /Metadata_Conventions (CF-1.6, Unidata Dataset Discovery v1.0) def
+ /climatology (Climatology is based on 1971-2000 SST, Xue, Y., T. M. Smith, and R. W. Reynolds, 2003: Interdecadal changes of 30-yr SST normals during 1871.2000. Journal of Climate, 16, 1601-1612.) def
+ /naming_authority (gov.noaa.ncdc) def
+ /keywords_vocabulary (NASA Global Change Master Directory (GCMD) Science Keywords) def
+ /creator_email (boyin.huang@noaa.gov) def
+ /metadata_link (C00884) def
+ /publisher_name (Boyin Huang) def
+ /standard_name_vocabulary (CF Standard Name Table v27) def
+ /spatial_resolution (2.0 degree grid) def
+ /summary (ERSST.v4 is developped based on v3b after revisions of 11 parameters using updated data sets and advanced knowledge of ERSST analysis) def
+ /geospatial_lon_units (degrees_east) def
+ /geospatial_lat_units (degrees_north) def
+ /instrument (Conventional thermometers) def
+ /license (No constraints on data access or use) def
+ /geospatial_lat_max 89.0 def
+ /production_version (Version 5) def
+ /geospatial_lon_resolution 2.0 def
+ /id (ersst.v4.201701) def
+ /geospatial_lat_resolution 2.0 def
+ /description (In situ data: ICOADS2.5 before 2007, NCEP in situ data from 2008 to present. Ice data: HadISST ice before 2015 and NCEP ice after 2015.) def
+ /geospatial_lat_min -89.0 def
+ /creator_name (Boyin Huang) def
+ /title (NOAA ERSSTv4 (in situ only)) def
+
+ /references (Huang_etal2015 Liu_etal2015) def
+
+grid:
+/name (X)def
+/long_name (longitude) def
+periodic
+/units (degree_east)def
+ 0.0 2. 358.
+:grid
+grid:
+/name (Y)def
+/long_name (latitude) def
+/units (degree_north)def
+ -88. 2. 88.
+:grid
+grid:
+/name (zlev)def
+/units (meters)def
+values: 0.0 :values
+:grid
+
+grid:
+/name (T)def
+monthtime
+%/units (days since 1854-01-15)def
+/standard_name (time) def
+/defaultvalue {last} def
+16 Jan 1854 ensotime
+1
+16 Feb 2020 ensotime
+%systemtime
+%(16 %b %Y) 12 strftime interp ensotime
+/netcdfgrid true def
+:grid
+
+%T
+%%{ (http://www1.ncdc.noaa.gov/pub/data/cmb/ersst/v4/netcdf/ersst.v4.%Y[T]%m[T].nc)[T]}
+%{ (/Data/data6/noaa/ncdc/ersstv4/ersst.v4.%Y[T]%m[T].nc)[T]}
+%removeextrausing
+%/expires last_modified
+% systemtime2ymd ymd:nextmonth ymd2systemtime 24 3600 mul add def
+%name exch def
+/last_modified T .last_modified def
+%/expires T .expires def
+
+ /anom{
+%[ X Y zlev | T] (http://www1.ncdc.noaa.gov/pub/data/cmb/ersst/v4/netcdf/ersst.v4.%Y[T]%m[T].nc) [T] readdatafile:
+[ X Y zlev | T] (/Data/data6/noaa/ncdc/ersstv4/ersst.v4.%Y[T]%m[T].nc) [T] readdatafile:
+/name (ssta) def
+ /units (degree_Celsius)cvn def
+ /valid_max 12.0 def
+ /long_name (Extended reconstructed SST anomalies) def
+ /missing_value -999.0 def
+ /valid_min -12.0 def
+ /realarraytype netcdfrecords :readdatafile
+ /iridl:hasSemantics (iridl:SeaSurfaceTemperatureAnomaly) def
+ /standard_name (sea_surface_temperature) def
+}defasvarsilent
+
+ /sst{
+%[ X Y zlev | T] (http://www1.ncdc.noaa.gov/pub/data/cmb/ersst/v4/netcdf/ersst.v4.%Y[T]%m[T].nc) [T] readdatafile:
+[ X Y zlev | T] (/Data/data6/noaa/ncdc/ersstv4/ersst.v4.%Y[T]%m[T].nc) [T] readdatafile:
+/name (sst) def
+ /units (Celsius_scale)cvn def
+ /valid_max 45.0 def
+ /long_name (Extended reconstructed sea surface temperature) def
+ /missing_value -999.0 def
+ /valid_min -3.0 def
+ /realarraytype netcdfrecords :readdatafile
+ /iridl:hasSemantics (iridl:SeaSurfaceTemperature) def
+ /standard_name (sea_surface_temperature) def
+}defasvarsilent
+:dataset
+\end{ingrid}

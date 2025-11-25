@@ -1,0 +1,67 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+periodic
+-179.5 1. 179.5
+:grid
+grid:
+/name /Y def
+degN
+-89.5 1. 89.5
+:grid
+grid:
+/name /T def
+/units (julian_day) def
+/add_offset 2444910. def
+3.5 % halfway between 1 Nov 1981 Sun and 8 Nov 1981
+.5 sub
+7.
+7794.500  %endday
+.5 sub 
+/defaultvalue { last } def
+:grid
+variable:
+/name /sst def
+/long_name (Sea Surface Temperature) def
+/units /Celsius def
+/history [(Weekly mean sea surface temperature (blended from ship, buoy, and bias-corrected satellite data).)]def
+sstcolorscale
+grids: X Y | T :grids
+/PLOTCOAST 1 def
+/scale_factor .01 def
+file:
+%random
+%/name (/Data/data3/ocean/nmc/sstoiweekly) def
+i*2
+/name (/Data/data3/ocean/nmc/sstoiweekly.i2) def
+:file
+:variable
+/ssta
+{
+  SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL
+  a: .weekly .sst
+  :a: .pentad-climatology .sst :a
+  [T]regridLinear
+  sub
+    sstacolorscale
+/long_name (Sea Surface Temperature Anomaly) def
+/PLOTCOAST 1 def
+} defasvar
+:dataset
+\end{ingrid}
+Old anomaly definition
+variable:
+/name /ssta def
+/long_name (Sea Surface Temperature Anomaly) def
+/units /Celsius def
+/history [(Weekly mean sea surface temperature (blended from ship, buoy, and bias-corrected satellite data). <B><a href="/descriptions/reynoldsweekly.html">USA</a></B>)]def
+sstacolorscale
+grids: X Y | T :grids
+/PLOTCOAST 1 def
+file:
+random
+/name (/Data/data3/ocean/nmc/weeklyssta.r4) def
+:file
+:variable

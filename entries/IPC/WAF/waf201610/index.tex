@@ -1,0 +1,147 @@
+\begin{ingrid}
+
+/description (October 2016) def
+
+continuedataset:
+
+dataset:
+
+/name /ML1 def
+/description (Near Term) def
+
+/S {
+(16 Oct 2016) interp
+    3 -2 roll
+    0.5 add
+    exch ymd2rm1960
+  c: exch
+   /units (months since 1960-01-01) def
+   /pointwidth 1 def
+   :c
+/long_name (Issue Date) def
+}defasvar
+
+/target_date {
+ (1 Dec 2016) interp
+    3 -2 roll
+    0.5 add
+    exch ymd2rm1960
+  c: exch
+   /units (months since 1960-01-01) def
+   /pointwidth 4 def
+   :c
+/long_name (Target Date) def
+}defasvar
+
+/ha1 {
+ IRIDB
+  (wa201610_ml1) (ha1) [ (gid) ]open_column_by
+toi4
+  /long_name (Humanitarian Assistance) def
+/units /ids def
+/scale_min 0 def
+/scale_max 1 def
+/CLIST [(none) (would be 1 phase worse without HA)] def
+startcolormap transparent transparent transparent black black endcolormap
+}defasvarsilentnoreuse
+
+/ml1 {
+ IRIDB
+  (wa201610_ml1) (ml1) [ (gid) ]open_column_by
+toi4
+  /long_name (Acute Food Insecurity Phase) def
+/units /ids def
+/scale_min 1 def
+/scale_max 5 def
+/CLIST [(Minimal) (Stressed) (Crisis) (Emergency) (Famine)] def
+startcolormap transparent LightCyan LightCyan yellow orange red brown brown endcolormap
+}defasvarsilentnoreuse
+
+/the_geom {
+ IRIDB
+  (wa201610_ml1) (geom) [ (gid) ]open_column_by
+  /long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label {
+ IRIDB
+  (wa201610_ml1) (('Phase ' || int8(ml1)) as label) [ (gid) ]open_column_by
+  /long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+dataset:
+
+/name /ML2 def
+/description (Medium Term) def
+
+/S {
+(16 Oct 2016) interp
+    3 -2 roll
+    0.5 add
+    exch ymd2rm1960
+  c: exch
+   /units (months since 1960-01-01) def
+   /pointwidth 1 def
+   :c
+/long_name (Issue Date) def
+}defasvar
+
+/target_date {
+ (1 Apr 2017) interp
+    3 -2 roll
+    0.5 add
+    exch ymd2rm1960
+  c: exch
+   /units (months since 1960-01-01) def
+   /pointwidth 4 def
+   :c
+/long_name (Target Date) def
+}defasvar
+
+/ha2 {
+ IRIDB
+  (wa201610_ml2) (ha2) [ (gid) ]open_column_by
+toi4
+  /long_name (Humanitarian Assistance) def
+/units /ids def
+/scale_min 0 def
+/scale_max 1 def
+/CLIST [(none) (would be 1 phase worse without HA)] def
+startcolormap transparent transparent transparent black black endcolormap
+}defasvarsilentnoreuse
+
+/ml2 {
+ IRIDB
+  (wa201610_ml2) (ml2) [ (gid) ]open_column_by
+toi4
+  /long_name (Acute Food Insecurity Phase) def
+/units /ids def
+/scale_min 1 def
+/scale_max 5 def
+/CLIST [(Minimal) (Stressed) (Crisis) (Emergency) (Famine)] def
+startcolormap transparent LightCyan LightCyan yellow orange red brown brown endcolormap
+}defasvarsilentnoreuse
+
+/the_geom {
+ IRIDB
+  (wa201610_ml2) (geom) [ (gid) ]open_column_by
+  /long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label {
+ IRIDB
+  (wa201610_ml2) (('Phase ' || int8(ml2)) as label) [ (gid) ]open_column_by
+  /long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+:dataset
+
+ML1 ha1 .gid name exch put
+ML2 ha2 .gid name exch put
+
+
+\end{ingrid}

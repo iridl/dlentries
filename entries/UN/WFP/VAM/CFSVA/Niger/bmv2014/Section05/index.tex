@@ -1,0 +1,161 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 21668
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 345
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Base_menage_vulnerabilite_2014.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Stocks) def
+/Q31A {
+mytable
+myquestion 
+88 VALUE
+ myquestion removeGRID
+/long_name (Q31.a: Disposez-vous encore aujourd'hui de stocks?) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q31B {
+mytable
+myquestion 
+89 VALUE
+ myquestion removeGRID
+/long_name (Q31.b: Disposez vous encore aujourd'hui  des  moyens) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q31C {
+mytable
+myquestion 
+90 VALUE
+ myquestion removeGRID
+/long_name (Q31.c : Pensez vous que votre stock et vos moyens sont suffisants pour vos besoi) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q31D {
+mytable
+myquestion 
+91 VALUE
+ myquestion removeGRID
+/long_name (Q31.d: Combien de mois pensez-vous que votre stock ou approvisionnement permettr) def 
+}defasvarsilent
+
+/Q31E {
+mytable
+myquestion 
+92 VALUE
+ myquestion removeGRID
+/long_name (Q31.e: Disposez vous d'un stock de semence pour la campagne pluviale) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q31F1 {
+mytable
+myquestion 
+93 VALUE
+ myquestion removeGRID
+/long_name (Q31.f1: Mil) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q31F2 {
+mytable
+myquestion 
+94 VALUE
+ myquestion removeGRID
+/long_name (Q31.f2: Sorgho) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q31F3 {
+mytable
+myquestion 
+95 VALUE
+ myquestion removeGRID
+/long_name (Q31.f3: Maïs) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q31F4 {
+mytable
+myquestion 
+96 VALUE
+ myquestion removeGRID
+/long_name (Q31.f4: Nièbé) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q31F5 {
+mytable
+myquestion 
+97 VALUE
+ myquestion removeGRID
+/long_name (Q31.f5: Blé) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q31F6 {
+mytable
+myquestion 
+98 VALUE
+ myquestion removeGRID
+/long_name (Q31.f6: Riz) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

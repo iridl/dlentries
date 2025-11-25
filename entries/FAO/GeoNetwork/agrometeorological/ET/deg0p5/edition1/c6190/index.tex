@@ -1,0 +1,51 @@
+\begin{ingrid}
+  continuedataset:
+   link:
+   /name (FAO_GeoNetwork) def
+   /description (FAO GeoNetwork Web Page) def
+   /href (http://www.fao.org/geonetwork/srv/en/main.home) def
+   :link
+   link:
+   /name (dataset_documentation) def
+   /href (http://www.fao.org/geonetwork/srv/en/metadata.show?id=5017&currTab=simple) def
+   :link
+
+    /source (<a href="http://www.fao.org/geonetwork/srv/en/resources.get?id=5017&fname=etref_iiasa.zip&access=private">FAO</a>) def
+    grid:
+      /name (X) def
+      /units (degreeE) def
+      /fullname (Longitude) def
+      periodic
+      -179.75 to 179.75 N= 720 pts
+    :grid
+    grid:
+      /name (Y) def
+      /units (degreeN) def
+      /fullname (Latitude) def
+      89.75 to -89.75 N= 360 pts
+    :grid
+    grid:
+      /name (T) def
+      /units (month) def
+      periodic
+      Jan to Dec N= 12 pts
+    :grid
+    /etref {
+      [X Y | T]
+      (/Data/data6/FAO/GeoNetwork/ET/deg0p5/edition1/c6190/etref/etref_%s[lcmon].asc) [T dup (%b) strftimes tolower /name /lcmon def]
+%     (/beluga/data/remic/mydatafiles/FAO/etref_%s[lcmon].asc) [T dup (%b) strftimes tolower /name /lcmon def]
+      readdatafile:
+        i*4asascii
+        117 set:file_byteoffset
+        /missing_value -9999 def
+      :readdatafile
+      /name (etref) def
+      /long_name (reference evapotranspiration) def
+      /units (mm/day) def
+%     /scale_min 0 def
+%     /scale_max 122 def
+      /scale_factor 0.1 def
+    } defasvarsilent
+  /history (prepared according to the FAO Penman-Monteith method from University of East Anglia Climate Research Unit CRU CL 1.0 climate dataset, 1961-1990) def
+  :dataset
+\end{ingrid}

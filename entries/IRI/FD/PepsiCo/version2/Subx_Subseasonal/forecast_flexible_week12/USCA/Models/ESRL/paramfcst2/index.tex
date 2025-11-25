@@ -1,0 +1,111 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (ELR forecast coefficients) def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+215.5 360.0 sub 1.0 314.5 360.0 sub
+:grid
+/X1 X def
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+15.5 1.0 59.5
+:grid
+/Y1 Y def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+215.0 360.0 sub 1.0 315.0 360.0 sub
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+15.0 1.0 60.0
+:grid
+
+
+grid:
+/name /ind def
+/long_name (Coefficients Index) def
+0 1 2
+:grid
+
+
+grid:
+/name /L def
+/long_name (Lead Time) def
+/units /days def
+4.5 7. 11.5
+:grid
+
+grid:
+/name /S def
+/long_name (Start Time) def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+%/netcdfgrid true def
+6 Jan 2023 julian_day 01 Jan 1960 julian_day sub
+7
+systemtime
+(%d %b %Y) 12 strftime interp julian_day
+    6
+        Jan 2023 julian_day
+        sub
+       7 div
+       1 add
+       7 mul
+       2 index add
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+
+S { (/Data/data21/iri/FD/PepsiCo/Subx_forecast/flexible_forecast/weekly_precip/ESRL/Subx_USCA_precip_issue_Fri_%d_%b_%Y[S]_weekly_fcst_coeff.nc) [S] } removeextrausing
+   name exch def
+
+S
+/expires
+S last 6 add cvsunits nip interp exch 0.5 add 4 -2 roll exch pop ymd2systemtime
+def
+name exch def
+
+/expires S .expires def
+
+/precip {
+[ X1 Y1 last first subgrid ind L | S ]
+(/Data/data21/iri/FD/PepsiCo/Subx_forecast/flexible_forecast/weekly_precip/ESRL/Subx_USCA_precip_issue_Fri_%d_%b_%Y[S]_weekly_fcst_coeff.nc) [S]
+readdatafile:
+/name (prob) def
+/doublearraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/missing_value NaN def
+/long_name (Precipitation Forecast Coefficients) def
+}defasvarsilent
+
+/temperature {
+[ X Y last first subgrid ind L | S ]
+(/Data/data21/iri/FD/PepsiCo/Subx_forecast/flexible_forecast/weekly_T2M/ESRL/Subx_USCA_t2m_issue_Fri_%d_%b_%Y[S]_weekly_fcst_coeff.nc) [S]
+readdatafile:
+/name (prob) def
+/doublearraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/missing_value NaN def
+/long_name (Temperature Forecast Coefficients) def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

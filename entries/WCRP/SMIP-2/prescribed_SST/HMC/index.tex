@@ -1,0 +1,326 @@
+Notes:
+
+data all had /time_statistic instantaeous -- removed
+ua was labelled northward and va is labelled eastward -- has been reversed
+\begin{ingrid*}
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/HMC.D/1979/ason/01/) readfile .pr_hmc_1979.ason.01_mm.nc
+  time replacefirstofmonthGRID
+\end{ingrid*}
+\begin{ingrid}
+continuedataset:
+% not COARDS only because 6 dimensional % /Conventions (COARDS) def
+% /center (gsfc) def
+/description (Hydrometcentre of Russia) def
+/iridl:hasSemantics (iridl:HMC) def
+link:
+/name (HMC_Skill_Maps) def
+/href (http://wmc.meteoinfo.ru/season) def
+/description (Skill maps and model description) def
+:link
+ /calendar (standard) def
+ /model (slav) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+/references(Tolstykh2001) def
+grid:
+/name (longitude)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (latitude)def
+/units (degree_north)def
+ -90. 2.5 90.
+:grid
+grid:
+/name /M def
+/long_name (members) def
+1 1 6
+:grid
+grid:
+/name /S def
+/standard_name (forecast_reference_time) def
+monthtime
+/pointwidth 0 def
+periodic
+1 Feb 1979 ensotime
+3.
+1 Nov 1979 ensotime
+:grid
+variable:
+/name /season def
+grids: S :grids
+values:
+(fmam)
+(mjja)
+(ason)
+(ndjf)
+:values
+:variable
+grid:
+/name /S def
+/standard_name (forecast_reference_time) def
+/long_name (start time) def
+monthtime
+/pointwidth 0 def
+1 Feb 1979 ensotime
+3.
+1 Nov 1999 ensotime
+:grid
+grid:
+/name /L def
+/standard_name (forecast_period) def
+/long_name (lead time) def
+/units (months) def
+0.5 1. 3.5
+:grid
+/T { S L add /long_name (Forecast Time) def /pointwidth 1 def
+/standard_name (time) def
+} defasvar
+ /pr{
+[ longitude latitude | M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/HMC.D/%Y[S]/%s[season]/%2.2d[M]/pr_hmc_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (pr) def
+ /grid_type (linear) def
+ /grid_name (grid-1) def
+ /long_name (Total precipitation rate) def
+% /comments (Unknown1 variable comment) def
+ /missing_value -9999. def
+ /level_description (Earth surface) def
+ /units (kg/(m^2*s))cvn def
+% /time_statistic (instantaneous) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+/name (hfls_hmc_1997.ason.01_mm.nc)def
+ /center (gsfc) def
+ /Conventions (COARDS) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+ /calendar (standard) def
+ /model (slav) def
+\begin{ingrid}
+ /hfls{
+[ longitude latitude | M L S]
+ (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/HMC.D/%Y[S]/%s[season]/%2.2d[M]/hfls_hmc_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (hfls) def
+ /units (W/m2) def
+ /long_name (latent heat flux) def
+ /grid_name (grid-1) def
+ /missing_value -9999. def
+ /level_description (Earth surface) def
+ %/comments (Unknown1 variable comment) def
+ %/time_statistic (instantaneous) def
+ /grid_type (linear) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+/name (hfss_hmc_1997.ason.01_mm.nc)def
+ /calendar (standard) def
+ /model (slav) def
+ /center (gsfc) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+ /Conventions (COARDS) def
+\begin{ingrid}
+ /hfss{
+[ longitude latitude | M L S]
+ (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/HMC.D/%Y[S]/%s[season]/%2.2d[M]/hfss_hmc_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (hfss) def
+ /units (W/m2) def
+ /long_name (sensible heat flux) def
+ /grid_type (linear) def
+ /missing_value -9999. def
+ /grid_name (grid-1) def
+ %/comments (Unknown1 variable comment) def
+ /level_description (Earth surface) def
+ %/time_statistic (instantaneous) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+/name (rlt_hmc_1997.ason.01_mm.nc)def
+ /center (gsfc) def
+ /Conventions (COARDS) def
+ /model (slav) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+ /calendar (standard) def
+\begin{ingrid}
+ /rlt{
+[ longitude latitude | M L S]
+ (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/HMC.D/%Y[S]/%s[season]/%2.2d[M]/rlt_hmc_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (rlt) def
+ /units  (W/m2) def
+ /grid_type (linear) def
+ /long_name (outgoing longwave radiation) def
+ /missing_value -9999. def
+ /grid_name (grid-1) def
+ /level_description (Earth surface) def
+ %/comments (Unknown1 variable comment) def
+ %/time_statistic (instantaneous) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+\begin{ingrid}
+ /slp{
+[ longitude latitude | M L S]
+ (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/HMC.D/%Y[S]/%s[season]/%2.2d[M]/slp_hmc_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (slp) def
+ /units (N/m2) def
+ /long_name (MSLP) def
+ /grid_name (grid-1) def
+% /comments (Unknown1 variable comment) def
+ /level_description (Earth surface) def
+ /missing_value -9999. def
+% /time_statistic (instantaneous) def
+ /grid_type (linear) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /tas{
+[ longitude latitude | M L S]
+ (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/HMC.D/%Y[S]/%s[season]/%2.2d[M]/tas_hmc_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (tas) def
+ /grid_type (linear) def
+ /units /Kelvin_scale def
+ /long_name (T2m) def
+ /missing_value -9999. def
+ /grid_name (grid-1) def
+ /level_description (Earth surface) def
+% /comments (Unknown1 variable comment) def
+ /time_statistic (instantaneous) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+/ta{
+[ longitude latitude |
+grid:
+/name (levels)def
+/units (hPa)def
+ 700. 150. 850.
+:grid
+M L S]
+ (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/HMC.D/%Y[S]/%s[season]/%2.2d[M]/ta_hmc_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (ta) def
+ /grid_type (linear) def
+ /units /Kelvin_scale def
+% /comments (Unknown1 variable comment) def
+ /long_name (air temperature) def
+ /missing_value -9999. def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /ts{
+[ longitude latitude | M L S]
+ (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/HMC.D/%Y[S]/%s[season]/%2.2d[M]/ts_hmc_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (ts) def
+ /level_description (Earth surface) def
+% /comments (Unknown1 variable comment) def
+ /units /Kelvin_scale def
+% /time_statistic (instantaneous) def
+ /long_name (ground temperature) def
+ /grid_type (linear) def
+ /missing_value -9999. def
+ /grid_name (grid-1) def
+ /realarraytype netcdfrecords :readdatafile
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+}defasvarcachesilent
+ /tauu{
+[ longitude latitude | M L S]
+ (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/HMC.D/%Y[S]/%s[season]/%2.2d[M]/tauu_hmc_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (tauu) def
+% /time_statistic (instantaneous) def
+ /units (N/m2) def
+ /long_name (eastward wind stress) def
+ /grid_type (linear) def
+ /missing_value -9999. def
+ /grid_name (grid-1) def
+% /comments (Unknown1 variable comment) def
+ /level_description (Earth surface) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /tauv{
+[ longitude latitude | M L S]
+ (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/HMC.D/%Y[S]/%s[season]/%2.2d[M]/tauv_hmc_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (tauv) def
+% /time_statistic (instantaneous) def
+ /units (N/m2) def
+ /long_name (northward wind stress) def
+ /grid_type (linear) def
+ /missing_value -9999. def
+ /grid_name (grid-1) def
+% /comments (Unknown1 variable comment) def
+ /level_description (Earth surface) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+/ua{
+[ longitude latitude |
+grid:
+/name (levels)def
+/units (hPa)def
+200. 650. 850.
+:grid
+M L S]
+ (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/HMC.D/%Y[S]/%s[season]/%2.2d[M]/ua_hmc_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (ua) def
+ /grid_type (linear) def
+ /units (m/s) def
+ /long_name (eastward wind) def
+ /missing_value -9999. def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /va{
+[ longitude latitude |
+grid:
+/name (levels)def
+/units (hPa)def
+200. 650. 850.
+:grid
+M L S]
+ (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/HMC.D/%Y[S]/%s[season]/%2.2d[M]/va_hmc_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (va) def
+ /grid_type (linear) def
+ /units (m/s) def
+ /comments (Unknown1 variable comment) def
+ /long_name (northward wind) def
+ /missing_value -9999. def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /zg{
+[ longitude latitude |
+grid:
+/name (levels)def
+/units (hPa)def
+ 500. 500. 1000.
+:grid
+M L S]
+ (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/HMC.D/%Y[S]/%s[season]/%2.2d[M]/zg_hmc_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (zg) def
+ /units /m def
+ /long_name (geopotential height) def
+ /missing_value -9999. def
+% /comments (Unknown1 variable comment) def
+ /grid_type (linear) def
+ /grid_name (grid-1) def
+% /time_statistic (instantaneous) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+
+\begin{ingrid}
+:dataset
+T pop
+\end{ingrid}

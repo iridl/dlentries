@@ -1,0 +1,174 @@
+\begin{ingrid}
+
+	continuedataset:
+
+(iri.columbia.edu/terms/forecast/1) cvn datadownloadsareRestricted
+/Cookie varies_on
+
+/description (ELR forecast coefficients) def
+
+datasetdefs:
+
+        grid:
+        /name /ind def
+        0 1 2
+        :grid
+
+:datasetdefs
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+0 1 359
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+-90 1 90
+:grid
+
+grid:
+/name /L def
+/long_name (Lead Time) def
+/units /months def
+2.5 1 5.5
+:grid
+
+grid:
+/name /modl def
+/long_name (Models) def
+1 1 8
+:grid
+
+grid:
+/name /S def
+/long_name (Start Time) def
+monthtime
+/defaultvalue { last } def
+/pointwidth 0. def
+/netcdfgrid true def
+values:
+1 Jan 2011 ensotime
+1.
+systemtime
+        systemtime2ymd dup 15 lt {
+                ymd:lastmonth
+        }{
+                pop 1
+        }ifelse
+        ymd2rm1960
+        {} for
+:values
+:grid
+
+S { (/Data/data21/iri/FD.3/forecast_coeff_precip_%b%Y[S].nc) [S] } removeextrausing
+   name exch def
+
+S
+/expires
+  S last
+    1 add
+    cvsunits
+    interp exch
+       0.5 add
+       14 ymd2systemtime
+      nip nip nip
+        def
+name exch def
+
+/expires S .expires def
+
+/target_date {S L
+        add /long_name (forecast time) def /pointwidth 3 def} defasvar
+
+/precip_b0 {
+[ X Y ind modl L | S ]
+(/Data/data21/iri/FD.3/forecast_coeff_precip_%b%Y[S].nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+ind 0 VALUE
+ind removeGRID
+/missing_value NaN def
+/long_name (Precipitation Forecast b0) def
+}defasvarsilent
+
+/precip_b1 {
+[ X Y ind modl L | S ]
+(/Data/data21/iri/FD.3/forecast_coeff_precip_%b%Y[S].nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+ind 1 VALUE
+ind removeGRID
+/units (month/mm) def
+/missing_value NaN def
+/long_name (Precipitation Forecast b1) def
+}defasvarsilent
+
+/precip_b2 {
+[ X Y ind modl L | S ]
+(/Data/data21/iri/FD.3/forecast_coeff_precip_%b%Y[S].nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+ind 2 VALUE
+ind removeGRID
+/units (month/mm) def
+/missing_value NaN def
+/long_name (Precipitation Forecast b2) def
+}defasvarsilent
+
+/tref_b0 {
+[ X Y ind modl L | S (0000 1 Apr 2017) last subgrid ]
+(/Data/data21/iri/FD.3/forecast_coeff_tref_%b%Y[S].nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+ind 0 VALUE
+ind removeGRID
+S (0000 1 Apr 2017) last RANGE
+/missing_value NaN def
+/long_name (Temperature Forecast b0) def
+}defasvarsilent
+
+/tref_b1 {
+[ X Y ind modl L | S (0000 1 Apr 2017) last subgrid ]
+(/Data/data21/iri/FD.3/forecast_coeff_tref_%b%Y[S].nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+ind 1 VALUE
+ind removeGRID
+S (0000 1 Apr 2017) last RANGE
+/units /degree_Celsius-1 def
+/missing_value NaN def
+/long_name (Temperature Forecast b1) def
+}defasvarsilent
+
+/tref_b2 {
+[ X Y ind modl L | S (0000 1 Apr 2017) last subgrid ]
+(/Data/data21/iri/FD.3/forecast_coeff_tref_%b%Y[S].nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+/units /degree_Celsius-1 def
+ind 2 VALUE
+ind removeGRID
+S (0000 1 Apr 2017) last RANGE
+/missing_value NaN def
+/long_name (Temperature Forecast b2) def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

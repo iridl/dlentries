@@ -1,0 +1,99 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /x def
+1 1 1390
+:grid
+
+grid:
+/name /y def
+1 1 950 
+/plotfirst 950.5 def
+/plotlast .5 def
+:grid
+
+grid:
+/name /xy def
+1 1 950 1390 mul
+:grid
+
+variable:
+/name /lon def
+/units (degreeE) def
+/fullname (Longitude) def
+/missing_value 0 def
+grids: x y :grids
+file:
+ui*2
+/name (/home/mahaweli/ndvi/lon.asi) def
+:file
+/scale_factor .01 def
+/add_offset -180.10 def
+/scale_max 180. def
+/scale_min 21. def
+:variable
+
+variable:
+/name /lat def
+/units (degreeN) def
+/fullname (Latitude) def
+/missing_value 0 def
+/scale_min 4.7 def
+/scale_max 79.04 def
+grids: x y :grids
+file:
+i*2
+/name (/home/mahaweli/ndvi/lat.asi) def
+:file
+/scale_factor .01 def
+/add_offset -90.10 def
+:variable
+
+variable:
+/name /elev def
+/units (meters) def
+/fullname (Elevation) def
+grids: x y :grids
+file:
+i*2
+/name (/home/mahaweli/ndvi/elev.asi) def
+:file
+/scale_factor 1 def
+/add_offset -15010 def
+:variable
+
+11 Jul 1981 julian_day
+31 Dec 1999 julian_day
+ dekadGRID
+name exch def
+/NDVI {
+[x y | T] 
+   (/home/mahaweli/ndvi/%Y/avhrrpf.ndvi.1ntfas.%y%m%d[firstday])
+ [T dup integralgrid
+        first secondtolast subgrid
+        .gridvalues
+        1 index
+         1 object
+         CopyStream exch
+         /name /firstday def
+         constantdata
+        ]readdatafile: ui*1
+      /scale_factor 0.008 def
+      /add_offset 0.008
+        -128 mul
+        def
+      /valid_min 3 def
+      /valid_max 255 def
+/long_name (Normalized Difference Vegetation Index) def
+/iridl:hasSemantics [(iridl:Asia_Indonesia)(iridl:NDVI)] def
+/projection (Interrupted Goode Homolosine) def
+/units unitless def
+      :readdatafile
+scaledNDVIcolorscale
+}defasvarsilent
+/lon lon toNaN /scale_min lon .scale_min def /scale_max lon .scale_max def def
+/lat lat toNaN /scale_min lat .scale_min def /scale_max lat .scale_max def def
+:dataset
+\end{ingrid}
+
+ 

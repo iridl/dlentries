@@ -1,0 +1,155 @@
+\begin{ingrid}
+continuedataset:
+
+link:
+/name /dataset_documentation def
+/href (http://www.prism.oregonstate.edu/) def
+:link
+
+link:
+/name /PRISMCG def
+/description (PRISM Climate Group) def
+/href (http://www.prismclimate.org) def
+:link
+
+link:
+/name (source) def
+/description (PRISM monthly data source) def
+/href (ftp://prism.nacse.org/monthly/) def
+:link
+
+link:
+/name (Dataset_Description) def
+/description (PDF Document: Descriptions of PRISM Spatial Climate Datasets) def
+/href (http://www.prism.oregonstate.edu/documents/PRISM_datasets.pdf) def
+:link
+
+link:
+/name (Terms_of_Use) def
+/description (PDF Document: PRISM Gridded Climate Data - Terms of Use) def
+/href (http://prism.oregonstate.edu/documents/PRISM_terms_of_use.pdf) def
+:link
+
+/references (Daly_etal2008 Daly_etal2015) def
+
+/description (1981-2010 Monthly Climatology) def
+
+grid:
+/name /X def
+degE
+-125.020833333333
+.04166666666
+ -66.47916757
+:grid
+/X X partialgrid def
+
+grid:
+/name /Y def
+degN
+ 49.93750000
+-.04166666666
+24.06250000000
+:grid
+/Y Y partialgrid def
+
+grid:
+/name /T def
+monthtime
+periodic
+Jan 1 Dec
+:grid
+
+/ppt {
+ [X
+    Y |
+    T] (/Data/data21/OSU/PRISM/US/normals_4km/ppt/PRISM_ppt_30yr_normal_4kmM*_%m[T]_bil.bil) [ T ]
+        readdatafile:
+      /missing_value -9999 def
+      decdirect 
+       /units (mm/month) def
+       /long_name (Precipitation) def
+       /standard_name(precipitation_amount) def
+      :readdatafile
+} defasvarsilent
+
+/tmax {
+ [X
+    Y |
+    T] (/Data/data21/OSU/PRISM/US/normals_4km/tmax/PRISM_tmax_30yr_normal_4kmM*_%m[T]_bil.bil) [ T ]
+        readdatafile:
+      /missing_value -9999 def
+      decdirect 
+       /units (Celsius_scale) def
+       /long_name (Maximum Temperature) def
+       /standard_name (air_temperature) def
+      :readdatafile
+} defasvarsilent
+
+/tmin {
+ [X
+    Y |
+    T] (/Data/data21/OSU/PRISM/US/normals_4km/tmin/PRISM_tmin_30yr_normal_4kmM*_%m[T]_bil.bil) [ T ]
+        readdatafile:
+      /missing_value -9999 def
+      decdirect 
+       /units (Celsius_scale) def
+       /long_name (Minimum Temperature) def
+       /standard_name (air_temperature) def
+      :readdatafile
+} defasvarsilent
+
+/tdmean {
+ [X
+    Y |
+    T] (/Data/data21/OSU/PRISM/US/normals_4km/tdmean/PRISM_tdmean_30yr_normal_4kmM*_%m[T]_bil.bil) [ T ]
+        readdatafile:
+      /missing_value -9999 def
+      decdirect 
+       /units (Celsius_scale) def
+       /long_name (Mean Dew Point Temperature) def
+       /standard_name (dew_point_temperature) def
+      :readdatafile
+} defasvarsilent
+
+/tmean {
+ [X
+    Y |
+    T] (/Data/data21/OSU/PRISM/US/normals_4km/tmean/PRISM_tmean_30yr_normal_4kmM*_%m[T]_bil.bil) [ T ]
+        readdatafile:
+      /missing_value -9999 def
+      decdirect 
+       /units (Celsius_scale) def
+       /long_name (Mean Temperature) def
+       /standard_name (air_temperature) def
+      :readdatafile
+} defasvarsilent
+
+/vpdmin {
+ [X
+    Y |
+    T] (/Data/data21/OSU/PRISM/US/normals_4km/vpdmin/PRISM_vpdmin_30yr_normal_4kmM*_%m[T]_bil.bil) [ T ]
+        readdatafile:
+      /missing_value -9999 def
+      decdirect 
+       /units (hPa) def
+       /long_name (Average Daily Minimum Vapor Pressure Deficit) def
+       /standard_name (water_vapor_saturation_deficit_in_air) def
+      :readdatafile
+} defasvarsilent
+
+/vpdmax {
+ [X
+    Y |
+    T] (/Data/data21/OSU/PRISM/US/normals_4km/vpdmax/PRISM_vpdmax_30yr_normal_4kmM*_%m[T]_bil.bil) [ T ]
+        readdatafile:
+      /missing_value -9999 def
+      decdirect 
+       /units (hPa) def
+       /long_name (Average Daily Maximum Vapor Pressure Deficit) def
+       /standard_name (water_vapor_saturation_deficit_in_air) def
+      :readdatafile
+} defasvarsilent
+
+:dataset
+\end{ingrid}
+

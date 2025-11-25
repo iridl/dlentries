@@ -1,0 +1,191 @@
+\documentclass[12pt]{article}
+\usepackage{code}
+\usepackage{ingrid}
+\begin{document}
+\section{IRI Extreme Temperature Dataset Entry}
+This is the dataset for the extreme temperature, along with
+its anomaly temperature scale.
+\subsection{hidden function definitions}
+Hidden function definitions in datasetdefs:
+\begin{ingrid}
+
+ continuedataset:
+/references (Barnston_etal2003 Barnston_Mason2011) def
+%Barnston, A.G., S.J. Mason, L. Goddard, D.G. DeWitt, S.E. Zebiak. 2003. Multimodel Ensembling in Seasonal Climate Forecasting at IRI. Bull. Amer. Met. Soc. 84 (12): 1783-1796. DOI: 10.1175/BAMS-84-12-1783
+%Barnston, A. G. and S. J. Mason, 2011: Evaluation of IRI's seasonal climate forecasts for the extreme 15% tails. Wea. Forecasting, 26, 545-554. DOI: 10.1175/WAF-D-10-05009.1
+ datasetdefs:
+\end{ingrid}
+\word mytempanomscale2 ( -- ) anomaly temperature scale.  We are using this color scale for temperature extremes.
+\begin{ingrid}
+/mytempanomscale2 {
+startcolormap
+DATA -100 100 RANGEEDGES
+transparent 0 0 250 RGB
+0 0 250 RGB RGBdup -50 bandmax
+125 165 250 RGB RGBdup -40 bandmax
+200 240 250 RGB RGBdup -25 bandmax
+gray RGBdup
+25 bandmax
+220 220 0 RGB RGBdup 40 bandmax
+250 175 0 RGB RGBdup 50 bandmax
+240 30 0 RGB RGBdup 100 bandmax
+240 30 0 RGB
+endcolormap
+} def
+\end{ingrid}
+\word togetherfn2 ( -- ) function used to compute the dominant tercile.  At the moment this is not the right scale.
+\begin{ingrid}
+/togetherfn2 {
+ 0 replaceNaN
+ a:
+    C /Below_Normal VALUE
+    -1 mul
+    :a:
+     C /Above_Normal VALUE
+    :a
+  add
+ mytempanomscale2 
+ /missing_value 0 def
+ -9 replaceNaN
+ /missing_value -9 def
+} def      
+\end{ingrid}
+\word seasabbrev ( -- var ) periodic variable of season abbreviations. 
+\begin{ingrid}  
+ grid:
+ /name (T2) def
+ /units (months since 01-Jan) def
+ periodic
+ 0.5 1 11.5
+ :grid
+variable:
+ /name /seasabbrev def
+ grids: T2 :grids
+ values: (djf) (jfm) (fma) (mam) (amj) (mjj) (jja) (jas) (aso) (son) (ond) (ndj) :values
+:variable
+ :datasetdefs
+\end{ingrid}
+\subsection{grid definitions}
+\word X ( -- grid ) longitude grid.
+\begin{ingrid}
+ grid:
+ /name (X) def
+ /units (degreeE) def
+ /fullname (Longitude) def
+ periodic
+ -179. 2. 179. 
+ :grid
+\end{ingrid}
+\word Y ( -- grid ) latitude grid.
+\begin{ingrid}
+ grid:
+ /name (Y) def
+ /units (degreeN) def
+ /fullname (Latitude) def
+ 89. 2. -89.
+ :grid
+\end{ingrid}
+\word L ( -- grid ) lead time in months.
+\begin{ingrid}
+ grid:
+ /name (L) def
+ /units (months) def
+ /fullname (Forecast Lead Time in Months) def
+ values: 1 :values
+ :grid
+\end{ingrid}
+\word F ( -- grid ) forecast start times.  IRI Forecasts have gotten more
+frequent over time, so the grid starts out coarser (every three
+months) and then is finer (every month).
+\begin{ingrid}
+ grid:
+ /name (F) def
+ monthtime
+ /fullname (Month Forecast Issued) def
+ /defaultvalue { last } def
+ /pointwidth 1 def
+values:
+16 Mar 2001 ensotime
+3
+16 Jun 2001 ensotime
+{} for
+16 Sep 2001 ensotime
+1
+16 Mar 2017 ensotime %enddate
+{} for
+:values
+ :grid
+\end{ingrid}
+Once the initial version of F is defined using systemtime for the
+maximum possible endtime, F is refined via removeextrausing
+by checking the data directory for available files, starting from the
+end.  Admittedly this is a bit long-winded:  either the last file
+should be there, or it isn't. 
+
+removeextrausing is rather critical here -- the data files are being
+used both for maximum possible endtime, and for the last\_modified time
+for the F grid: that time is taken from the file that was used to set
+the maximum possible endtime.
+
+expires computes when to expect the next update, and this dataset we
+use a two part strategy. For the first week, it keeps using the
+last\_modified time so that any changes to the data are using
+immediately, later the ninth of next month is used, with a consequent
+boost to the last\_modified time so the change in expires is reported
+properly. 
+Finally the modified F is stored in the dataset.
+
+copies expires and last\_modified from F to dataset
+
+\word C ( -- grid ) tercile classes.
+\begin{ingrid}
+ grid:
+ /name (C) def
+ /units (ids) def
+ /fullname (Tercile Classes) def
+ values: /Below_Normal /Normal /Above_Normal :values
+ :grid
+\end{ingrid}
+\subsection{dependent variable definitions}
+\word target\_date ( -- var ) target date from start and lead.
+\begin{ingrid}
+ /target_date {F L add 1 add /long_name (forecast time) def /pointwidth 3 def} defasvar
+\end{ingrid}
+\word target\_season ( -- var ) target three-letter season.
+\begin{ingrid}
+/target_season {seasabbrev target_date T2 sample-along} defasvar
+\end{ingrid}
+\word prob ( -- var ) tercile probability.
+\begin{ingrid}
+/prob {
+[ C X Y | L F] (/Data/data1/iriforecasts/T1y%Ys%m[T]%s[target_season]x) [L F 2 copy add 1 add /name /T def target_season] readdatafile:
+((13X,3F4.0))formatted
+ /missing_value -9 def
+ /long_name (Tercile Probability) def
+/scale_min 0 def
+/scale_max 100 def
+ startcolormap
+DATA 0 100 RANGE
+transparent transparent
+transparent transparent 25.0 bandmax
+175 238 238 RGB RGBdup 40 bandmax
+200 255   0 RGB RGBdup 50 bandmax
+176  48  96 RGB RGBdup 100 bandmax
+176  48  96 RGB 100 VALUE
+176  48  96 RGB
+endcolormap
+:readdatafile
+ /long_name (Tercile Probability) def
+} defasvarsilent
+\end{ingrid}
+\word dominant ( -- var ) dominant tercile probabiliy.
+ \begin{ingrid}
+/dominant {
+ prob togetherfn2
+ /long_name (Extreme Temperature Risk) def 
+ } defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ :dataset
+\end{ingrid}
+\end{document}

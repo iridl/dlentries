@@ -1,0 +1,30 @@
+\begin{ingrid}
+dataset:
+/name /HELLERMAN def
+/description (Hellerman and Rosenstein Global Wind Stress Climatology) def
+/dataset_documentation.html descriptions /hellerman.html get def
+/GCMD_id (HELLERMAN) def
+/iridl:hasSemantics (iridl:NOAA) def
+/references (Hellerman_Rosenstein1983) def
+grid: /name /X def degE periodic 1 to 359 N= 180 pts :grid 
+grid: /name /Y def degN  -89 to 89 N= 90 pts :grid 
+grid: /name /T def /units /month def periodic Jan to Dec N= 12 pts :grid
+file: 
+/name (/Data/data3/rainbow/hellerman) def
+random
+grids: X Y | [ /taux /tauy ] T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+:file
+:dataset
+\end{ingrid}
+
+Normal Monthly Wind Stress Over the World Ocean with Error Estimates, Hellerman and Rosenstein, Journal of Physical Oceanography; Vol. 13, No. 7, 1093-1104pp, 1983.

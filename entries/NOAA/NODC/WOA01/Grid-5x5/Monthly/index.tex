@@ -1,0 +1,459 @@
+\begin{ingrid}
+continuedataset:
+grid: /name (T) def
+/long_name (Time) def
+periodic
+month
+Jan 1 Dec
+:grid
+grid: /name (X) def
+/long_name(Longitude) def
+/units /degreeE def
+periodic 
+2.5 to 357.5 N= 72 pts
+:grid
+grid: /name (Y) def
+/long_name(Latitude) def
+/units /degreeN def
+-87.5 to 87.5 N= 36 pts
+:grid
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. 600. 700. 800. 900. 1000. 1100. 1200. 1300. 1400. 1500. ]
+:grid
+
+dataset:
+/name /mn def
+/long_name (unanalyzed mean) def
+variable:
+/name /temperature def
+/long_name(temperature) def
+/units /Celsius_scale def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/temperat/monthly/tmn5.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/long_name (dissolved oxygen) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/oxygen/monthly/omn5.r4) def
+:file
+:variable
+variable:
+/name /aou def
+/long_name (apparent oxygen utilization) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/aou/monthly/amn5.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/long_name(salinity) def
+/units /PSU def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/salinity/monthly/smn5.r4) def
+:file
+:variable
+variable:
+/name /silicate def
+/long_name (Silicate) def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. ]
+:grid
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/silicate/monthly/imn5.r4) def
+:file
+:variable
+variable:
+/name /o2sat def
+/units (percent) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/o2sat/monthly/xmn5.r4) def
+:file
+:variable
+
+variable:
+/name /nitrate def
+/long_name (Nitrate) def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. ]
+:grid
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/nitrate/monthly/nmn5.r4) def
+:file
+:variable
+variable:
+/name /phosphate def
+/long_name (Phosphate) def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. ]
+:grid
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/phosph/monthly/pmn5.r4) def
+:file
+:variable
+
+:dataset
+dataset:
+/name /sd def
+/long_name (standard deviation)def
+variable:
+/name /temperature def
+/long_name(temperature) def
+/units /Celsius_scale def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/temperat/monthly/tsd5.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/long_name (dissolved oxygen) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/oxygen/monthly/osd5.r4) def
+:file
+:variable
+variable:
+/name /aou def
+/long_name (apparent oxygen utilization) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/aou/monthly/asd5.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/long_name(salinity) def
+/units /PSU def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/salinity/monthly/ssd5.r4) def
+:file
+:variable
+variable:
+/name /silicate def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. ]
+:grid
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/silicate/monthly/isd5.r4) def
+:file
+:variable
+variable:
+/name /o2sat def
+/units (percent) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/o2sat/monthly/xsd5.r4) def
+:file
+:variable
+
+variable:
+/name /nitrate def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. ]
+:grid
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/nitrate/monthly/nsd5.r4) def
+:file
+:variable
+variable:
+/name /phosphate def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. ]
+:grid
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/phosph/monthly/psd5.r4) def
+:file
+:variable
+
+:dataset
+dataset:
+/name /se def
+/long_name (standard error) def
+variable:
+/name /temperature def
+/long_name(temperature) def
+/units /Celsius_scale def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/temperat/monthly/tse5.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/long_name (dissolved oxygen) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/oxygen/monthly/ose5.r4) def
+:file
+:variable
+variable:
+/name /aou def
+/long_name (apparent oxygen utilization) def
+/units (ml/l) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/aou/monthly/ase5.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/long_name(salinity) def
+/units /PSU def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/salinity/monthly/sse5.r4) def
+:file
+:variable
+variable:
+/name /silicate def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. ]
+:grid
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/silicate/monthly/ise5.r4) def
+:file
+:variable
+variable:
+/name /o2sat def
+/units (percent) def
+/missing_value -99.9999 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/o2sat/monthly/xse5.r4) def
+:file
+:variable
+
+variable:
+/name /nitrate def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. ]
+:grid
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/nitrate/monthly/nse5.r4) def
+:file
+:variable
+variable:
+/name /phosphate def
+/units (micro mole/l) def
+/missing_value -99.9999 def
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. ]
+:grid
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/phosph/monthly/pse5.r4) def
+:file
+:variable
+
+:dataset
+dataset:
+/name /dd def
+/long_name (number of observations) def
+variable:
+/name /temperature def
+/missing_value -100 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/temperat/monthly/tdd5.r4) def
+:file
+:variable
+variable:
+/name /O2 def
+/missing_value -100 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/oxygen/monthly/odd5.r4) def
+:file
+:variable
+variable:
+/name /aou def
+/missing_value -100 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/aou/monthly/add5.r4) def
+:file
+:variable
+variable:
+/name /salinity def
+/missing_value -100 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/salinity/monthly/sdd5.r4) def
+:file
+:variable
+variable:
+/name /silicate def
+/missing_value -100 def
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. ]
+:grid
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/silicate/monthly/idd5.r4) def
+:file
+:variable
+variable:
+/name /o2sat def
+/missing_value -100 def
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/o2sat/monthly/xdd5.r4) def
+:file
+:variable
+
+variable:
+/name /nitrate def
+/missing_value -99.9999 def
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. ]
+:grid
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/nitrate/monthly/ndd5.r4) def
+:file
+:variable
+variable:
+/name /phosphate def
+/missing_value -99.9999 def
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. ]
+:grid
+grids: X Y | Z T :grids
+file:
+random
+/name (/Data/data6/noaa/nodc/WOA01b/phosph/monthly/pdd5.r4) def
+:file
+:variable
+
+:dataset
+:dataset
+\end{ingrid}
+
+
+
+
+
+
+
+

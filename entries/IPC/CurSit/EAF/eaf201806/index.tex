@@ -1,0 +1,32 @@
+\begin{ingrid}
+
+/description (June 2018) def
+
+continuedataset:
+
+/ipc 
+{ IRIDB (ea_201806_cs) (cs) [(gid)]open_column_by
+/long_name (Integrated Phase Classification) def
+/missing_value [ 66. 88. 99. ] def
+/units /ids def
+/scale_min 1 def
+/scale_max 5 def
+/CLIST [(Minimal) (Stressed) (Crisis) (Emergency) (Famine)] def
+startcolormap transparent LightCyan LightCyan yellow orange red brown brown endcolormap
+}defasvarsilentnoreuse
+
+/the_geom 
+{ IRIDB (ea_201806_cs) (the_geom) [(gid)]open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label 
+{ IRIDB (ea_201806_cs) (('Phase ' || int8(cs)) as label) [(gid)]open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+ipc .gid name exch def
+
+\end{ingrid}

@@ -1,0 +1,67 @@
+\begin{ingrid}
+/ShipDrift insertdataset:
+/description (Surface velocity data for the tropical Atlantic Ocean) def
+/iridl:hasSemantics [(iridl:WHOI)(iridl:SeaSurface)] def
+grid:
+/name /X def
+degE
+-67.5 5. 7.5
+:grid
+grid:
+/name /Y def
+degN
+-18 2 18
+:grid
+grid:
+/name /T def
+month
+periodic
+16 Jan 1960 ensotime
+1.
+16 Dec 1960 ensotime
+:grid
+dataset:
+/name /SM1 def
+file:
+/name (/Data/data3/rainbow/surfc.crrnts) def
+formatted
+/format ((8F9.3)) def
+grids: X Y [ /ust /vst ] | T :grids
+variable:
+/name /ust def
+/long_name (eastward surface velocity) def
+/units (cm/s) def
+/history (smoothed shipdrift data) def
+:variable
+variable:
+/name /vst def
+/long_name (northward surface velocity) def
+/units (cm/s) def
+/history (smoothed shipdrift data) def
+:variable
+:file
+:dataset
+dataset:
+/name /SM2 def
+file:
+/name (/Data/data3/rainbow/surfc.crrnts.2) def
+formatted
+/format ((8F9.3)) def
+grids: X Y [ /ust /vst ] | T :grids
+variable:
+/name /ust def
+/long_name (eastward surface velocity) def
+/units (cm/s) def
+/history (smoothed shipdrift data) def
+:variable
+variable:
+/name /vst def
+/long_name (northward surface velocity) def
+/units (cm/s) def
+/history (smoothed shipdrift data) def
+:variable
+:file
+:dataset
+:insertdataset
+\end{ingrid}
+

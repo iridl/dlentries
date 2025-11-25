@@ -1,0 +1,212 @@
+\begin{ingrid}
+continuedataset:
+%/name /Darwin def
+/long_name (Darwin) def
+/description (Sea level pressure data from Darwin, Australia) def
+/iridl:hasSemantics [(iridl:NOAA)(iriref:Cole_J)] def
+
+link:
+/name (historical source) def
+/href (ftp://ftp.cpc.ncep.noaa.gov/wd52dg/data/indices/darwin.his) def
+/description (1882-1950 Darwin series from CPC) def
+:link
+link:
+/name (updated source) def
+/href (http://www.cpc.ncep.noaa.gov/data/indices/darwin) def
+/description (1951-present Darwin series from CPC) def
+:link
+link:
+/name (CPC Indices) def
+/href (http://www.cpc.ncep.noaa.gov/data/indices/) def
+/description (U. S. Climate Prediction Center indices page) def
+:link
+link:
+/name (FAQ) def
+/href (http://www.cpc.ncep.noaa.gov/data/indices/Readme.index.shtml) def
+/description (FAQ regarding CPC indices) def
+:link
+
+grid:
+/name /T def
+monthtime
+16 Jan 1882 ensotime 1 
+16 systemtime systemtime2ymd pop 1.5 sub exch ensotime % enddate
+:grid
+
+  T last rm19602ymd ymd:nextmonth ymd:nextmonth
+      5 add
+      ymd2systemtime
+    /expires exch def
+   pop
+  /expires T .expires def
+/last_modified T .last_modified def
+dataset:
+/name /slp def
+/long_name (sea level pressure) def
+
+datasetdefs:
+/anomaly { c9120 .anomaly } def
+/standardized { c9120 .standardized } def
+:datasetdefs
+
+grid:
+/name /T def
+monthtime
+16 Jan 1882 ensotime
+1
+16 systemtime systemtime2ymd pop 1.5 sub exch ensotime % enddate
+:grid
+variable:
+/name /full def
+/long_name (1882-present sea level pressure) def
+/standard_name (air_pressure_at_sea_level) def
+/units (mb@1000) def
+/missing_value -999.9 def
+grids: T :grids
+file:
+%/name (/data/mbell/dldata/indices.d/darwin.full) def
+/name (/Data/data1/noaa/indices/darwin.full) def
+/format ((4X,12f6.1)) def
+formatted
+:file
+:variable
+
+dataset:
+ /name (c9120) def
+ /long_name (1991-2020 base period) def
+
+ /clim {
+  SOURCES .Indices .Darwin .slp .full
+  T (Jan 1991) (Dec 2020) RANGE
+  yearly-climatology
+  /long_name (sea level pressure climatology) def
+  /standard_name (air_pressure_at_sea_level) def
+ } defasvarsilent
+
+ /anomaly {
+  SOURCES .Indices .Darwin .slp .full
+  SOURCES .Indices .Darwin .slp .c9120 .clim
+  sub
+  /long_name (sea level pressure anomalies) def
+  /standard_name (air_pressure_anomaly) def
+  /units (mb) def
+ } defasvar
+
+ /standardized {
+  SOURCES .Indices .Darwin .slp .c9120 .anomaly
+  dup
+  T (Jan 1991) (Dec 2020) RANGE
+  dup mul
+  [T]sum
+  360 div
+  sqrt div
+  /units (unitless) def
+  /long_name (standardized sea level pressure anomalies) def
+ } defasvar
+
+:dataset
+
+  dataset:
+   /name (c8110) def
+   /long_name (1981-2010 base period) def
+
+   /clim {
+    SOURCES .Indices .Darwin .slp .full
+    T (Jan 1981) (Dec 2010) RANGE
+    yearly-climatology
+    /long_name (sea level pressure climatology) def
+    /standard_name (air_pressure_at_sea_level) def
+   } defasvarsilent
+
+   /anomaly {
+    SOURCES .Indices .Darwin .slp .full
+    SOURCES .Indices .Darwin .slp .c8110 .clim
+    sub
+    /long_name (sea level pressure anomalies) def
+    /standard_name (air_pressure_anomaly) def
+    /units (mb) def
+   } defasvar
+
+   /standardized {
+    SOURCES .Indices .Darwin .slp .c8110 .anomaly
+    dup
+    T (Jan 1981) (Dec 2010) RANGE
+    dup mul
+    [T]sum
+    360 div
+    sqrt div
+    /units (unitless) def
+    /long_name (standardized sea level pressure anomalies) def
+   } defasvar
+
+ :dataset
+
+:dataset
+:dataset
+
+\end{ingrid}
+
+
+Replaced the following entry on gfs2geo1 on 25 Feb 2014
+
+
+
+continuedataset:
+%/name /Darwin def
+/long_name (Darwin) def
+/description (Sea level pressure data from Darwin, Australia) def
+/iridl:hasSemantics [(iridl:NOAA)(iriref:Cole_J)] def
+grid:
+/name /T def
+monthtime
+16 Jan 1882 ensotime 1 
+16 Jan 2014 ensotime % enddate
+:grid
+dataset:
+/name /slp def
+/long_name (sea level pressure) def
+variable:
+/name /full def
+/long_name (sea level pressure) def
+/units (mb@1000) def
+/missing_value -99.9 def
+grids: T :grids
+file:
+/name (/Data/data1/noaa/indices/darwin.full) def
+/format ((4X,12f6.1)) def
+formatted
+:file
+:variable
+grid:
+/name /T def
+monthtime
+16 Jan 1951 ensotime 1 
+16 Jan 2014 ensotime % enddate
+:grid
+variable:
+/name /anomaly def
+/long_name (sea level pressure anomaly) def
+/units (mb@1000) def
+/missing_value -999.9 def
+grids: T :grids
+file:
+/name (/Data/data1/noaa/indices/darwin.anom) def
+/format ((4X,12f6.1)) def
+formatted
+:file
+:variable
+variable:
+/name /standardized def
+/long_name (standardized sea level pressure) def
+/missing_value -999.9 def
+grids: T :grids
+file:
+/name (/Data/data1/noaa/indices/darwin.stan) def
+/format ((4X,12f6.1)) def
+formatted
+:file
+:variable
+:dataset
+:dataset
+
+\end{ingrid}

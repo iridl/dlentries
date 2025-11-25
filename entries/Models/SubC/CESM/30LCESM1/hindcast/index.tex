@@ -1,0 +1,155 @@
+\begin{ingrid}
+continuedataset:
+
+ /project_id (SUBx project) def
+ /institution (National Center for Atmospheric Research and NOAA Earth System Research Laboratory Physical Sciences Division) def
+ /contact (Jadwiga (Yaga) Richter (jrichter@ucar.edu), Judith Perlwitz (judith.perlwitz@noaa.gov), and Lantao Sun (Lantao.Sun@noaa.gov)) def
+ /Generator (NCL v.6.4.0) def
+ /frequency (daily) def
+ /Conventions (CF-1.0) def
+ /References (Original post-processing scripts come from Dughong Min (dmin@rsmas.miami.edu) and Ben Kirtman (bkirtman@rsmas.miami.edu).) def
+ /model_id (CESM1_30LCAM5) def
+ /institution_id (NCAR and NOAA/ESRL/PSD) def
+ /modeling_realm (atmos) def
+
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.0 359.0
+periodic
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ -90.0 1.0 90.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (days) def
+ 0.5 1.0 44.5
+/pointwidth 1.0 def
+/standard_name (forecast_period) def
+:grid
+
+grid:
+/name (M) def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+0 1 9
+:grid
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 850 500 200 :values
+/netcdfgrid true def
+:grid
+
+grid:
+/name (S) def
+/long_name (Start Time) def
+06 Jan 1999 julian_day 01 Jan 1960 julian_day sub
+7.0
+30 Dec 2015 julian_day 01 Jan 1960 julian_day sub
+%values: 06 Jan 1999 julian_day 01 Jan 1960 julian_day sub :values
+/standard_name (forecast_reference_time) def
+/units (days since 1960-01-01) def
+/pointwidth 0. def
+:grid
+
+ /pr{
+[ X Y | L M S ] (/Data/SubX/CESM/30LCAM5/hindcast/CESM1_30LCAM5/pr/%Y[S]/%m[S]/pr_sfc_CESM1_30LCAM5_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ]   readdatafile: 
+/name (PR) def
+ /long_name (Total Precipitation) def
+ /units (kg m-2 s-1)cvn def
+ /missing_value 9.96920997E36 def 
+ /standard_name (precipitation_flux) def
+ /level_type (surface) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /rlut{
+[ X Y | L M S ] (/Data/SubX/CESM/30LCAM5/hindcast/CESM1_30LCAM5/rlut/%Y[S]/%m[S]/rlut_toa_CESM1_30LCAM5_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (RLUT) def
+ /Sampling_Sequence (rad_lwsw) def
+ /long_name (Outgoing Longwave Radiation at Top of Atmosphere) def
+ /units (W/m2)cvn def
+ /missing_value 9.96920997E36 def
+ /cell_methods (time: mean) def
+ /level_type (top of atmosphere) def
+ /standard_name (toa_outgoing_longwave_flux) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tas{
+[ X Y | L M S ] (/Data/SubX/CESM/30LCAM5/hindcast/CESM1_30LCAM5/tas_2m/%Y[S]/%m[S]/tas_2m_CESM1_30LCAM5_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (TAS) def
+ /cell_methods (time: mean) def
+ /long_name (2-meter Air Temperature) def
+ /units /Kelvin_scale def
+ /missing_value 9.96920997E36 def
+ /level_type (2 meters above ground) def
+ /standard_name (air_temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ts{
+[ X Y | L M S ] (/Data/SubX/CESM/30LCAM5/hindcast/CESM1_30LCAM5/ts/%Y[S]/%m[S]/ts_sfc_CESM1_30LCAM5_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (TS) def
+ /cell_methods (time: mean) def
+ /long_name (Surface Temperature) def
+ /units /Kelvin_scale def
+ /missing_value 9.96920997E36 def
+ /level_type (surface) def
+ /standard_name (surface_temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ua {
+[ X Y | L M S P ] (/Data/SubX/CESM/30LCAM5/hindcast/CESM1_30LCAM5/ua_%d[P]/%Y[S]/%m[S]/ua_%d[P]_CESM1_30LCAM5_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ P S M ] readdatafile:
+/name (UA) def
+ /long_name (Zonal Velocity) def
+ /units (m s-1)cvn def
+ /missing_value 9.96920997E36 def
+ /cell_methods (time: average over instantaneous 00z,06z,12z,18z) def
+ /level_type (pressure level) def
+ /standard_name (eastward_wind) def
+ /realarraytype netcdfrecords :readdatafile
+ P 850 200 VALUES
+}defasvarsilent
+
+ /va {
+[ X Y | L M S P ] (/Data/SubX/CESM/30LCAM5/hindcast/CESM1_30LCAM5/va_%d[P]/%Y[S]/%m[S]/va_%d[P]_CESM1_30LCAM5_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ P S M ] readdatafile:
+/name (VA) def
+ /long_name (Meridional Velocity) def
+ /units (m s-1)cvn def
+ /missing_value 9.96920997E36 def
+ /cell_methods (time: average over instantaneous 00z,06z,12z,18z) def
+ /level_type (pressure level) def
+ /standard_name (northward_wind) def
+ /realarraytype netcdfrecords :readdatafile
+ P 850 200 VALUES
+}defasvarsilent
+
+ /zg {
+[ X Y | L M S P ] (/Data/SubX/CESM/30LCAM5/hindcast/CESM1_30LCAM5/zg_%d[P]/%Y[S]/%m[S]/zg_%d[P]_CESM1_30LCAM5_%d[S]%b:lc[S]%Y[S]_00z_d01_d45_m0%1.1d[M].nc) [ P S M ] readdatafile:
+/name (ZG) def
+ /long_name (Geopotential Height) def
+ /units /m def
+ /missing_value 9.96920997E36 def
+ /cell_methods (time: average over instantaneous 00z,06z,12z,18z) def
+ /level_type (pressure level) def
+ /standard_name (geopotential_height) def
+ /realarraytype netcdfrecords :readdatafile
+ P 500 200 VALUES
+}defasvarsilent
+
+:dataset
+\end{ingrid}
+

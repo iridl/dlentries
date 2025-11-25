@@ -1,0 +1,23 @@
+\begin{ingrid}
+/X SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DegreeGrid .X def
+/Y SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DegreeGrid .Y def
+/T dataset .T def
+continuedataset:
+variable:
+/name /pwater def
+/long_name (precipitable water) def
+/units (kg/m2) def
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .B def
+grids: X Y | T :grids
+NotYetAvailable
+:variable
+variable:
+/name /pmsl def
+/long_name (pressure reduced to MSL) def
+/units (Pa) def
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .A def
+grids: X Y | T :grids
+NotYetAvailable
+:variable
+:dataset
+\end{ingrid}

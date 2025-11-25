@@ -1,0 +1,53 @@
+\begin{ingrid}
+continuedataset:
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 1 -89.5
+:grid
+grid:
+/name /T def
+/fullname (Date) def
+/units /julian_day def
+1 Jan 1987 julian_day 
+1
+31 Dec 1988 julian_day 
+:grid
+grid:
+/name /C def
+/fullname (Hour of Day (Z)) def
+0
+6
+18
+:grid
+
+variable:
+/name /totl_prc def
+/long_name (Hybrid Total Precipitation) def
+/units (mm) def
+grids: X Y | C T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ecdly6hr/o87_88.r4) def
+:file
+:variable
+
+variable:
+/name /cnvt_prc def
+/long_name (Hybrid Convective Precipitation) def
+/units (mm) def
+grids: X Y | C T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ecdly6hr/c87_88.r4) def
+:file
+:variable
+
+:dataset
+\end{ingrid}

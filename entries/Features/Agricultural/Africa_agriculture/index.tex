@@ -1,0 +1,81 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Africa_3327_1) def
+/Agri_zones
+/description ( Agricultural Zones in Africa) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select theid,theid as zone_id,int4(code_fs_) as code_fs,descrip,perimeter,sq_km,the_geom from ssa_fs_final order by theid) (theid) openqueryby
+        zone_id
+            /long_name (Agricultural zone index) def
+        CopyStream
+        name exch def
+        code_fs 
+            /long_name (Zone type code) def
+	    /units /ids def
+	    /CLIST [
+	    (Irrigated)
+	    (Tree Crop)
+	    (Forest Based)
+	    (Rice-tree crop)
+	    (Highland perennial)
+	    (Highland temperate mixed)
+	    (Root crop)
+	    (Cereal-root crop mixed)
+	    (Maize mixed)
+	    (Large commercial and smallholder)
+	    (Agro-pastoral millet/sorghum)
+	    (Pastoral)
+	    (Sparse (arid))
+	    (Coastal artisanal fishing)
+	    ] def
+	    startcolormap
+	    /maxncolor 17 def
+	    DATA 1 14 RANGE
+	    white white
+	    195 255 255 RGB
+	    182 255 0 RGB
+	    0 255 171 RGB
+	    255 255 0 RGB
+	    145 175 45 RGB
+	    40 130 160 RGB
+	    188 165 0 RGB
+	    255 170 0 RGB
+	    175 165 255 RGB
+	    183 183 183 RGB
+	    255 195 255 RGB
+	    255 200 174 RGB
+	    255 251 195 RGB
+	    0 210 220 RGB
+	    white
+	    endcolormap
+
+        CopyStream
+        name exch def
+        descrip 
+            /long_name (Zone type description) def
+        CopyStream
+        name exch def
+        perimeter
+            /long_name (Zone perimeter) def
+            /units (m) def
+        CopyStream
+        name exch def
+        sq_km
+            /long_name (Zone area sq_km) def
+            /units (km2) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Agricultural zone geometry) def
+        name exch def
+}defasvarsilent
+/last_modified
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select max ( last_modified ) as last_modified from ssa_fs_final) openquery .last_modified
+}def
+\end{ingrid}

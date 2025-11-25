@@ -1,0 +1,76 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+grid:
+/name /T def
+/units (days since 1960-01-01 00:00:00) def
+values:
+01 Jan 1948 julian_day 01 Jan 1960 julian_day sub
+:values
+:grid
+variable:
+/name /extn def
+grids: T :grids
+values:  /.gz :values
+:variable
+
+:datasetdefs
+
+link:
+/name (Data Source) def
+/href (ftp://ftp.cpc.ncep.noaa.gov/precip/CPC_UNI_PRCP/GAUGE_CONUS/V1.0/) def
+:link
+
+grid:
+/name /X def
+periodic
+/units (degree_east) def
+-129.875 0.25 -55.125
+:grid
+
+grid:
+/name /Y def
+/units (degree_north) def
+20.125 0.25 49.875
+:grid
+
+grid:
+/name /T def
+/standard_name (time) def
+/units (days since 1960-01-01 00:00:00) def
+/pointwidth 1 def
+01 Jan 1948 julian_day 01 Jan 1960 julian_day sub
+1.0
+31 Dec 2006 julian_day 01 Jan 1960 julian_day sub
+:grid
+
+%T {(ftp://ftp.cpc.ncep.noaa.gov/precip/CPC_UNI_PRCP/GAUGE_CONUS/V1.0/%Y[T]/PRCP_CU_GAUGE_V1.0CONUS_0.25deg.lnx.%Y[T]%m[T]%d[T]%s[extn]) [T extn]} remoteremoveextrausing
+%name exch def
+
+ [ X Y | /NVZ 2 NewIntegerGRID T ] (ftp://ftp.cpc.ncep.noaa.gov/precip/CPC_UNI_PRCP/GAUGE_CONUS/V1.0/%Y[T]/PRCP_CU_GAUGE_V1.0CONUS_0.25deg.lnx.%Y[T]%m[T]%d[T]%s[extn]) [T extn] readdatafile:
+true /useopenfile myreadfileargs !
+decdirect
+/missing_value -999.0 def
+:readdatafile
+
+definevariables:
+0 Zvariable:
+/name /rain def
+/long_name (Precipitation) def
+/standard_name (lwe_precipitation_rate) def
+/scale_factor 0.1 def
+/units (mm/day) def
+:Zvariable
+0 Zvariable:
+/name /gnum def
+/long_name (Number of Gauges Available in Each Grid Box) def
+/units (number of gauges) def
+:Zvariable
+:definevariables
+
+/iridl:hasSemantics (gcmdi:RAIN_GAUGES) def
+/references (Xie_etal2007 Chen_etal2008a Chen_etal2008b) def
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,178 @@
+\begin{ingrid}
+Ingrid:
+
+/rfediff_colors {
+startcolormap -150 150 RANGE 
+DimGray sienna 
+sienna -150 VALUE 
+sienna sienna -100 bandmax 
+peru peru -50 bandmax 
+burlywood burlywood -25 bandmax 
+wheat wheat -5 bandmax 
+LightYellow LightYellow 5 bandmax 
+LightCyan LightCyan 25 bandmax 
+PaleTurquoise PaleTurquoise 50 bandmax 
+MediumAquamarine MediumAquamarine 100 bandmax 
+CadetBlue CadetBlue 150 bandmax 
+CadetBlue
+endcolormap 
+}defcolorscale
+
+/rfepercent_colors {
+startcolormap
+0 300 RANGE
+DimGray white SaddleBrown
+0 VALUE
+SaddleBrown SaddleBrown
+25 bandmax
+peru peru
+50 bandmax
+burlywood burlywood
+75 bandmax
+wheat wheat
+100 bandmax
+LightCyan LightCyan
+120 bandmax
+aquamarine aquamarine 140
+bandmax
+MediumAquamarine MediumAquamarine 160
+bandmax
+MediumSeaGreen MediumSeaGreen 180
+bandmax
+SeaGreen SeaGreen 200
+bandmax
+DarkSeaGreen DarkSeaGreen 300
+bandmax
+DarkSeaGreen endcolormap
+}defcolorscale
+pop
+
+
+/rfediff {
+ SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .RFEv2 .est_prcp
+  SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .RFEv2 .c0020 .est_prcp
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   sub
+  SOURCES .WORLDBATH .bath
+   [X Y]regridAverage
+   0 masklt
+   0 flagge
+   mul
+startcolormap -150 150 RANGE 
+DimGray sienna 
+sienna -150 VALUE 
+sienna sienna -100 bandmax 
+peru peru -50 bandmax 
+burlywood burlywood -25 bandmax 
+wheat wheat -5 bandmax 
+LightYellow LightYellow 5 bandmax 
+LightCyan LightCyan 25 bandmax 
+PaleTurquoise PaleTurquoise 50 bandmax 
+MediumAquamarine MediumAquamarine 100 bandmax 
+CadetBlue CadetBlue 150 bandmax 
+CadetBlue
+endcolormap 
+/long_name (Observed Rainfall Estimate vs. Short-Term Average) def
+
+}defasvar
+
+/rfediffmask {
+ SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .RFEv2 .est_prcp
+  SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .RFEv2 .c0020 .est_prcp
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   sub
+  SOURCES .WORLDBATH .bath
+   [X Y]regridAverage
+   0 masklt
+   0 flagge
+   mul
+rfediff_colors
+/long_name (Observed Rainfall Estimate vs. Short-Term Average) def
+
+}defasvar
+
+/rfediff_percent {
+
+SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .RFEv2 .est_prcp
+  SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .RFEv2 .c0020 .est_prcp
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   sub
+  SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .RFEv2 .c0020 .est_prcp
+   10 maskle
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   div
+  100 mul
+  -1000 replaceNaN
+  SOURCES .WORLDBATH .bath
+   [X Y]regridAverage
+   0 masklt
+   0 flagge
+   mul
+  startcolormap
+    -100 400 RANGE
+    LightSteelBlue ivory SaddleBrown
+       -100 VALUE
+       SaddleBrown SaddleBrown
+         -60 bandmax
+         peru peru
+           -40 bandmax
+           burlywood burlywood
+             -20 bandmax
+             wheat wheat
+               0 bandmax
+               LightCyan LightCyan
+                 40 bandmax
+                 aquamarine aquamarine
+                   80 bandmax
+                   MediumAquamarine MediumAquamarine 120
+                     bandmax
+                     MediumSeaGreen MediumSeaGreen 200
+                     bandmax
+                     SeaGreen SeaGreen 300
+                     bandmax
+                     DarkSeaGreen DarkSeaGreen 400
+                     bandmax
+                     DarkSeaGreen endcolormap
+  /long_name (Rainfall Difference Expressed as Percent of Short-Term Average (%)) def
+}defasvar
+
+/rfe_vs_meanrfe {
+SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .RFEv2 .est_prcp
+  SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .RFEv2 .c0020 .est_prcp
+   7 maskle
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   div
+  100 mul
+  -1000 replaceNaN
+  SOURCES .WORLDBATH .bath
+   [X Y]regridAverage
+   0 masklt
+   0 flagge
+   mul
+rfepercent_colors
+  /long_name (Rainfall Estimates Expressed as Percentages of the Short-Term Average) def
+
+
+}defasvar
+
+\end{ingrid}

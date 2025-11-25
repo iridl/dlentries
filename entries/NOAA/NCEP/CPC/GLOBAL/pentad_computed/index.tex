@@ -1,0 +1,28 @@
+\begin{ingrid}
+
+continuedataset:
+
+/olr
+{
+ SOURCES .NOAA .NCEP .CPC .GLOBAL .daily .olr
+  time pentadAverage
+/long_name (outgoing longwave radiation) def
+}defasvar
+
+/olra
+{
+ SOURCES .NOAA .NCEP .CPC .GLOBAL .daily .olr
+  time pentadAverage
+a: :a: time (1991) (2020) RANGE
+  time pentadmean :a
+sub
+/long_name (outgoing longwave radiation anomaly) def
+}defasvar
+
+:dataset
+
+olr .lon name exch def
+olr .lat name exch def
+olr .time name exch def
+
+\end{ingrid}

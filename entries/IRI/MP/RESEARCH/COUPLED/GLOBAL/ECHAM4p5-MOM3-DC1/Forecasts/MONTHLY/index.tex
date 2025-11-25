@@ -1,0 +1,377 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/filenames {
+(/data/dstore4/iri/modelling/daved/DataForOthers.D/Andy_Vincent.D/%b[Sset]%s[M].D/echammommonthly.nc) [M Sset]
+} def
+/Fixtimegrids {
+ Record 12 splitstreamgrid
+   Record 1 6 RANGE
+   Record L replaceGRID
+   Record2 Syear replaceGRID
+dup /levels known 
+{
+   [X Y levels L Sset Syear]
+REORDER
+   3 RECHUNK
+}
+{
+   [X Y L Sset Syear]
+REORDER
+   2 RECHUNK
+} ifelse
+   Syear /Sset2 renameGRID
+   Sset unsplitstreamgrid
+   Sset S replaceGRID
+} def
+:datasetdefs
+/note (Jan and Jul starts are missing for the Std run, but not yet marked as missing data.) def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.8125 357.1875
+:grid
+64 gaussianlat
+%    high low subgrid
+name exch def
+grid:
+/name (levels)def
+/units (mb)def
+values: 1000. 925. 850. 775. 700. 600. 500. 450. 400. 350. 300. 250. 200. 150. 100. 50. 25. :values
+:grid
+grid:
+/name (Sset) def
+/units (months since 1980-01-01) def
+/pointwidth 0 def
+0 1 11
+:grid
+% only leads 0.5 to 5.5 have data
+grid:
+/name (Lset) def
+/units (months) def
+0.5 1 11.5
+:grid
+grid:
+/name (L) def
+/standard_name (forecast_period) def
+/units (months) def
+0.5 1 5.5
+:grid
+grid:
+/name (Syear) def
+/units (months since 1980-01-01) def
+0 12 2003 1980 sub 12 mul
+/pointwidth 0 def
+:grid
+grid:
+/name (Record) def
+1 1 12 Syear .npts imul
+:grid
+grid:
+/name (S) def
+/standard_name (forecast_reference_time) def
+monthtime
+/pointwidth 0 def
+1 Jan 1980 ensotime
+1.
+1 Dec 2003 ensotime
+:grid
+/T { S L add /pointwidth 1. def} defasvar
+grid:
+/name (M) def
+/standard_name (realization) def
+values:
+/_A
+/_B
+/_C
+/_D
+/_E
+/_F
+/Std
+:values
+:grid
+\end{ingrid}
+/sampleds {(/data/dstore4/iri/modelling/daved/DataForOthers.D/Andy_Vincent.D/Jan_B.D/echammommonthly.nc)readfile
+time zeropointwidth} defasvarsilent
+grid:
+/name (time)def
+/units (days since 1980-1-1 0)def
+values: 0.0 31. 60. 91. 121. 152. 182. 213. 244. 274. 305. 335. 366. 397. 425. 456. 486. 517. 547. 578. 609. 639. 670. 700. 731. 762. 790. 821. 851. 882. 912. 943. 974. 1004. 1035. 1065. 1096. 1127. 1155. 1186. 1216. 1247. 1277. 1308. 1339. 1369. 1400. 1430. 1461. 1492. 1521. 1552. 1582. 1613. 1643. 1674. 1705. 1735. 1766. 1796. 1827. 1858. 1886. 1917. 1947. 1978. 2008. 2039. 2070. 2100. 2131. 2161. 2192. 2223. 2251. 2282. 2312. 2343. 2373. 2404. 2435. 2465. 2496. 2526. 2557. 2588. 2616. 2647. 2677. 2708. 2738. 2769. 2800. 2830. 2861. 2891. 2922. 2953. 2982. 3013. 3043. 3074. 3104. 3135. 3166. 3196. 3227. 3257. 3288. 3319. 3347. 3378. 3408. 3439. 3469. 3500. 3531. 3561. 3592. 3622. 3653. 3684. 3712. 3743. 3773. 3804. 3834. 3865. 3896. 3926. 3957. 3987. 4018. 4049. 4077. 4108. 4138. 4169. 4199. 4230. 4261. 4291. 4322. 4352. 4383. 4414. 4443. 4474. 4504. 4535. 4565. 4596. 4627. 4657. 4688. 4718. 4749. 4780. 4808. 4839. 4869. 4900. 4930. 4961. 4992. 5022. 5053. 5083. 5114. 5145. 5173. 5204. 5234. 5265. 5295. 5326. 5357. 5387. 5418. 5448. 5479. 5510. 5538. 5569. 5599. 5630. 5660. 5691. 5722. 5752. 5783. 5813. 5844. 5875. 5904. 5935. 5965. 5996. 6026. 6057. 6088. 6118. 6149. 6179. 6210. 6241. 6269. 6300. 6330. 6361. 6391. 6422. 6453. 6483. 6514. 6544. 6575. 6606. 6634. 6665. 6695. 6726. 6756. 6787. 6818. 6848. 6879. 6909. 6940. 6971. 6999. 7030. 7060. 7091. 7121. 7152. 7183. 7213. 7244. 7274. 7305. 7336. 7365. 7396. 7426. 7457. 7487. 7518. 7549. 7579. 7610. 7640. 7671. 7702. 7730. 7761. 7791. 7822. 7852. 7883. 7914. 7944. 7975. 8005. 8036. 8067. 8095. 8126. 8156. 8187. 8217. 8248. 8279. 8309. 8340. 8370. 8401. 8432. 8460. 8491. 8521. 8552. 8582. 8613. :values
+:grid
+\begin{ingrid}
+ /cld{
+[ X Y | M Record Sset] filenames readdatafile:
+/name (cld) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /level_description (Earth surface) def
+ /long_name (total cloud cover) def
+ /units /unitless def
+ /grid_type (generic) def
+ /missing_value -999. def
+ [X Y M Record ]/realarraytype netcdfrecords :readdatafile
+Fixtimegrids
+}defasvarsilent
+ /evap{
+[ X Y | M Record Sset] filenames readdatafile:
+/name (evap) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /level_description (Earth surface) def
+ /long_name (evaporation meters/second) def
+ /units /unitless def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+grid:
+/name (levels)def
+/units (mb)def
+values: 1000. 925. 850. 775. 700. 600. 500. 450. 400. 350. 300. 250. 200. 150. 100. 50. 25. :values
+:grid
+ /gz{
+[ X Y levels | M Record Sset] filenames readdatafile:
+/name (gz) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /long_name (geopotential height) def
+ /units /unitless def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /lh{
+[ X Y | M Record Sset] filenames readdatafile:
+/name (lh) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /level_description (Earth surface) def
+ /long_name (surface latent heat flux watts/sq meter) def
+ /units /unitless def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /nlwg{
+[ X Y | M Record Sset] filenames readdatafile:
+/name (nlwg) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /level_description (Earth surface) def
+ /long_name (net longwave at ground) def
+ /units (W/m2) def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /nswg{
+[ X Y | M Record Sset] filenames readdatafile:
+/name (nswg) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /level_description (Earth surface) def
+ /long_name (net shortwave at ground) def
+ /units (W/m2) def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /nswt{
+[ X Y | M Record Sset] filenames readdatafile:
+/name (nswt) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /level_description (Earth surface) def
+ /long_name (net shortwave at toa) def
+ /units (W/m2) def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /olr{
+[ X Y | M Record Sset] filenames readdatafile:
+/name (olr) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /level_description (Earth surface) def
+ /long_name (olr) def
+ /units (W/m2) def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /omg{
+[ X Y levels | M Record Sset] filenames readdatafile:
+/name (omg) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /long_name (vertical pressure velocity) def
+ /units /unitless def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /prec{
+[ X Y | M Record Sset] filenames readdatafile:
+/name (prec) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /level_description (Earth surface) def
+ /long_name (total precipitation) def
+ /units /unitless def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /pwat{
+[ X Y | M Record Sset] filenames readdatafile:
+/name (pwat) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /level_description (Earth surface) def
+ /long_name (precipotatble water) def
+ /units /unitless def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /q{
+[ X Y levels | M Record Sset] filenames readdatafile:
+/name (q) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /long_name (specific humidity) def
+ /units (kg/kg) def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /sh{
+[ X Y | M Record Sset] filenames readdatafile:
+/name (sh) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /level_description (Earth surface) def
+ /long_name (surface sensible heat flux) def
+ /units (W/m2) def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /slp{
+[ X Y | M Record Sset] filenames readdatafile:
+/name (slp) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /level_description (Earth surface) def
+ /long_name (sea level pressure) def
+ /units /Pa def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /st{
+[ X Y | M Record Sset] filenames readdatafile:
+/name (st) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /level_description (Earth surface) def
+ /long_name (surface temperature) def
+ /units /unitless def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /t2m{
+[ X Y | M Record Sset] filenames readdatafile:
+/name (t2m) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /level_description (Earth surface) def
+ /long_name (temperature at 2m) def
+ /units (Kelvin_scale) def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /taux{
+[ X Y | M Record Sset] filenames readdatafile:
+/name (taux) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /level_description (Earth surface) def
+ /long_name (surface zonal wind stress) def
+ /units (N/m2) def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /tauy{
+[ X Y | M Record Sset] filenames readdatafile:
+/name (tauy) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /level_description (Earth surface) def
+ /long_name (surface meridional wind stress) def
+ /units (N/m2) def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /tmp{
+[ X Y levels | M Record Sset] filenames readdatafile:
+/name (tmp) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /long_name (temperature) def
+ /units (Kelvin_scale) def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /u{
+[ X Y levels | M Record Sset] filenames readdatafile:
+/name (u) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /long_name (zonal velocity) def
+ /units (meters/second) def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+ /v{
+[ X Y levels | M Record Sset] filenames readdatafile:
+/name (v) def
+ /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+ /time_statistic (instantaneous) def
+ /long_name (meridional velocity) def
+ /units (meters/second) def
+ /grid_type (generic) def
+ /missing_value -999. def
+ /realarraytype netcdfrecords :readdatafile Fixtimegrids
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+:dataset
+\end{ingrid}

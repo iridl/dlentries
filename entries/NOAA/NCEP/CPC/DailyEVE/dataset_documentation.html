@@ -1,0 +1,107 @@
+<html><head>
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+ <title>Daily EVE (GTS) station precipitation and temperature data from the CPC</title>
+</head>
+<INGRID>standardHeader</INGRID>
+<h3>Daily EVE (GTS) station precipitation and temperature data from the CPC</h3>
+<p>
+<i>The following information is excerpted from the "GTS_STATION.README" file associated with this data set:</i>
+<p>
+<pre>
+
+
+1.  file names 
+
+    gts_dly_precip_station.lnx.yyyy.raw  
+         binary data file of daily GTS station precip for year yyyy;
+
+    gts_dly_maxtem_station.lnx.yyyy.raw  
+         binary data file of daily GTS maximum temperature for year yyyy;  
+
+    gts_dly_mintem_station.lnx.yyyy.raw  
+         binary data file of daily GTS minimum temperature for year yyyy;  
+
+2.  file contents and struture  
+
+    2.1  contents
+
+    Included in this package are daily precipitation, maximum / minimum 
+    temperatures observed at the GTS stations and archived at NOAA/CPC;  
+
+    The CPC archives start from later 1977 and are stored in yearly files 
+    for each of the three variables separately;
+
+    All together, there are 15,186 GTS stations with daily reports for 
+    at least a sub-portion of the archive period. The WMO IDs, latitude,
+    longitude, station name and other related information for these stations 
+    are given at an ASCII file:
+
+           GTS_STATION_LIST.TXT 
+
+    2.2  format 
+
+    The yearly files for the three variables are stored in the same format;  
+
+    Each yearly file for a physical variable (precip, Max/Min T) is composed 
+    of 365 (366) records, one for each date and stored in the order of Julian 
+    day (e.g. data for Feb.1 is in record #32); 
+
+    Each record consists of 15,186 4-byte integers representing daily observations 
+    for each of the 15,186 stations arranged in the same order as in the station 
+    list file (e.g.  the 101st integer in the record #32 is the daily reports 
+    of Feb.1 for the 101st station list in 'GTS_STATION_LIST.TXT'); 
+
+    The unit is 0.1 mm (5 means 0.5 mm) for precip and 0.1C for temperatures; 
+
+    The integers are written in little_endian byte order, meanning that you need 
+    to swap the byte order if you are working with a work station such as SGI. 
+    Nothing needs to be done if you are working with a Linux machine;
+
+    The filess are written as 'direct' access with no marks in-between the records. 
+
+    The volume of a yearly file for a non-leap year is 
+        365 (days) x 15,186 (stations) x (4 bytes) = 22,171,560 bytes    
+
+    2.3  sample fortran program to read the yearly files 
+
+c     **************************************************************************
+c 
+c     program     :     test_read.lnx.f 
+c     objective   :     to test read the station data on a linux machine 
+c 
+      integer   krain (15186) 
+c 
+      open  (unit=10, 
+     #       file='gts_dly_precip_station.lnx.2001.raw',   
+     #       access='direct',recl=15186*4) 
+c     NOTE:  You need to use the following if working with a workstation 
+c     #       access='direct',recl=15186) 
+c
+      do 2002 kday = 1, 365  
+        read  (10,rec=kday)   krain 
+        nn = 0 
+        ss = 0.0 
+        do 2001 kstn = 1, 15186 
+          if  (krain(kstn).ge.0)  then 
+            nn = nn + 1 
+            ss = ss + float(krain(kstn))/10.0 
+          end  if  
+ 2001   continue 
+        write  (6,*)  kday, nn, ss 
+ 2002 continue 
+c 
+      stop 
+      end     
+c     **************************************************************************
+
+3.  Note:
+
+Please contact Pingping Xie at Pingping.Xie@noaa.gov for any technical 
+questions / problems. 
+
+This is a NOAA/CPC internal product.  Please do not distribute this 
+product to any third party. 
+
+
+</pre>
+</body></html>

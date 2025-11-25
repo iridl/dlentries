@@ -1,0 +1,50 @@
+\begin{ingrid}
+continuedataset:
+/long_name (1981-2010 Seasonal Climatology) def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units (degree_east) def
+periodic
+0. 1.0 359.0
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units (degree_north) def
+-90. 1.0 90.
+:grid
+
+grid:
+/name /S def
+/long_name (Forecast Start Time) def
+/units (months since 01-Jan) def
+periodic
+0.0 1.0 11.0
+/pointwidth 0 def
+:grid
+
+grid:
+/name /L def
+/long_name (Lead) def
+/units (months) def
+1.5 1.0 8.5
+/pointwidth 3 def
+:grid
+
+/prec {(/Data/data23/ICPAC/Models/Montreal/CMC1-CanCM3/HINDCAST/sc8110/prec_seas_clim_8110.nc) readCDF .prec } defasvarsilent
+
+/sst {(/Data/data23/ICPAC/Models/Montreal/CMC1-CanCM3/HINDCAST/sc8110/sst_seas_clim_8110.nc) readCDF .sst (Celsius_scale) unitconvert } defasvarsilent
+
+/tref {(/Data/data23/ICPAC/Models/Montreal/CMC1-CanCM3/HINDCAST/sc8110/tref_seas_clim_8110.nc) readCDF .tref (Celsius_scale) unitconvert Z removeGRID /long_name (Near-Surface Temperature) def } defasvarsilent
+
+/T { S L add
+/long_name (Time) def
+/standard_name (time) def
+/pointwidth 3 def
+ } defasvarsilent
+
+:dataset
+\end{ingrid}

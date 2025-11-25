@@ -1,0 +1,298 @@
+#!/usr/freeware/bin/perl -w
+
+require "ctime.pl";
+require "/home/datag/perl/getdatafiles.pl";
+
+$GNUDATE="/ClimateGroup/network/gnu/bin/date";
+$DataCat="/Data/data1/DataCatalog/entries";
+$subdir="NCEP/CPC/EVE";
+foreach $fileroot ("eve", "climat"){
+  print "Updating $fileroot in $subdir";
+  chdir "/Data/data8/noaa/ncep/eve/datafilesYYYY";
+
+#  @newfiles = getdatafiles("ftp://ftpprd.ncep.noaa.gov/pub/cpc/wd52mh/", qr/$fileroot.\d{5,6}$/); 
+  @newfiles = getdatafiles("ftp://ftp.cpc.ncep.noaa.gov/wd52mh/", qr/$fileroot.\d{5,6}$/); 
+
+  if(@newfiles) { 
+
+  if($fileroot eq "eve"){
+    chdir "/Data/data8/noaa/ncep/eve";
+    # calculates last month's ensotime
+    ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime;
+    $year+=1900;
+    $ensoint=($mon)+12*($year-1960)-1;
+    # starting month is Sep 1982
+    $timecnt = $ensoint -272 + 1;
+    $ensotime=$ensoint . ".5";
+    print "$ensotime\n";
+    # calculates number of entries
+    system("./makestationlist3.pl");
+    open(IN1,"station.list3");
+    $stncnt=-1;
+    while(<IN1>){
+      $stncnt++;
+    }
+    close(IN1);
+#creates desc files
+open(OUT1,">eve.desc");
+print OUT1 <<'EOF';
+cols:
+1-2	year
+3-4	month
+6-13	IWMO
+15-20	lat
+21-27	lon
+29-33	elev
+34-39	minmax.mean.temp
+40-41	minmax.cnt
+43-47	mean.max.temp
+48-49	mean.max.cnt
+50-55	mean.min.temp
+56-57	mean.min.cnt
+58-63	max.temp
+64-66	max.date
+67-72	min.temp
+74-75	min.date
+76-83	estimated.prcp
+85-86	reported.prcp.day.cnt
+87-88	trace.prcp.day.cnt
+89-90	reported.sta.day.cnt
+91-93	nobs
+94-96	npobs
+98-104	total.prcp
+:cols
+month translate:
+01	Jan
+02	Feb
+03	Mar
+04	Apr
+05	May
+06	Jun
+07	Jul
+08	Aug
+09	Sep
+10	Oct
+11	Nov
+12	Dec
+ 1	Jan
+ 2	Feb
+ 3	Mar
+ 4	Apr
+ 5	May
+ 6	Jun
+ 7	Jul
+ 8	Aug
+ 9	Sep
+:translate
+IWMO translate:
+EOF
+    open(IN2,"reid.list");
+while(<IN2>){
+    print OUT1;
+}
+close(IN2);
+print OUT1 <<'EOF';
+:translate
+header:
+T=$month 19$year
+IWMO	minmax.mean.temp	minmax.cnt	mean.max.temp	mean.max.cnt	mean.min.temp	mean.min.cnt	max.temp	max.date	min.temp	min.date	estimated.prcp	reported.prcp.day.cnt	trace.prcp.day.cnt	reported.sta.day.cnt	nobs	npobs	total.prcp
+:header
+output:
+$IWMO	$minmaxxmeanxtemp	$minmaxxcnt	$meanxmaxxtemp	$meanxmaxxcnt	$meanxminxtemp	$meanxminxcnt	$maxxtemp	$maxxdate	$minxtemp	$minxdate	$estimatedxprcp	$reportedxprcpxdayxcnt	$tracexprcpxdayxcnt	$reportedxstaxdayxcnt	$nobs	$npobs	$totalxprcp
+:output
+EOF
+    close(OUT1);
+open(OUT2,">eveYYYY.desc");
+print OUT2 <<'EOF';
+cols:
+1-4	year
+5-6	month
+8-15	IWMO
+17-22	lat
+23-29	lon
+31-35	elev
+36-41	minmax.mean.temp
+42-43	minmax.cnt
+44-49	mean.max.temp
+50-51	mean.max.cnt
+52-57	mean.min.temp
+58-59	mean.min.cnt
+60-65	max.temp
+66-68	max.date
+69-74	min.temp
+76-77	min.date
+78-85	estimated.prcp
+87-88	reported.prcp.day.cnt
+89-90	trace.prcp.day.cnt
+91-92	reported.sta.day.cnt
+93-95	nobs
+96-98	npobs
+100-106	total.prcp
+:cols
+month translate:
+01	Jan
+02	Feb
+03	Mar
+04	Apr
+05	May
+06	Jun
+07	Jul
+08	Aug
+09	Sep
+10	Oct
+11	Nov
+12	Dec
+ 1	Jan
+ 2	Feb
+ 3	Mar
+ 4	Apr
+ 5	May
+ 6	Jun
+ 7	Jul
+ 8	Aug
+ 9	Sep
+:translate
+IWMO translate:
+EOF
+    open(IN3,"reid.list");
+while(<IN3>){
+    print OUT2;
+}
+close(IN3);
+print OUT2 <<'EOF';
+:translate
+header:
+T=$month $year
+IWMO	minmax.mean.temp	minmax.cnt	mean.max.temp	mean.max.cnt	mean.min.temp	mean.min.cnt	max.temp	max.date	min.temp	min.date	estimated.prcp	reported.prcp.day.cnt	trace.prcp.day.cnt	reported.sta.day.cnt	nobs	npobs	total.prcp
+:header
+output:
+$IWMO	$minmaxxmeanxtemp	$minmaxxcnt	$meanxmaxxtemp	$meanxmaxxcnt	$meanxminxtemp	$meanxminxcnt	$maxxtemp	$maxxdate	$minxtemp	$minxdate	$estimatedxprcp	$reportedxprcpxdayxcnt	$tracexprcpxdayxcnt	$reportedxstaxdayxcnt	$nobs	$npobs	$totalxprcp
+:output
+EOF
+    close(OUT2);
+open(OUT3,">evegap.desc");
+print OUT3 <<'EOF';
+cols:
+2-5	year
+6-7	month
+8-12	IWMO
+13-17	minmax.mean.temp
+18-22	mean.max.temp
+23-27	mean.min.temp
+28-32	max.temp
+33-37	min.temp
+63-69	total.prcp
+70-76	estimated.prcp
+145-147	nobs
+149-151	npobs
+157-159	minmax.cnt
+160-163	mean.max.cnt
+164-166	mean.min.cnt
+177-178	max.date
+183-184	min.date
+186-187	reported.prcp.day.cnt
+189-190	trace.prcp.day.cnt
+:cols
+month translate:
+01	Jan
+02	Feb
+03	Mar
+04	Apr
+05	May
+06	Jun
+07	Jul
+08	Aug
+09	Sep
+10	Oct
+11	Nov
+12	Dec
+:translate
+IWMO translate:
+EOF
+    open(IN4,"reid.list");
+while(<IN4>){
+    s/99999/99/;
+    print OUT3;
+}
+close(IN4);
+print OUT3 <<'EOF';
+:translate
+header:
+T=$month $year
+IWMO	minmax.mean.temp	minmax.cnt	mean.max.temp	mean.max.cnt	mean.min.temp	mean.min.cnt	max.temp	max.date	min.temp	min.date	estimated.prcp	reported.prcp.day.cnt	trace.prcp.day.cnt	nobs	npobs	total.prcp
+:header
+output:
+$IWMO	$minmaxxmeanxtemp	$minmaxxcnt	$meanxmaxxtemp	$meanxmaxxcnt	$meanxminxtemp	$meanxminxcnt	$maxxtemp	$maxxdate	$minxtemp	$minxdate	$estimatedxprcp	$reportedxprcpxdayxcnt	$tracexprcpxdayxcnt	$nobs	$npobs	$totalxprcp
+:output
+
+EOF
+# creates gen file
+open(OUT4,">eve.gen");
+print OUT4 <<EOF;
+dim T $timecnt
+dim IWMO $stncnt
+var T DF4 ( T )
+att long_name time
+att units monthtime
+val 272.5 $ensotime
+var IWMO DI4 ( IWMO )
+att units ids
+var Name DBN+24 ( IWMO )
+att units ids
+var usid DBN+3 ( IWMO )
+att units ids
+var country DI1 ( IWMO )
+att units ids
+att scale_min DI4 1
+att scale_max DI4 10
+att CLIST UNITED STATES
+var lon DF4 ( IWMO )
+att units degree_east
+att scale_min DF4 -359.99
+att scale_max DF4 0.
+var lat DF4 ( IWMO )
+att units degree_north
+var elev DF4 ( IWMO )
+var minmax.mean.temp DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var minmax.cnt DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var mean.max.temp DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var mean.max.cnt DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var mean.min.temp DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var mean.min.cnt DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var max.temp DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var max.date DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var min.temp DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var min.date DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var estimated.prcp DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var reported.prcp.day.cnt DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var reported.sta.day.cnt DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var trace.prcp.day.cnt DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var nobs DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var npobs DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+var total.prcp DF4 ( T IWMO )
+att missing_value DF4 NaN -99.9
+EOF
+close(OUT4);
+system("./createcuf");
+#eof
+}  # end of if($fileroot ...
+}  # end of if(@newfiles)
+}  # end of foreach loop
+
+exit;

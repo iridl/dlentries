@@ -1,0 +1,277 @@
+\begin{ingrid}
+
+/description (Palay and Corn: Volume of Production by Year, Period) def
+
+link:
+/name /source def
+/description (Download selection interface) def
+/href (http://countrystat.psa.gov.ph/?cont=10&pageid=1&ma=A10PNVCP)def
+:link
+
+continuedataset:
+
+datasetdefs:
+
+grid:
+/name /provcode2 def
+%/units /ids def
+values: 1401. 1481. 1411. 1427. 1432. 1444. 128. 129. 133. 155. 209. 215. 231. 250. 257. 377. 308. 314. 349. 354. 369. 371. 410. 421. 434. 456. 458. 1740. 1751. 1752. 1753. 1759. 505. 516. 517. 520. 541. 562. 604. 606. 619. 679. 630. 645. 712. 722. 746. 761. 878. 826. 837. 848. 864. 860. 972. 973. 97332. 983. 99701. 1013. 1018. 1035. 1042. 1043. 1123. 1124. 1125. 1182. 1247. 1280. 1263. 1265. 1602. 1603. 1667. 1668. 1685. 1507. 1536. 1538. 1566. 1570.
+:values
+/long_name (Province Code) def
+:grid
+
+:datasetdefs
+
+grid:
+/name /gid def
+values:
+66
+71
+67
+68
+69
+70
+2
+3
+4
+5
+7
+8
+9
+10
+11
+18
+12
+13
+14
+15
+16
+17
+19
+20
+21
+22
+23
+81
+82
+83
+84
+85
+24
+25
+26
+27
+28
+29
+30
+31
+32
+35
+33
+34
+36
+37
+38
+39
+45
+40
+41
+42
+44
+43
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+61
+59
+60
+77
+78
+79
+80
+72
+73
+74
+75
+76
+:values
+:grid
+
+grid:
+/name /T def
+/units (monthtime) def
+/defaultvalue { last } def
+16 Feb 1987 ensotime
+3
+16 Nov 2015 ensotime
+/pointwidth 3. def
+:grid
+
+%provcode 1685 : Dinagat Islands doesn't exist in Features
+%provcode 97332 : Zamboanga City doesn't exist in Features
+%provcode 99701 : City of Isabela doesn't exist in Features
+
+grid:
+/name /provcode def
+%/units /ids def
+values: 1401. 1481. 1411. 1427. 1432. 1444. 128. 129. 133. 155. 209. 215. 231. 250. 257. 377. 308. 314. 349. 354. 369. 371. 410. 421. 434. 456. 458. 1740. 1751. 1752. 1753. 1759. 505. 516. 517. 520. 541. 562. 604. 606. 619. 679. 630. 645. 712. 722. 746. 761. 878. 826. 837. 848. 864. 860. 972. 973. 983. 1013. 1018. 1035. 1042. 1043. 1123. 1124. 1125. 1182. 1247. 1280. 1263. 1265. 1602. 1603. 1667. 1668. 1507. 1536. 1538. 1566. 1570.
+:values
+/long_name (Province Code) def
+:grid
+
+grid:
+/name /provname_CS def
+/units /ids def
+values:
+(Abra)  (Apayao)        (Benguet)       (Ifugao)        (Kalinga)       (Mountain Province)     (Ilocos Norte)  (Ilocos Sur)    (La Union)      (Pangasinan)    (Batanes)       (Cagayan)       (Isabela)       (Nueva Vizcaya) (Quirino)       (Aurora)        (Bataan)        (Bulacan)       (Nueva Ecija)   (Pampanga)      (Tarlac)        (Zambales)      (Batangas)      (Cavite)        (Laguna)        (Quezon)        (Rizal) (Marinduque)    (Occidental Mindoro)    (Oriental Mindoro)      (Palawan)       (Romblon)       (Albay) (Camarines Norte)       (Camarines Sur) (Catanduanes)   (Masbate)       (Sorsogon)      (Aklan) (Antique)       (Capiz) (Guimaras)      (Iloilo)        (Negros Occidental)     (Bohol) (Cebu)  (Negros Oriental)       (Siquijor)      (Biliran)       (Eastern Samar) (Leyte) (Northern Samar)        (Southern Leyte)        (Samar) (Zamboanga del Norte)   (Zamboanga del Sur)        (Zamboanga Sibugay)       (Bukidnon)      (Camiguin)      (Lanao del Norte)       (Misamis Occidental)    (Misamis Oriental)      (Davao del Norte)       (Davao del Sur) (Davao Oriental)        (Compostela Valley)     (North Cotabato)        (Sarangani)     (South Cotabato)        (Sultan Kudarat)        (Agusan del Norte)      (Agusan del Sur)        (Surigao del Norte)     (Surigao del Sur)       (Basilan)       (Lanao del Sur) (Maguindanao)   (Sulu)  (Tawi-tawi)
+:values
+
+:grid
+
+/VoP_IP {
+[provcode2 T 12 splitgrid pop T 12 splitgrid nip | ]
+(/data/remic/mydatafiles/CountrySTAT/Philippines/Sub-national/Production/Crops/A10PNVCP.csv)
+readdatafile:
+[1 2 5] r*4astsv
+:readdatafile
+provcode2 provcode SAMPLE
+provcode2 gid replaceGRID
+T unsplitstreamgrid
+/missing_value -9 def
+/long_name (Volume of Production of Irrigated Palay) def
+/units /tons def
+/last_modified 2015 8 11 ymd2systemtime def
+}defasvarsilent
+
+/VoP_C {
+[provcode2 T 12 splitgrid pop T 12 splitgrid nip | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Philippines/Sub-national/Production/Crops/A10PNVCP_c.csv)
+readdatafile:
+[1 2 5] r*4astsv
+:readdatafile
+provcode2 provcode SAMPLE
+provcode2 gid replaceGRID
+T unsplitstreamgrid
+/missing_value -9 def
+/long_name (Volume of Production of Corn) def
+/units /tons def
+/last_modified 2015 8 11 ymd2systemtime def
+}defasvarsilent
+
+/VoP_P {
+[provcode2 T 12 splitgrid pop T 12 splitgrid nip | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Philippines/Sub-national/Production/Crops/A10PNVCP_p.csv)
+readdatafile:
+[1 2 5] r*4astsv
+:readdatafile
+provcode2 provcode SAMPLE
+provcode2 gid replaceGRID
+T unsplitstreamgrid
+/missing_value -9 def
+/long_name (Volume of Production of Palay) def
+/units /tons def
+/last_modified 2015 8 11 ymd2systemtime def
+}defasvarsilent
+
+/VoP_RP {
+[provcode2 T 12 splitgrid pop T 12 splitgrid nip | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Philippines/Sub-national/Production/Crops/A10PNVCP_rp.csv)
+readdatafile:
+[1 2 5] r*4astsv
+:readdatafile
+provcode2 provcode SAMPLE
+provcode2 gid replaceGRID
+T unsplitstreamgrid
+/missing_value -9 def
+/long_name (Volume of Production of Rainfed Palay) def
+/units /tons def
+/last_modified 2015 8 11 ymd2systemtime def
+}defasvarsilent
+
+/VoP_WC {
+[provcode2 T 12 splitgrid pop T 12 splitgrid nip | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Philippines/Sub-national/Production/Crops/A10PNVCP_wc.csv)
+readdatafile:
+[1 2 5] r*4astsv
+:readdatafile
+provcode2 provcode SAMPLE
+provcode2 gid replaceGRID
+T unsplitstreamgrid
+/missing_value -9 def
+/long_name (Volume of Production of White Corn) def
+/units /tons def
+/last_modified 2015 8 11 ymd2systemtime def
+}defasvarsilent
+
+/VoP_YC {
+[provcode2 T 12 splitgrid pop T 12 splitgrid nip | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Philippines/Sub-national/Production/Crops/A10PNVCP_yc.csv)
+readdatafile:
+[1 2 5] r*4astsv
+:readdatafile
+provcode2 provcode SAMPLE
+provcode2 gid replaceGRID
+T unsplitstreamgrid
+/missing_value -9 def
+/long_name (Volume of Production of Yellow Corn) def
+/units /tons def
+/last_modified 2015 8 11 ymd2systemtime def
+}defasvarsilent
+
+/the_geom {
+SOURCES .Features .Political .Philippines .Provinces
+    .the_geom
+%     :a: .provcode :a
+%    use_as_grid
+%   provcode  VoP_IP .provcode 
+%SAMPLE
+%.gridvalues VALUES
+%defivars
+%provcode /units /ids def pop
+}defasvar
+
+/label {
+SOURCES .Features .Political .Philippines .Provinces
+    .label
+%     :a: .provcode :a
+%    use_as_grid
+%   provcode VoP_IP .provcode .gridvalues VALUES
+%provcode /units /ids def pop
+}defasvar
+
+/provname {
+SOURCES .Features .Political .Philippines .Provinces
+    .provname
+%     :a: .provcode :a
+%    use_as_grid
+%   provcode VoP_IP .provcode .gridvalues VALUES
+%provcode /units /ids def pop
+}defasvar
+
+/regcode {
+SOURCES .Features .Political .Philippines .Provinces
+    .regcode
+%     :a: .provcode :a
+%    use_as_grid
+%   provcode VoP_IP .provcode .gridvalues VALUES
+%provcode /units /ids def pop
+}defasvar
+
+:dataset
+
+/last_modified 2015 8 11 ymd2systemtime def
+
+\end{ingrid}
+
+
+

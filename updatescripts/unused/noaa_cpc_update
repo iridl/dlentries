@@ -1,0 +1,7 @@
+#!/usr/freeware/bin/perl
+require "/home/datag/perl/getdatafiles.pl";
+chdir("/Data/data5/noaa/cpc/");
+#getdatafiles("ftp://ftpprd.ncep.noaa.gov/pub/cpc/wd52dg/data/indices/",qr/tele_index\.nh$/);
+getdatafiles("ftp://ftp.cpc.ncep.noaa.gov/wd52dg/data/indices/",qr/tele_index\.nh$/);
+system("make nhti.cuf");
+

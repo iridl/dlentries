@@ -1,0 +1,56 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Botswana_18_1) def
+/Districts16
+/description (15,16, and 17 Districts) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select idr_id,the_geom from bot_kwen order by idr_id) (idr_id) openqueryby
+        idr_id
+            /long_name (IDR id) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (District geometry) def
+        CopyStream
+        name exch def
+}defasvarcachesilent
+/Districts17
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select idr_id,the_geom from bdists order by idr_id) (idr_id) openqueryby
+        idr_id
+            /long_name (IDR id) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (District geometry) def
+        CopyStream
+        name exch def
+}defasvarcachesilent
+/Districts15
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select idr_id,epidemio,districts,the_geom from botswana_dist_epi order by idr_id) (idr_id) openqueryby
+        idr_id
+            /long_name (IDR id) def
+        CopyStream
+        name exch def
+        epidemio
+            /long_name (Epidemiological Districts) def
+        CopyStream
+        name exch def
+        districts
+            /long_name (Political Districts) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (District geometry) def
+        name exch def
+}defasvarcachesilent
+\end{ingrid}

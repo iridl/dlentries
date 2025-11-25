@@ -1,0 +1,78 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (iridl:Chile_31_1) def
+/description (Chile Admin boundaries) def
+\end{ingrid}
+\begin{ingrid}
+
+dataset:
+/name /admin1 def
+/admin1_name
+{IRIDB
+   (reg_nac_wgs84) (nom_reg10) [ (reg10) ]open_column_by
+            /long_name (Region Name) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+   (reg_nac_wgs84) (the_geom) [ (reg10) ]open_column_by
+            /long_name (Region geometry) def
+}defasvarsilentnoreuse
+:dataset
+
+dataset:
+/name /admin2 def
+/admin2_name
+{IRIDB
+   (prov_nac_wgs84) (nom_pro10) [ (pro10) ]open_column_by
+            /long_name (Provincia Name) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+   (prov_nac_wgs84) (the_geom) [ (pro10) ]open_column_by
+            /long_name (Provincia geometry) def
+}defasvarsilentnoreuse
+:dataset
+
+dataset:
+/name /admin3 def
+/admin3_name
+{IRIDB
+   (dis_nac_wgs84) (nom_dis10) [ (distripol1) ]open_column_by
+            /long_name (Distrito Name) def
+}defasvarsilentnoreuse
+/com_name
+{IRIDB
+   (dis_nac_wgs84) (nom_com10) [ (distripol1) ]open_column_by
+            /long_name (Commun Name) def
+}defasvarsilentnoreuse
+/a_homog
+{IRIDB
+   (dis_nac_wgs84) (a_homog) [ (distripol1) ]open_column_by
+            /long_name (Homog Name) def
+}defasvarsilentnoreuse
+/area
+{IRIDB
+   (dis_nac_wgs84) (area) [ (distripol1) ]open_column_by
+            /long_name (Distrito Area) def
+            /units (m^2) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+   (dis_nac_wgs84) (the_geom) [ (distripol1) ]open_column_by
+            /long_name (Distrito geometry) def
+}defasvarsilentnoreuse
+/label
+{IRIDB
+   (dis_nac_wgs84) ((nom_dis10 ||', '|| nom_com10) as label) [ (distripol1) ]open_column_by
+            /long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+:dataset
+
+admin3 area .distripol1 name exch put
+admin2 admin2_name .pro10 name exch put
+admin1 admin1_name .reg10 name exch put
+
+\end{ingrid}

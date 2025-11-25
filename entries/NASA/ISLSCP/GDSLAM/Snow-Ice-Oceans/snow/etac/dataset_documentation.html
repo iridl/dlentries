@@ -1,0 +1,899 @@
+<INGRID>standardHeader</INGRID>
+<pre>
+                             1.  TITLE
+
+1.1  Data Set Identification.
+
+     Global Snow Depth 
+
+     (Monthly ; USAF/ETAC)
+
+1.2  Data Base Table Name.
+
+     Not applicable.
+
+1.3  CD-ROM File Name. 
+
+      \DATA\SN_ICSST\SNOW\ETAC\ETACmm.sfx
+
+     Note: capital letters indicate fixed values that appear on the CD-ROM 
+     exactly as shown here, lower case indicates characters (values) that 
+     change for each path and file.
+
+     The format used for the filenames is: ETACmm.sfx, where  mm is the month 
+     of the year (e.g., 12=December).  The filename extension (.sfx), 
+     identifies the data set content for the file (see Section 8.2) and is 
+     equal to .ESD for this data set.
+
+1.4  Revision Date Of This Document.
+
+     April 5, 1995.
+
+                             2.  INVESTIGATOR(S)
+
+2.1  Investigator(s) Name And Title.
+
+     Dudley J. Foster, Jr. and Robert D. Davy
+     USAF Environmental Technical Applications Center (USAF/ETAC).
+
+2.2  Title Of Investigation.
+
+     USAF Environmental Technical Applications Center Global Snow
+     Depth Climatology.
+
+2.3  Contacts (For Data Production Information).
+
+_____________________________________________________________________________
+|              |      Contact 1     |     Contact 2       |     Contact 3    |
+|______________|____________________|_____________________|__________________|
+|2.3.1 Name    |Mr.Dudley J. Foster |Mr. Robert D. Davy   |Dr. David Robinson|
+|2.3.2 Address |USAF/ETAC           |USAF/ETAC            |Rutgers University|
+|              |Technical Data Sect.|Technical Data Sect. |Geography Dept.   |
+|      City/St.|Asheville, NC       |Asheville, NC        |New Brunswick, NJ |
+|      Zip Code|28801-2723          |28801-2723           |08903             |
+|2.3.3 Tel.    |(704) 259-0216      |(704) 259-0216       |(908) 932-4741    |
+|2.3.4 Email   |None                |None                 |drobins@gandalf.  |
+|              |                    |                     |rutgers.edu       |
+|______________|____________________|_____________________|__________________|
+
+2.4  Requested Form of Acknowledgment.
+
+     Please cite the following publication when these data are used:
+
+     Foster, D.J. and R.D. Davy, 1988. Global Snow Depth Climatology, 
+     USAFETAC/TN-88/006, Scott Air Force Base, Illinois, 48 p.
+
+                            3.  INTRODUCTION
+
+3.1  Objective/Purpose.
+
+     Create a global mid-monthly mean snow depth climatology with highest 
+     resolution possible using all available station data for the months of
+     September through June.
+
+3.2  Summary of Parameters.
+
+     Mean mid-monthly snow depths measured in inches.
+
+3.3  Discussion.
+
+     Following an extensive literature search, snow depth data were obtained 
+     from as many sources as possible, worldwide.  A full bibliography of the 
+     data sources is contained in the document USAF/ETAC/TN-88/006 Global Snow 
+     Depth Climatology and in section 10.2.2, 12.1 and 12.2 of this document.  
+     Each data source is rated according to a high, fair, or low confidence 
+     level.  Data from the numerous sources were plotted on hemispheric maps 
+     by month and the maps were manually analyzed.  Data were gridded to an 
+     "eighth mesh" reference grid.  This grid divides the hemispheres into 64 
+     equal boxes and each box is divided into 4,096 grid points that are 25 
+     nautical miles (46 km) apart.  More information on the eighth grid can be 
+     found in Hoke et al., 1979.  A mid-month-snow depth value to the nearest 
+     whole inch was assigned to each box.  Each grid value was compared from 
+     month to month to insure temporal consistency of the data.  The complete 
+     grid was then digitized.  In certain data sparse areas such as 
+     Antarctica, Greenland, China, and various mountain areas, special 
+     methodologies were developed to provide mean snow depths.  These methods 
+     are described in the Foster and Davy, 1988.  The data were regridded and 
+     converted to metric units at the GSFC DAAC.
+
+                        4.  THEORY OF MEASUREMENTS
+
+The snow depth values represent measurement derived from a variety of methods.  
+For more information on the measurements see the documents referenced in 
+section 10.2.2, 12.1 and 12.2 below.  The data were analyzed by hand to an 8th 
+mesh grid.  Note that these data relate to snowpack depth not Snow Water 
+Equivalent (SWE).
+
+                            5.  EQUIPMENT
+
+5.1  Instrument Description.
+
+     5.1.1  Platform.
+
+            Ground.
+
+     5.1.2  Mission Objectives.
+
+            Create a global mid-monthly mean snow depth climatology with 
+            highest resolution possible using all available station data for 
+            the months of September through June.
+ 
+     5.1.3  Key Variables.
+
+            Snow depth.
+
+     5.1.4  Principles of Operation.
+
+            Manual measurement of the depth of snow accumulated on the ground 
+            at a specific location.
+
+     5.1.5  Instrument Measurement Geometry.
+
+            Not applicable.
+
+     5.1.6  Manufacturer of Instrument.
+
+            Not applicable.
+
+5.2  Calibration.
+
+     5.2.1  Specifications.
+
+            Not applicable.
+
+            5.2.1.1  Tolerance.
+
+                     Nearest 2.54 cm.
+
+     5.2.2  Frequency of Calibration.
+
+            Not applicable.
+
+     5.2.3  Other Calibration Information.
+
+            None.
+
+                          6.  PROCEDURE
+
+6.1  Data Acquisition Methods.
+
+     Following an extensive literature search, snow depth data were obtained 
+     from as many sources as possible, worldwide.  Data from the numerous 
+     sources were plotted on hemispheric maps by month and the maps were 
+     manually analyzed.  Data were gridded to an "eighth mesh" reference grid 
+     (approx. 46 km).  A mid-month snow depth value to the nearest whole inch 
+     was assigned to each box.  Each grid value was compared from month to 
+     month to insure temporal consistency of the data.  The complete grid was 
+     then digitized.
+
+6.2  Spatial Characteristics.
+
+     Spatial resolution of the input data (station measurements) is highly 
+     variable.  Spatial resolution of the manually interpolated output data is 
+     "eighth mesh" or approximately 46.3 km.  The Goddard DAAC converted the 
+     data from the 46.3 km polar projection to an equal-angle grid described 
+     below. See section 9.3.1 for the regridding procedure.
+
+     6.2.1  Spatial Coverage.
+
+            The coverage is global.  Data in each file are ordered from north 
+            to south and from west to east beginning at 180 degrees west and 
+            90 degrees north.  Point (1,1) represents the grid cell centered 
+            at 89.5 N and 179.5 W (see section 8.4).
+
+     6.2.2  Spatial Resolution.
+
+            The data are given in an equal-angle lat/long grid that has a 
+            spatial resolution of 1 X 1 degree lat/long.
+
+6.3  Temporal Characteristics.
+
+     6.3.1  Temporal Coverage.
+
+            This is a climatolgy data set, therefore it is not year specific.
+
+     6.3.2  Temporal Resolution.
+
+            Climatology represents an average snow depth value for mid-month.
+
+                                7.  OBSERVATIONS
+
+7.1  Field Notes.
+
+     Not applicable.
+
+                              8.  DATA DESCRIPTION
+
+8.1  Table Definition With Comments.
+
+     Not applicable.
+
+8.2  Type of Data.
+
+--------------------------------------------------------------------------------
+|                 8.2.1                  |               |          |          |
+|Parameter/Variable Name                 | Snow depth    |          |          |
+--------------------------------------------------------------------------------
+|    |               8.2.2               |     8.2.3     |  8.2.4   |  8.2.5   |
+|    |Parameter/Variable Description     |Range          |Units     |          |
+--------------------------------------------------------------------------------
+|SNOW_DEPTH                              |               |          |Various   |
+|    |Average mid-month snow depth.      |min = 0        |[mm]      |climate   |
+|    |                                   |max = 950      |          |data sets |
+|    |                                   |fill = -9999   |          |          |
+|    |                                   |               |          |          |
+--------------------------------------------------------------------------------
+
+8.3  Sample Data Base Data Record.
+
+     Not applicable.
+
+8.4  Data Format.
+
+     The CD-ROM file format is ASCII, and consists of numerical fields of 
+     varying length, which are space delimited and arranged in columns and 
+     rows.  Each column contains 180 numerical values and each row contain 360 
+     numerical values.  
+
+          Grid arrangement
+
+             ARRAY(I,J)
+             I  = 1 IS CENTERED AT 179.5W
+             I INCREASES EASTWARD BY 1 DEGREE
+             J  = 1 IS CENTERED AT 89.5N
+             J INCREASES SOUTHWARD BY 1 DEGREE
+
+             90N - | - - - | - - - | - - - | - -
+                   | (1,1) | (2,1) | (3,1) |
+             89N - | - - - | - - - | - - - | - -
+                   | (1,2) | (2,2) | (3,2) |
+             88N - | - - - | - - - | - - - | - -
+                   | (1,3) | (2,3) | (3,3) |
+             87N - | - - - | - - - | - - - |
+                  180W   179W    178W   177W
+
+            ARRAY(360,180)
+
+8.5  Related Data Sets.
+
+     NOAA/NESDIS Northern Hemsiphere Snow Cover data on this CD-ROM.
+     NMC/ECMWF Reanalysis Sea Ice data, on this CD-ROM.
+
+                         9.  DATA MANIPULATIONS
+
+9.1  Formulas.
+
+     9.1.1  Derivation Techniques/Algorithms.
+
+            None.
+
+9.2  Data Processing Sequence.
+
+     9.2.1  Processing Steps and Data Sets.
+
+            See Section 3.3.
+
+     9.2.2  Processing Changes.
+
+            None.
+
+9.3  Calculations.
+
+     9.3.1  Special Corrections/Adjustments.
+
+            The original data were in an 8th mesh grid.  An 8th mesh grid can 
+            be visualized as a global hemisphere overlayed by an 8 x 8 grid, 
+            for a total of 64 grid boxes.  Within each box, there are 64 x 64 
+            points, totaling 4096 points of data values, approximately 46.3 km 
+            apart.  The Goddard DAAC utilized a routine developed by USAF 
+            Ice/Snow group to assign a latitude and longitude to each of the 
+            4096 points within each of the 64 boxes.  These snow depth values 
+            and their corresponding latitude and longitude were used to assign 
+            each value to a 1 x 1 degree grid cell, maintaining a summation 
+            and counter for any data values that fall within a grid cell.  
+            Average snow depth values were then calculated for each grid cell.  
+            The resulting 1 x 1 degree hemispheric grid of snow depth values 
+            was then concatenated with the corresponding hemisphere of gridded 
+            values for each month.  
+
+            For latitudes higher than 65 deg. N and 65 deg. S, raw data 
+            resolution exceeding the target resolution, resulting in empty 
+            grids where data coverage should be continuous.  The Goddard DAAC 
+            used the spline technique for unequally spaced intervals to 
+            interpolate the missing snow depth values.  The software used to 
+            perform this interpolation was provided by Dr. L. Bounoua 
+            (NASA/GSFC, Code 923 (301 286-1406)).  
+
+
+            The ISLSCP land/sea mask on this CD-ROM (LAND_SEA.MSK) was applied 
+            to this data.
+
+9.4  Graphs and Plots.
+
+     Contour plots of mean mid-monthly snow depths for September through June 
+     for the Northern Hemisphere in the original 8th mesh grid format are 
+     provided in Foster & Davey, 1988.
+
+                       10.  ERRORS
+
+10.1  Sources of Error.
+
+      Not available.
+
+10.2  Quality Assessment.
+
+      10.2.1  Data Validation by Source.
+
+              Not available.
+
+      10.2.2  Confidence Level/Accuracy Judgment.
+
+              The confidence in sources for the USAF/ETAC Snow Depth data 
+              varies by geographic location. Below is a comprehensive list of 
+              regional sources. A confidence factor is included for each 
+              region, which indicates the degree of confidence that can be 
+              placed in the data produced for that region. The confidence 
+              factors are explained as follows:
+
+              High Confidence: Summarized snow depth values were available, 
+              and there were more than 5 years period of record.
+
+              Fair Confidence: Summarized snow depth values were limited; 
+              discussion material was insufficient to produce a high degree of 
+              confidence.
+
+              Low Confidence: Summarized snow depth values were not available, 
+              and there was only limited discussion material.
+
+              AFRICA--High Confidence. Research suggested that snow cover was 
+              not present long enough here (except on the mountain peaks) to 
+              maintain a mean monthly snow depth or attempt inclusion in this 
+              study.
+
+              ALBANIA--High Confidence. Research suggested that snow cover was 
+              not present long enough here (except on the higher mountain 
+              peaks) to maintain a mean monthly snow depth or attempt 
+              inclusion in this study.
+
+              ANTARCTICA--Low Confidence. Snow depth was calculated in 
+              Antarctica by dividing mean annual water equivalent by snow 
+              density. Antarctic snow densities were acquired from a 
+              literature search of sources. 
+
+              Sources:
+
+              Bull, C., 1971. "Snow Accumulation in Antarctica Research in 
+                  Antarctica," Association Advancement Science, pp 367-421.
+              Cameron, R.L., 1964. "Glaciological studies at Wilkes Station, 
+                  Budd Coast, Antarctica," Antarctic Snow and Ice Studies--
+                  American Geophysics Union, Antarctic Research Service, pp 
+                  257-316.
+              Camerson, R.L., 1964. "Glaciological studies at Byrd Station, 
+                  Antarctica," 1963-65 Antarctic Snow and Ice Studies--
+                  American Geophysics Union, Antarctic Research Service, pp 
+                  127-156.
+              Giovinetto, M.B., 1964. "The drainage systems of Antarctic: 
+                  accumulation," Antarctic Snow and Ice Studies--American 
+                  Geophysics Union, Antarctic Research Service, pp 127-156.
+              Heap, J.A. and A.S. Rundle, 1964. "Snow Accumulation on the Ross 
+                  Ice Shelf," Antarctica Antarctic Snow and Ice Studies--
+                  American Geophysics Union, Antarctic Research Service, pp 
+                  119-126.
+              Koerner, R.M., 1964. "Firm stratigraphy studies on the Byrd-
+                  Whitmore Mountains traverse," 1962-63 Antarctic Snow and Ice 
+                  Studies--American Geophysics Union, Antarctic Research 
+                  Service, pp 219-236.
+              Koerner, R.M., 1971. "A stratigraphic method of determining the 
+                  snow accumulation rate at Plateau Station, Antarctica, and 
+                  application to South Pole-Queen Maud Land traverse 2, 1965-
+                  66." Antarctic Snow and Ice Studies--American Geophysics 
+                  Union, Antarctic Research Service, pp 225-238.
+              Petit, J.R., J. Jouzel, M. Pourchet, and L. Merlivant, 1982. "A 
+                  detailed study of snow accumulation and stable isotope 
+                  content in Dome C (Antarctica)," Journal of Geophysics 
+                  Research, pp 4301-4308.
+              Rusin, N.P., 1961. Meteorological and Radiational Regime of 
+                  Antarctica, Leningrad.
+              Schwerdtfeger, W., 1970. "The Climate of the Antarctic,' World 
+                  Survey of Climatology Volume 14, Climates of the Polar 
+                  Regions, Elsevier Publishing Company, Amsterdam.
+              Taylor, L.D., 1971. "Glaciological studies on the South Pole 
+                  traverse," 1962-63 Antarctic Snow and Ice Studies, American 
+                  Geophysics Union, Antarctic Research Service, pp 37-64.
+
+              ARCTIC--Low Confidence.
+
+              Sources:
+
+              Petterssen, S., W.C. Jacobs, and B.C. Haynes, 1951. "The 
+                  Meteorology of the Arctic Region, Part 1," Encyclopedia 
+                  Arctica, Vol. VII.
+              Petterssen, S., W.C. Jacobs, and B.C. Haynes, 1956. Meteorology 
+                  of the Arctic, Chief of Naval Operations for Polar Projects, 
+                  Washington, D.C.
+              Schutz, C., L.D. Bregman, 1975. Global Snow Depth Data: A 
+                  Monthly Summary, Rand Corporation, Santa Monica, CA.
+
+              AUSTRALIA--Low Confidence.
+
+              Sources:
+
+              Bureau of Meteorology, 1979. The Climate of Hobart, Tasmania, 
+                  Capital City Series, Australian Government Publishing 
+                  Service, Canberra.
+              Bureau of Meteorology, 1979. Climatic Survey, Sydney, Region 5 
+                  New South Wales, Australia Government Publishing Service, 
+                  Canberra.
+              Lansberg, H.E. (ed.), 1976. World Survey of Climatology Vol 13, 
+                  Climates of Australia and New Zealand, Elsevier Publishing 
+                  Co., Amsterdam.
+              U.S. Central Intelligence Agency, 1963. National Intelligence 
+                  Survey, NIS 96, Australia, sect. 23, Weather and Climate, 
+                  Washington D.C.
+
+              AUSTRIA--Fair Confidence.
+
+              Sources:
+
+              Air Ministry Meteorological Office, 1944, Meteorological Report 
+                  on the Alps, Supplement 1, London.
+
+              BELGIUM--High Confidence. Research suggested that snow cover was 
+              not present long enough to maintain a mean monthly snow depth.
+
+              BULGARIA--Fair Confidence.
+
+              Sources:
+
+              U.S. Central Intelligence Agency, 1969. National Intelligence 
+                  Survey, NIS 22-23, Romania and Bulgaria, sect. 23, Weather 
+                  and Climate, Washington D.C.
+
+              CANADA--High Confidence.
+
+              Sources:
+
+              Canadian Climatic Centre, unpublished analyzed snow depth charts 
+                  1955-1980, Downsview, Ontario.
+              Polter, J., 1965. Snow Cover, Climatological Studies, Number 3, 
+                  Department of Transport Meteorological Branch, Toronto.
+
+              CHINA--Fair Confidence. USAF/ETAC operating location A (OL-A) in 
+              Asheville N.C. obtained five Chinese journal (1975-1979) from 
+              the National Climatic Data Center (NCDC). These journals 
+              contained maximum monthly snow depths for 200 Chinese stations. 
+              After summarizing this data, a subjective value of 80 percent of 
+              the total depth was used to estimate the mean.
+
+              CZECHOSLOVAKIA--Fair Confidence.
+
+              Sources:
+
+              Koncek, M. and V. Briedon, 1964. Snow and Snow-Cover in 
+                  Slovakia, Slovenska Akademia Vied, Bratislava.
+
+              DENMARK--High Confidence. Research suggested that snow cover was 
+              not present long enough to maintain a mean monthly snow depth.
+
+              FINLAND--High Confidence.
+
+              Sources:
+
+              U.S. Central Intelligence Agency, 1965. National Intelligence 
+                  Survey, NIS 12, Finland, sect. 23, Weather and Climate, 
+                  Washington D.C.
+
+              FRANCE--Fair Confidence.
+
+              Sources:
+
+              Garnier, M., 1967. Climatologie De La France, Memorial De La 
+                  Meteorologie National, Paris.
+              Navarre, Jean-Pierre, Etude Climatologique De L'enneigement Des 
+                  Alpes A Ppartir Du Reseau Cedonigla, Donnees Et 
+                  Statistiques, Saint-Martin D'Heres.
+
+              GERMANY--High Confidence.
+
+              Sources:
+
+              "Summary of Day Data" (west German ABs), OL-A, USAFETAC, 
+                  Asheville, NC.
+              U.S. Central Intelligence Agency, 1963. National Intelligence 
+                  Survey, NIS 13A, East Germany, sect. 23, Weather and 
+                  Climate, Washington D.C.
+              U.S. Central Intelligence Agency, 1957. National Intelligence 
+                  Survey, NIS 13B, West Germany, sect. 23, Weather and 
+                  Climate, Washington D.C.
+              U.S. Army Corps of Engineers, 1954. Depth of Snow Cover in the 
+                  Northern Hemisphere, Arctic Construction and Frost Effects 
+                  Laboratory, New England Division, Boston.
+
+              GREECE--High Confidence. Research suggested that snow cover was 
+              not present long enough here (except on the higher mountain 
+              peaks) to maintain a mean monthly snow depth or attempt 
+              inclusion in the study.
+
+              GREENLAND--Low Confidence.
+
+              Sources:
+
+              Bader, Henri, 1961. The Greenland Ice Sheet, U.S. Army Cold 
+                  Regions Research and Engineering Laboratory, Hanover, NH.
+              Mack, S.J., 1961. Accumulation Patterns on the Greenland Ice 
+                  Sheet, U.S. Army Cold Regions Research and Engineering 
+                  Laboratory, Hanover, NH.
+              Petterssen, S., W.C. Jacobs, and B.C. Haynes, 1956. Meteorology 
+                  of the Arctic, Chief of Naval Operations for Polar Projects, 
+                  Washington, D.C.
+              Schutz, C., and L.D. Bregman,1975.  Global Snow Depth Data: A 
+                  Monthly Summary, The Rand Corporation, Santa Monica, CA.
+
+              HUNGARY--High Confidence.
+
+              Sources:
+
+              Jozsef, Kakas, 1967. Magyarorszag Eghajlati Atlasza, Akademiai 
+                  Kiado, Budapest.
+
+              ICE-COVERED AREAS--High Confidence.
+
+              Sources:
+
+              Great Lakes Climatological Atlas, 1986. Minister of Supply and 
+                  Services, Ottawa.
+              Sea Ice Climatic Atlas--Vol 1 Antarctic, 1985. Naval 
+                  Oceanography Command Detachment, Asheville, NC.
+              Sea Ice Climatic Atlas--Vol 2 Arctic East, Vol 3-Arctic West, 
+                  1985. Naval Oceanography Command Detachment, Asheville, NC.
+
+              ICELAND--High Confidence.
+
+              Sources:
+
+              U.S. Central Intelligence Agency, 1963. National Intelligence 
+                  Survey, NIS 68, Iceland, sect. 23, Weather and Climate, 
+                  Washington D.C.
+
+              IRAN--Low Confidence.
+
+              U.S. Central Intelligence Agency,1970. National Intelligence 
+                  Survey, NIS 33-34, Afghanistan and Iran, sect. 23, Weather 
+                  and Climate, Washington D.C.
+
+              ITALY--Low Confidence.
+
+              Sources:
+
+              U.S. Central Intelligence Agency, 1953. National Intelligence 
+                  Survey, NIS 17, Italy, sect. 23, Weather and Climate, 
+                  Washington D.C.
+
+              IRELAND--High Confidence. Research suggested that snow cover was 
+              not present long enough to maintain a mean monthly snow depth.
+
+              JAPAN--Fair Confidence.
+
+              Sources:
+
+              "Summary of Day Data" (Japanese ABs) OL-A, USAFETAC, Asheville, 
+                  NC.
+
+              KOREA--Fair Confidence.
+
+              Sources:
+
+              "Summary of Day Data" (Korean ABs) OL-A, USAFETAC, Asheville, 
+                  NC.
+              U.S. Central Intelligence Agency, 1968. National Intelligence 
+                  Survey, NIS 41, Korea, sect. 23, Weather and Climate, 
+                  Washington D.C.
+              Worldwide Airfield Climatic Data, 1967. Far East, USAFETAC, 
+                  Washington D.C.
+
+              LUXEMBOURG--High Confidence. Research suggested that snow cover 
+              was not present long enough to maintain a mean monthly snow 
+              depth.
+
+              MIDDLE EAST--High Confidence. Research suggested that snow cover 
+              was not present long enough to maintain a mean monthly snow 
+              depth.
+
+              MONGOLIA--Low Confidence.
+
+              Sources:
+
+              U.S. Central Intelligence Agency, 1966. National Intelligence 
+                  Survey, NIS 40, Mongolia, sect. 23, Weather and Climate, 
+                  Washington D.C.
+
+              MOUNTAIN AREAS--Low Confidence.
+
+              Sources:
+
+              World Meteorological Organization, 1970. Climatic Atlas of 
+                  Europe, Geneva.
+              World Meteorological Organization, 1981. Climatic Atlas of Asia, 
+                  Geneva.
+
+              NETHERLANDS--High Confidence. Research suggested that snow cover 
+              was not present long enough to maintain a mean monthly snow 
+              depth.
+
+              NEW ZEALAND--Low Confidence.
+
+              Sources:
+
+              Fitsharris, B.B., 1978. "problem in Estimating Snow Accumulation 
+                  with Elevation on New Zealand Mountains," Journal of 
+                  Hydrology, New Zealand, vol. 17, no 1, pp 78-89.
+              Landsberg, H.E. (ed.), 1976. World Survey of Climatology Vol. 
+                  13, Climates of Australia and New Zealand, Elsevier 
+                  Publishing Co., Amsterdam.
+              U.S. Central Intelligence Agency, 1960. National Intelligence 
+                  Survey, NIS 97, New Zealand, sect. 23, Weather and Climate, 
+                  Washington D.C.
+
+              NORWAY--High Confidence.
+
+              Sources:
+
+              Intelligence Division (OUSARMA), 1963. Climatic Conditions in 
+                  North Norway, Report Number 2872005563, Oslo, Norway.
+              U.S. Central Intelligence Agency, 1960. National Intelligence 
+                  Survey, NIS 10, Norway, sect. 23, Weather and Climate, 
+                  Washington C.C.
+
+              POLAND--High Confidence.
+
+              Sources:
+
+              Atlas Klimatczny Polski; Opady Atmosferyczne I Pokrywa Sniezna, 
+                  Instytut Meteorologii I Gospodarki Wodnej.
+              Lewinska, Janina, 1963. Zasoby Wodne Sniegu W Dorzeczu Dunajca I 
+                  Metoda 1ch Okreslania, Panstwawego Instytutu Hydrologiczno-
+                  Meteorologicznego, Warsaw.
+              U.S. Central Intelligence Agency, 1960. National Intelligence 
+                  Survey, NIS 14, Poland, sect. 23, Weather and Climate, 
+                  Washington D.C.
+
+              PORTUGAL--High Confidence. Research suggested that snow cover 
+              was not present long enough here (except on the higher mountain 
+              peaks) to maintain a mean monthly snow depth or attempt 
+              inclusion in this study.
+
+              ROMANIA--High Confidence.
+
+              Sources:
+
+              U.S. Central Intelligence Agency, 1960. National Intelligence, 
+                  Survey, NIS 22-23, Romania and Bulgaria, sect. 23, Weather 
+                  and Climate, Washington D.C.
+
+              SPAIN--Low Confidence.
+
+              Sources:
+
+              U.S. Central Intelligence Agency, 1960. National Intelligence 
+                  Survey, NIS 9, Spain, sect. 23, Weather and Climate, 
+                  Washington D.C.
+
+              SOUTH AMERICA--Low Confidence.
+
+              Sources:
+
+              Landsberg, H.E., ed., 1976. World Survey of Climatology Volume 
+                  12, Climates of Central and South America, Elsevier 
+                  Publishing Company, Amsterdam.
+              U.S. Central Intelligence Agency, 1960. National Intelligence 
+                  Survey, NIS 90-91, Argentina and Uruguay, sect. 23, Weather 
+                  and Climate, Washington D.C.
+
+              SWEDEN-High Confidence.
+
+              Sources:
+
+              Pershagen, H., 1969. Snow Cover in Sweden, Sveriges 
+                  Meteorologiska Och Hydrologiska Institut, Stockholm.
+
+              SWITZERLAND--Fair Confidence.
+
+              Sources:
+
+              Air Ministry Meteorological Office, 1944. Meteorological Report 
+                  on the Alps, Supplement 1, London.
+              Fohn, P., 1984. Schnee und Lawinen in den Schweizer Alpine 
+                  Winter 1982/83, Winterbericht des Eidg., Institutes fur 
+                  Schnee und Lawinenforschung, Weissfluhjoch.
+
+              TURKEY--Low Confidence.
+
+              Sources:
+
+              Ministry of Agriculture, 1962. Ortalama ve Ekstrem Kiymetler 
+                  Meteoroloji Bulteni, Istanbul.
+
+              UNITED KINGDOM--Fair Confidence.
+
+              Sources:
+
+              US. Central Intelligence Agency, 1960. National Intelligence 
+                  Survey, NIS 1-2, United Kingdom and Ireland, sect. 23, 
+                  Weather and Climate, Washington D.C.
+
+              USSR--High Confidence.
+
+              Sources:
+
+              Kopanev, I.D., 1978. Snow Cover in the USSR Territory, 
+                  Leningrad.
+
+              UNITED STATES--High Confidence.
+
+              Sources:
+
+              Alpine Snow and Avalanche Research Project, U.S. Forest Service, 
+                  RM Station, Fort Collins, CO.
+              Bolsenga, S.J., 1967. Great Lakes Snow Depth Probability Charts 
+                  and Tables, United States Lake Survey, Detroit.
+              Climatology of the U.S., 1978. Number 90 (196501974), Airport 
+                  Summary, National Climatic Data Center, Asheville.
+              "Summary of Day Data" (U.S. AFBs), OL-A, USAFETAC, Asheville.
+
+              YUGOSLAVIA--Low Confidence.
+
+              Sources:
+
+              Air Ministry Meteorological Office, 1945, Meteorological Report 
+                  on Yugoslavia and Albania, London.
+
+      10.2.3  Measurement Error for Parameters and Variables.
+
+              Limitations of point measurements as representative of 
+              area/regional conditions (i.e. localized drifting, wind re-
+              distribution).
+
+      10.2.4  Additional Quality Assessment Applied.
+
+              None.
+
+                                     11.  NOTES
+
+11.1  Known Problems With The Data.
+
+      Quality of the climatology is regional and decreases with the decreasing 
+      spatial density of the surface reporting stations contributing to the 
+      climatology.  The time periods covered by the input data sets are not 
+      consistent, varying across the globe.
+
+11.2  Usage Guidance.
+
+      Same as in section 11.1.
+
+11.3  Other Relevant Information.
+
+      None.
+
+                           12.  REFERENCES
+
+12.1  Satellite/Instrument/Data Processing Documentation.
+
+     Foster, D.J. and R.D. Davy, 1988. Global Snow Depth Climatology, 
+         USAFETAC/TN-88/006, Scott Air Force Base, Illinois, 48 p.
+     Hoke, J.E., J.L. Hayes, and L.G. Renninger, 1979. Map Projections and 
+         Grid Systems for Meteorological Applications, AFGWC/TN-79/003USAF, 
+         Air Weather Service, Offutt AFB NE, 68113.
+
+12.2  Journal Articles and Study Reports.
+
+      Bilello, M.A., 1969. Relationships Between Climate and Regional 
+          variations in snow-cover Density in North America, U.S. Army Cold 
+          Regions Research and Engineering Laboratory, Hanover, NH, 1969.
+      Dewey, Kenneth F., 1987. "Satellite-Derived Maps of Snow Cover Frequency 
+          for the Northern Hemisphere," Journal of Climate and Applied 
+          Meteorology, 26(9):1210-1229.
+      Dewey, K.F. and R. Heim, Jr., 1983. "Satellite observations of 
+          variations in Southern Hemispheric snow cover." NOAA Technical 
+          Report NESDIS 1, U.S. Department of Commerce, Washington D.C.
+      Dickson, R.R. and J. Posey, 1967. "maps of snow-cover probability for 
+          the Northern Hemisphere," Monthly Weather Review, 95:347-353.
+      Hall, S.J., 1986. AFGWC Snow Analysis Model, AFGWC/TN-86/001, AFGWC, 
+          Offutt AFB, NE.
+      Schutz, C., and L.D. Bregman, 1975. Global Snow Depth Data: A Monthly 
+          Summary, The Rand Corporation, Santa Monica.
+      U.S. Army Corps of Engineers, Depth of Snow Cover in the Northern 
+          Hemisphere, Arctic Construction and Frost Effects Laboratory, New 
+          England Division, Boston.
+      World Meteorological Office, 1970. Climatic Atlas of Europe, Geneva.
+      World Meteorological Office, 1981. Climatic Atlas of Asia, Geneva.
+
+12.3  Archive/DBMS Usage Documentation.
+
+      Contact the EOS Distributed Active Archive Center (DAAC) at NASA Goddard 
+      Space Flight Center (GSFC), Greenbelt Maryland (see Section 13 below).
+      Documentation about using the archive or information about access to the 
+      on-line information system is available through the GSFC DAAC User 
+      Services Office.
+
+                             13.  DATA ACCESS
+
+13.1  Contacts for Archive/Data Access Information.
+
+      GSFC DAAC User Services
+      NASA/Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Phone:     (301) 286-3209
+      Fax:       (301) 286-1775
+      Internet:  daacuso@eosdata.gsfc.nasa.gov
+
+13.2  Archive Identification.
+
+      Goddard Distributed Active Archive Center
+      NASA Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Telephone:  (301) 286-3209
+      FAX:        (301) 286-1775
+      Internet:   daacuso@eosdata.gsfc.nasa.gov
+
+13.3  Procedures for Obtaining Data.
+
+      Users may place requests by accessing the on-line system, by sending 
+      letters, electronic mail, FAX, telephone, or personal visit.
+
+      Accessing the GSFC DAAC Online System:
+
+      The GSFC DAAC Information Management System (IMS) allows users to 
+      ordering data sets stored on-line.  The system is open to the public.
+
+      Access Instructions:
+
+      Node name:  daac.gsfc.nasa.gov
+      Node number: 192.107.190.139
+      Login example: telnet daac.gsfc.nasa.gov
+      Username:  daacims
+      password:  gsfcdaac
+
+      You will be asked to register your name and address during your first
+      session.
+
+      Ordering CD-ROMs:
+
+      To order CD-ROMs (available through the Goddard DAAC) users should 
+      contact the Goddard DAAC User Support Office (see section 13.2).
+
+13.4  GSFC DAAC Status/Plans.
+
+      The ISLSCP Initiative I CD-ROM is available from the Goddard DAAC.
+
+                   14.  OUTPUT PRODUCTS AND AVAILABILITY
+
+14.1  Tape Products.
+
+      None.
+
+14.2  Film Products.
+
+      None.
+
+14.3  Other Products.
+
+      None.
+
+                       15.  GLOSSARY OF ACRONYMS
+
+CD-ROM             Compact Disk (optical), Read Only Memory
+DAAC               Distributed Active Archive Center
+EOS                Earth Observing System
+GCM                General Circulation Model of the atmosphere
+GSFC               Goddard Space Flight Center
+IDS                Inter disciplinary Science
+ISLSCP             International Satellite Land Surface Climotology Project
+NASA               National Aeronautics and Space Administration
+USAF/ETAC          United States Air Force Environmental Technical 
+                   Applications Center
+
+</pre>

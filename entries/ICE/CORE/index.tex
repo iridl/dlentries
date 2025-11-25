@@ -1,0 +1,31 @@
+\begin{ingrid}
+continuedataset:
+GRIP.cdf pop
+QUELCCAYA.cdf pop
+datasetdefs:
+:datasetdefs
+/description (Chemical measurements from ice cores) def
+/iridl:hasSemantics (iridl:IceCore) def
+/VOSTOK currentobject 1 index get def
+/GRIP
+{
+GRIP.cdf
+/iridl:hasSemantics (iridl:CNRS) def
+/references (Dansgaard_etal1993 GRIPmembers1993) def
+} defasvarsilent
+/QUELCCAYA
+{
+QUELCCAYA.cdf
+/iridl:hasSemantics (iridl:OhioStateUniversity) def
+/references (Thompson_Mosley-Thompson1989) def
+T 
+    (years since 0001-01-01) setunits
+    /calendar (360) def
+    /add_offset -0.5 def
+name exch def
+} defasvarsilent
+:dataset
+\end{ingrid}
+
+
+

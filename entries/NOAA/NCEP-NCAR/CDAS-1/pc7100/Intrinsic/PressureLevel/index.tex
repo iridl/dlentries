@@ -1,0 +1,87 @@
+\begin{ingrid}
+continuedataset:
+/phi
+{
+  SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Intrinsic .PressureLevel .phi
+  T (1 Jan 1971) (31 Dec 2000) RANGE
+  T pentadAverage
+  T 73 splitstreamgrid
+  [T2]average
+  2 RECHUNK
+  /expires undef
+} defasvarcache
+/temp
+{
+  SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Intrinsic .PressureLevel .temp
+  T (1 Jan 1971) (31 Dec 2000) RANGE
+  T pentadAverage
+  T 73 splitstreamgrid
+  [T2]average
+  2 RECHUNK
+  /expires undef
+} defasvarcache
+/u
+{
+  SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Intrinsic .PressureLevel .u
+  T (1 Jan 1971) (31 Dec 2000) RANGE
+  T pentadAverage
+  T 73 splitstreamgrid
+  [T2]average
+  2 RECHUNK
+  /expires undef
+} defasvarcache
+/v
+{
+  SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Intrinsic .PressureLevel .v
+  T (1 Jan 1971) (31 Dec 2000) RANGE
+  T pentadAverage
+  T 73 splitstreamgrid
+  [T2]average
+  2 RECHUNK
+  /expires undef
+} defasvarcache
+/vvel
+{
+  SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Intrinsic .PressureLevel .vvel
+  T (1 Jan 1971) (31 Dec 2000) RANGE
+  T pentadAverage
+  T 73 splitstreamgrid
+  [T2]average
+  2 RECHUNK
+  /expires undef
+} defasvarcache
+/qa
+{
+  SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Intrinsic .PressureLevel .qa
+  T (1 Jan 1971) (31 Dec 2000) RANGE
+  T pentadAverage
+  T 73 splitstreamgrid
+  [T2]average
+  2 RECHUNK
+  /expires undef
+} defasvarcache
+grid:
+/name /X def
+degE
+periodic
+0 2.5 -2.5
+:grid
+grid:
+/name /Y def
+degN
+90 2.5 -90
+:grid
+grid:
+/name /P def
+/units (mb) def
+ordered
+values: 1000 925 850 700 600 500 400 300 250 200 150 100 70 50 30 20 10 :values
+:grid
+grid:
+/name /T def
+/units (pentads since 1960-01-01) def
+periodic
+0.5 1 72.5
+:grid
+:dataset
+\end{ingrid}

@@ -1,0 +1,60 @@
+\begin{ingrid}
+
+continuedataset:
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /km def   
+-3976 1 dup 7374 mul 2 index add 1 sub
+:grid
+
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /km def 
+-4321 1 dup 7875 mul 2 index add 1 sub
+:grid
+
+
+/text_class {
+[X Y last first subgrid | ]
+(/data/remic/mydatafiles/Hansen/Water_balance/GYGA_Results/Aggregated_overERZD/af_agg_ERZD_TEXCLSS__M_1km.tif)
+
+readdatafile:
+/description (Textural class (USDA) of the fine earth, aggregated over the Effective Root Zone Depth for Maize) def
+/stringtype tiffimage
+/units /ids def 
+/missing_value 255 def 
+/long_name (Textural class of the fine earth) def 
+
+/SpatialReferenceSystemWKT (EPSG:9820) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit  def
+:readdatafile
+
+Y last first RANGE
+/scale_min 1 def
+/scale_max 12 def
+/CLIST [
+(Cl)
+(SiCl)
+(SaCl)
+(ClLo)
+(SiClLo)
+(SaClLo)
+(Lo)
+(SiLo)
+(SaLo)
+(Si)
+(LoSa)
+(Sa)
+]def
+}defasvarsilent
+
+
+:dataset
+
+\end{ingrid}
+
+

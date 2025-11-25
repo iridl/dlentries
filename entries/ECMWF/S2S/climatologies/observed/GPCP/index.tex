@@ -1,0 +1,112 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+
+/prcp_dailyrate_max100_smooth {
+  startcolormap
+    0.0 100.0 RANGE
+    LightGrey white white
+       0.0 VALUE
+       LightCyan
+        2.0 VALUE
+        SkyBlue
+         4.0 VALUE
+         DodgerBlue
+          9.0 VALUE
+          MediumBlue
+           16.0 VALUE
+           DarkSeaGreen
+            25.0 VALUE
+            MediumSeaGreen
+             33.0 VALUE
+             LightSeaGreen
+              50.0 VALUE
+              khaki
+               67.0 VALUE
+               SandyBrown
+                83.0 VALUE
+                firebrick 100.0 VALUE
+                firebrick endcolormap
+} defcolorscale
+
+:datasetdefs
+
+link:
+/name (original_dataset) def
+/description (NASA GPCP: Combined satellite-gauge precipitation estimates and error estimates from the Global Precipitation Climatology Project. ) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NASA/.GPCP/.V1DD/.V1p3/.precip/) def
+:link
+
+        grid:
+         /name (X)def
+         /long_name (longitude) def
+         /units (degree_east)def
+	 0.5 1.0 359.5
+        :grid
+
+        grid:
+         /name (Y)def
+	 /long_name (latitude) def
+         /units (degree_north)def
+	 -89.5 1.0 89.5
+        :grid
+
+
+	grid:
+	 /name /T def
+	%/netcdfgrid true def
+	 /long_name (Day-of-Year) def
+	/units (days since 1960-01-01) def
+	/long_name (forecast start time) def
+	/standard_name (forecast_reference_time) def
+	01 Jan 2000 julian_day 01 Jan 1960 julian_day sub
+	1.0
+	31 Dec 2000 julian_day 01 Jan 1960 julian_day sub
+	/pointwidth 0. def
+	:grid
+
+
+%Precipitation 
+
+        /precipClim{
+                [ X Y | T ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Observed/GPCP/1997-01-01.2019-12-31.day_clim_precip.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+		/units (mm/day) def
+                /long_name (Precipitation - climatology ) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+                DATA 0 AUTO RANGE
+        }defasvarsilent
+
+        /precipSmooth{
+                [ X Y | T ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Observed/GPCP/1997-01-01.2019-12-31.smooth_day_clim_precip.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /units (mm/day) def
+                /long_name (Precipitation - triangular smoothing climatology ) def
+                /missing_value NaN def
+		 /doublearraytype netcdfrecords :readdatafile
+                DATA 0 AUTO RANGE
+        }defasvarsilent
+
+        /precipharm{
+                [ X Y | T ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Observed/GPCP/GPCP_precip_Harmonics_L0.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /units (mm/day) def
+                /long_name (Precipitation - Harmonic climatology ) def
+                /missing_value NaN def
+                 /doublearraytype netcdfrecords :readdatafile
+                DATA 0 AUTO RANGE
+        }defasvarsilent
+
+
+:dataset
+
+\end{ingrid}

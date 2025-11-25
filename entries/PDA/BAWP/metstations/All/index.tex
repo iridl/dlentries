@@ -1,0 +1,84 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Buhi, Nabua and Polangui meteorological stations) def 
+
+/rainfall {
+ SOURCES .PDA .BAWP .metstations
+  a: .NABUA .T
+    a: .last
+      :a: .first :a
+     :a: .BUHI .T
+      a: .last
+        :a: .first :a
+       exch
+       :a: .POLANGUI .T
+        a: .last
+          :a: .first :a
+         5 -2 roll
+         min
+        min
+       4 -3 roll
+       max
+      max
+     /T (days since 1960-01-01) ordered
+        5 -2 roll
+        1 exch NewEvenGRID
+    /defaultvalue {last}def
+    0.0 add
+    :a: .POLANGUI .rainfall
+     1 index
+      1 index .T
+       a: .first
+         :a: .last :a
+        masknotrange
+      1 index .T sample-along
+     defivars
+     :a: .NABUA .rainfall
+      2 index
+       1 index .T
+        a: .first
+          :a: .last :a
+         masknotrange
+       1 index .T sample-along
+      defivars appendstream
+     :a: .BUHI .rainfall
+      3 -1 roll
+      1 index .T
+       a: .first
+         :a: .last :a
+        masknotrange
+      1 index .T sample-along
+     defivars :a
+   appendstream
+}defasvarsilent
+
+/lon {
+SOURCES .PDA .BAWP .metstations
+  a: .POLANGUI .lon :a: .NABUA .lon :a: .BUHI .lon :a
+2 {appendstream} repeat 
+}defasvarsilent
+
+/lat {
+SOURCES .PDA .BAWP .metstations
+  a: .POLANGUI .lat :a: .NABUA .lat :a: .BUHI .lat :a
+2 {appendstream} repeat
+}defasvarsilent
+
+/location {
+lon lat geopt
+}defasvarsilent
+
+/label {
+SOURCES .PDA .BAWP .metstations
+  a: .POLANGUI .label :a: .NABUA .label :a: .BUHI .label :a
+2 {appendstream} repeat
+}defasvarsilent
+
+:dataset
+
+label .FID name exch def
+rainfall .T name exch def
+
+\end{ingrid}

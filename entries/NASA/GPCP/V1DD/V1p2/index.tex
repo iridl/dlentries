@@ -1,0 +1,75 @@
+\begin{ingrid}
+continuedataset:
+/long_name (Version 1.2) def
+/description (GPCP 1-Degree Daily Combination (Version 1.2)) def
+link:
+/name (source) def
+/description (original ftp server) def
+/href (ftp://rsd.gsfc.nasa.gov/pub/1dd-v1.2/) def
+:link
+link:
+/name (dataset_documentation) def
+/description (Version 1.2 GPCP One-Degree Daily Precipitation Data Set Documentation) def
+/href (ftp://rsd.gsfc.nasa.gov/pub/1dd-v1.2/1DD_v1.2_doc.pdf) def
+:link
+link:
+/name (summary) def
+/description (GPCP 1-Degree Daily Combination (Version 1.2)) def
+/href (http://precip.gsfc.nasa.gov/gpcp_daily_comb.html) def
+:link
+
+/note (Request to Users:  The GPCP datasets are developed and maintained with international cooperation and are used by the worldwide scientific community. To better understand the evolving requirements across the GPCP user community and to increase the utility of the GPCP product suite, the dataset producers request that a citation be provided for each publication that uses the GPCP products.  Please email the citation to george.j.huffman@nasa.gov or david.t.bolvin@nasa.gov. Your help and cooperation will provide valuable information for making future enhancements to the GPCP product suite.) def
+
+/references (Huffman_etal2001) def
+
+grid:
+ /name (X) def
+ /long_name (Longitude) def
+ /standard_name (longitude) def
+ /units (degree_east) def
+ 0.5 1.0 359.5
+ periodic
+:grid
+
+grid:
+ /name (Y) def
+ /long_name (Latitude) def
+ /standard_name (latitude) def
+ /units (degree_north) def
+ 89.5 1.0 -89.5
+:grid
+
+grid:
+ /name (T) def
+ /long_name (Time) def
+ /units (julian_day) def
+ /standard_name (time) def
+ /defaultvalue { last } def
+ 01 Oct 1996 julian_day
+ 1
+% systemtime (%d %b %Y) 12 strftime interp julian_day 50 sub
+ 31 Oct 2015 julian_day
+:grid
+
+/prcp {
+ [X Y | T] (ftp://rsd.gsfc.nasa.gov/pub/1dd-v1.2/gpcp_1dd_v1.2_p1d.%Y%m[T].gz) [T monthlyedgesgrid first secondtolast subgrid ] readdatafile:
+ /name (prcp) def
+ /long_name (precipitation) def
+ /standard_name (lwe_precipitation_rate) def
+ /units (mm/day) def
+ /missing_value -99999.0 def
+ /iridl:hasSemantics (iridl:precipitation) def
+ 1440 set:file_byteoffset
+ direct :readdatafile
+ startcolormap
+ DATA 0 100 RANGE
+ transparent white
+ 229 227 255 RGB 1 VALUE
+ 0 30 240 RGB 50 VALUE
+ 0 15 120 RGB 100 VALUE
+ 0 15 120 RGB
+ endcolormap
+} defasvarsilent
+
+:dataset
+\end{ingrid}

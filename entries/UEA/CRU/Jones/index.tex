@@ -1,0 +1,458 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/landonly { v199902 .landonly } def
+/landsea { v199902 .landsea } def
+:datasetdefs
+/description (Land air temperature and sea surface temperature anomalies) def
+/GCMD_id (CRU_JONES) def
+/references (Jones_Moberg2003 Jones_etal2001 Brohan_etal2006) def
+link:
+/name (CRU Temperature) def
+/href (http://www.cru.uea.ac.uk/cru/data/temperature/) def
+/description (Documentation for CRU Temperature Data) def
+:link
+/CRUTEM1 { landonly } defasvarsilent
+/HadCRUT1 { landsea /iridl:hasSemantics (iridl:HADLEY) def
+link:
+/name (HadCRUT2) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.UEA/.CRU/.Jones/.HadCRUT2/) def
+/description (HadCRUT2: Combined land and marine temperature) def
+/semantics /dcterm:isReplacedBy def
+:link
+ } defasvarsilent
+dataset:
+/name /CRUTEM2 def
+/description(Historical land air temperature anomalies (superseded by CRUTEM3))def
+/references (Jones_Moberg2003)def
+link:
+/name (CRUTEM3) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.UEA/.CRU/.Jones/.CRUTEM3/) def
+/description (CRUTEM3: Land air temperature anomalies) def
+/semantics /dcterm:isReplacedBy def
+:link
+/temp 
+{
+(/Data/data2/cru/temperature/crutem2.nc) readfile .temanom
+  /valid_min null def
+  /units /degree_Celsius def
+  time 0.5 shiftGRID
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+  /standard_name (air_temperature_anomaly) def
+} defasvarsilent
+/count
+{
+(/Data/data2/cru/temperature/crutem2.nc) readfile .count
+ time 0.5 shiftGRID
+lon /X renameGRID lat /Y renameGRID time /T renameGRID} defasvarsilent
+:dataset
+dataset:
+/name /CRUTEM2v def
+/description(Variance adjusted version of land air temperature anomalies (superseded by CRUTEM3v))def
+/references (Jones_etal2001)def
+link:
+/name (CRUTEM3v) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.UEA/.CRU/.Jones/.CRUTEM3v/) def
+/description (CRUTEM3v: Variance-adjusted land air temperature anomalies) def
+/semantics /dcterm:isReplacedBy def
+:link
+/temp 
+{
+(/Data/data2/cru/temperature/crutem2v.nc) readfile .temanom
+  /valid_min null def
+  /units /degree_Celsius def
+  time 0.5 shiftGRID
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+  /standard_name (air_temperature_anomaly) def
+} defasvarsilent
+:dataset
+
+dataset:
+/name /CRUTEM3 def
+/description (Land air temperature anomalies) def
+/iridl:hasSemantics (iridl:HADLEY) def
+/references (Brohan_etal2006) def
+
+link:
+/name (CRUTEM4.2.0.0) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.UEA/.CRU/.Jones/.CRUTEM4p2p0p0/) def
+/description (CRUTEM4p2p0p0: Land air temperature anomalies) def
+/semantics /dcterm:isReplacedBy def
+:link
+
+/tanom {
+  (/Data/data7/uea/cru/Jones/CRUTEM3/CRUTEM3.nc) readCDF .temp
+  t monthlyedgesgrid partialgrid
+   name exch def
+  t /monthtime streamgridunitconvert
+  t /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  unspecified removeGRID
+  /long_name (Best Estimate Temperature Anomaly) def
+  /standard_name (air_temperature_anomaly) def
+} defasvarsilent
+
+/nobs {
+  (/Data/data7/uea/cru/Jones/CRUTEM3/CRUTEM3_nobs.nc) readCDF .temp
+  t monthlyedgesgrid partialgrid
+   name exch def
+  t /monthtime streamgridunitconvert
+  t /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  unspecified removeGRID
+  /long_name (Number of Observations) def
+  /units (unitless) def
+} defasvarsilent
+
+/serror {
+  (/Data/data7/uea/cru/Jones/CRUTEM3/CRUTEM3_sampling_error.nc) readCDF .temp
+  t monthlyedgesgrid partialgrid
+   name exch def
+  t /monthtime streamgridunitconvert
+  t /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  unspecified removeGRID
+  /long_name (Sampling Error) def
+} defasvarsilent
+
+/stnerror {
+  (/Data/data7/uea/cru/Jones/CRUTEM3/CRUTEM3_station_error.nc) readCDF .temp
+  t monthlyedgesgrid partialgrid
+   name exch def
+  t /monthtime streamgridunitconvert
+  t /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  unspecified removeGRID
+  /long_name (Station Error) def
+} defasvarsilent
+
+/biased_97p5pc {
+  (/Data/data7/uea/cru/Jones/CRUTEM3/CRUTEM3_biased_97.5pc.nc) readCDF .temp
+  t monthlyedgesgrid partialgrid
+   name exch def
+  t /monthtime streamgridunitconvert
+  t /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  unspecified removeGRID
+  /long_name (Temperature Anomalies Including Biases at the Upper Uncertainty Range) def
+  /standard_name (air_temperature_anomaly) def
+} defasvarsilent
+
+/biased_2p5pc {
+  (/Data/data7/uea/cru/Jones/CRUTEM3/CRUTEM3_biased_2.5pc.nc) readCDF .temp
+  t monthlyedgesgrid partialgrid
+   name exch def
+  t /monthtime streamgridunitconvert
+  t /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  unspecified removeGRID
+  /long_name (Temperature Anomalies Including Biases at the Lower Uncertainty Range) def
+  /standard_name (air_temperature_anomaly) def
+} defasvarsilent
+:dataset
+
+dataset:
+/name /CRUTEM3v def
+/description (Variance adjusted version of CRUTEM3) def
+/iridl:hasSemantics (iridl:HADLEY) def
+/references (Brohan_etal2006) def
+
+link:
+/name (CRUTEM4.2.0.0) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.UEA/.CRU/.Jones/.CRUTEM4p2p0p0/) def
+/description (CRUTEM4p2p0p0: Land air temperature anomalies) def
+/semantics /dcterm:isReplacedBy def
+:link
+
+/varadjtanom {
+  (/Data/data7/uea/cru/Jones/CRUTEM3/CRUTEM3v.nc) readCDF .temp
+  t monthlyedgesgrid partialgrid
+   name exch def
+  t /monthtime streamgridunitconvert
+  t /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  unspecified removeGRID
+  /long_name (Variance Adjusted Temperature Anomaly) def
+  /standard_name (air_temperature_anomaly) def
+} defasvarsilent
+:dataset
+
+dataset:
+/name /CRUTEM4p2p0p0 def
+/description (Land air temperature anomalies) def
+/iridl:hasSemantics (iridl:HADLEY) def
+/reference (Jones, P. D., D. H. Lister, T. J. Osborn, C. Harpham, M. Salmon, and C. P. Morice (2012), Hemispheric and large-scale land-surface air temperature variations: An extensive revision and an update to 2010, J. Geophys. Res., 117, D05127, doi:10.1029/2011JD017139) def
+/Conventions (CF-1.0) def
+/version (CRUTEM.4.2.0.0) def
+/institution (Climatic Research Unit, University of East Anglia/Met Office Hadley Centre) def
+/references (Jones_etal2012 Brohan_etal2006) def
+
+link:
+/name (CRUTEM4) def
+/href (http://hadobs.metoffice.com/crutem4/) def
+/description (CRUTEM4 description page at the Hadley Centre) def
+:link
+
+link:
+/name (source) def
+/href (http://hadobs.metoffice.com/crutem4/data/download.html) def
+/description (Source of the CRUTEM4 dataset at the Hadley Centre) def
+:link
+
+link:
+/name (release_notes) def
+/href (http://hadobs.metoffice.com/crutem4/data/CRUTEM.4.2.0.0_release_notes.html) def
+/description (Release Notes for the CRUTEM4.2.0.0 dataset at the Hadley Centre) def
+:link
+
+/tanom {
+(/Data/data7/uea/cru/Jones/CRUTEM4/CRUTEM.4.2.0.0.anomalies.nc) readCDF .temperature_anomaly
+  time monthlyedgesgrid partialgrid
+   name exch def
+  time /monthtime streamgridunitconvert
+  time /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  /long_name (Best Estimate Temperature Anomaly) def
+  /standard_name (air_temperature_anomaly) def
+  temp_anomaly_colors_gcm
+} defasvarsilent
+
+/nobs {
+  (/Data/data7/uea/cru/Jones/CRUTEM4/CRUTEM.4.2.0.0.nobs.nc) readCDF .number_of_observations
+  time monthlyedgesgrid partialgrid
+   name exch def
+  time /monthtime streamgridunitconvert
+  time /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  /long_name (Number of Observations) def
+  /units (unitless) def
+} defasvarsilent
+
+/sampling_error {
+  (/Data/data7/uea/cru/Jones/CRUTEM4/CRUTEM.4.2.0.0.sampling_error.nc) readCDF .standard_error
+  time monthlyedgesgrid partialgrid
+   name exch def
+  time /monthtime streamgridunitconvert
+  time /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  /long_name (Sampling Error) def
+} defasvarsilent
+
+/station_error {
+  (/Data/data7/uea/cru/Jones/CRUTEM4/CRUTEM.4.2.0.0.station_error.nc) readCDF .standard_error
+  time monthlyedgesgrid partialgrid
+   name exch def
+  time /monthtime streamgridunitconvert
+  time /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  /long_name (Station Error) def
+} defasvarsilent
+
+/biased_97p5pc {
+  (/Data/data7/uea/cru/Jones/CRUTEM4/CRUTEM.4.2.0.0.biased_97.5pc.nc) readCDF .temperature_anomaly
+  time monthlyedgesgrid partialgrid
+   name exch def
+  time /monthtime streamgridunitconvert
+  time /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  /long_name (Temperature Anomalies Including Biases at the Upper Uncertainty Range) def
+  /standard_name (air_temperature_anomaly) def
+  temp_anomaly_colors_gcm
+} defasvarsilent
+
+/biased_2p5pc {
+  (/Data/data7/uea/cru/Jones/CRUTEM4/CRUTEM.4.2.0.0.biased_2.5pc.nc) readCDF .temperature_anomaly
+  time monthlyedgesgrid partialgrid
+   name exch def
+  time /monthtime streamgridunitconvert
+  time /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  /long_name (Temperature Anomalies Including Biases at the Lower Uncertainty Range) def
+  /standard_name (air_temperature_anomaly) def
+  temp_anomaly_colors_gcm
+} defasvarsilent
+
+/var_adj_tanom {
+ (/Data/data7/uea/cru/Jones/CRUTEM4/CRUTEM.4.2.0.0.variance_adjusted.nc) readCDF .temperature_anomaly
+  time monthlyedgesgrid partialgrid
+   name exch def
+  time /monthtime streamgridunitconvert
+  time /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  /long_name (Variance-Adjusted Temperature Anomaly) def
+  /standard_name (air_temperature_anomaly) def
+  temp_anomaly_colors_gcm
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name /HadCRUT2 def
+link:
+/name (HadCRUT3) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.UEA/.CRU/.Jones/.HadCRUT3/) def
+/description (HadCRUT3: Combined land and marine temperature) def
+/semantics /dcterm:isReplacedBy def
+:link
+/description (Combined land and marine [sea surface temperature (SST) anomalies from the Hadley Centre of the UK Meteorological Office] (superseded by HadCRUT3))def
+/iridl:hasSemantics (iridl:HADLEY) def
+/temp
+{
+(/Data/data2/cru/temperature/hadcrut2.nc) readfile .temanom
+  /valid_min null def
+  /units /degree_Celsius def
+  time 0.5 shiftGRID
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+} defasvarsilent
+:dataset
+dataset:
+/name /HADCRUT2v def
+/description (Variance adjusted version of HadCRUT2 (superseded by HadCRUT3v)) def
+/iridl:hasSemantics (iridl:HADLEY) def
+link:
+/name (HadCRUT3v) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.UEA/.CRU/.Jones/.HadCRUT3v/) def
+/description (HadCRUT3v: Variance adjusted combined land and marine temperature) def
+/semantics /dcterm:isReplacedBy def
+:link
+/temp 
+{
+(/Data/data2/cru/temperature/hadcrut2v.nc) readfile .temanom
+  /valid_min null def
+  /units /degree_Celsius def
+  time 0.5 shiftGRID
+lon /X renameGRID lat /Y renameGRID time /T renameGRID} defasvarsilent
+:dataset
+
+dataset:
+/name /HadCRUT3 def
+/description (Combined land and marine [sea surface temperature (SST) anomalies from the Hadley Centre of the UK Meteorological Office])def
+/iridl:hasSemantics (iridl:HADLEY) def
+/references (Brohan_etal2006) def
+
+/tanom {
+  (/Data/data7/uea/cru/Jones/HadCRUT3/HadCRUT3.nc) readCDF .temp
+  t monthlyedgesgrid partialgrid monthtimegrid
+  first secondtolast subgrid
+   name exch def
+% t /monthtime streamgridunitconvert
+  t /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  unspecified removeGRID
+  /long_name (Temperature Anomaly) def
+} defasvarsilent
+
+/mserror {
+  (/Data/data7/uea/cru/Jones/HadCRUT3/HadCRUT3_m+s_error.nc) readCDF .temp
+  t monthlyedgesgrid partialgrid monthtimegrid
+  first secondtolast subgrid 
+   name exch def
+% t /monthtime streamgridunitconvert
+  t /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  unspecified removeGRID
+  /long_name (Measurement and Sampling Error) def
+} defasvarsilent
+
+/stnerror {
+  (/Data/data7/uea/cru/Jones/HadCRUT3/HadCRUT3_station_error.nc) readCDF .temp
+  t monthlyedgesgrid partialgrid monthtimegrid
+  first secondtolast subgrid
+   name exch def
+% t /monthtime streamgridunitconvert
+  t /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  unspecified removeGRID
+  /long_name (Station Error) def
+} defasvarsilent
+
+/biased_97p5pc {
+  (/Data/data7/uea/cru/Jones/HadCRUT3/HadCRUT3_biased_97.5pc.nc) readCDF .temp
+  t monthlyedgesgrid partialgrid monthtimegrid
+  first secondtolast subgrid
+   name exch def
+% t /monthtime streamgridunitconvert
+  t /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  unspecified removeGRID
+  /long_name (Temperature Anomalies Including Biases at the Upper Uncertainty Range) def
+} defasvarsilent
+
+/biased_2p5pc {
+  (/Data/data7/uea/cru/Jones/HadCRUT3/HadCRUT3_biased_2.5pc.nc) readCDF .temp
+  t monthlyedgesgrid partialgrid monthtimegrid
+  first secondtolast subgrid
+   name exch def
+% t /monthtime streamgridunitconvert
+  t /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  unspecified removeGRID
+  /long_name (Temperature Anomalies Including Biases at the Lower Uncertainty Range) def
+} defasvarsilent
+:dataset
+
+dataset:
+/name /HadCRUT3v def
+/description (Variance adjusted version of HadCRUT3) def
+/iridl:hasSemantics (iridl:HADLEY) def
+/references (Brohan_etal2006) def
+
+/varadjtanom {
+  (/Data/data7/uea/cru/Jones/HadCRUT3/HadCRUT3v.nc) readCDF .temp
+  t monthlyedgesgrid partialgrid monthtimegrid
+  first secondtolast subgrid
+   name exch def
+% t /monthtime streamgridunitconvert
+  t /T renameGRID
+  T /defaultvalue {last} def pop
+  latitude /Y renameGRID longitude /X renameGRID
+  unspecified removeGRID
+  /long_name (Variance Adjusted Temperature Anomaly) def
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name /climatology def
+/description (1961-1990 climatology a.k.a "Absolute") def
+dataset:
+/name /c6190 def
+/temp 
+{
+(/Data/data2/cru/temperature/absolute.nc) readfile .tem
+ /long_name (surface temperature) def
+  /valid_min null def
+  time grid:
+     /name /T def
+     0.5 1 11.5
+        /units monthclimoname def
+        /gridtype periodic def
+        :grid
+    replaceGRID
+lon /X renameGRID lat /Y renameGRID} defasvarsilent
+:dataset
+:dataset
+:dataset
+%CRUTEM2 .temp .streamgridarray
+%{ name exch def} forall
+\end{ingrid}
+

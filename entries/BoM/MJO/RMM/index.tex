@@ -1,0 +1,103 @@
+\begin{ingrid}
+continuedataset:
+
+/description (Real-time Multivariate MJO Index (with components of interannual variability removed)) def
+
+link:
+/name (summary from BoM) def
+/description (Madden-Julian Oscillation (MJO)) def
+/href (http://www.bom.gov.au/climate/mjo/) def
+:link
+
+link:
+/name (data source) def
+/description (Text file of RMM1 and RMM2 values for 1974 to present (BoM)) def
+/href (http://www.bom.gov.au/climate/mjo/graphics/rmm.74toRealtime.txt) def
+:link
+
+link:
+/name (Wheeler and Hendon (2004) Monthly Weather Review article) def
+/description (An All-Season Real-Time Multivariate MJO Index: Development of an Index for Monitoring and Prediction) def
+/href (http://journals.ametsoc.org/doi/abs/10.1175/1520-0493(2004)132%3C1917:AARMMI%3E2.0.CO;2) def
+:link
+
+/references (Wheeler_Hendon2004) def
+
+grid:
+/name /T def
+/units (julian_day) def
+01 Jun 1974 julian_day
+1.0 
+%19 Oct 2015 julian_day
+%(/data/mbell/dldata/bom.d/MJO_RMM.d/enddate.txt) dup filelast_modified last_modified imax /last_modified exch def
+(/Data/data8/BoM/MJO/enddate.txt) dup filelast_modified last_modified imax /last_modified exch def
+readfile julian_day
+dup 2 add
+rjt2ymd ymd2systemtime
+/expires exch def
+:grid
+
+\end{ingrid}
+%((//8X,I4,10X,I2,10X,I2,1X,E15.8,1X,E15.8,9X,I3,1X,E15.8)) formatted
+:readdatafile
+\begin{ingrid}
+
+variable:
+/name (RMM1) def
+/units (unitless) def
+grids: T :grids
+file:
+/name (/Data/data8/BoM/MJO/rmm.74toRealtime.txt) def
+%/name (/Data/data21/BoM/MJO/rmm.74toRealtime.txt) def
+%/name (/data/mbell/dldata/bom.d/MJO_RMM.d/rmm.74toRealtime.txt) def
+formatted
+/format ((//(37X,E15.8))) def
+:file
+/missing_value 9.99999962E+35 def
+:variable
+
+variable:
+/name (RMM2) def
+/units (unitless) def
+grids: T :grids
+file:
+/name (/Data/data8/BoM/MJO/rmm.74toRealtime.txt) def
+%/name (/Data/data21/BoM/MJO/rmm.74toRealtime.txt) def
+%/name (/data/mbell/dldata/bom.d/MJO_RMM.d/rmm.74toRealtime.txt) def
+formatted
+/format ((//(53X,E15.8))) def
+:file
+/missing_value 9.99999962E+35 def
+:variable
+
+variable:
+/name (phase) def
+/units (unitless) def
+grids: T :grids
+file:
+/name (/Data/data8/BoM/MJO/rmm.74toRealtime.txt) def
+%/name (/Data/data21/BoM/MJO/rmm.74toRealtime.txt) def
+%/name (/data/mbell/dldata/bom.d/MJO_RMM.d/rmm.74toRealtime.txt) def
+formatted
+/format ((//(77X,F3.0))) def
+:file
+/missing_value 999. def
+:variable
+
+variable:
+/name (amplitude) def
+/units (unitless) def
+grids: T :grids
+file:
+/name (/Data/data8/BoM/MJO/rmm.74toRealtime.txt) def
+%/name (/Data/data21/BoM/MJO/rmm.74toRealtime.txt) def
+%/name (/data/mbell/dldata/bom.d/MJO_RMM.d/rmm.74toRealtime.txt) def
+formatted
+/format ((//(81X,E15.8))) def
+:file
+/missing_value 9.99999962E+35 def
+:variable
+
+
+:dataset
+\end{ingrid}

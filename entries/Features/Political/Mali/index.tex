@@ -1,0 +1,90 @@
+\begin{ingrid}
+continuedataset:
+/Health_Districts
+/description (Health Districts) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select id,code,name as d_name,lvlid,the_geom from ml_health2 order by id) (id) openqueryby
+        code
+            /long_name (District code) def
+        CopyStream
+        name exch def
+        d_name
+            /long_name (District name) def
+        CopyStream
+        name exch def
+        lvlid
+            /long_name (LVL id) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (District geometry) def
+        name exch def
+}defasvarcachesilent
+/Regions
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,gid as geom_id,region,grp,the_geom from mali order by gid) (gid) openqueryby
+        geom_id
+            /long_name (Geometry id) def
+        CopyStream
+        name exch def
+        region
+            /long_name (Region name) def
+        CopyStream
+        name exch def
+        grp
+            /long_name (Group abbrev.) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Region geometry) def
+        name exch def
+/last_modified
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select max ( last_modified ) as last_modified from mali) openquery .last_modified
+}def
+}defasvarcachesilent
+dataset:
+/name /Provinces def
+/prov_na
+{ IRIDB (mal_level_1) (id) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/label
+{ IRIDB (mal_level_1) (caption) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (mal_level_1) (the_geom) [(gid)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+
+dataset:
+/name /Districts def
+/prov_na
+{ IRIDB (mal_level_2) (adm1) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/dist_na
+{ IRIDB (mal_level_2) (adm2) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/label
+{ IRIDB (mal_level_2) (label) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (mal_level_2) (the_geom) [(gid)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+
+Provinces prov_na .gid name exch put
+Districts prov_na .gid name exch put
+
+\end{ingrid}

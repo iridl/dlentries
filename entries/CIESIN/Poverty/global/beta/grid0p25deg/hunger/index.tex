@@ -1,0 +1,58 @@
+\begin{ingrid}
+/CIESIN datadownloadsareIRIonlyPassword
+continuedataset:
+/long_name (Prevalence of Child Malnutrition) def
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+periodic
+-179.875 0.25 179.875
+:grid
+
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+84.875 0.25 -57.875
+:grid
+
+variable:
+/name /u5pop def
+/long_name (Count of children under age 5, year 2000) def
+/missing_value -9999 def
+/units (Number of Persons) def
+grids: X Y :grids
+file:
+formatted
+/name (/Data/data5/ciesin/poverty/global/beta/grid0p25deg/hunger/U5popq/u5popq.asc) def
+:file
+:variable
+
+variable:
+/name /uw def
+/long_name (Percent of children, under the age of 5, who are underweight (year period: 1990-2002)) def
+/missing_value -9999 def
+/units (Percent) def
+/scale_factor 0.1 def
+grids: X Y :grids
+file:
+formatted
+/name (/Data/data5/ciesin/poverty/global/beta/grid0p25deg/hunger/Uwq/uwq.asc) def
+:file
+:variable
+
+variable:
+/name /uwu5pop def
+/long_name (Estimate of children, under the age of 5, who are underweight, year 2000) def
+/missing_value -9999 def
+/units (Number of Persons) def
+grids: X Y :grids
+file:
+formatted
+/name (/Data/data5/ciesin/poverty/global/beta/grid0p25deg/hunger/Uwu5popq/uwu5popq.asc) def
+:file
+:variable
+
+:dataset
+\end{ingrid}

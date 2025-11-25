@@ -1,0 +1,53 @@
+#! /bin/csh
+set stagedir='/Data/data8/noaa/ncep/regional/SA'
+set datadir='/Data/data7/noaa/ncep/regional/SA'
+set ingriddir='/Data/data1/DataCatalog/entries/NOAA/NCEP/CPC/REGIONAL/SA/daily/gridded'
+#
+#update data files
+#
+cd $stagedir
+/usr/local/bin/webcopy -r http://www.cpc.ncep.noaa.gov/products/precip/realtime/SA/precip_data/ http://iriproxy:3128
+find . -name '*.ll' -newer $datadir/S_Amer_daily_prcp  -type f  -exec ./sadaily \{} \;
+./sadaily `date +./%Y%m%d.ll`
+cp S_Amer_daily_prcp $datadir
+#
+#update ingrid description file
+#
+cat <<EOF > $ingriddir/index.tex
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+-90 1 -30
+:grid
+grid:
+/name /Y def
+degN
+-60 1 15
+:grid
+grid:
+/name /T def
+/units (days since 2000-01-01 12:00:00) def
+/defaultvalue {last} def
+0 1 `date +'%d %b %Y'` julian_day 1 sub
+1 Jan 2000 julian_day sub
+:grid
+variable:
+/name /prcp def
+/units (mm/day) def
+/missing_value 9999. def
+grids:
+X Y | T
+:grids
+file: 
+/name ($datadir/S_Amer_daily_prcp) def
+direct
+:file
+:variable
+:dataset
+\end{ingrid}
+EOF
+
+
+

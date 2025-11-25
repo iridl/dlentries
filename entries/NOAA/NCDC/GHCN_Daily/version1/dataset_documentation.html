@@ -1,0 +1,89 @@
+<INGRID>datasetdocumentationheader</INGRID>
+<p>
+<h1>Global Historical Climatology Network - Daily, V1.0 (DSI-9300)</h1> 
+<p>
+The following description is from the abstract of the documentation file for this data set:
+<p>
+<i>Abstract: The Global Historical Climatology Network (GHCN) - Daily represents a compilation 
+of global daily data into a single and consistent format. This dataset is a continuation of the 
+Global Daily Climatology Network (GDCN, TD9101) which is no longer under development.
+The data set will serve the needs of researchers, weather-sensitive businesses, agriculture,
+and policy makers whose are dependent upon complete and accurate analysis of daily temperature
+and precipitation. Data within the GHCN-Daily have been extensively checked through a series
+of quality control procedures to ensure erroneous values have been removed and/or identified.
+</i>
+<p>
+Documentation for this data set can be found in the following PDF:  <a href="http://iri.columbia.edu/~mbell/DataLibrary/GHCN_Daily/GHCN_Daily_V1.pdf">
+GHCN_Daily_V1.pdf</a>
+<p>
+The GHCN Daily data can be found <a href="http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCDC/.GHCN_Daily/.version1/">here</a>.
+<p>
+<b><u>COUNTRY CODES (Country_Code)</u></b>
+<p>
+The key to the three-digit country codes used in this data set can be found in <a href="http://iri.columbia.edu/~mbell/DataLibrary/GHCN_Daily/AppendixA.txt">Appendix A</a> of GHCN_Daily_V1.pdf.
+<p>
+<b><u>DATA MEASUREMENT FLAG (DMFlag-Pr, DMFlag-Tx, DMFlag-Tn)</u></b>
+<p>(Note:  Flags can apply to Tx = Maximum Temperature, Tn = Minimum Temperature, Pr = Total Precipitation)
+<p>
+<table>
+<tr><td></td><td>-</td><td>No data measurement information (Tx,Tn,Pr)</td></tr>
+<tr><td>65</td><td>-</td><td>Accumulated precipitation value (Pr)</td></tr>
+<tr><td>67</td><td>-</td><td>Begin or continuing precipitation accumulation (Pr)</td></tr>
+<tr><td>69</td><td>-</td><td>Estimated value provided by source (Pr)</td></tr>
+<tr><td>74</td><td>-</td><td>Source provided accumulated precipitation value, however 
+	<br>no information on accumulation period was provided (Pr)</td></tr>
+<tr><td>84</td><td>-</td><td>Trace accumulation reported by source (Pr)</td></tr>
+<tr><td>82</td><td>-</td><td>Daily value derived from the hourly data (i.e. highest
+	<br>hourly or synoptic-reported temperature). (Tx, Tn)</td></tr>
+</table>
+<br>
+<br>
+<b><u>QUALITY CONTROL FLAG (QCFlag-Pr, QCFlag-Tx, QCFlag-Tn)</u></b>
+<p>
+<table>
+<tr><td></td><td>-</td><td>No quality control information (Tx, Tn, Pr)</td></tr>
+<tr><td>68</td><td>-</td><td>Duplicate value. (Tx, Tn, Pr)</td></tr>
+<tr><td>88</td><td>-</td><td>Exceeds known world daily extreme for that particular
+	<br>element (Krause and Flood, 1997). (Tx, Tn, Pr)</td></tr>
+<tr><td>73</td><td>-</td><td>Internal consistency error.  The minimum temperature
+	<br>value is greater than same day maximum temperature value. (Tx, Tn)</td></tr>
+<tr><td>75</td><td>-</td><td>Streak value.  Note:  0.0 mm precipitation values
+	<br>are excluded. (Tx, Tn, Pr)</td></tr>
+<tr><td>71</td><td>-</td><td>Gap value (see temperature quality control section). 
+	<br>(Tx, Tn)</td></tr>
+<tr><td>79</td><td>-</td><td>Temperature value is greater than or equal to 4.0
+	<br>bi-weight standard deviations from the period biweight mean. (Tx, Tn)</td></tr>
+<tr><td>77</td><td>-</td><td>Manually edited value set to missing. (Tx, Tn, Pr)</td></tr>
+</table>
+<br>
+It is possible that one or more quality control flags may apply to a single datum.  Therefore,
+the above listed flags are listed in order of precedence.  Thus, if a value is a streak (e.g. 
+'75') and also an outlier (e.g. '79') then the '75' flag will be set for that datum.  Once
+a value has a non-blank quality control flag, that datum is excluded from subsequent quality
+control procedures.
+<p>
+<b><u>DUPLICATE STATIONS</u></b>
+<p>
+With millions of days of daily data, direct comparison of all station data to all other 
+station data was not feasible due to computational time limitations.  However, a station to 
+station duplicate identification check was developed that compares the 15th day (for all years)
+of each month to the 15th day of each corresponding month. The comparison was only done 
+between the same element (e.g. compare STN A TMIN to STN B TMIN). The purpose of this test
+is to identify potential station pairs that have 100% of the same data on the 15th
+day of each month for all non-missing days. The test requires that at least 60 comparisons 
+(12 months x 5 years) of data are present before a duplicate can be declared. <a href="http://iri.columbia.edu/~mbell/DataLibrary/GHCN_Daily/AppendixF.txt">Appendix F</a>
+lists the station pairs and the element that are potentially duplicated.
+<p>
+<b>Note:</b> A portion of the stations were given new id numbers to facilitate their
+entry into the Data Library.  A list of these stations, along with their original and
+new id numbers, can be found <a
+href="http://iri.columbia.edu/~mbell/DataLibrary/GHCN_Daily/ghcndailyidreplace.txt">here</a>.
+
+<p>
+<b>Note:  The data and metadata within the Global Historical Climatology Network - Daily 
+Version 1.0 are governed by the following:
+<p>
+"The following data and products have conditions placed on their commercial use.  The non-U.S. 
+data cannot be redistributed within or outside of the U.S. for any commercial activities."
+</b>
+<INGRID>datasetdocumentationtrailer</INGRID>

@@ -1,0 +1,133 @@
+\begin{ingrid}
+
+/description (Fisheries: Volume of Production by Subsector, by Region and by Province, 1980-2012) def
+
+link:
+/name /source def
+/description (Download selection interface) def
+/href (http://countrystat.psa.gov.ph/?cont=10&pageid=1&ma=C40PNVFP)def
+:link
+
+continuedataset:
+
+grid:
+/name /T def
+/units (monthtime) def
+/defaultvalue { last } def
+16 Feb 1980 ensotime
+3
+16 Nov 2012 ensotime
+/pointwidth 3. def
+:grid
+
+grid:
+/name /provcode def
+values: 1401. 1481. 1411. 1427. 1432. 1444. 128. 129. 133. 155. 209. 215. 231. 250. 257. 377. 308. 314. 349. 354. 369. 371. 410. 421. 434. 456. 458. 1740. 1751. 1752. 1753. 1759. 505. 516. 517. 520. 541. 562. 604. 606. 619. 679. 630. 645. 712. 722. 746. 761. 878. 826. 837. 848. 864. 860. 972. 973. 97332. 983. 99701. 1013. 1018. 1035. 1042. 1043. 1123. 1124. 1125. 1182. 1247. 1280. 1263. 1265. 1602. 1603. 1667. 1668. 1685. 1507. 1536. 1538. 1566. 1570.
+:values
+/long_name (Province Code) def
+:grid
+
+grid:
+/name /provname_CS def
+/units /ids def
+values:
+(Abra)  (Apayao)        (Benguet)       (Ifugao)        (Kalinga)       (Mountain Province)     (Ilocos Norte)  (Ilocos Sur)    (La Union)      (Pangasinan)    (Batanes)       (Cagayan)       (Isabela)       (Nueva Vizcaya) (Quirino)       (Aurora)        (Bataan)        (Bulacan)       (Nueva Ecija)   (Pampanga)      (Tarlac)        (Zambales)      (Batangas)      (Cavite)        (Laguna)        (Quezon)        (Rizal) (Marinduque)    (Occidental Mindoro)    (Oriental Mindoro)      (Palawan)       (Romblon)       (Albay) (Camarines Norte)       (Camarines Sur) (Catanduanes)   (Masbate)       (Sorsogon)      (Aklan) (Antique)       (Capiz) (Guimaras)      (Iloilo)        (Negros Occidental)     (Bohol) (Cebu)  (Negros Oriental)       (Siquijor)      (Biliran)       (Eastern Samar) (Leyte) (Northern Samar)        (Southern Leyte)        (Samar) (Zamboanga del Norte)   (Zamboanga del Sur)     (Zamboanga City)        (Zamboanga Sibugay)     (City of Isabela)       (Bukidnon)      (Camiguin)      (Lanao del Norte)       (Misamis Occidental)    (Misamis Oriental)      (Davao del Norte)       (Davao del Sur) (Davao Oriental)        (Compostela Valley)     (North Cotabato)        (Sarangani)     (South Cotabato)        (Sultan Kudarat)        (Agusan del Norte)      (Agusan del Sur)        (Surigao del Norte)     (Surigao del Sur)       (Dinagat Islands)       (Basilan)       (Lanao del Sur) (Maguindanao)   (Sulu)  (Tawi-tawi)
+:values
+
+:grid
+
+/VoP_CF {
+[provcode T 12 splitgrid pop T 12 splitgrid nip | ]
+(/data/remic/mydatafiles/CountrySTAT/Philippines/Sub-national/Production/Fisheries/C40PNVFP.csv)
+readdatafile:
+[1 2 5] r*4astsv
+:readdatafile
+T unsplitstreamgrid
+/missing_value -9 def
+/long_name (Volume of Production of Commercial Fisheries) def
+/units /tons def
+/last_modified 2013 1 21 ymd2systemtime def
+}defasvarsilent
+
+/VoP_A {
+[provcode T 12 splitgrid pop T 12 splitgrid nip | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Philippines/Sub-national/Production/Fisheries/C40PNVFP_a.csv)
+readdatafile:
+[1 2 5] r*4astsv
+:readdatafile
+T unsplitstreamgrid
+/missing_value -9 def
+/long_name (Volume of Production of Aquaculture) def
+/units /tons def
+/last_modified 2013 1 21 ymd2systemtime def
+}defasvarsilent
+
+
+/VoP_IMF {
+[provcode T 12 splitgrid pop T 12 splitgrid nip | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Philippines/Sub-national/Production/Fisheries/C40PNVFP_imf.csv)
+readdatafile:
+[1 2 5] r*4astsv
+:readdatafile
+T unsplitstreamgrid
+/missing_value -9 def
+/long_name (Volume of Production of Inland Municipal Fisheries) def
+/units /tons def
+/last_modified 2013 1 21 ymd2systemtime def
+}defasvarsilent
+
+/VoP_MMF {
+[provcode T 12 splitgrid pop T 12 splitgrid nip | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Philippines/Sub-national/Production/Fisheries/C40PNVFP_mmf.csv)
+readdatafile:
+[1 2 5] r*4astsv
+:readdatafile
+T unsplitstreamgrid
+/missing_value -9 def
+/long_name (Volume of Production of Marine Municipal Fisheries) def
+/units /tons def
+/last_modified 2013 1 21 ymd2systemtime def
+}defasvarsilent
+
+
+/the_geom {
+SOURCES .Features .Political .Philippines .Provinces
+   a: .the_geom
+     :a: .provcode :a
+    use_as_grid
+   provcode VoP_CF .provcode .gridvalues VALUES
+provcode /units /ids def pop
+}defasvar
+
+/label {
+SOURCES .Features .Political .Philippines .Provinces
+   a: .label
+     :a: .provcode :a
+    use_as_grid
+   provcode VoP_CF .provcode .gridvalues VALUES
+provcode /units /ids def pop
+}defasvar
+
+/provname {
+SOURCES .Features .Political .Philippines .Provinces
+   a: .provname
+     :a: .provcode :a
+    use_as_grid
+   provcode VoP_CF .provcode .gridvalues VALUES
+provcode /units /ids def pop
+}defasvar
+
+/regcode {
+SOURCES .Features .Political .Philippines .Provinces
+   a: .regcode
+     :a: .provcode :a
+    use_as_grid
+   provcode VoP_CF .provcode .gridvalues VALUES
+provcode /units /ids def pop
+}defasvar
+
+:dataset
+
+/last_modified 2013 1 21 ymd2systemtime def
+
+\end{ingrid}

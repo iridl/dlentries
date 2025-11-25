@@ -1,0 +1,79 @@
+\begin{ingrid}
+
+%/description (Vietnam National Meteorological Agency) def
+
+continuedataset:
+
+/T                          %names the object
+1 Jan 1961 julian_day       %indicates first time
+31 Dec 2021 julian_day     %indicates last time
+%systemtime (%d %b %Y) 12 strftime interp julian_day
+dekadGRID                   %defines a dekadal grid according to first end last times above
+/defaultvalue { last } def  %sets the default value to be the last one when going to the data viewer
+def                         %ends the definition of object named 'T'
+
+grid:                       %starts the definition of a grid
+/name (Y) def               %defines name of grid
+/units (degree_north) def   %defines units of grid
+ 8.025  0.05 23.475         %defines center of first grid point, then resolution (or step), then center of last grid point
+/long_name (Latitude) def
+:grid                       %ends the definition of a grid
+%Note that by default Ingrid recognizes that a grid names 'Y' with 'degree_north' as units recognizes that is latitude, even if we didn't specify it
+
+grid:
+/name (X) def
+/units (degree_east) def
+ 102.025  0.05 109.475
+/long_name (Longitude) def
+:grid
+
+
+
+/tmax{
+ [ X Y | T ]  (/Data/data23/Vietnam/ENACTS_MERGED/ALL/TEMP/DEKAD/TMAX/tmax_mrg_%Y[T]%m[T]%-d[dekad]_ALL.nc)
+[T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+readdatafile: 		        %this starts the reading of data files
+/name (temp) def 	        %names the variable
+/long_name (Maximum Dekadal Temperature reanalysis merged with station) def         %gives a more descriptive name to the variable that will show up in graphs and maps
+/units /Celsius_scale def %defines the units of the variable
+/missing_value -99. def    %defines the value of missing values in the data file
+/realarraytype netcdfrecords %necessary for netcdf files
+:readdatafile 		        %this ends the reading of data files
+%0 masklt 		              %there are some other bad values in the data files that are masked. This must be out of the readdatafile commands
+%DATA 0 40 RANGE
+}defasvarsilent 	        %ends the definition of the variable
+
+
+
+/tmin{
+ [ X Y | T] (/Data/data23/Vietnam/ENACTS_MERGED/ALL/TEMP/DEKAD/TMIN/tmin_mrg_%Y[T]%m[T]%-d[dekad]_ALL.nc)
+[T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+readdatafile:
+/name (temp) def
+/long_name (Minimum Dekadal Temperature reanalysis merged with station) def
+/units /Celsius_scale def
+/missing_value -99. def
+/realarraytype netcdfrecords
+:readdatafile
+%-20. masklt
+%DATA 0 40 RANGE
+}defasvarsilent
+
+
+
+/tmean {
+ SOURCES .Vietnam .ENACTS .ALL .dekadal .temperature .tmax
+ SOURCES .Vietnam .ENACTS .ALL .dekadal .temperature .tmin
+add
+2.0 div
+/long_name (Average Dekadal Temperature reanalysis merged with station) def
+windspeed_colors
+DATA 0 40 RANGE
+} defasvarsilent
+
+
+%This ends the new dataset
+:dataset
+
+
+\end{ingrid}

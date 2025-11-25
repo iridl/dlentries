@@ -1,0 +1,73 @@
+\begin{ingrid}
+% First statement for Ingrid
+
+% New dataset
+continuedataset:
+
+% Time Grid 
+%datasetdefs:
+/T
+1 Jan 1961 julian_day
+31 Dec 2014 julian_day
+dekadGRID
+/defaultvalue {last} def
+def
+%:datasetdefs
+
+% Longitude Grid 
+grid:
+/name /X def
+/units /degree_east def
+/long_name (Longitude) def
+-12.2833318710327 0.0333333 4.28333282470703
+:grid
+
+% Latitude Grid 
+grid:
+/name /Y def
+/units (degree_north) def
+/long_name (Latitude) def
+10.1166658401489 0.0333333 25.0833320617676
+:grid
+
+% tmax Temperatures Variable
+/tmax{
+[X Y | T]
+(/data/remic/mydatafiles/MaliMet/ENACTS/Tmax_Merged_data/tmax_mrg_%Y%m[T]%d[dekad].nc)
+[T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+
+readdatafile:
+/realarraytype netcdfrecords
+/missing_value -99. def 
+/units /degreesC def
+/name (temp) def
+/long_name (Merged Maximum Temperature) def
+:readdatafile
+temp_colors
+/scale_symmetric false def
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+% tmin Temperatures Grid
+/tmin{
+[X Y | T]
+(/data/remic/mydatafiles/MaliMet/ENACTS/Tmin_Merged_data/tmin_mrg_%Y%m[T]%d[dekad].nc)
+[T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+
+readdatafile:
+/realarraytype netcdfrecords
+/missing_value -99. def
+/units /degreesC def
+/name (temp) def
+/long_name (Merged Minimum Temperature) def
+:readdatafile
+temp_colors
+/scale_symmetric false def
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+
+:dataset
+\end{ingrid}
+
+

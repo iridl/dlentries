@@ -1,0 +1,116 @@
+\begin{ingrid}
+continuedataset:
+/Conventions (CF-1.0) def
+grid:
+/name /x def
+1 1 780
+/standard_name (projection_x_coordinate) def
+:grid
+
+grid:
+/name /y def
+1 1 670
+/standard_name (projection_y_coordinate) def
+/plotfirst 670.5 def
+/plotlast .5 def
+:grid
+variable:
+/name /lon def
+/units (degreeE) def
+/fullname (Longitude) def
+/standard_name (longitude) def
+/missing_value 0 def
+grids: x y :grids
+file:
+ui*2
+/name (/Data/data7/nasa/avhrr/ndvi/europe/ancillary/avhrrpf.lon.1nnfeu) def
+:file
+/scale_factor .01 def
+/add_offset -180.10 def
+/scale_max 60.5 def
+/scale_min -13. def
+:variable
+
+variable:
+/name /lat def
+/units (degreeN) def
+/fullname (Latitude) def
+/standard_name (latitude) def
+/missing_value 0 def
+/scale_min 23.4 def
+/scale_max 76.7 def
+grids: x y :grids
+file:
+i*2
+/name (/Data/data7/nasa/avhrr/ndvi/europe/ancillary/avhrrpf.lat.1nnfeu) def
+:file
+/scale_factor .01 def
+/add_offset -90.10 def
+:variable
+
+variable:
+/name /elev def
+/units (meters) def
+/fullname (Elevation) def
+grids: x y :grids
+file:
+i*2
+/name (/Data/data7/nasa/avhrr/ndvi/europe/ancillary/avhrrpf.elev.1nnfeu) def
+:file
+/scale_factor 1 def
+/add_offset -15010 def
+:variable
+11 Jul 1981 julian_day
+30 Sep 2001 julian_day
+%31 Dec 1999 julian_day
+ dekadGRID
+% shift the first value slightly
+integralgrid
+   name units gridtype gridvalues
+       dup length realarray copy
+       dup dup
+         0 get
+         2 add
+         0 exch put
+       NewGRID
+    partialgrid nip
+% integralgrid
+% first secondtolast subgrid
+/standard_name (time) def
+name exch def
+/NDVI {
+[x y | T] 
+(/Data/data7/nasa/avhrr/ndvi/europe/%Y/avhrrpf.ndvi.1ntfeu.%y%m%d[firstday])
+ [T dup integralgrid
+        first secondtolast subgrid
+        .gridvalues
+        1 index
+         1 object
+         CopyStream exch
+         /name /firstday def
+         constantdata
+        ]readdatafile: ui*1
+      /scale_factor 0.008 def
+      /add_offset 0.008
+        -128 mul
+        def
+      /valid_min 3 def
+      /valid_max 255 def
+/long_name (Normalized Difference Vegetation Index) def
+/iridl:hasSemantics [(iridl:Europe)(iridl:NDVI)] def
+/projection (Interrupted Goode Homolosine) def
+/coordinates (T lat lon) def
+/units unitless def
+      :readdatafile
+/standard_name (normalized_difference_vegetation_index) def
+/SpatialReferenceSystemDims {x y} cvlit def
+x /standard_name (projection_x_coordinate) def name exch def
+y /standard_name (projection_y_coordinate) def name exch def
+scaledNDVIcolorscale
+}defasvarsilent
+/lon lon toNaN /scale_min lon .scale_min def /scale_max lon .scale_max def def
+/lat lat toNaN /scale_min lat .scale_min def /scale_max lat .scale_max def def
+:dataset
+\end{ingrid}
+
+ 

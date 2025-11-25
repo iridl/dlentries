@@ -1,0 +1,57 @@
+\begin{ingrid}
+continuedataset:
+link:
+/name (OISSTv2) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCDC/.OISST/.version2/) def
+/description (OISST Version 2) def
+/semantics (dcterm:isReplacedBy) def
+:link
+ /History (Version 1.0) def
+ /Contact (Dick Reynolds, email: Richard.W.Reynolds@noaa.gov &amp; Chunying Liu, email: Chunying.liu@noaa.gov) def
+ /Conventions (CF-1.0) def
+ /title (Daily optimum interpolation(OI) SST: AVHRR only or AVHRR+AMSR;) def
+ /Source (NOAA/National Climatic Data Center) def
+ /Description (Reynolds, et al.(2007) Daily High-resolution Blended Analyses. Availabe at http://www.ncdc.noaa.gov/oa/climate/research/sst/papers/daily-sst.pdf. Climatology is based on 1971-2000 OI.v2 SST, Satellite data: Pathfinder  AVHRR, Ice data: GSFC ice) def
+/references (Cavalieri_etal1997 Grumbine_etal1996 May_etal1998 Reynolds_etal2007) def
+   /AVHRR {
+(http://nomads.ncdc.noaa.gov/thredds/dodsC/oisst/totalAagg) readdods
+message? not {
+  time 0.5 shiftGRID
+  time /T renameGRID
+  lon /standard_name (projection_x_coordinate) def name exch def
+  lat /standard_name (projection_y_coordinate) def name exch def
+  /Conventions (CF-1.0) def
+  anom
+  /units (degree_Celsius) def
+  sstacolorscale
+  name exch def
+  err
+  /units (degree_Celsius) def
+  name exch def
+  sst
+  /units (Celsius_scale) def
+  name exch def
+} if
+  } defasvarsilent
+  /AVHRR-AMSR {
+  (http://nomads.ncdc.noaa.gov/thredds/dodsC/oisst/totalAmsrAgg) readdods
+message? not {
+  time 0.5 shiftGRID
+  time /T renameGRID
+  lon /standard_name (projection_x_coordinate) def name exch def
+  lat /standard_name (projection_y_coordinate) def name exch def
+  /Conventions (CF-1.0) def
+  /netcdf_Convention undef
+  anom
+  /units (degree_Celsius) def
+  name exch def
+  err
+  /units (degree_Celsius) def
+  name exch def
+  sst
+  /units (Celsius_scale) def
+  name exch def
+} if
+  } defasvarsilent
+:dataset
+\end{ingrid}

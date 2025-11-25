@@ -1,0 +1,42 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Senegal_128_1) def
+/Sub-Districts
+/description ( Sub-Districts, Wards) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,gid as geom_id,adm1_name,adm1_code,adm2_name,adm2_code,the_geom from sen_salb_jan00_feb02 order by gid) (gid) openqueryby
+        geom_id
+            /long_name (Geometry id) def
+        CopyStream
+        name exch def
+        adm1_name
+            /long_name (1st Order Admin. name) def
+        CopyStream
+        name exch def
+        adm1_code
+            /long_name (1st Order Admin. code) def
+        CopyStream
+        name exch def
+        adm2_name
+            /long_name (2nd Order Admin. name) def
+        CopyStream
+        name exch def
+        adm2_code
+            /long_name (2nd Order Admin. code) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Ward/Sub-District geometry) def
+        CopyStream
+        name exch def
+}defasvarcachesilent
+/last_modified 
+{  db: 
+   /server (localhost) def 
+   /dbname (iridb) def 
+   :db
+   (select max ( last_modified ) as last_modified from sen_salb_jan00_feb02) openquery .last_modified
+}def
+\end{ingrid}

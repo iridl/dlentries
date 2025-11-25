@@ -1,0 +1,70 @@
+	/references (Smith, T.M., and R. W. Reynolds, 2002: Extended reconstruction of global seas surface temperatures based on COADS data 1854-1997. Submitted, J. Climate.) def
+\begin{ingrid}
+continuedataset:
+/description (Extended reconstructed global sea surface temperature data based on COADS data) def
+datasetdefs:
+/SST {version1 .SST} def
+:datasetdefs
+/version1 currentobject /version1 get def
+/version2 currentobject /version2 get def
+%/version3 currentobject /version3 get def
+/version3b currentobject /version3b get def
+/version4 currentobject /version4 get def
+/version5 currentobject /version5 get def
+:dataset
+\end{ingrid}
+
+continuedataset:
+	/description (Extended reconstructed global sea surface temperature data based on COADS data) def
+	/references (Smith_Reynolds2002)def
+link:
+/name (NCDC SST Documentation Page) def
+/href (http://lwf.ncdc.noaa.gov/oa/climate/research/sst/sst.html) def
+:link
+	grid:
+		/name (X) def
+		/units (degreeE) def
+		/fullname (Longitude) def
+		periodic
+		0 2 358 
+	:grid
+	grid:
+		/name (Y) def
+		/units (degreeN) def
+		/fullname (Latitude) def
+		-88 2 88
+	:grid
+	grid:
+		/name (T) def
+		/units (monthtime) def
+		/fullname (Time) def
+		16 Jan 1854 ensotime 1. 16 
+		(/Data/data7/noaa/ncdc/ersst/enddate) readfile
+		ensotime
+	:grid
+	
+	variable:
+		/name (SST) def
+		/long_name (Sea Surface Temperature) def
+		/units (Celsius_scale) def
+		/missing_value -9999 def
+		/scale_factor .01 def
+		/scale_min -1.8 def
+		grids: Y X | T :grids
+
+		file:
+			formatted
+			/FORTRAN_format ((89i6)) def
+			/name (/Data/data7/noaa/ncdc/ersst/ersst_entiredataset.asc) def
+
+		:file
+	(/Data/data7/noaa/ncdc/ersst/ersst.2000.2009.asc.Z) deflastmod
+	:variable
+	(/Data/data7/noaa/ncdc/ersst/ersst.2000.2009.asc.Z) deflastmod
+:dataset
+/SST SST cachevar def
+
+
+
+
+

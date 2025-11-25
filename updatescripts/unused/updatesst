@@ -1,0 +1,85 @@
+#! /bin/sh -x
+PATH="/usr/local/bin:$PATH"
+# set new last month
+echo updatesst
+yr=`date '+%Y'`
+mon=`date '+%b'`
+
+if test $mon = "Jan"
+then
+yr=`expr $yr - 1`
+fi
+echo  $mon $yr
+olddate=`sed -n -e "/enddate/s/16 \(.*\) ensotime% enddate/\1/p" /Data/data1/DataCatalog/entries/IGOSS/nmc/Reyn_SmithOIv1/monthly/index.tex`
+datefn=/ClimateGroup/network/gnu/bin/date
+lastmon=`$datefn -d "1 month ago" +"%b %Y"`
+
+if [ "$lastmon" = "$olddate" ]; then
+echo "Already updated with $olddate data"
+else
+DataCat=/Data/data1/DataCatalog/entries
+#
+# Need to be in the directory with the program and the data files
+#
+cd /Data/data3/ocean/nmc
+filename=oi.month.comp.bias.$yr
+echo Getting Data Update
+#ftp -n nic.fb4.noaa.gov << eoftp
+#cd pub/ocean/clim1/oimonth/
+ftp -n ftpprd.ncep.noaa.gov << eoftp
+user SECRET_USER SECRET_PASSWORD
+binary
+hash
+cd pub/cmb/misc/tmp
+ls
+get $filename 
+eoftp
+if [ "$?" -ne 0 ] 
+then
+at now + 1 day <<eoc
+#
+# Using the same shell one day later (/Data/data1/ocean/nmc/updatesst now diff.)
+#
+/home/datag/cronjobs/updatesst $yr
+eoc
+echo Try again tomorrow
+exit
+fi
+#
+echo Updating sst
+cd /Data/data3/ocean/nmc
+if [ -f $filename ]; then
+./readsst0 $filename > newdate
+else
+exit
+fi
+if [ "$?" -ne 0 ] 
+then
+at now + 1 day <<eoc
+#
+# Using the same shell one day later (/Data/data1/ocean/nmc/updatesst now diff.)
+#
+/home/datag/cronjobs/updatesst $yr
+eoc
+echo Try again tomorrow
+exit
+fi
+date=`cat newdate`
+rm newdate
+
+if [ "$olddate" != "$date" ]
+then
+echo Updating catalog entry
+sed -e "/enddate/s/^ *16 *[^ ]* *[0-9]*/16 $date/" $DataCat/IGOSS/nmc/Reyn_SmithOIv1/monthly/index.tex >tmp
+mv $DataCat/IGOSS/nmc/Reyn_SmithOIv1/monthly/index.tex nmc.old
+mv tmp $DataCat/IGOSS/nmc/Reyn_SmithOIv1/monthly/index.tex
+echo Updating ssta
+/usr/local/bin/ingrid createssta.tex > ssta
+#rsh lola cp /Data/data1/ocean/nmc/ssta /Data/data3/ocean/nmc/ssta
+/hosts/markov/usr2/alexeyk/local/xHSST/mkOSxbNCEP.sh $date
+echo Done
+else
+echo No new data -- updating unnecessary
+fi
+fi
+# eof

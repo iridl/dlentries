@@ -1,0 +1,302 @@
+\begin{ingrid}
+continuedataset:
+%We get AVHRR(-ONLY) files from there up to 2017
+link:
+/name (source) def
+/href (ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/NetCDF-uncompress/) def
+:link
+%We're getting AVHRR(-ONLY)files from there from 2018:
+link:
+/name (source2) def
+/href (https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/access/avhrr-only/) def
+:link
+link:
+/name (OISSTv2_Product_Page) def
+/href (http://www.ncdc.noaa.gov/oa/climate/research/sst/oi-daily.php) def
+:link
+link:
+/name (whats-new-v2) def
+/href (http://www.ncdc.noaa.gov/oa/climate/research/sst/papers/whats-new-v2.pdf) def
+:link
+link:
+/name (OISST_Analysis_Changes) def
+/href (http://www.ncdc.noaa.gov/oa/climate/research/sst/papers/OI_update.pdf) def
+:link
+
+/references (Cavalieri_etal1997 Grumbine_etal1996 May_etal1998 Reynolds_etal2007) def
+
+dataset:
+/name (AVHRR)def
+ /Description (Reynolds, et al.(2007) Daily High-resolution Blended Analyses. Available at ftp://eclipse.ncdc.noaa.gov/pub/OI-daily/daily-sst.pdf  Climatology is based on 1971-2000 OI.v2 SST, Satellite data: Navy NOAA18 METOP AVHRR, Ice data: NCEP ice) def
+ /Conventions (CF-1.0) def
+ /History (Version 2.0) def
+ /creation_date (2012-01-06) def
+ /Source (NOAA/National Climatic Data Center) def
+/references (Cavalieri_etal1997 Grumbine_etal1996 May_etal1998 Reynolds_etal2007) def
+ /Contact (Dick Reynolds, email: Richard.W.Reynolds@noaa.gov & Chunying Liu, email: Chunying.liu@noaa.gov) def
+ /title (Daily-OI-V2, Interim, Data (Ship, Buoy, AVHRR: NOAA19, METOP, NCEP-ice)) def
+
+grid:
+/name (lon)def
+/standard_name (projection_x_coordinate) def
+/units (degree_east)def
+periodic
+ 0.125 0.25 359.875
+:grid
+
+grid:
+/name (lat)def
+/standard_name (projection_y_coordinate) def
+/units (degree_north)def
+ -89.875 0.25 89.875
+:grid
+
+grid:
+/name (zlev)def
+/units (meters)def
+values: 0.0 :values
+:grid
+
+grid:
+/name /T def
+/standard_name (time) def
+/defaultvalue {last} def
+/units (days since 1978-01-01 12:00:00)def
+20 Sep 1981 julian_day 01 Jan 1978 julian_day sub
+1.0
+13 Apr 2020 julian_day 01 Jan 1978 julian_day sub
+/netcdfgrid true def
+:grid
+
+/last_modified T .last_modified def
+
+ /anom{
+[ lon lat zlev | T]
+%(ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/NetCDF-uncompress/%Y[T]/AVHRR/avhrr-only-v2.%Y%m%d[T].nc) [T] readdatafile:
+(/Data/data21/noaa/ncdc/OI-daily-v2/NetCDF-uncompress/%Y%m[T]/avhrr-only-v2.%Y%m%d[T].nc) [T]
+readdatafile:
+/name (anom) def
+ /valid_max 1200 def
+ /scale_factor 0.01 def
+ /long_name (Daily sea surface temperature anomalies) def
+ /units (degree_Celsius)cvn def
+ /missing_value -999 def
+ /valid_min -1200 def
+ /shortarraytype netcdfrecords :readdatafile
+ /iridl:hasSemantics (iridl:SeaSurfaceTemperatureAnomaly) def
+}defasvarsilent
+
+ /err{
+[ lon lat zlev | T]
+% (ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/NetCDF-uncompress/%Y[T]/AVHRR/avhrr-only-v2.%Y%m%d[T].nc) [T] readdatafile:
+(/Data/data21/noaa/ncdc/OI-daily-v2/NetCDF-uncompress/%Y%m[T]/avhrr-only-v2.%Y%m%d[T].nc) [T]
+readdatafile:
+/name (err) def
+ /valid_max 1000 def
+ /scale_factor 0.01 def
+ /long_name (Estimated error standard deviation of analysed_sst) def
+ /units (degree_Celsius)cvn def
+ /missing_value -999 def
+ /valid_min 0 def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ice{
+[ lon lat zlev | T]
+% (ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/NetCDF-uncompress/%Y[T]/AVHRR/avhrr-only-v2.%Y%m%d[T].nc) [T] readdatafile:
+(/Data/data21/noaa/ncdc/OI-daily-v2/NetCDF-uncompress/%Y%m[T]/avhrr-only-v2.%Y%m%d[T].nc) [T]
+readdatafile:
+/name (ice) def
+ /valid_max 100 def
+ /scale_factor 0.01 def
+ /long_name (Sea ice concentration) def
+ /units /percentage def
+ /missing_value -999 def
+ /valid_min 0 def
+ /shortarraytype netcdfrecords :readdatafile
+ /standard_name (sea_ice_area_fraction) def
+}defasvarsilent
+
+ /sst{
+[ lon lat zlev | T]
+% (ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/NetCDF-uncompress/%Y[T]/AVHRR/avhrr-only-v2.%Y%m%d[T].nc) [T] readdatafile:
+(/Data/data21/noaa/ncdc/OI-daily-v2/NetCDF-uncompress/%Y%m[T]/avhrr-only-v2.%Y%m%d[T].nc) [T]
+readdatafile:
+/name (sst) def
+ /valid_max 4500 def
+ /scale_factor 0.01 def
+ /long_name (Daily sea surface temperature) def
+ /units (Celsius_scale)cvn def
+ /missing_value -999 def
+ /valid_min -300 def
+ /shortarraytype netcdfrecords :readdatafile
+ /iridl:hasSemantics (iridl:SeaSurfaceTemperature) def
+}defasvarsilent
+:dataset
+
+dataset:
+/name (AVHRR-AMSR)def
+ /creation_date (2011-10-05) def
+ /Conventions (CF-1.0) def
+ /Description (Reynolds, et al.(2007) Daily High-resolution Blended Analyses. Available at ftp://eclipse.ncdc.noaa.gov/pub/OI-daily/daily-sst.pdf  Climatology is based on 1971-2000 OI.v2 SST, Satellite data: AMSR Navy NOAA18 METOP AVHRR, Ice data: NCEP ice) def
+ /Source (NOAA/National Climatic Data Center) def
+ /History (Version 2.0) def
+/references (Cavalieri_etal1997 Grumbine_etal1996 May_etal1998 Reynolds_etal2007) def
+ /title (Daily-OI-V2, Interim, Data (Ship, Buoy, AMSR, AVHRR: NOAA19, METOP, NCEP-ice)) def
+ /Contact (Dick Reynolds, email: Richard.W.Reynolds@noaa.gov & Chunying Liu, email: Chunying.liu@noaa.gov) def
+grid:
+/name (lon)def
+/standard_name (projection_x_coordinate) def
+/units (degree_east)def
+periodic
+ 0.125 0.25 359.875
+:grid
+
+grid:
+/name (lat)def
+/standard_name (projection_y_coordinate) def
+/units (degree_north)def
+ -89.875 0.25 89.875
+:grid
+
+grid:
+/name (zlev)def
+/units (meters)def
+values: 0.0 :values
+:grid
+
+grid:
+/name (T)def
+/standard_name (time) def
+/defaultvalue {last} def
+/units (days since 1978-01-01 12:00:00)def
+01 Jun 2002 julian_day 01 Jan 1978 julian_day sub
+1.0
+04 Oct 2011 julian_day 01 Jan 1978 julian_day sub
+/netcdfgrid true def
+:grid
+
+ /anom{
+[ lon lat zlev | T] (ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/NetCDF-uncompress/%Y[T]/AVHRR-AMSR/amsr-avhrr-v2.%Y%m%d[T].nc) [T] readdatafile:
+/name (anom) def
+ /valid_max 1200 def
+ /scale_factor 0.01 def
+ /long_name (Daily sea surface temperature anomalies) def
+ /units (degree_Celsius)cvn def
+ /missing_value -999 def
+ /valid_min -1200 def
+ /shortarraytype netcdfrecords :readdatafile
+ /iridl:hasSemantics (iridl:SeaSurfaceTemperatureAnomaly) def
+}defasvarsilent
+
+ /err{
+[ lon lat zlev | T] (ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/NetCDF-uncompress/%Y[T]/AVHRR-AMSR/amsr-avhrr-v2.%Y%m%d[T].nc) [T] readdatafile:
+/name (err) def
+ /valid_max 1000 def
+ /scale_factor 0.01 def
+ /long_name (Estimated error standard deviation of analysed_sst) def
+ /units (degree_Celsius)cvn def
+ /missing_value -999 def
+ /valid_min 0 def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ice{
+[ lon lat zlev | T] (ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/NetCDF-uncompress/%Y[T]/AVHRR-AMSR/amsr-avhrr-v2.%Y%m%d[T].nc) [T] readdatafile:
+/name (ice) def
+ /valid_max 100 def
+ /scale_factor 0.01 def
+ /long_name (Sea ice concentration) def
+ /units /percentage def
+ /missing_value -999 def
+ /valid_min 0 def
+ /shortarraytype netcdfrecords :readdatafile
+ /standard_name (sea_ice_area_fraction) def
+}defasvarsilent
+
+ /sst{
+[ lon lat zlev | T] (ftp://eclipse.ncdc.noaa.gov/pub/OI-daily-v2/NetCDF-uncompress/%Y[T]/AVHRR-AMSR/amsr-avhrr-v2.%Y%m%d[T].nc) [T] readdatafile:
+/name (sst) def
+ /valid_max 4500 def
+ /scale_factor 0.01 def
+ /long_name (Daily sea surface temperature) def
+ /units (Celsius_scale)cvn def
+ /missing_value -999 def
+ /valid_min -300 def
+ /shortarraytype netcdfrecords :readdatafile
+ /iridl:hasSemantics (iridl:SeaSurfaceTemperature) def
+}defasvarsilent
+:dataset
+
+:dataset
+\end{ingrid}
+
+
+% the entry below was replaced on 9 Jan 2012 to access OISST version2 that are
+% updated in real time, not just annually
+
+continuedataset:
+link:
+/name (source) def
+/href (http://nomads.ncdc.noaa.gov/thredds/catalog/oisst/oisstDatasets.html) def
+:link
+link:
+/name (OISSTv2_Product_Page) def
+/href (http://www.ncdc.noaa.gov/oa/climate/research/sst/oi-daily.php) def
+:link
+link:
+/name (whats-new-v2) def
+/href (http://www.ncdc.noaa.gov/oa/climate/research/sst/papers/whats-new-v2.pdf) def
+:link
+link:
+/name (OISST_Analysis_Changes) def
+/href (http://www.ncdc.noaa.gov/oa/climate/research/sst/papers/OI_update.pdf) def
+:link
+ /History (Version 2.0) def
+ /Contact (Dick Reynolds, email: Richard.W.Reynolds@noaa.gov &amp; Chunying Liu, email: Chunying.liu@noaa.gov) def
+ /Conventions (CF-1.0) def
+ /title (Daily optimum interpolation(OI) SST: AVHRR only or AVHRR+AMSR;) def
+ /Source (NOAA/National Climatic Data Center) def
+ /Description (Reynolds, et al.(2007) Daily High-resolution Blended Analyses. Availabe at http://www.ncdc.noaa.gov/oa/climate/research/sst/papers/daily-sst.pdf. Climatology is based on 1971-2000 OI.v2 SST, Satellite data: Pathfinder  AVHRR, Ice data: GSFC ice) def
+/references (Cavalieri_etal1997 Grumbine_etal1996 May_etal1998 Reynolds_etal2007) def
+   /AVHRR {
+(http://nomads.ncdc.noaa.gov/thredds/dodsC/oisst2/totalAagg) readdods
+message? not {
+  time 0.5 shiftGRID
+  time /T renameGRID
+  lon /standard_name (projection_x_coordinate) def name exch def
+  lat /standard_name (projection_y_coordinate) def name exch def
+  /Conventions (CF-1.0) def
+  anom
+  /units (degree_Celsius) def
+  sstacolorscale
+  name exch def
+  err
+  /units (degree_Celsius) def
+  name exch def
+  sst
+  /units (Celsius_scale) def
+  name exch def
+} if
+  } defasvarcachesilent
+  /AVHRR-AMSR {
+  (http://nomads.ncdc.noaa.gov/thredds/dodsC/oisst2/totalAmsrAgg) readdods
+message? not {
+  time 0.5 shiftGRID
+  time /T renameGRID
+  lon /standard_name (projection_x_coordinate) def name exch def
+  lat /standard_name (projection_y_coordinate) def name exch def
+  /Conventions (CF-1.0) def
+  /netcdf_Convention undef
+  anom
+  /units (degree_Celsius) def
+  name exch def
+  err
+  /units (degree_Celsius) def
+  name exch def
+  sst
+  /units (Celsius_scale) def
+  name exch def
+} if
+  } defasvarsilent
+:dataset

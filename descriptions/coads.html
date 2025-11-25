@@ -1,0 +1,283 @@
+<INGRID>datasetdocumentationheader</INGRID>
+<h1>Comprehensive Ocean-Atmosphere Data Set (COADS):
+Trimmed Monthly Summaries </h1>
+The data are <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.COADS/">here</a>.
+<h2>BRIEF</h2>
+(Cited from <a href="http://rainbow.ldgo.columbia.edu/data/NASAentries/nasa3276.html">COADS</a>)<p>
+
+"In January 1981, a cooperative project was planned to create a consistent and
+easily used historical record of surface marine data for the period 1854-1979
+(Woodruff, et al., 1987). Members of this project were the National Climatic
+Data Center (NCDC), Environmental Research Laboratories, the cooperative
+Institute for Research in Environmental Sciences, and the National Center for
+Atmospheric Research.  The culmination of four years of work resulted in the
+Comprehensive  Ocean-Atmosphere Data Set (COADS) (Slutz, et al., 1985,
+hereafter referred to as COADS Release 1)."
+<p>
+"One of the many products of COADS was a unique set of surface marine ship
+reports in a modified TD-1129 format covering the period 1854-1979 (TD-1170).
+This document provides information only for COADS pre-1970s surface marine
+data.  A similar  COADS product covering the period 1970-1979 (TD-1129) is
+described in a Marine Data Users Reference, 1970-current (NCDC, 1986). Data
+Prior to 1854 is contained in the Maury collection."
+<p>
+"Products now available in a first release from this Comprehensive
+Ocean-Atmosphere Data Set (COADS) include fully quality-controlled (trimmed)
+reports and summaries. Global marine data observed during 1854-1979, primarily
+by ships-of-opportunity, have been collected, edited, and summarized
+statistically for each month of the period, using 2 degree latitude x 2 degree
+longitude boxes.  Each of the 70 million unique reports contain 28 elements of
+weather, position, etc., as well as flags indicating which observations were
+statistically trimmed. The summaries give l4 statistics, such as the median
+and mean, for each of eight observed variables of air and sea surface
+temperatures, wind, pressure, humidity, and cloudiness, plus ll derived
+variables. Relatively noisy (untrimmed) individual reports and summaries
+(giving l4 statistics for each of the eight observed variables) are available
+for investigators who prefer their own quality control. Two other report forms,
+inventories, and decade-month summaries are among the other products available.
+FORTRAN 77 software available to help read 'packed binary' data products and
+processing details, such as the method of identifying duplicate reports, are
+also available."
+<p>
+"The Compressed Marine Reports contain 28 frequently used parameters, omitting
+individual ship numbers. Statistical outliers are flagged. The entire set is
+stored in binary format. Refer to COADS Release 1, Supplement E, for further
+details. The Long Marine Reports contain the complete observational record of
+the platform which contributed the data, as well as quality flags.  The data
+are stored in a hybrid format of packed binary and character.  Further
+information on format is available in COADS Release 1, Supplement F.
+Character-formatted Long Marine Reports, a subset of the Long Marine Reports,
+are stored in ASCII character format, more fully described in Supplement I of
+COADS, Release 1."
+<p>
+"The Decadal and Monthly Summaries are averaged by decade and month over either
+10 x 10 or 2 x 2 latitude-longitude boxes. In trimmed versions of these
+summaries statistical outliers and data located over land have been removed.
+The data are stored in packed binary format. Further details can be obtained
+from COADS Release 1, Supplement A."
+<p>
+"Monthly Summary Trimmed and Untrimmed Groups (the former is the only
+kind presented here in LDEO -- AK)  contain fewer variables and
+fewer statistical parameters than the monthly summaries.  The sort is by year,
+month and 2 degree latitude-longitude box. This product is the most compact
+and generally the most convenient to use for studies involving only a
+few variables and statistical parameters.  COADS Release 1, Supplement B
+gives further details."
+
+</pre><h2>SPECIFIC FEATURES OF LOCAL (LDEO, Climate Modelling Group) STORAGE</h2>
+
+<a href="http://rosie.ldgo.columbia.edu/SOURCES/.COADS/">Our data</a>
+are a subset of the original COADS MSTG 
+(Monthly Summary Trimmed Groups) data. The following variables are included:
+<dl compact>
+<dt> u <dd>Zonal Wind Velocity (m/s)
+<dt> v <dd>Meridional Wind Velocity (m/s)
+<dt> |u| <dd> Windspeed (m/s)
+<dt> slp <dd> Sea Level Pressure (mb)
+<dt> sst <dd> Sea Surface Temperature (C)
+<dt> tair <dd> Air Temperature (C)
+<dt> shum <dd> Specific Humidity (g/kg)
+</dl>
+and they are characterized by the  following statistical values describing 
+the monthly populations of 2x2 geographical boxes:
+<dl compact>
+<dt> mean <dd> mean data
+<dt> stdev <dd>standard deviation
+<dt>nobs<dd>number of observations
+<dt>xlon<dd>mean longitude of observations
+<dt>ylat<dd>mean latitude of observations
+</dl>
+
+Data were extracted from COADS tapes and rewritten into economical direct
+access format on disk by Alexey Kaplan, alexeyk@rainbow.ldgo.columbia.edu
+in March, 1994.
+
+</pre><h2>ATTRIBUTES</h2><pre> 
+Temporal Coverage:
+     From: 1854-01                 TO:  1992-12
+ 
+Geographic Coverage:
+     Southwest Extent: 90S,180W    Northeast Extent:  90N,180E
+ 
+Source:
+     BUOYS
+     SHIPS>Ships-of-Opportunity, Buoys, etc.
+ 
+Sensor:
+     XBT>External Bathythermographs
+ 
+Campaign/Project:
+     COADS>Comprehensive Ocean-Atmosphere Data Set
+ 
+Discipline, Subdiscipline:
+     EARTH SCIENCE                   > ATMOSPHERE
+     EARTH SCIENCE                   > OCEAN
+ 
+Location Keyword:
+     GLOBAL
+     SEA SURFACE
+ 
+Parameter Group, Parameter:
+ 
+     ATMOSPHERIC DYNAMICS            > ATMOSPHERIC TEMPERATURE
+        air temperature
+ 
+ 
+     ATMOSPHERIC DYNAMICS            > PRESSURE
+        sea level pressure
+ 
+ 
+     ATMOSPHERIC DYNAMICS            > WINDS
+        wind direction
+ 
+     OCEAN DYNAMICS                  > TEMPERATURE
+        sea surface temperature
+ 
+ 
+General Keywords:
+     AIR-SEA INTERACTION
+     CLIMATOLOGY
+     COADS
+     GRID DATA
+     MARINE
+     MONTHLY DATA
+     PHYSICAL OCEANOGRAPHY
+     SEA SURFACE TEMPERATURE
+     STATISTICS
+     SURFACE
+     WIND STRESS
+ 
+Revision Date: 1994-06-09
+ 
+                                             
+</pre><h2>DATACENTER</h2><pre>
+Archive: 
+   JPL/PHY OCEAN>Physical Oceanography Distributed Active Archive Center
+ 
+   Contact: USER SERVICE OFFICE,  
+            MS 300-323
+            Jet Propulsion Laboratory
+            4800 Oak Grove Drive
+            Pasadena, CA 91109
+            USA
+ 
+            Electronic Mail: INTERNET> PODAAC@SHRIMP.JPL.NASA.GOV
+                             NSI/DECNET> SHRIMP::PODAAC
+                             OMNET> PO.DAAC.JPL
+ 
+            Phone: (818) 354-0906
+                   (818) 393-6720 (fax)
+ 
+Archive: 
+   NCAR>National Center for Atmospheric Research
+   Data Set ID: CMR.5 
+                DST 
+                DSU 
+                DSUL 
+ 
+   Contact: JOSEPH, DENNIS 
+            National Center for Atmospheric Research
+            Data Support Section
+            P.O. Box 3000
+            Boulder, CO  80307
+            USA
+ 
+            Electronic Mail: INTERNET> JOSEPH@BIERSTADT.SCD.UCAR.EDU
+ 
+            Phone: 303-497-1216
+ 
+Archive: 
+   NCDS>NASA Climate Data System
+   Data Set ID: COADS_MSTG 
+ 
+   Contact: OLSEN, LOLA 
+            GSFC Distributed Active Archive Center
+            NASA/GSFC
+            Code 902.2
+            Greenbelt, MD 20771
+            USA
+ 
+            Electronic Mail: INTERNET> OLSEN@NSSDCA.GSFC.NASA.GOV
+                             NSI/DECNET> NCF::OLSEN
+ 
+            Phone: (301) 286-9760
+                   FTS 888-9760
+ 
+Archive: 
+   NOAA/NESDIS/NCDC>National Climatic Data Center, NOAA
+   Data Set ID: TD-1169 
+                TD-1170 
+ 
+   Contact: ROSS, THOMAS 
+            NOAA/NESDIS/NCDC
+            Federal Building
+            37 Battery Park Avenue
+            Asheville, NC 28801-2733
+            USA
+ 
+            Electronic Mail: INTERNET> TROSS@NCDC.NOAA.GOV
+ 
+            Phone: (704) 271-4994
+                                             
+</pre><h2>PERSONNEL</h2><pre>
+Investigator: JENNE, ROY 
+              National Center for Atmospheric Research (NCAR)
+              P.O. Box 3000
+              Boulder, CO 80307-3000
+              USA
+ 
+              Electronic Mail: OMNET> R.JENNE
+ 
+              Phone: (303) 497-1215
+ 
+Tech Contact: WOODRUFF, SCOTT 
+              Climate Research Program
+              NOAA/ERL (R/E/R6)  NCAR
+              325 Broadway
+              Boulder CO, 80303
+              USA
+ 
+              Phone: (303) 497-6747
+ 
+                                             
+</pre><h2>REFERENCE</h2><pre>
+
+Slutz, R.J., S.J. Lubker, J.D. Hiscox, S.D. Woodruff, R.L. Jenne, P.M. Steurer,
+and J.D. Elms, 1985: 'Comprehensive Ocean-Atmosphere Data Set; Release 1',
+Climate Research Program, Boulder, Colorado.
+<p>
+***************************************************************************
+<a
+href="http://rainbow.ldgo.columbia.edu/data/NASAentries/nasa3276.html">
+Original entry from NASA</a>
+<p>
+Entry Author: SMITH, ELIZABETH A.
+              Center for Coastal Physical Oceanography
+              Crittenton Hall
+              Old Dominion University
+              Norfolk, VA 23529
+              USA
+ 
+              Electronic Mail: INTERNET> lizsmith@kuroshio.ccpo.odu.edu
+ 
+              Phone: (804) 683-5550 (FAX)
+                     (804) 683-5567
+ 
+ 
+Information in the entry provided by NODS
+ 
+*****************************************************************
+
+                                             
+</pre><h2>SUP_MENU</h2><pre>
+   1. Data Center: NCAR>National Center for Atmospheric Research
+  
+   2. Data Center: NCDS>NASA Climate Data System
+  
+   3. Campaign: COADS>Comprehensive Ocean-Atmosphere Data Set
+  
+   4. Sensor: BATHYTHERMOGRAPHS>External Bathythermographs
+  
+                                               
+</pre>
+<INGRID>datasetdocumentationtrailer</INGRID>

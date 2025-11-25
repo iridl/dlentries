@@ -1,0 +1,51 @@
+\begin{ingrid} 
+continuedataset: 
+
+/hgt { 
+ SOURCES .Models .NMME .NCEP-CFSv2 .HINDCAST .PENTAD_SAMPLES .MONTHLY .hgt
+  S (1 Jan 1990) (1 Mar 2011) RANGEEDGES
+  SOURCES .Models .NMME .NCEP-CFSv2 .FORECAST .PENTAD_SAMPLES .MONTHLY .hgt
+   S (1 Apr 2011) (1 Dec 2020) RANGEEDGES
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvar 
+
+/prec { 
+ SOURCES .Models .NMME .NCEP-CFSv2 .HINDCAST .PENTAD_SAMPLES .MONTHLY .prec
+  S (1 Jan 1990) (1 Mar 2011) RANGEEDGES
+  SOURCES .Models .NMME .NCEP-CFSv2 .FORECAST .PENTAD_SAMPLES .MONTHLY .prec
+   S (1 Apr 2011) (1 Dec 2020) RANGEEDGES
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvar
+
+
+/sst { 
+ SOURCES .Models .NMME .NCEP-CFSv2 .HINDCAST .PENTAD_SAMPLES .MONTHLY .sst
+  S (1 Jan 1990) (1 Mar 2011) RANGEEDGES
+  SOURCES .Models .NMME .NCEP-CFSv2 .FORECAST .PENTAD_SAMPLES .MONTHLY .sst
+   S (1 Apr 2011) (1 Dec 2020) RANGEEDGES
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvar
+
+/tref { 
+ SOURCES .Models .NMME .NCEP-CFSv2 .HINDCAST .PENTAD_SAMPLES .MONTHLY .tref
+  S (1 Jan 1990) (1 Mar 2011) RANGEEDGES
+  SOURCES .Models .NMME .NCEP-CFSv2 .FORECAST .PENTAD_SAMPLES .MONTHLY .tref
+   S (1 Apr 2011) (1 Dec 2020) RANGEEDGES
+   appendstream
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+} defasvar
+
+:dataset
+\end{ingrid} 
+

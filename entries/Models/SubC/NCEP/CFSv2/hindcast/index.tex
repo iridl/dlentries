@@ -1,0 +1,337 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+
+/va_200 {
+[ X Y | L M S ] (/Data/SubX/NCEP/CFSv2/hindcast/va_200/%Y[S]/%m[S]/va_200_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ M S ] readdatafile:
+/name (va_200) def
+/long_name (Meridional Wind at 200 hPa) def
+/interpolation (no interpolation; data straight from NCEP) def
+/missing_value -9999.0 def
+/standard_name (northward_wind) def
+/level_type (pressure level) def
+/units (m/s) def
+/realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/va_850 {
+[ X Y | L M S ] (/Data/SubX/NCEP/CFSv2/hindcast/va_850/%Y[S]/%m[S]/va_850_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ M S ] readdatafile:
+/name (va_850) def
+/long_name (Meridional Wind at 850 hPa) def
+/interpolation (no interpolation; data straight from NCEP) def
+/missing_value -9999.0 def
+/standard_name (northward_wind) def
+/level_type (pressure level) def
+/units (m/s) def
+/realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/zg_200 {
+[ X Y | L M S ] (/Data/SubX/NCEP/CFSv2/hindcast/zg_200/%Y[S]/%m[S]/zg_200_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ M S ] readdatafile:
+/name (zg_200) def
+/long_name (Geopotential Height at 200 hPa) def
+/interpolation (no interpolation; data straight from NCEP) def
+/missing_value -9999.0 def
+/standard_name (geopotential_height) def
+/level_type (pressure level) def
+/units (m) def
+/realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/zg_500 {
+[ X Y | L M S ] (/Data/SubX/NCEP/CFSv2/hindcast/zg_500/%Y[S]/%m[S]/zg_500_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ M S ] readdatafile:
+/name (zg_500) def
+/long_name (Geopotential Height at 500 hPa) def
+/interpolation (no interpolation; data straight from NCEP) def
+/missing_value -9999.0 def
+/standard_name (geopotential_height) def
+/level_type (pressure level) def
+/units (m) def
+/realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+:datasetdefs
+
+grid:
+/name (X) def
+/units (degree_east) def
+periodic
+ 0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/units (degree_north) def
+ 90.0 1.0 -90.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (days) def
+/standard_name (forecast_period) def
+ 0.5 1.0 43.5
+/pointwidth 1.0 def
+:grid
+
+grid:
+/name (M) def
+/long_name (Ensemble Member) def
+/units (ids) def
+/standard_name (realization) def
+values: 1 :values
+%1 1 4
+:grid
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 1000 850 700 500 300 200 100 50 10 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (P1) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 850 500 200 50 30 10 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (P2) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 850 200 100 50 30 10 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (P3) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 100 50 30 10 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (P4) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 850 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (P5) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 500 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (P6) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 500 200 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (P7) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 850 200 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (S) def
+/long_name (Start Time) def
+/standard_name (forecast_reference_time) def
+01 Jan 1999 julian_day 01 Jan 1960 julian_day sub 
+0.25
+30 Sep 2017 julian_day 01 Jan 1960 julian_day sub
+/units (days since 1960-01-01) def
+/pointwidth 0. def
+:grid
+
+ /pr {
+[ X Y | L M S ] (/Data/SubX/NCEP/CFSv2/hindcast/pr_sfc/%Y[S]/%m[S]/pr_sfc_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ M S ] readdatafile:
+%[ X Y | L S ] (/data/mbell/dldata/SubX.d/NCEP/CFSv2/pr_sfc_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m01_XYT.nc) [ S ] readdatafile:
+/name (pr_sfc) def
+ /long_name (Total Precipitation) def
+ /standard_name (precipitation_flux) def
+ /units (kg m-2 s-1)cvn def
+ /level_type (surface) def
+ /interpolation (bilinearly interpolated from Gaussian grid) def
+ /missing_value -9999.0 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tas {
+[ X Y | L M S ] (/Data/SubX/NCEP/CFSv2/hindcast/tas_2m/%Y[S]/%m[S]/tas_2m_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ M S ] readdatafile:
+/name (tas_2m) def
+/long_name (2-meter Mean Air Temperature) def
+/interpolation (bilinearly interpolated from Gaussian grid) def
+/missing_value -9999.0 def
+/level_type (2 meters above ground) def
+/standard_name (air_temperature) def
+/units /Kelvin_scale def
+/realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/ts {
+[ X Y | L M S ] (/Data/SubX/NCEP/CFSv2/hindcast/ts/%Y[S]/%m[S]/ts_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ M S ] readdatafile:
+/name (ts) def
+/long_name (Surface Temperature) def
+/interpolation (bilinearly interpolated from Gaussian grid) def
+/missing_value -9999.0 def
+/level_type (surface) def
+%/standard_name (air_temperature) def
+/units /Kelvin_scale def
+/realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/ua {
+[ X Y | L M S P ] (/Data/SubX/NCEP/CFSv2/hindcast/ua/%Y[S]/%m[S]/ua_%d[P]_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ S M P ] readdatafile:
+/name (ua) def
+/long_name (Zonal Wind) def
+/interpolation (bilinearly interpolated from Gaussian grid) def
+/missing_value -9999.0 def
+/standard_name (eastward_wind) def
+/level_type (pressure level) def
+/units (m/s) def
+/realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/va {
+[ X Y | L M S P ] (/Data/SubX/NCEP/CFSv2/hindcast/va_%d[P]/%Y[S]/%m[S]/va_%d[P]_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ S M P ] readdatafile:
+/name (va) def
+/long_name (Meridional Wind) def
+/interpolation (no interpolation; data straight from NCEP) def
+/missing_value -9999.0 def
+/standard_name (northward_wind) def
+/level_type (pressure level) def
+/units (m/s) def
+/realarraytype netcdfrecords :readdatafile
+P 850 200 VALUES
+} defasvarsilent
+
+/zg {
+[ X Y | L M S P ] (/Data/SubX/NCEP/CFSv2/hindcast/zg_%d[P]/%Y[S]/%m[S]/zg_%d[P]_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ S M P ] readdatafile:
+/name (zg) def
+/long_name (Geopotential Height at 500 hPa) def
+/interpolation (no interpolation; data straight from NCEP) def
+/missing_value -9999.0 def
+/standard_name (geopotential_height) def
+/level_type (pressure level) def
+/units (m) def
+/realarraytype netcdfrecords :readdatafile
+P 500 200 VALUES
+} defasvarsilent
+
+\end{ingrid}
+/va {
+ds: va_850 va_200 :ds
+{ va_850 va_200 } grouptogrid
+/long_name (Meridional Wind) def
+N P7 replaceGRID
+P7 /P renameGRID
+[X Y L M S P] REORDER
+2 RECHUNK
+} defasvarsilent
+
+/zg {
+ds: zg_500 zg_200 :ds
+{ zg_500 zg_200 } grouptogrid
+/long_name (Geopotential Height) def
+N P6 replaceGRID
+P6 /P renameGRID
+[X Y L M S P] REORDER
+2 RECHUNK
+} defasvarsilent
+\begin{ingrid}
+
+ dataset:
+
+ /name (dc9915) def
+ /description (1999-2016 Daily Hindcast Climatology) def
+ /long_title (SubX Climatology) def
+ /institution (IRI) def
+ /source (SubX IRI) def
+ /CreatedBy (kpegion) def
+ /comments (SubX project http://cola.gmu.edu/~kpegion/subx/) def
+ /title (SubX Climatology) def
+ /MatlabSource () def
+
+ grid:
+ /name (X) def
+ /units (degree_east) def
+ periodic
+ 0.0 1.0 359.0
+ :grid
+
+ grid:
+ /name (Y) def
+ /units (degree_north) def
+ 90.0 1.0 -90.0
+ :grid
+
+ grid:
+ /name (P) def
+ /long_name (Pressure Level) def
+ /units (hPa) def
+ values: 850 500 200 100 50 30 10 :values
+ /standard_name (air_pressure) def
+ :grid
+
+ grid:
+ /name (S) def
+ /long_name (Start Time) def
+ /standard_name (forecast_reference_time) def
+ 01 Jan 1960 julian_day 01 Jan 1960 julian_day sub
+ 1.0
+ 31 Dec 1960 julian_day 01 Jan 1960 julian_day sub
+ /units (days since 1960-01-01) def
+ /pointwidth 0. def
+ :grid
+
+ grid:
+ /name (L) def
+ /long_name (Lead) def
+ /units (days) def
+ /standard_name (forecast_period) def
+ 0.5 1.0 43.5
+ /pointwidth 1.0 def
+ :grid
+
+ /pr{
+ [ X Y | L S ] (/Data/SubX/NCEP/CFSv2/hindcast/climatology/pr_sfc/pr_NCEP-CFSv2_%m%d[S].climo.p.nc) [ S ] readdatafile:
+ /name (pr) def
+ /missing_value -9999.0 def
+ /long_name (Total Precipitation) def
+ /standard_name (precipitation_flux) def
+ /units (kg m-2 s-1) def
+ /level_type (surface) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /tas{
+ [ X Y | L S ] (/Data/SubX/NCEP/CFSv2/hindcast/climatology/tas_2m/tas_NCEP-CFSv2_%m%d[S].climo.p.nc) [ S ] readdatafile:
+ /name (tas) def
+ /units (Kelvin_scale) def
+ /long_name (2-meter Mean Air Temperature) def
+ /standard_name (air_temperature) def
+ /level_type (2 meters above ground) def
+ /missing_value -9999.0 def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ :dataset
+
+:dataset
+\end{ingrid}

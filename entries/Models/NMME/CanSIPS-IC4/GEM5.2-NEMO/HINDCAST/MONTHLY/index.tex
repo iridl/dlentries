@@ -1,0 +1,80 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+
+/prmsl_iri0 { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .prmsl_iri0
+M 1 20 RANGE
+} defasvarsilent
+
+/prmsl_iri1 { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .prmsl_iri1
+M 1 20 RANGE
+} defasvarsilent
+
+:datasetdefs
+
+/references (Kirtman_etal2014) def
+
+/T { S L add
+/long_name (Time) def
+/standard_name (time) def } defasvarsilent
+
+/tref { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .tref
+M 1 20 RANGE
+} defasvarsilent
+
+/sst { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .sst
+M 1 20 RANGE
+} defasvarsilent
+
+/prec { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .prec
+M 1 20 RANGE
+} defasvarsilent
+
+/prmsl { prmsl_iri1 } defasvar
+
+/tmax { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .tmax
+M 1 20 RANGE
+} defasvarsilent
+ 
+/tmin { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .tmin
+M 1 20 RANGE
+} defasvarsilent
+
+/tmp { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .tmp
+M 1 20 RANGE
+} defasvarsilent
+
+/ugrd { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .ugrd
+M 1 20 RANGE
+} defasvarsilent
+
+/vgrd { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .vgrd
+M 1 20 RANGE
+} defasvarsilent
+
+/hgt { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .hgt
+M 1 20 RANGE
+} defasvarsilent
+
+:dataset
+
+ugrd .X name exch def
+ugrd .Y name exch def
+ugrd .M name exch def
+ugrd .L name exch def
+ugrd .S name exch def
+
+\end{ingrid}
+

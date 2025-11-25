@@ -1,0 +1,225 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 21668
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 345
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Base_menage_vulnerabilite_2014.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Aide) def
+/Q511 {
+mytable
+myquestion 
+166 VALUE
+ myquestion removeGRID
+/long_name (Q51.1 Banque céréalière) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q512 {
+mytable
+myquestion 
+167 VALUE
+ myquestion removeGRID
+/long_name (Q51.2 Distribution gratuite vivres) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q513 {
+mytable
+myquestion 
+168 VALUE
+ myquestion removeGRID
+/long_name (Q51.3 Vente de céréales à prix modéré) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q514 {
+mytable
+myquestion 
+169 VALUE
+ myquestion removeGRID
+/long_name (Q51.4 Vivre contre travail) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q515 {
+mytable
+myquestion 
+170 VALUE
+ myquestion removeGRID
+/long_name (Q51.5 Argent contre travail) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q516 {
+mytable
+myquestion 
+171 VALUE
+ myquestion removeGRID
+/long_name (Q51.6 Prise en charge Malnutrition) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q517 {
+mytable
+myquestion 
+172 VALUE
+ myquestion removeGRID
+/long_name (Q51.7 Cantine scolaire) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q518 {
+mytable
+myquestion 
+173 VALUE
+ myquestion removeGRID
+/long_name (Q51.8 Blanket feeding) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q519 {
+mytable
+myquestion 
+174 VALUE
+ myquestion removeGRID
+/long_name (Q51.9 Ration complémentaire (femmes enceintes et allaitantes)) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5110 {
+mytable
+myquestion 
+175 VALUE
+ myquestion removeGRID
+/long_name (Q51.10 Intrants agricoles (engrais, semences...)) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5111 {
+mytable
+myquestion 
+176 VALUE
+ myquestion removeGRID
+/long_name (Q51.11 Cash transfert) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5112 {
+mytable
+myquestion 
+177 VALUE
+ myquestion removeGRID
+/long_name (Q51.12 Banque aliments bétails) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5113 {
+mytable
+myquestion 
+178 VALUE
+ myquestion removeGRID
+/long_name (Q51.13 Reconstitution sociale du cheptel (distribution des animaux)) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5114 {
+mytable
+myquestion 
+179 VALUE
+ myquestion removeGRID
+/long_name (Q51.14 Déstockage stratégique des animaux) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5115 {
+mytable
+myquestion 
+180 VALUE
+ myquestion removeGRID
+/long_name (Q51.15 Autres à préciser) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5116 {
+mytable
+myquestion 
+181 VALUE
+ myquestion removeGRID
+/long_name (Q51.16 Quelle est la principale utilisation faite des transferts recus) def 
+/units /ids def
+/CLIST [(Achat de produits alimentaires pour le ménage)(Participation aux activités des groupements)(Transfert aux autres membres du ménage)(Financement dans autres dépenses du ménage)(Autres à préciser)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

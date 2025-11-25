@@ -1,0 +1,272 @@
+\begin{ingrid}
+continuedataset:
+/references (Goodberlet_etal1989) def
+link:
+/name (dataset_documentation.html) def
+/href (http://www.ncdc.noaa.gov/ssmi.html) def
+:link
+grid:
+/name /X def
+degE
+-180 .3333333333 
+exch 1 index .5 mul add exch 180 1 index 1.5 mul sub
+:grid
+grid:
+/name /Y def
+degN
+80 -.333333333333 
+exch 1 index 1.5 mul sub exch -80 1 index .5 mul sub
+:grid
+datasetdefs:
+:datasetdefs
+dataset:
+/X dataset .X def
+/Y dataset .Y def
+/name /monthly def
+datasetdefs:
+/Tlast2filenameM
+{
+(/Data/data7/noaa/ncdc/ssmi/)
+last cvsunits interp
+s== exch
+.5 add round cvi
+s==
+dup length 1 eq { (0) exch append} if
+(/) exch
+       2 index exch
+        (M) exch
+         (FglobSW.flt) 7 array astore
+    concat
+} def
+/removeextratime
+{
+Tlast2filenameM
+dup fileexists? 
+{deflastmod}
+{ pop first secondtolast subgrid
+removeextratime} ifelse
+} def
+:datasetdefs
+grid:
+/name /T def
+monthtime
+16 Jan 1988 ensotime
+1.
+16 Dec 2003 %16 systemtime (%b %Y) 10 strftime interp 
+ensotime
+/defaultvalue { last} def
+:grid
+T removeextratime name exch def
+/last_modified last_modified T .last_modified imax def
+dataset:
+/name /full def
+/X dataset .X def
+/Y dataset .Y def
+/T dataset .T def
+/SW
+{
+1
+T 0 RECHUNK
+(/Data/data7/noaa/ncdc/ssmi/%Y/%YM%mFglobSW.flt)
+strftimes
+[X Y] -99. readr4
+/long_name (snow) def
+} defasvarsilent
+/BL
+{
+1
+T 0 RECHUNK
+(/Data/data7/noaa/ncdc/ssmi/%Y/%YM%mFglobBL.flt)
+strftimes
+[X Y] -99. readr4
+/long_name (blended temperature) def
+} defasvarsilent
+/WT
+{
+1
+T 0 RECHUNK
+(/Data/data7/noaa/ncdc/ssmi/%Y/%YM%mFglobWT.flt)
+strftimes
+[X Y] -99. readr4
+/long_name (wetness) def
+/iridl:hasSemantics (iridl:BWI) def
+} defasvarsilent
+:dataset
+dataset:
+/name /anomaly def
+/X dataset .X def
+/Y dataset .Y def
+/T dataset .T def
+/SW
+{
+1
+T 0 RECHUNK
+(/Data/data7/noaa/ncdc/ssmi/%Y/%YM%mAglobSW.flt)
+strftimes
+[X Y] -99. readr4
+/long_name (snow) def
+} defasvarsilent
+/BL
+{
+1
+T 0 RECHUNK
+(/Data/data7/noaa/ncdc/ssmi/%Y/%YM%mAglobBL.flt)
+strftimes
+[X Y] -99. readr4
+/long_name (blended temperature) def
+} defasvarsilent
+/WT
+{
+1
+T 0 RECHUNK
+(/Data/data7/noaa/ncdc/ssmi/%Y/%YM%mAglobWT.flt)
+strftimes
+[X Y] -99. readr4
+/long_name (wetness) def
+/iridl:hasSemantics (iridl:BWI) def
+} defasvarsilent
+:dataset
+:dataset
+dataset:
+datasetdefs:
+/Tlast2filename
+{
+dup
+    (unixtime) unitconvertbyattribute
+    last
+     scale_factor mul
+     add_offset add
+     (/Data/data7/noaa/ncdc/ssmi/%Y/%Y) 80 strftime
+     exch .npts
+     1 sub
+     52 mod
+     1 add
+     (W) exch s==
+dup length 1 eq {(0) exch append} if
+      (FglobSW.flt) 4 array astore
+    concat
+} def
+/removeextratime
+{
+Tlast2filename
+dup fileexists? 
+{deflastmod}
+{ pop first secondtolast subgrid
+removeextratime} ifelse
+} def
+:datasetdefs
+/X dataset .X def
+/Y dataset .Y def
+/name /weekly def
+grid:
+/name /T def
+/units (days since 1988-01-01) def
+values:
+1 Jan 1988 julian_day
+1 Jan 1988 julian_day sub
+1988 1 systemtime (%Y) 4 strftime interp pop 2003
+{
+exch
+7
+1 Mar 4 index julian_day
+1 Jan 1988 julian_day sub
+{exch } for
+5 Mar 2 index julian_day
+1 Jan 1988 julian_day sub
+7
+31 Dec 4 index julian_day
+1 Jan 1988 julian_day sub
+{exch} for
+pop
+1 add
+} for
+:values
+:grid
+/T T partialgrid def
+T removeextratime
+/defaultvalue { last} def
+name exch def
+/last_modified last_modified T .last_modified imax def
+dataset:
+/name /full def
+/X dataset .X def
+/Y dataset .Y def
+/T dataset .T def
+/SW
+{
+1
+T   (/Data/data7/noaa/ncdc/ssmi/%Y/%Y) strftimes
+   T
+    1 52 onegridmodcounter
+    (W%2.2dFglobSW.flt) sprintf
+      sappend
+[X Y] -99. readr4
+/long_name (snow) def
+} defasvarsilent
+/BL
+{
+1
+T   (/Data/data7/noaa/ncdc/ssmi/%Y/%Y) strftimes
+   T
+    1 52 onegridmodcounter
+    (W%2.2dFglobBL.flt) sprintf
+      sappend
+[X Y] -99. readr4
+/long_name (blended temperature) def
+} defasvarsilent
+/WT
+{
+1
+T   (/Data/data7/noaa/ncdc/ssmi/%Y/%Y) strftimes
+   T
+    1 52 onegridmodcounter
+    (W%2.2dFglobWT.flt) sprintf
+      sappend
+[X Y] -99. readr4
+/long_name (wetness) def
+/iridl:hasSemantics (iridl:BWI) def
+} defasvarsilent
+:dataset
+dataset:
+/name /anomaly def
+/X dataset .X def
+/Y dataset .Y def
+/T dataset .T def
+/SW
+{
+1
+T   (/Data/data7/noaa/ncdc/ssmi/%Y/%Y) strftimes
+   T
+    1 52 onegridmodcounter
+    (W%2.2dAglobSW.flt) sprintf
+      sappend
+[X Y] -99. readr4
+/long_name (snow) def
+} defasvarsilent
+/BL
+{
+1
+T   (/Data/data7/noaa/ncdc/ssmi/%Y/%Y) strftimes
+   T
+    1 52 onegridmodcounter
+    (W%2.2dAglobBL.flt) sprintf
+      sappend
+[X Y] -99. readr4
+/long_name (blended temperature) def
+} defasvarsilent
+/WT
+{
+1
+T   (/Data/data7/noaa/ncdc/ssmi/%Y/%Y) strftimes
+   T
+    1 52 onegridmodcounter
+    (W%2.2dAglobWT.flt) sprintf
+      sappend
+[X Y] -99. readr4
+/long_name (wetness) def
+/iridl:hasSemantics (iridl:BWI) def
+} defasvarsilent
+:dataset
+:dataset
+:dataset
+\end{ingrid}

@@ -1,0 +1,149 @@
+\begin{ingrid}
+
+continuedataset:
+
+/long_name (MME_v21 bi-weekly temperature probability hindcast) def
+/description (SubC MME_v21 global bi-weekly hindcasts probability of below-normal, above-normal, and near-normal temperature for Saturday-Friday from Jan 1999 to Dec 2016, based on ELR method, generated from CFSv2, GEFSv12 and ESRL models) def
+
+datasetdefs:
+
+/togetherfn {
+ a:
+    C /Below_Normal VALUE
+    :a:
+     C /Normal VALUE
+     masklt
+    :a:
+     C /Above_Normal VALUE
+     masklt
+    -1 mul
+    0 replaceNaN
+    :a:
+     C /Normal VALUE
+     :a:
+      C /Below_Normal VALUE
+      masklt
+     :a:
+      C /Above_Normal VALUE
+      masklt
+     37.5 masklt
+     0 mul
+     0 replaceNaN           
+     add
+    :a:
+     C /Above_Normal VALUE
+     :a:
+      C /Normal VALUE
+      masklt
+     :a:
+      C /Below_Normal VALUE
+      masklt
+     0 replaceNaN
+     add
+ :a:
+     C /Below_Normal VALUE
+     0 mul
+     add
+    :a:
+     C /Normal VALUE
+     :a:
+      C /Below_Normal VALUE
+      masklt
+     :a:
+      C /Above_Normal VALUE        
+      masklt
+     37.5 maskgt
+     0 mul
+     1 add
+     0 replaceNaN
+     /missing_value 1 def
+     add
+    :a
+
+
+startcolormap
+DATA -100.0 100.0 RANGE
+    white purple purple
+       -100. VALUE
+       cyan
+        -10.0 VALUE
+        white white
+          10.0 bandmax
+          yellow
+           10.0 VALUE
+           red
+            100.0 VALUE
+            firebrick 
+endcolormap
+} def 
+
+:datasetdefs
+
+
+grid:
+/name (X) def
+/units (degreeE) def
+/long_name (Longitude) def
+periodic
+0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/units (degreeN) def
+/long_name (Latitude) def
+-90.0 1.0 90.0
+:grid
+
+
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+02 Jan 1999 julian_day 01 Jan 1960 julian_day sub
+7.0
+31 Dec 2016 julian_day 01 Jan 1960 julian_day sub
+/pointwidth 0. def
+%/defaultvalue { last } def
+:grid
+
+grid:
+/name (L) def
+/units (days) def
+/long_name (Forecast_period) def
+15. 7. 22.
+/pointwidth 14. def
+:grid
+
+grid:
+/name (C) def
+/units (ids) def
+/long_name (Tercile Classes) def
+values: /Below_Normal /Normal /Above_Normal :values
+:grid
+
+/target_date { S L add /long_name (forecast time) def /standard_name (time) def } defasvar
+
+/prob {
+
+[ X Y C | L S ] (/crunch/c10/jingyuan/Subx_forecast/mat_hindcast/MME_v21_Subx_forecast_biweek_T2M_flexible/MME_v21_Subx_global_Sat_%d[S]_%b[S]_%Y[S]_biweek_T2M_hindcast.nc) [ S ] readdatafile:
+
+/name (prob) def
+/units (percent) def
+/doublearraytype netcdfrecords :readdatafile
+/missing_value NaN def
+/long_name (Tercile Probability) def
+/scale_min 0 def
+/scale_max 100 def
+tercileclassesscale
+} defasvarsilent
+
+/dominant {
+prob togetherfn
+/long_name (Dominant Tercile Probability) def
+C removeGRID
+} defasvarsilent
+
+:dataset
+\end{ingrid}

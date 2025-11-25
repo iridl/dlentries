@@ -1,0 +1,30 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Uganda_152_1) def
+/CIESIN dataareRestricted
+/D56_Districts
+/description ( D56 Districts) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select d56code,first_d56,the_geom from uga_d56 order by d56code) (d56code) openqueryby
+        d56code
+            /long_name (D56 code) def
+        CopyStream
+        name exch def
+        first_d56
+            /long_name (D56 name) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (District geometry) def
+        name exch def
+}defasvarsilent
+/last_modified
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select max ( last_modified ) as last_modified from uga_d56) openquery .last_modified
+}def
+\end{ingrid}

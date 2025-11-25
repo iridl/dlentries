@@ -1,0 +1,53 @@
+\begin{ingrid}
+continuedataset:
+
+/WASP12 {
+  SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .rfe_merged
+%  T (1983) (2010) RANGE
+%   monthlyAverage 3. mul
+  a:
+    :a:
+% T (1983) (2012) RANGE
+ yearly-climatology sub
+    :a
+  [T]REORDER
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+  SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .rfe_merged
+%T (1983) (2012) RANGE
+ yearly-climatology
+   [T]REORDER
+   a: :a:
+      [T]average
+      12 mul
+      0.001 masklt
+      div
+     :a
+   mul
+  T 12 runningAverage
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+  SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .rfe_merged
+%T (1983) (2012) RANGE
+ yearly-climatology
+   [T]average
+   0.25 masklt
+   dup div
+   div
+/long_name (WASP 12-month) def
+/valid_min undef
+/valid_max undef
+%/plotfirst -3.5 def
+%/plotlast 3.5 def
+std_wasp_colors
+} defasvarsilent
+
+:dataset
+
+\end{ingrid}

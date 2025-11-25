@@ -1,0 +1,15 @@
+\begin{ingrid}
+
+continuedataset:
+
+/rr_mrg {
+SOURCES .Ethiopia .NMA .ENACTS_v4 .rainfall .MRG .CLM .dekadly .rr_mrg
+ monthlyAverage 3. mul
+/long_name (Monthly Rainfall) def
+precip_colors
+DATA 0 300 RANGE
+T /defaultvalue { last } def pop
+}defasvar
+
+:dataset
+\end{ingrid}

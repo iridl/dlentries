@@ -1,0 +1,113 @@
+\begin{ingrid}
+
+continuedataset:
+
+/historical {
+ home .awr .CPC_GSOD .CPC_GSOD
+  lon
+   75 89 masknotrange
+   SELECT
+  lat
+   24 33 masknotrange
+   SELECT
+  T (1979)
+    /YearStart parameter
+    (2011)
+     /YearEnd parameter
+     RANGEEDGES
+  (1)
+   /DayStart parameter
+   ( ) append
+   (Jan)
+    /seasonStart parameter
+    append
+   ( - ) append
+   (31)
+    /DayEnd parameter
+    append
+   ( ) append
+   (Jan)
+    /seasonEnd parameter
+    append
+   (0)
+    /hotThreshold parameter
+    interp
+    (0.5)
+     /minFrac parameter
+     interp
+     (MinTemp)
+      /seasonalStat parameter
+      (MinTemp) eq
+      {nip 3 -1 roll .tmin /units (Celsius_scale) def T 4 -2 roll seasonalAverage}if
+  /seasonalStat get_parameter
+   (MaxTemp) eq
+   {nip 3 -1 roll .tmax /units (Celsius_scale) def T 4 -2 roll seasonalAverage}if
+  /seasonalStat get_parameter
+   (HDD) eq
+   {4 -1 roll a: .tmax :a: .tmin :a add 2.0 div /units (Celsius_scale) def 3 -1 roll sub 0 maskge abs 3 -2 roll flexseastotZeroFill -1 replaceNaN}if
+  /seasonalStat get_parameter
+   (NumCD) eq
+   {4 -1 roll .tmin /units (Celsius_scale) def 4 -3 roll flexseasonalfreqLT}if
+  /seasonalStat get_parameter
+   (NumHD) eq
+   {4 -1 roll .tmax /units (Celsius_scale) def 4 -3 roll flexseasonalfreqGT}if
+  (Mean)
+   /yearlyStat parameter
+   (Mean) eq
+   {[T]average /seasonalStat get_parameter (MinTemp) eq { /long_name (Minimum Temperature) def temp_colors DATA AUTO AUTO RANGE}if /seasonalStat get_parameter (MaxTemp) eq { /long_name (Maximum Temperature) def temp_colors DATA AUTO AUTO RANGE}if /seasonalStat get_parameter (HDD) eq { /long_name (Heating Degree Days) def}if /seasonalStat get_parameter dup (NumCD) eq exch (NumHD) eq or { /long_name (count) def wetday_freq_colors DATA 0 null RANGE}if}if
+  /yearlyStat get_parameter
+   (StdDev) eq
+   {dup dataflag[T]sum dup 1.0 sub div sqrt exch[T]0.0 rmsaover mul /seasonalStat get_parameter (MinTemp) eq { /long_name (Minimum Temperature) def std_anomaly_colors DATA 0 null RANGE}if /seasonalStat get_parameter (MaxTemp) eq { /long_name (Maximum Temperature) def std_anomaly_colors DATA 0 null RANGE}if /seasonalStat get_parameter (HDD) eq { /long_name (Heating Degree Days) def DATA 0 null RANGE}if /seasonalStat get_parameter dup (NumCD) eq exch (NumHD) eq or { /long_name (count) def wetday_freq_colors DATA 0 null RANGE}if}if
+  /yearlyStat get_parameter
+   (PoE) eq
+   {DATA /seasonalStat get_parameter dup (MinTemp) eq exch (MaxTemp) eq or {-40 40 0.1}if /seasonalStat get_parameter (HDD) eq {0 1000 1}if /seasonalStat get_parameter dup (NumCD) eq exch (NumHD) eq or {0 300 1}if RANGESTEP /name /aprod def[IWMO]distrib1D dup 0.0[aprod]integrate aprod last VALUE aprod removeGRID div /name (pdf) def DATA null null RANGE 0.0[aprod]integrate /name (pdf) def DATA 0 0.02 0.17 0.5 0.83 0.98 1.0001 VALUES -1 mul 1 add aprod /seasonalStat get_parameter (MinTemp) eq { (0) /probExcThresh1 parameter interp}if /seasonalStat get_parameter (MaxTemp) eq { (0) /probExcThresh2 parameter interp}if /seasonalStat get_parameter (HDD) eq { (100) /probExcThresh3 parameter interp}if /seasonalStat get_parameter (NumCD) eq { (30) /probExcThresh4 parameter interp}if /seasonalStat get_parameter (NumHD) eq { (30) /probExcThresh5 parameter interp}if VALUE (percent) unitconvert /long_name (Probability) def correlationcolorscale DATA 0 100 RANGE}if
+}defasvar
+
+/lon {
+ home .awr .CPC_GSOD .CPC_GSOD
+lon
+   73 89 masknotrange
+   SELECT
+  lat
+   24 33 masknotrange
+   SELECT
+.lon
+   /units (degree_east) def
+/scale_min 73 def
+/scale_max 89 def
+}defasvar
+
+/lat {
+ home .awr .CPC_GSOD .CPC_GSOD
+lon
+   73 89 masknotrange
+   SELECT
+  lat
+   24 33 masknotrange
+   SELECT
+.lat
+    /units (degree_north) def
+/scale_min 24 def
+/scale_max 33 def
+}defasvar
+
+/elev {
+ home .awr .CPC_GSOD .CPC_GSOD
+lon
+   73 89 masknotrange
+   SELECT
+  lat
+   24 33 masknotrange
+   SELECT
+.elev
+}defasvar
+
+/location {
+lon lat geopt
+}defasvar
+
+:dataset
+
+GSOD_temperature elev .IWMO name exch put
+
+\end{ingrid}

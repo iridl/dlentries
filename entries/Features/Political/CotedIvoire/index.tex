@@ -1,0 +1,34 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Cote_d_Ivoire_75_1) def
+/Regions
+/description ( Regions) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,gid as geom_id,grp,count,the_geom from cotedivoire order by gid) (gid) openqueryby
+        geom_id
+            /long_name (Geometry id) def
+        CopyStream
+        name exch def
+        grp
+            /long_name (Group Abbrev.) def
+        CopyStream
+        name exch def
+        count
+            /long_name (Count) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Region geometry) def
+        CopyStream
+        name exch def
+}defasvarcachesilent
+/last_modified 
+{  db: 
+   /server (localhost) def 
+   /dbname (iridb) def 
+   :db
+   (select max ( last_modified ) as last_modified from cotedivoire) openquery .last_modified
+}def
+\end{ingrid}

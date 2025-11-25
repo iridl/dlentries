@@ -1,0 +1,36 @@
+\begin{ingrid}
+continuedataset:
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 1 -89.5
+:grid
+variable:
+/name /albedo def
+/long_name (Albedo) def
+grids: X Y :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ecinvrnt/albedo.r4) def
+:file
+:variable
+
+variable:
+/name /roughness def
+/long_name (Surface Roughness Length) def
+/units (m) def
+grids: X Y :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ecinvrnt/roughness.r4) def
+:file
+:variable
+
+:dataset
+\end{ingrid}

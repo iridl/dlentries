@@ -1,0 +1,64 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+periodic
+1.25 2.5 358.75
+:grid
+
+grid:
+/name /Y def
+degN
+88.75 -2.5 -88.75
+:grid
+
+grid:
+/name /T def
+monthtime
+/defaultvalue {last} def
+16 Jan 1979 ensotime
+1.
+16 systemtime systemtime2ymd ymd:lastmonth pop exch ensotime
+:grid
+
+T 
+ { (/Data/data7/nasa/gpcp/v2p1/int/gpcp_v2.1_pms.%Y[T])[T]} 
+removeextrausing
+first last [X Y | T last 12 sub 12 div round 12 mul 0.5 add last subgrid ]
+(/Data/data7/nasa/gpcp/v2p1/int/gpcp_v2.1_pms.%Y[T]) [T last
+12 sub 12 div round 12 mul 0.5 add last subgrid yearlyedgesgrid first secondtolast subgrid ]
+readdatafile: direct 576 set:file_byteoffset :readdatafile
+[X Y]average
+0 flagle
+[T]sum
+getrealization 0 get sub subgrid last
+rm19602ymd ymd:nextmonth ymd:nextmonth ymd2systemtime
+pop %/expires exch def
+name exch def
+/last_modified last_modified T .last_modified imax def
+%/expires T .expires def
+
+/prcp {
+ [X Y | T] (/Data/data7/nasa/gpcp/v2p1/int/gpcp_v2.1_pms.%Y[T]) [T yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+ /missing_value -99999.0 def
+ /units (mm/day) def
+ /long_name (precipitation rate) def
+ direct
+ 576 set:file_byteoffset
+:readdatafile
+ /iridl:hasSemantics (iridl:PrecipitationRate) def
+} defasvarsilent
+
+/err {
+ [X Y | T] (/Data/data7/nasa/gpcp/v2p1/int/gpcp_v2.1_ems.%Y[T]) [T yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+ /missing_value -99999.0 def
+ /units (mm/day) def
+ /long_name (absolute error) def
+ direct
+ 576 set:file_byteoffset
+:readdatafile
+} defasvarsilent
+
+:dataset
+\end{ingrid}

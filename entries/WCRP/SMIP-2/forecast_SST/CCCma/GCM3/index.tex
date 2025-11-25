@@ -1,0 +1,28 @@
+\begin{ingrid}
+continuedataset:
+/pr {(/Local01/home/dataingest/SMIP-2/canada/cccma_agcm3_pr.cuf) readfile
+.surface .prate decompress
+/iridl:hasSemantics (iridl:precipitation) def
+} defasvarcachesilent
+/zg {(/Local01/home/dataingest/SMIP-2/canada/cccma_agcm3_zg.cuf) readfile .PressureLevel .phi decompress } defasvarcachesilent
+/ua {(/Local01/home/dataingest/SMIP-2/canada/cccma_agcm3_ua.cuf) readfile .PressureLevel .u decompress
+/iridl:hasSemantics (iridl:eastward_wind) def
+} defasvarcachesilent
+/va {(/Local01/home/dataingest/SMIP-2/canada/cccma_agcm3_va.cuf) readfile .PressureLevel .v decompress
+/iridl:hasSemantics (iridl:northward_wind) def
+} defasvarcachesilent
+/ts {(/Local01/home/dataingest/SMIP-2/canada/cccma_agcm3_ts.cuf) readfile .surface .TSOIL decompress
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+} defasvarcachesilent
+/tas {(/Local01/home/dataingest/SMIP-2/canada/cccma_agcm3_tas.cuf) readfile .vertype119 .temp decompress
+/iridl:hasSemantics (iridl:AirTemperature2m) def
+} defasvarcachesilent
+/ta {(/Local01/home/dataingest/SMIP-2/canada/cccma_agcm3_ta.cuf) readfile .PressureLevel .temp decompress
+/iridl:hasSemantics (iridl:AirTemperature) def
+ } defasvarcachesilent
+:dataset
+(/Local01/home/dataingest/SMIP-2/canada/cccma_agcm3_pr.cuf) readfile
+[ X Y M L S ]nip { name exch def } forall
+/T { S L add /long_name (Forecast Time) def /pointwidth 1 def} defasvar
+\end{ingrid}
+/Local01/home/dataingest/SMIP-2/canada

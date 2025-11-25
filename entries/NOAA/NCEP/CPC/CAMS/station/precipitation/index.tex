@@ -1,0 +1,26 @@
+\begin{ingrid}
+(/Data/data5/noaa/cpc/CAMS/station/camsP.cuf)continuewithCUF
+%/dataflag undef
+continuedataset:
+ grid:
+ /name (T) def
+ /units (monthtime) def
+ /defaultvalue { last } def
+ 16 Jan 1842 ensotime 
+ 1 
+16 Nov 2013 ensotime %enddate
+ :grid
+ variable:
+ /name (prcp) def
+ /units (mm) def
+ /missing_value  -9999 def
+ grids: T | IWMO :grids
+ file:
+  random
+ /name (/Data/data5/noaa/cpc/CAMS/station/CAMSp1_stn.bin) def
+ :file 
+ :variable
+lon /scale_min -180 def /scale_max 180 def name exch def
+lat /scale_min -90 def /scale_max 90 def name exch def
+ :dataset
+\end{ingrid}

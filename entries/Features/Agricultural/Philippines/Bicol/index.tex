@@ -1,0 +1,88 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (irigaz:Philippines_119_1) def
+/description (Bicol Agricultural Information) def
+dataset:
+/name /soilType def
+/description (Soil Types) def
+/ph
+{IRIDB (soiltype_bicol) (ph) [(gid)] open_column_by
+}defasvarsilentnoreuse
+/philbuo
+{IRIDB (soiltype_bicol) (philbuo_) [(gid)] open_column_by
+/long_name (Phillipines buo) def
+}defasvarsilentnoreuse
+/philbuo_id
+{IRIDB (soiltype_bicol) (philbuo_id) [(gid)] open_column_by
+/long_name (Phillipines buoID) def
+}defasvarsilentnoreuse
+/soilcode
+{IRIDB (soiltype_bicol) (soilcode) [(gid)] open_column_by
+/long_name (Soil Code) def
+}defasvarsilentnoreuse
+/soildesc
+{IRIDB (soiltype_bicol) (soildesc) [(gid)] open_column_by
+/long_name (Soil Description) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB (soiltype_bicol) (the_geom) [(gid)] open_column_by
+/long_name (Soil Type Geometries) def
+}defasvarsilentnoreuse
+/label
+{IRIDB (soiltype_bicol) (soildesc as label) [(gid)] open_column_by
+}defasvarsilentnoreuse
+:dataset
+
+dataset:
+/name /landCover def
+/description (Land Cover) def
+/area
+{IRIDB (landcover03_bicol) (area) [(gid)] open_column_by
+/long_name (Area) def
+/units (m2) def
+}defasvarsilentnoreuse
+/count
+{IRIDB (landcover03_bicol) (count) [(gid)] open_column_by
+}defasvarsilentnoreuse
+/desc1
+{IRIDB (landcover03_bicol) (desc1) [(gid)] open_column_by
+/long_name (Description) def
+}defasvarsilentnoreuse
+/desc2
+{IRIDB (landcover03_bicol) (desc2) [(gid)] open_column_by
+/long_name (Description) def
+}defasvarsilentnoreuse
+/desc3
+{IRIDB (landcover03_bicol) (desc3) [(gid)] open_column_by
+/long_name (Description) def
+}defasvarsilentnoreuse
+/envi_lmu_i
+{IRIDB (landcover03_bicol) (envi_lmu_i) [(gid)] open_column_by
+/long_name (Environment lmu i) def
+}defasvarsilentnoreuse
+/hectares
+{IRIDB (landcover03_bicol) (hectares) [(gid)] open_column_by
+/long_name (Area) def
+/units (hectare) def
+}defasvarsilentnoreuse
+/id
+{IRIDB (landcover03_bicol) (id) [(gid)] open_column_by
+/long_name (ID) def
+}defasvarsilentnoreuse
+/perimeter
+{IRIDB (landcover03_bicol) (perimeter) [(gid)] open_column_by
+/long_name (Perimeter) def
+/units (km) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB (landcover03_bicol) (the_geom) [(gid)] open_column_by
+/long_name (Land Cover Geometries) def
+}defasvarsilentnoreuse
+/label
+{IRIDB (landcover03_bicol) (desc1 as label) [(gid)] open_column_by
+}defasvarsilentnoreuse
+:dataset
+:dataset
+landCover count .gid name exch put
+soilType ph .gid name exch put
+\end{ingrid}

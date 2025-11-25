@@ -1,0 +1,640 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9575
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 586
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAnov2008.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/QB165 {
+mytable
+myquestion 
+268 VALUE
+ myquestion removeGRID
+/long_name (QB1 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(ACHAT BOIS DE CHAUFFE)(PETROLE GAZ CHARBON)(SAVON EN MORCEAU EN LIQUIDE OU EN POUDRE)(ACHAT DE CARBURANT / LUBRIFIANT)(SOINS D'ENTRETIEN CORPOREL)] def
+/scale_min 65 def
+/scale_max 69 def
+}defasvarsilent
+
+/QB1A65 {
+mytable
+myquestion 
+269 VALUE
+ myquestion removeGRID
+/long_name (QB1A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB166 {
+mytable
+myquestion 
+270 VALUE
+ myquestion removeGRID
+/long_name (QB1 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(ACHAT BOIS DE CHAUFFE)(PETROLE GAZ CHARBON)(SAVON EN MORCEAU EN LIQUIDE OU EN POUDRE)(ACHAT DE CARBURANT / LUBRIFIANT)(SOINS D'ENTRETIEN CORPOREL)] def
+/scale_min 65 def
+/scale_max 69 def
+}defasvarsilent
+
+/QB1B65 {
+mytable
+myquestion 
+271 VALUE
+ myquestion removeGRID
+/long_name (QB1B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB1A66 {
+mytable
+myquestion 
+272 VALUE
+ myquestion removeGRID
+/long_name (QB1A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB1B66 {
+mytable
+myquestion 
+273 VALUE
+ myquestion removeGRID
+/long_name (QB1B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB167 {
+mytable
+myquestion 
+274 VALUE
+ myquestion removeGRID
+/long_name (QB1 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(ACHAT BOIS DE CHAUFFE)(PETROLE GAZ CHARBON)(SAVON EN MORCEAU EN LIQUIDE OU EN POUDRE)(ACHAT DE CARBURANT / LUBRIFIANT)(SOINS D'ENTRETIEN CORPOREL)] def
+/scale_min 65 def
+/scale_max 69 def
+}defasvarsilent
+
+/QB1A67 {
+mytable
+myquestion 
+275 VALUE
+ myquestion removeGRID
+/long_name (QB1A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB1B67 {
+mytable
+myquestion 
+276 VALUE
+ myquestion removeGRID
+/long_name (QB1B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB168 {
+mytable
+myquestion 
+277 VALUE
+ myquestion removeGRID
+/long_name (QB1 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(ACHAT BOIS DE CHAUFFE)(PETROLE GAZ CHARBON)(SAVON EN MORCEAU EN LIQUIDE OU EN POUDRE)(ACHAT DE CARBURANT / LUBRIFIANT)(SOINS D'ENTRETIEN CORPOREL)] def
+/scale_min 65 def
+/scale_max 69 def
+}defasvarsilent
+
+/QB1A68 {
+mytable
+myquestion 
+278 VALUE
+ myquestion removeGRID
+/long_name (QB1A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB1B68 {
+mytable
+myquestion 
+279 VALUE
+ myquestion removeGRID
+/long_name (QB1B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB169 {
+mytable
+myquestion 
+280 VALUE
+ myquestion removeGRID
+/long_name (QB1 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(ACHAT BOIS DE CHAUFFE)(PETROLE GAZ CHARBON)(SAVON EN MORCEAU EN LIQUIDE OU EN POUDRE)(ACHAT DE CARBURANT / LUBRIFIANT)(SOINS D'ENTRETIEN CORPOREL)] def
+/scale_min 65 def
+/scale_max 69 def
+}defasvarsilent
+
+/QB1A69 {
+mytable
+myquestion 
+281 VALUE
+ myquestion removeGRID
+/long_name (QB1A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB1B69 {
+mytable
+myquestion 
+282 VALUE
+ myquestion removeGRID
+/long_name (QB1B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB270 {
+mytable
+myquestion 
+283 VALUE
+ myquestion removeGRID
+/long_name (QB2 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(DEPENSES DE SANTE)(LOGEMENT EAU ELECTRICITE)(DEPENSES D'EDUCATION)(EQUIPEMENT AGRICOLE)(ACHAT D'ANIMAUX)(DEPENSES EN PRODUITS ZOO VETERINAIRES)(EQUIPEMENT DOMESTIQUES)(HABILLEMENT CHAUSSURES)(CEREMONIES FUNERAILLES FESTIVITES)(CONSTRUCTION REPARATION HABITATION)(FRAIS DE TRANSPORT)(REMBOURSEMENT D'EMPRUNT OU DE DETTES)(SALAIRES PAYES (DOMESTIQUES))(AUTRES)] def
+/scale_min 70 def
+/scale_max 83 def
+}defasvarsilent
+
+/QB2A70 {
+mytable
+myquestion 
+284 VALUE
+ myquestion removeGRID
+/long_name (QB2A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB2B70 {
+mytable
+myquestion 
+285 VALUE
+ myquestion removeGRID
+/long_name (QB2B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB271 {
+mytable
+myquestion 
+286 VALUE
+ myquestion removeGRID
+/long_name (QB2 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(DEPENSES DE SANTE)(LOGEMENT EAU ELECTRICITE)(DEPENSES D'EDUCATION)(EQUIPEMENT AGRICOLE)(ACHAT D'ANIMAUX)(DEPENSES EN PRODUITS ZOO VETERINAIRES)(EQUIPEMENT DOMESTIQUES)(HABILLEMENT CHAUSSURES)(CEREMONIES FUNERAILLES FESTIVITES)(CONSTRUCTION REPARATION HABITATION)(FRAIS DE TRANSPORT)(REMBOURSEMENT D'EMPRUNT OU DE DETTES)(SALAIRES PAYES (DOMESTIQUES))(AUTRES)] def
+/scale_min 70 def
+/scale_max 83 def
+}defasvarsilent
+
+/QB2A71 {
+mytable
+myquestion 
+287 VALUE
+ myquestion removeGRID
+/long_name (QB2A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB2B71 {
+mytable
+myquestion 
+288 VALUE
+ myquestion removeGRID
+/long_name (QB2B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB272 {
+mytable
+myquestion 
+289 VALUE
+ myquestion removeGRID
+/long_name (QB2 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(DEPENSES DE SANTE)(LOGEMENT EAU ELECTRICITE)(DEPENSES D'EDUCATION)(EQUIPEMENT AGRICOLE)(ACHAT D'ANIMAUX)(DEPENSES EN PRODUITS ZOO VETERINAIRES)(EQUIPEMENT DOMESTIQUES)(HABILLEMENT CHAUSSURES)(CEREMONIES FUNERAILLES FESTIVITES)(CONSTRUCTION REPARATION HABITATION)(FRAIS DE TRANSPORT)(REMBOURSEMENT D'EMPRUNT OU DE DETTES)(SALAIRES PAYES (DOMESTIQUES))(AUTRES)] def
+/scale_min 70 def
+/scale_max 83 def
+}defasvarsilent
+
+/QB2A72 {
+mytable
+myquestion 
+290 VALUE
+ myquestion removeGRID
+/long_name (QB2A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB2B72 {
+mytable
+myquestion 
+291 VALUE
+ myquestion removeGRID
+/long_name (QB2B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB273 {
+mytable
+myquestion 
+292 VALUE
+ myquestion removeGRID
+/long_name (QB2 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(DEPENSES DE SANTE)(LOGEMENT EAU ELECTRICITE)(DEPENSES D'EDUCATION)(EQUIPEMENT AGRICOLE)(ACHAT D'ANIMAUX)(DEPENSES EN PRODUITS ZOO VETERINAIRES)(EQUIPEMENT DOMESTIQUES)(HABILLEMENT CHAUSSURES)(CEREMONIES FUNERAILLES FESTIVITES)(CONSTRUCTION REPARATION HABITATION)(FRAIS DE TRANSPORT)(REMBOURSEMENT D'EMPRUNT OU DE DETTES)(SALAIRES PAYES (DOMESTIQUES))(AUTRES)] def
+/scale_min 70 def
+/scale_max 83 def
+}defasvarsilent
+
+/QB2A73 {
+mytable
+myquestion 
+293 VALUE
+ myquestion removeGRID
+/long_name (QB2A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB2B73 {
+mytable
+myquestion 
+294 VALUE
+ myquestion removeGRID
+/long_name (QB2B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB274 {
+mytable
+myquestion 
+295 VALUE
+ myquestion removeGRID
+/long_name (QB2 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(DEPENSES DE SANTE)(LOGEMENT EAU ELECTRICITE)(DEPENSES D'EDUCATION)(EQUIPEMENT AGRICOLE)(ACHAT D'ANIMAUX)(DEPENSES EN PRODUITS ZOO VETERINAIRES)(EQUIPEMENT DOMESTIQUES)(HABILLEMENT CHAUSSURES)(CEREMONIES FUNERAILLES FESTIVITES)(CONSTRUCTION REPARATION HABITATION)(FRAIS DE TRANSPORT)(REMBOURSEMENT D'EMPRUNT OU DE DETTES)(SALAIRES PAYES (DOMESTIQUES))(AUTRES)] def
+/scale_min 70 def
+/scale_max 83 def
+}defasvarsilent
+
+/QB2A74 {
+mytable
+myquestion 
+296 VALUE
+ myquestion removeGRID
+/long_name (QB2A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB2B74 {
+mytable
+myquestion 
+297 VALUE
+ myquestion removeGRID
+/long_name (QB2B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB275 {
+mytable
+myquestion 
+298 VALUE
+ myquestion removeGRID
+/long_name (QB2 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(DEPENSES DE SANTE)(LOGEMENT EAU ELECTRICITE)(DEPENSES D'EDUCATION)(EQUIPEMENT AGRICOLE)(ACHAT D'ANIMAUX)(DEPENSES EN PRODUITS ZOO VETERINAIRES)(EQUIPEMENT DOMESTIQUES)(HABILLEMENT CHAUSSURES)(CEREMONIES FUNERAILLES FESTIVITES)(CONSTRUCTION REPARATION HABITATION)(FRAIS DE TRANSPORT)(REMBOURSEMENT D'EMPRUNT OU DE DETTES)(SALAIRES PAYES (DOMESTIQUES))(AUTRES)] def
+/scale_min 70 def
+/scale_max 83 def
+}defasvarsilent
+
+/QB2A75 {
+mytable
+myquestion 
+299 VALUE
+ myquestion removeGRID
+/long_name (QB2A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB2B75 {
+mytable
+myquestion 
+300 VALUE
+ myquestion removeGRID
+/long_name (QB2B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB276 {
+mytable
+myquestion 
+301 VALUE
+ myquestion removeGRID
+/long_name (QB2 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(DEPENSES DE SANTE)(LOGEMENT EAU ELECTRICITE)(DEPENSES D'EDUCATION)(EQUIPEMENT AGRICOLE)(ACHAT D'ANIMAUX)(DEPENSES EN PRODUITS ZOO VETERINAIRES)(EQUIPEMENT DOMESTIQUES)(HABILLEMENT CHAUSSURES)(CEREMONIES FUNERAILLES FESTIVITES)(CONSTRUCTION REPARATION HABITATION)(FRAIS DE TRANSPORT)(REMBOURSEMENT D'EMPRUNT OU DE DETTES)(SALAIRES PAYES (DOMESTIQUES))(AUTRES)] def
+/scale_min 70 def
+/scale_max 83 def
+}defasvarsilent
+
+/QB2A76 {
+mytable
+myquestion 
+302 VALUE
+ myquestion removeGRID
+/long_name (QB2A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB2B76 {
+mytable
+myquestion 
+303 VALUE
+ myquestion removeGRID
+/long_name (QB2B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB277 {
+mytable
+myquestion 
+304 VALUE
+ myquestion removeGRID
+/long_name (QB2 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(DEPENSES DE SANTE)(LOGEMENT EAU ELECTRICITE)(DEPENSES D'EDUCATION)(EQUIPEMENT AGRICOLE)(ACHAT D'ANIMAUX)(DEPENSES EN PRODUITS ZOO VETERINAIRES)(EQUIPEMENT DOMESTIQUES)(HABILLEMENT CHAUSSURES)(CEREMONIES FUNERAILLES FESTIVITES)(CONSTRUCTION REPARATION HABITATION)(FRAIS DE TRANSPORT)(REMBOURSEMENT D'EMPRUNT OU DE DETTES)(SALAIRES PAYES (DOMESTIQUES))(AUTRES)] def
+/scale_min 70 def
+/scale_max 83 def
+}defasvarsilent
+
+/QB2A77 {
+mytable
+myquestion 
+305 VALUE
+ myquestion removeGRID
+/long_name (QB2A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB2B77 {
+mytable
+myquestion 
+306 VALUE
+ myquestion removeGRID
+/long_name (QB2B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB278 {
+mytable
+myquestion 
+307 VALUE
+ myquestion removeGRID
+/long_name (QB2 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(DEPENSES DE SANTE)(LOGEMENT EAU ELECTRICITE)(DEPENSES D'EDUCATION)(EQUIPEMENT AGRICOLE)(ACHAT D'ANIMAUX)(DEPENSES EN PRODUITS ZOO VETERINAIRES)(EQUIPEMENT DOMESTIQUES)(HABILLEMENT CHAUSSURES)(CEREMONIES FUNERAILLES FESTIVITES)(CONSTRUCTION REPARATION HABITATION)(FRAIS DE TRANSPORT)(REMBOURSEMENT D'EMPRUNT OU DE DETTES)(SALAIRES PAYES (DOMESTIQUES))(AUTRES)] def
+/scale_min 70 def
+/scale_max 83 def
+}defasvarsilent
+
+/QB2A78 {
+mytable
+myquestion 
+308 VALUE
+ myquestion removeGRID
+/long_name (QB2A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB2B78 {
+mytable
+myquestion 
+309 VALUE
+ myquestion removeGRID
+/long_name (QB2B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB279 {
+mytable
+myquestion 
+310 VALUE
+ myquestion removeGRID
+/long_name (QB2 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(DEPENSES DE SANTE)(LOGEMENT EAU ELECTRICITE)(DEPENSES D'EDUCATION)(EQUIPEMENT AGRICOLE)(ACHAT D'ANIMAUX)(DEPENSES EN PRODUITS ZOO VETERINAIRES)(EQUIPEMENT DOMESTIQUES)(HABILLEMENT CHAUSSURES)(CEREMONIES FUNERAILLES FESTIVITES)(CONSTRUCTION REPARATION HABITATION)(FRAIS DE TRANSPORT)(REMBOURSEMENT D'EMPRUNT OU DE DETTES)(SALAIRES PAYES (DOMESTIQUES))(AUTRES)] def
+/scale_min 70 def
+/scale_max 83 def
+}defasvarsilent
+
+/QB2A79 {
+mytable
+myquestion 
+311 VALUE
+ myquestion removeGRID
+/long_name (QB2A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB2B79 {
+mytable
+myquestion 
+312 VALUE
+ myquestion removeGRID
+/long_name (QB2B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB280 {
+mytable
+myquestion 
+313 VALUE
+ myquestion removeGRID
+/long_name (QB2 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(DEPENSES DE SANTE)(LOGEMENT EAU ELECTRICITE)(DEPENSES D'EDUCATION)(EQUIPEMENT AGRICOLE)(ACHAT D'ANIMAUX)(DEPENSES EN PRODUITS ZOO VETERINAIRES)(EQUIPEMENT DOMESTIQUES)(HABILLEMENT CHAUSSURES)(CEREMONIES FUNERAILLES FESTIVITES)(CONSTRUCTION REPARATION HABITATION)(FRAIS DE TRANSPORT)(REMBOURSEMENT D'EMPRUNT OU DE DETTES)(SALAIRES PAYES (DOMESTIQUES))(AUTRES)] def
+/scale_min 70 def
+/scale_max 83 def
+}defasvarsilent
+
+/QB2A80 {
+mytable
+myquestion 
+314 VALUE
+ myquestion removeGRID
+/long_name (QB2A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB2B80 {
+mytable
+myquestion 
+315 VALUE
+ myquestion removeGRID
+/long_name (QB2B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB281 {
+mytable
+myquestion 
+316 VALUE
+ myquestion removeGRID
+/long_name (QB2 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(DEPENSES DE SANTE)(LOGEMENT EAU ELECTRICITE)(DEPENSES D'EDUCATION)(EQUIPEMENT AGRICOLE)(ACHAT D'ANIMAUX)(DEPENSES EN PRODUITS ZOO VETERINAIRES)(EQUIPEMENT DOMESTIQUES)(HABILLEMENT CHAUSSURES)(CEREMONIES FUNERAILLES FESTIVITES)(CONSTRUCTION REPARATION HABITATION)(FRAIS DE TRANSPORT)(REMBOURSEMENT D'EMPRUNT OU DE DETTES)(SALAIRES PAYES (DOMESTIQUES))(AUTRES)] def
+/scale_min 70 def
+/scale_max 83 def
+}defasvarsilent
+
+/QB2A81 {
+mytable
+myquestion 
+317 VALUE
+ myquestion removeGRID
+/long_name (QB2A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB2B81 {
+mytable
+myquestion 
+318 VALUE
+ myquestion removeGRID
+/long_name (QB2B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB282 {
+mytable
+myquestion 
+319 VALUE
+ myquestion removeGRID
+/long_name (QB2 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(DEPENSES DE SANTE)(LOGEMENT EAU ELECTRICITE)(DEPENSES D'EDUCATION)(EQUIPEMENT AGRICOLE)(ACHAT D'ANIMAUX)(DEPENSES EN PRODUITS ZOO VETERINAIRES)(EQUIPEMENT DOMESTIQUES)(HABILLEMENT CHAUSSURES)(CEREMONIES FUNERAILLES FESTIVITES)(CONSTRUCTION REPARATION HABITATION)(FRAIS DE TRANSPORT)(REMBOURSEMENT D'EMPRUNT OU DE DETTES)(SALAIRES PAYES (DOMESTIQUES))(AUTRES)] def
+/scale_min 70 def
+/scale_max 83 def
+}defasvarsilent
+
+/QB2A82 {
+mytable
+myquestion 
+320 VALUE
+ myquestion removeGRID
+/long_name (QB2A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB2B82 {
+mytable
+myquestion 
+321 VALUE
+ myquestion removeGRID
+/long_name (QB2B MONTANT DEPENSE) def 
+}defasvarsilent
+
+/QB283 {
+mytable
+myquestion 
+322 VALUE
+ myquestion removeGRID
+/long_name (QB2 CODE DEPENSES NON ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(DEPENSES DE SANTE)(LOGEMENT EAU ELECTRICITE)(DEPENSES D'EDUCATION)(EQUIPEMENT AGRICOLE)(ACHAT D'ANIMAUX)(DEPENSES EN PRODUITS ZOO VETERINAIRES)(EQUIPEMENT DOMESTIQUES)(HABILLEMENT CHAUSSURES)(CEREMONIES FUNERAILLES FESTIVITES)(CONSTRUCTION REPARATION HABITATION)(FRAIS DE TRANSPORT)(REMBOURSEMENT D'EMPRUNT OU DE DETTES)(SALAIRES PAYES (DOMESTIQUES))(AUTRES)] def
+/scale_min 70 def
+/scale_max 83 def
+}defasvarsilent
+
+/QB2A83 {
+mytable
+myquestion 
+323 VALUE
+ myquestion removeGRID
+/long_name (QB2A AVEZ VOUS EFFECTUE DES DEPENSES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QB2B83 {
+mytable
+myquestion 
+324 VALUE
+ myquestion removeGRID
+/long_name (QB2B MONTANT DEPENSE) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

@@ -1,0 +1,305 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 5648
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 507
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Baseruralmenagenov2013.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Migration) def
+/Q95A {
+mytable
+myquestion 
+413 VALUE
+ myquestion removeGRID
+/long_name (Q95a. : Y a-t-il un membre ou ancien membre de votre ménage vivant et travaillan) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q95B1A {
+mytable
+myquestion 
+414 VALUE
+ myquestion removeGRID
+/long_name (Q95b : Combien de membres de votre village ont migré pour la recherche d'un empl) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95B1B {
+mytable
+myquestion 
+415 VALUE
+ myquestion removeGRID
+/long_name (Q95b : Combien de membres de votre village ont migré pour la recherche d'un empl) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95B2A {
+mytable
+myquestion 
+416 VALUE
+ myquestion removeGRID
+/long_name (Q95b : Combien de membres de votre village ont migré pour la recherche d'un empl) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95B2B {
+mytable
+myquestion 
+417 VALUE
+ myquestion removeGRID
+/long_name (Q95b : Combien de membres de votre village ont migré pour la recherche d'un empl) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95B3A {
+mytable
+myquestion 
+418 VALUE
+ myquestion removeGRID
+/long_name (Q95b : Combien de membres de votre village ont migré pour la recherche d'un empl) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95B3B {
+mytable
+myquestion 
+419 VALUE
+ myquestion removeGRID
+/long_name (Q95b : Combien de membres de votre village ont migré pour la recherche d'un empl) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95C1 {
+mytable
+myquestion 
+420 VALUE
+ myquestion removeGRID
+/long_name (Q95c : Où vivent-ils/travaillent-ils actuellement ? Autre village) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95C2 {
+mytable
+myquestion 
+421 VALUE
+ myquestion removeGRID
+/long_name (Q95c : Où vivent-ils/travaillent-ils actuellement ? Ville Niamey) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95C3 {
+mytable
+myquestion 
+422 VALUE
+ myquestion removeGRID
+/long_name (Q95c : Où vivent-ils/travaillent-ils actuellement ? Autre ville du Niger) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95C4 {
+mytable
+myquestion 
+423 VALUE
+ myquestion removeGRID
+/long_name (Q95c : Où vivent-ils/travaillent-ils actuellement ? Autre pays d'Afrique précise) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95C5 {
+mytable
+myquestion 
+424 VALUE
+ myquestion removeGRID
+/long_name (Q95c : Où vivent-ils/travaillent-ils actuellement ? Hors d'Afrique) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95D1A {
+mytable
+myquestion 
+425 VALUE
+ myquestion removeGRID
+/long_name (Q95d : Combien de membres de votre village ont migré pour la recherche d'un empl) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95D1B {
+mytable
+myquestion 
+426 VALUE
+ myquestion removeGRID
+/long_name (Q95d : Combien de membres de votre village ont migré pour la recherche d'un empl) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95D2A {
+mytable
+myquestion 
+427 VALUE
+ myquestion removeGRID
+/long_name (Q95d : Combien de membres de votre village ont migré pour la recherche d'un empl) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95D2B {
+mytable
+myquestion 
+428 VALUE
+ myquestion removeGRID
+/long_name (Q95d : Combien de membres de votre village ont migré pour la recherche d'un empl) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95D3A {
+mytable
+myquestion 
+429 VALUE
+ myquestion removeGRID
+/long_name (Q95d : Combien de membres de votre village ont migré pour la recherche d'un empl) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95D3B {
+mytable
+myquestion 
+430 VALUE
+ myquestion removeGRID
+/long_name (Q95d : Combien de membres de votre village ont migré pour la recherche d'un empl) def 
+/units /ids def
+/CLIST [(Niamey)(Capitale régionale)(Autre localité urbaine)(Vers le milieu rural)(Vers un pays africain)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95E {
+mytable
+myquestion 
+431 VALUE
+ myquestion removeGRID
+/long_name (Q95e : Parmi ces migrants y a-t-il le chef de ménage ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q95F {
+mytable
+myquestion 
+432 VALUE
+ myquestion removeGRID
+/long_name (Q95f : Aproximativement les migrants saisonniers de votre ménage sont absents pe) def 
+/units /ids def
+/CLIST [(Moins d'un mois dans l'année)(Entre 1 et 3 mois dans l'année)(Entre 3 et 6 mois dans l'année)(Entre 6 et 9 mois dans l'année)(Plus de 9 mois dans l'année)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q95G {
+mytable
+myquestion 
+433 VALUE
+ myquestion removeGRID
+/long_name (Q95g : Approximativement, quel a été le montant des transferts monétaires de ces) def 
+}defasvarsilent
+
+/Q95H {
+mytable
+myquestion 
+434 VALUE
+ myquestion removeGRID
+/long_name (Q95h : Comment les resources envoyées pendant les 12 derniers sont-elles jugées) def 
+/units /ids def
+/CLIST [(Plus important que d'habitude)(Equivalentes)(Moins importantes que d'habitude)(Non applicable)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q95I {
+mytable
+myquestion 
+435 VALUE
+ myquestion removeGRID
+/long_name (Q95i : Comment les resources attendues pendant les 12 derniers à venir sont-elle) def 
+/units /ids def
+/CLIST [(Plus important que d'habitude)(Equivalentes)(Moins importantes que d'habitude)(Non applicable)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

@@ -1,0 +1,80 @@
+\begin{ingrid}
+
+continuedataset:
+
+grid:
+/name /T def
+/standard_name (time) def
+/units (days since 1981-01-01  12:00:00) def
+0 1.0 
+%systemtime
+%systemtime2ymd ymd2rjt
+31 Dec 2016 julian_day
+1
+Jan 1981 julian_day
+sub
+/defaultvalue {last} def
+:grid
+
+%T { (/Data/data23/ANACIM/anacim_v3/ALL_block2/tx_mrg_daily/tmax_mrg_%Y%m[T]%d[T]_ALL.nc) [T]} removeextrausing
+%name exch def
+
+%T 
+%/expires last rjt2ymd ymd:nextmonth ymd:nextmonth ymd2systemtime def
+%   name exch def
+%   /expires T .expires def
+%   /last_modified T .last_modified def
+
+%%%%%
+
+grid:
+/name /X def
+/units /degree_east def
+ -17.5875 0.0375 dup 170.0 mul 2 index add
+/long_name (Longitude) def
+:grid
+
+grid:
+/name /Y def
+/units /degree_north def
+ 12.225 0.0375 dup 122.0 mul 2 index add
+/long_name (Latitude) def
+:grid
+
+%%%%%%
+/tmax{
+[X Y | T] (/Data/data23/ANACIM/anacim_v3/ALL_block2/tx_mrg_daily/tmax_mrg_%Y%m[T]%d[T]_ALL.nc) [T]
+readdatafile:
+/missing_value -99. def
+/units /Celsius_scale def
+/name (temp) def
+%/fullname (Maximum Temperature) def
+/long_name (Maximum Temperature) def
+/realarraytype netcdfrecords
+:readdatafile
+}defasvarsilent
+
+%%%%%%%%
+/tmin{
+[X Y | T] (/Data/data23/ANACIM/anacim_v3/ALL_block2/tn_mrg_daily/tmin_mrg_%Y%m[T]%d[T]_ALL.nc) [T]
+readdatafile:
+/missing_value -99. def
+/units /Celsius_scale def
+/name (temp) def
+%/fullname (Minimum Temperature) def
+/long_name (Minimum Temperature) def
+/realarraytype netcdfrecords
+:readdatafile
+}defasvarsilent
+
+%%%%%%%%
+/tmean {
+tmax
+tmin
+add
+2.0 div
+/long_name (Mean Temperature) def
+} defasvar
+
+:dataset
+\end{ingrid}

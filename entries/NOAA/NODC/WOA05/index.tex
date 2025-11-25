@@ -1,0 +1,50 @@
+\begin{ingrid}
+continuedataset:
+link:
+/name (source) def
+/href (ftp://ftp.nodc.noaa.gov/pub/WOA05/) def
+:link
+link:
+/name (WOA05_Product_Page) def
+/href (http://www.nodc.noaa.gov/OC5/WOA05/pr_woa05.html) def
+:link
+link:
+/name (dataset_documentation) def
+/href (ftp://ftp.nodc.noaa.gov/pub/WOA05/DOC/woa05documentation.pdf) def
+:link
+link:
+/name (WOA09) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NODC/.WOA09/) def
+/description (World Ocean Atlas 2009) def
+/semantics (dcterm:isReplacedBy) def
+:link
+/description (World Ocean Atlas 2005, an atlas of objectively analyzed fields of major ocean parameters at monthly, seasonal, and annual time scales.  Superseded by WOA09) def
+/references (Locarnini_etal2006 Antonov_etal2006 Garcia_etal2006v3 Garcia_etal2006v4)def
+/iridl:hasSemantics (iridl:Ocean) def
+grid: /name (T) def
+/long_name (Time) def
+periodic
+month
+Jan 1 Dec
+:grid
+grid: /name (X) def
+/long_name(Longitude) def
+/units /degreeE def
+periodic 
+0.5 to 359.5 N= 360 pts
+:grid
+grid: /name (Y) def
+/long_name(Latitude) def
+/units /degreeN def
+-89.5 to 89.5 N= 180 pts
+:grid
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+/positive (down) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. 600. 700. 800. 900. 1000. 1100. 1200. 1300. 1400. 1500. 1750. 2000. 2500. 3000. 3500. 4000. 4500. 5000. 5500.]
+:grid
+:dataset
+\end{ingrid}
+1

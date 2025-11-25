@@ -1,0 +1,47 @@
+\begin{ingrid}
+
+continuedataset:
+
+/precip {
+
+	SOURCES .NOAA .NCEP .CPC .UNIFIED_PRCP .GAUGE_BASED .GLOBAL .v1p0 .Monthly .extREALTIME .rain
+  	X first 
+                180 sub
+                0.5 last
+                180 sub
+        GRID
+	T (Dec 1990) (Jan 2021) RANGEEDGES
+	T (days since 1960-01-01) streamgridunitconvert
+	T differential_mul
+	T (months since 1960-01-01) streamgridunitconvert
+  	T 3 runningAverage
+  	3. mul
+	T 12 splitstreamgrid
+  	[T2] 0.33 0.66 0 replacebypercentile
+	/long_name (Precipitation) def
+	[X Y] REORDER
+}defasvarcachesilent
+
+/tref {
+	SOURCES .NOAA .NCEP .CPC .temperature .monthly .tmean 
+	/long_name (Mean Temperature) def
+	 X first
+    	   180 sub
+    	   0.5 last
+      	   180 sub
+      	 GRID
+        T (Dec 1990) (Jan 2021) RANGEEDGES
+        T 3 runningAverage
+        T 12 splitstreamgrid
+        [T2] 0.33 0.66 0 replacebypercentile
+	[X Y] REORDER
+}defasvarcachesilent
+
+:dataset
+
+     precip .T name exch def
+     precip .X name exch def
+     precip .Y name exch def
+     precip .percentile name exch def
+
+\end{ingrid}

@@ -1,0 +1,205 @@
+\begin{ingrid}
+
+continuedataset:
+
+/countryquery
+{
+IRIDB
+(select adm0_name as country,* from g2015_2012_0 where adm0_name is not null order by adm0_name) (country) openqueryby 
+country (Ghana) VALUE
+/long_name (country info) def
+} defasvarcachesilent
+
+/provincequery
+{
+IRIDB
+(select adm1_name as province,* from g2015_2014_1 where adm1_name is not null and adm0_name~'Ghana' order by adm1_name) (province) openqueryby
+ province 
+/units /ids def
+/long_name (Province info) def
+/last_modified 1100113152 def
+name exch def
+the_geom
+/last_modified 1100113152 def
+name exch def
+} defasvarcachesilent 
+
+/districtquery
+{
+IRIDB
+(select adm2_name as district,* from g2015_2014_2 where adm2_name is not null and adm0_name~'Ghana' order by adm2_name) (district) openqueryby
+
+district 
+/units /ids def
+/long_name (District info) def
+/last_modified 1100113152 def
+name exch def
+the_geom 
+/last_modified 1100113152 def
+name exch def
+} defasvarcachesilent
+
+/caENACTS-last_WASP12 {
+  SOURCES .Ghana .ALL .WASP .rainfall .rfe_merged
+  [X Y]REORDER
+  dup
+IRIDB
+(select adm0_name as country,* from g2015_2012_0 where adm0_name is not null order by adm0_name) (country) openqueryby
+
+ country (Ghana) VALUE
+/long_name (country info) def
+.the_geom
+rasterize
+[X Y]weighted-average
+/fullname (12-Month WASP) def
+/long_name (Country-Average ENACTS 12-Month WASP) def
+T /pointwidth 0 def pop
+/scale_min -2.5 def
+/scale_max 2.5 def
+} defasvarcachesilent
+
+/cabaseline_full {
+     SOURCES .Ghana .ALL .WASP .rainfall .rfe_merged
+     [X Y]REORDER
+     T /Baseline renameGRID
+     Baseline /pointwidth 12 def pop
+     dup
+IRIDB
+(select adm0_name as country,* from g2015_2012_0 where adm0_name is not null order by adm0_name) (country) openqueryby
+ 
+country (Ghana) VALUE
+/long_name (country info) def
+.the_geom
+rasterize
+[X Y]weighted-average
+     SOURCES .Ghana .ALL .WASP .rainfall .rfe_merged
+      X first VALUE
+      Y first VALUE
+      0 mul
+      add
+     Baseline dup
+       (pointwidth) 1.0 def
+       replaceGRID
+     Baseline 12 splitstreamgrid
+     Baseline -5.5 shiftGRID
+     Baseline2 -5.5 shiftGRID
+     Baseline2 (BaseYears) renameGRID
+     /long_name (Country-Average ENACTS 12-Month WASP Baseline) def
+     /fullname (Country-Average ENACTS 12-Month WASP Baseline) def
+} defasvarcachesilent
+
+/paENACTS-last_WASP12 {
+ SOURCES .Ghana .ALL .WASP .rainfall .rfe_merged
+  [X Y]REORDER
+  dup
+IRIDB
+(select adm1_name as province,* from g2015_2014_1 where adm1_name is not null and adm0_name~'Ghana' order by adm1_name) (province) openqueryby
+ province /units /ids def pop
+/long_name (Province info) def
+/last_modified 1100113152 def
+the_geom
+/last_modified 1100113152 def
+name exch def
+.the_geom
+rasterize
+[X Y]weighted-average
+/fullname (12-Month WASP) def
+/long_name (Province-Average ENACTS 12-Month WASP) def
+T /pointwidth 0 def pop
+/scale_min -2.5 def
+/scale_max 2.5 def
+} defasvarcachesilent
+
+/pabaseline_full {
+  SOURCES .Ghana .ALL .WASP .rainfall .rfe_merged     
+  [X Y]REORDER
+     T /Baseline renameGRID
+     Baseline /pointwidth 12 def pop
+     dup
+IRIDB
+(select adm1_name as province,* from g2015_2014_1 where adm1_name is not null and adm0_name~'Ghana' order by adm1_name) (province) openqueryby
+province /units /ids def pop
+/long_name (Province info) def
+/last_modified 1100113152 def
+the_geom
+/last_modified 1100113152 def
+name exch def
+.the_geom
+rasterize
+[X Y]weighted-average
+      SOURCES .Ghana .ALL .WASP .rainfall .rfe_merged      
+      X first VALUE
+      Y first VALUE
+      0 mul
+      add
+     Baseline dup
+       (pointwidth) 1.0 def
+       replaceGRID
+     Baseline 12 splitstreamgrid
+     Baseline -5.5 shiftGRID
+     Baseline2 -5.5 shiftGRID
+     Baseline2 (BaseYears) renameGRID
+     /long_name (Province-Average ENACTS 12-Month WASP Baseline) def
+     /fullname (Province-Average ENACTS 12-Month WASP Baseline) def
+} defasvarcachesilent
+
+/daENACTS-last_WASP12 {
+  SOURCES .Ghana .ALL .WASP .rainfall .rfe_merged  
+  [X Y]REORDER
+  dup
+IRIDB
+
+(select adm2_name as district,* from g2015_2014_2 where adm2_name is not null and adm0_name~'Ghana' order by adm2_name) (district) openqueryby
+district /units /ids def pop
+/long_name (District info) def
+/last_modified 1100113152 def
+the_geom 
+/last_modified 1100113152 def
+name exch def
+.the_geom 
+rasterize
+[X Y]weighted-average
+/fullname (12-Month WASP) def
+/long_name (District-Average ENACTS 12-Month WASP) def
+T /pointwidth 0 def pop
+/scale_min -2.5 def
+/scale_max 2.5 def
+} defasvarcachesilent
+
+/dabaseline_full {
+     SOURCES .Ghana .ALL .WASP .rainfall .rfe_merged
+     [X Y]REORDER
+     T /Baseline renameGRID
+     Baseline /pointwidth 12 def pop
+     dup
+IRIDB
+
+(select adm2_name as district,* from g2015_2014_2 where adm2_name is not null and adm0_name~'Ghana' order by adm2_name) (district) openqueryby
+district /units /ids def pop
+/long_name (District info) def
+/last_modified 1100113152 def
+the_geom 
+/last_modified 1100113152 def
+name exch def
+.the_geom
+rasterize
+[X Y]weighted-average
+      SOURCES .Ghana .ALL .WASP .rainfall .rfe_merged
+      X first VALUE
+      Y first VALUE
+      0 mul
+      add
+     Baseline dup
+       (pointwidth) 1.0 def
+       replaceGRID
+     Baseline 12 splitstreamgrid
+     Baseline -5.5 shiftGRID
+     Baseline2 -5.5 shiftGRID
+     Baseline2 (BaseYears) renameGRID
+     /long_name (District-Average ENACTS 12-Month WASP Baseline) def
+     /fullname (District-Average ENACTS 12-Month WASP Baseline) def
+} defasvarcachesilent
+
+:dataset
+
+\end{ingrid}

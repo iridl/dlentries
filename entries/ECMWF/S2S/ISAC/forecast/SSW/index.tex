@@ -1,0 +1,74 @@
+\begin{ingrid}
+continuedataset:
+
+
+
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+values:
+08 Nov 2018 julian_day 01 Jan 1960 julian_day sub
+7.0
+systemtime
+(%d %b %Y) 12 strftime interp julian_day 65. sub
+01 Jan 1960 julian_day sub
+{}for
+:values
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+S {(/Data/data25/ECMWF/S2S/ISAC/REL/SSW/%Y[S]/%m[S]/SSW.ALL.isac.%Y%m%d[S]) [S]} removeextrausing
+name exch def
+
+  S last cvsunits
+    interp exch 0.5 add
+       3 -1 roll
+        ymd:nextmonth ymd:nextmonth
+       ymd2systemtime
+     nip
+     /expires exch def
+name exch def
+/expires S  .expires def
+
+grid:
+/name /L def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+1. 1. 32.
+/pointwidth 0. def
+:grid
+
+grid:
+/name /M def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+1 1 41
+:grid
+
+ /ensembles { [ L M | S ]
+ (/Data/data25/ECMWF/S2S/ISAC/REL/SSW/%Y[S]/%m[S]/SSW.ALL.isac.%Y%m%d[S]) [ S ]
+readdatafile:
+((40(32(19X,F6.7,/)),(31(19X,F6.7,/),(19X,F6.7)))) formatted
+ [M L] REORDER
+:readdatafile
+/missing_value -999 def
+/units (unitless) def
+} defasvarsilent
+
+
+ /ensemble_mean { [ L | S ]
+ (/Data/data25/ECMWF/S2S/ISAC/REL/SSW/%Y[S]/%m[S]/SSW.EM.isac.%Y%m%d[S]) [ S ]
+readdatafile:
+ ((13X,F6.3), (13X,F6.3)  ) formatted
+:readdatafile
+/missing_value -999 def
+/units (unitless) def
+} defasvarsilent
+
+:dataset
+\end{ingrid}

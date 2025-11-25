@@ -1,0 +1,678 @@
+\begin{ingrid}
+%/ERA-40 dataareLDEOonlyPassword
+continuedataset:
+
+link:
+/name (ERA_Interim_Page) def
+/description (ERA-Interim Description Page at ECMWF Site) def
+/href (https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era-interim/) def
+:link
+
+link:
+/name (ERA-Interim_Document) def
+/description (ERA-Interim Archive Version 2.0 Document) def
+/href (https://www.ecmwf.int/en/elibrary/8174-era-interim-archive-version-20/) def
+:link
+
+link:
+/name (ERA-Interim_Journal_Article) def
+/description (QJRMS Review Article:  The ERA-Interim reanalysis: configuration and performance of the data assimilation system) def
+/href (http://onlinelibrary.wiley.com/doi/10.1002/qj.828/abstract/) def
+:link
+
+/license (Because of the conditions of use imposed by ECMWF, these data should only be used for research purposes within the IRI.  Before you use these data, please register with ECMWF and read and agree to the ECMWF archive <a href="http://apps.ecmwf.int/datasets/data/interim-full-daily/licence/">Conditions of Use</a>) def
+
+grid:
+/name /X def
+/units (degree_east) def
+0.0 0.75 359.25
+periodic
+:grid
+
+grid:
+/name /Y def
+/units (degree_north) def
+90.0 0.75 -90.0
+:grid
+
+grid:
+/name /T def
+/long_name (Time) def
+/units (days since 1960-01-01) def
+01 Jan 1979 julian_day 01 Jan 1960 julian_day sub 
+0.25
+31 Dec 2016 julian_day 01 Jan 1960 julian_day sub 0.75 add
+/pointwidth 0.25 def
+:grid
+
+grid:
+/name /TF def
+/long_name (Time) def
+/standard_name (time) def
+/units (days since 1960-01-01) def
+01 Jan 1979 julian_day 01 Jan 1960 julian_day sub 0.25 add
+0.25
+01 Jan 2017 julian_day 01 Jan 1960 julian_day sub 
+/pointwidth 0.25 def
+:grid
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 1000 925 850 500 200 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (P1) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 1000 925 850 :values
+/standard_name (air_pressure) def
+:grid
+
+dataset:
+/name (surface) def
+[X Y T TF ] {name exch def } forall
+
+% grid: /time (hours since 1900-01-01 00:00:0.0) ordered (0300-0900 1 Jan 1979) to (2100 31 Dec 2016 - 0300 1 Jan 2017) by 6.0 N= 55520 pts :grid
+ /evap {
+[ X Y | TF ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_evap.nc) readdatafile:
+/name (e) def
+ /add_offset -0.009142892 def
+ /scale_factor 4.25314369E-07 def
+ /missing_value -32767 def
+ /standard_name (lwe_thickness_of_water_evaporation_amount) def
+ /long_name (Evaporation) def
+ /units (m)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+% grid: /time (hours since 1900-01-01 00:00:0.0) ordered (0300-0900 1 Jan 1979) to (2100 31 Dec 2016 - 0300 1 Jan 2017) by 6.0 N= 55520 pts :grid
+ /tp {
+[ X Y | TF ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_tp.nc) readdatafile:
+/name (tp) def
+ /scale_factor 7.98273140E-06 def
+ /add_offset 0.2615622 def
+ /long_name (Total precipitation) def
+ /missing_value -32767 def
+ /units /m def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /sp {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_slp.nc) readdatafile:
+/name (sp) def
+ /add_offset 78521.062 def
+ /scale_factor 0.8524196 def
+ /missing_value -32767 def
+ /standard_name (surface_air_pressure) def
+ /long_name (Surface pressure) def
+ /units /Pa def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /sst {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_sst.nc) readdatafile:
+/name (sst) def
+ /scale_factor 6.34486962E-04 def
+ /add_offset 288.61237 def
+ /standard_name (sea_surface_temperature) def
+ /long_name (Sea surface temperature) def
+ /missing_value -32767 def
+ /units /Kelvin_scale def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+:dataset
+
+
+
+dataset:
+/name (2m_above_ground) def
+[X Y T ] {name exch def } forall
+
+ /d2m {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_dpt2m.nc) readdatafile:
+/name (d2m) def
+ /scale_factor 0.001994255 def
+ /add_offset 242.81549 def
+ /standard_name (dew_point_temperature) def
+ /long_name (2 metre dew point temperature) def
+ /missing_value -32767 def
+ /units /Kelvin_scale def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /t2m {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_t2m.nc) readdatafile:
+/name (t2m) def
+ /scale_factor 0.002062724 def
+ /add_offset 257.79147 def
+ /standard_name (air_temperature) def
+ /long_name (2 metre temperature) def
+ /missing_value -32767 def
+ /units /Kelvin_scale def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+:dataset
+
+
+dataset:
+/name (10m_above_ground) def
+[X Y T ] {name exch def } forall
+
+ /u10m {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_u10m.nc) readdatafile:
+/name (u10) def
+ /scale_factor 0.003479242 def
+ /add_offset 59.415657 def
+ /standard_name (eastward_wind) def
+ /long_name (10 metre U wind component) def
+ /missing_value -32767 def
+ /units (m s-1)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /v10m {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_v10m.nc) readdatafile:
+/name (v10) def
+ /scale_factor 0.002125365 def
+ /add_offset 16.038626 def
+ /standard_name (northward_wind) def
+ /long_name (10 metre V wind component) def
+ /missing_value -32767 def
+ /units (m s-1)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+:dataset
+
+
+dataset:
+/name (atmos_column) def
+[X Y T TF ] {name exch def } forall
+
+% grid: /time (hours since 1900-01-01 00:00:0.0) ordered (0300-0900 1 Jan 1979) to (2100 31 Dec 2016 - 0300 1 Jan 2017) by 6.0 N= 55520 pts :grid
+ /cape {
+[ X Y | TF ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_CAPE.nc) readdatafile:
+/name (cape) def
+ /scale_factor 0.2870844 def
+ /add_offset 9406.6064 def
+ /standard_name (atmosphere_convective_available_potential_energy) def
+ /long_name (Convective available potential energy) def
+ /missing_value -32767 def
+ /units (J kg-1)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /tcw {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_tcw.nc) readdatafile:
+/name (tcw) def
+ /scale_factor 0.001487865 def
+ /add_offset 48.782551 def
+ /standard_name (atmosphere_mass_content_of_water) def
+ /long_name (Total column water) def
+ /missing_value -32767 def
+ /units (kg m-2)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+:dataset
+
+
+dataset:
+/name (pressure_level) def
+[X Y T ] {name exch def } forall
+
+ /d1000 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_div1000.nc) readdatafile:
+/name (d) def
+ /add_offset -2.45009119E-06 def
+ /scale_factor 4.98544139E-08 def
+ /missing_value -32767 def
+ /standard_name (divergence_of_wind) def
+ /long_name (Divergence at 1000 hPa) def
+ /units /s-1 def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /d925 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_div925.nc) readdatafile:
+/name (d) def
+ /add_offset -9.18582300E-05 def
+ /scale_factor 1.86749833E-08 def
+ /missing_value -32767 def
+ /standard_name (divergence_of_wind) def
+ /long_name (Divergence at 925 hPa) def
+ /units /s-1 def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /d850 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_div850.nc) readdatafile:
+/name (d) def
+ /add_offset -8.70406948E-05 def
+ /scale_factor 1.88289402E-08 def
+ /missing_value -32767 def
+ /standard_name (divergence_of_wind) def
+ /long_name (Divergence at 850 hPa) def
+ /units /s-1 def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /d500 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_div500.nc) readdatafile:
+/name (d) def
+ /add_offset 1.02225322E-05 def
+ /scale_factor 1.09839728E-08 def 
+ /missing_value -32767 def
+ /standard_name (divergence_of_wind) def
+ /long_name (Divergence at 500 hPa) def
+ /units /s-1 def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /d200 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_div200.nc) readdatafile:
+/name (d) def
+ /add_offset 2.65577328E-05 def
+ /scale_factor 1.68228169E-08 def
+ /missing_value -32767 def
+ /standard_name (divergence_of_wind) def
+ /long_name (Divergence at 200 hPa) def
+ /units /s-1 def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+
+ /q1000 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_q1000.nc) readdatafile:
+/name (q) def
+ /add_offset 0.01687219 def
+ /scale_factor 5.14929752E-07 def
+ /missing_value -32767 def
+ /standard_name (specific_humidity) def
+ /long_name (Specific Humidity at 1000 hPa) def
+ /units /unitless def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /q925 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_q925.nc) readdatafile:
+/name (q) def
+ /add_offset 0.02045049 def
+ /scale_factor 6.24137385E-07 def
+ /missing_value -32767 def
+ /standard_name (specific_humidity) def
+ /long_name (Specific Humidity at 925 hPa) def
+ /units /unitless def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /q850 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_q850.nc) readdatafile:
+/name (q) def
+ /add_offset 0.01482524 def
+ /scale_factor 4.52457954E-07 def
+ /missing_value -32767 def
+ /standard_name (specific_humidity) def
+ /long_name (Specific Humidity at 850 hPa) def
+ /units /unitless def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /q500 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_q500.nc) readdatafile:
+/name (q) def
+ /add_offset 0.00562514 def
+ /scale_factor 1.74155844E-07 def
+ /missing_value -32767 def
+ /standard_name (specific_humidity) def
+ /long_name (Specific Humidity at 500 hPa) def
+ /units /unitless def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /q200 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_q200.nc) readdatafile:
+/name (q) def
+ /add_offset 1.87714410E-04 def
+ /scale_factor 7.45469819E-09 def
+ /missing_value -32767 def
+ /standard_name (specific_humidity) def
+ /long_name (Specific Humidity at 200 hPa) def
+ /units /unitless def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /rh850 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_rh850.nc) readdatafile:
+/name (r) def
+ /add_offset 104.73727 def
+ /scale_factor 0.004508174 def
+ /missing_value -32767 def
+ /standard_name (relative_humidity) def
+ /long_name (Relative humidity at 850 hPa) def
+ /units /percent def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /rh200 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_rh200.nc) readdatafile:
+/name (r) def
+ /add_offset 87.411507 def
+ /scale_factor 0.003868805 def
+ /missing_value -32767 def
+ /standard_name (relative_humidity) def
+ /long_name (Relative humidity at 200 hPa) def
+ /units /percent def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /rv1000 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_RV1000.nc) readdatafile:
+/name (vo) def
+ /add_offset 7.36683360E-05 def
+ /scale_factor 4.93150587E-08 def
+ /missing_value -32767 def
+ /standard_name (atmosphere_relative_vorticity) def
+ /long_name (Relative Vorticity at 1000 hPa) def
+ /units /s-1 def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /rv200 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_RV200.nc) readdatafile:
+/name (vo) def
+ /add_offset -6.54511450E-06 def
+ /scale_factor 1.59447353E-08 def
+ /missing_value -32767 def
+ /standard_name (atmosphere_relative_vorticity) def
+ /long_name (Relative Vorticity at 200 hPa) def
+ /units /s-1 def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /rv500 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_RV500.nc) readdatafile:
+/name (vo) def
+ /add_offset 4.01433354E-05 def
+ /scale_factor 2.16374065E-08 def
+ /missing_value -32767 def
+ /standard_name (atmosphere_relative_vorticity) def
+ /long_name (Relative Vorticity at 500 hPa) def
+ /units /s-1 def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /rv850 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_RV850.nc) readdatafile:
+/name (vo) def
+ /add_offset 5.35254767E-05 def
+ /scale_factor 3.08876729E-08 def
+ /missing_value -32767 def
+ /standard_name (atmosphere_relative_vorticity) def
+ /long_name (Relative Vorticity at 850 hPa) def
+ /units /s-1 def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /rv925 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_RV925.nc) readdatafile:
+/name (vo) def
+ /add_offset 3.26879017E-05 def
+ /scale_factor 3.35393189E-08 def
+ /missing_value -32767 def
+ /standard_name (atmosphere_relative_vorticity) def
+ /long_name (Relative Vorticity at 925 hPa) def
+ /units /s-1 def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /t1000 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_T1000.nc) readdatafile:
+/name (t) def
+ /add_offset 268.41031 def
+ /scale_factor 0.001815032 def
+ /missing_value -32767 def
+ /standard_name (air_temperature) def
+ /long_name (Temperature at 1000 hPa) def
+ /units /Kelvin_scale def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /t200 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_T200.nc) readdatafile:
+/name (t) def
+ /add_offset 215.74792 def
+ /scale_factor 8.65153270E-04 def
+ /missing_value -32767 def
+ /standard_name (air_temperature) def
+ /long_name (Temperature at 200 hPa) def
+ /units /Kelvin_scale def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /t500 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_T500.nc) readdatafile:
+/name (t) def
+ /add_offset 249.09409 def
+ /scale_factor 0.001083864 def
+ /missing_value -32767 def
+ /standard_name (air_temperature) def
+ /long_name (Temperature at 500 hPa) def
+ /units /Kelvin_scale def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /t850 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_T850.nc) readdatafile:
+/name (t) def
+ /add_offset 270.44586 def
+ /scale_factor 0.001784873 def
+ /missing_value -32767 def
+ /standard_name (air_temperature) def
+ /long_name (Temperature at 850 hPa) def
+ /units /Kelvin_scale def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /t925 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_T925.nc) readdatafile:
+/name (t) def
+ /add_offset 271.86566 def
+ /scale_factor 0.001721806 def
+ /missing_value -32767 def
+ /standard_name (air_temperature) def
+ /long_name (Temperature at 925 hPa) def
+ /units /Kelvin_scale def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /u1000 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_U1000.nc) readdatafile:
+/name (u) def
+ /add_offset 67.424957 def
+ /scale_factor 0.003767921 def
+ /missing_value -32767 def
+ /standard_name (eastward_wind) def
+ /long_name (U component of wind at 1000 hPa) def
+ /units (m s-1)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /u200 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_U200.nc) readdatafile:
+/name (u) def
+ /add_offset 26.565968 def
+ /scale_factor 0.002905668 def
+ /missing_value -32767 def
+ /standard_name (eastward_wind) def
+ /long_name (U component of wind at 200 hPa) def
+ /units (m s-1)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /u500 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_U500.nc) readdatafile:
+/name (u) def
+ /add_offset 11.929933 def
+ /scale_factor 0.002194797 def
+ /missing_value -32767 def
+ /standard_name (eastward_wind) def
+ /long_name (U component of wind at 500 hPa) def
+ /units (m s-1)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /u850 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_U850.nc) readdatafile:
+/name (u) def
+ /add_offset -1.2164365 def
+ /scale_factor 0.001888515 def
+ /missing_value -32767 def
+ /standard_name (eastward_wind) def
+ /long_name (U component of wind at 850 hPa) def
+ /units (m s-1)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /u925 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_U925.nc) readdatafile:
+/name (u) def
+ /add_offset -1.2189387 def
+ /scale_factor 0.001689636 def
+ /missing_value -32767 def
+ /standard_name (eastward_wind) def
+ /long_name (U component of wind at 925 hPa) def
+ /units (m s-1)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /v1000 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_V1000.nc) readdatafile:
+/name (v) def
+ /add_offset 4.9204164 def
+ /scale_factor 0.001788185 def
+ /missing_value -32767 def
+ /standard_name (northward_wind) def
+ /long_name (V component of wind at 1000 hPa) def
+ /units (m s-1)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /v200 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_V200.nc) readdatafile:
+/name (v) def
+ /add_offset -3.328793 def
+ /scale_factor 0.002923089 def
+ /missing_value -32767 def
+ /standard_name (northward_wind) def
+ /long_name (V component of wind at 200 hPa) def
+ /units (m s-1)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /v500 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_V500.nc) readdatafile:
+/name (v) def
+ /add_offset 2.3042428 def
+ /scale_factor 0.002308455 def
+ /missing_value -32767 def
+ /standard_name (northward_wind) def
+ /long_name (V component of wind at 500 hPa) def
+ /units (m s-1)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /v850 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_V850.nc) readdatafile:
+/name (v) def
+ /add_offset 1.8891981 def
+ /scale_factor 0.001862041 def
+ /missing_value -32767 def
+ /standard_name (northward_wind) def
+ /long_name (V component of wind at 850 hPa) def
+ /units (m s-1)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /v925 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_V925.nc) readdatafile:
+/name (v) def
+ /add_offset -0.9933791 def
+ /scale_factor 0.001757454 def
+ /missing_value -32767 def
+ /standard_name (northward_wind) def
+ /long_name (V component of wind at 925 hPa) def
+ /units (m s-1)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /z1000 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_Z1000.nc) readdatafile:
+/name (z) def
+ /add_offset -1012.9311 def
+ /scale_factor 0.1915191 def
+ /missing_value -32767 def
+ /standard_name (geopotential) def
+ /long_name (Geopotential at 1000 hPa) def
+ /units (m2 s-2)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /z200 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_Z200.nc) readdatafile:
+/name (z) def
+ /add_offset 111735.65 def
+ /scale_factor 0.3941573 def
+ /missing_value -32767 def
+ /standard_name (geopotential) def
+ /long_name (Geopotential at 200 hPa) def
+ /units (m2 s-2)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /z500 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_Z500.nc) readdatafile:
+/name (z) def
+ /add_offset 50852.723 def
+ /scale_factor 0.2594244 def
+ /missing_value -32767 def
+ /standard_name (geopotential) def
+ /long_name (Geopotential at 500 hPa) def
+ /units (m2 s-2)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /z850 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_Z850.nc) readdatafile:
+/name (z) def
+ /add_offset 11288.199 def
+ /scale_factor 0.1830691 def
+ /missing_value -32767 def
+ /standard_name (geopotential) def
+ /long_name (Geopotential at 850 hPa) def
+ /units (m2 s-2)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /z925 {
+[ X Y | T ] (/data/agmunoz/crunch/ERAi/subdaily/ERAi_6hrly_Z925.nc) readdatafile:
+/name (z) def
+ /add_offset 4909.8823 def
+ /scale_factor 0.1819546 def
+ /missing_value -32767 def
+ /standard_name (geopotential) def
+ /long_name (Geopotential at 925 hPa) def
+ /units (m2 s-2)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}

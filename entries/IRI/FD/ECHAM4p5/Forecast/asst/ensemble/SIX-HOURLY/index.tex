@@ -1,0 +1,127 @@
+\begin{ingrid}
+continuedataset:
+
+/index.html undef
+grid:
+/name /T def
+/units (days since 2001-01-01 00:00:00) def
+ /standard_name (time) def
+212 .25 400
+:grid
+/M 24 NewIntegerGRID name exch def
+1998 1 2002
+{
+s==
+[ (jan) (feb) (mar)(apr)(may)(jun)(jul)(aug)(sep)(oct)(nov)(dec) ]
+{
+1 index append 
+(/Data/data1/iri/fd/echam4.5/forecast/asst/asst) 1 index (.cuf) 3array astore concat
+dup fileexists?
+{ exch cvn exch /readCUF cvx 2 array astore cvx 
+{defaftervars
+defPressureLevel-SF
+hybrid_lev /omegahalf /omega cachesomevar
+name exch def
+above_ground
+/td2m
+{null  exec
+  /long_name (Specific Humidity) def
+  markunitless
+}
+dup 0 currentobject 
+/td2m get
+put
+defasvarsilent
+name exch def
+} defasvarpartiallysilent
+} 
+{pop pop}ifelse
+} forall
+pop
+} for
+(lastgoodmonth) 
+2003 1 
+systemtime (%Y) 4 strftime interp
+{
+s==
+[ (jan) (feb) (mar)(apr)(may)(jun)(jul)(aug)(sep)(oct)(nov)(dec) ]
+{
+1 index append 
+(/Data/data1/iri/fd/echam4.5/forecast/asst/asst) 1 index (.cuf) 3array astore concat
+dup fileexists?
+{
+4 -1 roll pop 1 index 4 1 roll
+ exch cvn exch /readCUF cvx 2 array astore cvx 
+{
+defaftervars
+defPressureLevel-SF
+hybrid_lev /omegahalf /omega cachesomevar
+name exch def
+above_ground
+/td2m
+{null  exec
+  /long_name (Specific Humidity) def
+  markunitless
+/grib_name /hus cvx def
+}
+dup 0 currentobject 
+/td2m get
+put
+defasvarsilent
+name exch def
+} defasvarcachedecompresssilent
+} 
+{pop pop}ifelse
+} forall
+pop
+} for
+3 1 roll
+/ifvar? false def
+:dataset
+exch
+cvn cvx exec
+exch
+1 index .T
+(days since 2001-01-01 00:00:00) unitconvertbyattribute
+last scale_factor mul add_offset add
+nip
+/T
+(days since 2001-01-01 00:00:00)
+0
+212 .25 6 -1 roll 
+NewEvenGRID 
+name exch def
+1 index .X name exch def
+1 index .Y name exch def
+1 index .M name exch def
+1 index .last_modified /last_modified exch def
+\end{ingrid}
+expires Tues of the first week of the month.  If the first is Wed or earlier, it is that week; if the first is Thursday or later, it is the following week.
+\begin{ingrid}
+/expires T .last
+    2001
+     1 1 ymd2rjt
+     add
+    rjt2ymd
+      5 {ymd:lastmonth}repeat
+      ymd2systemtime
+    dup
+     (%w) 5 strftime
+     interp
+     dup
+      3 le
+      {2 exch sub}{9 exch sub}ifelse
+     86400 mul
+     add
+    12
+     3600 mul
+     add
+    def
+\end{ingrid}
+\begin{ingrid}
+nip
+\end{ingrid}
+
+
+
+

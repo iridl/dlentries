@@ -1,0 +1,7 @@
+\begin{ingrid}
+%/SIX-HOURLY { dataset .ensemble .SIX-HOURLY [M] average } defasvar
+/DAILY { SIX-HOURLY T 0.125 shiftGRID T 1. boxAverageSP } defasvar
+/MONTHLY { DAILY monthlyAverage} defasvarcache
+
+\end{ingrid}
+

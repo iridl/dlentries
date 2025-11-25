@@ -1,0 +1,135 @@
+These data are in a single random access file
+\begin{ingrid}
+datasetdefs:
+/u* {ustar} def
+/|u| {umag} def
+/p-e {pme} def
+:datasetdefs
+continuedataset:
+%/name /OBERHUBER def
+/description (Max Planck Institute heat flux and surface radiation climatology over global oceans) def
+/dataset_documentation.html descriptions /nasa460.html get def
+/iridl:hasSemantics (iridl:MPI_Met) def
+/references (Oberhuber1988) def
+grid:
+/name /X def
+/fullname /Longitude def
+/units /degreeE def
+periodic
+1 2 359
+:grid
+grid:
+/name /Y def
+/fullname /Latitude def
+/units /degreeN def
+-89 2 89
+:grid
+grid:
+/name /T def
+/units /month def
+periodic
+16 Jan 1960 ensotime 1. 16 Dec 1960 ensotime 
+:grid
+file:
+/name (/Data/data1/COADS/clim_oberhuber) def
+sequential
+grids: X Y | T :grids
+/missing_value -999.00 def
+/history (COADS climatology from Oberhuber) def
+variable: /name /solr def 
+/long_name (solar radiation) def
+/units (W/m2) def
+:variable
+variable: /name /lwfx def
+/long_name (outgoing longwave radiation) def
+/units (W/m2) def
+:variable
+variable: /name /rfx def 
+/long_name (net radiation) def
+/units (W/m2) def
+:variable
+variable: /name /lhfx def
+/long_name (latent heat flux) def
+/units (W/m2) def
+:variable
+variable: /name /shfx def
+/long_name (sensible heat flux) def
+/units (W/m2) def
+ :variable
+variable: /name /hfx def
+/long_name (net downward heat flux) def
+/units (W/m2) def
+ :variable
+variable: /name /pme def
+/long_name (net freshwater flux) def
+/units (mm/month) def
+:variable
+variable: /name /buoy def
+/long_name (buoyancy flux) def
+/units (m2/s3) def
+ :variable
+variable: /name /ustar def
+/long_name (frictional velocity) def
+/units (m/s) def
+ :variable
+variable: /name /dqdt def
+/long_name (newtonian cooling rate) def
+/units (W K-1 m-2) def
+:variable
+variable: /name /ce def
+/long_name (transfer coefficient for latent heat) def
+:variable
+variable: /name /tair def
+/long_name (air temperature) def
+/units /Celsius def
+:variable
+variable: /name /cld def
+/long_name (cloud cover) def
+/units (octas) def
+:variable
+variable: /name /sst def
+/long_name (mixed layer temperature) def
+/units /Celsius def
+:variable
+variable: /name /precipitation def 
+/long_name (precipitation) def
+/units (mm/month) def
+:variable
+variable: /name /slp def 
+/long_name (sea level pressure) def
+/units (mb) def
+:variable
+variable: /name /u def
+/long_name (zonal wind speed) def
+/units (m/s) def
+ :variable
+variable: /name /umag def
+/long_name (wind speed) def
+/units (m/s) def
+:variable
+variable: /name /wssi def 
+/long_name (r.m.s. wind speed) def
+/units (m/s) def
+:variable
+variable: /name /v def
+/long_name (meridional wind speed) def
+/units (m/s) def
+:variable
+variable: /name /rhum def
+/long_name (relative humidity) def
+:variable
+variable: /name /taux def
+/long_name (zonal wind stress) def
+/units (dyne/cm2) def
+/scale_factor 1e4 def
+ :variable
+variable: /name /tauy def
+/long_name (meridional wind stress) def
+/units (dyne/cm2) def
+/scale_factor 1e4 def
+ :variable
+:file
+:dataset
+\end{ingrid}
+
+ J. M. Oberhuber, "An atlas based on `COADS' data set," Tech. Rep. 15, Max-Planck-Instutut für Meteorologie, 1988.

@@ -1,0 +1,16 @@
+\begin{ingrid}
+    continuedataset:
+    /tmean {
+        SOURCES .NOAA .NCEP .CPC .temperature .monthly .tmean
+        T (Dec 1990) (Jan 2021) RANGEEDGES
+        T 3 runningAverage
+        T 12 splitstreamgrid
+        [T2]0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 0 replacebypercentile
+        [X Y]REORDER
+    }defasvarcache
+    :dataset
+    tmean .X name exch def
+    tmean .Y name exch def
+    tmean .T name exch def
+    tmean .percentile name exch def
+\end{ingrid}

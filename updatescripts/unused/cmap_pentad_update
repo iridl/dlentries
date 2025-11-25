@@ -1,0 +1,56 @@
+#! /usr/freeware/bin/perl
+#ftp ftp.ncep.noaa.gov:pub/precip/cmap/monthly
+
+use File::Basename;
+my $libdir = dirname(__FILE__) . "/perl";
+require "$libdir/credentials.pl";
+my ($user, $passwd) = get_credential("anonymous");
+
+$server = "ftp.ncep.noaa.gov";
+$sdir = "pub/precip/cmap/pentad";
+$DataCat="/Data/data1/DataCatalog/entries";
+$subdir="NOAA/NCEP/CPC/Merged_Analysis/pentad";
+$yr = "98";
+open(out,"|ftp -n $server > ftpsession");
+print out <<eoftp;
+user anonymous benno\@ldeo.columbia.edu
+binary
+hash
+cd $sdir
+ls
+eoftp
+close(out);
+$want = "cmap_pen_v9810_$yr.txt.Z";
+open(in,"ftpsession");
+while(<in>){
+if(/$want/){
+print;
+print "getting the new file ...";
+open(out,"|ftp -n $server > ftpsession");
+print out <<eoftp;
+user $user $passwd
+binary
+hash
+cd $sdir
+get $want
+eoftp
+close(out);
+open(out,"zcat $want | readit|");
+chop;
+$newdate = "$_";
+print "updating catalog entry";
+open(in,"$DataCat/$subdir/index.tex");
+open(out,">tmp");
+while(<in>){
+if(m/enddate/){
+s/^.* 1979/$newdate 1979/;
+}
+print out;
+}
+close(in);
+close(out);
+system("mv $DataCat/$subdir oldentryfile;mv tmp $DataCat/$subdir/index.tex; chmod g+w $DataCat/$subdir/index.tex");
+print "updated through $newdate -- rewrite script";
+}
+}
+close(in);

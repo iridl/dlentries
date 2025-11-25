@@ -1,0 +1,64 @@
+#! /bin/csh
+#
+echo getdarwin
+setenv ftp_proxy http://iriproxy:3128
+set DataCat = /Data/data1/DataCatalog/entries/Indices/
+set TDIR = /Data/data1/noaa/indices
+set Months = (Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec)
+#
+# Need to be in the directory with the program and the data files
+#
+cd $TDIR
+set filename = 
+echo Getting Darwin Data Update
+foreach file (darwin easter tahiti soi)
+#wget -O $file ftp://ftp.ncep.noaa.gov/pub/cpc/wd52dg/data/indices/$file
+wget -O $file ftp://ftp.cpc.ncep.noaa.gov/wd52dg/data/indices/$file
+ls -l $file
+end
+#
+#	Invoke the slicing/dicing whirligig
+#
+
+#	/usr/local/cronjobs/proto
+
+#
+#	Update the catalog
+#	
+set mon = `date '+%m'`
+set Yr =  `date '+%Y'`
+
+if ($mon == '01') then
+	set mon = 12
+	@ Yr = $Yr - 1
+else
+	@ mon = $mon - 01
+endif
+
+	/home/datag/cronjobs/proto $Yr
+
+set dote = ($Months[$mon] $Yr)
+echo Updating catalog entry
+
+#
+sed -e "/enddate/s/^ *16 *[^ ]* *[0-9]*/16 $dote/" ${DataCat}Easter/index.tex >tmp
+mv tmp ${DataCat}Easter/index.tex
+#
+sed -e "/enddate/s/^ *16 *[^ ]* *[0-9]*/16 $dote/" ${DataCat}Tahiti/index.tex >tmp
+mv tmp ${DataCat}Tahiti/index.tex
+#
+sed -e "/enddate/s/^ *16 *[^ ]* *[0-9]*/16 $dote/" ${DataCat}soi/index.tex >tmp
+mv tmp ${DataCat}soi/index.tex
+#
+cd $DataCat
+sed -e "/enddate/s/^ *16 *[^ ]* *[0-9]*/16 $dote/" Darwin/index.tex >tmp
+mv tmp Darwin/index.tex
+
+echo done
+# eof
+
+
+
+
+
+

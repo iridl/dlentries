@@ -1,0 +1,51 @@
+\begin{ingrid}
+/NotOpen dataareIRIonlyPassword
+/references (Ropelweski_etal1985) def
+/iridl:hasSemantics (iriref:Xie_P) def
+/description (Daily GTS station precipitation and temperature data from the CPC) def
+(/Data/data7/noaa/ncep/dailyeve/gtsstn.cuf)continuewithCUF
+continuedataset:
+ grid:
+ /name (T) def
+ /units (days since 1977-01-01 12:00:00) def
+ /defaultvalue { last } def
+ 0 1
+ 31 Dec 2003 julian_day
+ 01 Jan 1977 julian_day sub
+ :grid 
+/TMAX {[REC | T]
+(/Data/data7/noaa/ncep/dailyeve/gts_dly_maxtem_station.lnx.%Y[T].raw) [T yearlyedgesgrid first secondtolast subgrid ] readdatafile: 
+deci*4 
+ /long_name (Maximum Temperature) def
+ /units (degreeC) def
+ /missing_value -999 def
+ /scale_factor 0.1 def
+/iridl:hasSemantics (gcmdi:THERMOMETERS) def
+:readdatafile
+%/datatype /integerarraytype def
+} defasvarsilent
+
+/TMIN {[REC | T]
+(/Data/data7/noaa/ncep/dailyeve/gts_dly_mintem_station.lnx.%Y[T].raw) [T yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+deci*4
+ /long_name (Minimum Temperature) def
+ /units (degreeC) def
+ /missing_value -999 def
+ /scale_factor 0.1 def
+/iridl:hasSemantics (gcmdi:THERMOMETERS) def
+:readdatafile
+} defasvarsilent
+
+/PRECIP {[REC | T]
+(/Data/data7/noaa/ncep/dailyeve/gts_dly_precip_station.lnx.%Y[T].raw) [T yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+deci*4
+ /long_name (Precipitation) def
+ /units (mm) def
+ /missing_value [ -999 9999] def
+ /scale_factor 0.1 def
+/iridl:hasSemantics (gcmdi:RAIN_GAUGES) def
+:readdatafile
+} defasvarsilent
+
+:dataset
+\end{ingrid}

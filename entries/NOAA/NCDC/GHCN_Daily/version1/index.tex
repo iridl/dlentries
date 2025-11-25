@@ -1,0 +1,13 @@
+This needs to be rewritten to avoid CUF
+\begin{ingrid}
+/WMO40 currentobject /agreement.html get addagreement
+%/expires 2014 07 15 ymd2systemtime def
+(/Data/data7/noaa/ncdc/GHCNdaily/version1/ghcndailyv1.cuf) continuewithCUF
+%(/beluga/data/mbell/GHCNdaily.d/ghcndaily_new.cuf) continuewithCUF
+/long_name (Global Historical Climatology Network - Daily) def
+/description (Global daily precipitation, minimum temperature, and maximum temperature data) def
+/references (Vose_etal1992) def
+%dup expires exch
+%    {pop}{ /expires 2 index def pop}foralldatasets2
+%   pop
+\end{ingrid}

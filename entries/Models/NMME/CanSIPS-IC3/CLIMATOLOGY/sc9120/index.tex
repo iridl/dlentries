@@ -1,0 +1,125 @@
+\begin{ingrid} 
+continuedataset: 
+
+/hgt { 
+ SOURCES .Models .NMME .CanSIPS-IC3 .HINDCAST .MONTHLY .hgt
+  S (1 Jan 1991) (1 Dec 2020) RANGEEDGES
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+  L 3 runningAverage
+} defasvarcache 
+
+/prec { 
+ SOURCES .Models .NMME .CanSIPS-IC3 .HINDCAST  .MONTHLY .prec
+  S (1 Jan 1991) (1 Dec 2020) RANGEEDGES
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+  L 3 runningAverage
+} defasvarcache
+
+
+/sst { 
+ SOURCES .Models .NMME .CanSIPS-IC3 .HINDCAST .MONTHLY .sst
+  S (1 Jan 1991) (1 Dec 2020) RANGEEDGES
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+  L 3 runningAverage
+} defasvarcache
+
+/tref { 
+ SOURCES .Models .NMME .CanSIPS-IC3 .HINDCAST .MONTHLY .tref
+  S (1 Jan 1991) (1 Dec 2020) RANGEEDGES
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+  L 3 runningAverage
+} defasvarcache
+
+/ugrd200 {
+ SOURCES .Models .NMME .CanSIPS-IC3 .HINDCAST .MONTHLY .ugrd
+  S (1 Jan 1991) (1 Dec 2020) RANGEEDGES
+  P (200) VALUES  
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+  L 3 runningAverage
+} defasvarcache
+
+
+/ugrd850 {
+ SOURCES .Models .NMME .CanSIPS-IC3 .HINDCAST .MONTHLY .ugrd
+  S (1 Jan 1991) (1 Dec 2020) RANGEEDGES
+  P (850) VALUES
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+  L 3 runningAverage
+} defasvarcache
+
+/vgrd200 {
+ SOURCES .Models .NMME .CanSIPS-IC3 .HINDCAST .MONTHLY .vgrd
+  S (1 Jan 1991) (1 Dec 2020) RANGEEDGES
+  P (200) VALUES  
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+  L 3 runningAverage
+} defasvarcache
+
+/vgrd850 {
+ SOURCES .Models .NMME .CanSIPS-IC3 .HINDCAST .MONTHLY .vgrd
+  S (1 Jan 1991) (1 Dec 2020) RANGEEDGES
+  P (850) VALUES
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+  L 3 runningAverage
+} defasvarcache
+
+
+/tmin {
+ SOURCES .Models .NMME .CanSIPS-IC3 .HINDCAST .MONTHLY .tmin
+  S (1 Jan 1991) (1 Dec 2020) RANGEEDGES
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+  L 3 runningAverage
+} defasvarcache
+
+/tmax {
+ SOURCES .Models .NMME .CanSIPS-IC3 .HINDCAST .MONTHLY .tmax
+  S (1 Jan 1991) (1 Dec 2020) RANGEEDGES
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+  L 3 runningAverage
+} defasvarcache
+
+/tmp {
+ SOURCES .Models .NMME .CanSIPS-IC3 .HINDCAST .MONTHLY .tmp
+  S (1 Jan 1991) (1 Dec 2020) RANGEEDGES
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+  L 3 runningAverage
+} defasvarcache
+
+/prmsl {
+ SOURCES .Models .NMME .CanSIPS-IC3 .HINDCAST .MONTHLY .prmsl
+  S (1 Jan 1991) (1 Dec 2020) RANGEEDGES
+  [M] average
+  S 12 splitstreamgrid
+  [S2] average
+  L 3 runningAverage
+} defasvarcache
+
+:dataset
+prmsl .X name exch def
+prmsl .L name exch def
+prmsl .Y name exch def
+prmsl .S name exch def
+\end{ingrid} 
+

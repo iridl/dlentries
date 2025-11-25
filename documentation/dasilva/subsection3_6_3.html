@@ -1,0 +1,36 @@
+<HEAD>
+<TITLE> Present Weather</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html262 HREF=section3_7.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html260 HREF=section3_6.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html256 HREF=subsection3_6_2.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html263 HREF=section3_7.html> Parameterizations</A>
+<B>Up:</B> <A NAME=tex2html261 HREF=section3_6.html> Bias corrections</A>
+<B> Previous:</B> <A NAME=tex2html257 HREF=subsection3_6_2.html> Cloudiness</A>
+<HR> <P>
+<H2><A NAME=SECTION0006300000000000000> Present Weather</A></H2>
+<P>
+Beginning in 1982, clear weather observations are often recorded with
+a missing Present Weather indicator.  This practice has an adverse
+effect on our precipitation estimates as it introduces a <em>wet</em> bias.
+In order to circumvent this problem we have devised a method of correction
+which links PW with cloudiness.  It is assumed that any observer making
+a cloud cover observation will also make a PW observation, and vice
+versa.  Therefore, when encountering a missing observation from 1982
+and later observations, cloudiness is checked.  If cloudiness is
+missing, PW is assumed to be missing, and is not included in the
+precipitation calculation.  If a cloudiness observation is
+present, however, it is assumed that there was a PW observation and that
+the weather was clear.  The observation is used as a clear weather
+observation in the precipitation calculation. As a test, PW
+and cloudiness observations were checked prior to 1982.  Cases in
+which a cloudiness observation was present but the PW
+observation was missing were very rare.  We are confident, therefore,
+that our method of correcting PW is accurate.
+<P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>
+Fri Oct 20 12:28:33 EDT 1995</I>
+</ADDRESS>

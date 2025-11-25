@@ -1,0 +1,114 @@
+<html><head>
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+<link rel="stylesheet" type="text/css" href="/site.css" />
+ <title>Documentation for CAMS-OPI v0208</title>
+</head>
+<INGRID>standardHeader</INGRID>
+<h3>Description of CPC CAMS-OPI v0208 monthly gridded precipitation data set</h3>
+<p>
+<b>Please note:  As of February 8, 2005, the CAMS-OPI v0208 data at the CPC web
+site were changed in the following ways:
+<p>
+1.  Anomalies & % of Gamma fields have been recomputed using the 
+1979-2000 base period
+<p>
+2.  A new, internally consistent climatology is now used (1979-2000) over 
+South America.  In the past, a climatology was used for South America that was 
+not computed from the CAMS_OPI data, which led to problems there such as 
+anoamlies over the base period not adding up to zero.  All 
+anomalies & % of Gamma fields have been recomputed.
+<p>
+These changes appeared in the CAMS-OPI v0208 data available from the IRI Data
+Library as of March 4, 2005.  The "old" version of CAMS-OPI v0208, which ends
+in January 2005, can be found in the following location in the IRI Data Library:
+<p>
+<a
+href="http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCEP/.CPC/.CAMS_OPI/.v0208_old/">http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCEP/.CPC/.CAMS_OPI/.v0208_old/</a>
+
+</b>
+
+<p>
+More information on the CAMS-OPI precipitation product can be found at the U.S.
+Climate Prediction Center website: <a href="http://www.cpc.ncep.noaa.gov/products/global_precip/html/wpage.cams_opi.html">http://www.cpc.ncep.noaa.gov/products/global_precip/html/wpage.cams_opi.html</a>
+<p>
+The following documentation is from the DOCUMENTATION_cams_opi_v0208 file available
+from the following ftp site:  <a href="ftp://ftp.cpc.ncep.noaa.gov/precip/data-req/cams_opi_v0208/">ftp://ftp.cpc.ncep.noaa.gov/precip/data-req/cams_opi_v0208/</a>
+<p>
+<pre>
+The data in this directory is for a new version ("v0208") of the CAMS_OPI
+data.  The following changes have been made to the original method:
+
+1.  To ensure consistency among this product and the CPC analyses over the US,
+Mexico and South America, this version does NOT use monthly reports from station
+in these areas.  Instead, the analysis values from the CPC analyses are used.
+
+2.  The historical cams_opi data files have been modified by inserting the data
+from the CPC analyses over the US & Mexico back to 1979; this was not done over
+South America because historical data isn't available.
+
+3.  The climatology & gamma/beta computations have been recomputed so that the
+anomalies will be consistent with the data in these regions.
+
+The "CAMS_OPI" data are 2.5 degree lat/lon spatial means of monthly
+mean precipitation derived from station gauges and satellite estimates.
+Each data 'record' is a 144 x 72 array, oriented from SOUTH -> North
+and Eastward from 1.25E.  
+
+
+The array orientation is:
+
+
+     0     2.5E   5.0E        2.5W     0
+     |      |      |           |       |
+     -----------------------------------  South Pole
+     |      |      |           |       | 
+     |(1,1) | (2,1)|   ....    |(144,1)|.............88.75S
+     |      |      |           |       |
+     -----------------------------------  87.5S
+     |      |      |           |       |
+     |(1,2) | (2,2)|   ....    |(144,2)|.............86.25S
+     |      |      |           |       |
+     -----------------------------------  85.0S
+			.
+			.
+			.
+     -----------------------------------  87.5N
+     |      |      |           |        |
+     |(1,72)|(2,72)|   ....    |(144,72)|............88.75N
+     |      |      |           |        |
+     -----------------------------------   Nort Pole
+         .      .                  .
+         .      .                  .
+         .      .                  .
+       1.25E  3.75E               1.25W
+     
+     Note that the the coordinates for each grid correspond to the center of
+     each box since the data values are spatial averages.
+
+
+A separate data file for each month exists.  The data arrays are in a FORTRAN
+77 "direct", binary records ("IEEE") and are grouped as follows:
+
+	Record 1: Precipitation analysis based on raingauge data only (CAMS)
+	       2: number of CAMS gauges 
+               3: Precipitation analysis based on OPI estimates only  
+               4: The blended analysis CAMS_OPI monthly total precip. analysis
+               5: For Internal Use only
+               6: CAMS_OPI monthly anomaly (1979-1995 base period) 
+               7:    "        "       "    expressed as % of gamma distribution
+	       
+The units are "mm/day" for the means and anomalies.
+
+
+REFERENCE
+			
+Janowiak, J. E. and P. Xie, 1999:  CAMS_OPI: A Global Satellite-Rain Gauge
+Merged Product for Real-Time Precipitation
+Monitoring Applications.  J. Climate, vol. 12, 3335-3342.
+			
+
+			John Janowiak  (jjanowiak@ncep.noaa.gov)
+			Climate Prediction Center/NCEP/NWS/NOAA
+</pre>
+</body></html>
+			

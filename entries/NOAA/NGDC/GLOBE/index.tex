@@ -1,0 +1,79 @@
+\begin{ingrid}
+continuedataset:
+/description (Gridded 1-km, quality controlled global Digital Elevation Model (DEM) data from the Global Land One-km Base Elevation (GLOBE) Project) def
+link:
+/name (dataset_documentation.html) def
+/href (http://www.ngdc.noaa.gov/seg/topo/globe.shtml) def
+:link
+grid: /name /X def 
+/units /degreeE def
+periodic
+-180 0.0083333337679505 2 div  add to 180  0.0083333337679505 2 div sub  N= 43200 pts :grid 
+grid: /name /Y def 
+/units /degreeN def
+90
+0.0083333337679505 2 div sub
+to
+-90
+0.0083333337679505 2 div add
+ N= 21600 pts :grid 
+/references (Hastings_Dunbar1999) def
+/topo {
+Y 1 onegridcounter
+ (/Data/data7/noaa/ngdc/demglobe.i2)
+[X] -32768 readi2direct
+/long_name (elevation) def
+/units (m) def
+%swapbytes2
+/scale_min  0 def
+/scale_max 8752 def
+startcolormap
+0 8752 RANGE
+white                    % land color is first
+     darkgrey                    % color for low values is second
+    63 255 122 RGB     0 value
+    green    stripe  % green zero contour
+YellowGreen
+ForestGreen	100 value
+OliveDrab	200 value
+khaki		300 value
+yellow		400 value
+gold
+gold	500 value
+DarkGoldenrod
+DarkGoldenrod	750 value
+RosyBrown
+RosyBrown	1000 value
+IndianRed
+IndianRed	1250 value
+SaddleBrown
+SaddleBrown	1500 value
+sienna		2000 value
+OrangeRed 3000 value
+salmon
+   salmon 4000 value
+pink
+pink 5000 value
+bisque
+   bisque 6000 value
+beige
+beige 7000 value
+white
+white 8000 value	
+     grey                        % color for high values
+     endcolormap                 % end of color map setting
+} defasvarsilent
+:dataset
+\end{ingrid}
+variable:
+/name /topo cvx def
+/long_name (topography) def
+/units (m) def
+/missing_value -32768 def
+grids: X | Y :grids
+file:
+i*2
+/name (/local/home/benno/demglobe.i2s) def
+:file
+:variable
+

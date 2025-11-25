@@ -1,0 +1,66 @@
+\begin{ingrid}
+continuedataset:
+/description (North Atlantic Oscillation) def
+
+/comment (The loading patterns of NAO and PNA are obtained using a rotated EOF (REOF) analysis following Barnston and Livezey (1987). The REOF is conducted for the monthly mean 500-hPa geopotential height anomalies over the Northern Hemisphere (20-90N) using the NCEP/NCAR reanalyses from 1951 to 2010. Monthly mean anomalies for all 12 calendar months and 10 rotated varimax spatial patterns are used. Since the NAO and PNA variability has the largest variance in the cold season, the patterns are thus dominated by characteristics in winter. Similar definition was used in Johansson (2007), Lin et al. (2009), and Frederiksen and Lin (2013). Analysis provided courtesy of Hai Lin (hai.lin@canada.ca) of Environment Canada.) def 
+
+/references (Barnston_Livezey1987 Frederiksen_Lin2013 Johansson2007 Lin_etal2009) def
+
+grid:
+/name (T) def
+%/units (days since 1960-01-01) def
+/units (julian_day) def
+01 Jan 1950 julian_day
+1.0
+31 Aug 2017 julian_day
+
+%systemtime
+%(%d %b %Y) 12 strftime interp julian_day
+%01 Jan 1960 julian_day sub
+
+/pointwidth 1 def
+/defaultvalue { last } def
+:grid
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/units (degree_east) def
+periodic
+0.0 2.5 357.5
+:grid
+grid:
+/name (Y) def
+/long_name (latitude) def
+/units (degree_north) def
+20.0 2.5 90.0
+:grid
+
+variable:
+/name (NAO_pattern) def
+grids:  Y | X  :grids
+file:
+/name (/Data/data25/NAO_PNA/nao-loading.dat) def
+formatted
+/format ((28(144(F8.4),/)),(144(F8.4))) def
+:file
+/long_name (NAO Loading Pattern) def
+/missing_value 9.99999962E+35 def
+/units (m) def
+:variable
+
+variable:
+/name (NAO_index) def
+/units (unitless) def
+grids: T :grids
+file:
+/name (/Data/data25/NAO_PNA/norm.daily.nao.index.b500101.current.ascii) def
+formatted
+/format (((11X,F6.3))) def
+:file
+/missing_value 9.99999962E+35 def
+/long_name (NAO Index) def
+:variable
+
+:dataset
+\end{ingrid}

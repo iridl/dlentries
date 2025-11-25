@@ -1,0 +1,83 @@
+\begin{ingrid}
+continuedataset:
+/name (ensemble15)def
+ /description (Forecasts initialized with NCEP early CDAS) def
+ /history (Created Wed Apr 25 08:06:23 2007 UTC) def
+ /title (NCEP/CDC MRF Reforecast Data) def
+ /Conventions (COARDS) def
+ /platform (none) def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 2.5 -90.
+:grid
+grid:
+/name (lag)def
+/units (hours) def
+12. 12. 360.
+%/units (hours since 1-1-1 00:00:0.0)def
+% 17587020. 12. 17587368.
+:grid
+grid:
+/name (members)def
+/units (unitless)def
+ 1. 1. 15.
+:grid
+
+grid:
+/name /S def
+/units (days since 2007-08-24 00:00:00) def
+/long_name (Forecast Start Time) def
+/standard_name (forecast_reference_time) def
+/defaultvalue { last } def
+/pointwidth 0 def
+01 Jan 2000 julian_day
+24 Aug 2007 julian_day sub
+%0
+1
+%20 Jan 2008 julian_day
+30 May 2013 julian_day % systemtime (%d %b %Y) 12 strftime interp julian_day
+24 Aug 2007 julian_day sub
+%01 Jan 2007 julian_day sub
+:grid
+
+%S {S /unixtime unitconvertbyattribute exch scale_factor mul add_offset add (/Data/data21/noaa/esrl/psd/refcst/apcp.refcst_ens.grid.%m%d00.%Y.nc) 100 strftime nip}
+%removeextrausing
+
+%/expires last 1 add 2007 08 24 ymd2rjt add rjt2ymd ymd2systemtime 6 3600 mul add  def
+%name exch def
+%/expires S .expires def
+/last_modified S .last_modified def
+ /apcp{
+[ X Y lag | members S] (/Data/data21/noaa/esrl/psd/refcst/apcp.refcst_ens.grid.%m%d00.%Y[S].nc) [S] readdatafile:
+/name (apcp) def
+ /var_desc (Accumulated precipitation) def
+ /parent_stat (Mean) def
+ /long_name (Accumulated precipitation) def
+ /precision -999. def
+ /units /mm def
+ /valid_range [ -9.96920997E36 9.96920997E36 ] def
+ /statistic (Mean) def
+ /actual_range [ 0.0 133.22099 ] def
+ /Dataset (NCEP/CDC MRF Reforecast) def
+ /missing_value 32766 def
+ /scale_factor 0.01 def
+ /add_offset 327.64999 def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /ensemble_member{
+[ members | S] (/Data/data21/noaa/esrl/psd/refcst/apcp.refcst_ens.grid.%m%d00.%Y[S].nc) [S] readdatafile:
+/name (ensemble_member) def
+ /long_name (ensemble member (0 is control, +1 is p1, -1 is n1, etc)) def
+ /units /unitless def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+
+:dataset
+\end{ingrid}

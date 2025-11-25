@@ -1,0 +1,41 @@
+#! /bin/sh
+datefn=/ClimateGroup/network/gnu/bin/date
+DataCat=/Data/data1/DataCatalog/entries
+if [  .$1 !=  "." ]; then
+mon=$1
+yr=$2
+else
+mon=`$datefn -d "1 month ago" +%b`
+yr=`$datefn -d "1 month ago" +%y`
+fi
+filename=data/uv10m${mon}${yr}.txt
+echo $filename
+cd /Data/data1/igoss/aus
+if [ -f $filename ]; then
+echo "Already have $mon $yr"
+else
+ftp -n ftp.bom.gov.au << eoc > ftpsession
+user SECRET_USER SECRET_PASSWORD
+binary
+hash
+cd /anon/home/ncc/wind10/
+ls
+get uv10m
+bye
+eoc
+filemonth=`sed -n -e '/-rw-.*uv10m$/s/.* \(...\) [ 0-9][0-9] [0-9][0-9]:[0-9][0-9] uv10m/\1/p' ftpsession`
+thismonth=`$datefn +%b`
+if [ "$filemonth" = "$thismonth" ]; then
+echo "doing $mon $yr"
+sed -e 's/\*\*\*\*\*\*/ 9999./g' uv10m > $filename
+cd data
+../readmonth $mon $yr u >> uv10m.r4
+../readmonth $mon $yr v >> uv10m.r4
+date="$mon 20$yr"
+sed -e "/enddate/s/^ *16 *[^ ]* *[0-9]*/16 $date/" $DataCat/IGOSS/australia/index.tex >tmp
+mv tmp $DataCat/IGOSS/australia/index.tex
+echo "Dataset updated through $date"
+else
+echo "File last updated in $filemonth: $mon $yr is not yet ready"
+fi
+fi

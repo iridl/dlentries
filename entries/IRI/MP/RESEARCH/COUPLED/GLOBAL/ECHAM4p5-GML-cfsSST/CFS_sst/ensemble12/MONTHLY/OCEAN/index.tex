@@ -1,0 +1,173 @@
+\begin{ingrid}
+%/OperationalForecasts dataareIRIonlyPassword
+%/ECHAM4p5-GML dataareRestricted
+/ECHAM4p5-GML datadownloadsareIRIonlyPassword
+/description (Retrospective monthly data of 8-month forecast from ECHAM-GML, starting date from Jan 1982 to Present) def
+
+
+
+continuedataset:
+datasetdefs:
+grid:
+/name /M def
+/standard_name (realization) def
+/long_name (Ensemble member) def
+1 1 12
+:grid
+
+grid:
+/name /L def
+/long_name (Lead time) def
+/standard_name (forecast_period) def
+/units (months) def
+0.5 1 7.5
+:grid
+\end{ingrid}
+grid:
+/name /S def
+/standard_name (forecast_reference_time) def
+monthtime
+/pointwidth 0 def
+periodic
+1 Jan 1982 ensotime
+1.
+1 Dec 1982 ensotime
+:grid
+variable:
+/name /Mon def
+grids: S :grids
+values:
+(Jan)
+(Feb)
+(Mar)
+(Apr)
+(May)
+(Jun)
+(Jul)
+(Aug)
+(Sep)
+(Oct)
+(Nov)
+(Dec)
+:values
+:variable
+\begin{ingrid}
+grid:
+/name /S def
+/long_name (Start time) def
+/units (months since 1960-01-01) def
+/calendar /360 def
+monthtime
+/pointwidth 0 def 
+1 Jan 1982 ensotime
+1.
+1 Oct 2012 ensotime
+/defaultvalue {last} def
+:grid
+
+/T { 
+S L add
+/long_name (Forecast time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/calendar /360 def
+ }defasvar
+:datasetdefs
+
+grid:
+/name /Z def
+/long_name (Depth below sea surface) def
+/units (m) def
+values: 
+    -5.00   -12.50   -17.50   -22.50   -27.50
+   -32.50   -37.50   -42.50   -47.50   -55.00
+   -65.00   -75.00   -85.00   -95.00  -110.00
+  -130.00  -150.00  -170.00  -190.00  -220.00
+  -260.00  -300.00  -350.00  -410.00  -470.00
+  -550.00  -650.00  -750.00  -850.00  -950.00
+:values
+:grid
+
+grid:
+/name /X def
+/units (degree_east)def
+ periodic
+ %1.40625 2.8125 360 1.40625 sub
+ 0 2.8125 360  2.8125 sub
+:grid
+grid:
+/name /Y def
+/units (degree_north)def
+values:
+-46.04 -43.25 -40.46
+ -37.67 -34.88 -32.09 -29.30 -26.51 -23.72 -20.93 -18.14 -15.35 -12.56
+ -9.77  -6.98  -4.19  -1.40   1.40   4.19   6.98   9.77  12.56  15.35
+ 18.14  20.93  23.72  26.51  29.30  32.09  34.88  37.67  40.46  43.25
+ 46.04
+:values
+:grid
+\end{ingrid}
+No Longer Updated
+S
+{(/data/dstore4/iri/modelling/dlee/BlueFire.D/ECHAM4.5BlueFire_GML.D/CFS_MTBiasCorrSST.D/1/%b[S]Mem01.D/mixedlayerave.%b:lc[TE]%Y[TE]) [S dup 7 add /name /TE def]} 
+removeextrausing
+/expires last rm19602ymd
+       1 {ymd:nextmonth}repeat
+       pop
+      8 ymd2systemtime
+     def
+name exch def
+/last_modified S .last_modified def
+/expires S .expires def
+\begin{ingrid}
+dataset: /name /BelowSeaSurface def :dataset
+dataset: /name /Surface def :dataset
+[ X Y M S L T ] { name exch def } forall
+[ X Y |/NVZ 90  NewIntegerGRID M L S ]
+(/data/dstore4/iri/modelling/dlee/BlueFire.D/ECHAM4.5BlueFire_GML.D/CFS_MTBiasCorrSST.D/%d[M]/%b[S]Mem01.D/mixedlayerave.%b:lc[T]%Y[T]) [M L S T]
+readdatafile:
+direct
+/missing_value  -9.9999998E+33 def
+:readdatafile
+definevariables:
+BelowSeaSurface 30 Zvariable:/name (tmp) def /long_name (temperature) def /units (K) def :Zvariable
+BelowSeaSurface 30 Zvariable:/name (salt) def /long_name (salinity) def /units (PSU) def :Zvariable
+
+Surface 0 Zvariable:/name (mld) def /long_name (mixed layer depth) def /units (m) def :Zvariable
+Surface 0 Zvariable:/name (lw) def /long_name (oceanic long wave radiation) def /units (w s-2) def :Zvariable
+Surface 0 Zvariable:/name (lh) def /long_name (oceanic latent heat fulx)  def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (sh) def /long_name (oceanic sensible heat flux)  def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (sw) def /long_name (oceanic short wave radiation)  def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (qek) def /long_name (lateral heat flux by anomalous Ekman transport) def /units (W m**-2) def :Zvariable
+Surface 0 Zvariable:/name (hnewt) def /long_name (heat flux due to Newtonian cooling term) def /units (W m**-2) def :Zvariable
+Surface 0 Zvariable:/name (sstrelfact) def /long_name (Newtonian cooling time scale) def /units (day) def :Zvariable
+Surface 0 Zvariable:/name (seagsstcl) def /long_name (model sst climatology) def /units (K) def :Zvariable
+Surface 0 Zvariable:/name (premask) def /long_name (mask for prescribed SST,1:prescribed ) def :Zvariable
+Surface 0 Zvariable:/name (lndmask) def /long_name (land sea mask, 1:sea) def :Zvariable
+Surface 0 Zvariable:/name (sstobsanom) def /long_name (observed sst anoamly) def /units (K) def :Zvariable
+Surface 0 Zvariable:/name (tauxcli) def /long_name (surface zonal wind stress) def /units (N m-2) def :Zvariable
+Surface 0 Zvariable:/name (tauycli) def /long_name (surface meridional wind stress) def /units (N m-2) def :Zvariable
+Surface 0 Zvariable:/name (aircli) def /long_name (surface air temperature climatology) def /units (K) def :Zvariable
+Surface 0 Zvariable:/name (qspcli) def /long_name (surface specific humidity climatology) def /units (kg kg-1) def  :Zvariable
+Surface 0 Zvariable:/name (vvlcli) def /long_name (surface meridional wind) def /units (m s-1) def :Zvariable
+Surface 0 Zvariable:/name (uvlcli) def /long_name (surface zonal wind) def /units (m s-1) def :Zvariable
+Surface 0 Zvariable:/name (cldcli) def /long_name (cloud cover) def :Zvariable
+Surface 0 Zvariable:/name (lwcli) def /long_name (observed long wave radiation climatology) def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (lwscli) def /long_name (Seager's long wave radiation climatology) def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (lwsea) def /long_name (Seager's long wave radiation) def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (lhcli) def /long_name (observed latent heat climatology) def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (lhscli) def /long_name (Seager's latent heat climatology) def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (lhsea) def /long_name (Seager's latent heat) def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (shcli) def /long_name (observed sensible heat flux climatology) def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (shscli) def /long_name (Seager's sensible heat flux climatology) def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (shsea) def /long_name (Seager's sensible heat flux) def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (swcli) def /long_name (observed short wave radiation climatology) def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (sstmlanom) def /long_name (sea surface temperature anomaly) def /units (K) def :Zvariable
+:definevariables
+:dataset
+/iridl:hasSemantics (iridl:India_ERFS) def
+ Surface {pop} {cachevar pop}foralldatasets2
+ BelowSeaSurface {pop} {cachevar pop}foralldatasets2
+\end{ingrid}
+
+

@@ -1,0 +1,33 @@
+\begin{ingrid}
+
+/description (Monthly Streamflow for the Elqui River Basin) def
+%(/beluga/data/mbell/dldata/chile.d/region4.d/streamflow.d/Elqui_SF_monthly.cuf)continuewithCUF
+(/Data/data6/Chile/DGA/hydrological/regionIV/station/Elqui_SF_monthly.cuf)continuewithCUF
+
+continuedataset:
+%/KoenVerbist datadownloadsareRestricted
+% Restriction removed Jan 5 2016 -- informed by Koen that Chilean Government no longer restricts these data
+ grid:
+ /name (T) def
+ /units (monthtime) def
+ /defaultvalue { last } def
+ 16 Jan 1948 ensotime
+ 1
+ 16 Dec 2006 ensotime %enddate
+ :grid
+ variable:
+ /name (streamflow) def
+ /long_name (streamflow) def
+ /units (m3/sec) def
+ /missing_value  -999. def
+ grids: ID | T :grids
+ file:
+ formatted
+%/name (/beluga/data/mbell/dldata/chile.d/region4.d/streamflow.d/Elqui_SF_monthly_edt.txt) def
+ /name (//Data/data6/Chile/DGA/hydrological/regionIV/station/Elqui_SF_monthly_edt.txt) def
+ /format ((10X,4(F10.4))) def
+ :file
+ :variable
+ :dataset
+
+\end{ingrid}

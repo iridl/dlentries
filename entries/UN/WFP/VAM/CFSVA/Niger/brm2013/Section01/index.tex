@@ -1,0 +1,125 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 5648
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 507
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Baseruralmenagenov2013.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Revenus) def
+/Q16 {
+mytable
+myquestion 
+23 VALUE
+ myquestion removeGRID
+/long_name (Combien de sources de revenu monétaire le ménage dispose t-il) def 
+}defasvarsilent
+
+/Q16A1 {
+mytable
+myquestion 
+24 VALUE
+ myquestion removeGRID
+/long_name (La première source de revenu monétaire du ménage) def 
+/units /ids def
+/CLIST [(Vente de produits agricoles)(Vente bétail/Embouche/vente produits d'élevage)(Petit commerce)(Travail journalier)(Vente de bois/paille)(Artisanat)(Salarié)(Commerçant/entrepreneur)(Transfert)(Emprunt)(Mendicité)(Extraction/carrière)(Vente de produits maraîchers)(Autres)] def
+/scale_min 1 def
+/scale_max 14 def
+}defasvarsilent
+
+/Q16A2 {
+mytable
+myquestion 
+25 VALUE
+ myquestion removeGRID
+/long_name (La première source de revenu monétaire du ménage: contribution au revenu total e) def 
+}defasvarsilent
+
+/Q16A3 {
+mytable
+myquestion 
+26 VALUE
+ myquestion removeGRID
+/long_name (La première source de revenu monétaire du ménage :montant moyen tiré) def 
+}defasvarsilent
+
+/Q16B1 {
+mytable
+myquestion 
+27 VALUE
+ myquestion removeGRID
+/long_name (La deuxième source de revenu monétaire du ménage) def 
+/units /ids def
+/CLIST [(Vente de produits agricoles)(Vente bétail/Embouche/vente produits d'élevage)(Petit commerce)(Travail journalier)(Vente de bois/paille)(Artisanat)(Salarié)(Commerçant/entrepreneur)(Transfert)(Emprunt)(Mendicité)(Extraction/carrière)(Vente de produits maraîchers)(Autres)] def
+/scale_min 1 def
+/scale_max 14 def
+}defasvarsilent
+
+/Q16B2 {
+mytable
+myquestion 
+28 VALUE
+ myquestion removeGRID
+/long_name (La deuxième source de revenu monétaire du ménage : contribution au revenu total) def 
+}defasvarsilent
+
+/Q16B3 {
+mytable
+myquestion 
+29 VALUE
+ myquestion removeGRID
+/long_name (La deuxième source de revenu monétaire du ménage : montant moyen tiré) def 
+}defasvarsilent
+
+/Q16C1 {
+mytable
+myquestion 
+30 VALUE
+ myquestion removeGRID
+/long_name (La troisième source de revenu monétaire du ménage) def 
+/units /ids def
+/CLIST [(Vente de produits agricoles)(Vente bétail/Embouche/vente produits d'élevage)(Petit commerce)(Travail journalier)(Vente de bois/paille)(Artisanat)(Salarié)(Commerçant/entrepreneur)(Transfert)(Emprunt)(Mendicité)(Extraction/carrière)(Vente de produits maraîchers)(Autres)] def
+/scale_min 1 def
+/scale_max 14 def
+}defasvarsilent
+
+/Q16C2 {
+mytable
+myquestion 
+31 VALUE
+ myquestion removeGRID
+/long_name (La troisième source de revenu monétaire du ménage : contribution au revenu total) def 
+}defasvarsilent
+
+/Q16C3 {
+mytable
+myquestion 
+32 VALUE
+ myquestion removeGRID
+/long_name (La troisième source de revenu monétaire du ménage : montant moyen tiré) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

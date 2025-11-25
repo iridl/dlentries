@@ -1,0 +1,20 @@
+\begin{ingrid}
+/SigmaLevel insertdataset:
+/X SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DegreeGrid .X def
+/Y SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DegreeGrid .Y def
+/T dataset .T def
+grid:
+/name /sigma def
+/units (ids) def
+[ (0.44-0.72) cvn (0.72-0.94) cvn (0.44-1.0) cvn ]
+:grid
+variable:
+/name /rhum def
+/long_name (relative humidity) def
+/units (percent) def
+grids: X Y | sigma T :grids
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .B def
+NotYetAvailable
+:variable
+:insertdataset
+\end{ingrid}

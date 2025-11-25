@@ -1,0 +1,163 @@
+\begin{ingrid}
+
+continuedataset:
+
+
+/description (Derived Probabilities) def
+
+dataset:
+/name /Precipitation def
+[ S L ] { name exch def } forall
+
+
+/precip_clim {
+1 index .dataset .dataset 
+.paramclim .Precipitation .precip
+   a:
+     ind 2 VALUE
+     ind removeGRID
+     :a:
+      ind 0 VALUE
+      ind removeGRID
+      :a
+    grid:
+      /name (percentile) def
+      /long_name (Historical Percentile) def
+      0.05 0.05 0.95 :grid
+     dup
+      -1.0 mul
+      1.0 add
+      div
+     ln exch sub
+    exch div
+   dup dataflag
+    1 masklt
+    exch
+    0.0 max
+    mul
+/units /mm def
+/long_name (Historical Precipitation) def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvar
+
+/precip_pne{
+precip_clim
+1 index .dataset .dataset .dataset 
+a: .paramfcst2 .Precipitation .precip
+    a:
+      ind 2 VALUE
+      ind removeGRID
+      :a:
+       ind 0 VALUE
+       ind removeGRID
+       :a:
+        ind 1 VALUE
+        ind removeGRID
+        :a
+      :a: .fcstmean .Precipitation .precip :a mul
+      add
+     3 -2 roll
+     mul
+    add
+   eexp
+   dup
+    1. add
+    div
+  /long_name (Precipitation Probability of Non Exceeding) def
+  pepsico_pne_poe
+  DATA 0 1 RANGE
+}defasvar
+
+ /precip_poe{
+  precip_pne -1 mul 1 add
+  /long_name (Precipitation Probability of Exceeding) def
+  pepsico_pne_poe
+  DATA 0 1 RANGE
+ }defasvar
+
+:dataset
+
+
+
+dataset:
+/name /T2M def
+[ S L ] { name exch def } forall
+
+/temperature_clim {
+1 index .dataset .dataset 
+.paramclim .T2M .temperature
+   a:
+     ind 2 VALUE
+     ind removeGRID
+     :a:
+      ind 0 VALUE
+      ind removeGRID
+      :a
+    grid:
+      /name (percentile) def
+      /long_name (Historical Percentile) def
+      0.05 0.05 0.95 :grid
+     dup
+      -1.0 mul
+      1.0 add
+      div
+     ln exch sub
+    exch div
+   dup dataflag
+    1 masklt
+    exch
+    0.0 max
+    mul
+/long_name (Historical Temperature) def
+temp_colors
+DATA AUTO AUTO RANGE
+}defasvar
+
+/temperature_pne{
+temperature_clim
+1 index .dataset .dataset .dataset 
+a: .paramfcst2 .T2M .temperature
+    a:
+      ind 2 VALUE
+      ind removeGRID
+      :a:
+       ind 0 VALUE
+       ind removeGRID
+       :a:
+        ind 1 VALUE
+        ind removeGRID
+        :a
+      :a: .fcstmean .T2M .temperature :a mul
+      add
+     3 -2 roll
+     mul
+    add
+   eexp
+   dup
+    1. add
+    div
+  /long_name (Temperature Probability of Non Exceeding) def
+  pepsico_pne_poe
+  DATA 0 1 RANGE
+}defasvar
+
+/temperature_poe{
+ temperature_pne -1 mul 1 add
+ /long_name (Temperature  Probability of Exceeding) def
+ pepsico_pne_poe
+ DATA 0 1 RANGE
+}defasvar
+
+:dataset
+
+:dataset
+T2M temperature_clim .X name exch put
+T2M temperature_clim .Y name exch put
+T2M temperature_clim .percentile name exch put
+
+Precipitation precip_clim .X name exch put
+Precipitation precip_clim .Y name exch put
+Precipitation precip_clim .percentile name exch put
+
+\end{ingrid}

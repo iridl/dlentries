@@ -1,0 +1,38 @@
+\begin{ingrid}
+continuedataset:
+
+/long_name (Indian Monthly Rainfall - All_India) def
+/description (County-level precipitation data from the IITM for 1871-2016) def
+/references (Pant_RupaKumar1997 Parthasarathy_etal1995b Mooley_etal1981 Parthasarathy_etal1987 Parthasarathy_etal1993 Parthasarathy_etal1995) def
+
+link:
+/name (PDF_document) def
+/description (IITM Indian regional/subdivisional Monthly Rainfall data set (IITM-IMR)) def
+/href (https://iridl.ldeo.columbia.edu/documentation/IITM/All_India/Readme_v1871-2016.pdf) def
+:link
+
+
+grid:
+/name (T) def
+/units (months since 1960-01-01) def
+16 Jan 1871 ensotime
+1.0
+16 Dec 2016 ensotime
+:grid
+
+/PCPN {
+[ T | ]
+ (/Data/data7/iitm/all_india/update2016/pALLIN_1871-2016.nc) readdatafile:
+/name (precip) def
+/realarraytype netcdfrecords
+:readdatafile
+/units (mm/month) def
+} defasvarsilent
+
+/institution (Indian Institute of Tropical Meteorology (IITM)) def
+
+/note (The accompanying data as described in the PDF document linked above may be freely used and redistributed for non-profit and non-commercial research purposes,
+ provided IITM is duly acknowledged as the data source. Any redistribution should necessarily include this document.) def
+
+:dataset
+\end{ingrid}

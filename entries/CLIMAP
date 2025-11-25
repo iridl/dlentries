@@ -1,0 +1,567 @@
+\begin{ingrid}
+dataset:
+/name (CLIMAP) def
+/description (Modern and last glacial maximum (18 KBP) comparison of soil and vegetation characteristics from the World Data Center for Paleoclimatology) def
+/iridl:hasSemantics [(iridl:NOAA)] def
+/references (CLIMAP1984) def
+/dataset_documentation.html descriptions  /climap.html get def
+grid:
+ /name  (X) def
+ /units (degreeE) def
+ periodic
+ -180.0 to 178.0 N= 180 pts
+:grid
+grid:
+ /name (Y) def
+ /units (degreeN) def
+ 90.0 to -90.0 N= 91 pts
+:grid
+	dataset:
+	/name (LGM) def
+	/long_name (Last Glacial Maximum) def
+	/description (Last glacial maximum (18 KBP) soil and vegetation characteristics from the World Data Center for Paleoclimatology) def
+grid:
+ /name  (X) def
+ /units (degreeE) def
+ periodic
+ -180.0 to 178.0 N= 180 pts
+:grid
+grid:
+ /name (Y) def
+ /units (degreeN) def
+ 90.0 to -90.0 N= 91 pts
+:grid
+	dataset:
+	/name /feb def
+	variable:
+	 /name (sst) def
+	 /long_name (sea surface temperature) def
+	 /missing_value -99.9 -55.5 -44.4 55.5 4 realarray astore def
+	 grids: X Y :grids
+	 file:
+	   /name (/Data/data1/climap/18k/climap_18k_feb.ascii) def
+	 formatted
+	 /format ((12F8.2)) def
+	 :file
+	:variable
+	:dataset
+		dataset:
+/name /aug def
+	variable:
+	 /name (sst) def
+	 /long_name (sea surface temperature) def
+	 /missing_value -99.9 -55.5 -44.4 55.5 4 realarray astore def
+	 grids: X Y :grids
+	 file:
+	   /name (/Data/data1/climap/18k/climap_18k_aug.ascii) def
+	 formatted
+	 /format ((12F8.2)) def
+	 :file
+	:variable
+	:dataset
+grid:
+/name /Y def
+degN
+-88. 2 88.
+:grid
+	variable:
+	/name /topo def
+	/long_name (elevation) def
+	/units (m) def
+	/scale_factor 10. def
+	grids: X Y :grids
+	file:
+	/name (/Data/data1/climap/18k/topo.i2) def
+	i*2
+	:file
+	:variable
+grid:
+/name /X def
+degE
+-179 2 179
+periodic
+:grid
+grid:
+/name /Y def
+degN
+-55. 2 83.
+:grid
+variable:
+/name /vegetation def
+/long_name (vegetation type) def
+/units /ids def
+/CLIST [ 
+(evergreen forest with <10% low veg/crops) % 11
+(evergreen forest with <30% low veg/crops) % 12
+(evergreen forest with <50% low veg/crops) % 13
+() () () () ()
+(evergreen forest with 0-50% low veg/crops) % 19
+()
+(mixed forest evergreen dominate with <10% low veg/crops) %21
+(mixed forest evergreen dominate with <30% low veg/crops) %22
+(mixed forest evergreen dominate with <50% low veg/crops) %23
+() () () () () 
+(mixed forest evergreen dominate with 0-50% low veg/crops) %29
+()
+(mixed forest deciduous dominate with <10% low veg/crops) %31
+(mixed forest deciduous dominate with <30% low veg/crops) %32
+(mixed forest deciduous dominate with <50% low veg/crops) %33
+() () () () () 
+(mixed forest deciduous dominate with 0-50% low veg/crops) %39
+()
+(deciduous forest with <10% low veg/crops) % 11
+(deciduous forest with <30% low veg/crops) % 12
+(deciduous forest with <50% low veg/crops) % 13
+() () () () ()
+(deciduous forest with 0-50% low veg/crops) % 19
+()
+(shrub/low tree woodland with <10% low veg/crops) % 11
+(shrub/low tree woodland with <30% low veg/crops) % 12
+(shrub/low tree woodland with <50% low veg/crops) % 13
+() () () () ()
+(shrub/low tree woodland with 0-50% low veg/crops) % 19
+()
+(tall grass/vegetation with >30% woods/shrubs) % 11
+(tall grass/vegetation with >10% woods/shrubs) % 12
+(tall grass/vegetation with <10% woods/shrubs) % 13
+() () () () ()
+(tall grass/vegetation with 0-50% woods/shrubs) % 19
+()
+(short vegetation with >30% woods/shrubs) % 11
+(short vegetation with >10% woods/shrubs) % 12
+(short vegetation with <10% woods/shrubs) % 13
+(short vegetation with 0-50% woods/shrubs) % 14
+() () () () ()()
+(crop lands with >30% woods/shrubs) % 11
+(crop lands with >10% woods/shrubs) % 12
+(crop lands with <10% woods/shrubs) % 13
+() () () (rice paddies with < 30% woods/shrubs) ()
+(crop lands with 0-50% woods/shrubs) % 19
+()
+(lichen only)
+(arctic) dup
+  ] def
+/missing_value 0 def
+	/scale_min 11 def
+	/scale_max 93 def
+	grids: X Y :grids
+	file:
+	/name (/Data/data1/climap/18k/veg.i2) def
+	i*2
+	:file
+	:variable
+	variable:
+	/name /soil def
+	/long_name (soil type) def
+	/units /ids def
+	/scale_min 11 def
+	/scale_max 59 def
+	/CLIST [ 
+	(black (peat,chernozem,basalt))
+	(dark grey (diorite,gabbro))
+	(brown (gley,granite))
+	() () () () ()
+	(dark unclassified) % 19	
+	()
+(dusky brown, gray-red (laterites))
+	(ochre,olive brown (greywacke))
+	(dusky yellow (sandy podzol))
+	() () () () ()
+	(med. dark unclassified) % 29
+	()
+	(yellow-brown (loam))
+	(yellow (loess-loam))
+	(yellow-gray (rhyolites,kaolinitic shales))
+	() () () () ()
+	(med. light unclassified) % 39
+	()
+	(grayish white (loess))
+	(pale white (limestone, kaolinitic sands))
+	(white (quartz sands))
+	() () () () ()
+	(light unclassified) % 49
+	()
+	(gypsum and carbonate sands)
+	(salt flats)
+	(gypsum sands)
+	() () () () ()
+	(bright white unclassified) % 59
+  ] def
+PS exch startcolormap
+/maxncolor scale_max scale_min sub 4 add def
+DATA scale_min 1. mul scale_max 1. mul RANGE
+blue % missing
+blue %too low
+black  % 11
+darkgrey 
+brown 
+purple purple purple purple purple 
+grey 
+purple 
+RosyBrown %21
+OliveDrab
+DarkKhaki 
+purple purple purple purple purple 
+LightSlateGrey 
+purple
+peru%31
+yellow
+tan 
+purple purple purple purple purple 
+PowderBlue
+purple
+bisque %41
+moccasin
+white
+purple purple purple purple purple 
+LightCyan
+purple
+white 
+white 59. value
+white
+endcolormap
+nip
+	grids: X Y :grids
+	file:
+	/name (/Data/data1/climap/18k/soil.i2) def
+	i*2
+	:file
+	:variable
+        variable:
+        /name /relief def
+        /long_name (relief type) def
+        /units /ids def
+        /CLIST [ (flat, smooth) 
+(flat, medium smooth) 
+(flat, rough) 
+(flat, unclassified) 
+() () () () () ()
+(undulated, smooth) 
+(undulated, medium smooth) 
+(undulated, rough) 
+(undulated, unclassified) 
+() () () () () ()
+(hilly, smooth) 
+(hilly, medium smooth) 
+(hilly, rough) 
+(hilly, unclassified) 
+() () () () () ()
+(mountainous east-west trend, smooth) 
+(mountainous east-west trend, medium rough/dented) 
+(mountainous east-west trend, rough/deep dented) 
+(mountainous east-west trend, unclassified) 
+() () () () () ()
+(mountainous north-south trend, smooth) 
+(mountainous north-south trend, medium rough/dented) 
+(mountainous north-south trend, rough/deep dented) 
+(mountainous north-south trend, unclassified) 
+() () () () () ()
+(mountainous random orientation, smooth) 
+(mountainous random orientation, medium rough/dented) 
+(mountainous random orientation, rough/deep dented) 
+(mountainous random orientation, unclassified) ] def
+/missing_value 0 def
+/scale_min 11 def
+/scale_max 64 def
+
+startcolormap
+/maxncolor scale_max scale_min sub 4 add def
+DATA scale_min 1. mul scale_max 1. mul RANGE
+blue 
+blue 
+230 255 235 RGB
+210 255 215 RGB 
+150 230 155 RGB
+110 210 115 RGB
+purple purple purple purple purple purple
+PaleGreen 
+green
+GreenYellow 
+yellow
+purple purple purple purple purple 
+purple
+LightSalmon
+salmon
+orange 
+DarkOrange
+purple purple purple purple purple 
+purple
+PaleTurquoise 
+PowderBlue
+MediumTurquoise
+MediumAquamarine
+purple purple purple purple purple 
+purple
+LightYellow
+PaleGoldenrod
+khaki
+gold
+purple purple purple purple purple purple
+goldenrod
+DarkGoldenrod
+peru
+IndianRed 64. value
+blue
+endcolormap
+        grids: X Y :grids
+        file:
+        /name (/Data/data1/climap/18k/relief.i2) def
+        i*2
+        :file
+        :variable
+	dataset:
+	/name /water def
+	variable:
+	/name /percent def
+	/long_name (percentage of grid cell) def
+	grids: X Y :grids
+	file:
+	/name (/Data/data1/climap/18k/waterp.i2) def
+	i*2
+	:file
+	:variable
+	:dataset        dataset:
+        /name /water def
+        variable:
+        /name /percent def
+        /long_name (percentage of grid cell) def
+        grids: X Y :grids
+        file:
+        /name (/Data/data1/climap/18k/waterp.i2) def
+        i*2
+        :file
+        :variable
+        :dataset
+        dataset:
+        /name /exposed_soil def
+        variable:
+        /name /percent def
+        /long_name (percentage of grid cell) def
+        grids: X Y :grids
+        file:
+        /name (/Data/data1/climap/18k/exsoilp.i2) def
+        i*2
+        :file
+        :variable
+        :dataset
+        dataset:
+        /name /glacial_ice def
+        variable:
+        /name /percent def
+        /long_name (percentage of grid cell) def
+        grids: X Y :grids
+        file:
+        /name (/Data/data1/climap/18k/glicep.i2) def
+        i*2
+        :file
+        :variable
+        :dataset
+        dataset:
+        /name /vegetative def
+        variable:
+        /name /percent def
+        /long_name (percentage of grid cell) def
+        grids: X Y :grids
+        file:
+        /name (/Data/data1/climap/18k/vegp.i2) def
+        i*2
+        :file
+        :variable
+        :dataset
+
+	:dataset
+	dataset:
+	/name (MOD) def
+	/long_name (Modern) def
+	/description (Modern soil and vegetation characteristics from the World Data Center for Paleoclimatology) def
+grid:
+ /name  (X) def
+ /units (degreeE) def
+ periodic
+ -180.0 to 178.0 N= 180 pts
+:grid
+grid:
+ /name (Y) def
+ /units (degreeN) def
+ 90.0 to -90.0 N= 91 pts
+:grid
+
+	dataset:
+	/name /feb def
+	variable:
+	 /name (sst) def
+	 /long_name (sea surface temperature) def
+	 /missing_value [-99.9 -55.5 -44.4 55.5] def
+	 grids: X Y :grids
+	 file:
+	   /name (/Data/data1/climap/mod/climap_mod_feb.ascii) def
+	 formatted
+	 /format ((12F8.2)) def
+	 :file
+	:variable
+	:dataset
+	dataset:
+	/name /aug def
+	variable:
+	 /name (sst) def
+	 /long_name (sea surface temperature) def
+	 /missing_value [-99.9 -55.5 -44.4 55.5] def
+	 grids: X Y :grids
+	 file:
+	   /name (/Data/data1/climap/mod/climap_mod_aug.ascii) def
+	 formatted
+	 /format ((12F8.2)) def
+	 :file
+	:variable
+	:dataset
+grid:
+/name /Y def
+degN
+-88. 2 88.
+:grid
+	variable:
+	/name /topo def
+	/long_name (elevation) def
+	/units (m) def
+	/scale_factor 10. def
+	grids: X Y :grids
+	file:
+	/name (/Data/data1/climap/mod/topo.i2) def
+	i*2
+	:file
+	:variable
+grid:
+/name /X def
+degE
+-179 2 179
+periodic
+:grid
+grid:
+/name /Y def
+degN
+-55. 2 83.
+:grid
+	variable:
+	/name /vegetation def
+	/long_name (vegetation type) def
+	/units /ids def
+/CLIST LGM .vegetation .CLIST def
+/scale_min LGM .vegetation .scale_min def
+/scale_max 91 def
+/missing_value 0 def
+	grids: X Y :grids
+	file:
+	/name (/Data/data1/climap/mod/veg.i2) def
+	i*2
+	:file
+	:variable
+	variable:
+	/name /soil def
+	/long_name (soil type) def
+	/units /ids def
+/CLIST LGM .soil .CLIST def
+/scale_min LGM .soil .scale_min def
+/scale_max LGM .soil .scale_max def
+/ncolor LGM .soil .ncolor def
+/colormap LGM .soil .colormap def
+/missing_value 0 def
+	grids: X Y :grids
+	file:
+	/name (/Data/data1/climap/mod/soil.i2) def
+	i*2
+	:file
+	:variable
+        variable:
+        /name /relief def
+        /long_name (relief type) def
+        /units /ids def
+       /CLIST LGM .relief .CLIST def
+       /scale_min LGM .relief .scale_min def
+       /scale_max LGM .relief .scale_max def
+       /ncolor LGM .relief .ncolor def
+       /colormap LGM .relief .colormap def
+       /missing_value 0 def
+        grids: X Y :grids
+        file:
+        /name (/Data/data1/climap/mod/relief.i2) def
+        i*2
+        :file
+        :variable
+	dataset:
+	/name /water def
+	variable:
+	/name /percent def
+	/long_name (percentage of grid cell) def
+	grids: X Y :grids
+	file:
+	/name (/Data/data1/climap/mod/waterp.i2) def
+	i*2
+	:file
+	:variable
+	:dataset        dataset:
+        /name /water def
+        variable:
+        /name /percent def
+        /long_name (percentage of grid cell) def
+        grids: X Y :grids
+        file:
+        /name (/Data/data1/climap/mod/waterp.i2) def
+        i*2
+        :file
+        :variable
+        :dataset
+        dataset:
+        /name /exposed_soil def
+        variable:
+        /name /percent def
+        /long_name (percentage of grid cell) def
+        grids: X Y :grids
+        file:
+        /name (/Data/data1/climap/mod/exsoilp.i2) def
+        i*2
+        :file
+        :variable
+        :dataset
+        dataset:
+        /name /glacial_ice def
+        variable:
+        /name /percent def
+        /long_name (percentage of grid cell) def
+        grids: X Y :grids
+        file:
+        /name (/Data/data1/climap/mod/glicep.i2) def
+        i*2
+        :file
+        :variable
+        :dataset
+        dataset:
+        /name /vegetative def
+        variable:
+        /name /percent def
+        /long_name (percentage of grid cell) def
+        grids: X Y :grids
+        file:
+        /name (/Data/data1/climap/mod/vegp.i2) def
+        i*2
+        :file
+        :variable
+        :dataset
+
+	:dataset
+
+:dataset
+\end{ingrid}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

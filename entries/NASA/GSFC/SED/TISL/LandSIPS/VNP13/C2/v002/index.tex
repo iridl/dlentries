@@ -1,0 +1,542 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+/ndvi_colorsMODIS {
+startcolormap
+DATA -.2 1.0 RANGE
+white 
+blue -.2 VALUE
+cyan -.1 bandmax
+white 0.0 bandmax
+234 233 189 RGB RGBdup 0.05 bandmax
+215 211 148 RGB RGBdup 0.1 bandmax
+202 189 119 RGB RGBdup 0.15 bandmax
+175 175 77 RGB RGBdup 0.2 bandmax
+128 169 5 RGB RGBdup 0.3 bandmax
+12 127 0 RGB RGBdup 0.4 bandmax
+0 94 0 RGB RGBdup 0.5 bandmax
+0 59 1 RGB RGBdup 0.6 bandmax
+0 9 0 RGB RGBdup 1.0 bandmax
+0 9 0 RGB 1.0 VALUE
+0 9 0 RGB
+endcolormap } defcolorscale
+
+:datasetdefs
+
+link:
+/name (DSP) def
+/description (Dataset Landing Page) def
+/href (https://lpdaac.usgs.gov/products/vnp13c2v002/) def
+:link
+
+link:
+/name (UG) def
+/description (User's Guide) def
+/href (https://lpdaac.usgs.gov/documents/1372/VNP13_User_Guide_ATBD_V2.1.2.pdf) def
+:link
+
+link:
+/name (data_source) def
+/description (Data Source) def
+/href (https://search.earthdata.nasa.gov/search/granules/collection-details?p=C2631828311-LPCLOUD&pg%5B0%5D%5Bv%5D=f&pg%5B0%5D%5Bgsk%5D=-start_date&q=C2631828311-LPCLOUD&tl=1709328316.786%213%21%21) def
+:link
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+ -180. 0.05 179.95
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+-89.95 0.05 90.
+:grid
+
+grid:
+/name (T) def
+/units (monthtime) def
+/defaultvalue { last } def
+16 Feb 2012 ensotime
+1
+16 systemtime systemtime2ymd pop 0.5 sub exch ensotime
+/pointwidth 1. def
+:grid
+
+T {
+        (/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_NDVI.nc)
+        [T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+} removeextrausing
+name exch def
+
+T
+last rm19602ymd ymd:nextmonth ymd:nextmonth ymd:nextmonth pop 5 ymd2systemtime
+/expires exch def
+name exch def
+/expires T .expires def
+
+/NDVI {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_NDVI.nc)
+% %j works properly only on T with days since units
+% So need to create a Tj as such that depends on T
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly NDVI) def
+/shortarraytype netcdfrecords
+/missing_value -15000 def
+:readdatafile
+Y last first RANGE
+/valid_min -10000 def
+/valid_max 10000 def
+/scale_factor 0.0001 def
+/iridl:hasSemantics (iridl:NDVI) def
+ndvi_colorsMODIS
+}defasvarsilent
+
+/EVI {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_EVI.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly EVI) def
+/shortarraytype netcdfrecords
+/missing_value -15000 def
+:readdatafile
+Y last first RANGE
+/valid_min -10000 def
+/valid_max 10000 def
+/scale_factor 0.0001 def
+/iridl:hasSemantics (iridl:EVI) def
+ndvi_colorsMODIS
+}defasvarsilent
+
+/EVI2 {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_EVI2.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly EVI2) def
+/shortarraytype netcdfrecords
+/missing_value -15000 def
+:readdatafile
+Y last first RANGE
+/valid_min -10000 def
+/valid_max 10000 def
+/scale_factor 0.0001 def
+ndvi_colorsMODIS
+}defasvarsilent
+
+/NDVI_std_dev {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_NDVI_std_dev.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly NDVI std dev) def
+/shortarraytype netcdfrecords
+/missing_value -15000 def
+:readdatafile
+Y last first RANGE
+/valid_min 0 def
+/valid_max 10000 def
+/scale_factor 0.0001 def
+/iridl:hasSemantics (iridl:NDVI) def
+/long_name (NDVI standard deviation) def
+/scale_min valid_min def
+/scale_max valid_max def
+}defasvarsilent
+
+/EVI_std_dev {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_EVI_std_dev.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly EVI std dev) def
+/shortarraytype netcdfrecords
+/missing_value -15000 def
+:readdatafile
+Y last first RANGE
+/valid_min 0 def
+/valid_max 10000 def
+/scale_factor 0.0001 def
+/iridl:hasSemantics (iridl:EVI) def
+/long_name (EVI standard deviation) def
+/scale_min valid_min def
+/scale_max valid_max def
+}defasvarsilent
+
+/EVI2_std_dev {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_EVI2_std_dev.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly EVI2 std dev) def
+/shortarraytype netcdfrecords
+/missing_value -15000 def
+:readdatafile
+Y last first RANGE
+/valid_min 0 def
+/valid_max 10000 def
+/scale_factor 0.0001 def
+/long_name (EVI2 standard deviation) def
+/scale_min valid_min def
+/scale_max valid_max def
+}defasvarsilent
+
+/1km_pix_pm30deg_VZ {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_#1km_pix_+-30deg_VZ.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly #1km pix +-30deg VZ) def
+/stringtype netcdfrecords
+/missing_value 255 def
+:readdatafile
+Y last first RANGE
+/valid_min 0 def
+/valid_max 36 def
+/scale_min valid_min def
+/scale_max valid_max def
+}defasvarsilent
+
+/1km_pix_used {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_#1km_pix_used.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly #1km pix used) def
+/stringtype netcdfrecords
+/missing_value 255 def
+:readdatafile
+Y last first RANGE
+/valid_min 0 def
+/valid_max 36 def
+/scale_min valid_min def
+/scale_max valid_max def
+}defasvarsilent
+
+/Avg_sun_zen_angle {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_Avg_sun_zen_angle.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly Avg sun zen angle) def
+/shortarraytype netcdfrecords
+/missing_value -20000 def
+:readdatafile
+Y last first RANGE
+/valid_min 0 def
+/valid_max 18000 def
+/scale_factor 0.01 def
+/long_name (Average sun zenith angle) def
+/scale_min valid_min def
+/scale_max valid_max def
+}defasvarsilent
+
+/blue_reflectance {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_blue_reflectance.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly blue reflectance) def
+/shortarraytype netcdfrecords
+/missing_value -1000 def
+:readdatafile
+Y last first RANGE
+/valid_min 0 def
+/valid_max 10000 def
+/scale_factor 0.0001 def
+/long_name (blue reflectance) def
+/scale_min valid_min def
+/scale_max valid_max def
+}defasvarsilent
+
+/red_reflectance {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_red_reflectance.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly red reflectance) def
+/shortarraytype netcdfrecords
+/missing_value -1000 def
+:readdatafile
+Y last first RANGE
+/valid_min 0 def
+/valid_max 10000 def
+/scale_factor 0.0001 def
+/long_name (red reflectance) def
+/scale_min valid_min def
+/scale_max valid_max def
+}defasvarsilent
+
+/green_reflectance {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_green_reflectance.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly green reflectance) def
+/shortarraytype netcdfrecords
+/missing_value -1000 def
+:readdatafile
+Y last first RANGE
+/valid_min 0 def
+/valid_max 10000 def
+/scale_factor 0.0001 def
+/long_name (green reflectance) def
+/scale_min valid_min def
+/scale_max valid_max def
+}defasvarsilent
+
+/reflectance {
+ ds: red_reflectance green_reflectance blue_reflectance :ds
+ {red_reflectance green_reflectance blue_reflectance}grouptogrid
+   M /band renameGRID
+   0.9999
+    254 div
+    1 255 SCALEtoui1
+/long_name (reflectance) def
+}defasvar
+
+/NIR_reflectance {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_NIR_reflectance.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly NIR reflectance) def
+/shortarraytype netcdfrecords
+/missing_value -1000 def
+:readdatafile
+Y last first RANGE
+/valid_min 0 def
+/valid_max 10000 def
+/scale_factor 0.0001 def
+/long_name (NIR reflectance) def
+/scale_min valid_min def
+/scale_max valid_max def
+}defasvarsilent
+
+/SWIR1_reflectance {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_SWIR1_reflectance.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly SWIR1 reflectance) def
+/shortarraytype netcdfrecords
+/missing_value -1000 def
+:readdatafile
+Y last first RANGE
+/valid_min 0 def
+/valid_max 10000 def
+/scale_factor 0.0001 def
+/long_name (SWIR1 reflectance) def
+/scale_min valid_min def
+/scale_max valid_max def
+}defasvarsilent
+
+/SWIR2_reflectance {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_SWIR2_reflectance.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly SWIR2 reflectance) def
+/shortarraytype netcdfrecords
+/missing_value -1000 def
+:readdatafile
+Y last first RANGE
+/valid_min 0 def
+/valid_max 10000 def
+/scale_factor 0.0001 def
+/long_name (SWIR2 reflectance) def
+/scale_min valid_min def
+/scale_max valid_max def
+}defasvarsilent
+
+/SWIR3_reflectance {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_SWIR3_reflectance.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly SWIR3 reflectance) def
+/shortarraytype netcdfrecords
+/missing_value -1000 def
+:readdatafile
+Y last first RANGE
+/valid_min 0 def
+/valid_max 10000 def
+/scale_factor 0.0001 def
+/long_name (SWIR3 reflectance) def
+/scale_min valid_min def
+/scale_max valid_max def
+}defasvarsilent
+
+/pixel_reliability {
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_pixel_reliability.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly pixel reliability) def
+/stringtype netcdfrecords
+/missing_value -4 def
+:readdatafile
+Y last first RANGE
+/valid_min 0 def
+/valid_max 11 def
+/long_name (pixel reliability) def
+/units /ids def
+/CLIST [
+(Excellent)
+(Good)
+(Acceptable)
+(Marginal)
+(Pass)
+(Questionable)
+(Poor)
+(Cloud Shadow)
+(Snow/Ice)
+(Cloud)
+(Estimated)
+(LTAVG)
+]def
+/scale_min valid_min def
+/scale_max valid_max def
+  12 stepdarktolightgreenscale
+}defasvarsilent
+
+/VI_Quality { 
+[X Y last first subgrid | T ]
+(/Data/data22/usgs/lpdaac/VIIRS/VNP13C2.002/nc/VNP13C2.A%Y%j.002.*/VNP13C2.A%Y%j[Tj].002.*_CMG_0.05_Deg_monthly_VI_Quality.nc)
+[T dup monthlyedgesgrid
+        first secondtolast subgrid
+        (days since 1960-01-01) gridunitconvert
+        0.0 add
+        /name /Tj def
+        T 2 index replaceGRID
+        ]
+readdatafile:
+/name (CMG 0.05 Deg monthly VI Quality) def
+/shortarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+%/missing_value 65535 def
+%/valid_min 0 def
+%/valid_max 65534 def
+/long_name (VI Quality)def
+%/scale_min valid_min def
+%/scale_max valid_max def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

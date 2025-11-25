@@ -1,0 +1,523 @@
+\begin{ingrid}
+/description (Hindcasts from the MPI coupled model for the DEMETER Project) def
+/long_name (MPI) def
+
+/zonal_wind {
+members:
+	(/beluga/data/datag/DEMETER/MPI_u850.nc) readCDF
+	(/beluga/data/datag/DEMETER/MPI_u500.nc) readCDF
+	(/beluga/data/datag/DEMETER/MPI_u200.nc) readCDF
+	{p850 p500 p200}
+:members
+
+.u
+
+M 
+grid:
+/name (P) def
+/units (mb) def
+values: 850 500 200 :values
+:grid
+replaceGRID
+
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1969 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0 def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y P M L S]REORDER
+3 RECHUNK
+
+} defasvarsilent
+
+/meridional_wind {
+members:
+	(/beluga/data/datag/DEMETER/MPI_v850.nc) readCDF
+	(/beluga/data/datag/DEMETER/MPI_v500.nc) readCDF
+	(/beluga/data/datag/DEMETER/MPI_v200.nc) readCDF
+	{p850 p500 p200}
+:members
+
+.v
+
+M 
+grid:
+/name (P) def
+/units (mb) def
+values: 850 500 200 :values
+:grid
+replaceGRID
+
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1969 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0 def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y P M L S]REORDER
+3 RECHUNK
+
+} defasvarsilent
+
+/phi {
+members:
+	(/beluga/data/datag/DEMETER/MPI_gz850.nc) readCDF
+	(/beluga/data/datag/DEMETER/MPI_gz500.nc) readCDF
+	(/beluga/data/datag/DEMETER/MPI_gz200.nc) readCDF
+	{p850 p500 p200}
+:members
+
+.z
+
+M 
+grid:
+/name (P) def
+/units (mb) def
+values: 850 500 200 :values
+:grid
+replaceGRID
+
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1969 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0 def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y P M L S]REORDER
+3 RECHUNK
+
+} defasvarsilent
+
+/temp {
+members:
+	(/beluga/data/datag/DEMETER/MPI_t850.nc) readCDF
+	(/beluga/data/datag/DEMETER/MPI_t500.nc) readCDF
+	(/beluga/data/datag/DEMETER/MPI_t200.nc) readCDF
+	{p850 p500 p200}
+:members
+
+.t
+
+M 
+grid:
+/name (P) def
+/units (mb) def
+values: 850 500 200 :values
+:grid
+replaceGRID
+
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1969 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0 def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y P M L S]REORDER
+3 RECHUNK
+
+} defasvarsilent
+
+/q {
+members:
+	(/beluga/data/datag/DEMETER/MPI_q850.nc) readCDF
+	(/beluga/data/datag/DEMETER/MPI_q500.nc) readCDF
+	(/beluga/data/datag/DEMETER/MPI_q200.nc) readCDF
+	{p850 p500 p200}
+:members
+
+.q
+
+M 
+grid:
+/name (P) def
+/units (mb) def
+values: 850 500 200 :values
+:grid
+replaceGRID
+
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1969 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0 def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y P M L S]REORDER
+3 RECHUNK
+
+} defasvarsilent
+
+/tp {
+(/beluga/data/datag/DEMETER/MPI_pcp.nc) readCDF
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1969 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+tp
+[X Y M L S]REORDER
+2 RECHUNK
+name exch def
+
+.tp
+} defasvarsilent
+
+/t2m {
+(/beluga/data/datag/DEMETER/MPI_t2m.nc) readCDF
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1969 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+p2m_t
+[X Y M L S]REORDER
+2 RECHUNK
+name exch def
+
+.p2m_t
+} defasvarsilent
+
+
+/soiltemp {
+(/beluga/data/datag/DEMETER/MPI-soiltemp.nc) readCDF
+.st_stl1
+date
+grid:
+/units (monthtime) def
+/name /S def
+1 Feb 1969 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number
+grid:
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+[X Y M L S]REORDER
+2 RECHUNK
+} defasvarsilent
+
+/u10m {
+(/beluga/data/datag/DEMETER/MPI_u10m.nc) readCDF
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1969 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+p10m_u
+[X Y M L S]REORDER
+2 RECHUNK
+name exch def
+
+.p10m_u
+} defasvarsilent
+
+/v10m {
+(/beluga/data/datag/DEMETER/MPI_v10m.nc) readCDF
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1969 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+p10m_v
+[X Y M L S]REORDER
+2 RECHUNK
+name exch def
+
+.p10m_v
+} defasvarsilent
+
+/mslp {
+(/beluga/data/datag/DEMETER/MPI_mslp.nc) readCDF
+date
+grid: 
+/units (monthtime) def
+/name /S def
+1 Feb 1969 ensotime
+3.
+1 Nov 2001 ensotime
+/pointwidth 0. def
+:grid
+replaceGRID
+
+fcmonth
+grid:
+/name /L def
+/units /months def
+0.5 1 5.5
+:grid
+replaceGRID
+
+latitude /Y renameGRID
+longitude /X renameGRID
+
+number 
+grid: 
+/name /M def
+/units /ids def
+0 1 8
+:grid
+replaceGRID
+M 1 shiftGRID
+
+msl
+[X Y M L S]REORDER
+2 RECHUNK
+name exch def
+
+.msl
+} defasvarsilent
+
+temp .streamgridarray { name exch def } forall
+\end{ingrid}
+
+
+

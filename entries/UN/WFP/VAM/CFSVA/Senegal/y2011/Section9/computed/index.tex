@@ -1,0 +1,76 @@
+\begin{ingrid}
+
+continuedataset:
+
+/source (<a href="http://www.wfp.org/food-security/assessment-bank?type[]=1649&tid_1=298&tid_6=3464">WFP VAM</a>) def
+
+/Reduced_CSI {
+home .remic .WFP .VAM .CFSVA .Senegal .y2011_geolocalized .Tbyte .Allbyte
+VNbyte
+ 619 VALUE
+VNbyte removeGRID
+/long_name (Indice simplifié des stratégies de survie) def
+ /missing_value -999. def 
+      }defasvarsilent
+
+/R_LATITUDE {
+home .remic .WFP .VAM .CFSVA .Senegal .y2011_geolocalized .Tdouble .Alldouble
+VNdouble
+ 2 VALUE
+VNdouble removeGRID
+/long_name (R_LATITUDE) def
+ /units (degree_north) def
+ /missing_value -999. def
+      }defasvarsilent
+
+/S_LONGITUDE {
+home .remic .WFP .VAM .CFSVA .Senegal .y2011_geolocalized .Tdouble .Alldouble
+VNdouble
+ 3 VALUE
+VNdouble removeGRID
+/long_name (S_LONGITUDE) def
+ /missing_value -999. def
+      }defasvarsilent
+
+/lon {
+  S_LONGITUDE
+   0 maskgt
+   R_LATITUDE replaceNaN
+/long_name (Longitude) def
+/units /degree_east def
+/scale_min -17.7 def
+/scale_max -11.2 def
+}defasvarsilent
+
+/lat {
+R_LATITUDE
+    0 masklt
+    S_LONGITUDE replaceNaN
+/long_name (Latitude) def
+/units /degree_north def
+/scale_min 12.2 def
+/scale_max 16.8 def
+}defasvarsilent
+
+/location {
+lon lat geopt
+/long_name (Location) def
+}defasvar
+
+%home .remic .WFP .VAM .CFSVA .Senegal .y2011_geolocalized .Tlong .Alllong
+%VNlong
+% 1 VALUE
+%VNlong removeGRID
+%/name (ID) def
+%/fullname (households) def
+%/units (ids) def
+%use_as_grid
+
+/history (Questionnaire data for WFP VAM Senegal 2011 CFSVA geolocalized) def
+
+:dataset
+
+Reduced_CSI .VNID name exch def
+
+\end{ingrid}
+

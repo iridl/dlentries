@@ -1,0 +1,434 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+grid:
+/name /M def
+/long_name (Member) def
+0 1 8
+:grid
+variable:
+/name /Mem def
+grids: M :grids
+values:
+(aenwh)
+(aexsa)
+(aexsc)
+(aexsh)
+(aexsi)
+(aexsm)
+(aexsp)
+(aexsq)
+(aexsr)
+:values
+:variable
+/putasvarsilent { defasvarsilent pop } def
+:datasetdefs
+ /Conventions (CF-1.0) def
+grid:
+/name /S def
+/long_name (Start time) def
+/standard_name (forecast_reference_time) def
+/units (months since 1960-01-01 00:00:00) def
+/pointwidth 0 def
+values:
+01 Dec 1950 ensotime
+:values
+:grid
+
+grid:
+/name /T def
+/long_name (Time) def
+/standard_name (Time) def
+/units (months since 1960-01-01 00:00:00) def
+/pointwidth 0 def
+01 Dec 1950 ensotime
+1.
+01 Dec 1989  ensotime
+:grid
+
+grid:
+/name (X)def
+/units (degree_east)def
+periodic
+1.875 3.75 360 1.875 sub
+:grid
+/X1 X def
+
+grid:
+/name (X)def
+/units (degree_east)def
+periodic
+0 3.75 360 2.5 sub
+:grid
+
+grid:
+/name (Y) def
+/units (degree_north)def
+88.75 -2.5 -88.75
+:grid
+/Y1 Y def
+
+grid:
+/name (Y) def
+/units (degree_north)def
+90 -2.5 -90
+:grid
+
+grid:
+/name /P def
+/long_name (Pressure level) def
+/netcdfgrid true def
+/units (mb) def
+values:
+850 500 250  
+:values
+:grid
+
+grid:
+/name /Z def
+/long_name (Soil level) def
+/units (m) def
+1 1 4  
+:grid
+
+dataset: /name /surface def :dataset
+surface [ X Y M T] { name exch def } forall pop
+dataset: /name /PressureLevel def :dataset
+PressureLevel [ X1 Y1 X Y M T P ] { name exch def } forall pop
+dataset: /name /soil def :dataset
+soil [ X Y Z M T] { name exch def } forall pop
+dataset: /name /top def :dataset
+top [ X Y M T] { name exch def } forall pop
+
+surface /ts {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_ts0_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (ts) def
+/long_name (surface temp.) def 
+/units (Kelvin_scale) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+surface /pr {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_pr0_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (pr) def
+ /long_name (precipitation) def 
+/units (kg m-2 s-1) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+surface /psl {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_psl0_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (psl) def
+/long_name (mean sea level pressure) def 
+/units (Pa) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+surface /hfss {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_hfss1_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (hfss) def
+/long_name (sensible heat flux at surface) def 
+/units (W m-2) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+surface /hfls {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_hfls0_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (hfls) def
+/long_name (latent heat flux at surface) def 
+/units (W m-2) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+surface /tas {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_tas-1_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (tas) def
+/long_name (2-meter air temperature) def 
+/units (Kelvin_scale) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+ 
+surface /rss {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_rss0_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (rss) def
+/long_name (net SW surface radiation) def 
+/units (W m-2) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+ 
+surface /rls {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_rls0_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (rls) def
+/long_name (net LW surface radiation) def 
+/units (W m-2) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+surface /rlds {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_rlds0_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (rlds) def
+/long_name (downward LW surface radiation) def 
+/units (W m-2) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+surface /snw {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_snw0_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (snw) def
+/long_name (snow water equivalent) def 
+/units (kg m-2) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+soil /mrso {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_mrso1_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (mrso) def
+/long_name (total soil moisture content) def 
+/units (kg m-2) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+soil /mrsos {
+dataset
+[ X Y | Z M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_mrsos%d[Z]_195012010000-198912010000.nc)[Z Mem M]
+readdatafile: 
+/name (mrsos) def
+/long_name (soil moisture (profile on model level)) def 
+/units (kg m-2) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+top /rsdt {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_rsdt0_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (rsdt) def
+/long_name (top downward SW radiation) def 
+/units (W m-2) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+ 
+top /rsut {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_rsut0_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (rsut) def
+/long_name (top upward SW radiation) def 
+/units (W m-2) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+top /rsutcs {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_rsutcs0_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (rsutcs) def
+/long_name (clear sky top upward SW radiation) def 
+/units (W m-2) def 
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+top /rlut {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_rlut0_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (rlut) def
+/long_name (top upward LW radiation) def 
+/units (W m-2) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+top /rlutcs {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_rlutcs0_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (rlutcs) def
+/long_name (clear sky top upward LW radiation) def 
+/units (W m-2) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+ 
+top /rst {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_rst0_195012010000-198912010000.nc)[Mem M]
+readdatafile: 
+/name (rst) def
+/long_name (top net SW radiation (rsdt-rsut)) def 
+/units (W m-2) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+PressureLevel /ua {
+dataset
+[ X1 Y1 | P M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_ua%d[P]_195012010000-198912010000.nc)[P Mem M]
+readdatafile: 
+/name (ua) def
+/long_name (u wind) def 
+/units (m s-1) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+PressureLevel /va {
+dataset
+[ X1 Y1 | P M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_va%d[P]_195012010000-198912010000.nc)[P Mem M]
+readdatafile: 
+/name (va) def
+/long_name (v wind) def /units (m s-1) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+ 
+PressureLevel /ta {
+dataset
+[ X Y | P M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_ta%d[P]_195012010000-198912010000.nc)[P Mem M]
+readdatafile: 
+/name (ta) def
+/long_name (temperature) def 
+/units (Kelvin_scale) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+ 
+PressureLevel /zg {
+dataset
+[ X Y | P M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_mm/atmos/%s[Mem]/%s[Mem]_mm_zg%d[P]_195012010000-198912010000.nc)[P Mem M]
+readdatafile: 
+/name (zg) def
+/long_name (geopotential height) def 
+/units (m) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+:dataset
+\end{ingrid}
+

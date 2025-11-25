@@ -1,0 +1,37 @@
+\begin{ingrid}
+continuedataset:
+dataset:
+/name /monthly def
+/T {dataset .MONTHLY L S add [L S] REORDER
+  /long_name (Forecast Time) def
+  /standard_name (time) def
+  /pointwidth 1 def nip} defasvar
+
+/t2m {dataset .MONTHLY .surface .TS
+      lon (X) renameGRID
+      lat (Y) renameGRID
+      /long_name (Temperature at 2m) def
+      /units (Kelvin_scale) preferredunitname def} defasvar
+
+/prcp {dataset .MONTHLY .surface
+         a: .PRECC
+         :a: .PRECL :a
+       add
+       lon (X) renameGRID
+       lat (Y) renameGRID
+       /long_name (precipitation rate) def
+       /units (m/s) preferredunitname def} defasvar
+/zg {dataset .MONTHLY .PressureLevel .Z3
+     lon (X) renameGRID
+          lat (Y) renameGRID
+	       /long_name (geopotential height) def
+	            /units (m) preferredunitname def} defasvar
+
+:dataset
+:dataset
+monthly
+dataset .MONTHLY .last_modified /last_modified exch def
+dataset .MONTHLY .expires /expires exch def
+ t2m[X Y M L S]nip {name exch def}forall
+name exch def
+\end{ingrid}

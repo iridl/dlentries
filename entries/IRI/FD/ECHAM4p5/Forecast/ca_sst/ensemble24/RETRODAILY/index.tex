@@ -1,0 +1,192 @@
+\begin{ingrid}
+
+Ingrid:/time2daymonthlag
+{  day2ymd todouble
+   dup
+    L first VALUE
+    L removeGRID
+    sub
+   dup
+    100 div
+    toi4
+    dup
+     89 flagge
+     12
+      100 sub
+      mul
+     add
+    31 mul
+    exch
+    100 mod
+    add
+   1 add
+31 7 mul maskgt
+}put
+
+continuedataset:
+
+/description (Retrospective daily forecast from the ECHAM4.5 CA for Jan 1957 to Dec 2002) def
+datasetdefs:
+grid:
+/name /P def
+/long_name (Pressure level) def
+/units (mb) def
+values: 850 500 200 :values
+:grid
+/P1 P def
+grid:
+/name /P def
+/long_name (Pressure level) def
+/units (mb) def
+values: 850 200 :values
+:grid
+/P2 P def
+grid:
+/name /P def
+/long_name (Pressure level) def
+/units (mb) def
+values: 500 :values
+:grid
+/P3 P def
+%:datasetdefs
+/P P1 def
+grid:
+/name /Month def
+/long_name (Lead month) def
+/standard_time (forecast_period) def
+/units (months) def
+0.5 1 6.5
+:grid
+grid:
+/name /day def
+/long_name (Lead day) def
+/units (days) def
+1 1 31
+:grid
+:datasetdefs
+
+grid:
+/name /M def
+/long_name (ensemble member) def
+1 1 24
+:grid
+
+grid:
+/name /S def
+/long_name (Start time) def
+/units (months since 1960-01-01) def 
+/calendar /360 def
+monthtime
+/pointwidth 0 def
+1 Jan 1957 ensotime
+1.
+1 dec 2002 ensotime
+:grid
+
+/T{
+ S Month  add
+/long_name (Forecast Time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+%/pointwidth 1 def
+/calender /360 def
+}defasvar
+%:datasetdefs
+
+grid:
+/name /X def
+/units (degree_east)def
+ periodic
+ 1.40625 2.8125 360 1.40625 sub
+:grid
+grid:
+/name /Y def
+/units (degree_north)def
+values:
+87.86 85.10 82.31 79.53 76.74 73.95 71.16 68.37
+65.58 62.79 60.00 57.21 54.42 51.63 48.84 46.04 43.25 40.46
+37.67 34.88 32.09 29.30 26.51 23.72 20.93 18.14 15.35 12.56
+9.77  6.98  4.19  1.40   -1.40   -4.19   -6.98   -9.77  -12.56  -15.35
+-18.14  -20.93  -23.72  -26.51  -29.30  -32.09  -34.88  -37.67  -40.46  -43.25
+-46.04  -48.84  -51.63  -54.42  -57.21  -60.00  -62.79  -65.58  -68.37  -71.16
+-73.95  -76.74  -79.53  -82.31  -85.10  -87.86
+:values
+:grid
+
+grid:
+/name /L def
+/long_name (Lead) def
+/units (days) def
+0.5 1. 214.5
+:grid
+
+/T2{
+ S (days since 1960-01-01) gridunitconvert
+ L  add
+/long_name (Time) def
+/standard_name (time) def
+/pointwidth 1 def
+[L S]REORDER
+}defasvar
+S 2 index .S replaceGRID
+/surface 
+{
+DATASET 11 object
+[ X Y M Month S T L T2] { name exch def } forall
+[ X Y |
+/NVZ 3 NewIntegerGRID M day Month S ]
+(/Data/data21/echam4p5/retro_daily.D/IriRetro%d[M].D/%b:lc[S]/echamdout.%b:lc[T]%Y[T]) [M Month S T]
+readdatafile:
+sequential
+:readdatafile
+ [day Month] /dayL 31
+     7 mul
+     NewIntegerGRID
+     replaceGRIDstream
+T2 time2daymonthlag 
+[dayL]sample-along
+
+
+%dayLv [dayL] sample-along
+definevariables:
+0 Zvariable:/name (slp) def /long_name (sea level pressure) def /units (pascals) def :Zvariable
+0 Zvariable:/name (t2m) def /long_name (temperature at 2m) def /units (Kelvin) def :Zvariable
+0 Zvariable:/name (prec) def /long_name (total precipitation)  def /units (m/s) def :Zvariable
+:definevariables
+}defasvarsilent
+
+/PressureLevel 
+{
+DATASET 11 object
+[ X Y P M Month S T L T2] { name exch def } forall
+[ X Y |
+/NVZ 11 NewIntegerGRID M day Month S ]
+(/Data/data21/echam4p5/retro_daily.D/IriRetro%d[M].D/%b:lc[S]/echamdoutm.%b:lc[T]%Y[T]) [M Month S T]
+readdatafile:
+sequential
+:readdatafile
+ [day Month] /dayL 31
+     7 mul
+     NewIntegerGRID
+     replaceGRIDstream
+T2 time2daymonthlag 
+[dayL]sample-along
+definevariables:
+
+/P P2 def
+2 Pvariable:/name (temp) def /long_name (temperature) def /units (Kelvin) def :Pvariable
+2 Pvariable:/name (u) def /long_name (zonal wind) def /units (m/s) def :Pvariable
+2 Pvariable:/name (v) def /long_name (meridional wind) def /units (m/s) def :Pvariable
+0 Pvariable:/name (q) def /long_name (specific humidity)  def /units (kg/kg) def :Pvariable
+/P P3 def
+0 Pvariable:/name (omega) def /long_name (vertical pressure velocity)  def /units (pascals/s) def :Pvariable
+/P P1 def
+3 Pvariable:/name (z) def /long_name (geopotential height)  def /units (m) def :Pvariable
+%0 Pvariable:/name (z500) def /long_name (geopotential height at 500mb)  def /units (m) def :Pvariable
+%0 Pvariable:/name (z200) def /long_name (geopotential height at 200mb)  def /units (m) def :Pvariable
+:definevariables
+}defasvarsilent
+:dataset
+\end{ingrid}
+
+

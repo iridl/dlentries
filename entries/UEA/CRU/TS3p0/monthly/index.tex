@@ -1,0 +1,190 @@
+\begin{ingrid}
+/CRU-TS dataareRestricted
+/Cookie varies_on
+continuedataset:
+link:
+/name (getting permission) def
+/href (../getting_permission.html) def
+/description (Required procedure for accessing data in this data set from the IRI Data Library) def
+:link
+/pre
+{
+(/Data/data7/uea/cru/ts3p0/cru_ts_3_00.1901.2006.pre.nc) readfile .pre
+  time 0.5 shiftGRID time name (months since 1960-01-01) ordered 16 Jan 1901 ensotime 1 16 Dec 2006 ensotime NewEvenGRID replaceGRID
+time first (Jun 2006) RANGE
+% documentation says not to use data past June 2006 even though values are available through Dec 2006
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+-99.9 -99.9 maskrange
+/standard_name (precipitation_amount) def
+} defasvarsilent
+
+/dtr
+{
+(/Data/data7/uea/cru/ts3p0/cru_ts_3_00.1901.2006.dtr.nc) readfile .dtr
+  time 0.5 shiftGRID time name (months since 1960-01-01) ordered 16 Jan 1901 ensotime 1 16 Dec 2006 ensotime NewEvenGRID replaceGRID
+time first (Jun 2006) RANGE
+% documentation says not to use data past June 2006 even though values are available through Dec 2006
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+-99.9 -99.9 maskrange
+/iridl:hasSemantics (iridl:AirTemperature) def
+} defasvarsilent
+
+/frs
+{
+(/Data/data7/uea/cru/ts3p0/cru_ts_3_00.1901.2006.frs.nc) readfile .frs
+  time 0.5 shiftGRID time name (months since 1960-01-01) ordered 16 Jan 1901 ensotime 1 16 Dec 2006 ensotime NewEvenGRID replaceGRID
+time first (Jun 2006) RANGE
+% documentation says not to use data past June 2006 even though values are available through Dec 2006
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+-9.99 -9.99 maskrange
+/iridl:hasSemantics (iridl:Count) def
+} defasvarsilent
+
+/tmn
+{
+(/Data/data7/uea/cru/ts3p0/cru_ts_3_00.1901.2006.tmn.nc) readfile .tmn
+  time 0.5 shiftGRID time name (months since 1960-01-01) ordered 16 Jan 1901 ensotime 1 16 Dec 2006 ensotime NewEvenGRID replaceGRID
+time first (Jun 2006) RANGE
+% documentation says not to use data past June 2006 even though values are available through Dec 2006
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+-99.9 -99.9 maskrange
+/standard_name (air_temperature) def
+} defasvarsilent
+
+/tmp
+{
+(/Data/data7/uea/cru/ts3p0/cru_ts_3_00.1901.2006.tmp.nc) readfile .tmp
+  time 0.5 shiftGRID time name (months since 1960-01-01) ordered 16 Jan 1901 ensotime 1 16 Dec 2006 ensotime NewEvenGRID replaceGRID
+time first (Jun 2006) RANGE
+% documentation says not to use data past June 2006 even though values are available through Dec 2006
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+-99.9 -99.9 maskrange
+/standard_name (air_temperature) def
+} defasvarsilent
+
+/tmx
+{
+(/Data/data7/uea/cru/ts3p0/cru_ts_3_00.1901.2006.tmx.nc) readfile .tmx
+  time 0.5 shiftGRID time name (months since 1960-01-01) ordered 16 Jan 1901 ensotime 1 16 Dec 2006 ensotime NewEvenGRID replaceGRID
+time first (Jun 2006) RANGE
+% documentation says not to use data past June 2006 even though values are available through Dec 2006
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+-99.9 -99.9 maskrange
+/standard_name (air_temperature) def
+} defasvarsilent
+
+/vap
+{
+(/Data/data7/uea/cru/ts3p0/cru_ts_3_00.1901.2006.vap.nc) readfile .vap
+  time 0.5 shiftGRID time name (months since 1960-01-01) ordered 16 Jan 1901 ensotime 1 16 Dec 2006 ensotime NewEvenGRID replaceGRID
+time first (Jun 2006) RANGE
+% documentation says not to use data past June 2006 even though values are available through Dec 2006
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+-99.9 -99.9 maskrange
+/standard_name (water_vapor_pressure) def
+} defasvarsilent
+
+/wet
+{
+(/Data/data7/uea/cru/ts3p0/cru_ts_3_00.1901.2006.wet.nc) readfile .wet
+  time 0.5 shiftGRID time name (months since 1960-01-01) ordered 16 Jan 1901 ensotime 1 16 Dec 2006 ensotime NewEvenGRID replaceGRID
+time first (Jun 2006) RANGE
+% documentation says not to use data past June 2006 even though values are available through Dec 2006
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+-9.99 -9.99 maskrange
+/iridl:hasSemantics (iridl:Count) def
+} defasvarsilent
+
+dataset:
+/name (stn) def
+/long_name (number of stations within influence range of grid box) def
+
+/dtr
+{
+(/Data/data7/uea/cru/ts3p0/cru_ts_3_00.1901.2006.dtr.stn.nc) readfile .dtr
+  time 0.5 shiftGRID time name (months since 1960-01-01) ordered 16 Jan 1901 ensotime 1 16 Dec 2006 ensotime NewEvenGRID replaceGRID
+time first (Jun 2006) RANGE
+% documentation says not to use data past June 2006 even though values are available through Dec 2006
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+-99.9 -99.9 maskrange
+/units (number of stations) def
+/scale_factor 10. def
+/iridl:hasSemantics (iridl:Count) def
+} defasvarsilent
+
+/pre
+{
+(/Data/data7/uea/cru/ts3p0/cru_ts_3_00.1901.2006.pre.stn.nc) readfile .pre
+  time 0.5 shiftGRID time name (months since 1960-01-01) ordered 16 Jan 1901 ensotime 1 16 Dec 2006 ensotime NewEvenGRID replaceGRID
+time first (Jun 2006) RANGE
+% documentation says not to use data past June 2006 even though values are available through Dec 2006
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+-99.9 -99.9 maskrange
+/units (number of stations) def
+/scale_factor 10. def
+/iridl:hasSemantics (iridl:Count) def
+} defasvarsilent
+
+/tmp
+{
+(/Data/data7/uea/cru/ts3p0/cru_ts_3_00.1901.2006.tmp.stn.nc) readfile .tmp
+  time 0.5 shiftGRID time name (months since 1960-01-01) ordered 16 Jan 1901 ensotime 1 16 Dec 2006 ensotime NewEvenGRID replaceGRID
+time first (Jun 2006) RANGE
+% documentation says not to use data past June 2006 even though values are available through Dec 2006
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+-99.9 -99.9 maskrange
+/units (number of stations) def
+/scale_factor 10. def
+/iridl:hasSemantics (iridl:Count) def
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (cstn) def
+/long_name (number of stations within grid box) def
+
+/dtr
+{
+(/Data/data7/uea/cru/ts3p0/cru_ts_3_00.1901.2006.dtr.cstn.nc) readfile .dtr
+  time 0.5 shiftGRID time name (months since 1960-01-01) ordered 16 Jan 1901 ensotime 1 16 Dec 2006 ensotime NewEvenGRID replaceGRID
+time first (Jun 2006) RANGE
+% documentation says not to use data past June 2006 even though values are available through Dec 2006
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+-99.9 -99.9 maskrange
+/units (number of stations) def
+/scale_factor 10. def
+/iridl:hasSemantics (iridl:Count) def
+} defasvarsilent
+
+/pre
+{
+(/Data/data7/uea/cru/ts3p0/cru_ts_3_00.1901.2006.pre.cstn.nc) readfile .pre
+  time 0.5 shiftGRID time name (months since 1960-01-01) ordered 16 Jan 1901 ensotime 1 16 Dec 2006 ensotime NewEvenGRID replaceGRID
+time first (Jun 2006) RANGE
+% documentation says not to use data past June 2006 even though values are available through Dec 2006
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+-99.9 -99.9 maskrange
+/units (number of stations) def
+/scale_factor 10. def
+/iridl:hasSemantics (iridl:Count) def
+} defasvarsilent
+
+/tmp
+{
+(/Data/data7/uea/cru/ts3p0/cru_ts_3_00.1901.2006.tmp.cstn.nc) readfile .tmp
+  time 0.5 shiftGRID time name (months since 1960-01-01) ordered 16 Jan 1901 ensotime 1 16 Dec 2006 ensotime NewEvenGRID replaceGRID
+time first (Jun 2006) RANGE
+% documentation says not to use data past June 2006 even though values are available through Dec 2006
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+-99.9 -99.9 maskrange
+/units (number of stations) def
+/scale_factor 10. def
+/iridl:hasSemantics (iridl:Count) def
+} defasvarsilent
+
+:dataset
+
+
+:dataset
+\end{ingrid}

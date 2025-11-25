@@ -1,0 +1,200 @@
+\begin{ingrid}
+PreferredUnits
+(w/m^2) (W/m2) def
+(pa/s) (Pa/s) def
+(j/kg) (J/kg) def
+(n/m^2) (N/m2) def
+(k/s) (K/s) def
+pop
+link:
+/name (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2)) def
+/description (Reanalysis-2 Home Page) def
+/href (http://www.cpc.ncep.noaa.gov/products/wesley/reanalysis2/index.html) def
+:link
+link:
+/name (GrADS-DODS Server) def
+/description (NCEP GrADS-DODS Server for Reanalysis-2) def
+/href (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2) def
+:link
+/references (Kanamitsu_etal2002b) def
+/description (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2)) def
+continuedataset:
+:dataset
+\end{ingrid}
+
+
+ dataset:
+  /name (Monthly) def
+  dataset:
+   /name (dg3) def
+  
+  /dg3 {
+  (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/month/dg3/dg3) readdods
+  time replacefirstofmonthGRID
+  /long_name (sigma-level fields) def
+  time /T renameGRID
+  lev name (0.0001) ordered gridvalues NewGRID replaceGRID
+  lev /unitless streamgridunitconvert
+  } defasvarsilent
+  :dataset
+
+  dataset:
+  /name (flx) def
+
+  /cmporain {
+  (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/month/flx/cmporain) readdods
+  time replacefirstofmonthGRID
+  time /T renameGRID
+  } defasvarsilent
+
+  /flx {
+  (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/month/flx/flx) readdods
+  time replacefirstofmonthGRID
+  time /T renameGRID
+  } defasvarsilent
+
+  /flx_climo_7998 {
+  (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) readdods
+  time replacefirstofmonthGRID
+  time /T renameGRID
+  } defasvarsilent
+
+  /flx_test {
+  (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/month/flx/flx_test) readdods
+  time replacefirstofmonthGRID
+  time /T renameGRID
+  } defasvarsilent
+
+  /gpcprain {
+  (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/month/flx/gpcprain) readdods
+  time replacefirstofmonthGRID
+  time /T renameGRID
+  } defasvarsilent
+  :dataset
+
+  dataset:
+  /name (pgb) def
+
+  /pgb {
+  (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/month/pgb/pgb) readdods
+  time replacefirstofmonthGRID
+  time /T renameGRID
+  } defasvarsilent
+
+  /pgb_anl_climo {
+  (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/month/pgb/pgb.anl.climo) readdods
+  time replacefirstofmonthGRID
+  time /T renameGRID
+  /long_name (Version C 20-year climatology 1979-98) def
+  } defasvarsilent
+  :dataset
+ :dataset
+
+ dataset:
+ /name (Six-Hourly) def
+  
+  dataset:
+  /name (flx) def
+
+ /flx {
+ (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/6hr/flx/flx) readdods
+ time /T renameGRID
+ } defasvarsilent
+
+%  /bl {
+%  (http://nomads6.ncdc.noaa.gov:9090/dods/reanalysis-2/6hr/flx/bl) readdods
+%  time /T renameGRID
+%  } defasvarsilent
+
+% /cloud {
+% (http://nomads6.ncdc.noaa.gov:9090/dods/reanalysis-2/6hr/flx/cloud) readdods
+% time /T renameGRID
+% } defasvarsilent
+
+% /flx {
+% (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/6hr/flx/flx) readdods
+% time /T renameGRID
+% } defasvarsilent
+
+% /misc {
+% (http://nomads6.ncdc.noaa.gov:9090/dods/reanalysis-2/6hr/flx/misc) readdods
+% time /T renameGRID
+% } defasvarsilent
+
+%  /rad {
+%  (http://nomads6.ncdc.noaa.gov:9090/dods/reanalysis-2/6hr/flx/rad) readdods
+%  time /T renameGRID
+%  } defasvarsilent
+
+% /water {
+% (http://nomads6.ncdc.noaa.gov:9090/dods/reanalysis-2/6hr/flx/water) readdods
+% time /T renameGRID
+% } defasvarsilent
+  :dataset
+
+  dataset:
+  /name (pgb) def
+
+ /pgb {
+ (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/6hr/pgb/pgb) readdods
+ time /T renameGRID
+ } defasvarcachesilent
+
+% /hgt { 
+% (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/6hr/pgb/hgt) readdods
+% time /T renameGRID
+% } defasvarsilent
+
+% /pgb {
+% (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/6hr/pgb/pgb) readdods
+% time /T renameGRID
+% } defasvarsilent
+  
+% /pres {
+% (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/6hr/pgb/pres) readdods
+% time /T renameGRID
+% } defasvarsilent
+
+% /rh {
+% (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/6hr/pgb/rh) readdods
+% time /T renameGRID
+% } defasvarsilent
+
+% /tmp {
+% (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/6hr/pgb/tmp) readdods
+% time /T renameGRID
+% } defasvarsilent
+
+% /wind {
+% (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/6hr/pgb/wind) readdods
+% time /T renameGRID
+% } defasvarsilent
+  :dataset
+
+  dataset:
+  /name (pgb_ft06) def
+  
+  /pgb {
+  (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/6hr/pgb.ft06/pgb) readdods
+  time /T renameGRID
+  } defasvarsilent
+  :dataset
+
+  dataset:
+  /name (rotating) def
+  /long_name (4x daily rotating archive) def
+
+  /flx {
+  (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/6hr/rotating/flx) readdods
+  time /T renameGRID
+  } defasvarsilent
+
+  /pgb {
+  (http://nomad3.ncep.noaa.gov:9090/dods/reanalyses/reanalysis-2/6hr/rotating/pgb) readdods
+  time /T renameGRID
+  } defasvarsilent
+  :dataset
+
+ :dataset
+:dataset
+\end{ingrid}

@@ -1,0 +1,94 @@
+<HEAD>
+<TITLE> Fine tuning of heat fluxes</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html404 HREF=subsection3_9_3.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html402 HREF=section3_9.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html396 HREF=subsection3_9_1.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html405 HREF=subsection3_9_3.html> Fine tuning of </A>
+<B>Up:</B> <A NAME=tex2html403 HREF=section3_9.html> Fine tuning of </A>
+<B> Previous:</B> <A NAME=tex2html397 HREF=subsection3_9_1.html> Linear Inverse Calculation</A>
+<HR> <P>
+<H2><A NAME=SECTION0009200000000000000> Fine tuning of heat fluxes</A></H2>
+<P>
+<A NAME=sechf_tuning><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A>
+<P>
+As an illustration of the technique, we apply the single constraint
+results of the previous section to fine tune the heat fluxes,
+independently of the fresh water fluxes. The consistent tuning of heat
+and fresh water fluxes will be discussed in
+section <A HREF=subsection3_9_4.html#secmultiple_tuning>9.4</A>.
+<P>
+Non-dimensional parameters <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3639.xbm">, <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3641.xbm">, <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3643.xbm">, <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3645.xbm">,
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3745.xbm">, and, <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3661.xbm"> are introduced in the bulk formulas
+<P><A NAME=eqsens_tune><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><A NAME=eqlat_tune><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><A NAME=eqlw_tune><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><A NAME=eqsw_tune><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_eqnarray864.xbm"><P>
+In the short wave parameterization (<A HREF=subsection3_9_2.html#eqsw_tune>58</A>), the tuning
+parameter <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3651.xbm"> is roughly associated with the transmission
+coefficient and water vapor absorption coefficient
+(section <A HREF=subsection3_7_6.html#secradiation>7.5</A>), and <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3653.xbm"> is related to the cloud cover
+coefficient. In the long wave radiation formula (<A HREF=subsection3_9_2.html#eqlw_tune>59</A>),
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3643.xbm"> is associated with the parameterized water vapor effect, and
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3645.xbm"> with the tuning parameter for the cloud cover correction. In
+the latent and sensible heat flux parameterizations, we have specified
+a single tuning parameter for each formula (<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3745.xbm"> and <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3661.xbm">),
+representing primarily the uncertainties in the transfer
+coefficients. To be consistent with the maximum likelihood principle
+used to derive (<A HREF=subsection3_9_1.html#eqmultiple>55</A>), one only needs to assume that 
+the tuning
+parameter errors are normally distributed.  We have made the
+additional assumption that the parameter errors are also uncorrelated,
+leading to a diagonal matrix <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3663.xbm">.  Note, however, that
+uncertainties in the sensible and latent heat fluxes can be associated
+with errors in wind speed, and need not be
+uncorrelated.  At this time, however, we neglect this correlation.
+<P>
+Currently, all non-dimensional tuning parameters are set to 1
+(<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3665.xbm">) and we seek small corrections <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3667.xbm">. In order to apply the results of the previous section we need
+to specify error estimates <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3669.xbm">.  As can be seen from
+(<A HREF=subsection3_9_1.html#eqmultiple>55</A>), the correction <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3671.xbm"> is proportional to the
+parameter error covariance matrix <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3663.xbm">.  It has been our experience
+that the results are extremely dependent on the particular choice of
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3663.xbm">. Unfortunately, it is very difficult to obtain reliable
+estimates for the error variances of <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3681.xbm">. (Note that <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3669.xbm">
+correspond to the random part of the errors in <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3681.xbm"> and should not
+include bias.) Our approach, therefore, is to provide the necessary
+fields to allow users of UWM/COADS to perform their own fine tuning of
+the surface marine fluxes (see section <A HREF=subsection3_9_6.html#seccustom>9.6</A>).
+For the sake of illustration, we present results with the error
+estimates 
+<P><A NAME=hf_errors2><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><A NAME=eqhf_errors1><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_eqnarray1467.xbm"><P> 
+This choice reflects the large scatter associated with the
+turbulence measurements used to obtain the base value for the transfer
+coefficients <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3241.xbm"> and <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3685.xbm">. Table <A HREF=subsection3_9_2.html#tabchf>11</A> presents the result
+of single constraint calculations. As northern boundary conditions we
+specify a northward transport of 0.1 PW at 65° N in the North Atlantic,
+and 0 PW at 65° N in the North Pacific (Aagaard and Greismann 1975).  As
+single-constraints in the southern boundary  we specify: 
+a) no transport at the southern-most latitude
+not covered by climatological ice; b) 1.22 PW at 25° N according to Hall
+and Bryden (1982); and c) 0.6 PW at the equator in the Atlantic (Wunsch
+1984). The last column in Table <A HREF=subsection3_9_2.html#tabchf>11</A> 
+gives the value of the constrained transport at
+a reference latitude. Overall, the value of the adjusted tuning
+parameter is fairly insensitive to the particular constraint imposed, 
+and the constrained net surface heat flux (not shown)
+has a much higher degree of
+balance than the unconstrained product in Fig. <A HREF=section3_9.html#figunnhf>8</A>.  The
+main effect on the individual heat flux components is to decrease 
+the solar radiation and increase the heat loss due to
+evaporation. These results are qualitatively similar to the adjustments
+Oberhuber (1988) applied to his COADS based heat flux 
+estimates to achieve a global heat balance.
+<P>
+<P><A NAME=tabchf><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_table*891.gif"><P>
+<P>
+<HR> <A NAME=tex2html404 HREF=subsection3_9_3.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html402 HREF=section3_9.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html396 HREF=subsection3_9_1.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html405 HREF=subsection3_9_3.html> Fine tuning of </A>
+<B>Up:</B> <A NAME=tex2html403 HREF=section3_9.html> Fine tuning of </A>
+<B> Previous:</B> <A NAME=tex2html397 HREF=subsection3_9_1.html> Linear Inverse Calculation</A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>
+Fri Oct 20 12:28:33 EDT 1995</I>
+</ADDRESS>

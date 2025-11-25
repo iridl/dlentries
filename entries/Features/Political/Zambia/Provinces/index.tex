@@ -1,0 +1,24 @@
+\begin{ingrid}
+/description (Zambia Provincial Boundaries) def
+continuedataset:
+
+/prov_na {
+IRIDB (zmprov) (newfield1) [(gid)] open_column_by
+/long_name (Province Name) def
+}defasvarsilentnoreuse
+
+/the_geom  {
+IRIDB (zmprov) (the_geom) [(gid)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (zmprov) ((newfield1) as label) [(gid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+prov_na .gid name exch def
+
+\end{ingrid}

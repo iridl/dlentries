@@ -1,0 +1,306 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+ /cryospherecolors {
+startcolormap
+/maxncolor 13 def
+DATA 0 9 RANGE
+white blue
+  0   0 255 RGB 
+173 216 230 RGB 
+221 160 221 RGB 
+107 142  35 RGB 
+255 255   0 RGB 
+192 192 192 RGB 
+192 192 192 RGB 
+  0 255   0 RGB 
+192 192 192 RGB 
+255  20 147 RGB 
+DeepPink
+endcolormap} def
+
+ /drainbasincolors {
+startcolormap
+/maxncolor 38 def
+DATA -1 33 RANGE
+white grey
+192 192 192 RGB  
+  0   0 255 RGB 
+152 251 152 RGB 
+143 188 143 RGB 
+100 149 237 RGB 
+233 150 122 RGB 
+  0 100   0 RGB 
+127 255 212 RGB 
+ 95 158 160 RGB 
+224 255 255 RGB 
+  0 255 255 RGB 
+132 112 255 RGB 
+ 25  25 112 RGB 
+105 105 105 RGB 
+255 228 225 RGB 
+245 255 255 RGB 
+255 228 181 RGB 
+128   0   0 RGB 
+ 80  40  30 RGB 
+255 128 144 RGB 
+255 192  48 RGB 
+216 191 216 RGB 
+147 112 219 RGB 
+160  32 240 RGB 
+186  85 211 RGB 
+218 112 214 RGB 
+255   0 255 RGB 
+199  21 133 RGB 
+219 112 147 RGB 
+255 182 193 RGB 
+255   0   0 RGB 
+255 165   0 RGB 
+255 255   0 RGB 
+ 40 255 150 RGB 
+  0 255   0 RGB 
+green
+endcolormap} def
+:datasetdefs
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 -1 -89.5
+:grid
+/references (Cogley_1994) def
+variable:
+/name /land def
+/long_name (Exposed Land) def 
+/units /percent def
+/missing_value -999 def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/land_cvr.i2) def
+:file
+/scale_min 0 def
+/scale_max 100 def
+:variable
+variable:
+/name /flak def
+/long_name (Perennial Freshwater Lakes) def
+/units /percent def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/flak_cvr.i2) def
+:file
+/scale_min 0 def
+/scale_max 100 def
+:variable
+variable:
+/name /swmp def
+/long_name (Swamps & Wetlands) def
+/units /percent def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/swmp_cvr.i2) def
+:file
+/scale_min 0 def
+/scale_max 100 def
+:variable
+variable:
+/name /sltw def
+/long_name (Saltwater) def
+/units /percent def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/sltw_cvr.i2) def
+:file
+/scale_min 0 def
+/scale_max 100 def
+:variable
+variable:
+/name /ilak def
+/long_name (Intermittent Water Bodies) def
+/units /percent def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/ilak_cvr.i2) def
+:file
+/scale_min 0 def
+/scale_max 100 def
+:variable
+variable:
+/name /glac def
+/long_name (Glacier Ice) def
+/units /percent def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/glac_cvr.i2) def
+:file
+/scale_min 0 def
+/scale_max 100 def
+:variable
+variable:
+/name /dune def
+/long_name (Sand Dunes) def
+/units /percent def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/dune_cvr.i2) def
+:file
+/scale_min 0 def
+/scale_max 100 def
+:variable
+variable:
+/name /smrs def
+/long_name (Saltmarsh) def
+/units /percent def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/smrs_cvr.i2) def
+:file
+/scale_min 0 def
+/scale_max 46 def
+:variable
+variable:
+/name /sflt def
+/long_name (Salt Flats) def
+/units /percent def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/sflt_cvr.i2) def
+:file
+/scale_min 0 def
+/scale_max 96 def
+:variable
+variable:
+/name /dsrf def
+/long_name (Land, Swamp, Sand Dunes & Saltmarsh) def
+/units /percent def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/dsrf_cvr.i2) def
+:file
+/scale_min 0 def
+/scale_max 100 def
+:variable
+variable:
+/name /friv def
+/long_name (Perennial Rivers) def
+/units /count def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/friv_cvr.i2) def
+:file
+/scale_min 0 def
+/scale_max 66 def
+:variable
+variable:
+/name /iriv def
+/long_name (Intermittent Rivers) def
+/units /count def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/iriv_cvr.i2) def
+:file
+/scale_min 0 def
+/scale_max 59 def
+:variable
+variable:
+/name /bas1 def
+/long_name (Major Drainage Basins) def
+/units /ids def
+drainbasincolors
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/bas1_cvr.i2) def
+:file
+/scale_min -1 def
+/scale_max 33 def
+/CLIST [ (No Runoff) (No Land) (Internal) (Arctic Ocean) (Atlantic Ocean)
+(Mediterranean Sea) (Indian Ocean) (Pacific Ocean) (Caspian Sea) (Aral Sea)
+(Lake Balkhash) (Lop Nor) (Helmand/Seistan) (Lake Chad) (Makgadikgadi) 
+(Lake Eyre) (Abbe) (Assale) (Blanche) (Bulloo) (Eyasi) (Frome) (Gholkarteniz)
+(Issyk Kul) (Mar Chiquita) (Nazas) (Rudolf) (Rukwa) (Poopo) (Tengiz) (Urmia)
+(Van) (Uvs Nor) (Hyargas Nor) (Tsaidam) ] def
+:variable
+variable:
+/name /cryo def
+/long_name (Cryosphere Features) def
+/units /ids def
+cryospherecolors
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/cryo_cvr.i2) def
+:file
+/scale_min 0 def
+/scale_max 9 def
+/CLIST [ (No Land) (Permafrost Restricted) (Permafrost Common) 
+(Permafrost Ubiquitous) (Permafrost Absent or Extremely Restricted) 
+() () (Ice Shelf) () (Ice Sheet) ] def 
+:variable
+variable:
+/name /rnof def
+/long_name (Surface Water Runoff) def
+/units (mm/yr) def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/rnof_cvr.i2) def
+:file
+/scale_min 0 def
+/scale_max 5010 def
+:variable
+variable:
+/name /rner def
+/long_name (RMSE of Surface Water Runoff) def
+/units /percent def
+/missing_value -999 def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/rner_cvr.i2) def
+:file
+/scale_min 0 def
+/scale_max 500 def
+:variable
+variable:
+/name /rice def
+/long_name (Ice Runoff) def
+/units (mm/yr) def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/hydro_cover/rice_cvr.i2) def
+:file
+/scale_min -840 def
+/scale_max 1060 def
+:variable
+:dataset
+\end{ingrid}
+
+
+
+
+
+
+
+
+
+
+

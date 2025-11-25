@@ -1,0 +1,518 @@
+\begin{ingrid}
+continuedataset:
+
+/description (UKMO reforecasts with 6 ensemble members) def
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/units (degree_east) def
+periodic
+0.0 1.5 358.5
+:grid
+
+grid:
+/name (Y) def
+/long_name (latitude) def
+/units (degree_north) def
+90.0 1.5 -90.0
+%values: 88.09951 85.63759 83.16113 80.68138 78.20039 75.7188 73.23686 70.75472 68.27245 65.79008 63.30764 60.82515 58.34262 55.86006 53.37748 50.89487 48.41226 45.92963 43.44699 40.96433 38.48167 35.99901 33.51634 31.03366 28.55098 26.0683 23.58561 21.10292 18.62023 16.13754 13.65484 11.17214 8.689447 6.206748 3.724049 1.24135 -1.24135 -3.724049 -6.206748 -8.689447 -11.17214 -13.65484 -16.13754 -18.62023 -21.10292 -23.58561 -26.0683 -28.55098 -31.03366 -33.51634 -35.99901 -38.48167 -40.96433 -43.44699 -45.92963 -48.41226 -50.89487 -53.37748 -55.86006 -58.34262 -60.82515 -63.30764 -65.79008 -68.27245 -70.75472 -73.23686 -75.7188 -78.20039 -80.68138 -83.16113 -85.63759 -88.09951 :values
+:grid
+
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+%01 Jan 2016 julian_day 01 Jan 1960 julian_day sub
+25 Mar 2017 julian_day 01 Jan 1960 julian_day sub
+1.0
+systemtime
+(%d %b %Y) 12 strftime interp julian_day
+%09 May 2019 julian_day
+01 Jan 1960 julian_day sub
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+  S monthlyedgesgrid
+   name units gridtype mark gridvalues {dup 8 add dup 8 add dup 8 add}forall
+                     pop
+                     counttomark realarray astore
+        nip NewGRID
+    nip /pointwidth 0. def
+   25 Mar 2017 julian_day 01 Jan 1960 julian_day sub secondtolast subgrid
+%  first secondtolast subgrid
+/defaultvalue { last } def
+   name exch def
+
+S {(/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_da_sfc%Y%m%d[S]2010%m%d[S].grb) [ S ]} removeextrausing
+name exch def
+
+grid:
+/name /hdate def
+/units (months since 1960-01-01) def
+01 Jul 1993 ensotime
+12.0
+01 Jul 2015 ensotime
+/defaultvalue { last } def
+:grid
+
+% a grid for instantaneous values, starting at 0
+grid:
+/name /L def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+0. 1. 60.
+/pointwidth 0. def
+:grid
+
+% a grid for instantaneous values, starting at 1
+grid:
+/name /L1 def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+1. 1. 60.
+/pointwidth 0. def
+:grid
+
+% a lead grid for daily averages
+grid:
+/name /LA def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+0.5 1. 59.5
+/pointwidth 1.0 def
+:grid
+
+grid:
+/name /M def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+1 1 6
+:grid
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 10 50 100 200 300 500 700 850 925 1000 :values
+:grid
+
+grid:
+/name (P1) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 500 :values
+:grid
+
+grid:
+/name (P2) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 200 300 500 700 850 925 1000 :values
+:grid
+
+dataset:
+[X Y P1 P2 M L S hdate ] {name exch def } forall
+/name /pressure_level_1 def
+
+/w { [ X Y | M L P1 S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_pl_w%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (VVEL) def
+(04XXXX003C0208) GRIBvariable
+:readdatafile
+/long_name (Vertical Velocity (Pressure)) def
+/standard_name (lagrangian_tendency_of_air_pressure) def
+/units (Pa/s) cvn def
+/scale_min -1.5 def
+/scale_max 1.5 def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+% done
+/q { [ X Y | P2 M L S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_pl_q%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (SPFH) def
+(04XXXX003C0100) GRIBvariable
+:readdatafile
+/long_name (Specific Humidity) def
+/standard_name (specific_humidity) def
+/units (kg/kg) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y P M L S hdate ] {name exch def } forall
+/name /pressure_level_t def
+
+% done
+/t { [ X Y | P M L S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_pl_zuvt%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (TMP) def
+(04XXXX003C0000) GRIBvariable
+:readdatafile
+/long_name (Temperature) def
+/standard_name (air_temperature) def
+/units (K) def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y P M L S hdate ] {name exch def } forall
+/name /pressure_level_gh def
+
+% done
+/gh { [ X Y | P M L S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_pl_zuvt%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (HGT) def
+(04XXXX003C0305) GRIBvariable
+:readdatafile
+/long_name (Geopotential Height) def
+/standard_name (geopotential_height) def
+/units (gpm) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y P M L S hdate ] {name exch def } forall
+/name /pressure_level_u def
+
+% done
+/u { [ X Y | P M L S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_pl_zuvt%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (UGRD) def
+(04XXXX003C0202) GRIBvariable
+:readdatafile
+/long_name (U-Component of Wind) def
+/standard_name (eastward_wind) def
+/units (m/s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y P M L S hdate ] {name exch def } forall
+/name /pressure_level_v def
+
+% done
+/v { [ X Y | P M L S hdate] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_pl_zuvt%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate] readdatafile:
+/name (VGRD) def
+(04XXXX003C0203) GRIBvariable
+:readdatafile
+/long_name (V-Component of Wind) def
+/standard_name (northward_wind) def
+/units (m/s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y M LA S hdate ] {name exch def } forall
+
+/name /sfc_snow_ice def
+
+% done
+/ci { [ X Y | M LA S hdate] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_da_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (ICEC) def
+(04XXXX003D0200) GRIBvariable
+:readdatafile
+/long_name (Ice Cover Proportion) def
+/standard_name (sea_ice_area_fraction) def
+/units (unitless) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y M LA S hdate ] {name exch def } forall
+
+/name /sfc_temperature def
+
+% done
+/wtmp { [ X Y | M LA S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_da_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate] readdatafile:
+/name (WTMP) def
+(04XXXX003D0300) GRIBvariable
+:readdatafile
+/long_name (Water Temperature) def
+/standard_name (sea_surface_temperature) def
+/units (K) def
+/missing_value 9.999000E+20 def
+0 maskle
+decompress
+} defasvarsilent
+
+% done
+/skt { [ X Y | M LA S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_da_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (SKINT) def
+(04XXXX003D0011) GRIBvariable
+:readdatafile
+/long_name (Skin Temperature) def
+/standard_name (surface_temperature) def
+/units (K) def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y M L S hdate ] {name exch def } forall
+
+/name /sfc_pressure def
+
+/sp { [ X Y | M L S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_sfc_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (PRES) def
+(04XXXX003C0300XXXXXXXXXXXXXXXXXXXXXX01) GRIBvariable
+:readdatafile
+/long_name (Surface Pressure) def
+/standard_name (air_pressure) def
+/units (Pa) def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y M L1 S hdate ] {name exch def } forall
+
+/name /sfc_rad_flux def
+
+/ssrd { [ X Y | M L1 S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_sfc_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (ssrd) def
+% DSWRF
+(04XXXX003D0407) GRIBvariable
+:readdatafile
+/long_name (Daily Accumulated Surface Downward Short-Wave Radiation Flux) def
+/standard_name (surface_downwelling_shortwave_flux_in_air) def
+/units (W m-2 s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/strd { [ X Y | M L1 S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_sfc_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (strd) def
+% DLWRF
+(04XXXX003D0503) GRIBvariable
+:readdatafile
+/long_name (Daily Accumulated Surface Downward Long-Wave Radiation Flux) def
+/standard_name (surface_downwelling_longwave_flux_in_air) def
+/units (W m-2 s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/ssr { [ X Y | M L1 S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_sfc_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (ssr) def
+% NSWRF
+(04XXXX003D0409) GRIBvariable
+:readdatafile
+/long_name (Daily Accumulated Surface Net Short-Wave Radiation Flux) def
+/standard_name (surface_net_downward_shortwave_flux) def
+/units (W m-2 s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/str { [ X Y | M L1 S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_sfc_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (str) def
+% NLWRF surface
+(04XXXX003D0505XXXXXXXXXXXXXXXXXXXXXX01) GRIBvariable
+:readdatafile
+/long_name (Daily Accumulated Surface Net Long-Wave Radiation Flux) def
+/standard_name (surface_net_upward_longwave_flux) def
+/units (W m-2 s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y M L1 S hdate ] {name exch def } forall
+
+/name /sfc_precip def
+
+/cp { [ X Y | M L1 S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_sfc_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (cp) def
+% CPRAT
+(04XXXX003D0125) GRIBvariable
+:readdatafile
+/long_name (Accumulated Convective Precipitation Rate) def
+/standard_name (convective_precipitation_flux) def
+/units (kg m-2) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/sf { [ X Y | M L1 S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_sfc_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (sf) def
+% TSRWE
+(04XXXX003D0135) GRIBvariable
+:readdatafile
+/long_name (Accumulated Total Snowfall Rate Water Equivalent) def
+/standard_name (snowfall_flux) def
+/units (kg m-2) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/tp { [ X Y | M L1 S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_sfc_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (TPRATE) def
+(04XXXX003D0134) GRIBvariable
+:readdatafile
+/long_name (Accumulated Total Precipitation) def
+/standard_name (precipitation_amount) def 
+/units (kg m-2) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (top_of_atmosphere) def
+[X Y M L1 S hdate] {name exch def } forall
+
+/ttr { [ X Y | M L1 S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_sfc_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (ttr) def
+% NLWRF toa
+(04XXXX003D0505XXXXXXXXXXXXXXXXXXXXXX08) GRIBvariable
+:readdatafile
+/long_name (Daily Accumulated Top of Atmosphere Net Long-Wave Radiation Flux) def
+/standard_name (toa_net_upward_longwave_flux) def
+/units (W m-2 s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (atmos_column) def
+[X Y M LA S hdate ] {name exch def } forall
+
+/tcc { [ X Y | M LA S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_da_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (TCDC) def
+(04XXXX003D0601) GRIBvariable
+:readdatafile
+/long_name (Total Cloud Cover) def
+/standard_name (cloud_area_fraction) def
+/units (%) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (10m_above_ground) def
+[X Y M L1 S hdate ] {name exch def } forall
+
+/10u { [ X Y | M L1 S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_sfc_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (10u) def
+% UGRD
+(04XXXX003C0202) GRIBvariable
+:readdatafile
+/long_name (10 metre u-velocity) def
+/standard_name (eastward_wind) def
+/units (m/s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/10v { [ X Y | M L1 S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_sfc_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (10v) def
+% VGRD
+(04XXXX003C0203) GRIBvariable
+:readdatafile
+/long_name (10 metre v-velocity) def
+/standard_name (northward_wind) def
+/units (m/s) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (2m_above_ground) def
+
+[X Y M LA S hdate ] {name exch def } forall
+% done
+/2t { [ X Y | M LA S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_da_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (TMP) def
+(04XXXX003D0000) GRIBvariable
+:readdatafile
+/long_name (2-meter Temperature) def
+/standard_name (air_temperature) def
+/units (K) def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/mx2t6 { [ X Y | M LA S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_sfc_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (mx2t6) def
+(04XXXX003D0000XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX02020) GRIBvariable
+:readdatafile
+/long_name (2-meter Maximum Temperature) def
+/standard_name (air_temperature) def
+/units (K) def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/mn2t6 { [ X Y | M LA S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_sfc_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (mn2t6) def
+(04XXXX003D0000XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX03020) GRIBvariable
+:readdatafile
+/long_name (2-meter Minimum Temperature) def
+/standard_name (air_temperature) def
+/units (K) def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+% done
+/2dt { [ X Y | M LA S hdate ] (/Data/data25/ECMWF/S2S/UKMO/REF/PF/ukmo_ref_pf_da_sfc%Y%m%d[S]%Y[hdate]%m%d[S].grb) [ S hdate ] readdatafile:
+/name (DPT) def
+(04XXXX003D0006) GRIBvariable
+:readdatafile
+/long_name (2-meter Dewpoint Temperature) def
+/standard_name (dew_point_temperature) def
+/units (K) def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+:dataset
+
+\end{ingrid}

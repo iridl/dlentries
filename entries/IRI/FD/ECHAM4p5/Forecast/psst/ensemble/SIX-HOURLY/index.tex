@@ -1,0 +1,72 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /T def
+/units (days since 2001-01-01 00:00:00) def
+212 .25 400
+:grid
+1968 1 2000
+{
+s==
+[ (jan) (feb) (mar)(apr)(may)(jun)(jul)(aug)(sep)(oct)(nov)(dec) ]
+{
+1 index append 
+(/Data/data1/iri/fd/echam4.5/forecast/psst/rpsst) 1 index (.cuf) 3array astore concat
+dup fileexists?
+{ exch cvn exch /readCUF cvx 2 array astore cvx 
+{defaftervars
+above_ground
+/td2m
+{null  exec
+  /long_name (Specific Humidity) def
+  markunitless
+}
+dup 0 currentobject 
+/td2m get
+put
+defasvarsilent
+name exch def
+} defasvarpartiallysilent
+} 
+{pop pop}ifelse
+} forall
+pop
+} for
+2001 1
+systemtime (%Y) 4 strftime interp
+{
+s==
+[ (jan) (feb) (mar)(apr)(may)(jun)(jul)(aug)(sep)(oct)(nov)(dec) ]
+{
+1 index append 
+(/Data/data1/iri/fd/echam4.5/forecast/psst/psst) 1 index (.cuf) 3array astore concat
+dup fileexists?
+{ exch cvn exch /readCUF cvx 2 array astore cvx 
+{defaftervars
+defPressureLevel-SF
+hybrid_lev /omegahalf /omega cachesomevar
+name exch def
+above_ground
+/td2m
+{null  exec
+  /long_name (Specific Humidity) def
+  markunitless
+}
+dup 0 currentobject 
+/td2m get
+put
+defasvarsilent
+name exch def
+} defasvarpartiallysilent
+} 
+{pop pop}ifelse
+} forall
+pop
+} for
+/ifvar? false def
+:dataset
+\end{ingrid}
+
+
+
+

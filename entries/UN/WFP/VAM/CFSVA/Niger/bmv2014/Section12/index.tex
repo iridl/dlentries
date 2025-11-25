@@ -1,0 +1,253 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 21668
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 345
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Base_menage_vulnerabilite_2014.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Calculs) def
+/RCSI {
+mytable
+myquestion 
+319 VALUE
+ myquestion removeGRID
+/long_name (Reduced Coping Strategy Index) def 
+}defasvarsilent
+
+/CSI {
+mytable
+myquestion 
+320 VALUE
+ myquestion removeGRID
+/long_name (Coping Strategy Index) def 
+}defasvarsilent
+
+/DurSto {
+mytable
+myquestion 
+321 VALUE
+ myquestion removeGRID
+/long_name (Durée des stocks) def 
+}defasvarsilent
+
+/UBT {
+mytable
+myquestion 
+322 VALUE
+ myquestion removeGRID
+/long_name (UBT) def 
+}defasvarsilent
+
+/DEPAL {
+mytable
+myquestion 
+323 VALUE
+ myquestion removeGRID
+/long_name (DEPENSES ALIMENTAIRES MENSUELLES) def 
+}defasvarsilent
+
+/DEPNALT {
+mytable
+myquestion 
+324 VALUE
+ myquestion removeGRID
+/long_name (DEPENSES NON ALIMENTAIRES MENSUELLES) def 
+}defasvarsilent
+
+/DEPTOTM {
+mytable
+myquestion 
+325 VALUE
+ myquestion removeGRID
+/long_name (DEPENSES TOTALES MENSUELLES) def 
+}defasvarsilent
+
+/PDEPAL {
+mytable
+myquestion 
+326 VALUE
+ myquestion removeGRID
+/long_name (PART DES DEPENSES ALIMENTAIRES DANS LES DEPENSES TOTALES Y COMPRIS AUTOCONSOMMATION) def 
+}defasvarsilent
+
+/DEPALC {
+mytable
+myquestion 
+327 VALUE
+ myquestion removeGRID
+/long_name (DEPENSES ALIMENTAIRES MENSUELLES EN CASH) def 
+}defasvarsilent
+
+/DEPNALC {
+mytable
+myquestion 
+328 VALUE
+ myquestion removeGRID
+/long_name (DEPENSES NON ALIMENTAIRES MENSUELLES EN CASH) def 
+}defasvarsilent
+
+/DEPTOTMC {
+mytable
+myquestion 
+329 VALUE
+ myquestion removeGRID
+/long_name (DEPENSES TOTALES MENSUELLES EN CASH) def 
+}defasvarsilent
+
+/PDEPALC {
+mytable
+myquestion 
+330 VALUE
+ myquestion removeGRID
+/long_name (PART DES DEPENSES ALIMENTAIRES DANS LES DEPENSES TOTALES EN CASH) def 
+}defasvarsilent
+
+/DEPTET {
+mytable
+myquestion 
+331 VALUE
+ myquestion removeGRID
+/long_name (Depenses totales par tete par mois) def 
+}defasvarsilent
+
+/Revenu {
+mytable
+myquestion 
+332 VALUE
+ myquestion removeGRID
+/long_name (Revenu moyen mensuel du menage) def 
+}defasvarsilent
+
+/Revenutet {
+mytable
+myquestion 
+333 VALUE
+ myquestion removeGRID
+/long_name (Revenu mensuel moyen par tete) def 
+}defasvarsilent
+
+/CEREALES {
+mytable
+myquestion 
+334 VALUE
+ myquestion removeGRID
+/long_name (CEREALES) def 
+}defasvarsilent
+
+/TUBER {
+mytable
+myquestion 
+335 VALUE
+ myquestion removeGRID
+/long_name (TUBERCULES) def 
+}defasvarsilent
+
+/CERTUBER {
+mytable
+myquestion 
+336 VALUE
+ myquestion removeGRID
+/long_name (CEREALES ET TUBERCULE) def 
+}defasvarsilent
+
+/LEGMSES {
+mytable
+myquestion 
+337 VALUE
+ myquestion removeGRID
+/long_name (LEGUMINEUSES) def 
+}defasvarsilent
+
+/FEUILEG {
+mytable
+myquestion 
+338 VALUE
+ myquestion removeGRID
+/long_name (FEUILLES ET LEGUMES) def 
+}defasvarsilent
+
+/FRUIT {
+mytable
+myquestion 
+339 VALUE
+ myquestion removeGRID
+/long_name (FRUITS) def 
+}defasvarsilent
+
+/PROTANI {
+mytable
+myquestion 
+340 VALUE
+ myquestion removeGRID
+/long_name (PROTEINE ANIMALE) def 
+}defasvarsilent
+
+/LAITPDLAIT {
+mytable
+myquestion 
+341 VALUE
+ myquestion removeGRID
+/long_name (LAIT ET PRODUITS LAITIERS) def 
+}defasvarsilent
+
+/SUCRE {
+mytable
+myquestion 
+342 VALUE
+ myquestion removeGRID
+/long_name (SUCRE) def 
+}defasvarsilent
+
+/HUILE {
+mytable
+myquestion 
+343 VALUE
+ myquestion removeGRID
+/long_name (HUILE) def 
+}defasvarsilent
+
+/FCS {
+mytable
+myquestion 
+344 VALUE
+ myquestion removeGRID
+/long_name (Food consumption score) def 
+}defasvarsilent
+
+/CFCS {
+mytable
+myquestion 
+345 VALUE
+ myquestion removeGRID
+/long_name (Classes food consumption score) def 
+/units /ids def
+/CLIST [(Consommation alimentaire pauvre)(Consommation alimentaire intermédiaire)(Consommation alimentaire acceptable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

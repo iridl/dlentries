@@ -1,0 +1,593 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (SOS, WRSI and Soil Water Index Products) def
+/references (Senay_Verdin2003) def
+
+datasetdefs:
+
+grid:
+/name /X_m def
+/long_name (Longitude) def
+/units /km def   
+190.147712 8. 2. div add
+8.
+3318.147712 8. 2. div sub
+:grid
+
+X_m partialgrid
+step 128 mul partitiongrid
+name 3 index !
+name 2 index !
+
+grid:
+/name /Y_m def
+/long_name (Latitude) def
+/units /km def 
+2552.156780 8. 2. div sub
+8.
+-1519.843220 8. 2. div add
+:grid
+
+Y_m partialgrid
+step 128 mul partitiongrid
+name 3 index !
+name 2 index !
+
+:datasetdefs
+
+link:
+/name (Data Source) def
+/description (where data files are gotten from) def
+/href (https://edcftp.cr.usgs.gov/project/fews/africa/east/dekadal/wrsi-chirps-etos/) def
+:link
+
+/T
+1 Oct 2001 julian_day
+systemtime (%d %b %Y) 12 strftime interp julian_day
+dekadGRID
+/defaultvalue { last } def
+def
+
+T {
+(/Data/data6/usgs/eros/fews/dekadal/wrsi-chirps-etos/eaf/eastt/w%Y[T]%02d[dkd]et/w%Y[T]%02d[dkd]do.tif)
+[
+  T dup day2doy
+    5 add
+    10 div
+    toi4
+/units undef
+/name /dkd def
+]
+} removeextrausing
+name exch def
+
+% there are data only for the duration of the season
+% so when we have the last dekad of a season,
+% it pushes expiration date to the next first dekad of the season
+% instead of pushing to simply the next dekad
+  T last 1960
+     1 1 ymd2rjt
+     add
+    rjt2ymd dup
+       25 eq
+       2 index
+        2 eq
+        and
+       {pop pop 10 11 } { dup 11 ge {3 -2 roll 1 ymd:nextmonth 4 -1 roll 21 ge {pop 11}if } { pop 21 } ifelse }ifelse
+      ymd2systemtime
+/expires exch def
+name exch def
+
+/expires T .expires def
+
+/do {
+ SOURCES .WORLDBATH .bath
+  X 21.84 52. RANGEEDGES
+  Y -12.19 23. 15. 60. div add RANGEEDGES
+  X 21.84 0.08 52. GRID
+  Y -12.19 0.08 23. 15. 60. div add GRID
+[X_m2 Y_m2 | X_m Y_m 
+T
+ ]
+(/Data/data6/usgs/eros/fews/dekadal/wrsi-chirps-etos/eaf/eastt/w%Y[T]%02d[dkd]et/w%Y[T]%02d[dkd]do.tif)
+[
+  T dup day2doy
+    5 add
+    10 div
+    toi4
+/units undef
+/name /dkd def
+]
+readdatafile:
+/stringtype tiledtiffimage
+/missing_values [0 253 254] def
+/valid_min 1 def
+/valid_max 100 def
+/SpatialReferenceSystemWKT (IRI:105022) crsid2srtext def
+/SpatialReferenceSystemDims { X Y_s } cvlit  def
+:readdatafile
+toNaN
+[X_m Y_m]unifygrids
+Y_m last first RANGE
+Y_m /Y renameGRID
+X_m /X renameGRID
+projecttomatch
+nip
+/long_name (Current WRSI) def
+/units /percent def
+startcolormap
+DATA 0 100 RANGE
+transparent red
+red 0. VALUE
+255	97	31 RGB 25. VALUE
+207	168	54 RGB 55. VALUE
+247	255	196 RGB 70 VALUE
+189	255	46 RGB 87.5 VALUE
+51	222	0 RGB 97. VALUE
+0	173	59 RGB 99.5 VALUE
+0       173     59 RGB 100. VALUE
+0       173     59 RGB
+endcolormap
+}defasvarsilent
+
+/do_cat {
+do
+{(Failure) 50 (Poor) 60 (Medicore) 80 (Average) 95 (Good) 99 (Very Good) }
+/cat classify
+[cat] dominant_class
+/long_name (Categorical Current WRSI) def
+startcolormap
+transparent red
+255     97      31 RGB 
+207     168     54 RGB 
+247     255     196 RGB 
+189     255     46 RGB 
+51      222     0 RGB 
+0       173     59 RGB 
+0       173     59 RGB
+endcolormap
+}defasvar
+
+/dt {
+ SOURCES .WORLDBATH .bath
+  X 21.84 52. RANGEEDGES
+  Y -12.19 23. 15. 60. div add RANGEEDGES
+  X 21.84 0.08 52. GRID
+  Y -12.19 0.08 23. 15. 60. div add GRID
+[X_m2 Y_m2 | X_m Y_m T]
+(/Data/data6/usgs/eros/fews/dekadal/wrsi-chirps-etos/eaf/eastt/w%Y[T]%02d[dkd]et/w%Y[T]%02d[dkd]dt.tif)
+[
+  T dup day2doy
+    5 add
+    10 div
+    toi4
+/units undef
+/name /dkd def
+]
+readdatafile:
+/stringtype tiledtiffimage
+/missing_value 0 def
+/scale_min 1 def
+/scale_max 36 def
+/SpatialReferenceSystemWKT (IRI:105022) crsid2srtext def
+/SpatialReferenceSystemDims { X Y_s } cvlit  def
+:readdatafile
+36 maskgt
+toNaN
+[X_m Y_m]unifygrids
+Y_m last first RANGE
+Y_m /Y renameGRID
+X_m /X renameGRID
+projecttomatch
+nip
+/long_name (Dekad Start of Season) def
+}defasvarsilent
+
+/dd {
+ SOURCES .WORLDBATH .bath
+  X 21.84 52. RANGEEDGES
+  Y -12.19 23. 15. 60. div add RANGEEDGES
+  X 21.84 0.08 52. GRID
+  Y -12.19 0.08 23. 15. 60. div add GRID
+[X_m2 Y_m2 | X_m Y_m T]
+(/Data/data6/usgs/eros/fews/dekadal/wrsi-chirps-etos/eaf/eastt/w%Y[T]%02d[dkd]et/w%Y[T]%02d[dkd]dd.tif)
+[
+  T dup day2doy
+    5 add
+    10 div
+    toi4
+/units undef
+/name /dkd def
+]
+readdatafile:
+/stringtype tiledtiffimage
+/missing_values [0 150] def
+/valid_min 1 def
+/valid_max 149 def
+/SpatialReferenceSystemWKT (IRI:105022) crsid2srtext def
+/SpatialReferenceSystemDims { X Y_s } cvlit  def
+:readdatafile
+toNaN
+100. sub
+-1. mul
+[X_m Y_m]unifygrids
+Y_m last first RANGE
+Y_m /Y renameGRID
+X_m /X renameGRID
+projecttomatch
+nip
+/long_name (Dekad Start of Season Anomalies) def
+DATA -4 4 RANGE
+startcolormap
+transparent
+0       66      128 RGB
+0       66      128 RGB -4. VALUE
+0       115     240 RGB -3. VALUE
+0       143     245 RGB -2. VALUE
+0       166     245 RGB -1. VALUE
+204     204     204 RGB 0. VALUE
+255     212     230 RGB 1. VALUE
+255     199     143 RGB 2. VALUE
+255     115     74 RGB 3. VALUE
+186     0       112 RGB 4. VALUE
+186     0       112 RGB
+endcolormap
+}defasvarsilent
+
+/dd_cat {
+dd
+{(4+ deks early) -3.5 (3 deks early) -2.5 (2 deks early) -1.5 (1 dek early) -0.5 (Average) 0.5 (1 dek late) 1.5 (2 deks late) 2.5 (3 deks late) 3.5 (4+ deks late)}
+/cat classify
+[cat] dominant_class
+/long_name (Categorical Dekad Start of Season Anomalies) def
+startcolormap
+transparent
+0       66      128 RGB
+0       66      128 RGB
+0       115     240 RGB
+0       143     245 RGB
+0       166     245 RGB
+204     204     204 RGB
+255     212     230 RGB
+255     199     143 RGB
+255     115     74 RGB
+186     0       112 RGB
+186     0       112 RGB
+endcolormap
+}defasvar
+
+/dl {
+ SOURCES .WORLDBATH .bath
+  X 21.84 52. RANGEEDGES
+  Y -12.19 23. 15. 60. div add RANGEEDGES
+  X 21.84 0.08 52. GRID
+  Y -12.19 0.08 23. 15. 60. div add GRID
+[X_m2 Y_m2 | X_m Y_m T]
+(/Data/data6/usgs/eros/fews/dekadal/wrsi-chirps-etos/eaf/eastt/w%Y[T]%02d[dkd]et/w%Y[T]%02d[dkd]dl.tif)
+[
+  T dup day2doy
+    5 add
+    10 div
+    toi4
+/units undef
+/name /dkd def
+]
+readdatafile:
+/stringtype tiledtiffimage
+/missing_values [0 253 254] def
+/valid_min 1 def
+/valid_max 100 def
+/SpatialReferenceSystemWKT (IRI:105022) crsid2srtext def
+/SpatialReferenceSystemDims { X Y_s } cvlit  def
+:readdatafile
+toNaN
+[X_m Y_m]unifygrids
+Y_m last first RANGE
+Y_m /Y renameGRID
+X_m /X renameGRID
+projecttomatch
+nip
+/long_name (Season Progress) def
+/units /percent def
+DATA 0 100 RANGE
+startcolormap
+transparent
+255	166	207 RGB
+255	166	207 RGB 0 VALUE
+255	0	255 RGB 7.5 VALUE
+51	255	0 RGB 30 VALUE
+255	255	41 RGB 60 VALUE
+255	184	0 RGB 87.5 VALUE
+150	117	0 RGB 100 VALUE
+150	117	0 RGB
+endcolormap
+}defasvarsilent
+
+/dl_cat {
+dl
+{(Initial) 15 (Vegetative) 45 (Maturity) 75 (Drying) 99.5 (Complete)}
+/cat classify
+[cat] dominant_class
+/long_name (Categorical Season Progress) def
+startcolormap
+transparent
+255	0	255 RGB
+255	0	255 RGB
+51	255	0 RGB
+255	255	41 RGB
+255	184	0 RGB
+150	117	0 RGB
+150     117     0 RGB
+endcolormap
+}defasvar
+
+/eo {
+ SOURCES .WORLDBATH .bath
+  X 21.84 52. RANGEEDGES
+  Y -12.19 23. 15. 60. div add RANGEEDGES
+  X 21.84 0.08 52. GRID
+  Y -12.19 0.08 23. 15. 60. div add GRID
+[X_m2 Y_m2 | X_m Y_m T]
+(/Data/data6/usgs/eros/fews/dekadal/wrsi-chirps-etos/eaf/eastt/w%Y[T]%02d[dkd]et/w%Y[T]%02d[dkd]eo.tif)
+[
+  T dup day2doy
+    5 add
+    10 div
+    toi4
+/units undef
+/name /dkd def
+]
+readdatafile:
+/stringtype tiledtiffimage
+/missing_values [0 253 254] def
+/valid_min 1 def
+/valid_max 100 def
+/SpatialReferenceSystemWKT (IRI:105022) crsid2srtext def
+/SpatialReferenceSystemDims { X Y_s } cvlit  def
+:readdatafile
+toNaN
+[X_m Y_m]unifygrids
+Y_m last first RANGE
+Y_m /Y renameGRID
+X_m /X renameGRID
+projecttomatch
+nip
+/long_name (Forecast WRSI) def
+/units /percent def
+startcolormap
+DATA 0 100 RANGE
+transparent red
+red 0. VALUE
+255     97      31 RGB 25. VALUE
+207     168     54 RGB 55. VALUE
+247     255     196 RGB 70 VALUE
+189     255     46 RGB 87.5 VALUE
+51      222     0 RGB 97. VALUE
+0       173     59 RGB 99.5 VALUE
+0       173     59 RGB 100. VALUE
+0       173     59 RGB
+endcolormap
+}defasvarsilent
+
+/eo_cat {
+eo
+{(Failure) 50 (Poor) 60 (Medicore) 80 (Average) 95 (Good) 99 (Very Good)}
+/cat classify
+[cat] dominant_class
+/long_name (Categorical Forecast WRSI) def
+startcolormap
+transparent red
+255     97      31 RGB
+207     168     54 RGB
+247     255     196 RGB
+189     255     46 RGB
+51      222     0 RGB
+0       173     59 RGB
+0       173     59 RGB
+endcolormap
+}defasvar
+
+/dw {
+ SOURCES .WORLDBATH .bath
+  X 21.84 52. RANGEEDGES
+  Y -12.19 23. 15. 60. div add RANGEEDGES
+  X 21.84 0.08 52. GRID
+  Y -12.19 0.08 23. 15. 60. div add GRID
+[X_m2 Y_m2 | X_m Y_m T]
+(/Data/data6/usgs/eros/fews/dekadal/wrsi-chirps-etos/eaf/eastt/w%Y[T]%02d[dkd]et/w%Y[T]%02d[dkd]dw.tif)
+[
+  T dup day2doy
+    5 add
+    10 div
+    toi4
+/units undef
+/name /dkd def
+]
+readdatafile:
+/stringtype tiledtiffimage
+/missing_values [0 253 254] def
+/valid_min 1 def
+/valid_max 100 def
+/SpatialReferenceSystemWKT (IRI:105022) crsid2srtext def
+/SpatialReferenceSystemDims { X Y_s } cvlit  def
+:readdatafile
+toNaN
+[X_m Y_m]unifygrids
+Y_m last first RANGE
+Y_m /Y renameGRID
+X_m /X renameGRID
+projecttomatch
+nip
+/long_name (Current Soil Water Index) def
+/units /percent def
+startcolormap
+DATA 0 100 RANGE
+transparent red
+red 0. VALUE
+tomato 5. VALUE
+plum 30. VALUE
+MediumPurple 70. VALUE
+DarkSlateBlue 95. VALUE
+DarkSlateBlue
+endcolormap
+}defasvarsilent
+
+/dw_cat {
+dw
+{(Wilting) 10 (Stress) 50 (Satisfactory) 90 (Sufficent)} /cat classify
+[cat] dominant_class
+/long_name (Categorical Current Soil Water Index) def
+startcolormap
+transparent red
+tomato
+plum
+MediumPurple
+DarkSlateBlue
+DarkSlateBlue
+endcolormap
+}defasvar
+
+/er {
+ SOURCES .WORLDBATH .bath
+  X 21.84 52. RANGEEDGES
+  Y -12.19 23. 15. 60. div add RANGEEDGES
+  X 21.84 0.08 52. GRID
+  Y -12.19 0.08 23. 15. 60. div add GRID
+[X_m2 Y_m2 | X_m Y_m T]
+(/Data/data6/usgs/eros/fews/dekadal/wrsi-chirps-etos/eaf/eastt/w%Y[T]%02d[dkd]et/w%Y[T]%02d[dkd]er.tif)
+[
+  T dup day2doy
+    5 add
+    10 div
+    toi4
+/units undef
+/name /dkd def
+]
+readdatafile:
+/stringtype tiledtiffimage
+/missing_values [0 253 254] def
+/valid_min 1 def
+/valid_max 252 def
+/SpatialReferenceSystemWKT (IRI:105022) crsid2srtext def
+/SpatialReferenceSystemDims { X Y_s } cvlit  def
+:readdatafile
+toNaN
+[X_m Y_m]unifygrids
+Y_m last first RANGE
+Y_m /Y renameGRID
+X_m /X renameGRID
+projecttomatch
+nip
+/long_name (WRSI Percent of Median Anomaly) def
+/units /percent def
+DATA 0 150 RANGE
+startcolormap
+transparent
+DarkRed
+DarkRed 0. VALUE
+186	0	112 RGB 25. VALUE
+255	115	74 RGB 60. VALUE
+255	199	143 RGB 80. VALUE
+204	204	204 RGB 100. VALUE
+207	255	135 RGB 120. VALUE
+79	255	69 RGB 140. VALUE
+0	156	33 RGB 150. VALUE
+0	156	33 RGB
+endcolormap
+}defasvarsilent
+
+/er_cat {
+er
+{(0-50) 50 (50-70) 70 (70-90) 90 (90-110) 110 (110-130) 130 (130-150) 150 (150+)} /cat classify
+[cat] dominant_class
+/long_name (Categorical WRSI Percent of Median Anomaly) def
+startcolormap
+transparent
+DarkRed
+186     0       112 RGB
+255     115     74 RGB
+255     199     143 RGB
+204     204     204 RGB
+207     255     135 RGB
+79      255     69 RGB
+0       156     33 RGB
+0       156     33 RGB
+endcolormap
+}defasvar
+
+/ep {
+ SOURCES .WORLDBATH .bath
+  X 21.84 52. RANGEEDGES
+  Y -12.19 23. 15. 60. div add RANGEEDGES
+  X 21.84 0.08 52. GRID
+  Y -12.19 0.08 23. 15. 60. div add GRID
+[X_m2 Y_m2 | X_m Y_m T]
+(/Data/data6/usgs/eros/fews/dekadal/wrsi-chirps-etos/eaf/eastt/w%Y[T]%02d[dkd]et/w%Y[T]%02d[dkd]ep.tif)
+[
+  T dup day2doy
+    5 add
+    10 div
+    toi4
+/units undef
+/name /dkd def
+]
+readdatafile:
+/stringtype tiledtiffimage
+/missing_values [0 253 254] def
+/valid_min 1 def
+/valid_max 252 def
+/SpatialReferenceSystemWKT (IRI:105022) crsid2srtext def
+/SpatialReferenceSystemDims { X Y_s } cvlit  def
+:readdatafile
+toNaN
+[X_m Y_m]unifygrids
+Y_m last first RANGE
+Y_m /Y renameGRID
+X_m /X renameGRID
+projecttomatch
+nip
+/long_name (WRSI Percent of Previous Year Anomaly) def
+/units /percent def
+DATA 0 150 RANGE
+startcolormap
+transparent
+DarkRed
+DarkRed 0. VALUE
+186     0       112 RGB 25. VALUE
+255     115     74 RGB 60. VALUE
+255     199     143 RGB 80. VALUE
+204     204     204 RGB 100. VALUE
+207     255     135 RGB 120. VALUE
+79      255     69 RGB 140. VALUE
+0       156     33 RGB 150. VALUE
+0       156     33 RGB
+endcolormap
+}defasvarsilent
+
+/ep_cat {
+ep
+{(0-50) 50 (50-70) 70 (70-90) 90 (90-110) 110 (110-130) 130 (130-150) 150 (150+)} /cat classify
+[cat] dominant_class
+/long_name (Categorical WRSI Percent of Previous Year Anomaly) def
+startcolormap
+transparent
+DarkRed
+186     0       112 RGB
+255     115     74 RGB
+255     199     143 RGB
+204     204     204 RGB
+207     255     135 RGB
+79      255     69 RGB
+0       156     33 RGB
+0       156     33 RGB
+endcolormap
+}defasvar
+
+:dataset
+
+do .X name exch def
+do .Y name exch def
+
+\end{ingrid}

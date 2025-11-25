@@ -1,0 +1,33 @@
+\begin{ingrid}
+/GTN_River_Basins
+/description (River Basins of the World) def
+{db: /server (localhost) def
+  /dbname (iridb) def
+  :db
+  (select * from gtn_r_358_basins_from_mouth order by gid) (gid) openqueryby
+} defasvarsilent
+/Sri_Lanka_River_Basins
+{db: /server (localhost) def
+  /dbname (iridb) def
+  :db
+  (select * from slriverbasins_dd order by basin_) (basin_) openqueryby
+} defasvarcachesilent
+/Sri_Lanka_Sub_Catchments
+{db: /server (localhost) def
+  /dbname (iridb) def
+  :db
+  (select * from slsubcatchments_dd order by gid) (gid) openqueryby
+} defasvarcachesilent
+/LaPlata_basin
+{db: /server (localhost) def
+  /dbname (iridb) def
+  :db
+  (select * from laplata_dd order by gid) (gid) openqueryby
+} defasvarcachesilent
+/Upper_Blue_Nile
+{db: /server IRIDB def
+  /dbname (iridb) def
+  :db
+  (select the_geom from bn_basin_clip_dd where gid=72) openquery
+} defasvarcachesilent
+\end{ingrid}

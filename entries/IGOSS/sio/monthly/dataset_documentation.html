@@ -1,0 +1,141 @@
+<INGRID>datasetdocumentationheader</INGRID>
+    <h1>SIO Upper Ocean Temperature climatology and Anomalies</h1>
+
+The <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.IGOSS/.sio/.climatology/">climatologies</a> include temperature, heat storage, and
+    mixed-layer depth, while the <a
+      href="http://ingrid.ldgo.columbia.edu/SOURCES/.IGOSS/.sio/.monthly/">anomalies</a> include monthly heat storage.
+They are served as datasets, including an interactive
+viewer and downloadable data files.
+<p>
+Mixed-layer depth is defined as SST - 1.0C.
+<table border align=right>
+<caption align=bottom>Annual temperature profile observation counts</caption>
+<tr><th>YEAR</th><th>COUNT</th></tr>
+<tr><td>1955</td><td>41,958</td><td rowspan=34>NODC NGOTS</td></tr>
+<tr><td>1956</td><td>45,978</td></tr>
+<tr><td>1957</td><td>57,427</td></tr>        
+<tr><td>1958</td><td>67,380</td></tr>        
+<tr><td>1959</td><td>65,886</td></tr>        
+<tr><td>1960</td><td>68,758</td></tr>        
+<tr><td>1961</td><td>76,295</td></tr>        
+<tr><td>1962</td><td>82,125</td></tr>        
+<tr><td>1963</td><td>89,042</td></tr>        
+<tr><td>1964</td><td>83,430</td></tr>        
+<tr><td>1965</td><td>85,909</td></tr>        
+<tr><td>1966</td><td>93,860</td></tr>        
+<tr><td>1967</td><td>74,938</td></tr>        
+<tr><td>1968</td><td>74,305</td></tr>        
+<tr><td>1969</td><td>68,484</td></tr>        
+<tr><td>1970</td><td>59,781</td></tr>        
+<tr><td>1971</td><td>65,320</td></tr>        
+<tr><td>1972</td><td>60,205</td></tr>        
+<tr><td>1973</td><td>67,360</td></tr>        
+<tr><td>1974</td><td>71,294</td></tr>        
+<tr><td>1975</td><td>59,659</td></tr>        
+<tr><td>1976</td><td>60,606</td></tr>        
+<tr><td>1977</td><td>60,171</td></tr>        
+<tr><td>1978</td><td>61,217</td></tr>        
+<tr><td>1979</td><td>63,189</td></tr>        
+<tr><td>1980</td><td>63,715</td></tr>        
+<tr><td>1981</td><td>56,893</td></tr>        
+<tr><td>1982</td><td>54,920</td></tr>        
+<tr><td>1983</td><td>48,150</td></tr>        
+<tr><td>1984</td><td>50,863</td></tr>        
+<tr><td>1985</td><td>50,294</td></tr>        
+<tr><td>1986</td><td>49,072</td></tr>        
+<tr><td>1987</td><td>42,969</td></tr>        
+<tr><td>1988</td><td>26,260</td></tr>        
+
+<tr><td>1989</td><td>40,092</td><td rowspan=5>GTSPP</td></tr>
+<tr><td>1990</td><td>13,039</td></tr>            
+<tr><td>1991</td><td>21,790</td></tr>            
+<tr><td>1992</td><td>29,515</td></tr>       
+<tr><td>1993</td><td>54,248</td></tr>       
+<tr><td>1994</td><td>51,520</td></tr>       
+</table>
+<h2>TEMPERATURE CLIMATOLOGY AND ANOMALY ANALYSIS PROCEDURE</h2>
+
+<ol>
+<li> Temperature profile databases used:
+<ol>
+     <li> 1955 to 1988: NODC Global Ocean Temperature/Salinity CD-ROM
+                      data set.
+     <li> 1989 to 1994: Global Temperature/Salinity Pilot Project(GTSPP)
+                      data set.
+</ol>
+<li> Interpolate temperature profiles at inflection points to 15 standard
+   levels(0, 20, 40, 60, 80, 120, 160, 200, 240, 300, 400, 500, 600,
+   700 and 800 meters). Simple linear interpolation is used.
+</ol>
+
+<h3>CLIMATOLOGY</h3>
+<ol>
+<li> Calculate MONTHLY climatology at each standard level by BIN AVERAGING
+   absolute temperature profiles to a 5 Deg.(X) -by- 2 Deg.(Y) grid res-
+   olution. Only data from Jan. 1980 to Dec. 1989 was used. 
+   The MONTHLY mean was calculated for each month from 1980 to 1989.
+   Each monthly mean is then summed over the 10 year period to form the
+   RAW climatological mean for the month.
+
+<li> A Fourier analysis is performed using the first 2 harmonics(the
+   ANNUAL and BI-ANNUAL cycles) for each time sequence at each grid
+   location for each standard depth. The Fourier series is
+<pre>
+     y'(i) =  [An * COS (2*n*pi*t/12) + Bn * SIN (2*n*pi*t/12)]
+          for n = 1 to  2 and
+              t = 0 to 11
+</pre>
+   The Fourier coefficients A1/B1, A2/B2 and the long-term ANNUAL mean
+   are written-out as grids at each standard level.
+
+<li> Areas of missing data in the Fourier coefficient and long-term ANNUAL
+   mean fields are filled by zonal and meridional linear interpolation.
+   The following procedures are followed for the area filling,
+<ol>
+      <li> The maximum ZONAL      no-data gap is 20 degrees.
+      <li> The maximum MERIDIONAL no-data gap is 10 degrees.
+</ol>
+<li> New monthly climatology fields are constructed using the filled
+   Fourier coefficients and long-term ANNUAL mean.
+</ol>
+<h3>ANOMALIES</h3>
+<ol>
+<li> Temperature anomaly profiles are calculated using the reconstructed
+   monthly climatology. The climatology is BI-LINEARLY interpolated to
+   the location of each temperature profile and the anomalies calculated
+   at each standard level.
+<p>
+   Profiles of ABSOLUTE, ANOMALOUS and CLIMATOLOGICAL temperature are
+   saved in MONTHLY files.
+
+<li> Monthly Optimum Interpolation mapping of the temperature anomalies
+   is performed for each standard level(0 ==> 400M) for each month from
+   Jan. 1955 to Dec. 1994.
+<p>
+   Decorrelation scales used for th O.I. mapping:
+<pre>
+      ZONAL(Lx)      = 10 degrees
+      MERIDIONAL(Ly) =  5 degrees
+      TEMPORAL(Lt)   = 90 days(from the 15th of each month).
+</pre>
+<li> The O.I. mapped fields are filled in space and time. The spatial
+   filling procedure is performed first with the following limits,
+<ol>
+      <li> The maximum ZONAL      no-data gap is 20 degrees.
+      <li> The maximum MERIDIONAL no-data gap is 10 degrees.
+</ol>
+   The temporal filling is done with Maximum Entropy Prediction based
+   on the algorithm by N. Andersen, 'On the Calculation of Filter
+   Coefficients for Maximum Entropy Spectral Analysis', 1974,
+   Geophysics, Vol.39, No. 1, pp69-72.
+
+<li> Adjust the space/time filled mapped monthly anomalies by computing
+   the monthly MEANS of the ANOMALIES(over the period Jan. 1955 to
+   Dec. 1994) then subtracting these means(of the anomalies) from the
+   mapped fields.
+</ol>
+<h2>Reference</h2>
+The original dataset is kept <a
+href="ftp://canopus.ucsd.edu/pub/CLIMATOLOGY.dir/">here</a>. 
+The original dataset was produced by Ted Walker (<a href="mailto:walker@canopus.ucsd.edu">walker@canopus.ucsd.edu</a>).
+<INGRID>datasetdocumentationtrailer</INGRID>

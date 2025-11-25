@@ -1,0 +1,176 @@
+\begin{ingrid}
+/STATION insertdataset:
+/description (Oceanic station data for the Arctic Region) def
+grid:
+/name /IZ def
+/units (integer) def
+1 1 44
+:grid
+grid:
+/name /ISTA def
+/units (ids) def
+values:
+269 285 287 310 340 358 362 364 365 371 4 8 9 10 11 12 14 16 17 18 21 23 26 31 33 43 46 48 49 51 55 58 61 79 617 
+:values
+:grid
+file:
+grids: {Sta	Depth	Theta	Sal	O18 	Sil	3H	Fi	Fr	Fa	3Hage	Vint	3He   } cvlit IZ  ISTA :grids
+formatted
+%/format ((13F8.0)) def
+/format (*) def
+%/name (/home/bnewton/TRACER_DATA/arctic4ingrid.txt) def
+/name (/Data/data1/arctic/arctic4ingrid.txt) def
+/missing_value -9999 def
+variable:
+/name /Sta def
+/long_name (station) def
+:variable
+variable:
+/name /Depth def
+/units (m) def
+:variable
+variable:
+/name /Theta def
+/long_name (potential temperature) def
+/units /Celsius def
+:variable
+variable:
+/name /Sal def
+/long_name (salinity) def
+/units (PSU) def
+:variable
+variable:
+/name /O18 def
+/long_name (delta oxygen 18) def
+/units (ppt) def
+:variable
+variable:
+/name /Sil def
+/long_name (silicate) def
+/units (micro-moles per liter) def
+:variable
+variable:
+/name /3H def
+/long_name (tritium) def
+/units (TU) def
+:variable
+variable:
+/name /Fi def
+/long_name (ice fraction) def
+/units (%) def
+:variable
+variable:
+/name /Fr def
+/long_name (river runoff fraction) def
+/units (%) def
+:variable
+variable:
+/name /Fa def
+/long_name (Atlantic fraction) def
+:variable
+variable:
+/name /3Hage def
+/long_name (tritium age) def
+/units (years) def
+:variable
+variable:
+/name /Vint def
+/long_name (tritium vintage age) def
+/units (years) def
+:variable
+variable:
+/name /3He def
+/long_name (tritium/helium age) def
+:variable
+:file
+variable:
+/name /lon def
+/long_name (longitude) def
+degE
+grids: ISTA :grids
+values:
+  31.403
+  31.502
+  31.084
+  31.959
+  32.072
+  30.561
+  29.299
+  26.142
+  25.292
+  21.986
+  19.835
+  27.963
+  42.352
+  48.052
+  52.757
+  55.338
+  60.080
+  69.724
+  85.318
+  99.186
+ 131.295
+ 145.517
+ 163.680
+   9.323
+  10.127
+ -14.855
+  -6.149
+  -0.301
+   4.436
+  10.293
+  13.586
+  16.462
+  19.903
+   0.000
+   5.505
+:values
+:variable
+variable:
+/name /lat def
+/long_name (latitude) def
+degN
+grids: ISTA :grids
+values:  
+ 81.271
+ 81.645
+ 81.683
+ 82.124
+ 82.958
+ 84.026
+ 85.076
+ 85.368
+ 85.523
+ 86.083
+ 81.343
+ 83.580
+ 85.070
+ 85.730
+ 86.088
+ 86.598
+ 86.994
+ 87.604
+ 88.333
+ 88.184
+ 88.237
+ 87.997
+ 88.020
+ 88.266
+ 86.755
+ 85.053
+ 84.591
+ 84.017
+ 83.588
+ 83.060
+ 82.591
+ 81.860
+ 81.140
+ 70.000
+ 74.758
+:values
+:variable
+:insertdataset
+\end{ingrid}
+
+
+

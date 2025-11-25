@@ -1,0 +1,26 @@
+\begin{ingrid}
+/X SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DegreeGrid .X def
+/Y SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DegreeGrid .Y def
+continuedataset:
+grid: 
+/name /T def
+monthtime
+16 Jul 1987 ensotime
+1.
+1 index 89 add
+:grid
+variable:
+/name /gpcp def
+/long_name (mean precipitation rate) def
+/units (kg/m2/s) def
+/note ( x 86400 to get mm/day) def
+grids: X Y | T :grids
+/missing_value -9999. def
+/dataset_documentation.html { (/Data/data1/noaa/cpc/reanal/) /gpcp.html readfilein } def
+file:
+/name (/Data/data1/noaa/cpc/reanal/gpcp.dat) def
+random
+:file
+:variable
+:dataset
+\end{ingrid}

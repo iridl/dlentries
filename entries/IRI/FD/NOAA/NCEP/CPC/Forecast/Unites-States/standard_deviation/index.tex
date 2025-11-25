@@ -1,0 +1,75 @@
+\begin{ingrid}
+
+continuedataset:
+
+grid:  /name (X) def  /units (degreeE) def
+ /fullname (Longitude) def  periodic
+-178.0 2.0 180  :grid
+
+grid:  /name (Y) def  /units (degreeN) def
+/fullname (Latitude) def  88 -2.0 -90  :grid
+
+grid: /name /L def
+/units (months) def
+/fullname (Forecast Lead Time in Months) def ordered
+2.5  to 5.5 N= 4 pts
+/pointwidth 3 def
+:grid
+
+grid: /name /S def
+/long_name (Forecast Start Time) def
+/fullname (Forecast Start Time) def
+/units (months since 1960-01-01) def
+/pointwidth 0 def ordered
+1 Jul 2012 ensotime
+1.
+%1 Jul 2012 ensotime
+ systemtime systemtime2ymd ymd:lastmonth ymd:nextmonth
+    ymd2rm1960
+/defaultvalue {last} def
+    :grid
+S
+/expires
+        systemtime
+        last_modified sub
+        86400 lt {
+          null
+        }{
+          last_modified
+          systemtime2ymd pop dup 12 lt {
+            1 add
+          }{
+            pop 1 add 1
+          }ifelse
+          15 ymd2systemtime
+        }ifelse
+      def
+ { (/data/tonyb/flexibleformat/Tsdnativeda%b%y[S]) [S] } removeextrausing
+/file_last_modified last_modified def
+/expires expires def
+   name exch def
+/expires S .expires def
+/last_modified S .last_modified def
+
+/Tsd {
+[ X Y L | S ] (/data/tonyb/flexibleformat/Tsdnativeda%b%y[S]) [S]
+readdatafile:
+/missing_value -99.99 def
+decrandom
+:readdatafile
+/long_name (temperature standard deviation skill) def
+}defasvarsilent
+
+/Psd {
+[ X Y L | S ] (/data/tonyb/flexibleformat/Psdnativeda%b%y[S]) [S]
+readdatafile:
+/missing_value -99.99 def
+decrandom
+:readdatafile
+/long_name (precipitation standard deviation skill) def
+}defasvarsilent
+
+
+:dataset
+
+\end{ingrid}

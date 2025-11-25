@@ -1,0 +1,25 @@
+\begin{ingrid}
+  /DMC dataareRestricted
+  /Cookie varies_on
+
+  /description (Dirección Meteorológica de Chile) def
+  /long_name (Dirección Meteorológica de Chile) def
+  /iridl:hasSemantics (iridl:DMC_Chile) def
+  link:
+  /name (DMC) def
+  /description (home page) def
+  /href (https://www.meteochile.gob.cl/) def
+  :link
+
+continuedataset:
+  datasetdefs:
+    /daily_prec { stations .daily_prec } def
+    /daily_temps{ stations .daily_temps} def
+    /monthly_prec { stations .monthly_prec } def
+    /monthly_temps{ stations .monthly_temps} def
+  :datasetdefs
+  /0p05 currentobject /0p05 get def
+  /stations currentobject /stations get def
+:dataset
+ 
+\end{ingrid}

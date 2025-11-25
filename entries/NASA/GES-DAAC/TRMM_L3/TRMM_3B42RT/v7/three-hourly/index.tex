@@ -1,0 +1,124 @@
+\begin{ingrid}
+continuedataset:
+/description (TRMM Version 7 Three-Hourly Real Time Precipitation Estimates) def
+datasetdefs:
+
+grid:
+/name /T def
+/units (days since 1998-01-01 00:00:00) def
+values:
+2000 3 1 ymd2rjt
+1998 1 1 ymd2rjt sub
+2012 11 07 ymd2rjt
+1998 1 1 ymd2rjt sub 0.125 add
+2012 11 07 ymd2rjt 
+1998 1 1 ymd2rjt sub 0.25 add
+systemtime systemtime2ymd ymd2rjt 
+1998 1 1 ymd2rjt sub
+:values
+:grid
+
+variable:
+/name /satsub def
+grids: T :grids
+values: /7R2 /7R2 /7 /7 :values
+:variable
+
+/prcp_hrlyrate_smooth {
+startcolormap
+    0.0 60.0 RANGE
+    LightGrey white white
+       0.0 VALUE
+       LightCyan
+        1.0 VALUE
+        SkyBlue
+         2.5 VALUE
+         DodgerBlue
+          5.0 VALUE
+          MediumBlue
+           10.0 VALUE
+           DarkSeaGreen
+            15.0 VALUE
+            MediumSeaGreen
+             20.0 VALUE
+             LightSeaGreen
+              30.0 VALUE
+              khaki
+               40.0 VALUE
+               SandyBrown
+                50.0 VALUE
+                firebrick
+                 60.0 VALUE
+                 firebrick endcolormap
+} defcolorscale
+:datasetdefs
+link:
+/name (source) def
+/description (original FTP Server) def
+%/href (ftp://trmmopen.nascom.nasa.gov/pub/merged/mergeIRMicro/) def
+/href (ftp://disc2.nascom.nasa.gov/data/s4pa/TRMM_RT/TRMM_3B42RT.007/) def
+:link
+link:
+/name (dataset_documentation) def
+/description (TRMM Real Time Precipitation Data Set Documentation) def
+/href (ftp://trmmopen.nascom.nasa.gov/pub/merged/V7Documents/3B4XRT_README.pdf) def
+:link
+grid:
+/name /X def
+degE
+0. 360.
+2 copy exch sub 1440 div exch
+%0.   0.25  360 % 1440 pts
+% converts edges to centers
+1 index .5 mul sub
+3 -1 roll
+2 index .5 mul add
+3 1 roll
+:grid
+
+grid:
+/name /Y def
+degN
+60.0 -60.0
+2 copy exch sub 480.0 div exch
+% converts edges to centers
+1 index .5 mul sub
+3 -1 roll
+2 index .5 mul add
+3 1 roll
+:grid
+
+grid: 
+/name /T def
+/standard_name (time) def
+/units (days since 1998-01-01 00:00:00) def
+/pointwidth 3. 24. div def
+/defaultvalue {last} def
+2000 3 1 ymd2rjt
+1998 1 1 ymd2rjt sub
+1. 8 div
+% files after about 2-3 months are updated in 3B42
+systemtime systemtime2ymd ymd2rjt
+1998 1 1 ymd2rjt sub
+:grid
+
+/precipitation
+{[X Y | T ]
+%(ftp://trmmopen.nascom.nasa.gov/pub/merged/mergeIRMicro/%Y[T]/%m[T]/3B42RT.%Y%m%d%H[T].%s[satsub].bin.gz)
+(ftp://disc2.nascom.nasa.gov/data/s4pa/TRMM_RT/TRMM_3B42RT.007/%Y[T]/%m[T]/3B42RT.%Y%m%d%H[T].%s[satsub].bin)
+%[T dup 0.5 24 div add]
+[T dup satsub]
+readdatafile:
+2880 set:file_byteoffset
+/long_name (Accumulated Precipitation) def
+/iridl:hasSemantics (iridl:precipitation) def
+/units (mm) def
+/missing_value -31999 def
+/valid_min 0 def
+%/valid_max 10000 def
+/scale_factor 0.01 def
+i*2 :readdatafile
+ prcp_hrlyrate_smooth
+}defasvarsilent
+:dataset
+\end{ingrid}

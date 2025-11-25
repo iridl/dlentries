@@ -1,0 +1,209 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/fileavail {
+prec dataflag[X Y]average 0 maskle 0 flaggt L first VALUE M first VALUE grid: /name /S1 def /units monthtimename def 
+/gridtype periodic def Jan 1 Dec :grid grid: /name /S2 def /units monthtimename def /pointwidth 12 def 1 Jul 1981 ensotime 12 1 Jul 2015 ensotime :grid add 6.5 sub S .first S .last masknotrange /pointwidth 0 def[S]sample-along /fullname (fileavail) def
+} defasvar
+:datasetdefs
+%/dataset_documentation.html currentobject 1 index get def
+%/name (19820801.1x1.precip_ens01.nc)def
+ /References (Ben P. Kirtman, Dughong Min. (2009) Multimodel Ensemble ENSO Prediction with CCSM and CFS. Monthly Weather Review 137:9, 2908-2930) def
+ /references (Kirtman_etal2014) def
+ /Generator (NCL v.5.0) def
+ /Conventions (CF-1.0) def
+ /Created (Wed May 7 20:32:28 EDT 2014) def
+ /Title (CCSM4.0 National Multi-Model Ensembles(NMME) project) def
+ /Comment (Dughong Min (dmin@rsmas.miami.edu) and Ben Kirtman (bkirtman@rsmas.miami.edu)) def
+
+/ACKNOWLEDGEMENTS (In order to document NMME-Phase II data impact and enable continuing support, users of NMME data are expected to acknowledge NMME data and the participating modeling groups. The NMME model output should be referred to as "the NMME System Phase II data [https://www.earthsystemgrid.org/search.html?Project=NMME]."  In publications, users should include a table (referred to below as Table XX) listing the models and institutions that provided model output used in the NMME-Phase II system, as well as the digital object identifier of publications documenting the models, where "Table XX" in the paper should list the models and modeling groups that provided the NMME data.  In addition, an acknowledgement similar to the following should be included in any publication:  "We acknowledge the agencies that support the NMME-Phase II system, and we thank the climate modeling groups (Environment Canada, NASA, NCAR, NOAA/GFDL, NOAA/NCEP, and University of Miami) for producing and making available their model output. NOAA/NCEP, NOAA/CTB, and NOAA/CPO jointly provided coordinating support and led development of the NMME-Phase II system."  Besides the above acknowledgement, users should register any journal articles (or other scientific documents) that are based on NMME-Phase II results.) def
+
+link:
+/name (data_availability) def
+/href (fileavail/mark/exch/S2/exch[S1]table:/mark/:table/.html) def 
+:link
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1. 359.
+/standard_name (longitude) def
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ -90. 1. 90.
+/standard_name (latitude) def
+:grid
+
+grid:
+/name (S)def
+/units (months since 1960-01-01)def
+/calendar /360 def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+1 Jan 1982 ensotime
+1. 
+%1 Jan 2014 ensotime %enddate
+1 systemtime (%b %Y) 10 strftime
+interp
+ensotime
+:grid
+S { (/Data/data23/NMME/CCSM4.0.D/%b.D/%Y%m[S]01.1x1.precip_ens01.nc) [S]} removeextrausing
+/expires
+last_modified systemtime2ymd ymd:nextmonth
+ymd2systemtime 7 360 mul add
+def
+/defaultvalue last def
+name exch def
+/expires S .expires def
+/last_modified S .last_modified def
+
+grid:
+/name (L) def
+/units (months) def
+/standard_name (forecast_period) def
+0.5 1 11.5
+:grid
+/M 10 NewIntegerGRID
+/standard_name (realization) def
+ name exch def
+/T { S L add
+/standard_name (time) def } defasvarsilent
+grid:
+/name (Z) def
+/units (m) def
+/long_name (Height) def
+/standard_name (height) def
+2 :grid
+
+grid:
+/name (P) def
+/units (hPa) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+values: 200 :values
+:grid
+
+ /prec{
+[ X Y | M L S] (/Data/data23/NMME/CCSM4.0.D/%b.D/%Y%m[S]01.1x1.precip_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (PRECIP_1X1) def
+ /units (m/s)cvn def
+ /lon 358.75 def
+ /long_name (total precipitation rate (PRECC+PRECL+PRECSC+PRECSL)) def
+/long_name (Total Precipitation) def
+ /standard_name (lwe_precipitation_rate) def
+ /missing_value 9.96920997E36 def
+ /lat 90.0 def
+ /realarraytype netcdfrecords :readdatafile
+(mm/day) unitconvert
+}defasvarsilent
+
+/sst{
+[ X Y | M L S] (/Data/data23/NMME/CCSM4.0.D/%b.D/%Y%m[S]01.1x1.sst_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (SST_1X1) def
+ /missing_value 9.96920997E36 def
+ /spatial_op (Conservative remapping: 1st order: destarea: NCL: /homes/min/bin/ncl/POP_REMAP/map_gx1v3_to_1x1d_aave_da-010821.nc) def
+ /long_name (sea surface temperature (SST)) def
+/long_name (Sea Surface Temperature) def
+ /lat 89.5 def
+% /coordinates (TLONG TLAT z_t time) def
+ /cell_methods (time: mean) def
+ /standard_name (sea_surface_temperature) def
+ /units /Celsius_scale def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/tref{
+[ X Y | Z M L S] (/Data/data23/NMME/CCSM4.0.D/%b.D/%Y%m[S]01.1x1.t_ref_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (T_REF_1X1) def
+ /missing_value 9.96920997E36 def
+ /cell_method (time: mean) def
+ /lon 358.75 def
+ /standard_name (air_temperature) def
+ /lat 90.0 def
+ /long_name (reference height (2m) air temperature) def
+/long_name (Reference Temperature) def
+ /units /Kelvin_scale def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/evap{
+[ X Y | M L S] (/Data/data23/NMME/CCSM4.0.D/%b.D/%Y%m[S]01.1x1.evaporation_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (CANOPY_EVAP_1X1) def
+ /lon 358.75 def
+ /cell_method (time: mean) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /lat 90.0 def
+ /long_name (canopy evaporation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/gz{
+[ X Y | P M L S] (/Data/data23/NMME/CCSM4.0.D/%b.D/%Y%m[S]01.1x1.geop200_ens%2.2d[M].nc) [ M S] readdatafile: 
+/name (GEOP200_1X1) def
+ /standard_name (geopotential_height) def
+ /lat 90.0 def
+ /lon 358.75 def
+ /long_name (Geopotential Height (above sea level)) def
+ /units (m) def
+ /missing_value 9.96920997E36 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/runoff{
+[ X Y | M L S] (/Data/data23/NMME/CCSM4.0.D/%b.D/%Y%m[S]01.1x1.runoff_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (TOTRUNOFF_1X1) def
+ /standard_name (runoff_flux) def
+ /lat 90.0 def
+ /lon 358.75 def
+ /units (mm/s)cvn def
+ /long_name (surface runoff + sub-surface drainage + surface runoff at glaciers, wetlands, lakes) def
+ /missing_value 9.99999962E35 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/soilw{
+[ X Y | M L S] (/Data/data23/NMME/CCSM4.0.D/%b.D/%Y%m[S]01.1x1.soilmoist_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (TOTSOILLIQ_1X1) def
+ /missing_value 9.99999962E35 def
+ /standard_name (soil_moisture_content) def
+ /lat 90.0 def
+ /sum_op_ncl (dim_sum over dimension(s): levgrnd) def
+ /cell_method (time: mean) def
+ /long_name ( merely sum of soil liquid water over levels) def
+ /units (kg/m2)cvn def
+ /lon 358.75 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+
+/tsmn{
+[ X Y | Z M L S] (/Data/data23/NMME/CCSM4.0.D/%b.D/%Y%m[S]01.1x1.tsmn_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (TSMN_1X1) def
+ /standard_name (air_temperature) def
+ /cell_method (time: minimum) def
+ /lon 358.75 def
+ /units /Kelvin_scale def
+ /missing_value 9.96920997E36 def
+ /lat 90.0 def
+ /long_name (Minimum surface temperature over output period) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+
+/tsmx{
+[ X Y | Z M L S] (/Data/data23/NMME/CCSM4.0.D/%b.D/%Y%m[S]01.1x1.tsmx_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (TSMX_1X1) def
+ /standard_name (air_temperature) def
+ /cell_method (time: maximum) def
+ /lon 358.75 def
+ /units /Kelvin_scale def
+ /missing_value 9.96920997E36 def
+ /lat 90.0 def
+ /long_name (Maximum surface temperature over output period) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+:dataset
+\end{ingrid}

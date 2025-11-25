@@ -1,0 +1,39 @@
+\begin{ingrid}
+continuedataset:
+/description (Reduced set of Ethiopia 3rd level of Admin. Boundaries ) def
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name
+/Ethiopia_level3
+def
+/adm0
+{ IRIDB (eth_maplib_ssuite) (adm0) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/adm1
+{ IRIDB (eth_maplib_ssuite) (adm1) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/adm2
+{ IRIDB (eth_maplib_ssuite) (adm2) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/adm3
+{ IRIDB (eth_maplib_ssuite) (adm3) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/id
+{ IRIDB (eth_maplib_ssuite) (id) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (eth_maplib_ssuite) (the_geom) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/label
+{ IRIDB (eth_maplib_ssuite) ((adm3 ||', '|| adm2 ||', '|| adm1 ||', '|| adm0) as label)
+[(gid)]open_column_by
+  /long_name (label) def
+  }defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+Ethiopia_level3 id .gid name exch put
+\end{ingrid}
+ 

@@ -1,0 +1,59 @@
+#! /bin/csh -x
+#
+#	prototype for the portion of the darwin-data retrieval script
+#
+#	Initalize Variables
+#
+#set yr = `date '+%Y'`
+set yr = $1
+set mon = `date '+%m'`
+set ext = ( full anom stan )
+set two = ( 1 2 )
+set three = ( 1 2 3)
+#
+#	Loop through locations
+#
+foreach spot (easter darwin tahiti soi)
+  grep $yr $spot >tmp3
+#
+#	Treat soi as special case since there's no full extension
+#	
+	if ($spot == 'soi')then
+	  set count = ($two)
+	  set ext = ( anom stan ) 
+	else
+	  set count = ($three)
+	endif
+#
+#	Grab appropriate line and remove CR\NL
+#
+
+  foreach num ($count)
+    sed -n -e "${num}l" tmp3 > line.$num
+    tr -d '\134\012' < line.$num >tmp
+    echo "" >> tmp
+    mv tmp line.$num
+  end
+#
+#	Count lines, remove the last and add it's replacement
+#
+#	Remember data acquired in february is for january
+
+  if ($mon == "02") then
+    foreach num ($count)
+      cat line.$num >> ${spot}.$ext[$num]
+    end
+  else
+    foreach num ($count)
+      set nol = `wc -l ${spot}.$ext[$num]`
+      @ nwl = $nol[1] - 1
+      head -${nwl} ${spot}.$ext[$num] > short
+      cat line.$num >>short
+      mv short  ${spot}.$ext[$num]
+    end
+  endif
+#
+#	Clean up
+#
+rm tmp3 line.*
+end

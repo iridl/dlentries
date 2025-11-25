@@ -1,0 +1,250 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+periodic
+0 2.8125 357.1875
+:grid
+/Y 64 namedgaussianlat
+%high low subgrid 
+name exch def
+grid:
+/name /T def
+monthtime
+periodic
+Jan
+1.
+Dec
+:grid
+variable:
+/name /PS def
+/long_name (Surface Pressure) def
+/units (Pa) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_PS7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /UT def
+/long_name (Heat Flux: Zonal Component [U*T]) def
+/units (kg K/(m s)) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_UT7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /VT def
+/long_name (Heat Flux: Meridional Component [V*T]) def
+/units (kg K/(m s)) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_VT7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /UQ def
+/long_name (Moisture Flux: Zonal Component [U*Q]) def
+/units (kg/(m s)) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_UQ7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /VQ def
+/long_name (Moisture Flux: Meridional Component [V*Q]) def
+/units (kg/(m s)) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_VQ7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /UK def
+/long_name (Kinetic Energy Flux: Zonal Component [U*KE]) def
+/units (J/(m s)) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_UK7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /VK def
+/long_name (Kinetic Energy Flux: Meridional Component [V*KE]) def
+/units (J/(m s)) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_VK7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /KE def
+/long_name (Kinetic Energy [(U^2+V^2)/2]) def
+/units (J/m^2) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_KE7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /TE def
+/long_name (Total Energy: Vertically AVERAGED [CpT+Lq+gZ+k]) def
+/units (J/kg) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_TE7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /PW def
+/long_name (Precipitable Water) def
+/units (kg/m^2) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_PW7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /QTEN def
+/long_name (Precipitable Water Tendency) def
+/units (kg/(m^2 s)) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_QTEN7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /EP def
+/long_name (Evaporation minus Precipitation (E-P)) def
+/units (mm/day) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_EP7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /MRES def
+/long_name (Mass Residual) def
+/units (Pa/s) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_MRES7993MON_MN) def
+random
+:file
+:variable
+dataset:
+/name /CMC def
+/long_name (compl. mass corr.) def
+variable:
+/name /TEDIV def
+/long_name (Total Energy Divergence) def
+/units (W/m^2) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15__CMC_TEDIV7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /DSEDIV def
+/long_name (Dry Static Energy Divergence) def
+/units (W/m^2) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15__CMC_DSEDIV7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /LEDIV def
+/long_name (Latent Heat Divergence) def
+/units (W/m^2) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15__CMC_LEDIV7993MON_MN) def
+random
+:file
+:variable
+:dataset
+variable:
+/name /TETEN def
+/long_name (Total Energy Tendency) def
+/units (W/m^2) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_TETEN7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /Q1QF def
+/long_name (Diabatic Heating minus Frictional Heating) def
+/units (W/m^2) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_Q1QF7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /RAD def
+/long_name (Net Downward Radiation, Top of Atmosphere) def
+/units (W/m^2) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_RAD7993MON_MN) def
+random
+:file
+:variable
+variable:
+/name /FS def
+/long_name (Net Upward Heat Flux, Surface) def
+/units (W/m^2) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/ncar/cgd/CAS/TN430/ERA15/T42F/T42F_ERA15_FS7993MON_MN) def
+random
+:file
+:variable
+
+:dataset
+\end{ingrid}
+Heat Flux: Zonal Component [U*T]                   UT          kg K/(m s)
+        Heat Flux: Meridional Component [V*T]              VT          kg K/(m s)
+        Moisture Flux: Zonal Component [U*Q]               UQ          kg/(m s)
+        Moisture Flux: Meridional Component [V*Q]          VQ          kg/(m s)
+        Kinetic Energy Flux: Zonal Component [U*KE]        UK          J/(m s)
+        Kinetic Energy Flux: Meridional Component [V*KE]   VK          J/(m s)
+        Geopotential Flux: Zonal Component [U*Z]           UZ          kg/s
+        Geopotential Flux: Meridional Component [V*Z]      VZ          kg/s
+
+        Kinetic Energy [(U^2+V^2)/2]                       KE          J/m^2
+        Total Energy: Vertically AVERAGED [CpT+Lq+gZ+k]    TE          J/kg
+        Precipitable Water                                 PW          kg/m^2
+        Precipitable Water Tendency                        QTEN        kg/(m^2 s)
+        Evaporation minus Precipitation (E-P)              EP          mm/day
+        Mass Residual                                      MRES        Pa/s
+        Total Energy Divergence (compl. mass corr.)        _CMC_TEDIV  W/m^2
+        Dry Static Energy Divergence (compl. mass corr.)   _CMC_DSEDIV W/m^2
+        Latent Heat Divergence (compl. mass. corr.)        _CMC_LEDIV  W/m^2
+        Total Energy Tendency                              TETEN       W/m^2
+        Diabatic Heating minus Frictional Heating          Q1QF        W/m^2
+
+        Net Downward Radiation, Top of Atmosphere          RAD         W/m^2
+        Net Upward Heat Flux, Surface                      FS          W/m^2
+

@@ -1,0 +1,236 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+grid:
+/name (level)def
+/units (millibar)def
+values: 1000. 950. 900. 850. 800. 750. 700. 650. 600. 550. 500. 450. 400. 350. 300. 250. 200. 150. 100. 70. 50. 30. 20. 10. :values
+:grid
+/level10min level def
+
+grid:
+/name (level) def
+/units (millibar) def
+1000. 50. 100.
+:grid
+/level100min level def
+
+:datasetdefs
+/description (Ensemble Spread of Pressure Level Data) def
+link:
+/name (source) def
+/description (original ftp Server) def
+/href (ftp://ftp.cdc.noaa.gov/Datasets/20thC_ReanV2/) def
+:link
+link:
+/name (dataset_documentation) def
+/description (Data Set Documentation) def
+/href (http://www.esrl.noaa.gov/psd/data/gridded/data.20thC_ReanV2.html) def
+:link
+
+/citation (Compo, G.P., J.S. Whitaker, and P.D. Sardeshmukh, 2006: Feasibility of a 100 year reanalysis using only surface pressure data. Bull. Amer. Met. Soc., 87, 175-190.) def
+ /platform (Model) def
+ /references (Compo_etal2011 Compo_etal2006 Whitaker_etal2004) def
+%/references (http://www.esrl.noaa.gov/psd/data/gridded/data.20thC_ReanV2.html) def
+ /institution (NOAA ESRL/PSD) def
+ /version (2.0) def
+ /history (created 2009/09 by Hoop (netCDF3)) def
+ /Conventions (CF-1.2) def
+ /title (4x Daily NOAA-CIRES 20th Century Reanalysis) def
+ /comments (Data is from NOAA-CIRES 20th Century Reanalysis version 2 (4x/day).  It consists of most variables interpolated to pressure surfaces from model (sigma) surfaces.) def
+
+grid:
+/name (lon)def
+/units (degree_east)def
+ 0.0 2. 358.
+:grid
+
+grid:
+/name (lat)def
+/units (degree_north)def
+ 90. 2. -90.
+:grid
+
+%grid:
+%/name (level)def
+%/units (millibar)def
+%values: 1000. 950. 900. 850. 800. 750. 700. 650. 600. 550. 500. 450. 400. 350. 300. 250. 200. 150. 100. 70. 50. 30. 20. 10. :values
+%:grid
+
+grid:
+/name /time def
+/standard_name (time) def
+/units (days since 1871-01-01 00:00:00) def
+/pointwidth 0 def
+0
+0.25
+1 Jan 2009 julian_day 0.75 sub
+1 Jan 1871 julian_day 0.5 sub
+sub
+:grid
+
+ /air {
+[ lon lat | level10min time ] (ftp://ftp.cdc.noaa.gov//Datasets/20thC_ReanV2/pressure_sprd/air.%Y[time].nc) [time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (air) def
+ /statistic (Ensemble Spread) def
+ /unpacked_valid_range [ 0.0 65.530998 ] def
+ /actual_range [ 0.106 39.418999 ] def
+ /Dataset (NOAA-CIRES 20th Century Reanalysis version 2) def
+ /precision 3 def
+ /GRIB_id 11 def
+ /missing_value 32766 def
+ /var_desc (Air temperature) def
+ /units /Kelvin_scale def
+ /standard_name (air_temperature) def
+ /parent_stat (Other) def
+ /GRIB_name (TMP) def
+ /valid_range [ -32766 32765 ] def
+ /level_desc (Pressure Levels) def
+ /add_offset 32.765999 def
+ /scale_factor 0.001 def
+ /long_name (6-hourly Air Temperature Spread on Pressure Levels) def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /hgt {
+[ lon lat | level10min time ] (ftp://ftp.cdc.noaa.gov//Datasets/20thC_ReanV2/pressure_sprd/hgt.%Y[time].nc) [time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (hgt) def
+ /valid_range [ -32766 32765 ] def
+ /level_desc (Pressure Levels) def
+ /Dataset (NOAA-CIRES 20th Century Reanalysis version 2) def
+ /actual_range [ 2.152 1397.8199 ] def
+ /missing_value 32766 def
+ /units /m def
+ /GRIB_id 7 def
+ /standard_name (geopotential_height) def
+ /var_desc (Geopotential height) def
+ /unpacked_valid_range [ 0.0 6553.1001 ] def
+ /GRIB_name (HGT) def
+ /parent_stat (Other) def
+ /precision 1 def
+ /statistic (Ensemble Spread) def
+ /add_offset 3276.6001 def
+ /scale_factor 0.1 def
+ /long_name (6-hourly Geopotential Heights Spread on Pressure Levels) def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /uwnd {
+[ lon lat | level10min time ] (ftp://ftp.cdc.noaa.gov//Datasets/20thC_ReanV2/pressure_sprd/uwnd.%Y[time].nc) [time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (uwnd) def
+ /parent_stat (Other) def
+ /var_desc (u-wind) def
+ /add_offset 327.66 def
+ /GRIB_name (UGRD) def
+ /scale_factor 0.01 def
+ /actual_range [ 0.088 51.398998 ] def
+ /long_name (6-hourly U-wind Spread on Pressure Levels) def
+ /statistic (Ensemble Spread) def
+ /precision 2 def
+ /standard_name (grid_eastward_wind) def
+ /Dataset (NOAA-CIRES 20th Century Reanalysis version 2) def
+ /valid_range [ -32766 32765 ] def
+ /level_desc (Pressure Levels) def
+ /missing_value 32766 def
+ /units (m/s)cvn def
+ /unpacked_valid_range [ 0.0 655.31 ] def
+ /GRIB_id 131 def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /vwnd {
+[ lon lat | level10min time ] (ftp://ftp.cdc.noaa.gov//Datasets/20thC_ReanV2/pressure_sprd/vwnd.%Y[time].nc) [time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (vwnd) def
+ /unpacked_valid_range [ 0.0 655.31 ] def
+ /GRIB_id 132 def
+ /parent_stat (Other) def
+ /var_desc (v-wind) def
+ /add_offset 327.66 def
+ /GRIB_name (VGRD) def
+ /scale_factor 0.01 def
+ /long_name (6-hourly V-wind Spread on Pressure Levels) def
+ /actual_range [ 0.11 51.560001 ] def
+ /statistic (Ensemble Spread) def
+ /precision 2 def
+ /standard_name (grid_northward_wind) def
+ /Dataset (NOAA-CIRES 20th Century Reanalysis version 2) def
+ /level_desc (Pressure Levels) def
+ /valid_range [ -32766 32765 ] def
+ /missing_value 32766 def
+ /units (m/s)cvn def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+
+ /omega {
+[ lon lat | level100min time ] (ftp://ftp.cdc.noaa.gov//Datasets/20thC_ReanV2/pressure_sprd/omega.%Y[time].nc) [time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (omega) def
+ /long_name (6-hourly Omega Spread on Pressure Levels) def
+ /GRIB_name (VVEL) def
+ /precision 4 def
+ /statistic (Ensemble Spread) def
+ /Dataset (NOAA-CIRES 20th Century Reanalysis version 2) def
+ /missing_value 32766 def
+ /level_desc (Pressure Levels) def
+ /actual_range [ 0.00128 1.2228 ] def
+ /units (Pascal/s)cvn def
+ /standard_name (vertical_air_velocity_expressed_as_tendency_of_pressure) def
+ /valid_range [ -32766 32765 ] def
+ /unpacked_valid_range [ 0.0 6.5531001 ] def
+ /GRIB_id 39 def
+ /add_offset 3.2765999 def
+ /parent_stat (Other) def
+ /scale_factor 9.99999975E-05 def
+ /var_desc (Omega (dp/dt)) def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /rhum {
+[ lon lat | level100min time ] (ftp://ftp.cdc.noaa.gov//Datasets/20thC_ReanV2/pressure_sprd/rhum.%Y[time].nc) [time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (rhum) def
+ /precision 3 def
+ /valid_range [ -32766 32765 ] def
+ /GRIB_id 52 def
+ /Dataset (NOAA-CIRES 20th Century Reanalysis version 2) def
+ /var_desc (Relative Humidity) def
+ /parent_stat (Other) def
+ /missing_value 32766 def
+ /units /percent def
+ /standard_name (relative_humidity) def
+ /unpacked_valid_range [ 0.0 65.530998 ] def
+ /GRIB_name (RH) def
+ /actual_range [ 0.0 49.34 ] def
+ /level_desc (Pressure Levels) def
+ /statistic (Ensemble Spread) def
+ /add_offset 32.765999 def
+ /scale_factor 0.001 def
+ /long_name (6-hourly Relative Humidity Spread on Pressure Levels) def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /shum {
+[ lon lat | level100min time ] (ftp://ftp.cdc.noaa.gov/Datasets/20thC_ReanV2/pressure_sprd/shum.%Y[time].nc) [time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (shum) def
+ /valid_range [ -32766 32765 ] def
+ /statistic (Ensemble Spread) def
+ /add_offset 0.032766 def
+ /precision 6 def
+ /unpacked_valid_range [ 0.0 0.065531 ] def
+ /GRIB_id 133 def
+ /long_name (6-hourly Specific Humidity Spread on Pressure Levels) def
+ /parent_stat (Other) def
+ /scale_factor 9.99999997E-07 def
+ /var_desc (Specific humidity) def
+ /standard_name (specific_humidity) def
+ /Dataset (NOAA-CIRES 20th Century Reanalysis version 2) def
+ /missing_value 32766 def
+ /GRIB_name (SPFH) def
+ /level_desc (Pressure Levels) def
+ /units /unitless def
+ /actual_range [ 0.0 0.0058713 ] def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,210 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9354
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 475
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAJanv2011.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Questionnaire) def
+
+/hhweight {
+mytable
+myquestion 
+1 VALUE
+ myquestion removeGRID
+/long_name (Pondération finale) def 
+}defasvarsilent
+
+/Pondind {
+mytable
+myquestion 
+2 VALUE
+ myquestion removeGRID
+/long_name (Pondération individu final) def 
+}defasvarsilent
+
+/ISA {
+mytable
+myquestion 
+3 VALUE
+ myquestion removeGRID
+/long_name (Classe d'insécurité alimentaire retenue) def 
+/units /ids def
+/CLIST [(Sévère)(Modéré)(A risque)(En sécurité)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/classe {
+mytable
+myquestion 
+4 VALUE
+ myquestion removeGRID
+/long_name (Classe d'insécurité alimentaire(deux groupes)) def 
+/units /ids def
+/CLIST [(Insécurité alimentaire sévère)(En sécurité alimentaire)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/ubt_tete {
+mytable
+myquestion 
+5 VALUE
+ myquestion removeGRID
+/long_name (UBT par tete) def 
+}defasvarsilent
+
+/taille {
+mytable
+myquestion 
+6 VALUE
+ myquestion removeGRID
+/long_name (taille du ménage) def 
+}defasvarsilent
+
+/depart {
+mytable
+myquestion 
+7 VALUE
+ myquestion removeGRID
+/long_name (Département administratif) def 
+}defasvarsilent
+
+/Q01 {
+mytable
+myquestion 
+8 VALUE
+ myquestion removeGRID
+/long_name (Région) def 
+/units /ids def
+/CLIST [(Agadez)(Diffa)(Dosso)(Maradi)(Tahoua)(Tillabéry)(Zinder)(Niamey)] def
+/scale_min 1 def
+/scale_max 8 def
+}defasvarsilent
+
+/Q02 {
+mytable
+myquestion 
+9 VALUE
+ myquestion removeGRID
+/long_name (Département) def 
+}defasvarsilent
+
+/Q03 {
+mytable
+myquestion 
+10 VALUE
+ myquestion removeGRID
+/long_name (Centre urbain/Canton/Zone restante) def 
+}defasvarsilent
+
+/Q08 {
+mytable
+myquestion 
+11 VALUE
+ myquestion removeGRID
+/long_name (Numéro de la ZD) def 
+}defasvarsilent
+
+/Q07 {
+mytable
+myquestion 
+12 VALUE
+ myquestion removeGRID
+/long_name (Numéro de la grappe) def 
+}defasvarsilent
+
+/ID {
+mytable
+myquestion 
+13 VALUE
+ myquestion removeGRID
+/long_name (IDENTIFIANT MENAGE) def 
+}defasvarsilent
+
+/IDMEN {
+mytable
+myquestion 
+14 VALUE
+ myquestion removeGRID
+/long_name (IDMEN) def 
+}defasvarsilent
+
+/Q11 {
+mytable
+myquestion 
+15 VALUE
+ myquestion removeGRID
+/long_name (Numéro du ménage) def 
+}defasvarsilent
+
+/Q12 {
+mytable
+myquestion 
+16 VALUE
+ myquestion removeGRID
+/long_name (Zone agro écologique) def 
+/units /ids def
+/CLIST [(Zone agricole)(Zone agro pastorale)(Zone pastorale et désertique)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q15A {
+mytable
+myquestion 
+17 VALUE
+ myquestion removeGRID
+/long_name (Q15A) def 
+}defasvarsilent
+
+/Q15B {
+mytable
+myquestion 
+18 VALUE
+ myquestion removeGRID
+/long_name (Nombre d'enfants de moins de 5 ans) def 
+}defasvarsilent
+
+/Q15C {
+mytable
+myquestion 
+19 VALUE
+ myquestion removeGRID
+/long_name (Nombre d'enfants de 6 à 24 mois) def 
+}defasvarsilent
+
+/Q15D {
+mytable
+myquestion 
+20 VALUE
+ myquestion removeGRID
+/long_name (Nombre total des membres actifs dans le ménage) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

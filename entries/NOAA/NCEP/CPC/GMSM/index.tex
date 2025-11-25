@@ -1,0 +1,62 @@
+\begin{ingrid}
+continuedataset:
+        /name /GMSM def
+        /long_name (Global Monthly Soil Moisture) def
+        /description (Global monthly high resolution soil moisture dataset from the Climate Prediction Center) def
+
+        (/Data/data7/noaa/ncep/gmsm/soil-194801_197912.ctl)readGRADS
+	[ X Y ] nip {name exch def}forall
+
+% Due to the March 2008 file being missing and unavailable at the CPC ftp site to correct
+% the data set, on May 27, 2010, the w.194801_200912 file available from the CPC ftp site
+% was placed in /Data/data7 as w.194801 to replace the previous file of the same name that
+% included data from 1948 to 1979, and to now cover data from 1948 to 2009.  CPC makes
+% individual monthly files available from Jan 2010, and the data from these monthly files
+% append data to the data set, just as the files from Jan 2005 to present did previously.
+
+	grid: /name /T def 
+		monthtime
+		values: 16 Jan 1948 ensotime
+%		16 Jan 1980 ensotime
+%		16 Jan 2005 ensotime
+		16 Jan 2010 ensotime
+			1
+			(/Data/data7/noaa/ncep/gmsm/enddate) readfile ensotime 
+			{}for
+		:values
+		/pointwidth 1 def
+	:grid
+
+	/fileT T def
+
+	grid: /name /T def 
+		monthtime
+		16 Jan 1948 ensotime
+		1
+		fileT .last
+		/defaultvalue { last } def
+	:grid
+	/w {
+		/name (GMSM) def
+		[X Y | T] (/Data/data7/noaa/ncep/gmsm/w.%Y%m[T].mon) [fileT]readdatafile:
+		sequential  	
+		:readdatafile
+		startcolormap 
+    			0.0 740. RANGE
+    			black white AliceBlue
+    			0.0 VALUE
+       			LightGoldenrod SeaGreen
+        	 	740. VALUE
+        	endcolormap
+		/units (mm) def
+/references (Fan_VanDenDool2004) def
+	}defasvarsilent
+:dataset
+\end{ingrid}
+
+
+
+
+
+
+

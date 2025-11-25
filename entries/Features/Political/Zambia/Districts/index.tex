@@ -1,0 +1,25 @@
+\begin{ingrid}
+/description (Zambia District Boundaries) def
+continuedataset:
+
+/dist_na {
+IRIDB (zambia_districts) (district) [(gid)] open_column_by
+/long_name (District Name) def
+}defasvarsilentnoreuse
+
+/the_geom  {
+IRIDB (zambia_districts) (the_geom) [(gid)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (zambia_districts) ((district || ', ' || province) as label) [(gid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+dist_na .gid name exch def
+
+\end{ingrid}
+

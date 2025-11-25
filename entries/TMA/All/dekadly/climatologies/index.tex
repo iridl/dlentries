@@ -1,0 +1,132 @@
+\begin{ingrid}
+continuedataset:
+/rfe_merged {
+  SOURCES .TMA .All .dekadly .rainfall .rfe_merged
+     T (1 Jan 1983) (31 Dec 1983) RANGE
+  SOURCES .TMA .All .dekadly .rainfall .rfe_merged
+     T (1 Jan 1983) (31 Dec 2014) RANGE
+    T name
+      npts NewIntegerGRID
+      replaceGRID 
+    T 36 splitstreamgrid
+    [T2]average
+    T 2 index
+      T dekadaledgesgrid partialgrid
+       2 1 roll
+       pop
+      replaceGRID
+    T (days since 1983-01-01) streamgridunitconvert
+    T T dekadaledgesgrid
+      first secondtolast subgrid
+      /calendar /365 def
+      gridS
+       365 store modulus
+       pop
+      periodic setgridtype
+      partialgrid replaceGRID
+        [X Y]REORDER
+        2 1 roll pop
+/fullname (rfe merged 1983-2014 average) def
+/long_name (rfe merged 1983-2014 average) def
+precip_colors
+DATA 0 100 RANGE
+}defasvarcache
+
+/rfe_merged_stddev {
+  SOURCES .TMA .All .dekadly .rainfall .rfe_merged
+     T (1 Jan 1983) (31 Dec 1983) RANGE
+  SOURCES .TMA .All .dekadly .rainfall .rfe_merged
+     T (1 Jan 1983) (31 Dec 2014) RANGE
+    T name
+      npts NewIntegerGRID
+      replaceGRID
+    T 36 splitstreamgrid
+    [T2]rmsaover 2014. 1983. sub 1. add dup 1. sub div sqrt mul
+    T 2 index
+      T dekadaledgesgrid partialgrid
+       2 1 roll
+       pop
+      replaceGRID
+    T (days since 1983-01-01) streamgridunitconvert
+    T T dekadaledgesgrid
+      first secondtolast subgrid
+      /calendar /365 def
+      gridS
+       365 store modulus
+       pop
+      periodic setgridtype
+      partialgrid replaceGRID
+        [X Y]REORDER
+        2 1 roll pop
+/fullname (rfe merged 1983-2014 standard deviation) def
+/long_name (rfe merged 1983-2014 standard deviation) def
+cmorph_dekad_colors
+}defasvarcache
+
+%/tmax {
+%  SOURCES .TMA .All .dekadly .temperature .tmax
+%     T (1 Jan 1961) (31 Dec 1961) RANGE
+%  SOURCES .TMA .All .dekadly .temperature .tmax
+%     T (1 Jan 1961) (31 Dec 2010 RANGE
+%    T name
+%      npts NewIntegerGRID
+%      replaceGRID
+%    T 36 splitstreamgrid
+%    [T2]average
+%    T 2 index
+%      T dekadaledgesgrid partialgrid
+%       2 1 roll
+%       pop
+%      replaceGRID
+%    T (days since 1961-01-01) streamgridunitconvert
+%    T T dekadaledgesgrid
+%      first secondtolast subgrid
+%      /calendar /365 def
+%      gridS
+%       365 store modulus
+%       pop
+%      periodic setgridtype
+%      partialgrid replaceGRID
+%        [X Y]REORDER
+%        2 1 roll pop
+%/fullname (maximum temperature 1961-2010 average) def
+%/long_name (maximum temperature 1961-2010 average) def
+%temp_colors
+%/scale_symmetric false def
+%  DATA 18 33 RANGE
+%}defasvar
+
+/tmin {
+  SOURCES .TMA .All .dekadly .temperature .tmin
+     T (1 Jan 1961) (31 Dec 1961) RANGE
+  SOURCES .TMA .All .dekadly .temperature .tmin
+     T (1 Jan 1961) (31 Dec 2010) RANGE
+    T name
+      npts NewIntegerGRID
+      replaceGRID
+    T 36 splitstreamgrid
+    [T2]average
+    T 2 index
+      T dekadaledgesgrid partialgrid
+       2 1 roll
+       pop
+      replaceGRID
+    T (days since 1961-01-01) streamgridunitconvert
+    T T dekadaledgesgrid
+      first secondtolast subgrid
+      /calendar /365 def
+      gridS
+       365 store modulus
+       pop
+      periodic setgridtype
+      partialgrid replaceGRID
+        [X Y]REORDER
+        2 1 roll pop
+/fullname (minimum temperature 1961-2010 average) def
+/long_name (minimum temperature 1961-2010 average) def
+temp_colors
+/scale_symmetric false def
+  DATA -1 26 RANGE
+}defasvarcache
+:dataset
+\end{ingrid}

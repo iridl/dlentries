@@ -1,0 +1,108 @@
+\begin{ingrid}
+/long_name (June 2008 Release) def
+ continuedataset:
+ datasetdefs:
+/prcp_mmperday_colors {
+ startcolormap
+ DATA 0 22 RANGE
+ white white grey 0 VALUE
+ grey grey 0.1 bandmax
+ 210 255 215 RGB RGBdup 2 bandmax
+ 190 240 195 RGB RGBdup 4 bandmax
+ 150 225 155 RGB RGBdup 6 bandmax
+ 115 210 110 RGB RGBdup 8 bandmax
+ 100 195 105 RGB RGBdup 10 bandmax
+  90 180  90 RGB RGBdup 12 bandmax
+  80 165  80 RGB RGBdup 14 bandmax
+  70 150  70 RGB RGBdup 16 bandmax
+  60 135  60 RGB RGBdup 18 bandmax
+  50 120  50 RGB RGBdup 20 bandmax
+  40 105  40 RGB RGBdup 22 bandmax
+  30  90  30 RGB endcolormap } def
+ :datasetdefs                        
+ grid:
+ /name (X) def
+ /units (degreeE) def
+ /fullname (Longitude) def
+ periodic
+ 1.25 2.5 358.75 
+ :grid
+ grid:
+ /name (Y) def
+ /units (degreeN) def
+ /fullname (Latitude) def
+ -88.75 2.5 88.75
+ :grid
+ grid:
+ /name (T) def
+ monthtime
+ /fullname (Month) def
+/standard_name (time) def
+ /defaultvalue { 16 Apr 2008 ensotime } def
+ /pointwidth 1 def
+ 16 Jan 1979 ensotime 
+1
+16 Apr 2008 ensotime %enddate
+ :grid
+ dataset:
+ /name /ver1 def
+ /long_name (Version 1) def
+ /description (using rain gauge, satellite, and numerical model predictions) def
+
+ variable:
+ /name (prcp_est) def
+ /long_name (CMAP Estimated Precipitation) def
+ /units (mm/day) def
+ /missing_value -999.0 def
+ prcp_mmperday_colors 
+ grids: X Y | T :grids
+ file:
+ direct
+ /name (/Data/data5/noaa/cac/cmap/monthly/v0806/v0806.rain1.r4) def
+%/name (/beluga/data/mbell/cpc/cmapdata.d/monthly.d/v0806.d/v0806.rain1.r4) def
+ :file
+ :variable
+ variable:
+ /name /error def
+ /units (percent) def
+ /missing_value -999. def
+ grids: X Y | T :grids
+ file:
+ direct
+ /name (/Data/data5/noaa/cac/cmap/monthly/v0806/v0806.err1.r4) def
+%/name (/beluga/data/mbell/cpc/cmapdata.d/monthly.d/v0806.d/v0806.err1.r4) def
+ :file
+ :variable
+ :dataset
+ dataset:
+ /name /ver2 def
+ /long_name (Version 2) def
+ /description (using rain gauge and satellite estimates) def
+ variable:
+ /name /prcp_est def
+ /long_name (CMAP estimated precipitation) def
+ /units (mm/day) def
+ /missing_value -999. def
+ prcp_mmperday_colors 
+ grids: X Y | T :grids
+ file:
+ direct
+ /name (/Data/data5/noaa/cac/cmap/monthly/v0806/v0806.rain2.r4) def
+%/name (/beluga/data/mbell/cpc/cmapdata.d/monthly.d/v0806.d/v0806.rain2.r4) def
+ :file
+ :variable
+ variable:
+ /name /error def
+ /units (percent) def
+ /missing_value -999. def
+ grids: X Y | T :grids
+ file:
+ direct
+ /name (/Data/data5/noaa/cac/cmap/monthly/v0806/v0806.err2.r4) def
+%/name (/beluga/data/mbell/cpc/cmapdata.d/monthly.d/v0806.d/v0806.err2.r4) def
+ :file
+ :variable
+ :dataset
+ :dataset
+\end{ingrid}
+

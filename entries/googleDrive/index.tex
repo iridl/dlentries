@@ -1,0 +1,52 @@
+\begin{ingrid}
+/Cookie varies_on
+continuedataset:
+datasetdefs:
+/DriveShowTypes null 5 object
+(application/vnd.google-apps.folder) cvn true def
+(application/vnd.google-apps.spreadsheet) cvn true def
+(application/x-netcdf) cvn true def
+def
+/rootFolder {
+(/files/) rootFolderId append googleDriveGet
+} def
+/googleDriveObject {
+(/files/) exch append googleDriveGet
+} def
+/rootFolderChildren {
+[(/files/)
+(?q=') rootFolderId ('+in+parents+and+)
+lpar
+DriveShowTypes
+{ pop
+(mimeType=') exch cvntos (')
+(+or+)
+} forall
+pop
+rpar
+] concat
+googleDriveGet
+} def
+/rootFiles {
+(/files)googleDriveGet
+}def
+/googleDriveOpen {
+2 /googleDriveOpen publicproc:
+googleDriveGet title exch title exch
+downloadUrl exch .mimeType
+(google.com/oauth2/drive.readonly) cvn
+{[exch
+(googleusercontent.com/) search { pop exch }if
+    (/) rsearch {nip exch (securesc/) rsearch {pop (downloads/) 3 index 0 exch
+{add 65536 mod}forall s== (/) }if 6 -1 roll]concat}if}
+readAsType exch 
+/name exch cvn store
+/long_name name cvntos store
+/fullname [ (googleDrive) long_name] store
+nip
+:publicproc
+} def
+:datasetdefs
+/description (IRIDL access to Google Drive) def
+:dataset
+\end{ingrid}

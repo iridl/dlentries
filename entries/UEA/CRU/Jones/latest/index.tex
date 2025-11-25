@@ -1,0 +1,57 @@
+\begin{ingrid}
+/long_name (current version) def
+continuedataset:
+link:
+/name (CRU Temperature) def
+/href (http://www.cru.uea.ac.uk/cru/data/temperature/) def
+/description (Documentation for CRU Temperature Data) def
+:link
+dataset:
+/name /CRUTEM2 def
+/description(land air temperature anomalies)def
+/reference (Jones and Moberg 2003)def
+/temp 
+{
+(/Data/data2/cru/temperature/crutem2.nc) readfile .temanom
+  /valid_min null def
+  time 0.5 shiftGRID
+} defasvarsilent
+/count
+{
+(/Data/data2/cru/temperature/crutem2.nc) readfile .count
+ time 0.5 shiftGRID
+} defasvarsilent
+:dataset
+dataset:
+/name /CRUTEM2v def
+/description(variance adjusted version of land air temperature anomalies)def
+/reference (Jones etal 2001)def
+/temp 
+{
+(/Data/data2/cru/temperature/crutem2v.nc) readfile .temanom
+  /valid_min null def
+  time 0.5 shiftGRID
+} defasvarsilent
+:dataset
+dataset:
+/name /HadCRUT2 def
+/description (combined land and marine [sea surface temperature (SST) anomalies from the Hadley Centre of the UK Meteorological Office])def
+/temp
+{
+(/Data/data2/cru/temperature/hadcrut2.nc) readfile .temanom
+  /valid_min null def
+  time 0.5 shiftGRID
+} defasvarsilent
+:dataset
+dataset:
+/name /HADCRUT2v def
+/description (variance adjusted version of HadCRUT2) def
+/temp 
+{
+(/Data/data2/cru/temperature/hadcrut2v.nc) readfile .temanom
+  /valid_min null def
+  time 0.5 shiftGRID
+} defasvarsilent
+:dataset
+:dataset
+\end{ingrid}

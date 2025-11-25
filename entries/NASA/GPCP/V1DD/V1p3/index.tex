@@ -1,0 +1,155 @@
+\begin{ingrid}
+continuedataset:
+ /long_name (Version 1.3) def
+ /description (GPCP 1-Degree Daily Combination (Version 1.3)) def
+ /product_version (v01r03) def
+ /publisher_url (https://www.ncei.noaa.gov) def
+ /keywords_vocabulary (NASA Global Change Master Directory (GCMD) Earth Science Keywords, Version 7.0) def
+ /creator_name (Dr. Jian-Jian Wang) def
+ /title (Global Precipitation Climatatology Project (GPCP) Climate Data Record (CDR), Daily V1.3) def
+ /geospatial_lat_units (degrees_north) def
+ /creator_email (jjwang@umd.edu) def
+ /reference (Huffman et al. 1997, http://dx.doi.org/10.1175/1520-0477(1997)078<0005:TGPCPG>2.0.CO;2; Adler et al. 2003, http://dx.doi.org/10.1175/1525-7541(2003)004<1147:TVGPCP>2.0.CO;2; Huffman et al. 2009, http://dx.doi.org/10.1029/2009GL040000; Adler et al. 2017, Global Precipitation Climatology Project (GPCP) Daily Analysis: Climate Algorithm Theoretical Basis Document (C-ATBD)) def
+ /geospatial_lon_max 360.0 def
+ /license (No constraints on data access or use.) def
+ /geospatial_lat_max 90.0 def
+ /contributor_role (principalInvestigator, processor and custodian) def
+ /Conventions (CF-1.6, ACDD 1.3) def
+ /date_created (2020-02-06T19:30:42Z) def
+ /time_coverage_duration (P1D) def
+ /spatial_resolution (1 degree) def
+ /institution (ACADEMIC > UMD/ESSIC > Earth System Science Interdisciplinary Center, University of Maryland) def
+ /geospatial_lat_resolution (1 degree) def
+ /keywords (EARTH SCIENCE > ATMOSPHERE > PRECIPITATION > PRECIPITATION AMOUNT) def
+ /publisher_name (NOAA National Centers for Environmental Information (NCEI)) def
+ /metadata_link (gov.noaa.ncdc:XXXXX) def
+ /processing_level (NASA Level 3) def
+ /cdr_variable (precipitation) def
+ /geospatial_lon_resolution (1 degree) def
+ /geospatial_lon_min 0.0 def
+ /Metadata_Conventions (CF-1.6, Unidata Dataset Discovery v1.0, NOAA CDR v1.0, GDS v2.0) def
+ /publisher_email (jjwang@umd.edu) def
+ /platform (GOES (Geostationary Operational Environmental Satellite), GMS (Japan Geostationary Meteorological Satellite), METEOSAT, Earth Observing System, AQUA, DMSP (Defense Meteorological Satellite Program)) def
+ /comment (Processing computer: eagle2.umd.edu) def
+ /geospatial_lat_min -90.0 def
+ /contributor_name (Robert Adler, Jian-Jian Wang) def
+ /cdr_program (NOAA Climate Data Record Program for satellites, FY 2011.) def
+ /geospatial_lon_units (degrees_east) def
+ /project (GPCP > Global Precipitation Climatology Project) def
+ /cdm_data_type (Grid) def
+ /naming_authority (gov.noaa.ncdc) def
+ /acknowledgment (This project was supported in part by a grant from the NOAA Climate Data Record (CDR) Program for satellites.) def
+ /standard_name_vocabulary (CF Standard Name Table (v41, 22 February 2017)) def
+ /sensor (Imager, AIRS > Atmospheric Infrared Sounder, SSMIS > Special Sensor Microwave Imager/Sounder) def
+ /summary (Global Precipitation Climatology Project (GPCP) Daily Version 1.3 gridded, merged satellite/gauge precipitation Climate data Record (CDR) from 1996 to present.) def
+ /note (Request to Users:  The GPCP datasets are developed and maintained with international cooperation and are used by the worldwide scientific community. To better understand the evolving requirements across the GPCP user community and to increase the utility of the GPCP product suite, the dataset producers request that a citation be provided for each publication that uses the GPCP products.  Please email the citation to george.j.huffman@nasa.gov or david.t.bolvin@nasa.gov. Your help and cooperation will provide valuable information for making future enhancements to the GPCP product suite.) def
+
+/references (Huffman_etal2001) def
+
+link:
+/name (source) def
+/description (original data source, https server at NCEI) def
+/href (https://www.ncei.noaa.gov/data/global-precipitation-climatology-project-gpcp-daily/access/) def
+:link
+link:
+/name (dataset_documentation) def
+/description (GPCP Page at UMD) def
+/href (http://eagle1.umd.edu/GPCP_ICDR/GPCP_Monthly.html) def
+:link
+link:
+/name (NOAA_documentation) def
+/description (NOAA/NCEI Documentation Page) def
+/href (https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00999) def
+:link
+link:
+/name (paper) def
+/description (GPCP 1DD Huffman et al. 2001 Journal of Hydrometeorology Paper) def
+/href (http://eagle1.umd.edu/GPCP_ICDR/references/2001_Huffman.pdf) def
+:link
+
+grid:
+/name (nv)def
+/units (unitless)def
+ 1.0 1.0 2.0
+:grid
+
+grid:
+/name (Y)def
+/standard_name (latitude) def
+/units (degree_north)def
+ -89.5 1.0 89.5
+:grid
+
+ /lat_bounds{
+[ nv | Y ] (/Data/data7/nasa/gpcp/1DD/v1p3/2019/gpcp_v01r03_daily_d20191116_c20200206.nc) readdatafile:
+/name (lat_bounds) def
+ /comment (latitude values at the north and south bounds of each pixel.) def
+ /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+grid:
+/name (X)def
+/standard_name (longitude) def
+periodic
+/units (degree_east)def
+ 0.5 1.0 359.5
+:grid
+
+ /lon_bounds{
+[ nv | X ] (/Data/data7/nasa/gpcp/1DD/v1p3/2019/gpcp_v01r03_daily_d20191116_c20200206.nc) readdatafile:
+/name (lon_bounds) def
+ /comment (longitude values at the west and east bounds of each pixel.) def
+ /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+%grid:
+%/name (time)def
+%/units (days since 1970-01-01 00:00:00 0:00)def
+%/calendar /Gregorian def
+%values: 18213.0 :values
+%:grid
+
+grid:
+/name (T)def
+/standard_name (time) def
+/defaultvalue {last} def
+/units (julian_day) def
+01 Oct 1996 julian_day
+1.0
+%30 Nov 2019 julian_day
+systemtime (%d %b %Y) 12 strftime interp julian_day 65 sub 
+/netcdfgrid true def
+:grid
+
+T { (/Data/data7/nasa/gpcp/1DD/v1p3/%Y/gpcp_v01r03_daily_d%Y%m%d[T]_c*.nc) [ T ]} removeextrausing
+/expires last rjt2ymd ymd:nextmonth ymd:nextmonth ymd:nextmonth ymd:nextmonth ymd2systemtime def
+name exch def
+/expires T .expires def
+/last_modified T .last_modified def
+
+ /precip{
+[ X Y | T ] (/Data/data7/nasa/gpcp/1DD/v1p3/%Y/gpcp_v01r03_daily_d%Y%m%d[T]_c*.nc) [ T ] readdatafile:
+/name (precip) def
+ /cell_methods (area: mean time: mean) def
+ /standard_name (lwe_precipitation_rate) def
+ /long_name (NOAA Climate Data Record (CDR) of Daily GPCP Satellite-Gauge Combined Precipitation) def
+ /units (mm/day)cvn def
+ /valid_range [ 0.0 100.0 ] def
+ /missing_value [ -999.9 -99999.] def
+ /coordinates (T Y X) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /time_bounds{
+[ nv | T ] (/Data/data7/nasa/gpcp/1DD/v1p3/%Y/gpcp_v01r03_daily_d%Y%m%d[T]_c*.nc) [ T ] readdatafile:
+/name (time_bounds) def
+ /comment (time bounds for each time value) def
+ /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

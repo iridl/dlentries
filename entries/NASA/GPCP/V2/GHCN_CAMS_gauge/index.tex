@@ -1,0 +1,87 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+1.25 2.5 358.75
+:grid
+grid:
+/name /Y def
+degN
+88.75 -2.5 -88.75
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1979 ensotime
+1
+16 Dec 1985 ensotime
+
+%(/Data/data7/nasa/gpcp/v2/enddate) readfile
+%ensotime
+%(/Data/data7/nasa/gpcp/v2/enddate) deflastmod
+:grid
+
+%/name (GHCN+CAMS Gauge) def
+/prcp {
+
+%Y T 2 12 72 mul twogridmodcounter
+%T
+% (/Data/data7/nasa/gpcp/v2/int/gpcp_v2_pg1.%Y) strftimes
+%copyachunk
+%[X] -99999. readr4
+
+[X Y | T]
+(/Data/data7/nasa/gpcp/v2/int/gpcp_v2_pg1.%Y[T]) [T yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+576 set:file_byteoffset
+direct
+/long_name (precipitation) def
+/units (mm/day) def
+/missing_value -99999. def
+/technique (GHCN+CAMS Gauge) def
+:readdatafile
+} defasvarsilent
+
+/err {
+
+%Y T 2 12 72 mul twogridmodcounter
+%T
+% (/Data/data7/nasa/gpcp/v2/int/gpcp_v2_eg1.%Y) strftimes
+%copyachunk
+%[X] -99999. readr4
+
+[X Y | T]
+(/Data/data7/nasa/gpcp/v2/int/gpcp_v2_eg1.%Y[T]) [T yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+576 set:file_byteoffset
+direct
+/long_name (abs. error) def
+/units (mm/day) def
+/missing_value -99999. def
+/technique (GHCN+CAMS Gauge) def
+:readdatafile
+} defasvarsilent
+
+/nsamp {
+
+%Y T 2 12 72 mul twogridmodcounter
+%T
+% (/Data/data7/nasa/gpcp/v2/int/gpcp_v2_ng1.%Y) strftimes
+%copyachunk
+%[X] -99999. readr4
+
+[X Y | T]
+(/Data/data7/nasa/gpcp/v2/int/gpcp_v2_ng1.%Y[T]) [T yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+576 set:file_byteoffset
+direct
+/long_name (number of samples) def
+/units (gauges) def
+/missing_value -99999. def
+/technique (GHCN+CAMS Gauge) def
+:readdatafile
+} defasvarsilent
+:dataset
+
+\end{ingrid}

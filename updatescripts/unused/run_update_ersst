@@ -1,0 +1,11 @@
+#!/bin/sh
+#script runs update script and then concatenates files
+
+cd /Data/data7/noaa/ncdc/ersst
+cp ersst.2000.2009.asc.Z hold-2000.2009.Z 
+echo File moved successfully
+./update_ersst.pl
+echo Update script ran successfully
+uncompress ersst.2000.2009.asc.Z
+./concat_ersst.x
+echo Concat script ran successfully

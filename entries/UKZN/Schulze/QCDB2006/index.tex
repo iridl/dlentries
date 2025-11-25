@@ -1,0 +1,88 @@
+\begin{ingrid}
+/QCDB2006 dataareIRIonlyPassword
+/description (50 years of Daily Hydroclimatic Data Per Quaternary Catchment in South Africa) def
+/iridl:hasSemantics [(iriref:Schulze_RE) (iriref:Maharaj_M) ] def
+/Qstats{IRIDB
+  (select quartern,the_geom,area from catch1_polygon order by quartern) (quartern) openqueryby
+} def
+Qstats .the_geom .quartern name exch def
+/thegeom0 Qstats .the_geom def
+continuedataset:
+datasetdefs:
+:datasetdefs
+{ auxinfo.owl dataset_documentation.html } { currentobject 1 index get def } forall
+/the_geom { thegeom0 } defasvarsilent
+/Qstats {
+ IRIDB
+  (select quartern,__primary,area,catch1_ as catch1,catch1_id,catid,catnum,cmap,curve,gid,hydroz,mar,perimeter,secondary,tertiary,the_geom from catch1_polygon order by quartern) (quartern) openqueryby
+} defasvarsilent
+grid:
+/name /T def
+monthtime
+16 Jan 1950 ensotime
+1.
+16 Dec 1991 ensotime
+:grid
+/NVZ 15 NewIntegerGRID name exch def
+  [ NVZ
+    T |
+    quartern] (/beluga/data/jdcorral/SouthAfrica/QCDB/QCDB/%s[quartern].txt) [quartern]readdatafile:
+      95 set:file_byteoffset
+      r*4asascii :readdatafile
+[quartern T ] REORDER
+1 RECHUNK
+definevariables:
+0 Zvariable:
+/name /IYIMID def
+:Zvariable
+0 Zvariable:
+/name /RFL  def
+:Zvariable
+0 Zvariable:
+/name /TMAX  def
+/units (Celsius_scale) def
+:Zvariable
+0 Zvariable:
+/name /TMIN  def
+/units (Celsius_scale) def
+:Zvariable
+0 Zvariable:
+/name /STO1  def
+:Zvariable
+0 Zvariable:
+/name /STO2  def
+:Zvariable
+0 Zvariable:
+/name /DEF1  def
+:Zvariable
+0 Zvariable:
+/name /DEF2  def
+:Zvariable
+0 Zvariable:
+/name /SUR1  def
+:Zvariable
+0 Zvariable:
+/name /SUR2  def
+:Zvariable
+0 Zvariable:
+/name /VPD  def
+:Zvariable
+0 Zvariable:
+/name /RHMIN  def
+/units (percent) def
+:Zvariable
+0 Zvariable:
+/name /RHMAX  def
+/units (percent) def
+:Zvariable
+0 Zvariable:
+/name /SRAD def
+:Zvariable
+0 Zvariable:
+/name /P-M def
+:Zvariable
+:definevariables
+:dataset
+  {IYIMID  RFL TMAX TMIN  STO1  STO2  DEF1  DEF2    SUR1    SUR2   VPD RHMIN RHMAX  SRAD   P-M} aload pop
+cachesomevar
+\end{ingrid}

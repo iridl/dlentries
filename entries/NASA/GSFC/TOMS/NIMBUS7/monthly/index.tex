@@ -1,0 +1,88 @@
+\begin{ingrid}
+/description (Monthly Average Data from the Nimbus-7 Total Ozone Mapping Spectrometer Instrument) def
+continuedataset:
+datasetdefs:
+/toms_ai_colors {
+startcolormap DATA
+0.7 4.2 RANGE
+white DeepSkyBlue DeepSkyBlue
+0.7 VALUE
+LightSteelBlue LightSteelBlue
+1.2 bandmax
+turquoise turquoise
+1.7 bandmax
+yellow yellow
+2.2 bandmax
+YellowGreen YellowGreen
+2.7 bandmax
+red red
+3.2 bandmax
+firebrick firebrick
+3.7 bandmax
+navy navy 4.2
+bandmax
+navy endcolormap } def
+/toms_uv_colors {
+startcolormap DATA 0 12000 RANGE
+white black black 0 VALUE
+black black 1200 bandmax
+160 170 200 RGB RGBdup 2400 bandmax
+130 220 100 RGB RGBdup 3600 bandmax
+255 140 0 RGB RGBdup 4800 bandmax
+240 0 0 RGB RGBdup 6000 bandmax
+255 255 0 RGB RGBdup 7200 bandmax
+255 100 255 RGB RGBdup 12000 bandmax
+255 100 255 RGB
+endcolormap } def
+:datasetdefs
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+-179.375 1.25 179.375
+:grid
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+-89.5 1.0 89.5 
+:grid
+grid:
+/name /T def
+monthtime
+/defaultvalue { last } def
+ 16 Nov 1978 ensotime 
+ 1. 
+ 16 Apr 1993 ensotime 
+:grid
+
+datasetdefs:
+/whole { [T] T (/Data/data6/nasa/gsfc/toms/nimbus7/monthly_averages/uv/gm%y%m.n7e) strftimes
+recordsandfilenames nip[X Y] 999
+((1X//180(1X/11(1X,25(I3)/),(1X,13(I3))))) readi2formatted
+/long_name (The Whole Number) def} defasvarsilent
+:datasetdefs
+
+/X X def
+/Y Y def
+/T T def
+
+/ai {
+[T]
+T
+(/Data/data6/nasa/gsfc/toms/nimbus7/monthly_averages/aerosol/gm%y%m.n7a) strftimes
+recordsandfilenames nip[X Y] 999 
+((1X//180(1X/11(1X,25I3/),(1X,13I3)))) readi2formatted
+/long_name (Aerosol Index) def
+/scale_factor 0.1 def
+%/scale_min 0 def
+%/units /unitless def
+/missing_value 999 def
+toms_ai_colors
+/description (Nimbus7 Monthly Average Aerosol Index values)
+def}defasvarsilent
+
+/uv { whole 100 streammod 0.1 mul whole whole 100 streammod sub 100 div 10 ln mul eexp mul /long_name (Erythemal UV) def /description (Erythemal Exposure -- Monthly Average Estimated Daily Integrated Ultraviolet Irradiance) def /units (J m-2) def toms_uv_colors } defasvarsilent
+
+:dataset
+\end{ingrid}

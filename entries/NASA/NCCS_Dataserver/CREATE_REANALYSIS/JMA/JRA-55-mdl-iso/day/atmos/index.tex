@@ -1,0 +1,27 @@
+\begin{ingrid}
+datasetdefs:
+  /catalog
+    (https://dpesgf03.nccs.nasa.gov/thredds/catalog/bypass/CREATE-IP/reanalysis/JMA/JRA-55-mdl-iso/day/atmos/catalog.xml)
+    readthredds
+  def
+:datasetdefs
+
+continuedataset:
+link:
+/name /homepage def
+/href (https://cds-cv.nccs.nasa.gov/CREATE-V/) def
+/description (CREATE Reanalysis Server Home Page) def
+:link
+
+/pr{
+catalog .pr.ncml .pr
+/long_name (Precipitation) def
+/units (kg m-2 s-1) def
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvarcache
+
+:dataset
+\end{ingrid}

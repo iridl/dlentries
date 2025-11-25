@@ -1,0 +1,121 @@
+\begin{ingrid}
+/long_name (CPC Merged Analysis of Precipitation) def
+/description (U.S. Climate Prediction Center Merged Analysis of Precipitation) def
+continuedataset:
+
+dataset:
+ /name (v0703) def
+
+/prcp_est { 
+  SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .v0703 .ver2 .prcp_est
+  T (Jan 1979) (Dec 2004) RANGE
+  yearly-climatology
+  a:
+    T (days since 1960-01-01) streamgridunitconvert
+    T differential_mul
+    T :a: .T :a
+    replaceGRID
+ /long_name (CMAP Monthly Precipitation Climatology (1979-2004 Base Period)) def
+ /units (mm/month) def
+ DATA 0 500 RANGE
+ X -180.0 180.0 RANGEEDGES
+ Y -65.0 75.0 RANGE
+ T /defaultvalue { first } def pop
+startcolormap
+DATA 0 500 RANGE
+grey grey 0 VALUE
+224 255 255 RGB RGBdup 25 bandmax
+191 239 255 RGB RGBdup 50 bandmax
+176 226 255 RGB RGBdup 100 bandmax
+135 206 250 RGB RGBdup 150 bandmax
+  0 191 255 RGB RGBdup 200 bandmax
+   30 144 255 RGB RGBdup 250 bandmax
+    65 105 255 RGB RGBdup 300 bandmax
+    0 0 205 RGB RGBdup 350 bandmax
+    39 64 139 RGB RGBdup 400 bandmax
+    0 0 128 RGB RGBdup 450 bandmax
+     47 47 79 RGB RGBdup 500 bandmax
+      47 47 79 RGB
+      endcolormap
+} defasvarsilent
+
+:dataset
+
+dataset:
+ /name (v1201) def
+
+/prcp_est { 
+  SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .v1201 .ver2 .prcp_est
+  T (Jan 1985) (Dec 2010) RANGE
+  yearly-climatology
+  a:
+    T (days since 1960-01-01) streamgridunitconvert
+    T differential_mul
+    T :a: .T :a
+    replaceGRID
+ /long_name (CMAP Monthly Precipitation Climatology (1985-2010 Base Period)) def
+ /units (mm/month) def
+ DATA 0 500 RANGE
+ X -180.0 180.0 RANGEEDGES
+ Y -65.0 75.0 RANGE
+ T /defaultvalue { first } def pop
+startcolormap
+DATA 0 500 RANGE
+grey grey 0 VALUE
+224 255 255 RGB RGBdup 25 bandmax
+191 239 255 RGB RGBdup 50 bandmax
+176 226 255 RGB RGBdup 100 bandmax
+135 206 250 RGB RGBdup 150 bandmax
+  0 191 255 RGB RGBdup 200 bandmax
+   30 144 255 RGB RGBdup 250 bandmax
+    65 105 255 RGB RGBdup 300 bandmax
+    0 0 205 RGB RGBdup 350 bandmax
+    39 64 139 RGB RGBdup 400 bandmax
+    0 0 128 RGB RGBdup 450 bandmax
+     47 47 79 RGB RGBdup 500 bandmax
+      47 47 79 RGB
+      endcolormap
+} defasvarsilent
+
+:dataset
+
+dataset:
+ /name (latest) def
+
+/prcp_est { 
+  SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+  T (Jan 1991) (Dec 2020) RANGE
+  yearly-climatology
+  a:
+    T (days since 1960-01-01) streamgridunitconvert
+    T differential_mul
+    T :a: .T :a
+    replaceGRID
+ /long_name (CMAP Monthly Precipitation Climatology (1991-2020 Base Period)) def
+ /units (mm/month) def
+ DATA 0 500 RANGE
+ X -180.0 180.0 RANGEEDGES
+ Y -65.0 75.0 RANGE
+ T /defaultvalue { first } def pop
+startcolormap
+DATA 0 500 RANGE
+grey grey 0 VALUE
+224 255 255 RGB RGBdup 25 bandmax
+191 239 255 RGB RGBdup 50 bandmax
+176 226 255 RGB RGBdup 100 bandmax
+135 206 250 RGB RGBdup 150 bandmax
+  0 191 255 RGB RGBdup 200 bandmax
+   30 144 255 RGB RGBdup 250 bandmax
+    65 105 255 RGB RGBdup 300 bandmax
+    0 0 205 RGB RGBdup 350 bandmax
+    39 64 139 RGB RGBdup 400 bandmax
+    0 0 128 RGB RGBdup 450 bandmax
+     47 47 79 RGB RGBdup 500 bandmax
+      47 47 79 RGB
+      endcolormap
+} defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}

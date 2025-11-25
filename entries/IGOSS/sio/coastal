@@ -1,0 +1,67 @@
+\begin{ingrid}
+/coastal
+insertdataset:
+grid:
+/name /T def
+monthtime
+16 Jan 1993 ensotime
+1
+16 Dec 1995 ensotime
+:grid
+grid:
+/name /STA def
+/long_name (Station) def
+values: /abmi /anmi /barb /cain /goin /goof /pain /roin /roof /smin /smof /46053 /46054 
+:values
+%1 1 12
+:grid
+file:
+/name (/Data/data1/igoss/sio/coastal/lon) def
+formatted
+grids: [ /lat /lon ] STA :grids
+variable:
+/name /lat def
+degN
+:variable
+variable:
+/name /lon def
+degE
+:variable
+:file
+file:
+/name (/Data/data1/igoss/sio/coastal/datafile1) def
+grids: [ /v /u /temp /wv /wu ] T STA :grids
+formatted
+variable:
+/name /u def
+/long_name (zonal velocity) def
+/units (m/s) def
+/missing_value 999999 def
+:variable
+variable:
+/name /v def
+/long_name (meridional velocity) def
+/units (m/s) def
+/missing_value 999999 def
+:variable
+variable:
+/name /temp def
+/long_name (temperature) def
+/units /Celsius def
+/missing_value 999999 def
+:variable
+variable:
+/name /wu def
+/long_name (zonal wind velocity) def
+/units (m/s) def
+/missing_value 999999 def
+:variable
+variable:
+/name /wv def
+/long_name (meridional wind velocity) def
+/units (m/s) def
+/missing_value 999999 def
+:variable
+:file
+:insertdataset
+\end{ingrid}

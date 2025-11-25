@@ -1,0 +1,196 @@
+\begin{ingrid}
+  continuedataset:
+    /source (<a href="http://faostat.fao.org/default.aspx">FAOSTAT</a>) def
+    grid:
+      /name (T) def
+      monthtime
+      /pointwidth 12 def
+      1 Jul 1991 ensotime
+      12
+      1 Jul 2008 ensotime
+    :grid 
+    grid:
+      /name (code) def
+      /units (ids) def
+      /fullname (item code) def
+      values:
+1123
+203
+486
+414
+1089
+1138
+1127
+591
+125
+945
+867
+1095
+1058
+689
+882
+195
+397
+577
+94
+619
+1163
+1033
+1017
+1020
+507
+242
+1062
+1121
+1097
+263
+497
+372
+56
+571
+1108
+79
+430
+402
+403
+490
+782
+600
+1056
+1035
+574
+116
+27
+328
+289
+1013
+977
+982
+83
+122
+495
+667
+826
+388
+567
+137
+      :values
+    :grid
+
+    variable:
+      /name /Name def
+      grids: code :grids
+      /long_name (item name) def
+      values:
+(Ass Live Weight)
+(Bambara beans)
+(Bananas)
+(Beans, green)
+(Bird meat, nes)
+(Camel Live Weight)
+(Camel meat)
+(Cashewapple)
+(Cassava)
+(Cattle Live Weight)
+(Cattle meat)
+(Chicken Live Weight)
+(Chicken meat)
+(Chillies and peppers, dry)
+(Cow milk, whole, fresh)
+(Cow peas, dry)
+(Cucumbers and gherkins)
+(Dates)
+(Fonio)
+(Fruit Fresh Nes)
+(Game meat)
+(Goat Live Weight)
+(Goat meat)
+(Goat milk, whole, fresh)
+(Grapefruit (inc. pomelos))
+(Groundnuts, with shell)
+(Hen eggs, in shell)
+(Horse Live Weight)
+(Horse meat)
+(Karite Nuts (Sheanuts))
+(Lemons and limes)
+(Lettuce and chicory)
+(Maize)
+(Mangoes, mangosteens, guavas)
+(Meat of Asses)
+(Millet)
+(Okra)
+(Onions (inc. shallots), green)
+(Onions, dry)
+(Oranges)
+(Other Bastfibres)
+(Papayas)
+(Pig Live Weight)
+(Pig meat)
+(Pineapples)
+(Potatoes)
+(Rice, paddy)
+(Seed cotton)
+(Sesame seed)
+(Sheep Live Weight)
+(Sheep meat)
+(Sheep milk, whole, fresh)
+(Sorghum)
+(Sweet potatoes)
+(Tangerines, mandarins, clem.)
+(Tea)
+(Tobacco, unmanufactured)
+(Tomatoes)
+(Watermelons)
+(Yams)
+  :values
+    :variable
+
+    /LCU {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliPriceLCU.csv)
+      readdatafile:
+        ((/,(110X,18(F10.0,9X)))) formatted
+      :readdatafile
+      /long_name (price local currency) def
+      /units (LCU/tonne) def
+      /scale_min 0 def
+    }defasvarsilent
+
+    /Flag {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliPriceLCU.csv)
+      readdatafile:
+        ((/,(110X,18(18X,F1.0,)))) formatted
+      :readdatafile
+      /long_name (data quality) def
+      /CLIST [
+        (Official data)
+        (Unofficial figure)
+        (FAO estimate)
+        (Data not available)
+        (FAO calculated)
+        (Estimated data using trading partners database)
+        (Manual Estimation)        (Country data reported by International Organizations where the country is a member (Semi-official))
+        (Official data reported on FAO Questionnaires from countries)
+      ] def
+      startcolormap
+        /maxncolor 12 def
+        DATA 0 8 RANGE
+        white white
+        black
+        LightBlue
+        red
+        grey
+        orange
+        yellow
+        purple
+        NavyBlue
+        blue
+        white
+      endcolormap
+    }defasvarsilent
+
+  /history (FAOSTAT | © FAO Statistics Division 2010) def
+
+  :dataset
+\end{ingrid}

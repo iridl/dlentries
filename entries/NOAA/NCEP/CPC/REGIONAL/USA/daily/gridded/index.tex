@@ -1,0 +1,37 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+-140 .25 -60
+:grid
+grid:
+/name /Y def
+degN
+20 .25 60
+:grid
+grid:
+/name /T def
+/units (days since 1948-01-01 12:00:00) def
+0 
+1
+31 Dec 1997 julian_day
+1 Jan 1948 julian_day sub
+:grid
+/iridl:hasSemantics (iriref:Yarosh_ES) def
+/prcp
+{
+%file:
+%/name (/Data/data7/noaa/ncep/unified/prcp.r4) def
+%direct
+%:file
+[T]
+T (1 Jan) subgridvalues
+(/Data/data7/noaa/ncep/unified/unified.daily.%Y.ll) strftimes
+recordsandfilenames nip
+[X Y] NaN readr4sequential
+/missing_value null def
+/units(inch) def
+} defasvarsilent
+:dataset
+\end{ingrid}

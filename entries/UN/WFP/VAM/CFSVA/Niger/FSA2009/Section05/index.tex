@@ -1,0 +1,261 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9741
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 289
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_rapid_FSAdec_2009.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Stocks) def
+/Q24 {
+mytable
+myquestion 
+78 VALUE
+ myquestion removeGRID
+/long_name (Q24 : Disposez-vous encore aujourd'hui de stocks (stock et/o)) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q24A1A {
+mytable
+myquestion 
+79 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Mil : Sto) def 
+}defasvarsilent
+
+/Q24A1B {
+mytable
+myquestion 
+80 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Mil : Nom) def 
+}defasvarsilent
+
+/Q24A1C {
+mytable
+myquestion 
+81 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Mil : Cod) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q24A2A {
+mytable
+myquestion 
+82 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Sorgho :) def 
+}defasvarsilent
+
+/Q24A2B {
+mytable
+myquestion 
+83 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Sorgho :) def 
+}defasvarsilent
+
+/Q24A2C {
+mytable
+myquestion 
+84 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Sorgho :) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q24A3A {
+mytable
+myquestion 
+85 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Maïs : St) def 
+}defasvarsilent
+
+/Q24A3B {
+mytable
+myquestion 
+86 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Maïs : No) def 
+}defasvarsilent
+
+/Q24A3C {
+mytable
+myquestion 
+87 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Maïs : Co) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q24A4A {
+mytable
+myquestion 
+88 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Riz Paddy) def 
+}defasvarsilent
+
+/Q24A4B {
+mytable
+myquestion 
+89 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Riz Paddy) def 
+}defasvarsilent
+
+/Q24A4C {
+mytable
+myquestion 
+90 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Riz Paddy) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q24A5A {
+mytable
+myquestion 
+91 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Riz Blanc) def 
+}defasvarsilent
+
+/Q24A5B {
+mytable
+myquestion 
+92 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Riz Blanc) def 
+}defasvarsilent
+
+/Q24A5C {
+mytable
+myquestion 
+93 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Riz Blanc) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q24A6A {
+mytable
+myquestion 
+94 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Blé : Sto) def 
+}defasvarsilent
+
+/Q24A6B {
+mytable
+myquestion 
+95 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Blé : Nom) def 
+}defasvarsilent
+
+/Q24A6C {
+mytable
+myquestion 
+96 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Blé : Cod) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q24A7A {
+mytable
+myquestion 
+97 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Fonio : S) def 
+}defasvarsilent
+
+/Q24A7B {
+mytable
+myquestion 
+98 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Fonio : N) def 
+}defasvarsilent
+
+/Q24A7C {
+mytable
+myquestion 
+99 VALUE
+ myquestion removeGRID
+/long_name (Q24.a : Quel est le niveau de votre stock actuel ? Fonio : C) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q24B {
+mytable
+myquestion 
+100 VALUE
+ myquestion removeGRID
+/long_name (Q24.b : Pensez-vous que votre stock actuel est suffusant pou) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q24C {
+mytable
+myquestion 
+101 VALUE
+ myquestion removeGRID
+/long_name (Q24.c : Si non à Q24.b Combien de mois pensez-vous que votre) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

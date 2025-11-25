@@ -1,0 +1,16 @@
+\begin{ingrid}
+/total insertdataset:
+/long_name (total atmospheric column) def
+/X SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DegreeGrid .X def
+/Y SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DegreeGrid .Y def
+/T dataset .T def
+variable:
+/name /rhum def
+/long_name (relative humidity) def
+/units (percent) def
+grids: X Y | T :grids
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .B def
+NotYetAvailable
+:variable
+:insertdataset
+\end{ingrid}

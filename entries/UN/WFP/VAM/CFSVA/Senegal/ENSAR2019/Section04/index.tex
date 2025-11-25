@@ -1,0 +1,105 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Section 4) def
+
+/q400_1 { IRIDB (sen_ensar_2019) (q400_1) [(idm)] open_column_by
+/long_name (q400 1_principale_source_revenu) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Agincome { IRIDB (sen_ensar_2019) (agincome) [(idm)] open_column_by
+/long_name (Agincome) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/q400_2 { IRIDB (sen_ensar_2019) (q400_2) [(idm)] open_column_by
+/long_name (q400 2_lib_autre_principale_source_revenu) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/q401_1 { IRIDB (sen_ensar_2019) (q401_1) [(idm)] open_column_by
+/long_name (q401 1_principal_pourvoyeur_resources_en_2017) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/q401_2 { IRIDB (sen_ensar_2019) (q401_2) [(idm)] open_column_by
+/long_name (q401 2_autre_principal_pourvoyeur_resources_en_2017) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/q402_1 { IRIDB (sen_ensar_2019) (q402_1) [(idm)] open_column_by
+/long_name (q402 1_principale_categorie_socioprofessionelle_pourvoyeur) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/q403 { IRIDB (sen_ensar_2019) (q403) [(idm)] open_column_by
+/long_name (q403 montant_total_revenu_30_derniers_jours) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/q404_0 { IRIDB (sen_ensar_2019) (q404_0) [(idm)] open_column_by
+/long_name (q404 0_montant_revenu_agriculture_30_derniers_jours) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/q404_1 { IRIDB (sen_ensar_2019) (q404_1) [(idm)] open_column_by
+/long_name (q404 1_montant_revenu_elevage_30_derniers_jours) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/q404_2 { IRIDB (sen_ensar_2019) (q404_2) [(idm)] open_column_by
+/long_name (q404 2_montant_revenu_peche_30_derniers_jours) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/q404_3 { IRIDB (sen_ensar_2019) (q404_3) [(idm)] open_column_by
+/long_name (q404 3_montant_revenu_commerce_30_derniers_jours) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/q404_4 { IRIDB (sen_ensar_2019) (q404_4) [(idm)] open_column_by
+/long_name (q404 4_montant_revenu_salaire_30_derniers_jours) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/q404_5 { IRIDB (sen_ensar_2019) (q404_5) [(idm)] open_column_by
+/long_name (q404 5_montant_revenu_entreprise_30_derniers_jours) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/q404_6 { IRIDB (sen_ensar_2019) (q404_6) [(idm)] open_column_by
+/long_name (q404 6_montant_revenu_transferts_30_derniers_jours) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/q404_7 { IRIDB (sen_ensar_2019) (q404_7) [(idm)] open_column_by
+/long_name (q404 7_montant_revenu_dons_30_derniers_jours) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/lon {
+IRIDB (sen_ensar_2019) (lon) [(idm)] open_column_by
+/long_name (AvgLon) def
+/units /degree_east def
+/scale_min -17.6 def
+/scale_max -11.2 def
+}defasvarsilentnoreuse
+
+/lat {
+IRIDB (sen_ensar_2019) (lat) [(idm)] open_column_by
+/long_name (AvgLat) def
+/units /degree_north def
+/scale_min 12.2 def
+/scale_max 16.8 def
+}defasvarsilentnoreuse
+
+
+/location { lon lat geopt /units undef /scale_min undef /scale_max undef } defasvar 
+
+:dataset
+
+q402_1 .idm name exch def
+\end{ingrid}
+

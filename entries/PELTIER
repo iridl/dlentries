@@ -1,0 +1,149 @@
+Time Dependent Topography Through the Glacial Cycle
+---------------------------------------------------
+Source:	Prof W.R. Peltier, Dept of Physics, University of Toronto 
+Date:	May 1993
+\begin{ingrid}
+%(<b>This model run has been pulled pending revision of the dataset.</b>)print
+dataset:
+/name (PELTIER) def
+/description (Ice age paleotopography from a gravitationally self-consistent theory) def
+/dataset_documentation.html descriptions/peltier.html get def
+/references (Peltier1994) def
+/iridl:hasSemantics (iridl:U_Toronto) def
+grid: 
+/name /X def
+/units /degreeE def
+periodic
+-179.5 1. 179.5
+:grid
+grid:
+/name /Y def
+/units /degreeN def
+89.5 -1. -89.5
+:grid
+grid:
+/name /T def
+/units (KBP) def
+21 -1 0
+:grid
+variable:
+/name (topography) def
+/units (m) def
+/add_offset -10000 def
+grids: X Y | T :grids
+file:
+random
+i*2
+/name (/Data/data1/paleo/peltier/top) def
+:file
+PS exch
+startcolormap
+-10000 8000 RANGE
+     black                       % land color is first
+     darkgrey                    % color for low values is second
+     DarkSeaGreen  -10000 value
+     DarkSeaGreen 	-8000 value
+	DarkSlateBlue
+     DarkSlateBlue      -6000 value
+     purple             -5000 value
+     blue               -4000 value
+     MediumSeaGreen	-3000 value
+     DeepSkyBlue        -2000 value
+     cyan		-1500 value
+     LightBlue          -1000 value	
+     LightSeaGreen	-500 value
+    63 255 122 RGB     0 value
+    green    stripe  % green zero contour
+YellowGreen
+ForestGreen	100 value
+OliveDrab	200 value
+khaki		300 value
+yellow		400 value
+gold
+gold	500 value
+DarkGoldenrod
+DarkGoldenrod	750 value
+RosyBrown
+RosyBrown	1000 value
+IndianRed
+IndianRed	1250 value
+SaddleBrown
+SaddleBrown	1500 value
+sienna		2000 value
+OrangeRed 3000 value
+salmon
+   salmon 4000 value
+pink
+pink 5000 value
+bisque
+   bisque 6000 value
+beige
+beige 7000 value
+white
+white 8000 value	
+     grey                        % color for high values
+     endcolormap                 % end of color map setting
+nip
+:variable
+variable:
+/name (ice) def
+grids: X Y | T :grids
+file:
+random
+i*2
+/name (/Data/data1/paleo/peltier/is_ice) def
+:file
+:variable
+:dataset
+\end{ingrid}
+Data resolution:	1 degree latitude/longitude grid
+	data starting at (-179.5,+89.5) 
+	180 rows of (360 points along a line of constant latitude).
+
+Time Period: 21KBP to the present
+
+Data 1:	topographical heights at 1 Kyr intervals since the last glacial
+	maximum.
+
+Units:	metres. However in order to present a dataset in positive
+	integer format, 10000 has been added.
+	i.e if the data in this dataset is called itopog
+	    then
+		true_topog = itopog - 10000
+	true_topog has values within the range [-9300,7200] metres.
+
+Data 2:	Ice-cover data at 1 Kyr intervals since the last glacial maximum.
+
+Values: 1 if there is ice, 0 otherwise.
+
+
+Files: Either	tar files TOP.tar and ICE.tar
+       Or	top.n     for n=0,1,...,21 and
+		is_ice.n  for n=0,1,...,21
+
+      OR   asciispecial format files   ice0.asc   through    ice21.asc,
+        located in directory /asciispecial.  Asciispecial files are
+        text files suitable for import to plotting programs such as
+         Spyglass.   The format includes text headers, a listing of 
+         lat-long grid values, and the data points.
+
+       There is also an ascii version of top.21 called TOP.21.ascii,
+       which can be used to check interpretation of the binary files.
+
+	The tar files were created on an SGI machine, you may need to
+	use dd to swap bytes on other machines (eg Suns):
+	  dd if=TOP.tar conv=swab | tar xvof -
+
+
+Logical Data Structure: 16 bit binary unsigned integers,
+			least significant byte first.
+
+
+Note:	In some areas, the ice-cover data indicates that there is ice
+	while the topographic height is negative indicating that the
+	region is below sealevel. In these cases, it should be assumed
+	that the area is ice-covered. Either the region is not inundated
+	or the ice is floating.
+
+Reference for the data sets is:
+Peltier, W. R., Ice Age Paleotopography, 1994, Science, v. 265, pp. 195-201.

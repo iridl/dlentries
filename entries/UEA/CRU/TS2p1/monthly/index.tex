@@ -1,0 +1,328 @@
+
+
+-------- Original Message --------
+Subject: 	Re: Access to TS2.1 data
+Date: 	Thu, 24 May 2007 09:24:43 +0100
+From: 	Ian Harris <i.harris@uea.ac.uk>
+To: 	Michael Bell <mbell@iri.columbia.edu>
+CC: 	Phil Jones <p.jones@uea.ac.uk>
+References: 	<4654849D.2010308@iri.columbia.edu>
+
+
+Hi Michael,
+
+As you've probably gathered, Dr Viner is no longer at CRU.
+
+I made the CRU TS 2.10 data accessible some months ago; I did not  
+know that you were an alternative source.
+
+Since we no longer require registration for this data set, it seems  
+pointless for you to continue to do so! However, please note that we  
+will be realeasing version 3.0 in the near future (when I can get it  
+out!) and from that point on, it (and future updates) will be managed  
+by BADC.
+
+Cheers
+
+Harry
+
+On 23 May 2007, at 19:14, Michael Bell wrote:
+
+> Dear Dr. Viner,
+>
+> My name is Michael Bell and I help to support the Data Library at  
+> the IRI.  We recently received notice from a data user that the  
+> TS2.1 data set is now available as a direct download from the CRU  
+> website without registration.
+> As you know, based upon an arrangement established between CRU and  
+> IRI a few years ago, we keep a copy of the TS2.1 monthly data in  
+> the Data Library that is password-accessible as a download to users  
+> who have previously registered with you to obtain access to the data.
+>
+> Now that TS2.1 is directly available for download from the CRU  
+> site, is there still a registration requirement for the use of the  
+> data?  When we receive requests from users for a password to  
+> download the data from the IRI Data Library, we continue to direct  
+> them to contact you to register for access and to send us the  
+> confirmatory email granting them access before we provide them with  
+> a password, as outlined on the following page:
+>
+> http://iridl.ldeo.columbia.edu/ 
+> SOURCES/.UEA/.CRU/.TS2p1/.monthly/.getting_permission.html
+>
+> When we receive these requests, should we continue with this  
+> procedure, or is registration no longer required?
+>
+> Thank you for your help.
+>
+> Michael Bell
+>
+> -- 
+> Michael A. Bell, Sr. Staff Associate, International Research  
+> Institute for Climate and Society, The Earth Institute at Columbia  
+> University
+> 101 Monell, LDEO, 61 Route 9W, PO Box 1000, Palisades, NY  10964-8000
+> Phone: 845-680-4511  FAX: 845-680-4864  email: mbell@iri.columbia.edu
+>
+>
+
+Ian "Harry" Harris
+Climatic Research Unit
+School of Environmental Sciences
+University of East Anglia
+Norwich NR4 7TJ
+United Kingdom
+
+
+
+-- 
+Michael A. Bell, Sr. Staff Associate, International Research Institute 
+for Climate and Society, The Earth Institute at Columbia University
+101 Monell, LDEO, 61 Route 9W, PO Box 1000, Palisades, NY  10964-8000
+Phone: 845-680-4511  FAX: 845-680-4864  email: mbell@iri.columbia.edu
+
+
+\begin{ingrid}
+%/CRU05Access RestrictAccess
+%/CRU05Access datadownloadsareIRIonlyPassword
+continuedataset:
+datasetdefs:
+:datasetdefs
+grid:
+/name /X def
+degE
+periodic
+-179.75 0.5 179.75
+:grid
+grid:
+/name /Y def
+degN
+-89.75 0.5 89.75
+:grid
+grid:
+/name /T def
+/units (monthtime) def
+/standard_name (time) def
+16 Jan 1901 ensotime
+1
+16 Dec 2002 ensotime
+:grid
+
+dataset: 
+/name /mean def
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /temp def
+/long_name (temperature) def
+/units (Celsius_scale) def
+/scale_factor 0.1 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.tmp.i2) def
+i*2
+:file
+:variable
+:dataset
+
+dataset: 
+/name /minimum def
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /temp def
+/long_name (temperature) def
+/units (Celsius_scale) def
+/scale_factor 0.1 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.tmn.i2) def
+i*2
+:file
+:variable
+:dataset
+
+dataset: 
+/name /maximum def
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /temp def
+/long_name (temperature) def
+/units (Celsius_scale) def
+/scale_factor 0.1 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.tmx.i2) def
+i*2
+:file
+:variable
+:dataset
+
+dataset:
+/name (stations) def
+/long_name (number of stations within range of grid box) def
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /cloud def
+/long_name (percent cloud cover) def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.10_1901-2002.cld.stn.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /dtr def
+/long_name (diurnal temperature range) def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.10_1901-2002.dtr.stn.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /prcp def
+/long_name (precipitation) def
+/iridl:hasSemantics (gcmdi:RAIN_GAUGES) def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.10_1901-2002.pre.stn.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /temp def
+/long_name (temperature) def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.10_1901-2002.tmp.stn.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /vap def
+/long_name (vapor pressure) def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.10_1901-2002.vap.stn.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /wet def
+/long_name (wet day frequency) def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.10_1901-2002.wet.stn.i2) def
+i*2
+:file
+:variable
+/wet {[X Y | T] (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.wet.stn.i2) readdatafile:
+i*2
+/long_name (wet day frequency) def
+/missing_value -999 def
+:readdatafile toNaN} defasvarsilent
+:dataset
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /prcp def
+/long_name (precipitation) def
+/units (mm/month) def
+/scale_factor 0.1 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.pre.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /cloud def
+/long_name (percent cloud cover) def
+/units (percent) def
+/scale_factor 0.1 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.cld.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /dtr def
+/long_name (diurnal temperature range) def
+/units (Celsius_scale) def
+/scale_factor 0.1 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.dtr.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /frost def
+/long_name (frost day frequency) def
+/units (days/month) def
+/scale_factor 0.01 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.frs.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /vap def
+/long_name (vapor pressure) def
+/units (hPa) def
+/scale_factor 0.1 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.vap.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y | T :grids
+/missing_value -999 def
+/name /wet def
+/long_name (wet day frequency) def
+/units (days/month) def
+/scale_factor 0.01 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/cru_ts_2.0_1901-2002.wet.i2) def
+i*2
+:file
+:variable
+
+variable:
+grids: X Y :grids
+/missing_value -999 def
+/name /elev def
+/long_name (elevation) def
+/units (km) def
+/scale_factor 0.001 def
+file:
+/name (/Data/data7/uea/cru/ts2p0/halfdeg.elv.i2) def
+i*2
+:file
+:variable
+:dataset
+
+%/references (Mitchell, T.D., Carter, T.R., Jones, P.D., Hulme,M., New, M., 2003: A comprehensive set of high-resolution grids of monthly climate for Europe and the globe: the observed record [1901-2000] and 16 scenarios [2001-2100]. Journal of Climate: submitted.) def
+\end{ingrid}

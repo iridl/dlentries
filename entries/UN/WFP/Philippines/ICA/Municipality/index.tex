@@ -1,0 +1,153 @@
+\begin{ingrid}
+
+/description (Municipalities Results) def
+
+continuedataset:
+
+/ave_percen {
+IRIDB (phl_ica_admin3_results) (ave_percen) [(gid)] open_column_by
+/units /percent def
+DATA 0 50 RANGE
+}defasvarsilentnoreuse
+
+/engtype_2 {
+IRIDB (phl_ica_admin3_results) (engtype_2) [(gid)] open_column_by
+}defasvarsilentnoreuse
+
+/hasc_2 {
+IRIDB (phl_ica_admin3_results) (hasc_2) [(gid)] open_column_by
+}defasvarsilentnoreuse
+
+/iso {
+IRIDB (phl_ica_admin3_results) (iso) [(gid)] open_column_by
+/long_name (Country Name ISO) def
+}defasvarsilentnoreuse
+
+/magrove_ch {
+IRIDB (phl_ica_admin3_results) (magrove_ch) [(gid)] open_column_by
+/long_name (Mangrove Change) def
+}defasvarsilentnoreuse
+
+/main_lc {
+IRIDB (phl_ica_admin3_results) (main_lc) [(gid)] open_column_by
+/long_name (main Land Cover) def
+}defasvarsilentnoreuse
+
+/main_lc_te {
+IRIDB (phl_ica_admin3_results) (main_lc_te) [(gid)] open_column_by
+/long_name (main Land Cover term) def
+}defasvarsilentnoreuse
+
+/mangrove_1 {
+IRIDB (phl_ica_admin3_results) (mangrove_1) [(gid)] open_column_by
+/long_name (Mangrove 1) def
+}defasvarsilentnoreuse
+
+/mangrove_2 {
+IRIDB (phl_ica_admin3_results) (mangrove_2) [(gid)] open_column_by
+/long_name (Mangrove Extent Change) def
+/units /km2 def
+startcolormap
+DATA -16 16 RANGE
+transparent red red -16 VALUE
+orange -1 VALUE
+grey 0 VALUE
+green 1 VALUE
+ForestGreen 16 VALUE ForestGreen
+endcolormap
+}defasvarsilentnoreuse
+
+/MEC {
+  mangrove_2
+   { (Strong decrease) -1 (Moderate decrease) -0.3 (No signigicant change) 0.3 (Moderate increase) 1 (Strong increase) }classify
+   [mangrove_2]dominant_class
+/long_name (Mangrove Extent Change Class) def
+startcolormap transparent red red orange grey green ForestGreen ForestGreen endcolormap
+}defasvar
+
+/mangrove_k {
+IRIDB (phl_ica_admin3_results) (mangrove_k) [(gid)] open_column_by
+/long_name (Mangrove k) def
+}defasvarsilentnoreuse
+
+/mcode_lo_1 {
+IRIDB (phl_ica_admin3_results) (mcode_lo_1) [(gid)] open_column_by
+/long_name (Long Municipality Code) def
+}defasvarsilentnoreuse
+
+/mcode_long {
+IRIDB (phl_ica_admin3_results) (mcode_long) [(gid)] open_column_by
+/long_name (Long Municipality Code) def
+}defasvarsilentnoreuse
+
+/mcode_sh_1 {
+IRIDB (phl_ica_admin3_results) (mcode_sh_1) [(gid)] open_column_by
+/long_name (Short Municipality Code) def
+}defasvarsilentnoreuse
+
+/name_0 {
+IRIDB (phl_ica_admin3_results) (name_0) [(gid)] open_column_by
+/long_name (Country Name) def
+}defasvarsilentnoreuse
+
+/name_1 {
+IRIDB (phl_ica_admin3_results) (name_1) [(gid)] open_column_by
+/long_name (Region Name) def
+}defasvarsilentnoreuse
+
+/name_2 {
+IRIDB (phl_ica_admin3_results) (name_2) [(gid)] open_column_by
+/long_name (Provicne Name) def
+}defasvarsilentnoreuse
+
+/new_p_code {
+IRIDB (phl_ica_admin3_results) (new_p_code) [(gid)] open_column_by
+/long_name (New P Code) def
+}defasvarsilentnoreuse
+
+/poverty_es {
+IRIDB (phl_ica_admin3_results) (poverty_es) [(gid)] open_column_by
+0 maskle
+/long_name (Families below poverty line) def
+/units /percent def
+startcolormap
+DATA 0 100   RANGE
+transparent green
+green green 16 bandmax
+yellow yellow 30 bandmax
+orange orange 45 bandmax
+red red 60 bandmax
+DarkRed DarkRed 100 bandmax DarkRed
+endcolormap
+}defasvarsilentnoreuse
+
+/provincial {
+IRIDB (phl_ica_admin3_results) (provincial) [(gid)] open_column_by
+/long_name (Focus Area) def
+}defasvarsilentnoreuse
+
+/Region {
+IRIDB (phl_ica_admin3_results) (region) [(gid)] open_column_by
+/long_name (Region ID) def
+}defasvarsilentnoreuse
+
+/mcode_shor {
+IRIDB (phl_ica_admin3_results) (mcode_shor) [(gid)] open_column_by
+/long_name (Short Municipilaty Code) def
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (phl_ica_admin3_results) (geom) [(gid)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (phl_ica_admin3_results) ((main_lc_te || ', ' || name_2 || ', ' || name_1 || ', ' || iso || ', ' || provincial) as label) [(gid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+mcode_shor .gid name exch def
+
+\end{ingrid}

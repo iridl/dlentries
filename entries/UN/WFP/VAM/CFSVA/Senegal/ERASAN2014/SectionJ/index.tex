@@ -1,0 +1,125 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Composition du mégange et activités agricoles) def
+
+grid:
+/name /hhid def
+1. 1. 5270.
+:grid
+
+/j01 { IRIDB (erasan2014) (j01) [(hhid)] open_column_by
+/long_name (taille totale du ménage) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/j02 { IRIDB (erasan2014) (j02) [(hhid)] open_column_by
+/long_name (nombre total de femmes) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/j02_h_bis { IRIDB (erasan2014) (j02_h_bis) [(hhid)] open_column_by
+/long_name (j02_h_bis) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/j02_h { IRIDB (erasan2014) (j02_h) [(hhid)] open_column_by
+/long_name (nombre total d'hommes) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/j03 { IRIDB (erasan2014) (j03) [(hhid)] open_column_by
+/long_name (nombre total d’enfants de 6 à 59 mois) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/J03_bis { IRIDB (erasan2014) (j03_bis) [(hhid)] open_column_by
+/long_name (nombre total d’enfants de 6 à 59 mois) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/j04 { IRIDB (erasan2014) (j04) [(hhid)] open_column_by
+/long_name (nombre de femmes actives dans les travaux agricoles) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/j05 { IRIDB (erasan2014) (j05) [(hhid)] open_column_by
+/long_name (nombre d’hommes actifs dans les travaux agricoles) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/j06_1 { IRIDB (erasan2014) (j06_1) [(hhid)] open_column_by
+/long_name (nombre hommes actifs transfo arachide) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/j06_2 { IRIDB (erasan2014) (j06_2) [(hhid)] open_column_by
+/long_name (nombre femmes actives transfo arachide) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/j07_1 { IRIDB (erasan2014) (j07_1) [(hhid)] open_column_by
+/long_name (nombre hommes actifs autres prod agri) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/j07_2 { IRIDB (erasan2014) (j07_2) [(hhid)] open_column_by
+/long_name (nombre femmes actives autres prod agri) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/j08 { IRIDB (erasan2014) (j08) [(hhid)] open_column_by
+/long_name (pratique activites agricoles saison passee) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+[/NVZ 2 NewIntegerGRID hhid |]
+(/Data/data6/WFP/senegal/ERASAN/2014ERASAN_matched_idnew_ll.txt)
+readdatafile:
+[1 1]r*4astsv
+:readdatafile
+/missing_value -999 def
+
+definevariables:
+
+0 Zvariable:
+/name /lat def
+/long_name (Latitude) def
+/units /degree_north def
+/scale_min 12.2 def
+/scale_max 16.8 def
+:Zvariable
+
+0 Zvariable:
+/name /lon def
+/long_name (Longitude) def
+/units /degree_east def
+/scale_min -17.7 def
+/scale_max -11.2 def
+:Zvariable
+
+:definevariables
+
+/location {
+lon lat geopt
+/long_name (Location) def
+}defasvar
+
+:dataset
+
+%j01 .hhid name exch def
+\end{ingrid}
+

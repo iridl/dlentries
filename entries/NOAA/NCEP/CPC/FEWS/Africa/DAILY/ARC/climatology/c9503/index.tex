@@ -1,0 +1,72 @@
+\begin{ingrid}
+continuedataset:
+/description (African Rainfall Climatology (1995-2003 daily means) from the Famine Early Warning System) def
+/long_name (1995-2003) def
+datasetdefs:
+/dly_fews_prcp_colors {
+startcolormap
+DATA 0 600 RANGE
+white white LightCyan 0 VALUE
+PaleTurquoise PaleTurquoise 2.5 bandmax
+LightSkyBlue LightSkyBlue 5 bandmax
+DeepSkyBlue DeepSkyBlue 12.5 bandmax
+DodgerBlue DodgerBlue 25 bandmax
+blue blue 37.5 bandmax
+MediumBlue MediumBlue 50 bandmax
+DarkGreen DarkGreen 75 bandmax
+SeaGreen SeaGreen 100 bandmax
+MediumSeaGreen MediumSeaGreen 125 bandmax
+LimeGreen LimeGreen 150 bandmax
+green green 175 bandmax
+GreenYellow GreenYellow 200 bandmax
+yellow yellow 225 bandmax
+gold gold 250 bandmax
+orange orange 300 bandmax
+DarkOrange DarkOrange 350 bandmax
+red red 400 bandmax
+DeepPink DeepPink 450 bandmax
+HotPink HotPink 500 bandmax
+magenta magenta 550 bandmax
+orchid orchid 600 bandmax
+orchid endcolormap } def
+:datasetdefs
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+-20 0.1 55
+:grid
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+-40 0.1 40
+:grid
+grid:
+/name /T def
+/units (days since 1960-01-01 12:00:00) def
+/defaultvalue { last } def
+0 1 
+%systemtime
+%   (%d %b %Y) 12 strftime interp julian_day
+31 Dec 1960 julian_day %enddate
+01 Jan 1960 julian_day sub
+:grid
+/iridl:hasSemantics (iridl:climatology) def
+
+%T {T /unixtime unitconvertbyattribute exch scale_factor mul add_offset add (/beluga/data/mbell/cpc/arc_data/daily_data/daily_clim.bin.%Y%m%d) 100 strftime nip}
+%removeextrausing name exch def  
+/est_prcp {[T]T
+(/Data/data6/noaa/cpc/fews/arc_data/mean_data/clim.bin.%m%d) strftimes
+recordsandfilenames nip[X Y]-999. readr4
+/long_name (Estimated Precipitation) def
+/standard_name (lwe_precipitation_rate) def
+/scale_min 0 def
+/scale_max 600 def
+/units (mm/day) def
+dly_fews_prcp_colors
+/description (CPC/Africa Rainfall Climatology: Daily Means)
+def}defasvarsilent
+:dataset
+\end{ingrid}
+

@@ -1,0 +1,45 @@
+\begin{ingrid}
+
+continuedataset:
+
+grid:
+/name /T def
+/units (monthtime) def
+/defaultvalue { last } def
+16 Jan 1981 ensotime
+1
+16 Dec 2016 ensotime
+/pointwidth 1. def
+:grid
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+ -81.25 0.1 -68.05
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+0.95 0.1 -18.75
+:grid
+
+/Prec {
+[X Y | T ]
+(/Data/data23/SENAMHI/Prec/monthly/stable/PISCOpm.nc)
+readdatafile:
+/name (variable) def
+/realarraytype netcdfrecords
+:readdatafile
+/long_name (Precipitation) def
+/units (mm/month) def
+/missing_value -3.4e+38 def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

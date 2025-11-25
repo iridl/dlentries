@@ -1,0 +1,122 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.5 1. 359.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ -89.5 1. 89.5
+:grid
+grid:
+/name (Z)def
+/units (m)def
+values: 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. 600. 700. 800. 900. 1000. 1100. 1200. 1300. 1400. 1500. 1750. 2000. 2500. 3000. 3500. 4000. 4500. 5000. 5500. :values
+:grid
+/basin {
+%[ X Y | Z ] (/beluga/data/mbell/dldata/noaa.d/nodc.d/woa09.d/basin.msk)
+[ X Y | Z ] (/Data/data8/noaa/nodc/WOA09/MASKS/basin.msk)
+readdatafile:
+       /name (basin) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (basin code) def
+toi1
+/scale_min 1 def
+/scale_max 58 def
+/valid_min 1 def
+/valid_max 58 def
+/units /ids def
+/CLIST[ 
+(Atlantic Ocean)
+(Pacific Ocean )
+(Indian Ocean)
+(Mediterranean Sea)
+(Baltic Sea)
+(Black Sea)
+(Red Sea)
+(Persian Gulf)
+(Hudson Bay)
+(Southern Ocean)
+(Arctic Ocean)
+(Sea of Japan)
+(Kara Sea)
+(Sulu Sea)
+(Baffin Bay)
+(East Mediterranean)
+(West Mediterranean)
+(Sea of Okhotsk)
+(Banda Sea)
+(Caribbean Sea)
+(Andaman Basin)
+(North Caribbean)
+(Gulf of Mexico)
+(Beaufort Sea)
+(South China Sea)
+(Barents Sea)
+(Celebes Sea)
+(Aleutian Basin)
+(Fiji Basin)
+(North American Basin)
+(West European Basin)
+(Southeast Indian Basin)
+(Coral Sea)
+(East Indian Basin)
+(Central Indian Basin)
+(Southwest Atlantic Basin)
+(Southeast Atlantic Basin)
+(Southeast Pacific Basin)
+(Guatemala Basin)
+(East Caroline Basin)
+(Marianas Basin)
+(Philippine Sea)
+(Arabian Sea)
+(Chile Basin)
+(Somali Basin)
+(Mascarene Basin)
+(Crozet Basin)
+(Guinea Basin)
+(Brazil Basin)
+(Argentine Basin)
+(Tasman Sea)
+(Atlantic Indian Basin)
+(Caspian Sea)
+(Sulu Sea II)
+(Venezuela Basin)
+(Bay of Bengal)
+(Java Sea)
+(East Indian Atlantic Basin)
+] def
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+/mixnumber {
+%[ X Y | Z ] (/beluga/data/mbell/dldata/noaa.d/nodc.d/woa09.d/mixnumber.msk)
+[ X Y | Z ] (/Data/data8/noaa/nodc/WOA09/MASKS/mixnumber.msk)
+readdatafile:
+       /name (mixnumber) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (mix number) def
+       /valid_min -2 def
+       /valid_max 2 def
+toi4
+} defasvarsilent
+/landsea {
+%[ X Y | ] (/beluga/data/mbell/dldata/noaa.d/nodc.d/woa09.d/landsea.msk)
+[ X Y | ] (/Data/data8/noaa/nodc/WOA09/MASKS/landsea.msk)
+readdatafile:
+       /name (landsea) def
+       /missing_value -100 def
+       ((10F8.0)) formatted
+       :readdatafile
+       /long_name (landsea mask) def
+/units (transition depth level) def
+toi4
+} defasvarsilent
+:dataset
+\end{ingrid}

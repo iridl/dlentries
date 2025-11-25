@@ -1,0 +1,40 @@
+\begin{ingrid}
+/T SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble12 .SIX-HOURLY .T def
+/X SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble12 .SIX-HOURLY .X def
+/Y SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble12 .SIX-HOURLY .Y def
+SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble12 .SIX-HOURLY
+{totype dup /pendingdatasettype eq exch /datasettype eq or
+{
+[
+{SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble12 .SIX-HOURLY}
+aload pop
+9 index cvpops
+{M 13 24 RANGE [M] average} aload pop
+] cvx defasvar
+}
+{pop}ifelse
+}
+forsomedataset
+/ifvar? false def
+\end{ingrid}
+/may2002 {
+SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble .SIX-HOURLY .may2002
+[M] average} defasvarcache
+/may1969 {
+SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble .SIX-HOURLY .may1969
+[M] average} defasvarcache
+/may1970 {
+SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble .SIX-HOURLY .may1970
+[M] average} defasvarcache
+/may1971 {
+SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble .SIX-HOURLY .may1971
+[M] average} defasvarcache
+/may1972 {
+SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble .SIX-HOURLY .may1972
+[M] average} defasvarcache
+/may1973 {
+SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble .SIX-HOURLY .may1973
+[M] average} defasvarcache
+/may1974 {
+SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble .SIX-HOURLY .may1974
+[M] average} defasvarcache

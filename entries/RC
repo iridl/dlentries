@@ -1,0 +1,76 @@
+\begin{ingrid}
+/RC insertdataset:
+grid:
+/name /X def
+degE
+101.25 5.625 286.875 
+:grid
+grid:
+/name /Y def
+degN
+29. -2. -29. 
+:grid
+grid:
+/name /T def
+month
+periodic
+16 Jan 1960 ensotime
+1.
+16 Dec 1960 ensotime
+:grid
+variable:
+/name /sst0 def
+/long_name (Sea Surface Temperature) def
+/history (Rasmussen-Carpenter climatological sst) def
+grids: Y X | T :grids
+file:
+%/name (/hosts/glory/disk03/steve/fc/tmp/rcsstmn.data) def
+/name (/Data/data1/rc/rcsstmn.data) def
+sequential
+:file
+:variable
+grid:
+/name /X def
+degE
+101. 2. 289.
+:grid
+grid:
+/name /Y def
+degN
+-29. 2. 29. 
+:grid
+file:
+/name (/Data/data3/data/rcmstress) def
+sequential
+grids: X Y [/taux0 /tauy0 ] |  T :grids
+variable:
+/name /taux0 def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+/scale_factor .0329 def
+/history (Rasmussen-Carpenter climatological uxf, with large drag coef.) def
+:variable
+variable:
+/name /tauy0 def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+/scale_factor .0329 def
+/history (Rasmussen-Carpenter climatological uxf, with large drag coef.) def
+:variable
+:file
+:insertdataset
+continuedataset:
+datasetdefs:
+:datasetdefs
+/description (Sea surface temperature and wind stress climatology for the tropical Pacific Ocean) def
+/long_name (Rasmussen-Carpenter) def
+/iridl:hasSemantics (iridl:NOAA) def
+/references (Rasmusson_Carpenter1982) def
+/sst { sst0 [X Y T] REORDER } defasvarcachesilent
+/taux { taux0  [X Y T] REORDER }defasvarcachesilent
+/tauy { tauy0 [X Y T] REORDER  }defasvarcachesilent
+/X X def
+/Y Y def
+/T T def
+:dataset
+\end{ingrid}

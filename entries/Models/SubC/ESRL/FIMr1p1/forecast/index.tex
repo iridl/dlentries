@@ -1,0 +1,432 @@
+\begin{ingrid}
+continuedataset:
+
+ /interp_method (bilinear) def
+ /description (FIMr1.1 Forecast) def
+ /GMT_offset (-0000) def
+ /Created_by (fim2nc) def
+ /ArchvTimeUnit (hr) def
+ /model (fim) def
+ /levels (L64) def
+ /native_grid (hex) def
+ /equation (hydro) def
+ /ArchvIntvl 24 def
+ /real_kind 4 def
+
+grid:
+/name (X) def
+/units (degree_east) def
+periodic
+ 0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/units (degree_north) def
+ -90.0 1.0 90.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (days) def
+/standard_name (forecast_period) def
+ 0.5 1.0 31.5
+/pointwidth 1.0 def
+:grid
+
+grid:
+/name (M) def
+/long_name (Ensemble Member) def
+/units (ids) def
+/standard_name (realization) def
+1 1 4
+:grid
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 850 500 200 100 50 30 10 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (S) def
+/long_name (Start Time) def
+/standard_name (forecast_reference_time) def
+02 Aug 2017 julian_day 01 Jan 1960 julian_day sub
+1.0
+systemtime
+(%d %b %Y) 12 strftime interp julian_day
+%09 Aug 2017 julian_day 
+01 Jan 1960 julian_day sub
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+/pointwidth 0. def
+:grid
+
+S {(/Data/SubX/ESRL/FIMr1p1/forecast/tas_2m_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m02.nc) [S]} removeextrausing
+name exch def
+
+ /wap{
+[ X Y | L M S P 500 subgrid ] (/Data/SubX/ESRL/FIMr1p1/forecast/wap_500_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (wap) def
+ /long_name (Pressure Vertical Velocity) def
+ /cell_methods (pressure: mean) def
+ /units (Pa s^-1)cvn def
+ /cell_method (time: point) def
+ /vartyp (scalar) def
+ /level_type (pressure level) def
+ /standard_name (lagrangian_tendency_of_air_pressure) def
+ /missing_value -999999.0 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent 
+
+ /zg {
+[ X Y | L M S P 850 500 200 50 30 10 subgrid ] (/Data/SubX/ESRL/FIMr1p1/forecast/zg_%d[P]_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ S M P ]   readdatafile:
+/name (zg) def
+ /long_name (Geopotential Height) def
+ /standard_name (geopotential_height) def
+ /cell_method (time: point) def
+ /missing_value -999999.0 def
+ /units /gpm def
+ /level_type (pressure level) def
+ /cell_methods (pressure: mean) def
+ /vartyp (scalar) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /uas {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/uas_10m_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (uas) def
+ /vartyp (vector) def
+ /long_name (10-meter Eastward Wind) def
+ /standard_name (eastward_wind) def
+ /level_type (10 meters above ground) def
+ /cell_method (time: point) def
+ /units (m s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /vas {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/vas_10m_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (vas) def
+ /vartyp (vector) def
+ /long_name (10-meter Northward Wind) def
+ /standard_name (northward_wind) def
+ /level_type (10 meters above ground) def
+ /cell_method (time: point) def
+ /units (m s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ua {
+[ X Y | L M S P 850 200 100 50 30 10 subgrid ] (/Data/SubX/ESRL/FIMr1p1/forecast/ua_%d[P]_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ S M P ] readdatafile:
+/name (ua) def
+ /long_name (Zonal Velocity) def
+ /standard_name (eastward_wind) def
+ /missing_value -999999.0 def
+ /cell_method (time: point) def
+ /level_type (pressure level) def
+ /vartyp (vector) def
+ /units (m s-1)cvn def
+ /cell_methods (pressure: mean) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /va {
+[ X Y | L M S P 850 200 100 50 30 10 subgrid ] (/Data/SubX/ESRL/FIMr1p1/forecast/va_%d[P]_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ S M P ] readdatafile:
+/name (va) def
+ /long_name (Meridional Velocity) def
+ /standard_name (northward_wind) def
+ /missing_value -999999.0 def
+ /cell_method (time: point) def
+ /level_type (pressure level) def
+ /vartyp (vector) def
+ /units (m s-1)cvn def
+ /cell_methods (pressure: mean) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ts {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/ts_sfc_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (ts) def
+ /long_name (Surface Temperature) def
+ /standard_name (surface_temperature) def
+ /cell_method (time: point) def
+ /level_type (surface) def
+ /units /Kelvin_scale def
+ /vartyp (scalar) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tdps {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/tdps_2m_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (tdps) def
+ /vartyp (scalar) def
+ /long_name (2-meter Dew Point Temperature) def
+ /standard_name (dew_point_temperature) def
+ /cell_method (time: point) def
+ /level_type (2 meters above ground) def
+ /units /Kelvin_scale def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/tasmin {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/tasmin_2m_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (tasmin) def
+ /long_name (2-meter Minimum Air Temperature) def
+ /standard_name (air_temperature) def
+ /cell_method (time: point) def
+ /level_type (2 meters above ground) def
+ /units /Kelvin_scale def
+ /vartyp (scalar) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/tasmax {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/tasmax_2m_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (tasmax) def
+ /long_name (2-meter Maximum Air Temperature) def
+ /standard_name (air_temperature) def
+ /cell_method (time: point) def
+ /level_type (2 meters above ground) def
+ /units /Kelvin_scale def
+ /vartyp (scalar) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/tas {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/tas_2m_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (tas) def
+ /long_name (2-meter Mean Air Temperature) def
+ /standard_name (air_temperature) def
+ /level_type (2 meters above ground) def
+ /cell_method (time: point) def
+ /units /Kelvin_scale def
+ /vartyp (scalar) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ta {
+[ X Y | L M S P 100 50 30 10 subgrid ] (/Data/SubX/ESRL/FIMr1p1/forecast/ta_%d[P]_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ S M P ] readdatafile:
+/name (ta) def
+ /long_name (Air Temperature) def
+ /standard_name (air_temperature) def
+ /missing_value -999999.0 def
+ /level_type (pressure level) def
+ /vartyp (scalar) def
+ /units /Kelvin_scale def
+ /cell_methods (pressure: mean) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /swe {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/swe_sfc_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (swe) def
+ /vartyp (scalar) def
+ /long_name (Snow Water Equivalent) def
+ /standard_name (surface_snow_melt_amount) def
+ /level_type (surface) def
+ /cell_method (time: point) def
+ /units (kg m-2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /sty {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/sty_sfc_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (sty) def
+ /long_name (Surface Meridional Stress) def
+%/standard_name (surface_meridional_stress_positive_to_the_south) def
+ /cell_method (time: point) def
+ /level_type (surface) def
+ /vartyp (vector) def
+ /units (N m-2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /stx {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/stx_sfc_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (stx) def
+ /long_name (Surface Zonal Stress) def
+%/standard_name (surface_zonal_stress_positive_to_the_west) def
+ /vartyp (vector) def
+ /level_type (surface) def
+ /units (N m-2)cvn def
+ /cell_method (time: point) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /sic {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/sic_sfc_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (sic) def
+ /cell_method (time: point) def
+ /long_name (Sea Ice Concentration) def
+ /standard_name (sea_ice_area_fraction) def
+ /level_type (surface) def
+ /vartyp (scalar) def
+ /units (percent)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /rlut {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/rlut_toa_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (rlut) def
+ /cell_method (time: point) def
+ /long_name (Outgoing Longwave Radiation at Top of Atmosphere) def
+ /standard_name (toa_outgoing_longwave_flux) def
+ /level_type (top of atmosphere) def
+ /vartyp (scalar) def
+ /units (W/m2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /rad {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/rad_sfc_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (rad) def
+ /vartyp (scalar) def
+ /long_name (Net Surface Radiation) def
+ /cell_method (time: point) def
+ /level_type (surface) def
+ /units (W/m2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /psl {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/psl_sfc_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (psl) def
+ /long_name (Mean Sea Level Pressure) def
+ /standard_name (air_pressure_at_sea_level) def
+ /units /Pa def
+ /vartyp (scalar) def
+ /level_type (surface) def
+ /cell_method (time: point) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /pr {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/pr_sfc_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (pr) def
+ /long_name (Total Precipitation) def
+ /standard_name (precipitation_flux) def
+ /units (kg m-2 s-1)cvn def
+ /level_type (surface) def
+ /vartyp (scalar) def
+ /cell_method (time: sum) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /mrso {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/mrso_sfc_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (mrso) def
+ /cell_method (time: point) def
+ /long_name (Vertically Integrated Soil Moisture) def
+ /standard_name (soil_moisture_content) def
+ /cell_methods (time: mean) def
+ /level_type (surface) def
+ /vartyp (scalar) def
+ /units (kg m-2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+% hfss done
+ /hfss {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/hfss_sfc_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (hfss) def
+ /long_name (Surface Sensible Heat Flux) def
+ /standard_name (surface_upward_sensible_heat_flux) def
+ /cell_methods (time: mean) def
+ /level_type (surface) def
+ /vartyp (scalar) def
+ /cell_method (time: point) def
+ /units (W/m2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+% hfls done
+ /hfls {
+[ X Y | L M S ] (/Data/SubX/ESRL/FIMr1p1/forecast/hfls_sfc_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (hfls) def
+ /long_name (Surface Latent Heat Flux) def
+ /standard_name (surface_upward_latent_heat_flux) def
+ /vartyp (scalar) def
+ /level_type (surface) def
+ /cell_method (time: point) def
+ /units (W/m2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /huss {
+[ X Y | L M S P 850 subgrid ] (/Data/SubX/ESRL/FIMr1p1/forecast/huss_850_FIM_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (huss) def
+ /cell_methods (pressure: mean) def
+ /long_name (Specific Humidity) def
+ /vartyp (scalar) def
+ /units /unitless def
+ /level_type (pressure level) def
+ /cell_method (time: point) def
+ /standard_name (specific_humidity) def
+ /missing_value -999999.0 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ dataset:
+
+/name (ROMI) def
+/description (Real Time OLR MJO Index) def
+
+grid:
+/name (PC) def
+1 1 2
+/units (unitless) def
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+ -49.5 1.0 29.5
+/pointwidth 1.0 def
+:grid
+
+grid:
+/name (M) def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+ 1 1 4
+:grid
+
+grid:
+/name (S) def
+/long_name (Start Time) def
+/standard_name (forecast_reference_time) def
+values:
+02 Aug 2017 julian_day 01 Jan 1960 julian_day sub
+7
+20 Jul 2022 julian_day
+01 Jan 1960 julian_day sub
+{} for
+:values
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+/pointwidth 0. def
+:grid
+
+ /romi {
+[ M PC | L S ] (/Data/SubX/ESRL/FIMr1p1/ROMI/ESRL_FIMr1p1_%Y_%m_%d[S].nc) [ S ] readdatafile: 
+/name (fcst) def
+ /long_name (Real Time OLR MJO Index) def
+ /missing_value NaN def
+ /units (unitless) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/references (Wang_etal2018) def
+
+ :dataset
+
+:dataset
+\end{ingrid}

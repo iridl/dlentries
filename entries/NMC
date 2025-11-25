@@ -1,0 +1,36 @@
+\begin{ingrid}
+/NMC insertdataset:
+/description (Sea level pressure data from the National Meteorological Center - now known as the National Centers for Environmental Prediction) def
+/iridl:hasSemantics (iridl:NOAA) def
+grid:
+/name /X def
+degE
+periodic
+0 10 350
+:grid
+grid:
+/name /Y def
+degN
+70 -5 -40
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1979 ensotime
+1.
+16 Oct 1989 ensotime
+:grid
+variable:
+/name /slp def
+/long_name (sea level pressure) def
+/units (mb) def
+grids: X Y | T :grids
+file:
+/name (/Data/data3/data/slp.7989)def
+formatted
+/format ((1X/(10F7.1)))def
+:file
+:variable
+:insertdataset
+\end{ingrid}
+

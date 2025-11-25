@@ -1,0 +1,32 @@
+\begin{ingrid}
+/SCENARIO-A insertdataset:
+grid:
+/name /X def
+degE
+129.375 5.625 275.625
+:grid
+grid:
+/name /Y def
+degN
+19 -2 -19
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 0000 ensotime
+1.
+16 Dec 0099 ensotime
+:grid
+variable:
+/name /ssta def
+/long_name (Sea Surface Temperature Anomalies) def
+/history (10 year mean anomalies from giss A scenario simulation.) def
+grids: Y X | T :grids
+degC
+file:
+/name (/Data/data3/rainbow/ga10ym.ssta) def
+sequential
+:file
+:variable
+:insertdataset
+\end{ingrid}

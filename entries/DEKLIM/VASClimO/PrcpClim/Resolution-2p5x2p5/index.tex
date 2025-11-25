@@ -1,0 +1,32 @@
+\begin{ingrid}
+continuedataset:
+        /description (VASClimO Precipitation Climatology (2.5 x 2.5)) def
+        grid:
+                /name /X def
+                degE
+                periodic
+                -178.75 2.5 178.75
+        :grid
+        grid:
+                /name /Y def
+                degN
+                -58.75 2.5 83.75
+        :grid
+        grid:
+                /name /T def
+                monthtime
+                16 Jan 1951 ensotime
+                1.
+                16 Dec 2000 ensotime
+        :grid
+:dataset
+/prcp {
+[ X Y | T] (/beluga/data/datag/DEKLIM/VASClimO/PrcpClim/Res25/grd25_%Y%m[T].csv) [T]
+        readdatafile: formatted :readdatafile
+	/name (prcp) def
+	/long_name (precipitation) def
+	/missing_value -999 def
+	/units (mm) def
+
+}defasvarsilent
+\end{ingrid}

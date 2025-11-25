@@ -1,0 +1,389 @@
+\begin{ingrid}
+
+/description (current conditions ~1950-2000) def
+
+link:
+/name (WorldClim) def
+/description (home page) def
+/href (http://www.worldclim.org/) def
+:link
+
+/references (Hijmans, R.J., S.E. Cameron, J.L. Parra, P.G. Jones and A. Jarvis, 2005. Very high resolution interpolated climate surfaces for global land areas. International Journal of Climatology 25: 1965-1978) def
+
+continuedataset:
+
+grid:
+  /name /X def
+  /units /degree_east def
+  periodic
+  -180.
+  30.
+  3600. div
+  180.
+  1 index sub
+:grid
+
+X partialgrid
+step 2. mul 60. mul 30. mul partitiongrid
+name 3 index !
+name 2 index !
+
+grid:
+  /name /Y def
+  /units /degree_north def
+  90.
+  -30.
+  3600. div
+  -60.
+:grid
+
+Y partialgrid
+step 2. mul 60. mul 30. mul partitiongrid
+name 3 index !
+name 2 index !
+
+grid:
+  /name /T def
+  /units monthtimename def
+  periodic
+  Jan
+  1.
+  Dec
+:grid
+
+/tmax
+{
+%[X2 Y2][X Y T] (/data/pceccato/Worldclimtif/tmax_%d[Tcnt].tif) [T T 1 onegridcounter /name /Tcnt def] readdatafile:
+[X2 Y2 | X Y T] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/tmax_%d[Yi]%d[Xi]_tif.zip///tmax%d[Tcnt]_%d[Yi]%d[Xi].tif) [X Y T X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def T 1 onegridcounter /name /Tcnt def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+  /scale_factor .1 def
+  /units (Celsius_scale) def
+:readdatafile
+/long_name (Maximum temperature) def
+%CopyStream % needed to make it cachable
+temp_colors
+%LST_colors
+} defasvarsilent
+
+/tmin
+{
+[X2 Y2 | X Y T] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/tmin_%d[Yi]%d[Xi]_tif.zip///tmin%d[Tcnt]_%d[Yi]%d[Xi].tif) [X Y T X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def T 1 onegridcounter /name /Tcnt def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+  /scale_factor .1 def
+  /units (Celsius_scale) def
+:readdatafile
+/long_name (Minimum temperature) def
+%CopyStream % needed to make it cachable
+temp_colors
+%LST_colors
+} defasvarsilent
+
+/tmean
+{
+[X2 Y2 | X Y T] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/tmean_%d[Yi]%d[Xi]_tif.zip///tmean%d[Tcnt]_%d[Yi]%d[Xi].tif) [X Y T X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def T 1 onegridcounter /name /Tcnt def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+  /scale_factor .1 def
+  /units (Celsius_scale) def
+:readdatafile
+/long_name (Mean temperature) def
+%CopyStream % needed to make it cachable
+temp_colors
+%LST_colors
+} defasvarsilent
+
+/prec
+{
+[X2 Y2 | X Y T] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/prec_%d[Yi]%d[Xi]_tif.zip///prec%d[Tcnt]_%d[Yi]%d[Xi].tif) [X Y T X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def T 1 onegridcounter /name /Tcnt def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/units /mm def
+/long_name (Precipitation) def
+prcp_0to500_colors
+%precip_colors
+%DATA 0 AUTO RANGE
+}defasvarsilent
+
+/alt
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/alt_%d[Yi]%d[Xi]_tif.zip///alt_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/long_name (Altitude) def
+/units /m def
+topographycolorscale
+}defasvarsilent
+
+/AMT 
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio1_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/scale_factor .1 def
+/long_name (Annual Mean Temperature) def
+/units /Celsius_scale def
+temp_colors
+}defasvarsilent
+
+/MDR 
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio2_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/scale_factor .1 def
+/long_name (Mean Diurnal Range) def
+/units /Celsius_scale def
+std_anomaly_colors
+/scale_symmetric false def
+DATA 0. 20. RANGE
+}defasvarsilent
+
+/ITY
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio3_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/long_name (Isothermality (MDR/TAR)) def
+/units /percent def
+std_anomaly_colors
+/scale_symmetric false def
+DATA 0. 100. RANGE
+}defasvarsilent
+
+/TS_std
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio4_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/long_name (Temperature Seasonality (variance)) def
+/scale_factor 0.01 def
+/units /degC2 def
+std_anomaly_colors
+/scale_symmetric false def
+DATA 0. 225. RANGE
+}defasvarsilent
+
+/MTWM 
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio5_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/scale_factor .1 def
+/long_name (Max Temperature of Warmest Month) def
+/units /Celsius_scale def
+temp_colors
+}defasvarsilent
+
+/MTCM
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio6_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/scale_factor .1 def
+/long_name (Min Temperature of Coldest Month) def
+/units /Celsius_scale def
+temp_colors
+}defasvarsilent
+
+/TAR
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio7_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/scale_factor .1 def
+/long_name (Temperature Annual Range (MTWM-MTCM)) def
+/units /Celsius_scale def
+std_anomaly_colors
+/scale_symmetric false def
+DATA 5 72 RANGE
+}defasvarsilent
+
+/MTWeQ
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio8_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/scale_factor .1 def
+/long_name (Mean Temperature of Wettest Quarter) def
+/units /Celsius_scale def
+temp_colors
+}defasvarsilent
+
+/MTDQ
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio9_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/scale_factor .1 def
+/long_name (Mean Temperature of Driest Quarter) def
+/units /Celsius_scale def
+temp_colors
+}defasvarsilent
+
+/MTWaQ
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio10_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/scale_factor .1 def
+/long_name (Mean Temperature of Warmest Quarter) def
+/units /Celsius_scale def
+temp_colors
+}defasvarsilent
+
+/MTCQ
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio11_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/scale_factor .1 def
+/long_name (Mean Temperature of Coldest Quarter) def
+/units /Celsius_scale def
+temp_colors
+}defasvarsilent
+
+/AP
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio12_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/long_name (Annual Precipitation) def
+/units /mm def
+prcp_0to1000_colors
+}defasvarsilent
+
+/PWM
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio13_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/long_name (Precipitation of Wettest Month) def
+/units /mm def
+precip_colors
+prcp_0to500_colors
+}defasvarsilent
+
+/PDM 
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio14_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/long_name (Precipitation of Driest Month) def
+/units /mm def
+prcp_0to500_colors
+}defasvarsilent
+
+/PS_cv
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio15_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/long_name (Precipitation Seasonality (coef. of var.)) def
+/units /percent def
+  startcolormap DATA
+    0 400 RANGE
+    transparent black navy
+       0 VALUE
+       navy navy
+         10 bandmax
+         blue blue
+           25 bandmax
+           DeepSkyBlue DeepSkyBlue
+             50 bandmax
+             aquamarine aquamarine
+               75 bandmax
+               PaleGreen PaleGreen
+                 90 bandmax
+                 moccasin moccasin
+                   120 bandmax
+                   yellow yellow 150
+                     bandmax
+                     DarkOrange DarkOrange 200
+                     bandmax
+                     red red 250
+                     bandmax
+                     DarkRed DarkRed 300
+                     bandmax
+                     brown brown 400
+                     bandmax
+                     brown endcolormap
+}defasvarsilent
+
+/PWeQ
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio16_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/long_name (Precipitation of Wettest Quarter) def
+/units /mm def
+prcp_0to500_colors
+}defasvarsilent
+
+/PDQ
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio17_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/long_name (Precipitation of Driest Quarter) def
+/units /mm def
+prcp_0to500_colors
+}defasvarsilent
+
+/PWaQ
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio18_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/long_name (Precipitation of Warmest Quarter) def
+/units /mm def
+prcp_0to500_colors
+}defasvarsilent
+
+/PCQ
+{
+[X2 Y2 | X Y] (http://data.biogeo.ucdavis.edu/data/climate/worldclim/1_4/tiles/cur/bio_%d[Yi]%d[Xi]_tif.zip///bio19_%d[Yi]%d[Xi].tif) [X Y X 0 onegridcounter /name /Xi def Y 0 onegridcounter /name /Yi def] readdatafile:
+  /missing_value -3.4E+38 def
+  /realarraytype tiffimage
+:readdatafile
+/long_name (Precipitation of Coldest Quarter) def
+/units /mm def
+prcp_0to500_colors
+}defasvarsilent
+
+/amplitude
+{
+tmax tmin sub
+/long_name (Temperature Amplitude) def
+/units (Celsius_scale) def
+/scale_symmetric false def
+/scale_min 0. def
+rainbowcolorscale
+%}defasvarsilent
+}defasvar
+
+:dataset
+\end{ingrid}
+
+\end{ingrid}

@@ -1,0 +1,67 @@
+\begin{ingrid}
+continuedataset:
+link:
+/name /PCMDI def
+/description (PCMDI SMIP-2 Project Page) def
+/href (http://www-pcmdi.llnl.gov/projects/smip/smip2.php) def
+:link
+/iridl:hasSemantics (iridl:forecast) def
+:dataset
+\end{ingrid}
+Notes on SMIP-2
+
+Need to know where to put this (what does SMIP belong to?) WCRP DONE
+
+Some latitude grids don't have the right North/south edge
+
+Still need to cache data off mass-store for decent performance.
+
+Documentation of models, project, Anything.
+
+/beluga/data/benno/mydata/SMIP-2/forecast_SST/MGO/index.tex
+
+/beluga/data/benno/mydata/SMIP-2/forecast_SST/RPN/index.tex
+edit ** out of title
+edit units out of title
+add long_name from title  (should not be using title for long_name or standard_name)
+
+units of lev on level
+
+changed title of tas to Surface Air Temperature
+
+/beluga/data/benno/mydata/SMIP-2/forecast_SST/KMA/index.tex
+note the 2.5 month starting lag -- I did this because MAM is the earliest time
+in the 1979 directory, i.e. JFM and FMA are 1980 times even though they are in
+the 1979 directory.
+
+Had to edit the units and edit them out of the title
+Had to add long_name as copy of title
+
+level has units of lev -- what does that mean???
+
+/beluga/data/benno/mydata/SMIP-2/prescribed_SST/HMC/index.tex
+Notes:
+
+data all had /time_statistic instantaeous -- removed
+ua is labelled northward and va is labelled eastward, same for tauu and tauv
+
+/beluga/data/benno/mydata/SMIP-2/prescribed_SST/IAP/index.tex
+Notes:
+
+Not sure whether I have the right start times
+
+/beluga/data/benno/mydata/SMIP-2/prescribed_SST/KMA/index.tex
+Notes:
+
+Not sure whether I have the right start times
+
+/beluga/data/benno/mydata/SMIP-2/prescribed_SST/MGO/index.tex
+
+/beluga/data/benno/mydata/SMIP-2/prescribed_SST/MRI/index.tex
+removed time_statistic instantaneous
+removed unknown comment
+edited units/missing units on ua/va
+
+/beluga/data/benno/mydata/SMIP-2/prescribed_SST/SCRIPPS/index.tex
+removed time_statistic attribute
+removed Unknown comment

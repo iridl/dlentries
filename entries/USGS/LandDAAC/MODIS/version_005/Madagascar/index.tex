@@ -1,0 +1,158 @@
+\begin{ingrid}
+continuedataset:
+/long_name (Madagascar) def
+/iridl:hasSemantics (irigaz:Madagascar_94_1) def
+grid:
+/name /X def
+degE
+41. 51.002050390620  2 copy exch sub 4566 div exch
+% converts edges to centers
+1 index .5 mul sub
+3 -1 roll
+2 index .5 mul add
+3 1 roll
+:grid
+grid:
+/name /Y def
+degN
+-10.  -26.001966295111  2 copy exch sub 7305 div exch
+% converts edges to centers
+1 index .5 mul sub
+3 -1 roll
+2 index .5 mul add
+3 1 roll
+:grid
+grid:
+/name /T def
+/units (days since 2003-01-01) def
+\end{ingrid}
+file 2004.05.08/MOD13Q1.A2004129.h17v07.004.2004148112503.hdf to  ../modus.2004/MOD13Q1.A2004129.h17v07.004.2004148112503.hdf
+
+file 2004.05.24/MOD13Q1.A2004145.h19v08.004.2004165081004.hdf to  ../modus.2004/MOD13Q1.A2004145.h19v08.004.2004165081004.hdf
+
+Turns out the first number is the first day of the interval, the second date is
+not the end of the interval (the interval is 16 days wide).
+So I enter the edges grid and take the partial to get the right time grid.
+Filenames are generated from the left edge values.
+\begin{ingrid}
+/pointwidth 0 def
+values:
+2000
+1
+2000
+{
+dup  1 1 ymd2rjt 112 add 2003 1 1 ymd2rjt sub
+exch
+16. exch
+1 add 1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+{} for
+} for
+2001
+1
+2016
+{
+dup  1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+exch
+16. exch
+1 add 1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+{} for
+} for
+
+2017
+1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+16.
+2017 3 22 ymd2rjt 2003 1 1 ymd2rjt sub
+2 index
+     sub
+    16 div
+    cvi
+    16 mul
+2 index add
+{} for
+:values
+:grid
+/T T
+partialgrid
+/defaultvalue {last} def
+def
+/last_modified T .last_modified def
+grid:
+/name /band def
+values: /MIR /NIR /red /blue :values
+:grid
+/reflectance
+{[X Y | band T]
+(/Data/data23/usgs/landdaac/componentimagesMAD/%Y/A%Y%j[T]MAD1.250m_16_days_%s[band]_reflectance.dat.gz)
+     [band T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value -1000 def
+/valid_min 0 def
+/valid_max 10000 def
+ui*2 :readdatafile
+9999.   254 div   1 255 SCALEtoui1
+}
+defasvarcachesilent
+%defasvarsilent
+/NDVI
+{[X Y | T]
+(/Data/data23/usgs/landdaac/componentimagesMAD/%Y/A%Y%j[T]MAD1.250m_16_days_NDVI.dat.gz)
+     [T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value -3000 def
+/valid_min -2000 def
+/valid_max 10000 def
+/scale_factor 1e-4 def
+ndvi_colorsMODIS
+/scale_min valid_min def
+/scale_max valid_max def
+/iridl:hasSemantics (iridl:NDVI) def
+/iridl:hasSemantics (iridl:EVI) def
+ui*2 :readdatafile
+%9999.   254 div   1 255 SCALEtoui1
+} %defasvarsilent
+defasvarcachesilent
+/VI_Quality
+{[X Y | T]
+(/Data/data23/usgs/landdaac/componentimagesMAD/%Y/A%Y%j[T]MAD1.250m_16_days_VI_Quality.dat.gz)
+     [T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value 65535 def
+/valid_min 0 def
+/valid_max 65534 def
+ui*2 :readdatafile
+%9999.   254 div   1 255 SCALEtoui1
+} %defasvarsilent
+defasvarcachesilent
+
+/EVI
+{[X Y | T]
+(/Data/data23/usgs/landdaac/componentimagesMAD/%Y/A%Y%j[T]MAD1.250m_16_days_EVI.dat.gz)
+     [T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value -3000 def
+/valid_min -2000 def
+/valid_max 10000 def
+/scale_factor 1e-4 def
+ndvi_colorsMODIS
+/scale_min valid_min def
+/scale_max valid_max def
+ui*2 :readdatafile
+%9999.   254 div   1 255 SCALEtoui1
+} %defasvarsilent
+defasvarcachesilent
+/view_zenith_angle
+{[X Y | T]
+(/Data/data23/usgs/landdaac/componentimagesMAD/%Y/A%Y%j[T]MAD1.250m_16_days_view_zenith_angle.dat.gz)
+     [T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value 10000 def
+/valid_min -9000 def
+/valid_max  9000 def
+/scale_factor 1e-2 def
+/scale_min valid_min def
+/scale_max valid_max def
+ui*2 :readdatafile
+} %defasvarsilent
+defasvarcachesilent
+:dataset
+\end{ingrid}

@@ -1,0 +1,28 @@
+\begin{ingrid}
+continuedataset:
+/description (Standardized Southern Oscillation Index) def
+grid:
+/name /T def
+monthtime
+16 Jan 1882 ensotime 1 
+16 Jan 1996 ensotime % enddate
+:grid
+variable:
+/name /soi def
+/long_name (Southern Oscillation Index) def
+/source (Judy Cole) def
+/iridl:hasSemantics [(iridl:SouthernOscillationIndex)(iridl:NOAA)]def
+/dataset_documentation.html {
+(/Data/data1/DataCatalog/entries/Indices/soi/)
+/dataset_documentation.html readfilein } def
+/missing_value -999.0 def
+grids: T :grids
+file:
+/name (/Data/data1/noaa/indices/soi.jc2) def
+/format ((6X,12f6.0)) def
+formatted
+:file
+:variable
+:dataset
+\end{ingrid}
+

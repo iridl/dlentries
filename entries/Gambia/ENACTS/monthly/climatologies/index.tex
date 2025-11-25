@@ -1,0 +1,39 @@
+\begin{ingrid}
+
+continuedataset:
+
+/rfe {
+ SOURCES .Gambia .ENACTS .dekadly .rainfall .rfe
+monthlyAverage 3. mul
+yearly-climatology
+/long_name (rfe 1983-2011 average) def
+%precip_colors
+startcolormap transparent DarkRed DarkRed red OrangeRed DarkOrange LightSalmon yellow LemonChiffon LightYellow LightCyan cyan SteelBlue RoyalBlue MediumBlue MediumBlue endcolormap
+%DATA 0 300 RANGE
+}defasvarcache
+
+/tmin {
+ SOURCES .Gambia .ENACTS .dekadly .temperature .tmin
+monthlyAverage
+yearly-climatology
+/long_name (tmin 1981-2010 average) def
+temp_colors
+/scale_symmetric false def
+  DATA 14 26 RANGE
+}defasvarcache
+
+/tmax {
+ SOURCES .Gambia .ENACTS .dekadly .temperature .tmax
+monthlyAverage
+yearly-climatology
+/long_name (tmax 1981-2010 average) def
+temp_colors
+/scale_symmetric false def
+  DATA 30 43 RANGE
+}defasvarcache
+
+:dataset
+
+\end{ingrid}
+
+

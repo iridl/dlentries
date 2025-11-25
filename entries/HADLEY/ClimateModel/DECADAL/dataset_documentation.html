@@ -1,0 +1,92 @@
+<html>
+<head>
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+<title>"Met Office Hadley Centre Climate Model3 (HadCM3) ENSEMBLES Stream 2 </title>
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+</head>
+<INGRID>standardHeader</INGRID>
+<h2>HadCM3 ENSEMBLES Stream 2 </h2>
+
+Exported from ECMWF ECFS data archive to MetO in native PP format: 
+Converted to netCDF  using BADC/MOHC Virtual Variable Suite version 0.3.0
+<p>
+<h3>Hindcasts</h3>
+Yearly start dates: 1st November 1960 to 2005
+10 year runs, except 1965, 1975, 1985, 1995, 2005 are 30 year runs
+9 members (with runids z02g0 = standard, z02g[1-8] = perturbed)
+<p>
+<h4>DePreSys</h4>
+<h5>1. Atmosphere output: monthly means (mm)</h5>
+/ENSEMBLES/stream2/PPE/
+	z02g[0-8]/z02g[0-8]_mm_[name-code]_[start-date]-[end-date]
+name-code: from /ENSEMBLES/FieldCodesTable.xls column 1
+start-date: in format [year][month][day][hour][min]
+end-date: in format [year][month][day][hour][min]
+
+e.g.	z02g1/z02g1_mm_pr_196011010000-197011010000.nc
+contains monthly mean total precipitation rate output for a 10 year run starting from November 1960.
+e.g.	z02g1/z02g1_mm_pr_196511010000-199511010000.nc
+contains monthly mean total precipitation rate output for a 30 year run starting from November 1965.
+
+<p>
+
+<h5>2. Ocean output: seasonal means (sm)</h5>
+
+ENSEMBLES/stream2/PPE/
+	z02g[0-8]/z02g[0-8]_sm_[name-code]_[start-date]-[end-date]
+name-code:
+
+e.g.	z02g1/z02g1_sm_so5.0_196011010000-197011010000.nc
+contains seasonal mean salinity output at the 5.0m ocean level for a 10 year run starting from November 1960.
+e.g.	z02g1/z02g1_sm_so5.0_196511010000-199511010000.nc
+contains seasonal mean salinity output at the 5.0m ocean level for a 30 year run starting from November 1965.
+<p>
+
+<h4>NoAssim</h4>
+<h5>1. Atmosphere output: monthly means (mm)</h5>
+ENSEMBLES/stream2/NoAssim/
+	z01u[0-8]/z01u[0-8]_mm_[name-code]_[start-date]-[end-date]
+name-code:
+
+e.g.	z01u2/z01u2_mm_pr_196011010000-197011010000.nc
+contains monthly mean total precipitation rate output for a 10 year run starting from November 1960.
+e.g.	z01u2/z01u2_mm_pr_196511010000-199511010000.nc
+contains monthly mean total precipitation rate output for a 30 year run starting from November 1965.
+<h5>2. Ocean output: seasonal means (sm)</h5>
+/ENSEMBLES/stream2/NoAssim/
+	z01u[0-8]/z01u[0-8]_sm_[name-code]_[start-date]-[end-date]
+name-code: from /ENSEMBLES/FieldCodesTable.xls column 2
+
+e.g.	z01u1/z01u1_sm_so5.0_196011010000-197011010000.nc
+contains seasonal mean salinity output at the 5.0m ocean level for a 10 year run starting from November 1960.
+e.g.	z01u1/z01u1_sm_so5.0_196511010000-199511010000.nc
+contains seasonal mean salinity output at the 5.0m ocean level for a 30 year run starting from November 1965.
+<p>
+<h3>Climatology</h3>
+Split into two parts
+Historic runs (01/12/1950 - 01/12/1989)
+	A1B scenario runs (1/12/1989 - 1/12/2040)
+<h5>1. Atmosphere output: monthly means (mm)</h5>
+/ENSEMBLES/clim_mm/atmos/
+	[runid]/[runid] _mm_[name-code]_[start-date]-[end-date]
+runid: from runid table below
+name-code:
+
+e.g.	aenwh/aenwh_mm_pr0_195012010000-198912010000.nc
+contains monthly mean total precipitation rate output from December 1950 to the end of November 1989 and provides the climatology for the standard ensemble member z02g0.
+e.g.	aeyjc/aeyjc_mm_pr0_198912010000-204012010000.nc
+contains monthly mean total precipitation rate output from December 1989 to the end of November 2040 and provides the climatology for ensemble member z02g2.
+
+Error: The soil moisture fields (mrsos[1-4]) have the wrong value assigned to missing data points, ie. -8.304722e+08, rather than ’¡Æmissing_value = 1.e+20f’¡Ç as specified in the header. This is an error which stems from the original .pp output files.
+<h5>2. Ocean output: seasonal means (sm)</h5>
+/ENSEMBLES/clim_sm/ocean/
+	[runid]/[runid] _sm_[name-code]_[start-date]-[end-date]
+runid: from runid table below
+name-code:
+
+e.g.	aexsr/aexsr_sm_ so5.0_195012010000-198912010000.nc
+contains seasonal mean salinity output at the 5.0m ocean level from December 1950 to the end of November 1989 and provides the climatology for ensemble member z02g8.
+e.g.	aenwl/aenwl_sm_ so5.0_198912010000-204012010000.nc
+contains seasonal mean salinity output at the 5.0m ocean level from December 1989 to the end of November 2040 and provides the climatology for the standard ensemble member z02g0.
+</body>
+</html>

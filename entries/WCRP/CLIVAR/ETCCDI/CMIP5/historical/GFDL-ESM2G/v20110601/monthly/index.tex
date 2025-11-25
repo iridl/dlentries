@@ -1,0 +1,304 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+
+grid:
+/name /N def
+/long_name (realization) def
+/standard_name (realization) def
+/units /ids def
+values: 1 :values 
+:grid
+
+variable:
+/name (version) def
+/long_name (Version Number) def
+/units (ids) def
+grids: N :grids
+values: /v20110601 :values
+:variable
+
+:datasetdefs
+
+ /input_tracking_id (375cd87e-9718-4348-8782-46389b7f5e7d) def
+ /modeling_realm (atmos) def
+ /experiment (historical) def
+ /comment (GFDL experiment name = ESM2G-C2_all_historical_HC2. PCMDI experiment name = historical (run1). Initial conditions for this experiment were taken from 1 January of year 1861 of the parent experiment, ESM2G-C2_1700-1860_historical_HC2, which is an unpublished experiment branched from 1 January of year 1 of 1860 control model experiment, ESM2G_pi-control_C2 (piControl). This parent experiment is an extension of piControl except historical transitions of land use are applied from 1700-1860 in order to allow the terrestrial carbon stores to respond to the imposition of land use and produce realistic fluxes by the start of the historical run in 1861. Several forcing agents varied during the 145 year duration of the ESM2G-C2_all_historical_HC2 experiment in a manner based upon observations and reconstructions for the late 19th and 20th centuries. The aerosol concentrations were computed by an off-line model. The time varying forcing agents include the well-mixed greenhouse gases (CO2, CH4, N2O, halons), tropospheric and stratospheric O3, aerosol concentrations (sulfate, black and organic carbon, sea salt, dust), volcanic aerosols, solar irradiance and land use transitions. The direct effect of tropospheric aerosols is calculated by the model, but not the indirect effects.) def
+ /title (ETCCDI indices computed on NOAA GFDL GFDL-ESM2G, historical (run 1) experiment output for CMIP5 AR5) def
+ /realization 1 def
+ /experiment_id (historical) def
+ /product (output1) def
+ /initialization_method 1 def
+ /ETCCDI_indices_archive (Please check http://www.cccma.ec.gc.ca/data/climdex/climdex.shtml for errata or updates.) def
+ /contact (bronaugh@uvic.ca) def
+ /ETCCDI_software (climdex.pcic) def
+ /institution (NOAA GFDL(201 Forrestal Rd, Princeton, NJ, 08540)) def
+ /input_creation_date (2011-11-19T18:23:26Z) def
+ /NOAA-GFDL_references (The GFDL Data Portal (http://nomads.gfdl.noaa.gov/) provides access to NOAA/GFDL's publicly available model input and output data sets. From this web site one can view and download data sets and documentation, including those related to the GFDL coupled models experiments run for the IPCC's 5th Assessment Report and the US CCSP.) def
+ /source (GFDL-ESM2G 2010 ocean: TOPAZ (TOPAZ1p2,Tripolar360x210L63); atmosphere: AM2 (AM2p14,M45L24); sea ice: SIS (SISp2,Tripolar360x210L63); land: LM3 (LM3p7_cESM,M45)) def
+ /input_frequency (day) def
+ /parent_experiment_rip (r1i1p1) def
+ /ETCCDI_software_version (0.6.1) def
+ /Conventions (CF-1.4) def
+ /nco_openmp_thread_number 1 def
+ /references (http://www.cccma.ec.gc.ca/data/climdex/) def
+ /branch_time (58765) def
+ /forcing (GHG,SD,Oz,LU,Sl,Vl,SS,BC,MD,OC (GHG includes CO2, CH4, N2O, CFC11, CFC12, HCFC22, CFC113)) def
+ /creation_date (2012-07-14T19:36:24Z) def
+ /physics_version 1 def
+ /input_title (NOAA GFDL GFDL-ESM2G, historical (run 1) experiment output for CMIP5 AR5) def
+ /frequency (monClim) def
+ /parent_experiment_id (historicalMisc) def
+ /ETCCDI_institution_id (PCIC) def
+ /model_id (GFDL-ESM2G) def
+ /table_id (Table day (31 Jan 2011)) def
+ /institute_id (NOAA GFDL) def
+ /ETCCDI_institution (Pacific Climate Impacts Consortium) def
+ /project_id (CMIP5) def
+ /NOAA-GFDL_contact (gfdl.climate.model.info@noaa.gov) def
+ /gfdl_experiment_name (ESM2G-C2_all_historical_HC2) def
+ /references (Sillmann_etal2013a Sillmann_etal2013b) def
+
+grid:
+/name (lon)def
+/long_name (longitude) def
+/standard_name (longitude) def
+periodic
+/units (degree_east)def
+ 1.25 2.5 358.75 
+:grid
+
+grid:
+/name (lat)def
+/long_name (latitude) def
+/standard_name (latitude) def
+/units (degree_north)def
+values: -89.494385 -87.977531 -85.955055 -83.932587 -81.91011 -79.887642 -77.865166 -75.842697 -73.820221 -71.797752 -69.775284 -67.752808 -65.730339 -63.707867 -61.685394 -59.662922 -57.64045 -55.617977 -53.595505 -51.573032 -49.55056 -47.528091 -45.505619 -43.483147 -41.460674 -39.438202 -37.41573 -35.393257 -33.370785 -31.348314 -29.325842 -27.303371 -25.280899 -23.258427 -21.235954 -19.213484 -17.191011 -15.168539 -13.146068 -11.123595 -9.1011238 -7.0786519 -5.05618 -3.0337079 -1.011236 1.011236 3.0337079 5.05618 7.0786519 9.1011238 11.123595 13.146068 15.168539 17.191011 19.213484 21.235954 23.258427 25.280899 27.303371 29.325842 31.348314 33.370785 35.393257 37.41573 39.438202 41.460674 43.483147 45.505619 47.528091 49.55056 51.573032 53.595505 55.617977 57.64045 59.662922 61.685394 63.707867 65.730339 67.752808 69.775284 71.797752 73.820221 75.842697 77.865166 79.887642 81.91011 83.932587 85.955055 87.977531 89.494385 :values
+:grid
+
+grid:
+/name (time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/pointwidth 1 def
+16 Jan 1861 ensotime
+1
+16 Dec 2005 ensotime
+:grid
+
+grid:
+/name /N def
+/long_name (realization) def
+/standard_name (realization) def
+/units /ids def
+values: 1 :values
+:grid
+
+grid:
+/name /M def
+/long_name (initialization method) def
+/units /ids def
+values: 1 :values
+:grid
+
+grid:
+/name /L def
+/long_name (perturbed physics) def
+/units /ids def
+values: 1 :values
+:grid
+
+variable:
+/name (version) def
+/long_name (Version Number) def
+/units (ids) def
+grids: N :grids
+values: /v20110601 :values
+:variable
+
+/dtr { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/dtrETCCDI_mon_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_186101-200512.nc) [ N M L version ] readdatafile:
+/name (dtrETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Mean Diurnal Temperature Range) def
+ /iridl:hasSemantics [ (climdex:DTR) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/rx1day { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/rx1dayETCCDI_mon_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_186101-200512.nc) [ N M L version ] readdatafile:
+/name (rx1dayETCCDI) def
+ /units (mm) def
+ /long_name (Monthly Maximum 1-day Precipitation) def
+ /iridl:hasSemantics [ (climdex:Rx1day) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/rx5day { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/rx5dayETCCDI_mon_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_186101-200512.nc) [ N M L version ] readdatafile:
+/name (rx5dayETCCDI) def
+ /units (mm) def
+ /long_name (Monthly Maximum Consecutive 5-day Precipitation) def
+ /iridl:hasSemantics [ (climdex:Rx5day) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tn10p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tn10pETCCDI_mon_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_186101-200512.nc) [ N M L version ] readdatafile:
+/name (tn10pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Minimum Temperature is Below the 10th Percentile) def
+ /iridl:hasSemantics [ (climdex:TN10p) ] def
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tn90p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tn90pETCCDI_mon_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_186101-200512.nc) [ N M L version ] readdatafile:
+/name (tn90pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Minimum Temperature is Above the 90th Percentile) def
+ /iridl:hasSemantics [ (climdex:TN90p) ] def 
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tnn { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tnnETCCDI_mon_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_186101-200512.nc) [ N M L version ] readdatafile:
+/name (tnnETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Minimum of Daily Minimum Temperature) def
+ /iridl:hasSemantics [ (climdex:TNn) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+ 
+/tnx { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tnxETCCDI_mon_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_186101-200512.nc) [ N M L version ] readdatafile:
+/name (tnxETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Maximum of Daily Minimum Temperature) def
+ /iridl:hasSemantics [ (climdex:TNx) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+ 
+/tx10p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tx10pETCCDI_mon_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_186101-200512.nc) [ N M L version ] readdatafile:
+/name (tx10pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Maximum Temperature is Below the 10th Percentile) def
+ /iridl:hasSemantics [ (climdex:TX10p) ] def
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tx90p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tx90pETCCDI_mon_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_186101-200512.nc) [ N M L version ] readdatafile:  
+/name (tx90pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Maximum Temperature is Above the 90th Percentile) def
+ /iridl:hasSemantics [ (climdex:TX90p) ] def
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+ 
+/txn { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/txnETCCDI_mon_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_186101-200512.nc) [ N M L version ] readdatafile: 
+/name (txnETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Minimum of Daily Maximum Temperature) def
+ /iridl:hasSemantics [ (climdex:TXn) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/txx { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/txxETCCDI_mon_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_186101-200512.nc) [ N M L version ] readdatafile:
+/name (txxETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Maximum of Daily Maximum Temperature) def
+ /iridl:hasSemantics [ (climdex:TXx) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/r95thresh { [ lon lat | N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (r95thresh) def
+ /long_name (95th_percentile_baseline_wet_day_pr) def
+ /missing_value 1.00000002E20 def
+ /units (kg m-2 d-1)cvn def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/r99thresh { [ lon lat | N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (r99thresh) def
+ /long_name (99th_percentile_baseline_wet_day_pr) def
+ /missing_value 1.00000002E20 def
+ /units (kg m-2 d-1)cvn def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+grid:
+/name (bnds)def
+/units (unitless)def
+ 1.0 1.0 2.0
+:grid
+
+grid:
+/name (time2) def
+/standard_name (time) def
+/units (days since 1861-01-01 00:00:00)def
+/calendar /365 def
+ 41610.0 1.0 41974.0
+:grid
+
+/time_bnds { [ bnds | time2 N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (time_bnds) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/tn10thresh { [ lon lat | time2 N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (tn10thresh) def
+ /long_name (10th_percentile_running_baseline_tasmin) def
+ /missing_value 1.00000002E20 def
+ /units /degree_Celsius def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+ time2 /time renameGRID
+}defasvarsilent
+
+/tn90thresh { [ lon lat | time2 N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (tn90thresh) def
+ /long_name (90th_percentile_running_baseline_tasmin) def
+ /missing_value 1.00000002E20 def
+ /units /degree_Celsius def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+ time2 /time renameGRID
+}defasvarsilent
+
+/tx10thresh { [ lon lat | time2 N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (tx10thresh) def
+ /long_name (10th_percentile_running_baseline_tasmax) def
+ /missing_value 1.00000002E20 def
+ /units /degree_Celsius def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+ time2 /time renameGRID
+}defasvarsilent
+
+/tx90thresh { [ lon lat | time2 N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/GFDL-ESM2G/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_GFDL-ESM2G_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (tx90thresh) def
+ /long_name (90th_percentile_running_baseline_tasmax) def
+ /missing_value 1.00000002E20 def
+ /units /degree_Celsius def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+ time2 /time renameGRID
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

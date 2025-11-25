@@ -1,0 +1,170 @@
+\begin{ingrid}
+/PrincetonHydroAfr datadownloadsareRestricted
+continuedataset:
+
+ /title (Princeton University Hydroclimatology Group Bias Corrected African (1979-2005) Meteorological Forcing Dataset V1.0) def
+ /contact (Justin Sheffield (justin@princeton.edu)) def
+ /comment (This dataset is described in Chaney and Sheffield (2012) (Chaney, N., and J. Sheffield, 2012: High Resolution Gridded Daily Meteorological Data for Africa: Dataset Development and Analysis of Trends in Means and Extremes, J. Climate, to be submitted) and is related to the original global version reported in Sheffield et al., J. Climate (2006). Updates/changes include: i. African continent domain; ii. extension to 2005; iii. assimilation of available GHCN/GSOD daily station observations; iv. step change detection and correction for observational datasets; v. improved sampling procedure for correction of rain day statistics; vi. use of latest versions of CRU, SRB and TRMM products; vii. improved consistency between specific and relative humidity and air temperature. See Sheffield et al., J. Climate (2006) for details of the observations used and the bias correction and downscaling methodology.) def
+ /institution (Princeton University) def
+ /source (Forcings are a hybrid of NCEP/NCAR reanalysis and observations) def
+ /history (regridded by averaging to match gridding of ARC2 daily precipitation dataset over spatial domain common to both) def
+
+link:
+/name (High resolution daily meteorological data for northern/west/east Africa) def
+/href (http://hydrology.princeton.edu/data.metdata_africa.php) def
+:link
+
+grid:
+/name (X)def
+/long_name (Longitude) def
+/standard_name (longitude) def
+/units (degree_east)def
+ -19.9 0.1 55.0
+:grid
+grid:
+/name (Y)def
+/long_name (Latitude) def
+/standard_name (latitude) def
+/units (degree_north)def
+ -4.9 0.1 24.9
+:grid
+grid:
+/name (Z)def
+values: 0.0 :values
+:grid
+grid:
+/name (T) def
+/long_name (time)def
+/standard_name (time) def
+/units (days since 1960-01-01 12:00:00)def
+ 01 Jan 1979 julian_day 01 Jan 1960 julian_day sub 
+ 1. 
+ 31 Dec 2005 julian_day 01 Jan 1960 julian_day sub
+%/units (julian_day) def
+%01 Jan 1979 dmy2jd 
+%1.0
+%31 Dec 1981 dmy2jd 
+:grid
+
+% /prec{
+%[ X Y Z | T ] (http://hydrology.princeton.edu/data/metdata_africa/prec_daily_%Y[T]-%Y[T].nc) [T yearlyedgesgrid first secondtolast subgrid] readdatafile:
+%[ X Y Z | T ] (/Data/data23/princeton/hydrology/daily/regriddedtoARC2/prec_daily_regridtoARC2_%Y[T].cdf) [T yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+%/name (prec) def
+% /units (kg m-2 s-1)cvn def
+% /long_name (Precipitation) def
+% /valid_min 0.0 def
+% /title (Daily bias corrected precipitation) def
+% /valid_max 0.003165399 def
+% /date (01/01/79) def
+% /missing_value 2.00000004E20 def
+% /source (Reanalysis daily precipitation, statistically corrected for number of raindays, monthly amounts and diurnal cycle at 1.0deg; interpolated to 0.1deg; available GHCN/GSOD daily station data assimilated into gridded data) def
+% /realarraytype netcdfrecords :readdatafile
+%}defasvarsilent
+
+ /ARC2_prcp {  SOURCES .NOAA .NCEP .CPC .FEWS .Africa .DAILY .ARC2 .daily .est_prcp
+  X -19.9 55.0 RANGE
+  Y -4.9 24.9 RANGE
+ } defasvarsilent
+
+ /tmax{
+[ X Y Z | T ] (/Data/data23/princeton/hydrology/daily/regriddedtoARC2/tmax_daily_regridtoARC2_degC_%Y[T].cdf) [T yearlyedgesgrid first secondtolast subgrid] readdatafile:
+/name (tmax) def
+ /units (Celsius_scale) def
+ /standard_name (air_temperature) def
+ /long_name (Maximum temperature) def
+ /valid_min -30.0 def
+ /title (Daily bias corrected maximum temperature) def
+ /valid_max 80.0 def
+ /date (01/01/79) def
+ /missing_value 2.00000004E20 def
+ /source (Reanalysis 6-hourly air temperature interpolated to 0.1deg with account for elevation changes, interpolated to 3-hourly and scaled to match the diurnal range and mean of the CRU TS3.1 monthly dataset; available GHCN/GSOD daily station data assimilated into gridded data) def
+ /realarraytype netcdfrecords :readdatafile
+%(Celsius_scale)unitconvert
+ startcolormap DATA -18. 57. RANGE
+transparent 20 20 170 RGB 20 20 170 RGB -18. VALUE
+ DodgerBlue -8. VALUE
+ MediumAquamarine 2. VALUE 
+ GreenYellow 12. VALUE
+ 255 255 0 RGB 22. VALUE
+ 255 165 0 RGB 32. VALUE
+ 255 99 71 RGB 42. VALUE
+ 255 0 0 RGB 52. VALUE
+ 255   0   0 RGB endcolormap 
+}defasvarsilent
+
+ /tmin{
+[ X Y Z | T ] (/Data/data23/princeton/hydrology/daily/regriddedtoARC2/tmin_daily_regridtoARC2_degC_%Y[T].cdf) [T yearlyedgesgrid first secondtolast subgrid] readdatafile:
+/name (tmin) def
+ /units (Celsius_scale) def
+ /standard_name (air_temperature) def
+ /long_name (Minimum temperature) def
+ /valid_min -30.0 def
+ /title (Daily bias corrected minimum temperature) def
+ /valid_max 80.0 def
+ /date (01/01/79) def
+ /missing_value 2.00000004E20 def
+ /source (Reanalysis 6-hourly air temperature interpolated to 0.1deg with account for elevation changes, interpolated to 3-hourly and scaled to match the diurnal range and mean of the CRU TS3.1 monthly dataset; available GHCN/GSOD daily station data assimilated into gridded data) def
+ /realarraytype netcdfrecords :readdatafile
+%(Celsius_scale)unitconvert
+ startcolormap DATA -18. 57. RANGE
+transparent 20 20 170 RGB 20 20 170 RGB -18. VALUE
+ DodgerBlue -8. VALUE
+ MediumAquamarine 2. VALUE 
+ GreenYellow 12. VALUE
+ 255 255 0 RGB 22. VALUE
+ 255 165 0 RGB 32. VALUE
+ 255 99 71 RGB 42. VALUE
+ 255 0 0 RGB 52. VALUE
+ 255   0   0 RGB endcolormap 
+}defasvarsilent
+
+ /dswrf{
+[ X Y Z | T ] (/Data/data23/princeton/hydrology/daily/regriddedtoARC2/dswrf_daily_regridtoARC2_%Y[T].nc) [T yearlyedgesgrid first secondtolast subgrid] readdatafile:
+/name (dswrf) def
+ /units (W/m2)cvn def
+ /long_name (Downward Surface Shortwave Radiation) def
+ /valid_min 60.0 def
+ /title (Daily downward surface shortwave radiation) def
+ /standard_name (surface_downwelling_shortwave_flux_in_air) def
+ /valid_max 450.0 def
+% /date (01/01/79) def
+ /missing_value NaN def
+ /file_missing_value -999.0 def
+ /source (Reanalysis 6-hourly downward shortwave radiation interpolated to 1.0deg, interpolated to 3-hourly with account for the zenith angle and scaled to match the SRB 3.0 dataset and trends in observed cloud cover; interpolated to 0.1deg and corrected for step changes.) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /wind{
+[ X Y Z | T ] (/Data/data23/princeton/hydrology/daily/regriddedtoARC2/wind_daily_regridtoARC2_%Y[T].cdf) [T yearlyedgesgrid first secondtolast subgrid] readdatafile:
+/name (wind) def
+ /units (m s-1)cvn def
+ /long_name (Windspeed) def
+ /standard_name (wind_speed) def
+ /valid_min 0.0 def
+ /title (Daily 10m windspeed) def
+ /valid_max 30.0 def
+ /date (01/01/79) def
+ /missing_value 2.00000004E20 def
+ /source (Reanalysis 6-hourly 10m U and V wind vectors, converted to wind magnitude, interpolated to 0.1deg and 3-hourly; available GHCN/GSOD daily station data assimilated into gridded data) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /shum{
+[ X Y Z | T ] (/Data/data23/princeton/hydrology/daily/regriddedtoARC2/shum_daily_regridtoARC2_%Y[T].cdf) [T yearlyedgesgrid first secondtolast subgrid] readdatafile:
+/name (shum) def
+ /units (unitless) def
+ /standard_name (specific_humidity) def
+ /long_name (Specific humidity) def
+ /valid_min 0.0 def
+ /title (Daily bias corrected 2m specific humidity) def
+ /valid_max 60.0 def
+ /date (01/01/79) def
+ /missing_value 2.00000004E20 def
+ /source (Reanalysis 6-hourly specific humidity interpolated to 0.1deg with account for elevation changes; scaled to maintain consistency with reanalysis relative humidity and CRU TS3.1 monthly air temperature; available GHCN/GSOD daily station data assimilated into gridded data) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/references (Chaney_Sheffield2013 Sheffield_etal2006) def
+
+:dataset
+\end{ingrid}

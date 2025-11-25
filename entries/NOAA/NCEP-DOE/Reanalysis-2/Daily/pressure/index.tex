@@ -1,0 +1,213 @@
+\begin{ingrid}
+continuedataset:
+
+ /platform (Model) def
+ /reference ( http://wesley.ncep.noaa.gov/reanalysis2/ ; http://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis2.html ) def
+ /references (Kanamitsu_etal2002b) def
+ /source (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Model) def
+ /history (created 2002/03/01 by RHS (netCDF2.3)) def
+ /institution (National Centers for Environmental Prediction) def
+ /Conventions (CF-1.0) def
+ /comments (Data is from NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) (4x/day).  It consists of most variables interpolated to pressure surfaces from model (sigma) surfaces.) def
+ /title (Daily NCEP/DOE Reanalysis 2) def
+
+  /citation (Please note: If you acquire NCEP_Reanalysis 2 data products from PSD, we ask that you acknowledge us in your use of the data. This may be done by including text such as NCEP_Reanalysis 2 data provided by the NOAA/OAR/ESRL PSD, Boulder, Colorado, USA, from their Web site at http://www.esrl.noaa.gov/psd/ in any documents or publications using these data. We would also appreciate receiving a copy of the relevant publications. This will help PSD to justify keeping the NCEP_Reanalysis 2 data set freely available online in the future. Thank you!) def
+
+link:
+/name (source) def
+/description (ESRL OPeNDAP source for Reanalysis2 daily dataset) def
+/href (https://psl.noaa.gov/thredds/catalog/Datasets/ncep.reanalysis2.dailyavgs/catalog.html) def
+:link
+
+link:
+/name (ESRL_documentation) def
+/description (NCEP-DOE Reanalysis 2: Summary at ESRL-PSD) def
+/href (http://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis2.html) def
+:link
+
+link:
+/name (CPC_documentation) def
+/description (NCEP/DOE AMIP-II Reanalysis) def
+/href (http://www.cpc.ncep.noaa.gov/products/wesley/reanalysis2/) def
+:link
+
+grid:
+/name (lon)def
+/units (degree_east)def
+/standard_name (longitude) def
+periodic
+ 0.0 2.5 357.5
+:grid
+
+grid:
+/name (lat)def
+/standard_name (latitude) def
+/units (degree_north)def
+ 90.0 2.5 -90.0
+:grid
+
+grid:
+/name (level)def
+/standard_name (pressure) def
+/units (millibar)def
+values: 1000.0 925.0 850.0 700.0 600.0 500.0 400.0 300.0 250.0 200.0 150.0 100.0 70.0 50.0 30.0 20.0 10.0 :values
+:grid
+
+grid:
+/name (time)def
+/standard_name (time) def
+/units (days since 1979-01-01 12:00:0.0)def
+0.0
+1.0
+systemtime systemtime2ymd pop pop 1 sub 31 exch Dec exch julian_day
+01 Jan 1979 julian_day sub
+:grid
+
+time { (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/pressure/omega.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]} remoteremoveextrausing
+/expires
+ last 01
+     Jan 1979 julian_day
+     add
+    rjt2ymd pop
+     pop
+    2 add
+    1 1 ymd2systemtime
+def
+name exch def
+
+/expires time .expires def
+
+ /omega{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/pressure/omega.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (omega) def
+ /missing_value -9.96920997E36 def
+ /statistic (Mean) def
+ /long_name (Daily Omega on Pressure Levels) def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /GRIB_id 39 def
+ /level_desc (Pressure Levels) def
+ /var_desc (Omega (dp/dt)) def
+ /GRIB_name (VVEL) def
+ /precision 3 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /least_significant_digit 3 def
+ /units (Pascal/s)cvn def
+ /valid_range [ -4.0 8.0 ] def
+ /standard_name (omega) def
+ /parent_stat (Individual Obs) def
+ /actual_range [ -1.7010021 0.7079983 ] def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /air{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/pressure/air.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (air) def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Air Temperature on Pressure Levels) def
+ /statistic (Mean) def
+ /actual_range [ 178.92001 317.57001 ] def
+ /GRIB_name (TMP) def
+ /valid_range [ 137.5 362.5 ] def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /var_desc (Air temperature) def
+ /least_significant_digit 1 def
+ /precision 2 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /units /Kelvin_scale def
+ /standard_name (air_temperature) def
+ /GRIB_id 11 def
+ /parent_stat (Individual Obs) def
+ /level_desc (Pressure Levels) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /hgt{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/pressure/hgt.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (hgt) def
+ /statistic (Mean) def
+ /var_desc (Geopotential height) def
+ /GRIB_id 7 def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Geopotential Heights on Pressure Levels) def
+ /precision 0 def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /GRIB_name (HGT) def
+ /parent_stat (Individual Obs) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /actual_range [ -530.0 32289.0 ] def
+ /units /m def
+ /least_significant_digit 0 def
+ /standard_name (geopotential_height) def
+ /level_desc (Pressure Levels) def
+ /valid_range [ -1500.0 35800.0 ] def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /rhum{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/pressure/rhum.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (rhum) def
+ /missing_value -9.96920997E36 def
+ /precision 2 def
+ /long_name (Daily Relative Humidity on Pressure Levels) def
+ /GRIB_name (RH) def
+ /parent_stat (Individual Obs) def
+ /level_desc (Pressure Levels) def
+ /actual_range [ -7.9899902 110.99001 ] def
+ /statistic (Mean) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /units /percent def
+ /standard_name (relative_humidity) def
+ /GRIB_id 52 def
+ /valid_range [ -26.0 150.0 ] def
+ /var_desc (Relative humidity) def
+ /least_significant_digit 0 def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /uwnd{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/pressure/uwnd.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (uwnd) def
+ /missing_value -9.96920997E36 def
+ /GRIB_id 33 def
+ /long_name (Daily U-wind on Pressure Levels) def
+ /var_desc (u-wind) def
+ /parent_stat (Individual Obs) def
+ /GRIB_name (UGRD) def
+ /valid_range [ -140.0 175.0 ] def
+ /level_desc (Pressure Levels) def
+ /statistic (Mean) def
+ /precision 2 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /actual_range [ -95.940002 122.13999 ] def
+ /units (m/s)cvn def
+ /standard_name (eastward_wind) def
+ /least_significant_digit 1 def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /vwnd{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/pressure/vwnd.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (vwnd) def
+ /missing_value -9.96920997E36 def
+ /GRIB_id 34 def
+ /long_name (Daily V-wind on Pressure Levels) def
+ /var_desc (v-wind) def
+ /parent_stat (Individual Obs) def
+ /valid_range [ -140.0 175.0 ] def
+ /actual_range [ -105.56 108.62 ] def
+ /GRIB_name (VGRD) def
+ /level_desc (Pressure Levels) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /precision 2 def
+ /units (m/s)cvn def
+ /standard_name (northward_wind) def
+ /statistic (Mean) def
+ /least_significant_digit 1 def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,110 @@
+\begin{ingrid}
+
+continuedataset:
+
+
+(iri.columbia.edu/terms/forecast/1) cvn datadownloadsareRestricted
+/Cookie varies_on
+
+
+/long_name (SubX EMC bi-weekly temperature median probability forecast of exceedence) def
+/description (SubX EMC global bi-weekly temperature median probability forecast of exceedence for Saturday-Friday) def
+
+datasetdefs:
+/togetherfn {
+startcolormap 
+DATA 0.0 100 RANGEEDGES
+    transparent purple RGBdup
+       0 VALUE
+       blue 50.0
+         5.0 sub
+         3.0 div
+         VALUE
+         LightSkyBlue 50.0
+          5.0 sub
+          3.0 div
+          2.0 mul
+          VALUE
+          azure 50.0
+           5.0 sub
+           VALUE
+          moccasin RGBdup 50.0
+             5.0 add
+             bandmax
+             yellow 50.0
+              5.0 add
+              0.5 add
+              VALUE
+              orange 50.0
+               5.0 add
+               2.0 mul
+               100.0 add
+               3.0 div
+               VALUE
+               red 50.0
+                5.0 add
+                200.0 add
+                3.0 div
+                VALUE
+               IndianRed
+                100 VALUE
+                IndianRed
+endcolormap
+
+} def
+:datasetdefs
+
+
+grid:
+/name (X) def
+/units (degreeE) def
+/fullname (Longitude) def
+periodic
+0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/units (degreeN) def
+/fullname (Latitude) def
+-90.0 1.0 90.0
+:grid
+
+
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+20 Oct 2017 julian_day 01 Jan 1960 julian_day sub
+7
+30 Apr 2021 julian_day 01 Jan 1960 julian_day sub
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+grid:
+/name (L) def
+/units (days) def
+/fullname (Forecast_period) def
+15 7. 22
+/pointwidth 14. def
+:grid
+
+/target_date { S L add /long_name (forecast time) def /standard_name (time) def } defasvar
+
+
+/prob_median {
+[ X Y | L S ] (/data/shared/jingyuan/Subx_forecast/mat/MME_Subx_forecast_T2M_flexible/EMC_Subx_global_t2m_issue_Fri_%d[S]_%b[S]_%Y[S]_week234_median_forecast.nc) [ S ] readdatafile:
+/name (mean) def
+/units (percent) def
+/doublearraytype netcdfrecords :readdatafile
+/missing_value NaN def
+/long_name (Probability of Exceeding Median) def
+/scale_min 0 def
+/scale_max 100 def
+%tercileclassesscale
+togetherfn
+} defasvarsilent
+:dataset
+\end{ingrid}

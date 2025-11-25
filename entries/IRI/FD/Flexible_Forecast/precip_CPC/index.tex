@@ -1,0 +1,161 @@
+\begin{ingrid}
+
+continuedataset:
+
+(1981)
+     /climStart parameter
+pop
+(2010)
+     /climEnd parameter
+pop
+
+/clim_mean {
+  home .tippett .scratch .na .realtime .MM .prcp
+S SOURCES .IRI .FD .NOAA .NCEP .CPC .Forecast .Unites-States .mean
+.S a: .first :a: .last :a RANGE
+ SOURCES .IRI .FD .Flexible_Forecast .precip_obs .prcp_est
+  T2 /climStart get_parameter
+    /climEnd get_parameter RANGEEDGES
+   [T2]average
+    L S 
+     add
+    T sample-along
+nip
+ L
+    0.0 add
+    1.5 maskle
+    0.0 mul
+    add
+  SOURCES .IRI .FD .NOAA .NCEP .CPC .Forecast .Unites-States .mean .Pxb
+L first VALUE L removeGRID
+S first VALUE S removeGRID
+[X Y]regridLinear
+ 0. mul add
+  /scale_min 0. def
+  /long_name (climatology mean for CPC) def
+}defasvar
+
+/clim_stddev {
+  home .tippett .scratch .na .realtime .MM .prcp
+S SOURCES .IRI .FD .NOAA .NCEP .CPC .Forecast .Unites-States .mean
+.S a: .first :a: .last :a RANGE
+ SOURCES .IRI .FD .Flexible_Forecast .precip_obs .prcp_est
+  T2 /climStart get_parameter
+    /climEnd get_parameter RANGEEDGES
+    [T2]rmsaover
+    L S
+     add
+    T sample-along
+nip
+ L
+    0.0 add
+    1.5 maskle
+    0.0 mul
+    add
+  SOURCES .IRI .FD .NOAA .NCEP .CPC .Forecast .Unites-States .mean .Pxb
+L first VALUE L removeGRID
+S first VALUE S removeGRID
+[X Y]regridLinear
+0. mul add
+  /scale_min 0.0 def
+  /long_name (climatology standard deviation for CPC) def
+}defasvar
+
+/fcst_mean {
+home .tippett .scratch .na .realtime .MM .prcp 
+  SOURCES .IRI .FD .NOAA .NCEP .CPC .Forecast .Unites-States .mean .Pxb 
+   [X Y]regridLinear
+S 2 index .S a: .first :a: .last :a RANGE
+   SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+    T (Dec 1980) (Jan 2011) RANGEEDGES
+    T 3 runningAverage
+    dup yearly-climatology
+    3 index .L S add
+      T sample-along
+     [X Y L]REORDER
+     exch
+     T 12 splitstreamgrid
+     [T2]rmsaover
+     L
+      S add
+      T sample-along
+     [X Y L]REORDER
+     3 -1 roll
+     mul
+    add
+   [L]regridLB
+   L
+    0.0 add
+    1.5 maskle
+    0.0 mul
+    add
+nip
+  /scale_min 0. def
+  /long_name (CPC forecast mean) def
+
+}defasvar
+
+/fcst_stddev {
+ home .tippett .scratch .na .hindcasts
+   .MM .prcp 
+  SOURCES .IRI .FD .NOAA .NCEP .CPC .Forecast .Unites-States .standard_deviation .Psd
+   [X Y]regridLinear
+S home .tippett .scratch .na .realtime .MM .prcp
+  .S a: .first :a: .last :a RANGE
+   SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+    T (Dec 1980) (Jan 2011) RANGEEDGES
+    T 3 runningAverage
+    T 12 splitstreamgrid
+    [T2]rmsaover
+    3 index .L S add
+     T sample-along
+    mul
+   [L]regridLB
+   L
+    0.0 add
+    1.5 maskle
+    0.0 mul
+    add
+nip
+%  [Y X]REORDER CopyStream
+  /scale_min 0. def
+  /long_name (CPC forecast standard deviation) def
+}defasvar
+
+/target_date {
+%home .tippett .scratch .na .realtime .MM .prcp a: .S :a: .L :a add /long_name (forecast time) def /pointwidth 3 def
+fcst_mean a: .S :a: .L :a add /long_name (forecast time) def /pointwidth 3 def
+/bounds undef
+}defasvar
+
+/target_length {
+target_date .S
+   units /T exch
+     gridtype first
+       0.5 add
+       1 last
+         5.5 add
+         1.0 add
+         NewEvenGRID
+    nip c: 1 :c
+    /name /target_length def
+    exch
+    0 mul
+    add
+   T (days since 1960-01-01) streamgridunitconvert
+   T differential_mul
+   T (months since 1960-01-01) streamgridunitconvert
+   T differential_div
+   /units /days def
+   T 3 runningAverage
+   3. mul
+   target_date T sample-along
+/long_name (Length of forecast time) def
+}defasvar
+
+:dataset
+
+target_date .S
+name exch def
+
+\end{ingrid}

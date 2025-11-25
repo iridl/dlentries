@@ -1,0 +1,53 @@
+\begin{ingrid}
+continuedataset:
+%/name (/data/dstore4/iri/modelling/daved/NMME_Data.D/Obs.D/cmap.197901.201010.1x1.grb)def
+ /year0 0 def
+ /filepattern (/data/dstore4/iri/modelling/daved/NMME_Data.D/Obs.D/cmap.197901.201010.1x1.grb) def
+grid:
+/name (X)def
+/standard_name (longitude) def
+/units (degree_east)def
+ 0.0 1. 359.
+:grid
+grid:
+/name (Y)def
+/standard_name (latitude) def
+/units (degree_north)def
+ 90. 1. -90.
+:grid
+grid:
+/name (T)def
+/standard_name (time) def
+monthtime
+16 Jan 1979 ensotime
+1
+16 Oct 2010 ensotime
+:grid
+ /prate{
+[ X Y | T] (/data/dstore4/iri/modelling/daved/NMME_Data.D/Obs.D/cmap.197901.201010.1x1.grb)readdatafile:
+/name (prate) def
+ /calendar /standard def
+ /GRIBgridcode 3 def
+% /scale_max 5.74500009E-04 def
+ /gribfield 1 def
+ /gribparam 59 def
+ /center (US Weather Service - National Met. Center) def
+ /gribNumBits 13 def
+ /gribcenter 7 def
+ /units (kg/m^2/s)cvn def
+ /long_name (Precipitation rate) def
+ /standard_name (lwe_precipitation_rate) def
+ /grib_name /PRATE def
+ /gribleveltype 1 def
+ %/scale_min 0.0 def
+ /process (Spectral Statistical Interpolation (SSI) analysis from "Final" run.) def
+ /PDS_TimeRange 123 def
+ /PTVersion 2 def
+ GRIB1record :readdatafile
+Y low high RANGE
+c: 0.001 (m3 kg-1) :c
+mul (mm/day) unitconvert
+}defasvarcachesilent
+%:dataset
+:dataset
+\end{ingrid}

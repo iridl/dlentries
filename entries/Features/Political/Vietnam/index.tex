@@ -1,0 +1,89 @@
+\begin{ingrid}
+continuedataset:
+%/iridl:hasSemantics (iridl:Vietnam) def
+/description (Vietnam Country, Provinces and Districts Admin boundaries) def
+\end{ingrid}
+
+\begin{ingrid}
+
+dataset:
+/name /Provinces def
+
+/adm1_name
+{ IRIDB (vietnam1) (name1) [(gid)]open_column_by
+/long_name (Province Name - Admin Level 1 Name) def
+}defasvarsilentnoreuse
+
+/the_geom
+{ IRIDB (vietnam1) (the_geom) [(gid)]open_column_by
+/long_name (Province Geometry) def 
+}defasvarsilentnoreuse
+
+%/adm1_code
+%{ IRIDB (vietnam1) (geom_id) [(gid)]open_column_by
+%/long_name (Province Geometry id - Admin Level 1 id) def
+%}defasvarsilentnoreuse
+
+/label 
+{ IRIDB (vietnam1) ((name1 || ', Vietnam') as label) [(gid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+:dataset
+
+
+dataset:
+/name /Districts def
+
+/adm2_name
+{ IRIDB (vietnam_dist) (name2) [(dcode)]open_column_by
+/long_name (District Name - Admin Level 2 Name) def
+}defasvarsilentnoreuse
+
+/the_geom
+{ IRIDB (vietnam_dist) (the_geom) [(dcode)]open_column_by
+/long_name (Province Geometry) def
+}defasvarsilentnoreuse
+
+%/adm2_code
+%{ IRIDB (vietnam_dist) (dcode_id) [(dcode)]open_column_by
+%/long_name (District Geometry id - Admin Level 2 id) def
+%}defasvarsilentnoreuse
+
+/label 
+{ IRIDB (vietnam_dist) ((name2 || ', Vietnam') as label) [(dcode)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+:dataset
+
+
+dataset:
+/name /Country def
+
+/adm0_name
+{ IRIDB (vietnambound47) (Name) [(gid)]open_column_by
+/long_name (Country Name) def
+}defasvarsilentnoreuse
+
+/the_geom
+{ IRIDB (vietnambound47) (the_geom) [(gid)]open_column_by
+/long_name (Country Geometry) def 
+}defasvarsilentnoreuse
+
+/label 
+{ IRIDB (vietnambound47) (('Vietnam') as label) [(gid)]open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+:dataset
+
+\end{ingrid}
+
+\begin{ingrid}
+:dataset
+
+Provinces adm1_name .gid name exch put
+Districts adm2_name .dcode name exch put
+Country adm0_name .gid name exch put 
+
+\end{ingrid}
+
+

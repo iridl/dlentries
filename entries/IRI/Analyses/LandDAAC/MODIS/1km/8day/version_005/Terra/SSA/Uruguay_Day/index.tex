@@ -1,0 +1,30 @@
+\begin{ingrid}
+continuedataset:
+
+dataset:
+ /name (monthlyavg) def
+
+ /LST {
+ SOURCES .USGS .LandDAAC .MODIS .1km .8day .version_005 .Terra .SSA .Day .LST
+  Y (30.0000S) (35.1000S) RANGEEDGES
+  X (58.9000W) (52.9000W) RANGEEDGES
+  T 0.9 monthlyAverage
+ } defasvarcachesilent
+
+:dataset
+
+dataset:
+ /name (monthlyclim) def
+ /long_name (2005-2014 monthly climatology) def
+ /LST {
+ SOURCES .USGS .LandDAAC .MODIS .1km .8day .version_005 .Terra .SSA .Day .LST
+  T (1 Jan 2005) (31 Dec 2014) RANGE
+  Y (30.0000S) (35.1000S) RANGEEDGES
+  X (58.9000W) (52.9000W) RANGEEDGES
+  T 0.9 monthlyAverage
+  yearly-climatology
+ } defasvarcachesilent
+:dataset
+
+:dataset
+\end{ingrid}

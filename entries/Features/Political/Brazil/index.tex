@@ -1,0 +1,30 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Brazil_19_1) def
+/Municipios
+/description ( Municipios) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select municode,muni6,nome,the_geom from brazil_muni94 order by municode) (municode) openqueryby
+        muni6
+            /long_name (Municipio code - 6 digit) def
+        CopyStream
+        name exch def
+        nome
+            /long_name (Municipio name) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Municipio geometry) def
+        CopyStream
+        name exch def
+}defasvarcachesilent
+/last_modified 
+{  db: 
+   /server (localhost) def 
+   /dbname (iridb) def 
+   :db
+   (select max ( last_modified ) as last_modified from brazil_muni94) openquery .last_modified
+}def
+\end{ingrid}

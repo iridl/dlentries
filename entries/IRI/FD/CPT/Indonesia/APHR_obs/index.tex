@@ -1,0 +1,194 @@
+\begin{ingrid}
+  continuedataset:
+  
+  dataset:
+  /name /History def
+  /description (Predicand, Hindcast and Skill) def
+
+    grid:
+      /name (X) def
+      /units (degreeE) def
+      /long_name (Longitude) def
+      90.125 to 149.875 N= 240 pts
+    :grid
+    grid:
+      /name (Y) def
+      /units (degreeN) def
+      /long_name (Latitude) def
+      13.375 to -9.875 N= 94 pts
+    :grid
+    grid:
+      /name (L) def
+      /units (months) def
+      /long_name (Forecast Lead Time in Months) def
+      2.5 1 5.5
+    :grid
+    
+    grid:
+      /name /S def
+      monthtime
+      /defaultvalue { last } def
+      /long_name (Hindcast Issue Date) def
+      /pointwidth 0 def
+        1 Jan 1982 ensotime
+        1.  
+        1 Dec 2006 ensotime
+    :grid
+
+/hindcast_date {S L add /long_name (hindcast time) def /pointwidth 3 def} defasvar
+
+    /PearsonR {
+      [ X Y | S 12 splitgrid pop L ]
+      (/Data/data1/iri/forecast/data/echam/Indonesia/APHR/PearsonR_Start%-m[S]_Lead%d[L].txt) [S 12 splitgrid pop L 1.5 sub]
+      readdatafile: 
+        [4 1] r*4astsv 
+      :readdatafile
+        /name (PearsonR) def
+        /long_name (Pearson correlation skill values) def
+        /fullname (Pearson R) def
+        /units (unitless) def
+        /missing_value -999. def
+        correlationcolorscale
+        /scale_min -1. def
+        /scale_max 1. def
+    }defasvarsilent
+    
+    /CrossValHind {
+      [ X Y S 12 splitgrid nip | S 12 splitgrid pop L ]
+      (/Data/data1/iri/forecast/data/echam/Indonesia/APHR/CrossValPred_Start%-m[S]_Lead%d[L].txt) [S 12 splitgrid pop L 1.5 sub]
+      readdatafile:
+        [2 1 3] r*4astsv
+      :readdatafile
+        /name (CrossValHind) def
+        /long_name (cross-validated hindcasts) def
+        /fullname (Hindcast) def
+        /units (mm/day) def
+        /missing_value -999. def
+          [S S2]REORDER
+  CopyStream
+  S unsplitstreamgrid
+  S
+   /pointwidth 0. def
+   12 shiftGRID
+    }defasvarsilent
+
+    /InputObs {
+      [ X Y S 12 splitgrid nip | S 12 splitgrid pop L ]
+      (/Data/data1/iri/forecast/data/echam/Indonesia/APHR/YinputData_Start%-m[S]_Lead%d[L].txt) [S 12 splitgrid pop L 1.5 sub]
+      readdatafile:
+        [2 1 3] r*4astsv
+      :readdatafile
+        /name (InputObs) def
+        /long_name (input observations) def
+        /fullname (Obs) def
+        /units (mm/day) def
+        /missing_value -999. def
+          [S S2]REORDER
+  CopyStream
+  S unsplitstreamgrid
+  S
+   /pointwidth 0. def
+   12 shiftGRID
+        precip_colors
+    }defasvarsilent
+    
+	:dataset
+	
+	dataset:
+	/name /Forecast def
+	/description (Forecast and Error) def
+
+    grid:
+      /name (X) def
+      /units (degreeE) def
+      /long_name (Longitude) def
+      90.125 to 149.875 N= 240 pts
+    :grid
+    grid:
+      /name (Y) def
+      /units (degreeN) def
+      /long_name (Latitude) def
+      13.375 to -9.875 N= 94 pts
+    :grid
+    grid:
+      /name (L) def
+      /units (months) def
+      /long_name (Forecast Lead Time in Months) def
+      2.5 1 5.5
+    :grid
+    
+    grid:
+      /name /S def
+      monthtime
+      /long_name (Forecast Issue Date) def
+      /standard_name (forecast_reference_time) def
+      /defaultvalue { last } def
+      /pointwidth 0 def
+      values:
+        1 Oct 2012 ensotime
+        1.
+        systemtime
+        systemtime2ymd
+        ymd:lastmonth
+        ymd:nextmonth 15 add
+        ymd2rm1960
+        {} for
+      :values
+      /expires
+        systemtime
+        last_modified sub
+        86400 lt {
+          null
+        }{
+          last_modified
+          systemtime2ymd pop dup 12 lt {
+            1 add
+          }{
+            pop 1 add 1
+          }ifelse
+          9 ymd2systemtime
+        }ifelse
+      def
+    :grid
+S { (/Data/data1/iri/forecast/data/echam/Indonesia/APHR/Forecasts_%Y_Start%-m[S]_Lead1.txt) [S] } removeextrausing
+   name exch def
+    grid:
+      /name (L) def
+      /units (months) def
+      /long_name (Forecast Lead Time in Months) def
+      2.5 1 5.5
+    :grid
+    /target_date {S L add /long_name (forecast time) def /pointwidth 3 def} defasvar
+
+    /Forecast {
+      [ X Y | S L ]
+      (/Data/data1/iri/forecast/data/echam/Indonesia/APHR/Forecasts_%Y_Start%-m[S]_Lead%d[L].txt) [S L 1.5 sub]
+      readdatafile:
+        [5 1] r*4astsv
+      :readdatafile
+        /missing_value -999. def
+        /name (Forecast) def
+        /long_name (current forecast) def
+        /fullname (Forecast) def
+        /units (mm/day) def
+        precip_colors
+    }defasvarsilent
+    
+    /PredErrorVars {
+      [ X Y | S L ]
+      (/Data/data1/iri/forecast/data/echam/Indonesia/APHR/PredErrorVars_%Y_Start%-m[S]_Lead%d[L].txt) [S L 1.5 sub]
+      readdatafile:
+        [5 1] r*4astsv
+      :readdatafile
+        /missing_value -999. def
+      /name (PredErrorVars) def
+      /long_name (prediction error variance) def
+      /fullname (Error) def
+      /units (mm/day) def
+      /scale_min 0. def
+    }defasvarsilent
+    
+    :dataset
+
+  :dataset
+\end{ingrid}

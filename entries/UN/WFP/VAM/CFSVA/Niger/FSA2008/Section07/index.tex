@@ -1,0 +1,833 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9575
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 586
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAnov2008.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Aide) def
+/Q85_01 {
+mytable
+myquestion 
+432 VALUE
+ myquestion removeGRID
+/long_name (Q85 CODE PROGRAMME) def 
+/units /ids def
+/CLIST [(BANQUE CEREALIERE)(DISTRIBUTION GRATUITE)(VENTE DE CEREALES A PRIX MODERE)(VIVRE CONTRE TRAVAIL)(ARGENT CONTRE TRAVAIL)(RATION DE PROTECTION/PROTECTION)(DON/ZAKAT)(BANKET FEEDING)(RATION COMPLEMENTAIRE FEMMES ENCEINTES ET ALLAITANTES)(INTRANTS AGRICOLES)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q85A_01 {
+mytable
+myquestion 
+433 VALUE
+ myquestion removeGRID
+/long_name (Q85A AVEZ VOUS BENEFICE OUI OU NON) def 
+/units /ids def
+/CLIST [(OUI)(N0N)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q85B_01 {
+mytable
+myquestion 
+434 VALUE
+ myquestion removeGRID
+/long_name (Q85B MONTANT RECU PAR JOUR) def 
+}defasvarsilent
+
+/Q85C_01 {
+mytable
+myquestion 
+435 VALUE
+ myquestion removeGRID
+/long_name (Q85C QUANTITE DE CEREALE RECUE) def 
+}defasvarsilent
+
+/Q85D_01 {
+mytable
+myquestion 
+436 VALUE
+ myquestion removeGRID
+/long_name (Q85D QUANTITE DE LEGUMINEUSE) def 
+}defasvarsilent
+
+/Q85E_01 {
+mytable
+myquestion 
+437 VALUE
+ myquestion removeGRID
+/long_name (Q85E QUANTITE D'HUILE) def 
+}defasvarsilent
+
+/Q85F_01 {
+mytable
+myquestion 
+438 VALUE
+ myquestion removeGRID
+/long_name (Q85F QUANTITE DE SUCRE RECUE) def 
+}defasvarsilent
+
+/Q85G_01 {
+mytable
+myquestion 
+439 VALUE
+ myquestion removeGRID
+/long_name (Q85G QUANTITE DE CSB RECUE) def 
+}defasvarsilent
+
+/Q85_02 {
+mytable
+myquestion 
+440 VALUE
+ myquestion removeGRID
+/long_name (Q85 CODE PROGRAMME) def 
+/units /ids def
+/CLIST [(BANQUE CEREALIERE)(DISTRIBUTION GRATUITE)(VENTE DE CEREALES A PRIX MODERE)(VIVRE CONTRE TRAVAIL)(ARGENT CONTRE TRAVAIL)(RATION DE PROTECTION/PROTECTION)(DON/ZAKAT)(BANKET FEEDING)(RATION COMPLEMENTAIRE FEMMES ENCEINTES ET ALLAITANTES)(INTRANTS AGRICOLES)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q85A_02 {
+mytable
+myquestion 
+441 VALUE
+ myquestion removeGRID
+/long_name (Q85A AVEZ VOUS BENEFICE OUI OU NON) def 
+/units /ids def
+/CLIST [(OUI)(N0N)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q85B_02 {
+mytable
+myquestion 
+442 VALUE
+ myquestion removeGRID
+/long_name (Q85B MONTANT RECU PAR JOUR) def 
+}defasvarsilent
+
+/Q85C_02 {
+mytable
+myquestion 
+443 VALUE
+ myquestion removeGRID
+/long_name (Q85C QUANTITE DE CEREALE RECUE) def 
+}defasvarsilent
+
+/Q85D_02 {
+mytable
+myquestion 
+444 VALUE
+ myquestion removeGRID
+/long_name (Q85D QUANTITE DE LEGUMINEUSE) def 
+}defasvarsilent
+
+/Q85E_02 {
+mytable
+myquestion 
+445 VALUE
+ myquestion removeGRID
+/long_name (Q85E QUANTITE D'HUILE) def 
+}defasvarsilent
+
+/Q85F_02 {
+mytable
+myquestion 
+446 VALUE
+ myquestion removeGRID
+/long_name (Q85F QUANTITE DE SUCRE RECUE) def 
+}defasvarsilent
+
+/Q85G_02 {
+mytable
+myquestion 
+447 VALUE
+ myquestion removeGRID
+/long_name (Q85G QUANTITE DE CSB RECUE) def 
+}defasvarsilent
+
+/Q85_03 {
+mytable
+myquestion 
+448 VALUE
+ myquestion removeGRID
+/long_name (Q85 CODE PROGRAMME) def 
+/units /ids def
+/CLIST [(BANQUE CEREALIERE)(DISTRIBUTION GRATUITE)(VENTE DE CEREALES A PRIX MODERE)(VIVRE CONTRE TRAVAIL)(ARGENT CONTRE TRAVAIL)(RATION DE PROTECTION/PROTECTION)(DON/ZAKAT)(BANKET FEEDING)(RATION COMPLEMENTAIRE FEMMES ENCEINTES ET ALLAITANTES)(INTRANTS AGRICOLES)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q85A_03 {
+mytable
+myquestion 
+449 VALUE
+ myquestion removeGRID
+/long_name (Q85A AVEZ VOUS BENEFICE OUI OU NON) def 
+/units /ids def
+/CLIST [(OUI)(N0N)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q85B_03 {
+mytable
+myquestion 
+450 VALUE
+ myquestion removeGRID
+/long_name (Q85B MONTANT RECU PAR JOUR) def 
+}defasvarsilent
+
+/Q85C_03 {
+mytable
+myquestion 
+451 VALUE
+ myquestion removeGRID
+/long_name (Q85C QUANTITE DE CEREALE RECUE) def 
+}defasvarsilent
+
+/Q85D_03 {
+mytable
+myquestion 
+452 VALUE
+ myquestion removeGRID
+/long_name (Q85D QUANTITE DE LEGUMINEUSE) def 
+}defasvarsilent
+
+/Q85E_03 {
+mytable
+myquestion 
+453 VALUE
+ myquestion removeGRID
+/long_name (Q85E QUANTITE D'HUILE) def 
+}defasvarsilent
+
+/Q85F_03 {
+mytable
+myquestion 
+454 VALUE
+ myquestion removeGRID
+/long_name (Q85F QUANTITE DE SUCRE RECUE) def 
+}defasvarsilent
+
+/Q85G_03 {
+mytable
+myquestion 
+455 VALUE
+ myquestion removeGRID
+/long_name (Q85G QUANTITE DE CSB RECUE) def 
+}defasvarsilent
+
+/Q85_04 {
+mytable
+myquestion 
+456 VALUE
+ myquestion removeGRID
+/long_name (Q85 CODE PROGRAMME) def 
+/units /ids def
+/CLIST [(BANQUE CEREALIERE)(DISTRIBUTION GRATUITE)(VENTE DE CEREALES A PRIX MODERE)(VIVRE CONTRE TRAVAIL)(ARGENT CONTRE TRAVAIL)(RATION DE PROTECTION/PROTECTION)(DON/ZAKAT)(BANKET FEEDING)(RATION COMPLEMENTAIRE FEMMES ENCEINTES ET ALLAITANTES)(INTRANTS AGRICOLES)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q85A_04 {
+mytable
+myquestion 
+457 VALUE
+ myquestion removeGRID
+/long_name (Q85A AVEZ VOUS BENEFICE OUI OU NON) def 
+/units /ids def
+/CLIST [(OUI)(N0N)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q85B_04 {
+mytable
+myquestion 
+458 VALUE
+ myquestion removeGRID
+/long_name (Q85B MONTANT RECU PAR JOUR) def 
+}defasvarsilent
+
+/Q85C_04 {
+mytable
+myquestion 
+459 VALUE
+ myquestion removeGRID
+/long_name (Q85C QUANTITE DE CEREALE RECUE) def 
+}defasvarsilent
+
+/Q85D_04 {
+mytable
+myquestion 
+460 VALUE
+ myquestion removeGRID
+/long_name (Q85D QUANTITE DE LEGUMINEUSE) def 
+}defasvarsilent
+
+/Q85E_04 {
+mytable
+myquestion 
+461 VALUE
+ myquestion removeGRID
+/long_name (Q85E QUANTITE D'HUILE) def 
+}defasvarsilent
+
+/Q85F_04 {
+mytable
+myquestion 
+462 VALUE
+ myquestion removeGRID
+/long_name (Q85F QUANTITE DE SUCRE RECUE) def 
+}defasvarsilent
+
+/Q85G_04 {
+mytable
+myquestion 
+463 VALUE
+ myquestion removeGRID
+/long_name (Q85G QUANTITE DE CSB RECUE) def 
+}defasvarsilent
+
+/Q85_05 {
+mytable
+myquestion 
+464 VALUE
+ myquestion removeGRID
+/long_name (Q85 CODE PROGRAMME) def 
+/units /ids def
+/CLIST [(BANQUE CEREALIERE)(DISTRIBUTION GRATUITE)(VENTE DE CEREALES A PRIX MODERE)(VIVRE CONTRE TRAVAIL)(ARGENT CONTRE TRAVAIL)(RATION DE PROTECTION/PROTECTION)(DON/ZAKAT)(BANKET FEEDING)(RATION COMPLEMENTAIRE FEMMES ENCEINTES ET ALLAITANTES)(INTRANTS AGRICOLES)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q85A_05 {
+mytable
+myquestion 
+465 VALUE
+ myquestion removeGRID
+/long_name (Q85A AVEZ VOUS BENEFICE OUI OU NON) def 
+/units /ids def
+/CLIST [(OUI)(N0N)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q85B_05 {
+mytable
+myquestion 
+466 VALUE
+ myquestion removeGRID
+/long_name (Q85B MONTANT RECU PAR JOUR) def 
+}defasvarsilent
+
+/Q85C_05 {
+mytable
+myquestion 
+467 VALUE
+ myquestion removeGRID
+/long_name (Q85C QUANTITE DE CEREALE RECUE) def 
+}defasvarsilent
+
+/Q85D_05 {
+mytable
+myquestion 
+468 VALUE
+ myquestion removeGRID
+/long_name (Q85D QUANTITE DE LEGUMINEUSE) def 
+}defasvarsilent
+
+/Q85E_05 {
+mytable
+myquestion 
+469 VALUE
+ myquestion removeGRID
+/long_name (Q85E QUANTITE D'HUILE) def 
+}defasvarsilent
+
+/Q85F_05 {
+mytable
+myquestion 
+470 VALUE
+ myquestion removeGRID
+/long_name (Q85F QUANTITE DE SUCRE RECUE) def 
+}defasvarsilent
+
+/Q85G_05 {
+mytable
+myquestion 
+471 VALUE
+ myquestion removeGRID
+/long_name (Q85G QUANTITE DE CSB RECUE) def 
+}defasvarsilent
+
+/Q85_06 {
+mytable
+myquestion 
+472 VALUE
+ myquestion removeGRID
+/long_name (Q85 CODE PROGRAMME) def 
+/units /ids def
+/CLIST [(BANQUE CEREALIERE)(DISTRIBUTION GRATUITE)(VENTE DE CEREALES A PRIX MODERE)(VIVRE CONTRE TRAVAIL)(ARGENT CONTRE TRAVAIL)(RATION DE PROTECTION/PROTECTION)(DON/ZAKAT)(BANKET FEEDING)(RATION COMPLEMENTAIRE FEMMES ENCEINTES ET ALLAITANTES)(INTRANTS AGRICOLES)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q85A_06 {
+mytable
+myquestion 
+473 VALUE
+ myquestion removeGRID
+/long_name (Q85A AVEZ VOUS BENEFICE OUI OU NON) def 
+/units /ids def
+/CLIST [(OUI)(N0N)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q85B_06 {
+mytable
+myquestion 
+474 VALUE
+ myquestion removeGRID
+/long_name (Q85B MONTANT RECU PAR JOUR) def 
+}defasvarsilent
+
+/Q85C_06 {
+mytable
+myquestion 
+475 VALUE
+ myquestion removeGRID
+/long_name (Q85C QUANTITE DE CEREALE RECUE) def 
+}defasvarsilent
+
+/Q85D_06 {
+mytable
+myquestion 
+476 VALUE
+ myquestion removeGRID
+/long_name (Q85D QUANTITE DE LEGUMINEUSE) def 
+}defasvarsilent
+
+/Q85E_06 {
+mytable
+myquestion 
+477 VALUE
+ myquestion removeGRID
+/long_name (Q85E QUANTITE D'HUILE) def 
+}defasvarsilent
+
+/Q85F_06 {
+mytable
+myquestion 
+478 VALUE
+ myquestion removeGRID
+/long_name (Q85F QUANTITE DE SUCRE RECUE) def 
+}defasvarsilent
+
+/Q85G_06 {
+mytable
+myquestion 
+479 VALUE
+ myquestion removeGRID
+/long_name (Q85G QUANTITE DE CSB RECUE) def 
+}defasvarsilent
+
+/Q85_07 {
+mytable
+myquestion 
+480 VALUE
+ myquestion removeGRID
+/long_name (Q85 CODE PROGRAMME) def 
+/units /ids def
+/CLIST [(BANQUE CEREALIERE)(DISTRIBUTION GRATUITE)(VENTE DE CEREALES A PRIX MODERE)(VIVRE CONTRE TRAVAIL)(ARGENT CONTRE TRAVAIL)(RATION DE PROTECTION/PROTECTION)(DON/ZAKAT)(BANKET FEEDING)(RATION COMPLEMENTAIRE FEMMES ENCEINTES ET ALLAITANTES)(INTRANTS AGRICOLES)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q85A_07 {
+mytable
+myquestion 
+481 VALUE
+ myquestion removeGRID
+/long_name (Q85A AVEZ VOUS BENEFICE OUI OU NON) def 
+/units /ids def
+/CLIST [(OUI)(N0N)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q85B_07 {
+mytable
+myquestion 
+482 VALUE
+ myquestion removeGRID
+/long_name (Q85B MONTANT RECU PAR JOUR) def 
+}defasvarsilent
+
+/Q85C_07 {
+mytable
+myquestion 
+483 VALUE
+ myquestion removeGRID
+/long_name (Q85C QUANTITE DE CEREALE RECUE) def 
+}defasvarsilent
+
+/Q85D_07 {
+mytable
+myquestion 
+484 VALUE
+ myquestion removeGRID
+/long_name (Q85D QUANTITE DE LEGUMINEUSE) def 
+}defasvarsilent
+
+/Q85E_07 {
+mytable
+myquestion 
+485 VALUE
+ myquestion removeGRID
+/long_name (Q85E QUANTITE D'HUILE) def 
+}defasvarsilent
+
+/Q85F_07 {
+mytable
+myquestion 
+486 VALUE
+ myquestion removeGRID
+/long_name (Q85F QUANTITE DE SUCRE RECUE) def 
+}defasvarsilent
+
+/Q85G_07 {
+mytable
+myquestion 
+487 VALUE
+ myquestion removeGRID
+/long_name (Q85G QUANTITE DE CSB RECUE) def 
+}defasvarsilent
+
+/Q85_08 {
+mytable
+myquestion 
+488 VALUE
+ myquestion removeGRID
+/long_name (Q85 CODE PROGRAMME) def 
+/units /ids def
+/CLIST [(BANQUE CEREALIERE)(DISTRIBUTION GRATUITE)(VENTE DE CEREALES A PRIX MODERE)(VIVRE CONTRE TRAVAIL)(ARGENT CONTRE TRAVAIL)(RATION DE PROTECTION/PROTECTION)(DON/ZAKAT)(BANKET FEEDING)(RATION COMPLEMENTAIRE FEMMES ENCEINTES ET ALLAITANTES)(INTRANTS AGRICOLES)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q85A_08 {
+mytable
+myquestion 
+489 VALUE
+ myquestion removeGRID
+/long_name (Q85A AVEZ VOUS BENEFICE OUI OU NON) def 
+/units /ids def
+/CLIST [(OUI)(N0N)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q85B_08 {
+mytable
+myquestion 
+490 VALUE
+ myquestion removeGRID
+/long_name (Q85B MONTANT RECU PAR JOUR) def 
+}defasvarsilent
+
+/Q85C_08 {
+mytable
+myquestion 
+491 VALUE
+ myquestion removeGRID
+/long_name (Q85C QUANTITE DE CEREALE RECUE) def 
+}defasvarsilent
+
+/Q85D_08 {
+mytable
+myquestion 
+492 VALUE
+ myquestion removeGRID
+/long_name (Q85D QUANTITE DE LEGUMINEUSE) def 
+}defasvarsilent
+
+/Q85E_08 {
+mytable
+myquestion 
+493 VALUE
+ myquestion removeGRID
+/long_name (Q85E QUANTITE D'HUILE) def 
+}defasvarsilent
+
+/Q85F_08 {
+mytable
+myquestion 
+494 VALUE
+ myquestion removeGRID
+/long_name (Q85F QUANTITE DE SUCRE RECUE) def 
+}defasvarsilent
+
+/Q85G_08 {
+mytable
+myquestion 
+495 VALUE
+ myquestion removeGRID
+/long_name (Q85G QUANTITE DE CSB RECUE) def 
+}defasvarsilent
+
+/Q85_09 {
+mytable
+myquestion 
+496 VALUE
+ myquestion removeGRID
+/long_name (Q85 CODE PROGRAMME) def 
+/units /ids def
+/CLIST [(BANQUE CEREALIERE)(DISTRIBUTION GRATUITE)(VENTE DE CEREALES A PRIX MODERE)(VIVRE CONTRE TRAVAIL)(ARGENT CONTRE TRAVAIL)(RATION DE PROTECTION/PROTECTION)(DON/ZAKAT)(BANKET FEEDING)(RATION COMPLEMENTAIRE FEMMES ENCEINTES ET ALLAITANTES)(INTRANTS AGRICOLES)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q85A_09 {
+mytable
+myquestion 
+497 VALUE
+ myquestion removeGRID
+/long_name (Q85A AVEZ VOUS BENEFICE OUI OU NON) def 
+/units /ids def
+/CLIST [(OUI)(N0N)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q85B_09 {
+mytable
+myquestion 
+498 VALUE
+ myquestion removeGRID
+/long_name (Q85B MONTANT RECU PAR JOUR) def 
+}defasvarsilent
+
+/Q85C_09 {
+mytable
+myquestion 
+499 VALUE
+ myquestion removeGRID
+/long_name (Q85C QUANTITE DE CEREALE RECUE) def 
+}defasvarsilent
+
+/Q85D_09 {
+mytable
+myquestion 
+500 VALUE
+ myquestion removeGRID
+/long_name (Q85D QUANTITE DE LEGUMINEUSE) def 
+}defasvarsilent
+
+/Q85E_09 {
+mytable
+myquestion 
+501 VALUE
+ myquestion removeGRID
+/long_name (Q85E QUANTITE D'HUILE) def 
+}defasvarsilent
+
+/Q85F_09 {
+mytable
+myquestion 
+502 VALUE
+ myquestion removeGRID
+/long_name (Q85F QUANTITE DE SUCRE RECUE) def 
+}defasvarsilent
+
+/Q85G_09 {
+mytable
+myquestion 
+503 VALUE
+ myquestion removeGRID
+/long_name (Q85G QUANTITE DE CSB RECUE) def 
+}defasvarsilent
+
+/Q85_10 {
+mytable
+myquestion 
+504 VALUE
+ myquestion removeGRID
+/long_name (Q85 CODE PROGRAMME) def 
+/units /ids def
+/CLIST [(BANQUE CEREALIERE)(DISTRIBUTION GRATUITE)(VENTE DE CEREALES A PRIX MODERE)(VIVRE CONTRE TRAVAIL)(ARGENT CONTRE TRAVAIL)(RATION DE PROTECTION/PROTECTION)(DON/ZAKAT)(BANKET FEEDING)(RATION COMPLEMENTAIRE FEMMES ENCEINTES ET ALLAITANTES)(INTRANTS AGRICOLES)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q85A_10 {
+mytable
+myquestion 
+505 VALUE
+ myquestion removeGRID
+/long_name (Q85A AVEZ VOUS BENEFICE OUI OU NON) def 
+/units /ids def
+/CLIST [(OUI)(N0N)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q85B_10 {
+mytable
+myquestion 
+506 VALUE
+ myquestion removeGRID
+/long_name (Q85B MONTANT RECU PAR JOUR) def 
+}defasvarsilent
+
+/Q85C_10 {
+mytable
+myquestion 
+507 VALUE
+ myquestion removeGRID
+/long_name (Q85C QUANTITE DE CEREALE RECUE) def 
+}defasvarsilent
+
+/Q85D_10 {
+mytable
+myquestion 
+508 VALUE
+ myquestion removeGRID
+/long_name (Q85D QUANTITE DE LEGUMINEUSE) def 
+}defasvarsilent
+
+/Q85E_10 {
+mytable
+myquestion 
+509 VALUE
+ myquestion removeGRID
+/long_name (Q85E QUANTITE D'HUILE) def 
+}defasvarsilent
+
+/Q85F_10 {
+mytable
+myquestion 
+510 VALUE
+ myquestion removeGRID
+/long_name (Q85F QUANTITE DE SUCRE RECUE) def 
+}defasvarsilent
+
+/Q85G_10 {
+mytable
+myquestion 
+511 VALUE
+ myquestion removeGRID
+/long_name (Q85G QUANTITE DE CSB RECUE) def 
+}defasvarsilent
+
+/Q85_11 {
+mytable
+myquestion 
+512 VALUE
+ myquestion removeGRID
+/long_name (Q85 CODE PROGRAMME) def 
+/units /ids def
+/CLIST [(BANQUE CEREALIERE)(DISTRIBUTION GRATUITE)(VENTE DE CEREALES A PRIX MODERE)(VIVRE CONTRE TRAVAIL)(ARGENT CONTRE TRAVAIL)(RATION DE PROTECTION/PROTECTION)(DON/ZAKAT)(BANKET FEEDING)(RATION COMPLEMENTAIRE FEMMES ENCEINTES ET ALLAITANTES)(INTRANTS AGRICOLES)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q85A_11 {
+mytable
+myquestion 
+513 VALUE
+ myquestion removeGRID
+/long_name (Q85A AVEZ VOUS BENEFICE OUI OU NON) def 
+/units /ids def
+/CLIST [(OUI)(N0N)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q85B_11 {
+mytable
+myquestion 
+514 VALUE
+ myquestion removeGRID
+/long_name (Q85B MONTANT RECU PAR JOUR) def 
+}defasvarsilent
+
+/Q85C_11 {
+mytable
+myquestion 
+515 VALUE
+ myquestion removeGRID
+/long_name (Q85C QUANTITE DE CEREALE RECUE) def 
+}defasvarsilent
+
+/Q85D_11 {
+mytable
+myquestion 
+516 VALUE
+ myquestion removeGRID
+/long_name (Q85D QUANTITE DE LEGUMINEUSE) def 
+}defasvarsilent
+
+/Q85E_11 {
+mytable
+myquestion 
+517 VALUE
+ myquestion removeGRID
+/long_name (Q85E QUANTITE D'HUILE) def 
+}defasvarsilent
+
+/Q85F_11 {
+mytable
+myquestion 
+518 VALUE
+ myquestion removeGRID
+/long_name (Q85F QUANTITE DE SUCRE RECUE) def 
+}defasvarsilent
+
+/Q85G_11 {
+mytable
+myquestion 
+519 VALUE
+ myquestion removeGRID
+/long_name (Q85G QUANTITE DE CSB RECUE) def 
+}defasvarsilent
+
+/RECU {
+mytable
+myquestion 
+520 VALUE
+ myquestion removeGRID
+/long_name (A recu un transfert au cours des 12 derniers mois) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

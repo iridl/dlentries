@@ -1,0 +1,18 @@
+\begin{ingrid}
+
+continuedataset:
+
+/precip {
+ SOURCES .Ethiopia .NMA .ENACTS_v7 .ALL .Rainfall .dekadal .precip
+monthlyAverage 3. mul
+precip_colors
+DATA 0 300 RANGE
+}defasvar
+
+:dataset
+
+precip .X name exch def
+precip .Y name exch def
+precip .T name exch def
+
+\end{ingrid}

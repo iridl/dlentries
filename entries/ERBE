@@ -1,0 +1,89 @@
+\begin{ingrid}
+dataset:
+/name /ERBE def
+/description (Earth Radiation Budget Experiment)def
+/dataset_documentation.html descriptions /erbe.html get def
+/iridl:hasSemantics [(gcmdi:ERBE) (iridl:ECMWF) (iridl:CCRS) (iridl:NOAA) ] def
+/references (Li_Leighton1993 Li_etal1993a Li_etal1993b) def
+dataset:
+/description (Shortwave radiation budget data 60S-60N derived from 5 Years of ERBE measurements)def
+grid: 
+/name /X  def
+degE 
+ periodic -180 to 177.5 N= 144 pts :grid
+/name (part) def
+grid: 
+/name /Y def
+degN
+-60 to 60 N= 49 pts :grid 
+grid: 
+/name /T def
+/units /monthtime def
+16 Jan 1985 ensotime to 16 Dec 1989 ensotime N= 60 pts
+   :grid 
+/monthly { /monthly (/Data/data3/data/erbe.sarb/erbe.part.cdf) nameCDF
+srb
+/fullname [/ERBE /part /monthly /srb] def
+/long_name (surface radiation budget) def
+CommonUnits exch Wpm2 nip
+name exch def
+} defasvarsilent
+:dataset
+dataset:
+/name (global) def
+/description (Global shortwave radiation budget data derived from 5 Years of ERBE measurements)def
+grid: 
+/name /X  def
+degE 
+ periodic -180 to 177.5 N= 144 pts :grid
+grid: 
+/name /Y def
+degN -90 to 90 N= 73 pts :grid 
+grid: 
+/name /T def
+/units /monthtime def
+16 Feb 1985 ensotime to 16 Dec 1988 ensotime N= 47 pts
+   :grid 
+dataset:
+/name /mean def
+/cld { (/Data/data3/data/erbe.sarb/erbe.glob.cld.mean.cdf) readCDF
+/long_name /all-sky cvntos def
+srb
+/fullname [/ERBE /global /mean /all-sky /srb] def
+/long_name (surface radiation budget) def
+CommonUnits exch Wpm2 nip
+name exch def
+} defasvarsilent
+/clr { (/Data/data3/data/erbe.sarb/erbe.glob.clr.mean.cdf) readCDF
+/long_name /clear-sky cvntos def
+srb
+/fullname [/ERBE /global /mean /clear-sky /srb] def
+/long_name (surface radiation budget) def
+CommonUnits exch Wpm2 nip
+name exch def
+} defasvarsilent
+/forcing { (/Data/data3/data/erbe.sarb/erbe.glob.for.mean.cdf) readCDF
+/long_name (cloud forcing) def
+srb
+/fullname [/ERBE /global /mean (cloud forcing) /srb] def
+/long_name (surface radiation budget) def
+CommonUnits exch Wpm2 nip
+name exch def
+} defasvarsilent
+:dataset
+/monthly { (/Data/data3/data/erbe.sarb/erbe.glob.cdf) readCDF
+/fullname [ /ERBE /global /monthly ] def 
+srb
+/fullname [ /ERBE /global /monthly /srb] def 
+/long_name (surface radiation budget) def
+CommonUnits exch Wpm2 nip
+name exch def
+} defasvarsilent
+:dataset
+:dataset
+\end{ingrid}
+
+
+
+
+

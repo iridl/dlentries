@@ -1,0 +1,442 @@
+edit ** out of title
+edit units out of title
+add long_name from title
+
+units of lev on level
+
+changed title of tas to Surface Air Temperature
+\begin{ingrid}
+continuedataset:
+/description (Canadian Meteorological Centre) def
+/iridl:hasSemantics (iridl:CMC) def
+%/references(McFarlane et al. 2001 The CCCma Third Generation Atmospheric General Circulation Model. in preparation) def
+/references (Cote_etal1998a Cote_etal1998b) def
+grid:
+/name /M def
+/long_name (members) def
+1 1 10
+:grid
+grid:
+/name /S def
+monthtime
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+periodic
+1 Mar 1979 ensotime
+3.
+1 Dec 1979 ensotime
+:grid
+variable:
+/name /season def
+grids: S :grids
+values:
+(mamj)
+(jjas)
+(sond)
+(djfm)
+:values
+:variable
+grid:
+/name /S def
+/long_name (start time) def
+/standard_name (forecast_reference_time) def
+monthtime
+/pointwidth 0 def
+1 Mar 1969 ensotime
+3.
+1 Dec 2000 ensotime
+:grid
+grid:
+/name /L def
+/long_name (lead time) def
+/standard_name (forecast_period) def
+/units (months) def
+0.5 1. 3.5
+:grid
+/T { S L add /long_name (Forecast Time) def /pointwidth 1 def
+/standard_name (time) def
+} defasvar
+\end{ingrid}
+dataset:
+/name (/data/dstore4/iri/modelling/daved/WGSIP.D/SMIP_HFP.D/RPN.D/1969/djfm/01)def
+dataset:
+/name (pr_rpn_1969.djfm.01_mm.nc)def
+\begin{ingrid}
+ /Conventions (CF-1.0) def
+\end{ingrid}
+grid:
+/name (bound)def
+/units (unitless)def
+ 1. 1. 2.
+:grid
+\begin{ingrid}
+grid:
+/name (latitude)def
+/units (degree_north)def
+values: -88.571999 -86.722992 -84.862 -82.999001 -81.134995 -79.270996 -77.405998 -75.541 -73.675995 -71.811005 -69.945999 -68.081001 -66.215996 -64.351006 -62.486004 -60.619999 -58.755001 -56.889999 -55.025002 
+-53.16 -51.294003 -49.429001 -47.564003 -45.698997 -43.832996 -41.968002 -40.102997 -38.237999 -36.371998 -34.507 -32.641998 -30.777 -28.910999 -27.046001 -25.181 -23.316 -21.449999 -19.584999 -17.720001
+ -15.855 -13.988999 -12.124001 -10.259 -8.3940001 -6.5279999 -4.6629996 -2.7979999 -0.933 0.933 2.7979999 4.6629996 6.5279999
+ 8.3940001 10.259 12.124001 13.988999 15.855 17.720001 19.584999 21.449999 23.316 25.181 27.046001 28.910999 30.777 32.641998 34.507 36.371998 38.237999 40.102997 41.968002 43.832996 45.698997 47.564003 49.429001
+ 51.294003 53.16 55.025002 56.889999 58.755001 60.619999 62.486004 64.351006 66.215996 68.081001 69.945999 71.811005 73.675995 75.541 77.405998 79.270996 81.134995 82.999001 84.862 86.722992 88.571999 :values
+:grid
+\end{ingrid}
+ /bounds_latitude{
+[ bound | latitude] filenames readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+grid:
+/name (longitude)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+\end{ingrid}
+ /bounds_longitude{
+[ bound | longitude] filenames readdatafile:
+/name (bounds_longitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+grid:
+/name (time)def
+/units (months since 1969-12-1 0:0)def
+/calendar /proleptic_gregorian def
+ 0.0 1. 3.
+:grid
+ /bounds_time{
+[ bound | time] filenames readdatafile:
+/name (bounds_time) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+ /pr{
+[ longitude latitude | M L S]
+(/data/dstore4/iri/modelling/daved/WGSIP.D/SMIP_HFP.D/RPN.D/%Y[S]/%s[season]/%2.2d[M]/pr_rpn_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (pr) def
+ /title (surface Precipitation rate) def
+/long_name title def
+ /units  (kg/m^2/s) def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (psl_rpn_1969.djfm.01_mm.nc)def
+ /Conventions (CF-1.0) def
+ /bounds_latitude{
+[ bound | latitude] filenames readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_longitude{
+[ bound | longitude] filenames readdatafile:
+/name (bounds_longitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_time{
+[ bound | time] filenames readdatafile:
+/name (bounds_time) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+ /psl{
+[ longitude latitude | M L S]
+(/data/dstore4/iri/modelling/daved/WGSIP.D/SMIP_HFP.D/RPN.D/%Y[S]/%s[season]/%2.2d[M]/psl_rpn_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (psl) def
+ /title (Pressure reduced to MSL) def
+/long_name title def
+ /units  (Pa) def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (ta_rpn_1969.djfm.01_mm.nc)def
+ /Conventions (CF-1.0) def
+ /bounds_latitude{
+[ bound | latitude] filenames readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+grid:
+/name (level)def
+/units (lev)def
+ 850. 150. 700.
+:grid
+ /bounds_level{
+[ bound | level] filenames readdatafile:
+/name (bounds_level) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_longitude{
+[ bound | longitude] filenames readdatafile:
+/name (bounds_longitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_time{
+[ bound | time] filenames readdatafile:
+/name (bounds_time) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+ /ta{
+[ longitude latitude 
+grid:
+/name (level)def
+/units (lev)def
+ 850. 150. 700.
+:grid
+| M L S]
+(/data/dstore4/iri/modelling/daved/WGSIP.D/SMIP_HFP.D/RPN.D/%Y[S]/%s[season]/%2.2d[M]/ta_rpn_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (ta) def
+ /title (Temperature) def
+/long_name title def
+ /units /Kelvin_scale def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (tas_rpn_1969.djfm.01_mm.nc)def
+ /Conventions (CF-1.0) def
+ /bounds_latitude{
+[ bound | latitude] filenames readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_longitude{
+[ bound | longitude] filenames readdatafile:
+/name (bounds_longitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_time{
+[ bound | time] filenames readdatafile:
+/name (bounds_time) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+ /tas{
+[ longitude latitude | M L S]
+(/data/dstore4/iri/modelling/daved/WGSIP.D/SMIP_HFP.D/RPN.D/%Y[S]/%s[season]/%2.2d[M]/tas_rpn_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (tas) def
+ /title (Surface Air Temperature) def
+/long_name title def
+ /units /Kelvin_scale def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (ts_rpn_1969.djfm.01_mm.nc)def
+ /Conventions (CF-1.0) def
+ /bounds_latitude{
+[ bound | latitude] filenames readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_longitude{
+[ bound | longitude] filenames readdatafile:
+/name (bounds_longitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_time{
+[ bound | time] filenames readdatafile:
+/name (bounds_time) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+ /ts{
+[ longitude latitude | M L S]
+(/data/dstore4/iri/modelling/daved/WGSIP.D/SMIP_HFP.D/RPN.D/%Y[S]/%s[season]/%2.2d[M]/ts_rpn_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (ts) def
+ /title (surface Soil temperature) def
+/long_name title def
+ /units /Kelvin_scale def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (ua_rpn_1969.djfm.01_mm.nc)def
+ /Conventions (CF-1.0) def
+ /bounds_latitude{
+[ bound | latitude] filenames readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+grid:
+/name (level)def
+/units (lev)def
+ 850. 650. 200.
+:grid
+ /bounds_level{
+[ bound | level] filenames readdatafile:
+/name (bounds_level) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_longitude{
+[ bound | longitude] filenames readdatafile:
+/name (bounds_longitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_time{
+[ bound | time] filenames readdatafile:
+/name (bounds_time) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+ /ua{
+[ longitude latitude 
+grid:
+/name (level)def
+/units (lev)def
+ 850. 650. 200.
+:grid
+| M L S]
+(/data/dstore4/iri/modelling/daved/WGSIP.D/SMIP_HFP.D/RPN.D/%Y[S]/%s[season]/%2.2d[M]/ua_rpn_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (ua) def
+ /title (u wind) def
+/long_name title def
+ /units  (m/s) def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (va_rpn_1969.djfm.01_mm.nc)def
+ /Conventions (CF-1.0) def
+ /bounds_latitude{
+[ bound | latitude] filenames readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_level{
+[ bound | level] filenames readdatafile:
+/name (bounds_level) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_longitude{
+[ bound | longitude] filenames readdatafile:
+/name (bounds_longitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_time{
+[ bound | time] filenames readdatafile:
+/name (bounds_time) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+ /va{
+[ longitude latitude
+grid:
+/name (level)def
+/units (lev)def
+ 850. 650. 200.
+:grid
+ | M L S]
+(/data/dstore4/iri/modelling/daved/WGSIP.D/SMIP_HFP.D/RPN.D/%Y[S]/%s[season]/%2.2d[M]/va_rpn_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (va) def
+ /title (v wind) def
+/long_name title def
+ /units (m/s) def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (zg_rpn_1969.djfm.01_mm.nc)def
+ /Conventions (CF-1.0) def
+ /bounds_latitude{
+[ bound | latitude] filenames readdatafile:
+/name (bounds_latitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+grid:
+/name (level)def
+/units (lev)def
+ 1000. 500. 500.
+:grid
+ /bounds_level{
+[ bound | level] filenames readdatafile:
+/name (bounds_level) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_longitude{
+[ bound | longitude] filenames readdatafile:
+/name (bounds_longitude) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /bounds_time{
+[ bound | time] filenames readdatafile:
+/name (bounds_time) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+ /zg{
+[ longitude latitude 
+grid:
+/name (level)def
+/units (lev)def
+ 1000. 500. 500.
+:grid
+| M L S]
+(/data/dstore4/iri/modelling/daved/WGSIP.D/SMIP_HFP.D/RPN.D/%Y[S]/%s[season]/%2.2d[M]/zg_rpn_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (zg) def
+ /title (Geopotential height) def
+/long_name title def
+ /units  (gpm) def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+:dataset
+\begin{ingrid}
+:dataset
+T pop
+\end{ingrid}

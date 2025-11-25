@@ -1,0 +1,509 @@
+\begin{ingrid}
+continuedataset:
+/description (Florida State University wind analysis) def
+/iridl:hasSemantics (iridl:FSU) def
+/references (Legler_OBrien1988) def
+grid: 
+/name /X def
+degE 124 to 290 N= 84 pts :grid 
+grid: 
+/name /Y def
+degN -29 to 29 N= 30 pts :grid 
+dataset:
+/name /ANOM def
+/description (Raw wind stress data from FSU converted to anomalies by subtraction of the climatology) def
+grid: 
+/name /X def
+degE 124 to 290 N= 84 pts :grid 
+grid: 
+/name /Y def
+degN -29 to 29 N= 30 pts :grid 
+grid: 
+/name /T def
+monthtime 
+16 Jan 1961 ensotime
+1.
+16 feb 2002 ensotime % enddate
+:grid
+file:
+/name (/Data/data3/data/fsu.anom) def
+sequential
+/scale_factor .02 def
+grids: X Y [ /taux /tauy ] | T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+:file
+:dataset
+dataset:
+/name /FULL def
+/description (Full wind speeds) def
+grid: 
+/name /X def
+degE 124 to 290 N= 84 pts :grid 
+grid: 
+/name /Y def
+degN -29 to 29 N= 30 pts :grid 
+grid: 
+/name /T def
+monthtime 
+16 Jan 1961 ensotime
+1.
+16 feb 2002 ensotime % enddate
+:grid
+\end{ingrid}
+file:
+/name (/Data/data3/data/fsu.full) def
+sequential
+/scale_factor .02 def
+/missing_value 999. def
+grids: X Y [ /taux /tauy ] | T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+:file
+\begin{ingrid}
+file:
+/name (/Data/data3/data/fsu.full) def
+sequential
+/scale_factor 1. def
+/missing_value 999. def
+grids: X Y [ /absuu /absuv ] | T :grids
+variable:
+/name /absuu def
+/long_name (zonal wind pseudo-stress) def
+/units (m2/s2) def
+:variable
+variable:
+/name /absuv def
+/long_name (meridional wind pseudo-stress) def
+/units (m2/s2) def
+:variable
+:file
+/taux 
+{ absuu .02 mul
+ /D getgridbyname removeGRID
+/units (dynes/cm2) def
+/long_name (zonal wind stress) def
+} defasvar
+/tauy
+{ absuv .02 mul
+ /D getgridbyname removeGRID
+/units (dynes/cm2) def
+/long_name (meridional wind stress) def
+} defasvar
+:dataset
+dataset:
+/name /CLIMATOLOGY def
+/description (Climatology used in computing anomalies) def
+grid: 
+/name /X def
+degE 124 to 290 N= 84 pts :grid 
+grid: 
+/name /Y def
+degN -29 to 29 N= 30 pts :grid 
+grid: 
+/name /T def
+month
+periodic
+Jan
+1.
+Dec
+:grid
+file:
+/name (/Data/data3/data/fsu.mean) def
+sequential
+/scale_factor .02 def
+/missing_value 999. def
+grids: X Y T [ /taux /tauy ]  :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+:file
+:dataset
+dataset:
+/name /4yr def
+/description (Monthly wind stress anomaly relative to the four year running mean) def
+grid: 
+/name /X def
+degE 124 to 290 N= 84 pts :grid 
+grid: 
+/name /Y def
+degN -29 to 29 N= 30 pts :grid 
+grid: 
+/name /T def
+monthtime 
+16 Jan 1964 ensotime
+1.
+16 feb 2002 ensotime % enddate
+:grid
+dataset:
+/name /ANOM def
+/description (The monthly wind stress anomaly relative to the four year running mean) def
+grid: 
+/name /X def
+degE 124 to 290 N= 84 pts :grid 
+grid: 
+/name /Y def
+degN -29 to 29 N= 30 pts :grid 
+grid: 
+/name /T def
+monthtime 
+16 Jan 1964 ensotime
+1.
+16 feb 2002 ensotime % enddate
+:grid
+file:
+/name (/Data/data3/data/fsu4yrclim.ano) def
+sequential
+/scale_factor .02 def
+grids: X Y [ /taux /tauy ] | T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+:file
+:dataset
+:dataset
+dataset:
+/name /SMOOTH4yr def
+/description (Spatial and temporal smoothing of FSU monthly wind stress data) def
+grid: 
+/name /X def
+degE 124 to 290 N= 84 pts :grid 
+grid: 
+/name /Y def
+degN -29 to 29 N= 30 pts :grid 
+grid: 
+/name /T def
+monthtime 
+16 Jan 1964 ensotime
+1.
+16 feb 2002 ensotime % enddate
+:grid
+dataset:
+/name /ANOM def
+/description (Spatial and temporal smoothing of FSU 4yr ANOM) def
+grid: 
+/name /X def
+degE 124 to 290 N= 84 pts :grid 
+grid: 
+/name /Y def
+degN -29 to 29 N= 30 pts :grid 
+grid: 
+/name /T def
+monthtime 
+16 Jan 1964 ensotime
+1.
+16 feb 2002 ensotime % enddate
+:grid
+file:
+/name (/Data/data3/data/fsusm4yrclim.a) def
+sequential
+/scale_factor .02 def
+grids: X Y [ /taux /tauy ] | T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+:file
+:dataset
+dataset:
+/name /FULL def
+/description (Anomalies from SMOOTH4yr ANOM plus mean values) def
+grid: 
+/name /X def
+degE 124 to 290 N= 84 pts :grid 
+grid: 
+/name /Y def
+degN -29 to 29 N= 30 pts :grid 
+grid: 
+/name /T def
+monthtime 
+16 Jan 1964 ensotime
+1.
+16 feb 2002 ensotime % enddate
+:grid
+file:
+/name (/Data/data3/data/fsusm.full) def
+sequential
+/scale_factor .02 def
+/missing_value 999. def
+grids: X Y [ /taux /tauy ] | T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+:file
+:dataset
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /DETRENDED def
+/description (Detrended FSU wind stress data) def
+/source (FSU winds detrended according to Neil Ward) def
+grid: 
+/name /X def
+degE 124 to 290 N= 84 pts :grid 
+grid: 
+/name /Y def
+degN -29 to 29 N= 30 pts :grid 
+grid: 
+/name /T def
+monthtime 
+16 Jan 1961 ensotime
+1.
+16 Jun 1995 ensotime % donotupdate
+:grid
+dataset:
+/name /ANOM def
+/description (Detrended FSU wind stress anomalies) def
+grid: 
+/name /X def
+degE 124 to 290 N= 84 pts :grid 
+grid: 
+/name /Y def
+degN -29 to 29 N= 30 pts :grid 
+grid: 
+/name /T def
+monthtime 
+16 Jan 1961 ensotime
+1.
+16 Jun 1995 ensotime % donotupdate
+:grid
+file:
+/name (/Data/data10/alexeyk/FSUntr/fsu.anom) def
+sequential
+/scale_factor .02 def
+/missing_value 999. def
+grids: X Y [ /taux /tauy ] | T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+:file
+:dataset
+dataset:
+/name /FULL def
+/description (Detrended FSU wind stress data) def
+grid: 
+/name /X def
+degE 124 to 290 N= 84 pts :grid 
+grid: 
+/name /Y def
+degN -29 to 29 N= 30 pts :grid 
+grid: 
+/name /T def
+monthtime 
+16 Jan 1961 ensotime
+1.
+16 Jun 1995 ensotime % donotupdate
+:grid
+\end{ingrid}
+file:
+/name (/Data/data10/alexeyk/FSUntr/fsu.full) def
+sequential
+/scale_factor .02 def
+/missing_value 999. def
+grids: X Y [ /taux /tauy ] | T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+:file
+\begin{ingrid}
+file:
+/name (/Data/data10/alexeyk/FSUntr/fsu.full) def
+sequential
+/missing_value 999. def
+grids: X Y [ /absuu /absuv ] | T :grids
+variable:
+/name /absuu def
+/long_name (zonal wind pseudo-stress) def
+/units (m2/s2) def
+:variable
+variable:
+/name /absuv def
+/long_name (meridional wind pseudo-stress) def
+/units (m2/s2) def
+:variable
+:file
+/taux 
+{ absuu .02 mul
+ /D getgridbyname removeGRID
+/units (dynes/cm2) def
+/long_name (zonal wind stress) def
+} defasvar
+/tauy
+{ absuv .02 mul
+ /D getgridbyname removeGRID
+/units (dynes/cm2) def
+/long_name (meridional wind stress) def
+} defasvar
+:dataset
+dataset:
+/name /CLIMATOLOGY def
+/description (Detrended FSU wind stress climatological data) def
+grid: 
+/name /X def
+degE 124 to 290 N= 84 pts :grid 
+grid: 
+/name /Y def
+degN -29 to 29 N= 30 pts :grid 
+grid: 
+/name /T def
+month
+periodic
+Jan
+1.
+Dec
+:grid
+file:
+/name (/Data/data10/alexeyk/FSUntr/fsu.mean) def
+sequential
+/scale_factor .02 def
+/missing_value 999. def
+grids: X Y T [ /taux /tauy ]  :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+:file
+:dataset
+dataset:
+/name /SMOOTH def
+/description (Detrended and smoothed FSU wind stress data) def
+grid: 
+/name /X def
+degE 124 to 290 N= 84 pts :grid 
+grid: 
+/name /Y def
+degN -29 to 29 N= 30 pts :grid 
+grid: 
+/name /T def
+monthtime 
+16 Jan 1964 ensotime
+1.
+16 Jun 1995 ensotime % donotupdate
+:grid
+%dataset:
+%/name /ANOM def
+%file:
+%/name (/Data/data10/alexeyk/FSUntr/fsusm4yrclim.a) def
+%sequential
+%/scale_factor .02 def
+%/missing_value 999. def
+%grids: X Y [ /taux /tauy ] | T :grids
+%variable:
+%/name /taux def
+%/long_name (zonal wind stress) def
+%/units (dynes/cm2) def
+%:variable
+%variable:
+%/name /tauy def
+%/long_name (meridional wind stress) def
+%/units (dynes/cm2) def
+%:variable
+%:file
+%:dataset
+dataset:
+/name /FULL def
+/description (Detrended and smoothed FSU wind stress data) def
+grid: 
+/name /X def
+degE 124 to 290 N= 84 pts :grid 
+grid: 
+/name /Y def
+degN -29 to 29 N= 30 pts :grid 
+grid: 
+/name /T def
+monthtime 
+16 Jan 1964 ensotime
+1.
+16 Jun 1995 ensotime % donotupdate
+:grid
+file:
+/name (/Data/data10/alexeyk/FSUntr/fsusm.full) def
+sequential
+/scale_factor .02 def
+/missing_value 999. def
+grids: X Y [ /taux /tauy ] | T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+:file
+:dataset
+:dataset
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+\end{ingrid}
+
+
+

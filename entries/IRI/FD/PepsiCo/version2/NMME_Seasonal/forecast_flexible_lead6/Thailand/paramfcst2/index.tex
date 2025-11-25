@@ -1,0 +1,156 @@
+\begin{ingrid}
+continuedataset:
+
+/PepsiCo datadownloadsareRestricted
+/Cookie varies_on
+
+/description (ELR forecast coefficients for NMME Thailand long lead 6 seasonal forecasts) def
+datasetdefs:
+        grid:
+        /name /ind def
+        0 1 2
+        :grid
+:datasetdefs
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+85.0 1 115.0
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+2.0 1 28.0
+:grid
+
+grid:
+/name /L def
+/long_name (Lead Time) def
+/units /months def
+1 1 6
+:grid
+
+grid:
+/name /modl def
+/long_name (Models) def
+1 1 8
+:grid
+
+grid:
+/name (S) def
+monthtime
+/fullname (Month Forecast Issued) def
+/defaultvalue { last } def
+/pointwidth 1 def
+16 Oct 2021 ensotime
+1.0
+16 systemtime (%b %Y) 10 strftime interp ensotime
+/netcdfgrid true def
+:grid
+
+
+S { (/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_lead6/forecast_coeff_tref_%b%Y[S]_lead6_5models_THAI.nc) [S] } removeextrausing
+
+/expires
+last_modified systemtime2ymd ymd:nextmonth
+pop 14 ymd2systemtime
+def
+/defaultvalue last def
+name exch def
+/expires S .expires def
+/last_modified S .last_modified def
+
+
+/target_date {S L
+        add 1 add /long_name (forecast time) def /bounds undef /pointwidth 3 def /standard_name (time) def } defasvar
+
+/precip_b0 {
+[ X Y ind modl L | S ]
+(/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_lead6/forecast_coeff_precip_%b%Y[S]_lead6_5models_THAI.nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+ind 0 VALUE
+ind removeGRID
+/missing_value NaN def
+/long_name (Precipitation Forecast b0) def
+}defasvarsilent
+
+/precip_b1 {
+[ X Y ind modl L | S ]
+(/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_lead6/forecast_coeff_precip_%b%Y[S]_lead6_5models_THAI.nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+ind 1 VALUE
+ind removeGRID
+/units (month/mm) def
+/missing_value NaN def
+/long_name (Precipitation Forecast b1) def
+}defasvarsilent
+
+/precip_b2 {
+[ X Y ind modl L | S ]
+(/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_lead6/forecast_coeff_precip_%b%Y[S]_lead6_5models_THAI.nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+ind 2 VALUE
+ind removeGRID
+/units (month/mm) def
+/missing_value NaN def
+/long_name (Precipitation Forecast b2) def
+}defasvarsilent
+
+/tref_b0 {
+[ X Y ind modl L | S (0000 1 Oct 2021) last subgrid ]
+(/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_lead6/forecast_coeff_tref_%b%Y[S]_lead6_5models_THAI.nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+ind 0 VALUE
+ind removeGRID
+S (0000 1 Oct 2021) last RANGE
+/missing_value NaN def
+/long_name (Temperature Forecast b0) def
+}defasvarsilent
+
+/tref_b1 {
+[ X Y ind modl L | S (0000 1 Oct 2021) last subgrid ]
+(/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_lead6/forecast_coeff_tref_%b%Y[S]_lead6_5models_THAI.nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+ind 1 VALUE
+ind removeGRID
+S (0000 1 Oct 2021) last RANGE
+/units /degree_Celsius-1 def
+/missing_value NaN def
+/long_name (Temperature Forecast b1) def
+}defasvarsilent
+
+/tref_b2 {
+[ X Y ind modl L | S (0000 1 Oct 2021) last subgrid ]
+(/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_lead6/forecast_coeff_tref_%b%Y[S]_lead6_5models_THAI.nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+/units /degree_Celsius-1 def
+ind 2 VALUE
+ind removeGRID
+S (0000 1 Oct 2021) last RANGE
+/missing_value NaN def
+/long_name (Temperature Forecast b2) def
+}defasvarsilent
+
+:dataset
+\end{ingrid}

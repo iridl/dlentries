@@ -1,0 +1,17 @@
+\begin{ingrid}
+continuedataset:
+
+/description (African Rainfall Climatology from the Famine Early Warning System) def
+
+/est_prcp {
+ SOURCES .NOAA .NCEP .CPC .FEWS .Africa .DAILY .ARC2 .daily .est_prcp
+  1.0 mul
+  T 0.92 monthlyAverage
+ /long_name (Monthly Average Estimated Precipitation) def
+ /standard_name (lwe_precipitation_rate) def
+ T /defaultvalue {last} def pop
+} defasvarcachesilent
+
+:dataset
+\end{ingrid}
+

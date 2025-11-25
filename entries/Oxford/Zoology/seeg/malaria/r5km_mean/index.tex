@@ -1,0 +1,81 @@
+\begin{ingrid}
+%Data Catalog files always start with this statement stating now we speak Ingrid
+
+%This is also always present. It sort of says that we are appending a new dataset to the whole database.
+continuedataset:
+
+%Some specifc attributes can be given here. Explore data catalog to find out
+/references (<a href="http://www.malariajournal.com/content/13/1/171">Air temperature suitability for Plasmodium falciparum malaria transmission in Africa 2000-2012: a high-resolution spatiotemporal prediction. Daniel J Weiss, Samir Bhatt, Bonnie Mappin, Thomas P Van Boeckel, David L Smith, Simon I Hay and Peter W Gething. Malaria Journal 2014, 13:171 doi:10.1186/1475-2875-13-171</a>) def
+
+%Now we define the grids. This is needed for 2 reasons: they are the independent variables on which the other variables will depend on (e.g. longiture, latitue, time, pressure, member ,depth). We also use them to read the (multiple) data file(s) that archives the data. Most of the time, the data file(s) structure is coherent with the variables structure. When it is not the case, it requires some manipulations.
+
+%Time grid. See /data/remic/DLtraining/TrainingMaterials/DataCatalog/DataCatalog\ index.docx for examples and details
+grid:
+/name /T def
+/units (monthtime) def
+/defaultvalue { last } def
+16 Apr 2000 ensotime
+1
+16 Dec 2012 ensotime
+/pointwidth 1. def
+:grid
+
+%Longitude grid. See same doc as above. name, long_name and units are generic
+grid:
+/name /X def
+/long_name (Longitude) def
+/units (degree_east) def
+%in the case of tif file. X first, step and last is retrieved from tiffinfo/geolist
+-18.0000648 0.04166665 dup 1680.0 mul 2 index add
+:grid
+
+%Latitude grid. See same doc as above. name, long_name and units are generic
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units (degree_north) def
+37.5416277 -0.04166665 dup 1740.0 mul 2 index add
+:grid
+
+%Now we can define variables to read from files, according to grids
+
+% TSI variable (TSI will be the /name of that variable)
+/TSI {
+%Declaration of the grids on which the variable depends on. Right of the pipe are the grids that depend on files. Order of grids left of the pipe depends on data file type and structure. See more in same document as above
+[X Y | T]
+%File path and name patterns. %Y and %m retrieve and print appropriately the strings that compose the filename. Find the possible strings doing a man of strftime
+(/Data/data22/oxford/temperature_files/5km_mean/%Y.%m[T].mean.tif)
+%Grids on which the file name depends
+ [T]
+%Start of the read file(s) command
+readdatafile:
+%the content of this section depends on the file(s) type. See File\ Type\ Read.doc or copy and paster the content of the defasvar until then to see the options. See also DataCatalog\ index.tex
+%tiffimage
+/realarraytype tiffimage
+% the following could be set up out of the :readdatafile
+%/units /unitless def
+/missing_value -9999. def
+/long_name (malaria Temperature Suitability Index) def
+%close of the read file(s) command
+:readdatafile
+%Can set up other attributes there
+startcolormap
+0 1 RANGE
+transparent DarkSlateBlue
+DarkSlateBlue 0. VALUE
+khaki 0.5 VALUE
+DarkGreen 1. VALUE
+DarkGreen
+endcolormap
+%Closing of temp variable. There are 4 possible "defasvar"
+%}defavar
+}defasvarsilent % the option silent is needed when reading data file(s) as opposed to calculation on pre-exisitng variables
+%}defasvarcache % sets up a cache for that data. To be set up only once data reading tested. Needed if performances poor
+%}defavarcachesilent % combination of the 2 options above
+
+
+%Always there: closing the continuedataset:
+:dataset
+
+%End Ingrid speaking statement
+\end{ingrid}

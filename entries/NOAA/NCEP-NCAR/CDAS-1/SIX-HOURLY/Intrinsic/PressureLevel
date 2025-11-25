@@ -1,0 +1,84 @@
+\begin{ingrid}
+/PressureLevel insertdataset:
+/X SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DegreeGrid .X def
+/Y SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DegreeGrid .Y def
+/T dataset .T def
+grid:
+/name /P def
+/long_name (Pressure) def
+/units (levels-hPa) def
+1 1 12
+:grid
+variable:
+/name /dp:dt def
+/long_name (pressure vertical velocity) def
+/units (Pa/s) def
+grids: X Y | P T :grids
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .B def
+NotYetAvailable
+:variable
+grid:
+/name /P def
+/long_name (Pressure) def
+/units (levels-hPa) def
+1 1 8
+:grid
+variable:
+/name /rhum def
+/long_name (relative humidity) def
+/units (percent) def
+grids: X Y | P T :grids
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .B def
+NotYetAvailable
+:variable
+
+grid:
+/name /P def
+/long_name (Pressure) def
+/units (hPa) def
+values:
+1000 925 850 700 600 500 400 300 250 200 150 100 70 50 30 20 10
+:values
+:grid
+variable:
+/name /phi def
+/long_name (geopotential height) def
+/units (gpm) def
+grids: X Y | P T :grids
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .A def
+NotYetAvailable
+:variable
+variable:
+/name /u def
+/long_name (zonal wind) def
+/units (m/s) def
+grids: X Y | P T :grids
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .A def
+NotYetAvailable
+:variable
+variable:
+/name /v def
+/long_name (meridional wind) def
+/units (m/s) def
+grids: X Y | P T :grids
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .A def
+NotYetAvailable
+:variable
+variable:
+/name /temp def
+/long_name (temperature) def
+/units (degreeK) def
+grids: X Y | P T :grids
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .A def
+NotYetAvailable
+:variable
+variable:
+/name /avort def
+/long_name (absolute vorticity) def
+/units (1/s) def
+grids: X Y | P T :grids
+/variable_class SOURCES .NOAA .NCEP-NCAR .classes .A def
+NotYetAvailable
+:variable
+:insertdataset
+\end{ingrid}

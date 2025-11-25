@@ -1,0 +1,80 @@
+\begin{ingrid}
+continuedataset:
+/long_name (RSMAS ccsm3.0 decadal forecast)def
+/HADLEYCMDECADAL dataareRestricted
+grid:
+/name (lon)def
+/units (degree_east)def
+ 0.0 1.40625 358.59375
+:grid
+grid:
+/name (lat)def
+/units (degree_north)def
+values: -88.927734 -87.538704 -86.141472 -84.742386 -83.342598 -81.942467 -80.542145 -79.141708 -77.741196 -76.34063 -74.940025 -73.539391 -72.138733 -70.73806 -69.337372 -67.936676 -66.535965 -65.135254 -63.734531 -62.333801 -60.933071 -59.532337 -58.131599 -56.730858 -55.330112 -53.929367 -52.528618 -51.127865 -49.727116 -48.326363 -46.925606 -45.524849 -44.124092 -42.723335 -41.322575 -39.921818 -38.521057 -37.120293 -35.719532 -34.318771 -32.918007 -31.517244 -30.11648 -28.715715 -27.314951 -25.914186 -24.51342 -23.112656 -21.711889 -20.311123 -18.910357 -17.50959 -16.108824 -14.708057 -13.30729 -11.906524 -10.505756 -9.1049891 -7.7042212 -6.3034539 -4.9026866 -3.501919 -2.1011515 -0.7003838 0.7003838 2.1011515 3.501919 4.9026866 6.3034539 7.7042212 9.1049891 10.505756 11.906524 13.30729 14.708057 16.108824 17.50959 18.910357 20.311123 21.711889 23.112656 24.51342 25.914186 27.314951 28.715715 30.11648 31.517244 32.918007 34.318771 35.719532 37.120293 38.521057 39.921818 41.322575 42.723335 44.124092 45.524849 46.925606 48.326363 49.727116 51.127865 52.528618 53.929367 55.330112 56.730858 58.131599 59.532337 60.933071 62.333801 63.734531 65.135254 66.535965 67.936676 69.337372 70.73806 72.138733 73.539391 74.940025 76.34063 77.741196 79.141708 80.542145 81.942467 83.342598 84.742386 86.141472 87.538704 88.927734 :values
+:grid
+grid:
+/name /S def
+/long_name (Start time) def
+/standard_name (forecast_reference_time) def
+/units (months since 1960-01-01 00:00:00)def
+/pointwidth 0 def 
+values: 
+01 Jan 1980 ensotime 
+01 Jan 1981 ensotime
+01 Jan 1985 ensotime
+01 Jan 1986 ensotime
+01 Jan 1990 ensotime 
+01 Jan 1991 ensotime
+01 Jan 1995 ensotime
+01 Jan 1996 ensotime
+01 Jan 2000 ensotime 
+01 Jan 2005 ensotime
+01 Jan 2006 ensotime
+:values
+:grid
+
+grid:
+/name /L def
+/long_name (Lead time) def
+/units (months) def
+0.5 1 119.5
+:grid
+
+/T { 
+S L add
+/long_name (Forecast time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/pointwidth 1 def
+/calendar /360 def
+ }defasvar
+
+ /TS{
+[ lon lat | L S] (/Data/data22/rsmas/ccsm3.0/decadal/ccsm3_0_DFcst.3ensavg.%Y[S]01.ts.nc)[S]
+readdatafile:
+/name (TS) def
+ /units /Kelvin_scale def
+ /long_name (Surface temperature (radiative)) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/PSL{
+[ lon lat | L S](/Data/data22/rsmas/ccsm3.0/decadal/ccsm3_0_DFcst.3ensavg.%Y[S]01.psl.nc)[S] 
+readdatafile:
+/name (PSL) def
+ /units /Pa def
+ /long_name (Sea level pressure) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/PREC{
+[ lon lat | L S](/Data/data22/rsmas/ccsm3.0/decadal/ccsm3_0_DFcst.3ensavg.%Y[S]01.prec.nc)[S] 
+readdatafile:
+/name (PREC) def
+ /units (m/s)cvn def
+ /long_name (Convective precipitation rate) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+\end{ingrid}

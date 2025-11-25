@@ -1,0 +1,237 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 21668
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 345
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Base_menage_vulnerabilite_2014.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Migration) def
+/Q59A {
+mytable
+myquestion 
+296 VALUE
+ myquestion removeGRID
+/long_name (Q59.a : Y a t-il un membre de ménage vivant en dehors du village: Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q59B1M {
+mytable
+myquestion 
+297 VALUE
+ myquestion removeGRID
+/long_name (Q59.b: Nombre de membres Masculin de Moins de 18 ans) def 
+}defasvarsilent
+
+/Q59B1F {
+mytable
+myquestion 
+298 VALUE
+ myquestion removeGRID
+/long_name (Q59.b: Nombre de membres Féminin de Moins de 18 ans) def 
+}defasvarsilent
+
+/Q59B2M {
+mytable
+myquestion 
+299 VALUE
+ myquestion removeGRID
+/long_name (Q59.b: Nombre de membres Masculin de 18 à 50 ans) def 
+}defasvarsilent
+
+/Q59B2F {
+mytable
+myquestion 
+300 VALUE
+ myquestion removeGRID
+/long_name (Q59.b: Nombre de membres Féminin de18 à 50 ans) def 
+}defasvarsilent
+
+/Q59B3M {
+mytable
+myquestion 
+301 VALUE
+ myquestion removeGRID
+/long_name (Q59.b: Nombre de membres Masculin de plus de 50 ans) def 
+}defasvarsilent
+
+/Q59B3F {
+mytable
+myquestion 
+302 VALUE
+ myquestion removeGRID
+/long_name (Q59.b: Nombre de membres Féminin de plus de 50 ans) def 
+}defasvarsilent
+
+/Q59C1 {
+mytable
+myquestion 
+303 VALUE
+ myquestion removeGRID
+/long_name (Q59.c: Ou vivent t-ils actuellement: Autre village) def 
+}defasvarsilent
+
+/Q59C2 {
+mytable
+myquestion 
+304 VALUE
+ myquestion removeGRID
+/long_name (Q59.c: Ou vivent t-ils actuellement: Ville Niamey) def 
+}defasvarsilent
+
+/Q59C3 {
+mytable
+myquestion 
+305 VALUE
+ myquestion removeGRID
+/long_name (Q59.c: Ou vivent t-ils actuellement: Autre ville du Niger) def 
+}defasvarsilent
+
+/Q59C4 {
+mytable
+myquestion 
+306 VALUE
+ myquestion removeGRID
+/long_name (Q59.c: Ou vivent t-ils actuellement: Autre pays d'Afrique) def 
+}defasvarsilent
+
+/Q59C5 {
+mytable
+myquestion 
+307 VALUE
+ myquestion removeGRID
+/long_name (Q59.c: Ou vivent t-ils actuellement: Hors d'Afrique) def 
+}defasvarsilent
+
+/Q59D1M {
+mytable
+myquestion 
+308 VALUE
+ myquestion removeGRID
+/long_name (Q59.d: Nombre de membres Masculin de Moins de 18 ans qui ont migré pour la reche) def 
+}defasvarsilent
+
+/Q59D1F {
+mytable
+myquestion 
+309 VALUE
+ myquestion removeGRID
+/long_name (Q59.d: Nombre de membres Féminin de Moins de 18 ans qui ont migré pour la recher) def 
+}defasvarsilent
+
+/Q59D2M {
+mytable
+myquestion 
+310 VALUE
+ myquestion removeGRID
+/long_name (Q59.d: Nombre de membres Masculin de 18 à 50 ans qui ont migré pour la recherche) def 
+}defasvarsilent
+
+/Q59D2F {
+mytable
+myquestion 
+311 VALUE
+ myquestion removeGRID
+/long_name (Q59.d: Nombre de membres Féminin de18 à 50 ans qui ont migré pour la recherche d) def 
+}defasvarsilent
+
+/Q59D3M {
+mytable
+myquestion 
+312 VALUE
+ myquestion removeGRID
+/long_name (Q59.d: Nombre de membres Masculin de plus de 50 ans qui ont migré pour la recher) def 
+}defasvarsilent
+
+/Q59D3F {
+mytable
+myquestion 
+313 VALUE
+ myquestion removeGRID
+/long_name (Q59.d: Nombre de membres Féminin de plus de 50 ans qui ont migré pour la recherc) def 
+}defasvarsilent
+
+/Q59E {
+mytable
+myquestion 
+314 VALUE
+ myquestion removeGRID
+/long_name (Q59.e : Parmi ces migrants y a t-il le chef de ménage: Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q59F {
+mytable
+myquestion 
+315 VALUE
+ myquestion removeGRID
+/long_name (Q59.f: Les migrants saisonniers sont absents pendant combien de mois en moyenne) def 
+/units /ids def
+/CLIST [(Moins d'un mois dans l'année)(Entre 1 et 3 mois dans l'année)(Entre 3 et 6 mois dans l'année)(Entre 6 et 9 mois dans l'année)(Plus de 9 mois dans l'année)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q59G {
+mytable
+myquestion 
+316 VALUE
+ myquestion removeGRID
+/long_name (Q59.g: Approximativement quel est le montant des transferts monétaires des migra) def 
+}defasvarsilent
+
+/Q59H {
+mytable
+myquestion 
+317 VALUE
+ myquestion removeGRID
+/long_name (Q59.h: Comment les ressources envoyées  pendant les 12 derniers mois sont elles) def 
+/units /ids def
+/CLIST [(Plus importantes que d'habitude)(Equivalentes)(Moins importantes que d'habitude)(Non applicable)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q59I {
+mytable
+myquestion 
+318 VALUE
+ myquestion removeGRID
+/long_name (Q59.i: Comment les ressources attendues pendant les 12 derniers mois sont elles) def 
+/units /ids def
+/CLIST [(Plus importantes que d'habitude)(Equivalentes)(Moins importantes que d'habitude)(Non applicable)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

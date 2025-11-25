@@ -1,0 +1,180 @@
+
+ Knippertz, Peter, Heini Wernli, 2010: A Lagrangian Climatology of Tropical Moisture Exports to the Northern Hemispheric Extratropics. J. Climate, 23, 987-1003.
+doi: 10.1175/2009JCLI3333.1 
+
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+
+:datasetdefs
+/KnippertzWernli2010 dataareIRIonlyPassword
+%/KnippertzWernli2010 dataareRestricted 
+link:
+/name /dataset_documentation def
+/href (http://journals.ametsoc.org/doi/abs/10.1175/2009JCLI3333.1)def
+:link
+/references (Knippertz_Wernli2010) def
+grid: 
+/name /L def
+/units (hours) def
+/standard_name (forecast_period) def
+0 6 168
+:grid
+grid:
+/name /S def
+/units (days since 1960-01-01) def
+/pointwidth 0 def
+/standard_name (forecast_reference_time) def
+1979 1 1 ymd2rjt
+1960 1 1 ymd2rjt
+sub
+1.
+2013 11 23 ymd2rjt
+1960 1 1 ymd2rjt
+sub
+:grid
+\end{ingrid}
+We use T2 instead of T here, because T becomes problematic when we convert hours to days
+\begin{ingrid}
+/T2 {
+ S L CopyStream
+    (days) unitconvert
+    exch add
+   /pointwidth 0.0 def
+/gridid undef
+/standard_name (time) def
+S (days since 1960-01-01) streamgridunitconvert
+} defasvarsilent
+\end{ingrid}
+Southern Hemisphere Tracks
+\begin{ingrid}
+dataset:
+/name /sh def
+/KnippertzWernli2010 dataareIRIonlyPassword
+/long_name (Southern Hemisphere) def
+{ L S T2}{ dataset 1 index get def } forall
+/track 3387 NewIntegerGRID name exch def
+[ /NVZ 9 NewIntegerGRID L track | S ]
+(/Data/data22/uni-mainz/TMEv2/sh_1979-2013/%Y/lsl_%Y%m%d[S]_00.gz)
+[S] readdatafile:
+[0 1 4]r*4asblank
+/missing_value NaN def
+/asciirecordlength 8649673 def
+      :readdatafile
+definevariables:
+0 Zvariable:
+/name /lon def
+/units /degree_east def
+:Zvariable
+0 Zvariable:
+/name /lat def
+/units /degree_north def
+:Zvariable
+0 Zvariable:
+/name /P def
+/units (hPa) def
+:Zvariable
+0 Zvariable:
+/name /Q def
+/units (g/kg) def
+:Zvariable
+0 Zvariable:
+/name /RH def
+/units (percent) def
+:Zvariable
+0 Zvariable:
+/name /TH def
+/units (Kelvin_scale) def
+:Zvariable
+0 Zvariable:
+/name /PV def
+/long_name (potential vorticity) def
+/units (10^-6 Kelvin_scale m2 / kg / s) def
+:Zvariable
+0 Zvariable:
+/name /U def
+/units (m/s) def
+:Zvariable
+0 Zvariable:
+/name /V def
+/units (m/s) def
+:Zvariable
+:definevariables
+/ntrack
+{lon
+   L first VALUE
+   dataflag
+L removeGRID
+   [track]sum
+/long_name (number of trajectories) def
+} defasvarcache
+:dataset
+\end{ingrid}
+Northern Hemisphere Tracks
+\begin{ingrid}
+dataset:
+/name /nh def
+/KnippertzWernli2010 dataareIRIonlyPassword
+/long_name (Northern Hemisphere) def
+{ L S T2}{ dataset 1 index get def } forall
+/track 3568 NewIntegerGRID name exch def
+[ /NVZ 9 NewIntegerGRID L track | S ]
+(/Data/data22/uni-mainz/TMEv2/nh_1979-2013/%Y/lsl_%Y%m%d[S]_00.gz)
+[S] readdatafile:
+[0 1 4]r*4asblank
+/missing_value NaN def
+/asciirecordlength 14649673 def
+      :readdatafile
+definevariables:
+0 Zvariable:
+/name /lon def
+/units /degree_east def
+:Zvariable
+0 Zvariable:
+/name /lat def
+/units /degree_north def
+:Zvariable
+0 Zvariable:
+/name /P def
+/units (hPa) def
+:Zvariable
+0 Zvariable:
+/name /Q def
+/units (g/kg) def
+:Zvariable
+0 Zvariable:
+/name /RH def
+/units (percent) def
+:Zvariable
+0 Zvariable:
+/name /TH def
+/units (Kelvin_scale) def
+:Zvariable
+0 Zvariable:
+/name /PV def
+/long_name (potential vorticity) def
+/units (10^-6 Kelvin_scale m2 / kg / s) def
+:Zvariable
+0 Zvariable:
+/name /U def
+/units (m/s) def
+:Zvariable
+0 Zvariable:
+/name /V def
+/units (m/s) def
+:Zvariable
+:definevariables
+/ntrack
+{lon
+   L first VALUE
+   dataflag
+L removeGRID
+   [track]sum
+/long_name (number of trajectories) def
+} defasvarcache
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+
+\end{ingrid}

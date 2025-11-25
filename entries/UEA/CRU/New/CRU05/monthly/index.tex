@@ -1,0 +1,111 @@
+\begin{ingrid}
+%/CRU05Access RestrictAccess
+/CRU05Access datadownloadsareIRIonlyPassword
+continuedataset:
+grid:
+/name /X def
+degE
+periodic
+-179.75 .5 179.75
+:grid
+grid:
+/name /Y def
+degN
+-89.75 .5 89.75
+:grid
+grid:
+/name /T def
+/units (monthtime) def
+16 Jan 1901 ensotime
+1
+16 Dec 1995 ensotime
+:grid
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /cld def
+/long_name (cloud cover) def
+/units (percent) def
+file:
+/name (/Data/data7/uea/cru/New/1901-1995/glo.cld.i2) def
+i*2
+:file
+:variable
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /dtr def
+/long_name (diurnal temperature range) def
+/units (degree_Celsius) def
+/scale_factor .1 def
+file:
+/name (/Data/data7/uea/cru/New/1901-1995/glo.dtr.i2) def
+i*2
+:file
+:variable
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /vap def
+/long_name (vapor pressure) def
+/units (hPa) def
+/scale_factor .1 def
+file:
+/name (/Data/data7/uea/cru/New/1901-1995/glo.vap.i2) def
+i*2
+:file
+:variable
+grid:
+/name /T def
+/units (monthtime) def
+16 Jan 1901 ensotime
+1
+16 Dec 1996 ensotime
+:grid
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /wet def
+/long_name (wet day frequency) def
+/units (days/month) def
+/scale_factor .1 def
+file:
+/name (/Data/data7/uea/cru/New/1901-1995/glo.rd0.i2) def
+i*2
+:file
+:variable
+grid:
+/name /T def
+/units (monthtime) def
+16 Jan 1901 ensotime
+1
+16 Dec 1998 ensotime
+:grid
+dataset: 
+/name /mean def
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /temp def
+/long_name (temperature) def
+/units (Celsius_scale) def
+/scale_factor .1 def
+file:
+/name (/Data/data7/uea/cru/New/1901-1995/glo.tmp.i2) def
+i*2
+:file
+:variable
+:dataset
+variable:
+grids: X Y | T :grids
+/missing_value -9999 def
+/name /prcp def
+/long_name (precipitation) def
+/units (mm/month) def
+file:
+/name (/Data/data7/uea/cru/New/1901-1995/glo.pre.i2) def
+i*2
+:file
+:variable
+:dataset
+\end{ingrid}

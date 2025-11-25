@@ -1,0 +1,33 @@
+\begin{ingrid}
+
+continuedataset:
+
+/rfe_merged {
+ SOURCES .TMA .All .dekadly .rainfall .rfe_merged
+yearly-anomalies
+/long_name (rfe 1983-2010 anomalies) def
+precip_colors
+DATA 0 300 RANGE
+}defasvarcache
+
+/tmin {
+ SOURCES .TMA .All .dekadly .temperature .tmin
+yearly-anomalies
+/long_name (tmin 1961-2010 anomalies) def
+temp_colors
+/scale_symmetric false def
+  DATA -1 26 RANGE
+}defasvarcache
+
+/tmax {
+ SOURCES .TMA .All .dekadly .temperature .tmax
+yearly-anomalies
+/long_name (tmax 1961-2010 anomalies) def
+temp_colors
+/scale_symmetric false def
+  DATA 18 33 RANGE
+}defasvarcache
+
+:dataset
+
+\end{ingrid}

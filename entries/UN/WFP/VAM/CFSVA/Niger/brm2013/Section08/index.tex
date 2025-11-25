@@ -1,0 +1,645 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 5648
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 507
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Baseruralmenagenov2013.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Alimentation) def
+/Q86B01 {
+mytable
+myquestion 
+308 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 01 Céréales : Consommé les 24 heur) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C01 {
+mytable
+myquestion 
+309 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 01 Céréales : Pendant combien de j) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D01 {
+mytable
+myquestion 
+310 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 01 Céréales : Quelle était la prin) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats)(Assistance alimentaire)(Nourriture contre travail dans le cadre du projet/ONG)(Dons/Zakat)(Emprunt)(Chasse/cueillette/pêche)(Nourriture contre travail dans le cadre de la maind'oeuvre o)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q86B02 {
+mytable
+myquestion 
+311 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 02 Racines tubercules : Consommé l) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C02 {
+mytable
+myquestion 
+312 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 02 Racines tubercules : Pendant co) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D02 {
+mytable
+myquestion 
+313 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 02 Racines tubercules : Quelle éta) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats effectués au cours des 7 derniers jours)(Achats effectués en dehors des 7 derniers jours)(Dons/Zakat)(Troc)(Aide/Assistance)(Emprunt)(Chasse/cueillette/pêche)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q86B03 {
+mytable
+myquestion 
+314 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 03 Légumineuse/noix : Consommé les) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C03 {
+mytable
+myquestion 
+315 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 03 Légumineuse/noix : Pendant comb) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D03 {
+mytable
+myquestion 
+316 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 03 Légumineuse/noix : Quelle était) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats effectués au cours des 7 derniers jours)(Achats effectués en dehors des 7 derniers jours)(Dons/Zakat)(Troc)(Aide/Assistance)(Emprunt)(Chasse/cueillette/pêche)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q86B04 {
+mytable
+myquestion 
+317 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 04 Légumes decouleur orange: Conso) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C04 {
+mytable
+myquestion 
+318 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 04 Légumes de couleur orange : Pen) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D04 {
+mytable
+myquestion 
+319 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 04 Légumes de couleur orange : Que) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats effectués au cours des 7 derniers jours)(Achats effectués en dehors des 7 derniers jours)(Dons/Zakat)(Troc)(Aide/Assistance)(Emprunt)(Chasse/cueillette/pêche)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q86B05 {
+mytable
+myquestion 
+320 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 05 Légumes à feuilles vertes : Con) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C05 {
+mytable
+myquestion 
+321 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 05 Légumes à feuilles vertes : Pen) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D05 {
+mytable
+myquestion 
+322 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 05 Légumes à feuilles vertes : Que) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats effectués au cours des 7 derniers jours)(Achats effectués en dehors des 7 derniers jours)(Dons/Zakat)(Troc)(Aide/Assistance)(Emprunt)(Chasse/cueillette/pêche)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q86B06 {
+mytable
+myquestion 
+323 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 06 Autres légumes : Consommé les 2) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C06 {
+mytable
+myquestion 
+324 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 06 Autres légumes : Pendant combie) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D06 {
+mytable
+myquestion 
+325 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 06 Autres légumes : Quelle était l) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats effectués au cours des 7 derniers jours)(Achats effectués en dehors des 7 derniers jours)(Dons/Zakat)(Troc)(Aide/Assistance)(Emprunt)(Chasse/cueillette/pêche)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q86B07 {
+mytable
+myquestion 
+326 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 07 Fruit de couleur orange : Conso) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C07 {
+mytable
+myquestion 
+327 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 07 Fruit de couleur orange : Penda) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D07 {
+mytable
+myquestion 
+328 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 07 Fruit de couleur orange : Quell) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats effectués au cours des 7 derniers jours)(Achats effectués en dehors des 7 derniers jours)(Dons/Zakat)(Troc)(Aide/Assistance)(Emprunt)(Chasse/cueillette/pêche)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q86B08 {
+mytable
+myquestion 
+329 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 08 Autres fruits : Consommé les 24) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C08 {
+mytable
+myquestion 
+330 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 08 Autres fruits : Pendant combien) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D08 {
+mytable
+myquestion 
+331 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 08 Autres fruits : Quelle était la) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats effectués au cours des 7 derniers jours)(Achats effectués en dehors des 7 derniers jours)(Dons/Zakat)(Troc)(Aide/Assistance)(Emprunt)(Chasse/cueillette/pêche)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q86B09 {
+mytable
+myquestion 
+332 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 09 Viande : Consommé les 24 heures) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C09 {
+mytable
+myquestion 
+333 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 09 Viande : Pendant combien de jou) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D09 {
+mytable
+myquestion 
+334 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 09 Viande : Quelle était la princi) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats effectués au cours des 7 derniers jours)(Achats effectués en dehors des 7 derniers jours)(Dons/Zakat)(Troc)(Aide/Assistance)(Emprunt)(Chasse/cueillette/pêche)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q86B10 {
+mytable
+myquestion 
+335 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 10 Foie, rognon : Consommé les 24) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C10 {
+mytable
+myquestion 
+336 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 10 Foie/rognon : Pendant combien d) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D10 {
+mytable
+myquestion 
+337 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 10 Foie/rognon : Quelle était la p) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats effectués au cours des 7 derniers jours)(Achats effectués en dehors des 7 derniers jours)(Dons/Zakat)(Troc)(Aide/Assistance)(Emprunt)(Chasse/cueillette/pêche)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q86B11 {
+mytable
+myquestion 
+338 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 11 Poisson : Consommé les 24 heure) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C11 {
+mytable
+myquestion 
+339 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 11 Poisson : Pendant combien de jo) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D11 {
+mytable
+myquestion 
+340 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 11 Poisson : Quelle était la princ) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats effectués au cours des 7 derniers jours)(Achats effectués en dehors des 7 derniers jours)(Dons/Zakat)(Troc)(Aide/Assistance)(Emprunt)(Chasse/cueillette/pêche)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q86B12 {
+mytable
+myquestion 
+341 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 12 Oeufs : Consommé les 24 heures.) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C12 {
+mytable
+myquestion 
+342 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 12 Oeufs :  Pendant combien de jou) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D12 {
+mytable
+myquestion 
+343 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 12 Oeufs : Quelle était la princip) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats effectués au cours des 7 derniers jours)(Achats effectués en dehors des 7 derniers jours)(Dons/Zakat)(Troc)(Aide/Assistance)(Emprunt)(Chasse/cueillette/pêche)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q86B13 {
+mytable
+myquestion 
+344 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 13 Laits et autres produits laitie) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C13 {
+mytable
+myquestion 
+345 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 13 Laits et produits laitiers : Pe) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D13 {
+mytable
+myquestion 
+346 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 13 Laits et produits laitiers : Qu) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats effectués au cours des 7 derniers jours)(Achats effectués en dehors des 7 derniers jours)(Dons/Zakat)(Troc)(Aide/Assistance)(Emprunt)(Chasse/cueillette/pêche)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q86B14 {
+mytable
+myquestion 
+347 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 14 Huiles/gras/beurre : Consommé l) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C14 {
+mytable
+myquestion 
+348 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 14 Huiles/gras/beurre : Pendant co) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D14 {
+mytable
+myquestion 
+349 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 14 Huiles/gras/beurre : Quelle éta) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats effectués au cours des 7 derniers jours)(Achats effectués en dehors des 7 derniers jours)(Dons/Zakat)(Troc)(Aide/Assistance)(Emprunt)(Chasse/cueillette/pêche)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q86B15 {
+mytable
+myquestion 
+350 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 15 Sucre ou produits sucrés : Cons) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C15 {
+mytable
+myquestion 
+351 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 15 Sucre et produits sucrés : Pend) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D15 {
+mytable
+myquestion 
+352 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 15 Sucre ou produits sucrés : Quel) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats effectués au cours des 7 derniers jours)(Achats effectués en dehors des 7 derniers jours)(Dons/Zakat)(Troc)(Aide/Assistance)(Emprunt)(Chasse/cueillette/pêche)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q86B16 {
+mytable
+myquestion 
+353 VALUE
+ myquestion removeGRID
+/long_name (Q86.b : Aliements consommés dans le ménage  : 16 Epices/condiments : Consommé le) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q86C16 {
+mytable
+myquestion 
+354 VALUE
+ myquestion removeGRID
+/long_name (Q86.c : Aliements consommés dans le ménage  : 16 Epices/condiments : Pendant com) def 
+/units /ids def
+/CLIST [(Pas mangé)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q86D16 {
+mytable
+myquestion 
+355 VALUE
+ myquestion removeGRID
+/long_name (Q86.d : Aliements consommés dans le ménage  : 16 Epices/condiments : Quelle étai) def 
+/units /ids def
+/CLIST [(Non applicable)(Propre production pluviale)(Propres productions contre saison)(Propres productions animales)(Achats effectués au cours des 7 derniers jours)(Achats effectués en dehors des 7 derniers jours)(Dons/Zakat)(Troc)(Aide/Assistance)(Emprunt)(Chasse/cueillette/pêche)(Autre à préciser)] def
+/scale_min 0 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q87 {
+mytable
+myquestion 
+356 VALUE
+ myquestion removeGRID
+/long_name (Q87 : Comment trouvez-vous votre consommation alimentaire actuellement......) def 
+/units /ids def
+/CLIST [(N'a pas changé)(S'est détériorée)(S'est améliorée)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q88 {
+mytable
+myquestion 
+357 VALUE
+ myquestion removeGRID
+/long_name (Q88 : Les aliments que vous consommez actuellement......) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q89 {
+mytable
+myquestion 
+358 VALUE
+ myquestion removeGRID
+/long_name (Q89 : Est ce qu'il y a des aliments que vous ne consommez plus......) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

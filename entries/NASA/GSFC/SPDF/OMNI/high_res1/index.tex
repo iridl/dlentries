@@ -1,0 +1,937 @@
+\begin{ingrid}
+
+/description (1-minute high resolution) def
+
+continuedataset:
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+dataset:
+/name /IDsc def
+/description (Spacecraft IDs) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/IDfIMFsc {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var5/omni_var5_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (ID for IMF spacecraft) def
+/units /ids def
+/missing_value 99 def
+/scID (50: IMP8; 51: Wind; 60: Geotail; 71:ACE) def
+DATA 50 71 RANGE
+}defasvarcachesilent
+
+/IDfSWPsc {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var6/omni_var6_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (ID for SW Plasma spacecraft) def
+/units /ids def
+/missing_value 99 def
+/scID (50: IMP8; 51: Wind; 60: Geotail; 71:ACE) def
+DATA 50 71 RANGE
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /avgparam def
+/description (Averaging parameters) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/NumIMFavg {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var7/omni_var7_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Number of points in IMF averages) def
+/missing_value 999 def
+DATA 0 300 RANGE
+/iridl:hasSemantics (iridl:count) def
+}defasvarcachesilent
+
+/NumPavg {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var8/omni_var8_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Number of points in Plasma averages) def
+/missing_value 999 def
+DATA 0 100 RANGE
+/iridl:hasSemantics (iridl:count) def
+}defasvarcachesilent
+
+/PercentInterp {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var9/omni_var9_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Percent Interp) def
+/missing_value 999 def
+/units /percent def
+DATA 0 100 RANGE
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /TimeSh def
+/description (Time Shifting) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/Timeshift {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var10/omni_var10_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Timeshift) def
+/missing_value 999999 def
+/units /s def
+DATA -150000 150000 RANGE
+}defasvarcachesilent
+
+/TimeshiftRMS {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var11/omni_var11_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Timeshift, RMS) def
+/missing_value 999999 def
+/units /s def
+DATA 0 10000 RANGE
+}defasvarcachesilent
+
+/TimeshiftPfn {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var12/omni_var12_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Timeshift, Phase front normal) def
+/missing_value 99.99 def
+DATA 0 1 RANGE
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /DBOT def
+/description (Time between observations) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/DBOT1 {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var13/omni_var13_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Time btwn observations) def
+/missing_value 999999 def
+/units /s def
+DATA -20000 20000 RANGE
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /MagField def
+/description (Field Magnitude) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/FMA {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var14/omni_var14_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Field magnitude average) def
+/units /nT def
+/missing_value 9999.99 def
+DATA 0 100 RANGE
+/iridl:hasSemantics (iridl:FMA) def
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /Bgse def
+/description (B components GSE) def
+/iridl:hasSemantics (iridl:B_component) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+ /Bx {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var15/omni_var15_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Bx GSE, GSM) def
+/units /nT def
+/missing_value 9999.99 def
+DATA -100 100 RANGE
+}defasvarcachesilent
+
+/ByGSE {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var16/omni_var16_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (By GSE) def
+/units /nT def
+/missing_value 9999.99 def
+DATA -100 100 RANGE
+}defasvarcachesilent
+
+/BzGSE {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var17/omni_var17_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Bz GSE) def
+/units /nT def
+/missing_value 9999.99 def
+DATA -100 100 RANGE
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /Bgsm def
+/description (B components GSM) def
+/iridl:hasSemantics (iridl:B_component) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/ByGSM {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var18/omni_var18_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (By GSM) def
+/units /nT def
+/missing_value 9999.99 def
+DATA -100 100 RANGE
+}defasvarcachesilent
+
+/BzGSM {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var19/omni_var19_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Bz GSM) def
+/units /nT def
+/missing_value 9999.99 def
+DATA -100 100 RANGE
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /RMSSD def
+/description (Standard Deviations) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/RMSSDBs {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var20/omni_var20_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (RMS SD B scalar) def
+/units /nT def
+/missing_value 9999.99 def
+DATA 0 50 RANGE
+}defasvarcachesilent
+
+/RMSSDfv {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var21/omni_var21_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (RMS SD field vector) def
+/units /nT def
+/missing_value 9999.99 def
+DATA 0 50 RANGE
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /FlowS def
+/description (Flow speed) def
+/iridl:hasSemantics (iridl:flow_speed) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/FlowSpeed {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var22/omni_var22_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Flow speed) def
+/units (km/s) def
+/missing_value 99999.9 def
+DATA 0 1500 RANGE
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /Velocity def
+/description (Velocity) def
+/iridl:hasSemantics (iridl:Velocity) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/VxV {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var23/omni_var23_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Vx Velocity) def
+/units (km/s) def
+/missing_value 99999.9 def
+DATA -1500 0 RANGE
+}defasvarcachesilent
+
+/VyV {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var24/omni_var24_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Vy Velocity) def
+/units (km/s) def
+/missing_value 99999.9 def
+DATA -1000 1000 RANGE
+}defasvarcachesilent
+
+/VzV {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var25/omni_var25_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Vz Velocity) def
+/units (km/s) def
+/missing_value 99999.9 def
+DATA -1000 1000 RANGE
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /ProTemp def
+/description (Proton Density and Temperature) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/ProDens {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var26/omni_var26_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Proton Density) def
+/units (n/cc) def
+/missing_value 999.99 def
+DATA 0 100 RANGE
+/iridl:hasSemantics (iridl:proton_density) def
+}defasvarcachesilent
+
+/Temperature {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var27/omni_var27_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Temperature) def
+/units /Kelvin_scale def
+/missing_value 9999999. def
+LST_colors
+DATA 0 10000000 RANGE
+/iridl:hasSemantics (iridl:temperature) def
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /dq1 def
+/description (Derived Quantities 1) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/FlowPress {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var28/omni_var28_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Flow pressure) def
+/units /nPa def
+/missing_value 99.99 def
+DATA 0 150 RANGE
+/iridl:hasSemantics (iridl:flow_pressure) def
+}defasvarcachesilent
+
+/ElecF {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var29/omni_var29_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Electric field) def
+/units (mV/m) def
+/missing_value 999.99 def
+DATA -100 100 RANGE
+/iridl:hasSemantics (iridl:electric_field) def
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /dq2 def
+/description (Derived Quantities 2) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/PlasmaB  {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var30/omni_var30_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Plasma beta) def
+/missing_value 999.99 def
+DATA 0 1500 RANGE
+/iridl:hasSemantics (iridl:plasma_beta) def
+}defasvarcachesilent
+
+/AMN {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var31/omni_var31_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Alfven mach number) def
+/missing_value 999.9 def
+DATA 0 1000 RANGE
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /Components def
+/description (Components) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/Xsc {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var32/omni_var32_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (X(s/c), GSE, Re) def
+/missing_value 9999.99 def
+DATA -500 500 RANGE
+}defasvarcachesilent
+
+/Ysc {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var33/omni_var33_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Y(s/c), GSE, Re) def
+/missing_value 9999.99 def
+DATA -500 500 RANGE
+}defasvarcachesilent
+
+/Zsc {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var34/omni_var34_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Z(s/c), GSE, Re) def
+/missing_value 9999.99 def
+DATA -50 50 RANGE
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /BSN def
+/description (Bow Shock Nose) def
+/iridl:hasSemantics (iridl:BSN) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/BSNX {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var35/omni_var35_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Bow Shock Noise location, Xgse, Re) def
+/missing_value 9999.99 def
+DATA -50 50 RANGE
+}defasvarcachesilent
+
+/BSNY {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var36/omni_var36_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Bow Shock Noise location, Ygse, Re) def
+/missing_value 9999.99 def
+DATA -50 50 RANGE
+}defasvarcachesilent
+
+/BSNZ {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var37/omni_var37_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Bow Shock Noise location, Zgse, Re) def
+/missing_value 9999.99 def
+DATA -50 50 RANGE
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /Aindices def
+/description (AE/L/U Indices) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/AEi {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var38/omni_var38_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (AE-index) def
+/units /nT def
+/missing_value 99999 def
+DATA 0 6000 RANGE
+/iridl:hasSemantics (iridl:AEi) def
+}defasvarcachesilent
+
+/ALi {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var39/omni_var39_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (AL-index) def
+/units /nT def
+/missing_value 99999 def
+DATA -6000 6000 RANGE
+/iridl:hasSemantics (iridl:ALi) def
+}defasvarcachesilent
+
+/AUi {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var40/omni_var40_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (AU-index) def
+/units /nT def
+/missing_value 99999 def
+DATA -2500 2500 RANGE
+/iridl:hasSemantics (iridl:AUi) def
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /SYMindices def
+/description (SYM Indices) def
+/iridl:hasSemantics (iridl:SYMi) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/SYMDi {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var41/omni_var41_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (SYM/D index) def
+/units /nT def
+/missing_value 99999 def
+DATA -200 200 RANGE
+}defasvarcachesilent
+
+/SYMHi {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var42/omni_var42_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (SYM/H index) def
+/units /nT def
+/missing_value 99999 def
+DATA -1000 1000 RANGE
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /ASYindices def
+/description (ASY indices) def
+/iridl:hasSemantics (iridl:ASYi) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/ASYDi {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var43/omni_var43_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (ASY/D index) def
+/units /nT def
+/missing_value 99999 def
+DATA 0 1000 RANGE
+}defasvarcachesilent
+
+/ASYHi {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var44/omni_var44_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (ASY/H index) def
+/units /nT def
+/missing_value 99999 def
+DATA 0 1000 RANGE
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /PCi def
+/description (Polar Cap index) def
+/iridl:hasSemantics (iridl:PCi) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/PCNi {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var45/omni_var45_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (PC(N) index) def
+/missing_value 999.99 def
+DATA -100 100 RANGE
+}defasvarcachesilent
+
+:dataset
+
+dataset:
+/name /MMN def
+/description (Magnetosonic mach number) def
+/iridl:hasSemantics (iridl:MMN) def
+
+/T (minutes since 1981-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       1981
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/MMN {
+  [ | T ]
+ (/Data/PRISM/nasa/gsfc/spdf/omni/dailyascii/var46/omni_var46_min%Y%m%d[T].asc)
+ [T dailyedgesgrid first secondtolast subgrid]
+readdatafile:
+10 r*4asascii
+:readdatafile
+/long_name (Magnetosonic mach number) def
+/missing_value 99.9 def
+DATA 0 20 RANGE
+}defasvarcachesilent
+
+:dataset
+
+:dataset
+
+\end{ingrid}

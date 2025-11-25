@@ -1,0 +1,110 @@
+<HEAD>
+<TITLE> Data source and COADS quality control</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html73 HREF=section3_4.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html71 HREF=vol1.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html65 HREF=section3_2.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html74 HREF=section3_4.html> Known biases in </A>
+<B>Up:</B> <A NAME=tex2html72 HREF=vol1.html> Atlas of Surface </A>
+<B> Previous:</B> <A NAME=tex2html66 HREF=section3_2.html> Overview of data </A>
+<HR> <P>
+<H1><A NAME=SECTION0003000000000000000> Data source and COADS quality control</A></H1>
+<P>
+<A NAME=secdata><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A>
+<P>
+The primary data source for this study is Release 1 of
+COADS which covers the
+period 1854-1979. For the 1980's we rely on an interim data
+product that preceded COADS Release 1A (recently made available).
+Release 1A adds more observations to the interim data base
+and extends it to 1993. This improved data base, which was not
+available in time for our calculations, will be used in future versions
+of our analyses.
+<P>
+As described below, our detailed calculations require the
+consideration of individual ship reports.  Product 10 of COADS,
+the <em>Compressed Marine Reports</em> (CMR-5), contains individual
+reports of surface marine and atmospheric observations from merchant
+vessels, research vessels, buoys, and bathythermographs (Woodruff
+<em>et al.</em>  1987). The reports in CMR-5 include the following directly reported
+quantities:
+<UL><LI> zonal and meridional wind components
+        <LI> air temperature
+        <LI> sea surface temperature
+        <LI> sea level pressure
+        <LI> dew point depression 
+        <LI> cloudiness
+        <LI> present weather
+</UL>
+along with quality control indicators which are briefly described
+next.  The interested reader should consult the original COADS
+documentation (Slutz <em>et al.</em>  1985) for a detailed description of the
+quality control procedure. Note that wind, dew point depression and
+sea level pressure are not directly observed but rather calculated by
+ship personnel.  When measured, the reported wind speed and
+direction are computed from the anemometer reading taking in
+consideration the ship velocity, a procedure that often introduces
+errors. Dew point depression is computed from the measured dry and wet
+bulb temperatures. Sea level pressure is computed from the measured
+pressure with a height correction to reduce it to sea level.  WMO
+Publication No. 47 (e.g., WMO 1990), available yearly since 
+1955 (in digital form since
+1973), lists all the Ships of the Voluntary Observing Fleet along with
+the ship instrumentation and routes. Kent and Taylor (1991) describes
+in some detail observing practice by VOS and the instruments they used
+during the VSOP-NA project (May/88 to September/90).
+<P>
+Quality control in COADS is implemented by means of a multiple step
+statistical procedure to identify ``outliers.'' The first step is to
+generate <em>Decadal Summary Untrimmed Limits</em> for six variables: sea
+surface temperature, air temperature, air pressure, zonal wind,
+meridional wind, and humidity.  Sextiles are calculated for each
+variable in every 2°  box for each decade and month.  Next, the
+first, third (the median), and fifth sextiles are averaged across
+latitude, longitude, month, and decade.  Averaging is done for three
+non-overlapping periods (1854-1909, 1910-1949, 1950-79) in an attempt
+to separate possible climatic epochs or observational discontinuities.
+Further smoothing is done for the resulting 216 sets of sextile
+triplets (6 variables <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2865.xbm">  3 periods <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2865.xbm">  12 months).  The result is
+three sets of smoothed lower and upper limits (<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2869.xbm">)
+around the smoothed mean (<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2871.xbm">) for each variable, month, and 2°  
+box.  These means and limits are used to create trimming bounds for
+the variables.  A detailed description of the statistical process can
+be found in Slutz <em>et al.</em>  (1985), section C.  Trimming flags for sea
+surface temperature, air temperature, humidity, wind and sea level
+pressure are included in CMR-5 for each observation.  Note that
+trimming does not take into account different methods of observation
+within the same period, nor were bias corrections applied when the limits
+were generated.
+<P>
+We have used the COADS/CMR-5 flags to perform quality control on the
+data used as input to our 1-degree statistics and analysis.
+Table <A HREF=section3_3.html#tabqc>4</A> summarizes the possible values of the quality control
+flags in COADS/CMR-5.  In general, an observation is rejected if it
+differs from the smoothed median by more than 3.5 ``standard
+deviations'' (flag value equal to 2) or the smoothed limits are not
+available (flag value equal to -999).  However, over the regions
+climatologically covered by sea ice, this trimming procedure still
+yields very noisy fields.  This is due to the irregular coverage of
+observations in ice-covered regions in both area and time.  In an
+effort to generate
+smoother fields in regions where sea ice is common, a more stringent
+trimming criterion is used.  If an
+observation occurs in a climatologically ice-covered
+region, the observation is trimmed if it differs from the smoothed
+median by more than 2.8 ``standard
+deviations'' (flag value equal to 1 or 2).
+<P>
+<P><A NAME=tabqc><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_table176.gif"><P>
+<P>
+<HR> <A NAME=tex2html73 HREF=section3_4.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html71 HREF=vol1.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html65 HREF=section3_2.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html74 HREF=section3_4.html> Known biases in </A>
+<B>Up:</B> <A NAME=tex2html72 HREF=vol1.html> Atlas of Surface </A>
+<B> Previous:</B> <A NAME=tex2html66 HREF=section3_2.html> Overview of data </A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>
+Fri Oct 20 12:28:33 EDT 1995</I>
+</ADDRESS>

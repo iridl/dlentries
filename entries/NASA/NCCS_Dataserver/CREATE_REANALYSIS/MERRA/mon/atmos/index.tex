@@ -1,0 +1,396 @@
+\begin{ingrid}
+datasetdefs:
+  /catalog
+    (https://dpesgf03.nccs.nasa.gov/thredds/catalog/bypass/CREATE-IP/reanalysis/MERRA/mon/atmos/catalog.xml)
+    readthredds
+  def
+:datasetdefs
+
+continuedataset:
+link:
+/name /homepage def
+/href (https://cds-cv.nccs.nasa.gov/CREATE-V/) def
+/description (CREATE Reanalysis Server Home Page) def
+:link
+
+/zg{
+catalog .zg.ncml .zg
+/long_name (Geopotential Height) def
+/units (m) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/wap{
+catalog .wap.ncml .wap
+/long_name (Omega (=dp/dt)) def
+/units (Pa s-1) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/vas{
+catalog .vas.ncml .vas
+/long_name (Northward Near-Surface Wind) def
+/units (m s-1) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/va{
+catalog .va.ncml .va
+/long_name (Northward Wind) def
+/units (m s-1) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/uas{
+catalog .uas.ncml .uas
+/long_name (Eastward Near-Surface Wind) def
+/units (m s-1) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/ua{
+catalog .ua.ncml .ua
+/long_name (Eastward Wind) def
+/units (m s-1) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/ts{
+catalog .ts.ncml .ts
+/long_name (Surface Temperature) def
+/units (K) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/tro3{
+catalog .tro3.ncml .tro3
+/long_name (Mole Fraction of O3) def
+/units (ppmv) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/tauv{
+catalog .tauv.ncml .tauv
+/long_name (Surface Downward Northward Wind Stress) def
+/units (Pa) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/tauu{
+catalog .tauu.ncml .tauu
+/long_name (Surface Downward Eastward Wind Stress) def
+/units (Pa) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/tas{
+catalog .tas.ncml .tas
+/long_name (Near-Surface Air Temperature) def
+/units (K) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/ta{
+catalog .ta.ncml .ta
+/long_name (Air Temperature) def
+/units (K) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/rsutcs{
+catalog .rsutcs.ncml .rsutcs
+/long_name (TOA Outgoing Clear-Sky Shortwave Radiation) def
+/units (W m-2) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/rsut{
+catalog .rsut.ncml .rsut
+/long_name (TOA Outgoing  Shortwave Radiation) def
+/units (W m-2) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/rsdt{
+catalog .rsdt.ncml .rsdt
+/long_name (TOA Incident Shortwave Radiation) def
+/units (W m-2) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/rsdscs{
+catalog .rsdscs.ncml .rsdscs
+/long_name ( Surface Downwelling Clear-Sky Shortwave Radiation ) def
+/units (W m-2) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/rsds{
+catalog .rsds.ncml .rsds
+/long_name (Surface Downwelling Shortwave Radiation) def
+/units (W m-2) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/rlutcs{
+catalog .rlutcs.ncml .rlutcs
+/long_name (TOA Outgoing Clear-Sky Longwave Radiation) def
+/units (W m-2) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/rlut{
+catalog .rlut.ncml .rlut
+/long_name (TOA Outgoing Longwave Radiation) def
+/units (W m-2) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/rlus{
+catalog .rlus.ncml .rlus
+/long_name (Surface Upwelling Longwave Radiation) def
+/units (W m-2) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/rldscs{
+catalog .rldscs.ncml .rldscs
+/long_name (Surface Downwelling Clear-Sky Longwave Radiation) def
+/units (W m-2) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/rlds{
+catalog .rlds.ncml .rlds
+/long_name (Surface Downwelling Longwave Radiation) def
+/units (W m-2) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/psl{
+catalog .psl.ncml .psl
+/long_name (Sea Level Pressure) def
+/units (Pa) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/prsn{
+catalog .prsn.ncml .prsn
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/prc{
+catalog .prc.ncml .prc
+/long_name (Convective Precipitation) def
+/units (kg m-2 s-1) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/pr{
+catalog .pr.ncml .pr
+/long_name (Precipitation) def
+/units (kg m-2 s-1) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/hus{
+catalog .hus.ncml .hus
+/long_name (Specific Humidity) def
+/units (kg kg-1) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/hfss{
+catalog .hfss.ncml .hfss
+/long_name (Surface Upward Sensible Heat Flux) def
+/units (W m-2) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/hfls{
+catalog .hfls.ncml .hfls
+/long_name (Surface Upward Latent Heat Flux) def
+/units (W m-2) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/evspsbl{
+catalog .evspsbl.ncml .evspsbl
+/long_name (Evaporation) def
+/units (kg m-2 s-1) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/clt{
+catalog .clt.ncml .clt
+/long_name (Total Cloud Fraction) def
+/units (%) def
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/cl{
+catalog .cl.ncml .cl
+time (months since 1979-01-01 00:00:00) streamgridunitconvert
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+:dataset
+\end{ingrid}

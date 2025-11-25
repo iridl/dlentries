@@ -1,0 +1,103 @@
+\begin{ingrid}
+
+%For detailed commentaries see the temperature index.tex file. Here I will document only the specificities of that dataset
+
+%/CarterCenter dataareRestricted
+
+continuedataset:
+
+%This starts the definition of specific colorscales for this dataset
+%Go to the IRI Data Library tutorials to find out how to make colorscales
+
+Ingrid:
+
+/rfediff_colors { %starts teh definition of a colorscale names  rfediff_colors.
+startcolormap -150 150 RANGE
+DimGray sienna
+sienna -150 VALUE
+sienna sienna -100 bandmax
+peru peru -50 bandmax
+burlywood burlywood -25 bandmax
+wheat wheat -5 bandmax
+LightYellow LightYellow 5 bandmax
+LightCyan LightCyan 25 bandmax
+PaleTurquoise PaleTurquoise 50 bandmax
+MediumAquamarine MediumAquamarine 100 bandmax
+CadetBlue CadetBlue 150 bandmax
+CadetBlue
+endcolormap
+}defcolorscale %ends the definition of colorscales
+
+%the same for another colorscale
+
+/rfepercent_colors {
+startcolormap
+0 300 RANGE
+DimGray white SaddleBrown
+0 VALUE
+SaddleBrown SaddleBrown
+25 bandmax
+peru peru
+50 bandmax
+burlywood burlywood
+75 bandmax
+wheat wheat
+100 bandmax
+LightCyan LightCyan
+120 bandmax
+aquamarine aquamarine 140
+bandmax
+MediumAquamarine MediumAquamarine 160
+bandmax
+MediumSeaGreen MediumSeaGreen 180
+bandmax
+SeaGreen SeaGreen 200
+bandmax
+DarkSeaGreen DarkSeaGreen 300
+bandmax
+DarkSeaGreen endcolormap
+}defcolorscale
+
+pop %ends the definition of colorscales
+
+%datasetdefs:
+/T
+1 Jan 1983 julian_day
+31 Dec 2014 julian_day
+dekadGRID
+/defaultvalue { last } def
+def
+%:datasetdefs
+
+grid:
+/name /X def
+/units /degree_east def
+ -12.375 0.0375 4.3875
+/long_name (Longitude) def
+:grid
+
+
+grid:
+/name /Y def
+/units /degree_north def
+ 10.0125 0.0375 25.2
+/long_name (Latitude) def
+:grid
+
+ /rfe_merged{
+[ X Y | T] (/data/remic/mydatafiles/MaliMet/ENACTS/Merged_CLM/rr_mrg_%Y%m[T]%-d[dekad]_CLM.nc)
+[T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+readdatafile:
+/name (precip) def
+/long_name (Merged Station-Satellite Rainfall) def
+/units /mm def
+/missing_value -99 def
+/shortarraytype netcdfrecords 
+:readdatafile
+cmorph_dekad_colors %applies a colorscale named cmorph_dekad_colors to the variable
+}defasvarsilent
+
+%This section defines variables that are computed from the variables that were read from datafiles. They don't read any actual datafiles, theyr are pure Ingrid code.
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,342 @@
+<INGRID>
+null 17 object 
+/thecurrentdataset 2 index def
+/datasetcontrols
+{
+(<a href="searches.html?)print
+2 index plotfirst (searchpar.lon.low=) print ==ns
+ .plotlast (&searchpar.lon.high=) print ==ns
+1 index plotfirst (&searchpar.lat.low=) print ==ns
+ .plotlast (&searchpar.lat.high=) print ==ns
+(">Searches</a><hr><b>Dots</b><br>) print
+/labeltype dup FORMknown
+{ WWWinfo .FORMinfo .labeltype cvn } 
+{null} ifelse
+startselect
+/Label option
+/Color option
+/Size option
+endselect
+(<br><i>using</i><br>) print
+/ptlbls  dup FORMknown 
+{ WWWinfo .FORMinfo .ptlbls cvn 
+dup (no labels) cvn eq {pop null} if}
+{null} ifelse
+ startselect
+(no labels) option
+WWWinfo .tablegrid .name option
+/theoption WWWinfo !
+thecurrentdataset
+dup makesortednamelist
+{ 2 copy get variable1Dmenucase 1 index totype get exec dropitem }
+forall pop
+WWWinfo .theoption
+endselect
+} def
+/gridcase CaseList 1 object
+/gridtype {printheader additemgridtable} def
+def
+/datasetcase CaseList 5 object
+/datasettype {printheader addlinkeditemdatasettable} def
+/streamtype {printheader addlinkeditemstreamtable} def
+%/streamtype {printheader addlinkeditemdatasettable} def
+/arraytype 
+{dup xcheck
+    { 
+3 -1 roll exch exec exch 3 1 roll
+ datasetcase caseexec
+%printheader 1 index 
+%	( ) addlinkeditem dropitem
+    } if
+} def
+def
+/ifastreamcase
+CaseList 5 object
+/streamtype {3 -1 roll 1 add 3 1 roll} def
+def
+/ifthereisastream
+{
+0
+sortednames
+{ 2 index 1 index get ifastreamcase caseexec dropitem }
+forall
+0 gt
+} def
+/otherinfocase CaseList 11 object
+/stringtype {additem2} def
+/integertype {additem2} def
+/realtype {additem2} def
+/arraytype{dup xcheck not {additem2} if } def
+/nulltype {additem2} def
+/marktype {additem2} def
+/integerarraytype {additem2} def
+/realarraytype {additem2} def
+/doublearraytype {additem2} def
+/shortarraytype {additem2} def
+def
+/documentcase CaseList 2 object
+/htmlfiletype {printheader 1 index 
+	( ) addlinkeditemfile dropitem} def
+def
+1 index length 300 gt
+{ 0 namearray }
+{
+mark 2 index DATASETbot ==noprintdataset { pop} forsome 
+counttomark namearray astore nip
+namesort } ifelse
+/sortednames exch def
+/additem2
+{ printheader additem } def
+/holdmystuff HTMLwords !
+% scans through subdatasets in case one is password-protected
+% if it is, exec'ing it now will pass the password screen through and the user
+% will be able to give the password.
+%unfortunately, not what I want to have happen, because it makes the password creep up a level.  
+%holdmystuff 
+%exch
+%sortednames
+%{2 copy get dup totype /arraytype eq
+%{dup xcheck
+%{exec}if
+%}if
+%pop pop
+%} forall
+%nip
+mimeheader
+</INGRID>
+<html>
+<head>
+<title>dataset:  <INGRID>longname print</INGRID> </title>
+<INGRID>
+WWWinfo .url-q dup length 1 sub get 47 ne
+{
+WWWinfo .url-q dup length 5 gt { dup length 5 sub 5 getinterval
+(.html) ne } {pop true } ifelse
+{
+ (<base  href=")print URLrootprint
+WWWinfo .url-q print
+(/">\n)print
+} if
+} if
+</INGRID>
+<INGRID>
+/V FORMknown
+{
+WWWinfo .FORMinfo .VGRID cvn cvx exec
+WWWinfo .FORMinfo .V
+{pop cvntos interp 
+valuetoindex  } forall
+counttoobject integerarray astore 
+integersort
+{gridvalues exch get } forall
+VALUES
+ (<base  href=")print URLrootprint
+[WWWinfo .currenturldir (/)
+WWWinfo .FORMinfo .VGRID
+(+)
+WWWinfo .FORMinfo .VGRID cvn cvx exec .gridvalues
+{cvntos s== (+) } forall
+(VALUES) ] concat print
+(/">\n)print
+}if
+countstack 3 gt expert? or
+{(<meta name="ROBOTS" CONTENT="NOINDEX,NOFOLLOW">\n)print} if
+(<meta name="description" content=")print
+printdescriptionno'
+(.  ) print
+resline0
+(">\n)print
+</INGRID>
+</head>
+<INGRID>standardHeader
+expert? not {hide==links
+} if 
+countstack 3 gt expert? or {activelist} if</INGRID>
+<table bgcolor="#CCCCCC" border=0 cellspacing=0><tr><td><table border=2 bgcolor=#FEFEFE>
+<INGRID>
+expert?
+{commandformtablerecord}
+{(<tr><td><b>)print 
+longname htmlformulaprint
+(</b> options<br></td>\n<td><a href="help.html" OnMouseOver="self.status='Help: a verbose version of this page';return true">Help</a></td>\n<td><a href="/expert) print
+WWWinfo .url urlprint
+(" OnMouseOver="self.status='Expert Mode: even more options';return true">Expert Mode</a></td>)print
+name /SOURCES ne {(<td><br></td>)print} if
+(</tr>\n) print}
+ ifelse
+</INGRID>
+<INGRID>
+holdmystuff exch
+%ifthereisastream
+sortednames length 0 gt name /SOURCES ne and
+{
+    (<tr><td align=right>)print
+    0
+    sortednames
+    { currentobject exch get totype /gridtype eq {1 add } if}
+    forall
+    2 ge {
+	(<a href="figviewer.html?plottype=colors)print
+expert?{(&my.help=more+options) print} if
+(" OnMouseOver="self.status='Interactive Data Viewer:  color plot';return true"><img src="/icons/pcolor.gif" width=100 height=25 border=1  ALT="display data as colors"></a>\n) print
+	(<a href="figviewer.html?plottype=contours)print
+expert?{(&my.help=more+options) print} if
+(" OnMouseOver="self.status='Interactive Data Viewer:  contour plot';return true"><img src="/icons/pcontour.gif" width=100 height=25 border=1 ALT="display data as contours"></a>\n)print
+    } if
+    false
+    sortednames
+    { currentobject exch get dup totype /gridtype eq {
+	.gridtype 2 ne or}{pop  } ifelse}
+    forall
+    {
+	(<a href="figviewer.html?plottype=line)print
+expert?{(&my.help=more+options) print} if
+(" OnMouseOver="self.status='Interactive Data Viewer:  line plot';return true"><img src="/icons/line.gif" width=100 height=25 border=1  ALT="display data as line"></a>)print
+    } 
+    {(<br>)print}
+    ifelse
+    currentobject /lon known
+    currentobject /lat known and
+    {
+	(<a href="figviewer.html?plottype=scattercolor+coasts)print
+expert?{(&my.help=more+options) print} if
+(" OnMouseOver="self.status='Interactive Data Viewer:  scattercolor plot';return true"><img src="/icons/scattercolorcoasts.gif" width=100 height=25 border=1  ALT="display data lon/lat"></a>)print
+    } if
+    %(<br><font size=-1><i>old</i> </font><a href="html+viewer?" OnMouseOver="self.status='Interactive Data Viewer';return true">Viewer</a>\n)
+    %print
+    (</td>\n) print
+    (<td><A NAME=1 HREF="?help+datasetdataselection")print
+    ( OnMouseOver="self.status='Pick out a subset of the data (but try the views first)';return true">Data Selection</A> </td>)print
+    (<td><a href=")print
+%RESTRICTIONS?{
+%RESTRICTIONSprint?{
+%WWWinfo .url urlprint
+%}if
+%} if
+(?help+datasetdatafiles" OnMouseOver="self.status='get data as a file in a variety of formats';return true">Data Downloads &amp; Files</a> </td>)print
+(<td><a href=")print
+RESTRICTIONS?{
+RESTRICTIONSprint?{
+WWWinfo .url urlprint
+}if
+} if
+(?help+datasettables" OnMouseOver="self.status='get data as a table in a variety of formats';return true">Data Tables</A></td>)print
+} if
+expert? name /SOURCES ne and {(<td><br></td>) print} if
+</INGRID>
+</tr></table></td></tr></table>
+<table align=right><tr><td><font size=-1>served from <INGRID>
+getserved_from
+(<a href="http://) print
+dup print
+(/">)print
+LibraryServers 1 index getknown
+{print}
+{dup print} ifelse
+(</a>)print
+pop
+</INGRID></font></td></tr></table>
+<p><table bgcolor="#CCCCCC" border=0><tr><td><INGRID>dup allparentlinks</INGRID></td></tr></table>
+<h1><INGRID>fullname 
+dup name eq { deletesuffix} if
+1 index /long_name known
+{
+mark exch 
+dup type /arraytype eq {aload pop} if
+ pop long_name ] 
+} if
+dolongname htmlformulaprint</INGRID></h1>
+<INGRID>
+ printdescription (.)print
+hide==links
+datasetlocmap
+</INGRID>
+<INGRID>
+(<h3>Documents</h3><dl compact>) setheader
+            sortednames
+            { 2 copy get documentcase caseexec dropitem}
+            forall
+currentobject /GCMD_id getknown {
+printheader
+(<dt><a href=") print
+(http://gcmd.nasa.gov/cgi-bin/md/getdif.pl?format=sgml&morph_dic=dif_to_dif-display-html.dic&entry_ids=) print
+print
+(&form=gcmdwww&interface=parameters) print
+(" OnMouseOver="self.status='dataset documentation';return true">)print
+(Global Change Master Directory (GCMD) entry) print
+(</a>\n)print
+}if
+printheader? not {(</dl>\n)print} if
+</INGRID>
+<h2 align=center>Available Forecasts (by starting month)</h2>
+<center>
+<table border=1>
+<tr><td></td><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th>
+</tr>
+<INGRID>
+2001 1 2002 
+{
+(<tr align=center><th>) print
+dup ==ns (</th>) print
+s==
+[ (jan) (feb) (mar)(apr)(may)(jun)(jul)(aug)(sep)(oct)(nov)(dec) ]
+{
+(<td>)print
+1 index append
+currentobject 1 index known
+{(<a href=".)print print ("/><img src=/icons/1push.gif height=21 width=21 border=0></a>)print}
+{pop}ifelse
+(</td>)print
+} forall
+pop
+(</tr>\n)print
+} for
+</INGRID>
+</table>
+</center>
+(click on <img src=/icons/1push.gif height=21 width=21 border=0> for forecast dataset)
+<INGRID>
+(<h3>Grids</h3><table border=0>) setheader
+            sortednames
+            { 2 copy get gridcase caseexec dropitem}
+            forall
+printheader? not {(</table>\n)print} if
+(<h3> Other Info</h3><dl compact>) setheader
+            sortednames
+            {
+2 copy get otherinfocase caseexec dropitem}
+            forall
+currentobject /units known
+{ units dup canonicalunitname
+2 copy eq { pop pop }
+{ nip cvntos (<dt><em>standard units</em><dd>)print print} ifelse
+} if
+            history null ne {(<DT><em>history</em> <DD>) print
+            sealhistory history
+              leftlineshtml} if
+printheader? not {(</dl>\n)print} if
+dup
+getdatasetwithreferences dup null ne
+{(<h3>References</h3>\n)print
+references bibfind
+} if
+pop
+nip
+last_modified dup null eq { pop } { (<p>Last updated:  <i>)print timetostring print(</i>)print} ifelse
+</INGRID>
+<hr>
+<INGRID>
+expert?
+{ (<h2> Other options </h2>\n) print
+(<BR> More data from the <A NAME=7 HREF="SOURCES/">list of datasets</A>) print
+%( or <A HREF="?help+readcdf">read my data file</A>)print
+(.<BR>) print
+(<A NAME=5 HREF="nip/">nip</A> | <A NAME=5 HREF="dup/">dup</A> | <A NAME=8 HREF="/">clear</A>) print
+(<P><A HREF="http://rainbow.ldgo.columbia.edu/documentation/libraries/ingrid/Ingrid_toc.html">General Ingrid Help</A>.) print
+}if</INGRID>
+
+<p><i>If your WWW client does not display active links
+(including <b>views</b>) near the top of this page, try the <a
+href="help.html">help page</a>.</i>
+<INGRID>standardTrailer</INGRID>
+</html>

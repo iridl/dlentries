@@ -1,0 +1,101 @@
+\begin{ingrid}
+continuedataset:
+/long_name (2.5 deg) def
+grid:
+/name /X def
+degE
+periodic
+1.25 2.5 358.75
+:grid
+grid:
+/name /Y def
+degN
+88.75 2.5 -88.75
+:grid
+grid:
+/name /T def
+month
+periodic
+Jan 1 Dec
+/pointwidth 3. def
+:grid
+grid:
+/name /prcp def
+values:
+(wet)(normal)(dry)
+:values
+:grid
+grid:
+/name /ENSO def
+values:
+(nino)(nina)
+:values
+:grid
+variable:
+/name (seasons) def
+grids: T :grids
+values:
+(djf)
+(jfm)
+(fma)
+(mam)
+(amj)
+(mjj)
+(jja)
+(jas)
+(aso)
+(son)
+(ond)
+(ndj)
+:values
+:variable
+variable:
+/name /abvblw def
+grids: prcp :grids
+values:
+(abv)
+(nrm)
+(blw)
+:values
+:variable
+/filename
+{
+%abvblw (/Data/data1/iri/forecast/lgoddard/ENSO_probs/v2/UEA2p5/%s_prob_10) sprintf
+abvblw (/Data/data21/iri/forecast/lgoddard/ENSO_probs/v2/UEA2p5/%s_prob_10) sprintf
+ENSO (%s.5002.pcp.) sprintf sappend
+seasons (%s) sprintf sappend
+} def
+datasetdefs:
+:datasetdefs
+/X X def
+/Y Y def
+/T T def
+/ENSO ENSO def
+/prcp prcp def
+/prob
+{
+1
+filename
+[X Y] -1. readr4sequential
+decbytes
+/missing_value -9999. def
+/long_name (probability) def
+tercileclassesscale DATA 0 1 RANGE
+/scale_min 0. def
+/scale_max 1. def
+} defasvarsilent
+/maskedprob
+{
+1
+filename
+(.signif) cvn cvntos sappend
+[X Y] -1. readr4sequential
+decbytes
+/missing_value -9999. def
+/long_name (probability masked below 90% significance) def
+tercileclassesscale DATA 0 1 RANGE
+/scale_min 0. def
+/scale_max 1. def
+} defasvarsilent
+:dataset
+\end{ingrid}

@@ -1,0 +1,194 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Maitrise de l'eau et activités agricoles de saison sèche) def
+
+grid:
+/name /hhid def
+1. 1. 5270.
+:grid
+
+/l01 { IRIDB (erasan2014) (l01) [(hhid)] open_column_by
+/long_name (actif homme saison sèche) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/l02 { IRIDB (erasan2014) (l02) [(hhid)] open_column_by
+/long_name (actives femme saison sèche) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/l03_1 { IRIDB (erasan2014) (l03_1) [(hhid)] open_column_by
+/long_name (saison seche bas fonds cuv aménagées) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/l03_2 { IRIDB (erasan2014) (l03_2) [(hhid)] open_column_by
+/long_name ( saison seche bas fonds cuvette non aménagées) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/l03_3 { IRIDB (erasan2014) (l03_3) [(hhid)] open_column_by
+/long_name (saison seche zones de décrue) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/l03_4 { IRIDB (erasan2014) (l03_4) [(hhid)] open_column_by
+/long_name (saison seche perimetres collectifs amen.) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/l03_5 { IRIDB (erasan2014) (l03_5) [(hhid)] open_column_by
+/long_name (saison seche perimetres collectifs non amen.) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/l03_6 { IRIDB (erasan2014) (l03_6) [(hhid)] open_column_by
+/long_name (saison seche jardins partagés) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/l03_7 { IRIDB (erasan2014) (l03_7) [(hhid)] open_column_by
+/long_name (saison seche autres) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/l04_1 { IRIDB (erasan2014) (l04_1) [(hhid)] open_column_by
+/long_name (fleuve) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/l04_2 { IRIDB (erasan2014) (l04_2) [(hhid)] open_column_by
+/long_name (forage) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/l04_3 { IRIDB (erasan2014) (l04_3) [(hhid)] open_column_by
+/long_name (bassins de rétention) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/l04_4 { IRIDB (erasan2014) (l04_4) [(hhid)] open_column_by
+/long_name (séances) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/l04_5 { IRIDB (erasan2014) (l04_5) [(hhid)] open_column_by
+/long_name (reseau sde) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/l04_6 { IRIDB (erasan2014) (l04_6) [(hhid)] open_column_by
+/long_name (autres) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/l05 { IRIDB (erasan2014) (l05) [(hhid)] open_column_by
+/long_name (cultures pratiquées) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+[/NVZ 2 NewIntegerGRID hhid |]
+(/Data/data6/WFP/senegal/ERASAN/2014ERASAN_matched_idnew_ll.txt)
+readdatafile:
+[1 1]r*4astsv
+:readdatafile
+/missing_value -999 def
+
+definevariables:
+
+0 Zvariable:
+/name /lat def
+/long_name (Latitude) def
+/units /degree_north def
+/scale_min 12.2 def
+/scale_max 16.8 def
+:Zvariable
+
+0 Zvariable:
+/name /lon def
+/long_name (Longitude) def
+/units /degree_east def
+/scale_min -17.7 def
+/scale_max -11.2 def
+:Zvariable
+
+:definevariables
+
+/location {
+lon lat geopt
+/long_name (Location) def
+}defasvar
+
+:dataset
+
+%l01 .hhid name exch def
+\end{ingrid}
+

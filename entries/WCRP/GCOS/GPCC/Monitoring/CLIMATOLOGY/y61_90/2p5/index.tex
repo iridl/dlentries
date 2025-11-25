@@ -1,0 +1,39 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+periodic
+-178.75 2.5 178.75
+:grid
+grid:
+/name /Y def
+degN
+88.75 -2.5 -88.75
+:grid
+grid:
+/name /T def
+monthtime
+periodic
+16 Jan 1960 ensotime
+1.
+16
+Dec 1960 ensotime
+:grid
+/prcp {
+ [T    X Y |
+   ] (/Data/data21/gpcc/normals_61-90_1-12_25_neu)
+readdatafile:
+      [730 1244890]r*4asascii
+      /missing_value -99999.99 def
+      :readdatafile
+/name /prcp def
+/units (mm/month) def
+[X Y T] REORDER 2 RECHUNK
+} defasvarcachesilent
+:dataset
+\end{ingrid}
+home .benno .GPCC .2p5
+   T first VALUE
+   TM first VALUE
+

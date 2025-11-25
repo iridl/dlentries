@@ -1,0 +1,117 @@
+\begin{ingrid}
+
+/description (Tropical Storms, 20km buffers, wind speed >= 63) def
+
+continuedataset:
+
+/adm4_pco_1 {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (adm4_pco_1) [(gid)] open_column_by
+/long_name (Barangay Code) def
+}defasvarsilentnoreuse
+
+/adm4code_1 {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (adm4code_1) [(gid)] open_column_by
+/long_name (Barangay Code) def
+}defasvarsilentnoreuse
+
+/adm4code_d {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (adm4code_d) [(gid)] open_column_by
+/long_name (Barangay Code) def
+}defasvarsilentnoreuse
+
+/count {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (count_adm4) [(gid)] open_column_by
+/long_name (Number of Tropical Storms) def
+startcolormap
+DATA 0 6 RANGE
+transparent grey grey 0 VALUE
+LightYellow 1 VALUE
+yellow 2 VALUE
+orange 3 VALUE
+DarkOrange 4 VALUE
+red 5 VALUE
+DarkRed 6 VALUE
+DarkRed endcolormap
+}defasvarsilentnoreuse
+
+/frequency {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (frequency) [(gid)] open_column_by
+/long_name (Frequency of Tropical Storms) def
+}defasvarsilentnoreuse
+
+/iso {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (iso) [(gid)] open_column_by
+/long_name (Country Name ISO) def
+}defasvarsilentnoreuse
+
+/name_0 {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (name_0) [(gid)] open_column_by
+/long_name (Country Name) def
+}defasvarsilentnoreuse
+
+/name_1 {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (name_1) [(gid)] open_column_by
+/long_name (Region Name) def
+}defasvarsilentnoreuse
+
+/name_2 {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (name_2) [(gid)] open_column_by
+/long_name (Provicne Name) def
+}defasvarsilentnoreuse
+
+/name_3 {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (name_3) [(gid)] open_column_by
+/long_name (Municipality Name) def
+}defasvarsilentnoreuse
+
+/objectid {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (objectid) [(gid)] open_column_by
+/long_name (Object ID) def
+}defasvarsilentnoreuse
+
+/objectid_1 {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (objectid_1) [(gid)] open_column_by
+/long_name (Object ID) def
+}defasvarsilentnoreuse
+
+/population {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (population) [(gid)] open_column_by
+/long_name (Population) def
+DATA 0 AUTO RANGE
+}defasvarsilentnoreuse
+
+/area {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (shape_area) [(gid)] open_column_by
+/long_name (Area) def
+}defasvarsilentnoreuse
+
+/le_1 {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (shape_le_1) [(gid)] open_column_by
+/long_name (Length) def
+}defasvarsilentnoreuse
+
+/leng {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (shape_leng) [(gid)] open_column_by
+/long_name (Length) def
+}defasvarsilentnoreuse
+
+/type_3 {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (type_3) [(gid)] open_column_by
+/long_name (Type 3) def
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) (geom) [(gid)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (phlts200212wind63_barangays_buf51020thr3463output_20140205) ((name_3 || ', ' || name_2 || ', ' || name_1 || ', ' || iso) as label) [(gid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+le_1 .gid name exch def
+
+\end{ingrid}

@@ -1,0 +1,480 @@
+<html>
+<INGRID>standardHeader</INGRID>
+ <h1 align=center>NMC/ECMWF Reanalysis Sea Ice<br>
+  <font size=-1>(Monthly ; NMC/ECMWF)</font><br>
+  Revision Date for Document: April 5, 1995
+  </h1>
+
+  <p align=center>
+
+     Atsushi Nomura
+     ECMWF Reanalysis Project
+     Shinfield Park, Reading
+     Berkshire  RG2 9AX, UK
+<br>
+     Robert Grumbine
+     #206 5200 Auth Rd.
+     World Weather Building
+     Camp Springs, MD 20746
+   </p><br><br>
+
+ <h2 align=center>ECMWF Reanalysis Project and the NMC/NCAR Reanalysis Project</h2><br><br><br>
+
+<h3> Contacts (For Data Production Information)</h3>
+<pre>
+_______________________________________________
+              |       Contact 1                |
+______________|________________________________|
+2.3.1 Name    |Mr. Robert Grumbine             |
+2.3.2 Address |#206 5200 Auth Rd.              |
+              |World Weather Building          |
+      City/St.|Camp Springs, MD                |
+      Zip Code|20746                           |
+2.3.3 Tel.    |(301) 763-8133                  |
+2.3.4 Email   |wd21rg@hp20.wwb.noaa.gov        |
+              |grumbine@beaufort.gsfc.nasa.gov |
+______________|________________________________|
+
+2.4  Requested Form of Acknowledgment.
+
+     Please use the following citation whenever these data are used:
+
+     A. Nomura and R. Grumbine, personal communication, 1995.
+
+                        3.  INTRODUCTION
+
+3.1  Objective/Purpose.
+
+     Sea ice concentrations derived from satellite-based passive microwave 
+     observations have been collected continuously since 1978 for a number of 
+     scientific programs.  The basic data are archived at the National Snow 
+     and Ice Data Center (NSIDC), World Data Center for Glaciology - A.  These 
+     data have been used for climate change detection, operational sea ice 
+     forecasting, climate modeling, and climate reanalysis.
+
+3.2  Summary of Parameters.
+
+     Sea ice concentration (fraction of grid cell area which is covered
+     by sea ice) expressed as a percent.
+
+3.3  Discussion.
+
+     The underlying data set which has been collected are passive microwave
+     brightness temperatures.  These data are useful for several scientific
+     purposes, especially for estimating sea ice concentration.  The basic
+     data are collected on a large swath scanning microwave radiometer, at
+     a resolution of approximately 25 km from a polar orbiting satellite.
+     The satellite covers the mid-latitudes with about a three day
+     repeat time.  High latitude points are passed nearly every day.  
+
+     The brightness temperatures are converted to ice concentrations by
+     use of the NASA Team algorithm [Cavalieri, 1992].  The annual average
+     accuracy, estimated by comparison with LANDSAT imagery (itself estimated
+     to be accurate to about 4%) collocated and at the same time, is 7%, with 
+     a bias of -4%.  That is, the passive microwave estimate is biased about 
+     4% low.  The errors are greater in summer, but the verification itself is 
+     suspect owing to errors which also affect the LANDSAT comparison set 
+     [Cavalieri, 1992].
+
+     An ice concentration of 15% typically corresponds to the ice edge.
+     Values less than that are normally weather contamination.  A 38%
+     concentration corresponds to the main body of the ice pack [Cavalieri, 
+     1992].
+ 
+                   4.  THEORY OF MEASUREMENTS
+
+This data set consists of global gridded data of monthly sea ice 
+concentrations derived from passive microwave radiometry.  In the polar 
+regions, the contributions from the atmosphere are low, in the absence of 
+storms, for the wavelength span of passive microwave radiometers (0.8 cm to 
+4.5 cm).  The contributions from the surface can be expressed as a product of 
+the emissivity and the physical temperature of the radiating layer.  This 
+linear relationship holds because the Rayleigh-Jeans approximation to the 
+Planck blackbody law is valid for passive microwave radiometers (SMMR, SSM/I) 
+wavelength intervals over the range of physical temperatures encountered on 
+the Earth.  Radiances are frequently described in terms of brightness 
+temperature.  Depending on the polarized component and the wavelength of the 
+radiation, the emissivities of ice-free open water lie in the range 0.28 - 
+0.75, and those of sea ice lie in the range 0.52 - 96.  Except at wavelengths 
+shorter than 1 cm, there is no overlap in the water versus ice emissivity 
+ranges, and sea ice can readily be discerned against the background of open 
+ocean. Moreover, sea ice emissivities vary with ice type, allowing some ice 
+types to be distinguished, within certain limitations, by multichannel 
+microwave observations.  For additional information on Microwave properties of 
+sea ice and open ocean see Gloersen et al. (1992).
+
+                        5.  EQUIPMENT
+
+5.1  Instrument Description. 
+
+     5.1.1  Platform (Satellite).
+
+            Nimbus 7 SMMR for 25 October 1978 to 20 August 1987
+            DMSP F-8 SSMI for 9 July 1987 to 31 December 1991 
+
+     5.1.3  Key Variables.
+
+            SMMR:
+              Brightness temperature for vertical and horizontal polarization 
+              at 18.0, 21.0, and 37.0 GHz.
+
+            SSMI:
+              Brightness temperature for vertical and horizontal polarization
+              at 19.3 and 37.0 GHz, vertical polarization at 22.2 GHz.
+
+     5.1.4  Principles of Operation.
+
+            See Gloersen et al. (1992).
+
+     5.1.5  Instrument Measurement Geometry.
+
+            See Gloersen et al. (1992).
+
+     5.1.6  Manufacturer of Instrument.
+
+            See Gloersen et al. (1992).
+
+5.2  Calibration.
+
+     5.2.1  Specifications.
+
+            See Gloersen et al. (1992).
+
+            5.2.1.1  Tolerance
+
+            See Gloersen et al. (1992).
+
+     5.2.2  Frequency of Calibration.
+
+            See Gloersen et al. (1992).
+
+     5.2.3  Other Calibration Information.
+
+            See Gloersen et al. (1992).
+
+                          6.  PROCEDURE
+
+6.1  Data Acquisition Methods.
+
+     The brightness temperature data are available from the NSIDC on CD-ROM, 
+     as are the NASA Team algorithms for processing the brightness 
+     temperatures to obtain ice concentrations.  Already mapped ice 
+     concentrations are also available from NSIDC, again on CD-ROM.
+
+6.2  Spatial Characteristics.
+
+     The NSIDC data are mapped on a polar stereographic grid with a true 
+     latitude of 70 N or S, and resolution of 25 km at that latitude.  The 
+     data here have been averaged to a 1 degree regular latitude-longitude 
+     grid.
+
+     6.2.1  Spatial Coverage.
+
+            The coverage is global.  Data in each file are ordered from North 
+            to South and from West to East beginning at 180 degrees West and 
+            90 degrees North.  Point (1,1) represents the grid cell centered 
+            at 89.5 N and 179.5 W (see section 8.4).
+
+     6.2.2  Spatial Resolution.
+
+            The data are given in an equal-angle lat/long grid that has a 
+            spatial resolution of 1 X 1 degree lat/long.
+
+6.3  Temporal Characteristics.
+
+     6.3.1  Temporal Coverage
+
+            January 1987 through December 1988.
+
+     6.3.2  Temporal Resolution
+
+            Monthly.
+
+                          7.  OBSERVATIONS
+
+7.1  Field Notes.
+
+     Not applicable.
+
+                        8.  DATA DESCRIPTION
+
+8.1  Table Definition With Comments.
+
+     Not applicable.
+
+8.2  Type of Data.
+
+-----------------------------------------------------------------------------
+|                 8.2.1                  |           |        |             |
+|Parameter/Variable Name                 |           |        |             |
+-----------------------------------------------------------------------------
+|    |               8.2.2               |   8.2.3   | 8.2.4  |    8.2.5    |
+|    |Parameter/Variable Description     |Range      |Units   |Source       |
+-----------------------------------------------------------------------------
+|SEA_ICE                                 |           |        |SMMR, SSMI,  |
+|    |Sea ice concentration as percent   |min = 0,   |[%]     |NASA Team    |
+|    |of pixel area covered by ice.      |max = 100  |        |algorithm    |
+|    |                                   |           |        |as quality   |
+|    |                                   |           |        |controlled   |
+|    |                                   |           |        |by NMC/NCAR  | 
+|    |                                   |           |        |and ECMWF    |
+|    |                                   |           |        |reanalysis   |
+|    |                                   |           |        |             |
+-----------------------------------------------------------------------------
+
+8.3  Sample Data Record.
+
+     Not applicable.
+
+8.4  Data Format.
+
+     The CD-ROM file format is ASCII, and consists of numerical fields of 
+     varying length, which are space delimited and arranged in columns and 
+     rows.  Each column contains 180 numerical values and each row contain 360 
+     numerical values.  
+
+          Grid arrangement
+
+             ARRAY(I,J)
+             I  = 1 IS CENTERED AT 179.5W
+             I INCREASES EASTWARD BY 1 DEGREE
+             J  = 1 IS CENTERED AT 89.5N
+             J INCREASES SOUTHWARD BY 1 DEGREE
+
+             90N - | - - - | - - - | - - - | - -
+                   | (1,1) | (2,1) | (3,1) |
+             89N - | - - - | - - - | - - - | - -
+                   | (1,2) | (2,2) | (3,2) |
+             88N - | - - - | - - - | - - - | - -
+                   | (1,3) | (2,3) | (3,3) |
+             87N - | - - - | - - - | - - - |
+                  180W   179W    178W   177W
+
+             ARRAY(360,180)
+
+8.5  Related Data Sets.
+
+     The basic ice concentration and brightness temperature data sets are
+     available from the NSIDC at the full time and space resolution described
+     above.  These data do contain some extraneous apparent ice, so processing
+     such as that described in section 9 is necessary prior to use.
+
+                      9.  DATA MANIPULATIONS
+
+9.1  Formulas.
+
+     9.1.1  Derivation Techniques/Algorithms.
+
+            Not applicable.
+
+9.2  Data Processing Sequence.
+
+     9.2.1  Processing Steps and Data Sets.
+
+            1. Obtain brightness temperature grids and NASA Team algorithm 
+               from NSIDC.
+            2. Apply NASA Team algorithm to brightness temperatures to obtain 
+               estimated ice concentrations.
+            3. If SST at time of collection is greater than +1 C, set ice 
+               concentration to zero.
+            4. Regrid onto a 1 degree latitude longitude grid.
+
+            SST is obtained from the Reynolds 'improved' SST available on this 
+            CD-ROM (Reynolds and Smith, 1993).
+
+     9.2.2  Processing Changes.
+
+            The NASA Team algorithm tie points are re-calibrated for each 
+            satellite.
+
+9.3  Calculations.
+
+     9.3.1  Special Corrections/Adjustments.
+
+            The NASA Goddard DAAC applied the inverse of it's land/sea mask to 
+            the sea ice data.  Land values are 0.
+
+9.4  Graphs and Plots.
+
+     The SMMR ice atlas [Gloersen, et al., 1992] provides color maps of
+     monthly averaged ice concentration and growth.
+
+                             10.  ERRORS
+
+10.1  Sources of Error.
+
+      The concentration algorithm can falsely report melting ice as being sea 
+      surface.  This leads to the underestimation of ice concentration, 
+      particularly in summer, mentioned above.  In situations with high winds, 
+      waves, or rain, it is possible for the algorithm to report ice as being 
+      present when there is in fact none.  The Nomura [1993] quality control 
+      described above removes most of this contamination.  
+
+10.2  Quality Assessment.
+
+      The quality of the ice concentration algorithm is assessed in
+      Cavalieri [1992].  The Nomura quality control is assessed in 
+      Nomura [1993].
+
+      10.2.1  Data Validation by Source.
+
+              Quality control applied by the NMC/ECMWF Reanalysis project.   
+              At high latitudes, pixels are revisited on approximately a daily 
+              basis (poleward of about 70).  At mid latitudes, a given pixel 
+              is visited at least once every three days.
+
+      10.2.2  Confidence Level/Accuracy Judgment.
+
+              Most of the concerns regarding the accuracy and precision of the 
+              ice concentration data apply to use of a single days' 
+              concentration map, at full resolution.  After averaging over 
+              time to produce a monthly averaged map, the weather 
+              contamination problem is largely removed, as few polar areas 
+              have persistent heavy rain or winds.  The spatial averaging 
+              similarly removes much of the ice edge and melting effects.  The 
+              time of greatest error will be in the summer hemisphere ice 
+              pack, when extensive melt ponds can be present in the Arctic.  
+              (This is less of a problem in the Antarctic as the ice is 
+              thinner and doesn't support melt ponds as large or as long as 
+              the Arctic's.)
+
+              If an ice-no ice decision is desired, a 50% concentration is 
+              recommended for all seasons other than summer, then to lower 
+              that cutoff to 45% for the Arctic in summer.
+
+      10.2.3  Measurement Error for Parameters and Variables.
+
+              The annual average accuracy, estimated by comparison with 
+              LANDSAT imagery (itself estimated to be accurate to about 4%) 
+              collocated and at the same time is 7%, with a bias of -4% 
+              [Cavalieri, 1992].  That is, the passive microwave estimate is 
+              biased about 4% low.  
+
+      10.2.4  Additional Quality Assessment Applied.
+
+              Not available at this revision.
+
+                            11.  NOTES
+
+11.1  Known Problems With The Data.
+
+      None reported at this revision.
+
+11.2  Usage Guidance.
+
+      The concentrations are respectable as concentrations.  Deriving
+      features, such as the ice edge, are not recommended as the data 
+      have been spatially reduced from the original data set.  
+
+11.3  Other Relevant Information.
+
+      None at this revision.
+
+                          12.  REFERENCES
+
+12.1  Satellite/Instrument/Data Processing Documentation. 
+
+      Gloersen, P., W. J. Campbell, D. J. Cavalieri, J. C. Comiso, C. L. 
+          Parkinson, and H. J. Zwally, 1992. Arctic and Antarctic Sea Ice, 
+          1978-1987: Satellite Passive-Microwave Observations and Analysis, 
+          NASA SP-511, 290 pp, Washington, D.C.
+      Cavalieri, D. J., ed.,  1992. NASA Sea Ice Validation Program for the 
+          Defense Meteorological Satellite Program Special Sensor Microwave 
+          Imager: Final Report,  NASA Technical Memorandum 104559, 126 pp, 
+          Washington, D.C.
+      Cooperative Institute for Research in Environmental Sciences, 1992. DMSP 
+          SSM/I Brightness Temperature and Sea Ice Concentration Grids for the 
+          Polar Regions on CD-ROM, User's Guide, NSIDC Special Report - 1.
+
+12.2  Journal Articles and Study Reports. 
+
+      Nomura, A.  1993. Sea surface temperature and sea ice data for the ECMWF 
+          Reanalysis (ERA) system  ECMWF Re-analysis project, report no. 2, 
+
+12.3  Archive/DBMS Usage Documentation. 
+
+      Contact the EOS Distributed Active Archive Center (DAAC) at NASA Goddard 
+      Space Flight Center (GSFC), Greenbelt Maryland (see Section 13 below).
+      Documentation about using the archive or information about access to the 
+      on-line information system is available through the GSFC DAAC User 
+      Services Office.
+
+                             13.  DATA ACCESS
+
+13.1  Contacts for Archive/Data Access Information.
+
+      GSFC DAAC User Services
+      NASA/Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Phone:     (301) 286-3209
+      Fax:       (301) 286-1775
+      Internet:  daacuso@eosdata.gsfc.nasa.gov
+
+13.2  Archive Identification.
+
+      Goddard Distributed Active Archive Center
+      NASA Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Telephone:  (301) 286-3209
+      FAX:        (301) 286-1775
+      Internet:   daacuso@eosdata.gsfc.nasa.gov
+
+13.3  Procedures for Obtaining Data.
+
+      Users may place requests by accessing the on-line system, by sending 
+      letters, electronic mail, FAX, telephone, or personal visit.
+
+      Accessing the GSFC DAAC Online System:
+
+      The GSFC DAAC Information Management System (IMS) allows users to 
+      ordering data sets stored on-line.  The system is open to the public.
+
+      Access Instructions:
+
+      Node name:  daac.gsfc.nasa.gov
+      Node number: 192.107.190.139
+      Login example: telnet daac.gsfc.nasa.gov
+      Username:  daacims
+      password:  gsfcdaac
+
+      You will be asked to register your name and address during your first
+      session.
+
+      Ordering CD-ROMs:
+
+      To order CD-ROMs (available through the Goddard DAAC) users should 
+      contact the Goddard DAAC User Support Office (see section 13.2).
+
+13.4  GSFC DAAC Status/Plans.
+
+      The ISLSCP Initiative I CD-ROM is available from the Goddard DAAC.
+
+               14.  OUTPUT PRODUCTS AND AVAILABILITY 
+
+14.1  Tape Products. 
+
+      None.
+
+14.2  Film Products. 
+
+      None.
+
+14.3  Other Products. 
+
+      None.
+
+                      15.  GLOSSARY OF ACRONYMS
+
+SSMI           Special Sensor Microwave Imager
+SMMR           Scanning Multichannel Microwave Radiometer
+NSIDC          National Snow and Ice Data Center
+NASA           National Association for the selection of acronyms
+ECMWF          European Center for Medium Range Weather Forecasting
+NMC            National Meteorological Center (US)
+
+</pre>
+</body></html>

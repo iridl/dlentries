@@ -1,0 +1,102 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+
+grid:
+/name (Crop) def
+values: (Maize) (Soybean) :values
+:grid
+
+grid:
+/name /mycol def
+1 1 3
+:grid
+
+grid:
+/name (GS) def
+/long_name (Growth Stage) def
+values: (Init) (Veg) (Mid) (Late) :values
+:grid
+
+/myvar {
+[mycol GS Crop | ]
+(/data/remic/mydatafiles/IRI/Brazil/Water_Balance/Crop_Cultivar/Crops.txt)
+readdatafile:
+[2 1 0] r*4astsv
+:readdatafile
+}defasvarsilent
+
+:datasetdefs
+
+/Kc {
+
+  myvar dup
+    mycol first VALUE
+    mycol removeGRID
+    GS /I
+      4 NewIntegerGRID
+      replaceGRID
+    0 I integrate
+    1 index
+     mycol second VALUE
+     mycol removeGRID
+     GS I
+       first secondtolast subgrid
+       replaceGRID
+     3 -1 roll
+     mycol last VALUE
+     mycol removeGRID
+     GS last VALUE
+     GS 3 index .I
+       last subgrid
+       replaceGRID
+     appendstream
+    exch
+    2 copy
+      2 {exch Crop first VALUE}repeat
+      classifyby
+     [I]average
+     dup
+      int_dI first 1 364 GRID
+      int_dI
+       0.0 add
+       3 -1 roll
+       .int_dI
+       last subgrid
+       .gridvalues
+       0 get
+       maskgt
+      0 mul
+      add
+     1 replaceNaN
+     3 -2 roll
+     2 {exch Crop second VALUE}repeat
+     classifyby
+    [I]average
+    dup
+     int_dI first 1 364 GRID
+     int_dI
+      0.0 add
+      3 -1 roll
+      .int_dI
+      last subgrid
+      .gridvalues
+      0 get
+      maskgt
+     0 mul
+     add
+    1 replaceNaN
+    appendstream
+   int_dI /T renameGRID
+   T
+    /long_name (days since planting) def
+    /units (days) def
+    pop
+/long_name (crop coefficient) def
+}defasvar
+
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,59 @@
+\begin{ingrid}
+
+continuedataset:
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+2 Jun 2000 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+systemtime systemtime2ymd ymd2rjt 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+:grid
+
+T {(http://ftp.cptec.inpe.br/rainfall/cif.latam/output_americas/netCDF/CoSch_america/%Y%m[T]/CoSch_%Y%m%d[T]1200.nc) [T]}
+remoteremoveextrausing
+name exch def
+T
+/expires
+last 1
+     Jan 1960 julian_day
+     add
+    rjt2ymd ymd2systemtime
+def
+name exch def
+
+/expires T .expires def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+244.05 0.1 329.85
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+-59.95 0.1 32.85
+:grid
+
+/rainfall {
+[X Y | T]
+(http://ftp.cptec.inpe.br/rainfall/cif.latam/output_americas/netCDF/CoSch_america/%Y%m[T]/CoSch_%Y%m%d[T]1200.nc) [T]
+readdatafile:
+/name (rrcorr) def
+/realarraytype netcdfrecords
+:readdatafile
+/missing_value -9999. def
+/long_name (Rainfall) def
+/units (mm/day) def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

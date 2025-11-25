@@ -1,0 +1,67 @@
+\begin{ingrid}
+continuedataset: 
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units (degree_east) def
+periodic
+0. 1.0 359.0
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units (degree_north) def
+-90. 1.0 90.
+:grid
+
+grid:
+/name /S def
+/long_name (Forecast Start Time) def
+/units (months since 01-Jan) def
+periodic
+0.0 1.0 11.0
+/pointwidth 0 def
+:grid
+
+grid:
+/name /L def
+/long_name (Lead) def
+/units (months) def
+1.5 1.0 10.5
+:grid
+
+
+
+/T { L S add } defasvar
+
+/prec { 
+SOURCES .EU .Copernicus .CDS .C3S .ECMWF .SEAS5 .hindcast .prcp
+  S (0000 1 Jan 1981) (0000 1 Dec 2010) RANGE
+  [M]average
+  S 12 splitstreamgrid
+  [S2]average
+} defasvarcache 
+
+
+/sst {
+SOURCES .EU .Copernicus .CDS .C3S .ECMWF .SEAS5 .hindcast .sst
+  S (0000 1 Jan 1981) (0000 1 Dec 2010) RANGE
+  [M]average
+  S 12 splitstreamgrid
+  [S2]average
+} defasvarcache
+
+
+/temp {
+SOURCES .EU .Copernicus .CDS .C3S .ECMWF .SEAS5 .hindcast .t2m
+  S (0000 1 Jan 1981) (0000 1 Dec 2010) RANGE
+  [M]average
+  S 12 splitstreamgrid
+  [S2]average
+} defasvarcache
+
+
+:dataset
+\end{ingrid}

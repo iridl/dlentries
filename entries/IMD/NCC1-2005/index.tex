@@ -1,0 +1,56 @@
+\begin{ingrid}
+/description (NCC1-2005 High Resolution Gridded Precipitation Data Set) def
+datasetdefs:
+/rf { v1p0 .rf } def
+:datasetdefs
+/iridl:hasSemantics (iridl:India_ERFS) def
+%/v1p0 currentobject /v1p0 get def
+/v2p0 currentobject /v2p0 get def
+/v4p0 currentobject /v4p0 get def
+\end{ingrid}
+
+
+
+continuedataset:
+/IMDPrecipERFS dataareRestricted
+link:
+/name (dataset_documentation) def
+/href (http://www.imd.ernet.in/nccraindata.htm) def
+/description (High Resolution Daily Gridded Rainfall Data) def
+:link
+grid:
+/name (X)def
+/units (degree_east)def
+ 66.5 1. 100.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 6.5 1. 37.5
+:grid
+grid:
+/name (T)def
+/units (days since 1951-01-01 12:00:00)def
+0 1 
+31 Dec 2003 julian_day
+1 Jan 1951 julian_day
+sub cvi
+:grid
+/rf{
+ [X
+    Y |
+    T] (/Data/data1/iri/modelling/daved/OBS.D/IMD.D/rf_%Y[T].grd) [T yearlyedgesgrid
+       first secondtolast subgrid
+       ]readdatafile:
+      /name (rf) def
+      /pointwidth 1. def
+      /step 1. def
+      /calendar /standard def
+      /long_name (GRIDDED RAINFALL) def
+      /missing_value -99.9 def
+      /units (mm/day) def
+      /standard_name (rainfall_rate) def
+      decdirect :readdatafile
+} defasvarcachesilent
+:dataset
+\end{ingrid}

@@ -1,0 +1,26 @@
+\begin{ingrid}
+/description (Zambia Political Boundaries) def
+continuedataset:
+
+/name_engli {
+IRIDB (zambia_adm0) (name_engli) [(gid)] open_column_by
+/long_name (Name) def
+}defasvarsilentnoreuse
+
+/the_geom  {
+IRIDB (zambia_adm0) (the_geom) [(gid)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (zambia_adm0) (name_engli) [(gid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+name_engli .gid name exch def
+
+\end{ingrid}
+
+

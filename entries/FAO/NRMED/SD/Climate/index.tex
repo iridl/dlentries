@@ -1,0 +1,148 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+/FAO_Koeppencolors {
+startcolormap
+/maxncolor 51 def
+DATA 1 48 RANGE
+transparent transparent
+255 0 0 RGB
+255 38 38 RGB
+255 77 77 RGB
+255 115 115 RGB
+255 154 154 RGB
+255 192 192 RGB
+99 99 99 RGB
+152 152 152 RGB
+204 204 204 RGB
+9 58 1 RGB
+22 71 14 RGB
+35 84 27 RGB
+48 97 40 RGB
+61 111 52 RGB
+74 124 65 RGB
+87 137 78 RGB
+100 150 91 RGB
+112 163 104 RGB
+125 176 117 RGB
+138 189 130 RGB
+151 202 143 RGB
+164 216 155 RGB
+177 229 168 RGB
+190 242 181 RGB
+203 255 194 RGB
+2 2 145 RGB
+16 19 153 RGB
+31 36 160 RGB
+45 53 168 RGB
+59 70 176 RGB
+73 87 183 RGB
+88 104 191 RGB
+102 121 198 RGB
+116 137 206 RGB
+131 154 214 RGB
+145 171 221 RGB
+159 188 229 RGB
+173 205 237 RGB
+188 222 244 RGB
+202 239 252 RGB
+124 75 11 RGB
+140 94 11 RGB
+155 112 11 RGB
+171 131 11 RGB
+187 150 10 RGB
+203 169 10 RGB
+218 187 10 RGB
+234 206 10 RGB
+234 206 10 RGB 
+endcolormap } def
+:datasetdefs
+
+dataset:
+/name (Derived) def
+/long_name (Derived Climate Products) def
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+periodic
+-179.75 0.5 179.75
+:grid
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+89.75 0.5 -89.75
+:grid
+
+variable:
+/name /class def
+/long_name (Koeppen Climate Classification) def
+/missing_value -999. def
+/units (ids) def
+/iridl:hasSemantics (iridl:Classification) def
+/scale_min 1 def
+/scale_max 48 def
+/CLIST [
+(Tropical Af)
+(Tropical Afi)
+(Tropical Am)
+(Tropical Ami)
+(Tropical Aw)
+(Tropical Awi)
+(Polar ET)
+(Polar EF)
+(Polar EFd)
+(Temperate C)
+(Temperate Ca)
+(Temperate Cb)
+(Temperate Cc)
+(Temperate Cf)
+(Temperate Cfa)
+(Temperate Cfb)
+(Temperate Cfc)
+(Temperate Cw)
+(Temperate Cwa)
+(Temperate Cwb)
+(Temperate Cwc)
+(Temperate Cs)
+(Temperate Csa)
+(Temperate Csb)
+(Temperate Csc) 
+(Cold D)
+(Cold Da)
+(Cold Db)
+(Cold Dc)
+(Cold Dd)
+(Cold Df)
+(Cold Dfa)
+(Cold Dfb)
+(Cold Dfc)
+(Cold Dfd)
+(Cold Dw)
+(Cold Dwa)
+(Cold Dwb)
+(Cold Dwc)
+(Cold Dwd)
+(Dry BS)
+(Dry BSh)
+(Dry BSk)
+(Dry BSk')
+(Dry BW)
+(Dry BWh)
+(Dry BWk)
+(Dry BWk') ] def
+
+grids: X Y :grids
+FAO_Koeppencolors
+file:
+direct
+/name (/Data/data6/FAO/NRMED/SD/Climate/koeppen_cont.r4) def
+:file
+:variable
+
+:dataset
+
+:dataset
+\end{ingrid}

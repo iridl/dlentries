@@ -1,0 +1,396 @@
+<html> 
+
+<head> 
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+
+<title>Jones' Surface Temperature Anomaly Dataset </title> 
+
+</head>
+
+<body>
+
+<h1 align=center>Jones' Surface Temperature  Anomaly Dataset</h1> 
+
+<p>
+The data are <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.JONES/">
+here </a>.  I picked them up on the NCAR ftp site and rewrote it to
+the stunningly effective (shrinking  45MB of original
+"anomalies_landonly" ASCII
+file into a 3MB file, achieving meanwhile direct-access capacity)  
+<a
+href="http://rainbow.ldgo.columbia.edu/~senya/docs/cuf.html"
+>
+CUF format</a> by Senya Basin.  Since the NCAR documentation was not
+terribly clear (and with obvious mistakes sometimes), I well could
+mess it up somewhere along the way (although I doubt it!).
+Anyways, if something looks suspicious, send me an email, or check out
+yourself the original <a
+href="http://www.scd.ucar.edu/dss/datasets/ds215.0.html"
+>
+NCAR source directory</a>.
+
+<p><b>Note:</b> There two datasets of climatology (by NCAR
+and by Jones) in the same NCAR directory.  I put only <a
+	  href="http://ingrid.ldgo.columbia.edu/SOURCES/.JONES/.clim.cuf"> Jones'
+	climatology </a>  here.
+
+
+<p> Below I dump all relevant documentation I could find on the NCAR ftp
+site.
+
+<p align=right> Alexey Kaplan  
+<A HREF="mailto:alexeyk@ldeo.columbia.edu">alexeyk@ldeo.columbia.edu</a>
+</p>
+
+<h2 align=center>References</h2> 
+
+<p>Jones, P. D., S. C. B. Raper, R. S. Bradley, H. F. Diaz, P. M. Kelly,
+and T. M. L. Wigley, 1986a: Northern Hemisphere surface air temperature
+variations, 1851--1984. J. Clim. Appl. Met., 25, 161--179.
+
+<p>Jones, P. D., S. C. B. Raper, R. S. Bradley, H. F. Diaz, P. M. Kelly,
+and T. M. L. Wigley, 1986b: Southern Hemisphere surface air temperature
+variations, 1851--1984. J. Clim. Appl. Met., 25, 1213--1230.
+
+
+
+<h3 align=center>Original README file</h3> 
+
+<pre>
+MASTER          - description of mass store files
+
+anomalies_landonly.Z - combined land/ocean temperature anomaly grids,
+                       1851-1993 (UNIX compressed),
+                       each anomaly grid is followed by a count grid,
+                       i.e. station count per lat/lon (10x5 deg) box
+
+anomalies_landsea.Z  - combined land/ocean temperature anomaly grids,
+                       1854-1994 (UNIX compressed)
+
+area_ave_files  - directory, see README file in this directory
+
+climate_ncar    - NCAR global temperature climate grids
+                  (from combined ds200.0 and ds205.0)
+
+climate_jones       - received mar95, climate grids from Phil Jones
+climate_jones_doc   - received mar95, climate grids doumentation from Phil Jones
+climate_jones_rd.f  - received mar95, climate grids read routine from Phil Jones
+
+read_landonly.f - UNIX read program to be used with 'climate_ncar' file and
+                  uncompressed 'anomalies_landonly.Z' file, the program
+                  prints the station count per lat/lon (10x5 deg) box under
+                  each grid point
+
+
+
+read_landsea.f  - UNIX read program to be used with 'climate_ncar' file and
+                  uncompressed 'anomalies_landsea.Z' file
+
+read.qsub       - Cray (shavano) batch read program
+
+readplot.qsub   - Cray (shavano) batch plot program
+
+                        ............
+
+
+
+
+		ON JONES' CLIMATOLOGY (THE ONE PROVIDED HERE)
+
+From mann@cloudy.geology.yale.edu Wed Mar  1 10:50:53 1995
+Received: from ncar.UCAR.EDU by niwot.scd.ucar.EDU (NCAR-local/ NCAR Mail Server
+ 04/10/90)
+        id KAA15428; Wed, 1 Mar 1995 10:50:52 -0700
+Received: from cloudy.geology.yale.edu by ncar.ucar.EDU (NCAR-local/ NCAR Centra
+l Post Office 03/11/93)
+        id KAA26997; Wed, 1 Mar 1995 10:50:49 -0700
+Received: by cloudy.geology.yale.edu (5.65/DEC-Ultrix/4.3)
+        id AA21479; Wed, 1 Mar 1995 12:54:42 -0500
+Date: Wed, 1 Mar 1995 12:54:42 -0500
+From: mann@cloudy.geology.yale.edu (Mike Mann)
+Message-Id: <9503011754.AA21479@cloudy.geology.yale.edu>
+To: joseph@ncar.ucar.edu
+Status: RO
+
+Dear Dennis,
+
+   Below is Phil Jones' reponse regarding the climatology
+for the gridded temperature anomaly dataset. Apparently, he has now
+constructed the climatology! I would be happy to send you folks the
+data, or if you prefer I'm sure you could get it from him directly.
+
+Regards,
+
+Mike M.
+
+>From P.Jones@uea.ac.uk Wed Mar  1 09:15:28 1995
+>Received: from cpcma.uea.ac.uk by xgate.uea.ac.uk with SMTP (PP) 
+>          id <22487-0@xgate.uea.ac.uk>; Wed, 1 Mar 1995 14:02:35 +0000
+>Received: by cpcmg.uea.ac.uk (MX V4.1 VAX) id 1509;
+>          Wed, 01 Mar 1995 14:07:17 WET
+>Date: Wed, 01 Mar 1995 14:07:16 WET
+>From: "P.JONES " <P.Jones@uea.ac.uk>
+>To: MANN
+>Message-Id: <0098CB66.395E3E00.1509@cpcmg.uea.ac.uk>
+>Status: R
+>
+> Dear Mike,
+>     The big file is the climatology for the gridded
+> (1950-1979) data that you have. This is also what
+> David Thompson has although I think all he has is
+> the Hemispheric averages (ie 12 numbers of each
+> hemisphere). I can't find what I sent him but it
+> would have been this. I don't have a land only 
+> refernce base). The layout and scale(*100) are
+> the same as the gridpoint data. Areas with no
+> gridpoint data during 1950-79 have been interpolated
+> by space filter techniques. Over land the climatology
+> is temperatures at 0m (ie all the individual stations
+> were reduced with a lapse rate of 6C/km) to make
+> interpolations to the boxes possible. To get a
+> true hemispheric average you have to scale up by the
+> height of each 5 deg box over land. I can't find
+> the program I used to do this.
+>   Can you send a reprint of your paper in Dec 94 JGR ?
+> Cheers
+> Phil
+
+
+
+
+
+               ON NCAR CLIMATOLOGY (NOT PROVIDED HERE)
+
+                                                Roy Jenne/Will Spangler
+                                                March 1994
+
+The climate grids were put together from the southern (ds200.0) and northern
+(ds205.0) climatologies here at NCAR.
+
+The anomalies are not anomalies from a climatology grid. They are anomalies
+from a period mean, station by station. Although, Jones tries to pick a base
+period, it was just not available for each station, so what was available
+was used. Then, the grid of anomalies was analyzed with area-weighting and
+smoothing.
+
+If one wants a grid of temperatures rather than anomalies, we tell users to
+just add our climate grid. Keep in mind that Jones' anomalies are air temp-
+eratures over land and sea surface temperatures over water, so the resulting
+grid of temperatures is not air temperatures the world over. They will be
+close in many areas, but where cold currents they will be off, etc.
+
+Sea surface temperatures were apparently chosen for the advantages of con-
+sistency and continuity, and to avoid inherent problems in ship reports.
+
+Also, be aware that if you are using the latest anomaly grids, they 2.5
+degrees off in spacing from the climate grids.
+
+We do have hardcopy documentation about the hemispheric climatology grids, but
+we really do not have any more documentation than this about the anomalies.
+If you want more detail, you may try to contact Phil Jones,
+
+                   F028@CPCMA.EAST-ANGLIA.AC.UK
+
+or Mike Salmon,
+
+                   m.salmon@uea.ac.uk
+                        ..............
+<p> 
+
+<p> 
+
+
+</pre>
+<p align=center>
+If that was not enough, here is
+<b>the original NCAR MASTER file</b>
+ for your reading pleasure
+
+<p> 
+
+<p> 
+
+
+<pre>
+ ****************************************************************************
+ ***
+ ***  /DSS/D/DS215.0 JONES' U.K. GLOBAL SFC TEMPS, MONTHLY 1851-1993
+ ***
+ ***  SUBJECT TO CHANGE WITHOUT NOTICE
+ ***                                          Will Spangler
+ ***                                          Thu Nov 30 19:18:14 MST 1995
+ ***                                          spangler@ncar.ucar.edu
+ ***                                          (303)-497-1217
+ ***
+ ***      Prepared and maintained by the Data Support Section, Scientific
+ ***  Computing Division, National Center for Atmospheric Research.  NCAR
+ ***  is operated by the University Corporation for Atmospheric Research and
+ ***  is sponsored by the National Science Foundation.  Please credit when
+ ***  publishing research which utilized data from this archive.  The original
+ ***  source of the data should also be acknowledged.
+ ***
+ ***      Direct inquiries to the person shown above, to the person[s] whose
+ ***  last name[s] appears on the 'specialist:' line below, or to Roy Jenne,
+ ***  the manager of the Data Support Section.  A file of staff phone numbers
+ ***  and E-mail addresses may be found under the home directory in the file
+ ***  named staff.
+ ***
+ ***      First time users of our archive, or this data set, should contact
+ ***  the specialist[s] before attempting to access the data.  We can provide
+ ***  users with access routines, format documentation [mentioned on the
+ ***  'format refs:' line in the listing below], and advice.
+ ***
+ ***      Experienced users of this data set should from time to time make a
+ ***  new listing of this file, as we update our tapes and documentation
+ ***  without notice.
+ ***
+ ****************************************************************************
+ ***
+DATA SET:       215.0
+TITLE:          JONES' U.K. GLOBAL SFC TEMPS, MONTHLY 1851-1993
+SUMMARY:
+SUMMARY:
+
+
+
+
+SUMMARY:
+VOLUME:         NNNMB/DAY, NNNMB/VSN, 297MB EST.TOTAL  AS OF 1995MAY23
+DAN SECTIONS:   BB
+TN REFERENCES:
+FORMAT REFS:    DS-FOLDER
+
+FOLDERS -
+INV     INFO    PROG    SUBR    PROJ    SP.PROJ MOVIE   MICRO   MISC    REQ
+I-NNN   D-NNN   P-NNN   S-NNN   PR-NNN  SPR-NNN J-NNN   M-NNN   MS-NNN  Q-NNN
+
+TYPES:          GRIDDED TIMESER SFCANAL
+GRIDS:          GLOBAL NEOLL 10-DEGRX5-DEGR \ LAND ONLY, QUADRANTS
+LEVELS:         SFC
+VARIABLES:      SFCT
+PERIODS:        1851JAN-1994DEC
+TIMES:          MOLY
+STATISTICS:     YRMO LONGTERM \ ANOMALIES ONLY FROM UK
+
+SOURCES:        PROJECT UK JONES \CRU PDJONES, ET.AL.
+SPECIALIST:     SPANGLER
+PUBLICATIONS:
+
+
+
+
+FILES (ON THE MSS) -
+FILENAME (SPECIFY IN UPPER CASE)        DESCRIPTION
+/DSS/P/ACC/DS2150               MSS     READ PROGRAM
+/DSS/P/ACC/DS2150A              MSS     READ PROGRAM FOR DEC 1990 VERSION
+
+VSN    -FF T,DD PERIOD AND COMMENTS
+ -
+ -+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ -
+ -      ********** THIS IS THE LATEST DATA *************************
+ -
+ -  AUG 1995 VERSION OF COMBINED LAND/OCEAN TEMPERATURE ANOMALIES FILE
+ -  USES AIR TEMPERATURES OVER LAND AND WATER TEMPERATURES OVER OCEAN.
+ -  THIS FILE HAS DATA FOR 1854JAN THROUGH 1994DEC
+ -      ANOMALIES ARE BASED ON 1950-1979 MEANS, 5 DEGREE RESOLUTION
+ -                              I=1,72 IS LON 2.5E TO 357.5E, EASTWARD
+ -                              J=1,36 IS LAT 87.5N TO 87.5S
+ -                              UNITS ARE DEGREES C * 100
+ -                              VALUES OF -9999 INDICATE MISSING
+ -  READ AS FOLLOWS:    (USE FORMAT=CH FOR UNICOS LREAD)
+ -      DIMENSION NV(72,36)
+ -      READ 1000,IMO,IYR
+ -      READ 1000,NV
+ - 1000 FORMAT(18I5)
+ -
+ Y20419         GLOBAL COMBINED LAND/OCEAN TEMP ANOMALIES, 245340 RECS, 22 MB,
+ -                     1 FILE, LRECL =90, (ROUNDED TO 96 ON COS BLKED FILES).
+ -
+ -  MAY 1994 VERSION OF LAND ONLY TEMPERATURE ANOMALIES FILE.
+ -  USES AIR TEMPERATURES OVER LAND. HAS MORE STATIONS THAN LAND/OCEAN COMBINE
+ -  THIS FILE HAS DATA FOR 1851JAN THROUGH 1993DEC
+ -      ANOMALIES ARE BASED ON 1951-1980 MEANS, 5 DEGREE RESOLUTION
+ -                              I=1,72 IS LON 2.5E TO 357.5E, EASTWARD
+ -                              J=1,36 IS LAT 87.5N TO 87.5S
+ -                              UNITS ARE DEGREES C * 100
+ -                              VALUES OF -9999 INDICATE MISSING
+ -  READ AS FOLLOWS:    (USE FORMAT=CH FOR UNICOS LREAD)
+ -      DIMENSION NV(72,36),NVC(72,36)
+ -  NVC IS STATION COUNT PER BOX
+ -      READ 1000,IMO,IYR
+ -      READ 1000,NV,NVC
+ - 1000 FORMAT(18I5)
+ -
+ Y20420         GLOBAL LAND ONLY TEMP ANOMALIES, 495924 RECS, 45 MBYTES
+ -                     1 FILE,  LRECL =90, (ROUNDED TO 96 ON COS BLKED FILES).
+ -
+ -+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ -
+ -+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ -  DECEMBER 1990 VERSION OF LAND/OCEAN TEMPERATURE ANOMALY FILE
+ -  USES AIR TEMPERATURES OVER LAND AND WATER TEMPERATURES OVER OCEAN.
+ -  THIS FILE HAS DATA FOR 1854JAN THROUGH 1990APR
+ -      ANOMALIES ARE BASED ON 1950-1979 MEANS, 5 DEGREE RESOLUTION
+ -                              I=1,72 IS LON 2.5E TO 257.5E, EASTWARD
+ -                              J=1,36 IS LAT 87.5N TO 87.5S
+ -                              UNITS ARE DEGREES C * 100
+ -                              VALUES OF -9999 INDICATE MISSING
+ -  READ AS FOLLOWS:    (USE FORMAT=CH FOR UNICOS LREAD)
+ -      DIMENSION NV(72,36)
+ -      READ 1000,IMO,IYR
+ -      READ 1000,NV
+ - 1000 FORMAT(18I5)
+ -
+ Y05396         GLOBAL TEMP ANOMALIES, 1 FILE, 237220 RECS, 21,349,800 BYTES.
+ -                      LRECL =90, (ROUNDED TO 96 ON COS BLKED FILES).
+ -
+ -+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ -
+ -      ***** USE K0433K FOR DATA REQUESTS, ALL LRECS BLANK-FILLED TO 112 CHAR
+ K0433K         Y03317, K0431K, K0432K IN ORDER; 9 FLS, BLKSIZE=5600, LRECL=11
+ -
+ -      *****   COMBINED NH AND SH TEMPERATURES FROM DS205.0 AND DS200.0
+ -      *****   IN THE SAME FORMAT AS PK0431K
+ Y03317         ASCII, BLKSIZE=112, LRECL=112, 1740 LRECS, 12 GRIDS
+ -
+ -      *****   GRIDDED DATA - 599060 LRECS; 67,094,720 BYTES;  OCT 1989 VERSI
+ -      *****   FILE 1 GLOBAL MERGED LAND AND SEASFC T ANOMALIES, 231420 LRECS
+ -      *****   FILE 2 NORTHERN HEMISPHERE LAND T ANOMALIES     , 183820 LRECS
+ -      *****   FILE 3 SOUTHERN HEMISPHERE LAND T ANOMALIES     , 183820 LRECS
+ -      *****   DATA ONLY AVAILABLE 85N - 65S; MISSING VALUES ARE -9999
+ -
+ K0431K         GRIDDED DATA, ASCII, BLKSIZE=112, LRECL=112, 3 FILES, 67(MB)
+ -
+ -      *****   STATION DATA - 184572 LRECS; 14,765,760 BYTES;  OCT 1898 VERSI
+ -      *****   FILE 1 NH CORRECTED, SH UNCORRECTED STATION DATA, 174555 LRECS
+ -      *****   FILE 2 NH STATION DATA, 1981-1984               ,   3888 LRECS
+ -      *****   FILE 3 NH STATION DATA, 1985-1988               ,   4077 LRECS
+ -      *****   FILE 4 SH STATION DATA, 1981-1984               ,   1026 LRECS
+ -      *****   FILE 5 SH STATION DATA, 1985-1988               ,   1026 LRECS
+ -
+ K0432K         STATION DATA, ASCII, BLKSIZE=80, LRECL=80, 5 FILES, 15(MB)
+ -
+ -      *****                                                 DEC 1985 VERSION
+ -      *****   ASCII, BLKSIZE=3250, LRECL=130
+ -      *****   FILE 1 IS NORTHERN HEMISPHERE
+ -      *****   FILE 2 IS SOUTHERN HEMISPHERE
+ -      *****   DATA REALLY ONLY AVAILABLE 85N - 65S
+ -      *****   MISSING VALUES ARE -99.9
+ -
+ K0310K         WOR LAND YRMO T GRIDS, 1854-1984, 5404 BLKS, 2 FILES
+</pre>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

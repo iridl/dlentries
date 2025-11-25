@@ -1,0 +1,605 @@
+ <html>
+<INGRID>standardHeader</INGRID>
+<h1 align=center>Calculated snow-free albedo.<br>
+<font size=2>(Monthly ; CSU, NASA/GSFC)<br>
+ Revision Date Of This Document:     April 5, 1995.</font></h1>
+<pre>
+
+                             2.  INVESTIGATOR(S)
+
+2.1  Investigator(s) Name And Title.
+
+     Donald A. Dazlich
+     Department of Atmospheric Science
+     Colorado State University
+     Fort Collins CO
+
+2.2  Title Of Investigation.
+
+     Earth Observing System - Inter-Disciplinary Science
+     project (Sellers - Mooney)
+
+2.3  Contacts (For Data Production Information). 
+
+_________________________________________________
+              |             Contact 1            |
+______________|__________________________________|
+2.3.1 Name    |Donald A. Dazlich                 |
+2.3.2 Address |Department of Atmospheric Science |
+              |Colorado State University         |
+      City/St.|Fort Collins CO                   |
+      Zip Code|80523                             |
+2.3.3 Fax     |(303) 491-8428                    |
+2.3.4 Email   |dazlich@erehwon.atmos.            |
+              |   colostate.edu                  |
+______________|__________________________________|
+NOTE: Providing information on these data is not part of my daily routine; 
+please read literature and descriptions prior to asking questions. Allow for 
+some delay in answering of questions.
+
+2.4  Requested Form of Acknowledgment.
+
+     Please cite the following publications when ever these data are used:
+
+      Sellers, P.J., D.A. Randall, C.J. Collatz, J.A. Berry, C.B. Field, D.A. 
+          Dazlich, C. Zhang, and C.D. Collelo, 1995a. A revised land surface 
+          parameterization (SiB2) for atmospheric GCMs. Part 1: Model 
+          formulation. submitted to Journal of Climate.
+      Sellers, P.J., S.O. Los, C.J. Tucker, C.O. Justice, D.A. Dazlich, G.J. 
+         Collatz, and D.A. Randall, 1995b. A revised land surface 
+         parameterization (SiB2) for atmospheric GCMs. Part 2: The generation 
+         of global fields of terrestrial biophysical parameters from satellite 
+         data. Submitted to Journal of Climate.
+
+     ACKNOWLEDGMENTS
+
+     This research was funded by the NASA Earth Observing System Inter 
+     disciplinary science (EOS-IDS) program, Sellers-Mooney team (contract 
+     NAS-531732). Sietse Los provided the NDVI derived parameters and biome 
+     classification map necessary to make the calculations for this data set.
+
+                            3.  INTRODUCTION
+
+3.1  Objective/Purpose.
+
+     Normalized Difference Vegetation Index (NDVI) derived parameters for the 
+     24 months January 1987 through December 1988 were used to calculate 
+     monthly mean surface albedos at 1 X 1 degree resolution for vegetated 
+     land surfaces (Sellers et al, 1995b). The CSU GCM (Randall et al, 1989) 
+     was used to make this calculation by synthesizing the Simple Biosphere 
+     model (SiB2) (Sellers et al, 1995a) which used the NDVI based biophysical 
+     parameters leaf area index (LAI), and green fraction of vegetation 
+     (Greenness), with the radiation parameterization of Harshvardhan et al 
+     (1987).
+
+3.2  Summary of Parameters. 
+
+     Snow free surface albedo.
+
+3.3  Discussion.
+
+     The surface albedo is a significant physical parameter controlling the 
+     flux of energy at the interface between the Earth's surface and the 
+     atmosphere and must be prescribed in a General Circulation Model (GCM).  
+     It is a function of the reflectance of the underlying soil surface and of 
+     the vegetative canopy above. The extent and nature of the canopy varies 
+     widely not only with growing season, but year to year as well as it 
+     responds to interannual variations in the climate.
+
+     Satellite data provide a way to describe the seasonal and interannual 
+     variations in surface albedo solar radiation in the visible and near-
+     infrared wavebands, reflected by the Earth's surface and collected by a 
+     remote sensing device, can be combined into a spectral vegetation index 
+     such as the Normalized Difference Vegetation Index (NDVI) and related to 
+     physical properties of vegetation.  In particular, the physical 
+     vegetation parameters leaf area index, and green fraction of vegetation 
+     can be derived from NDVI. An updated version of SiB, named SiB2 (Sellers 
+     et al, 1995a), can calculate the surface albedo for various spectral 
+     intervals (visible and near infrared) and incident beams (direct and 
+     diffuse) by combining these NDVI derived parameters with other 
+     biophysical parameters that are a function of a prescribed vegetation 
+     classification.
+
+     The total-band all-beam surface albedo is an average of the above four 
+     components weighted by the incident radiation in each of those bands.  
+     These incident components can vary with cloudiness and with solar zenith 
+     angle. Further, the albedo components are themselves strongly a function 
+     of solar zenith angle. To get a monthly mean surface albedo requires 
+     integrating the various instantaneous surface albedos over all times of 
+     day and the likely incident radiation.  This is where the use of the GCM 
+     enters.
+
+     The radiation parameterization of the CSU GCM (Harshvardhan et al, 1987) 
+     computes the incident surface radiation in the bands where SiB2 defines 
+     the surface albedos. Weighted by the solar zenith angle, this model 
+     output can be used to integrate and average the surface albedo components 
+     from SiB over the diurnal cycle to produce a monthly surface albedo.
+
+     The CSU GCM (Randall et al, 1989) is a finite difference model with 4x5 
+     degree horizontal resolution and 17 vertical levels. Features of the 
+     model include parameterized convection, solar and terrestrial radiation 
+     with diurnal cycle, planetary boundary layer, and SiB2 (Sellers et al, 
+     1995a). The solar radiation fields of the GCM are produced using the 
+     parameterization of Harshvardhan et al (1987).
+
+                        4.  THEORY OF MEASUREMENTS
+
+Not available at this revision.
+
+                            5.  EQUIPMENT
+
+5.1  Instrument Description.
+
+     Not applicable.
+
+     5.1.1  Platform.
+
+            Not applicable.
+
+     5.1.2  Mission Objectives.
+
+            Not applicable.
+
+     5.1.3  Key Variables.
+
+            Not applicable.
+
+     5.1.4  Principles of Operation.
+
+            Not applicable.
+
+     5.1.5  Instrument Measurement Geometry .
+
+            Not applicable.
+
+     5.1.6  Manufacturer of Instrument.
+
+            Not applicable.
+
+5.2  Calibration.
+
+     Not applicable.
+
+     5.2.1  Specifications.
+
+            Not applicable.
+
+            5.2.1.1  Tolerance.
+
+                     Not applicable.
+
+     5.2.2  Frequency of Calibration.
+
+            Not applicable.
+
+     5.2.3  Other Calibration Information.
+
+            Not applicable.
+
+                             6.  PROCEDURE
+
+6.1  Data Acquisition Methods.
+
+     For a particular month, SiB2 calculated the surface albedo components 
+     (reflectance) hourly as a function of the time varying input parameters 
+     LAI and Greenness, and permanent physiological parameters that are a 
+     function of the defined biome classification, and the solar zenith angle. 
+     The surface and canopy are assumed to be snow-free. The albedo components 
+     are weighted by the cosine of the solar zenith angle and the fraction of 
+     incident radiation in the corresponding band. The albedo components are 
+     summed over one month with the one hour time step using daily updated 
+     solar declination angles. These component sums are added and normalized 
+     to obtain the monthly mean surface albedo for the 1 X 1 degree area.  The 
+     full procedure is described in Sellers et al., (1995a,b).
+
+     The incident radiation fields are from a recent 10 year integration of 
+     the CSU GCM that includes SiB2 and real monthly Sea Surface Temperature 
+     data for the years 1979 through 1988, as described by Randall et al 
+     (1995). Ten year means for each month  were used in weighting the albedo 
+     calculation.
+
+6.2  Spatial Characteristics. 
+
+     6.2.1  Spatial Coverage. 
+
+            The coverage is global.  Data in each file are ordered from North 
+            to South and from West to East beginning at 180 degrees West and 
+            90 degrees North.  Point (1,1) represents the grid cell centered 
+            at 89.5 N and 179.5 W (see section 8.4).
+
+            The Surface Albedo data value coverage is between latitudes of 75
+            degrees North and South.  Latitudes higher than 75 degrees (North
+            or South) are filler and equal zero.  Data for these regions were
+            not available in the GIMMS continental data set.  The calculation
+            of surface albedo is made for all vegetated land points (no
+            permanent ice cover), as defined by the biome classification
+            scheme (see VEG_CLSS.DOC).
+
+            Permanent land ice points are assigned albedo values based on the 
+            characteristics of a the bare soil biome classification, and 
+            assumed values of APAR=0.001, LAI=0.01 and canopy greenness=0.141.  
+            Regions of polar night are assigned an albedo based on the 
+            insolation partition of the last month with sunlight and the next 
+            month with sunlight and assuming a zenith angle of 89 degrees for 
+            calculation of the direct beam albedos.
+
+     6.2.2  Spatial Resolution. 
+
+            The data are given in an equal-angle lat/long grid that has a 
+            spatial resolution of 1 X 1 degree lat/long.
+
+6.3  Temporal Characteristics. 
+
+     6.3.1  Temporal Coverage 
+
+            January 1987 through December 1988. 
+
+            (Data acquisition switched from NOAA 9 to 11 in November 1988).
+
+     6.3.2  Temporal Resolution. 
+
+            Monthly mean.
+
+                           7.  OBSERVATIONS
+
+7.1  Field Notes.
+
+     Not applicable.
+
+                           8.  DATA DESCRIPTION
+
+8.1  Table Definition With Comments.
+
+     Not Applicable.
+
+8.2  Type of Data. 
+
+--------------------------------------------------------------------------------
+|                 8.2.1                |              |             |          |
+|Parameter/Variable Name               |              |             |          |
+--------------------------------------------------------------------------------
+|    |               8.2.2             |     8.2.3    |    8.2.4    |  8.2.5   |
+|    |Parameter/Variable Description   |Range         |Units        |Source    |
+--------------------------------------------------------------------------------
+|SF_ALBEDO                             |              |             |          |
+|    |Snow free surface albedo         |Min = 0.08 $  |[Unitless]*  |          |
+|    |(fraction of incident solar      |Max = 0.4 $   |             |          |
+|    |radiation reflected by surface)  |              |             |          |
+|    |                                 |              |             |          |
+--------------------------------------------------------------------------------
+$ The minimum and maxmimum Albedo are for land surfaces, rain forest and 
+  desert respectively. The values are approximate. The potential range is 0 
+  to 1.
+* Albedo Units are non-dimensional, a fraction between 0 and 1.
+
+8.3  Sample Data Base Data Record.
+
+     Not applicable.
+
+8.4  Data Format
+
+     The CD-ROM file format is ASCII, and consists of numerical fields of 
+     varying length, which are space delimited and arranged in columns and 
+     rows.  Each column contains 180 numerical values and each row contain 360 
+     numerical values.  
+
+          Grid arrangement
+
+             ARRAY(I,J)
+             I  = 1 IS CENTERED AT 179.5W
+             I INCREASES EASTWARD BY 1 DEGREE
+             J  = 1 IS CENTERED AT 89.5N
+             J INCREASES SOUTHWARD BY 1 DEGREE
+
+             90N - | - - - | - - - | - - - | - -
+                   | (1,1) | (2,1) | (3,1) |
+             89N - | - - - | - - - | - - - | - -
+                   | (1,2) | (2,2) | (3,2) |
+             88N - | - - - | - - - | - - - | - -
+                   | (1,3) | (2,3) | (3,3) |
+             87N - | - - - | - - - | - - - |
+                  180W   179W    178W   177W
+
+            ARRAY(360,180)
+
+8.5  Related Data Sets 
+
+     1 X 1 degree Soil Reflectance data, Donald A Dazlich,(on this CD-ROM). 
+     1 X 1 degree normalized difference vegetation index (NDVI) global data 
+           (on this CD-ROM).
+     1 X 1 degree Fourier based adjustment, solar zenith angle correction, 
+           interpolation of missing data and reconstruction of evergreen 
+           broadleaf land cover types (tropics), (FASIR-NDVI) data (on this 
+           CD-ROM). 
+     1 X 1 degree fraction of photosynthetic active radiation absorbed by the 
+           vegetation canopy (FPAR) monthly global data (on this CD-ROM). 
+     1 X 1 degree leaf area index (LAI) global data (on this CD-ROM). 
+     1 X 1 degree Greenness global data (on this CD-ROM). 
+     1 X 1 degree roughness length (Zo) monthly global data (on this CD-ROM).
+     1 X 1 degree vegetation classification map (on this CD-ROM).
+
+     Also see section 8.5 (Related Data Sets) in the NDVI document.
+
+                          9.  DATA MANIPULATIONS
+
+9.1  Formulas.
+
+     9.1.1  Derivation Techniques/Algorithms.
+
+            A two-stream model described in Sellers (1985) and Sellers et al 
+            (1995a) was used to calculate surface reflectance.
+
+9.2  Data Processing Sequence 
+
+     A full description of the models and procedures used can be found 
+     in Sellers (1985), Sellers et al., (1995a, b) and some results are 
+     discussed in Randall et al., (1995).  In summary, the following 
+     data are inserted into the two stream radiative transfer model.
+
+     -  Soil/background reflectance, these fields are also on this 
+        CD-ROM.
+
+     -  Leaf area index (LAI), derived from the NDVI data, also on this 
+        CD-ROM.
+
+     -  Canopy greenness factor, derived from the NDVI data, also on 
+        this CD-ROM.
+
+     The LAI and canopy greenness factor data are combined with biome-
+     dependent optical and meteorological data in SiB2 to estimate the 
+     density, geometrical arrangement and spectral properties of canopy 
+     phyto-elements. These and the soil/background information are used 
+     by the SiB2 2-stream model to calculate the direct beam and diffuse, 
+     visible and near-infrared radiation transfer within the canopy soil 
+     system. Canopy reflectance are weighted by the incoming fluxes, as 
+     calculated by the model of Harshvardhan et al. (1987), and summed to 
+     provide an estimate of surface albedo.
+
+     9.2.1  Processing Steps and Data Sets 
+
+            See section 9.2.
+
+     9.2.2  Processing Changes.
+
+            None.
+
+9.3  Calculations.
+
+     See Sellers (1985), Sellers et al., (1995a,b).
+
+     9.3.1  Special Corrections/Adjustments.
+
+            See references in section 9.3.
+
+9.4  Graphs and Plots.
+
+     The performance of the two-stream model (using in situ parameters rather 
+     than satellite data inputs) is assessed in Dorman and Sellers (1989) for 
+     a few site-specific studies. Sellers et al. (1995b) and Randall et al., 
+     (1995) reproduce and discuss global fields.
+
+                                10.  ERRORS
+
+10.1  Sources of Error.
+
+      The calculation procedure assumes that the fraction of incident 
+      radiation in each band does not change with time of day. It is also 
+      assumed that the magnitude of the incident radiation varies with time of 
+      day according to the cosine of the zenith angle. In fact, due to diurnal 
+      variations in cloudiness, there can be large diurnal variations in the 
+      partition of incident radiation among the bands and large deviations in 
+      magnitude from the assumed weighting by the cosine of the zenith angle.
+
+      To evaluate the magnitude of the errors due to these assumptions, the 
+      surface albedo calculated for this method at 4x5 resolution using 1987 
+      NDVI data where compared to those actually computed from a CSU GCM 
+      simulation using the same data. The maximum difference in surface albedo 
+      was 3%, the RMS difference was 1%, and there was no systematic error.
+
+      Error is also introduced due to the fact that GCM output is used to 
+      prescribe the radiation fields rather than real data. While data is not 
+      available to validate the partition of the radiation, the CSU GCM has 
+      been used successfully in several studies of the Earth's radiation 
+      budget (Randall et al, 1995; Harshvardhan et al, 1987). An attempt will 
+      be made in late 1994/early 1995 by Los (see section 2.3) to compare some 
+      of the global points against published field data.
+
+10.2  Quality Assessment. 
+
+      The performance of the two-stream model (using in situ parameters rather 
+      than satellite data inputs) is assessed in Dorman and Sellers (1989) for 
+      a few site-specific studies. Sellers et al., (1995b) and Randall et al., 
+      (1995) reproduce and discuss global fields.
+
+      10.2.1  Data Validation by Source. 
+
+              See reference in section 10.2 above.
+
+      10.2.2  Confidence Level/Accuracy Judgment. 
+
+              See reference in section 10.2 above.
+
+      10.2.3  Measurement Error for Parameters and Variables.
+
+              See reference in section 10.2 above.
+
+      10.2.4  Additional Quality Assessment Applied.
+
+              See reference in section 10.2 above.
+
+                                11.  NOTES 
+
+11.1  Known Problems With The Data.
+
+      Experience has shown that the two-stream model tends to overestimate 
+      reflectances for tall deciduous canopies, as it does not account well 
+      for the effects of radiation trapping by 'holes' in the canopy, see 
+      Sellers et al., (1989). This effect probably gives rise to errors on the 
+      order of 3% or less absolute. 
+
+11.2  Usage Guidance. 
+
+      The NDVI data set reflects global patterns of vegetation, however, 
+      serious errors may be present in the data set that could limit the 
+      validity of conclusions, especially for specific locales.
+
+11.3  Other Relevant Information.
+
+      Dorman and Sellers (1989) and Sellers et al., (1989) published results 
+      using the two-stream model where all the input parameters were obtained 
+      directly or indirectly from in situ measurements, leaf area index, 
+      greenness, soil reflectance, vegetation optical properties, etc.
+
+      In the fields on this CD-ROM, the model was forced using satellite data 
+      to define leaf area index, canopy greenness factors and soil 
+      reflectance, as described in Sellers et al., (1995a,b) and Randall et 
+      al., (1995). It is argued in their publications that these albedo 
+      fields should be a considerable improvement over the previous ones 
+      published in Dorman and Sellers (1989).
+
+                            12.  REFERENCES 
+
+12.1  Satellite/Instrument/Data Processing Documentation. 
+
+      None.
+
+12.2  Journal Articles and Study Reports. 
+
+      Dorman, J.L. and P.J. Sellers, 1989. A global climatology of albedo, 
+          roughness length and stomatal resistance for atmospheric general 
+          circulation models as represented by the simple biosphere model 
+          (SiB). J.A.M., 28(9):833-855.
+      Harshvardhan, R. Davies, D.A. Randall, and T.G. Corsetti, 1987. A fast 
+          radiation parameterization for general circulation models. J. 
+          Geophys. Res., 92:1009-1016.
+      Los, S.O.,  C.O. Justice, C.J. Tucker, 1994. A global 1 by 1 degree NDVI 
+          data set for climate studies derived from the GIMMS continental NDVI 
+          data. International Journal of Remote Sensing, 15(17):3493-3518. 
+      Randall, D.A., Harshvardhan, D.A. Dazlich, and T.G. Corsetti, 1989. 
+          Interactions among radiation, convection, and large-scale dynamics 
+          in a general circulation model. J. Atmos. Sci., 46:1943-1970.
+      Randall, D.A., P.J. Sellers, J.A. Berry, D.A. Dazlich,  C. Zhang, G.J. 
+          Collatz, 1995. A  revised land surface parameterization 
+          (SiB2) for atmospheric GCMs. Part 3: The greening of the Colorado 
+          State University general circulation model. submitted to Journal of 
+          Climate.
+      Sellers, P.J., 1985. Canopy reflectance, photosynthesis and 
+          transpiration. International Journal for Remote Sensing, 
+          6:1335-1372.
+      Sellers, P.J., J.W. Shuttleworth, J.L. Dorman, A. Dalcher and J.M. 
+          Roberts, 1989. Calibrating the simple biosphere model (SiB) for 
+          Amazonian tropical forest using field and remote sensing data: Part 
+          1, average calibration with field data. J.A.M., 28(8):727-759.
+      Sellers P.J., J.A. Berry, G.J. Collatz, C.B. Field and F.G. Hall, 1992. 
+          Canopy reflectance, photosynthesis and transpiration, III. A 
+          reanalysis using enzyme Kinetics-electron transport models of leaf 
+          physiology. Remote Sensing of Environment, 42:187-216.
+      Sellers, P.J., D.A. Randall, C.J. Collatz, J.A. Berry, C.B. Field, D.A. 
+          Dazlich, C. Zhang, and C.D. Collelo, 1995a. A revised land surface 
+          parameterization (SiB2) for atmospheric GCMs. Part 1: Model 
+          formulation. Submitted to Journal of Climate.
+      Sellers, P.J., S.O. Los, C.J. Tucker, C.O. Justice, D.A. Dazlich, G.J. 
+         Collatz, and D.A. Randall, 1995b. A revised land surface 
+         parameterization (SiB2) for atmospheric GCMs. Part 2: The generation 
+         of global fields of terrestrial biophysical parameters from satellite 
+         data. Submitted to Journal of Climate.
+
+12.3  Archive/DBMS Usage Documentation.
+
+      Contact the EOS Distributed Active Archive Center (DAAC) at NASA Goddard 
+      Space Flight Center (GSFC), Greenbelt Maryland (see Section 13 below).
+      Documentation about using the archive or information about access to the 
+      on-line information system is available through the GSFC DAAC User 
+      Services Office.
+
+                             13.  DATA ACCESS
+
+13.1  Contacts for Archive/Data Access Information.
+
+      GSFC DAAC User Services
+      NASA/Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Phone:     (301) 286-3209
+      Fax:       (301) 286-1775
+      Internet:  daacuso@eosdata.gsfc.nasa.gov
+
+13.2  Archive Identification.
+
+      Goddard Distributed Active Archive Center
+      NASA Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Telephone:  (301) 286-3209
+      FAX:        (301) 286-1775
+      Internet:   daacuso@eosdata.gsfc.nasa.gov
+
+13.3  Procedures for Obtaining Data.
+
+      Users may place requests by accessing the on-line system, by sending 
+      letters, electronic mail, FAX, telephone, or personal visit.
+
+      Accessing the GSFC DAAC Online System:
+
+      The GSFC DAAC Information Management System (IMS) allows users to 
+      ordering data sets stored on-line.  The system is open to the public.
+
+      Access Instructions:
+
+      Node name:  daac.gsfc.nasa.gov
+      Node number: 192.107.190.139
+      Login example: telnet daac.gsfc.nasa.gov
+      Username:  daacims
+      password:  gsfcdaac
+
+      You will be asked to register your name and address during your first
+      session.
+
+      Ordering CD-ROMs:
+
+      To order CD-ROMs (available through the Goddard DAAC) users should 
+      contact the Goddard DAAC User Support Office (see section 13.2).
+
+13.4  GSFC DAAC Status/Plans.
+
+      The ISLSCP Initiative I  CD-ROM is available from the Goddard DAAC.
+
+                   14.  OUTPUT PRODUCTS AND AVAILABILITY
+
+14.1  Tape Products
+
+      None.
+
+14.2  Film Products 
+
+      None.
+
+      Not available at this revision.
+
+14.3  Other Products 
+
+      None.
+
+                         15.  GLOSSARY OF ACRONYMS
+
+AVHRR            Advanced Very High Resolution Radiometer
+CD-ROM           Compact Disk (optical), Read Only Memory
+CSU              Colorado State University
+DAAC             Distributed Active Archive Center
+EOS              Earth Observing System
+GCM              General Circulation Model of the atmosphere
+FASIR (NDVI)     Fourier Adjusted, Solar zenith angle correction,
+                 Interpolation (of missing data during winter), and
+                 Reconstruction of NDVI over tropical forests.
+GSFC             Goddard Space Flight Center
+IDS              Inter disciplinary Science
+ISLSCP           International Satellite Land Surface Climotology Project
+LAI              Leaf Area Index
+NASA             National Aeronautics and Space Administration
+NDVI             Normalized Difference Vegetation Index
+NOAA             National Oceanographic and Atmospheric Administration
+RMS              Root Mean Square
+SiB2             Simple Biosphere model (Sellers et al 1995a)
+</pre>

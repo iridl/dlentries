@@ -1,0 +1,248 @@
+<INGRID>datasetdocumentationheader</INGRID>
+
+<h1>LICENSE</h1>
+
+<p>
+<a href="/SOURCES/.Models/.NMME/">NMME datasets</a> © 2011 by 
+<a href="https://www.cpc.ncep.noaa.gov/products/NMME/">NMME</a> is licensed under 
+<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+<img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+<img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+</p>
+<p>
+    The NMME model output should be referred to as 
+    <a href="/SOURCES/.Models/.NMME/">the NMME data</a> in publications and 
+    referenced using the DOI:  10.1175/BAMS-D-12-00050.1. In addition, an 
+    acknowledgment similar to the following should be included in any publication: 
+    "We acknowledge the agencies that support the NMME-Phase II system, and we thank 
+    the climate modeling groups (Environment Canada, NASA, NCAR, NOAA/GFDL, 
+    NOAA/NCEP, and University of Miami) for producing and making available their 
+    model output. NOAA/NCEP, NOAA/CTB, and NOAA/CPO jointly provided coordinating 
+    support and led development of the NMME system."
+</p>
+
+<h1>CHANGE LOG</h1>
+
+<li style="text-align: justify;">
+<a href="/SOURCES/.Models/.NMME/.NASA-GEOSS2S/.FORECAST_iri1/">
+    NASAS-GEOSS2S FORECAST iri1</a>: On <strong>June 17th, 2025</strong>: The latest version's April and May
+2025 forecast issues were entirely replaced by new files. The current latest
+version is now iri1, while the previous version is renamed
+<a href="/SOURCES/.Models/.NMME/.NASA-GEOSS2S/.FORECAST_iri0/">
+    iri0</a> and is stopped at June 2025 issue, the moment of the change.
+</li>
+
+<li style="text-align: justify;">
+<a href="/SOURCES/.Models/.NMME/.CanSIPS-IC4/.HINDCAST/MONTHLY/prsml_iri1">
+    CanSIPS-IC4 HINDCAST MONTHLY prsml iri1</a>: On <strong>June 17th, 2025</strong>, a new version of the the entire set of hindcast data
+    files for PRMSL has been downaloaded. The former prsml variable, renamed
+    prmsl_iri0, still available for reproducibiluty purposes, had inconsistent units
+    switching between Pa and hPa through issue dates and members. prmsl_iri1 are all
+    in Pa.
+</li>
+
+<li style="text-align: justify;">
+<a href="/SOURCES/.Models/.NMME/.CanSIPS-IC4/.HINDCAST/MONTHLY/prsml_iri0">
+    CanSIPS-IC4 HINDCAST MONTHLY prsml iri0</a>: On <strong>June 25th, 2024</strong>, the entire set of hindcast data files have been
+    updated from the provider and the DL datasets have switched to that sources.
+    Analyses and downloads done prior to that date relied on another set. The whole
+    set update was meant to correct:
+<ul>
+<li>Missing files for months August and September</li>
+<li>metadata for ensemble members fix</li>
+<li>PRATE values fixed</li>
+</ul>
+</li>
+
+<li style="text-align: justify;">
+sst_regridded is the newly regridded SPEAR SST data.
+The hindcast data spans the initialization months 199101-202012. The forecast data spans the initialization months 202101-present.
+Information about the regridding:
+The original SPEAR SST data regridded to the NMME grid had incorrect values in the Arctic, where the GFDL tripolar grid was not correctly accounted for in the regridding process. This newly regridded SST data is exactly the same as the original data south of 65 degrees North latitude and now has the correct values and mapping poleward of 65 degrees North latitude.
+</li>
+
+<h1>CanSIPS-IC4</h1>
+
+<p>
+    Technical Note: 
+    <a href="https://collaboration.cmc.ec.gc.ca/cmc/cmoi/product_guide/docs/tech_notes/technote_cansips-300_e.pdf">
+    The Canadian Seasonal to Interannual Prediction System version 3.0 (CanSIPSv3.0)</a>
+</p>
+
+<h1>COLA-RSMAS CCSM3</h1>
+<p>
+The RSMAS-COLA forecasts are made with the NCAR CCSM3.0 (Collins et al. 2006) and described in detail in Kirtman and Min (2009). 
+Collins, W. D., and co-authors, 2006a: The Community Climate System
+Model version 3 (CCSM3). J. Climate, 19, 2122-2143. Kirtman,
+B. P., and D. Min, 2009: Multi-model ensemble ENSO prediction with
+CCSM and CFS. Mon. Wea. Rev., DOI: 10.1175/2009MWR2672.1. 
+
+</p>
+Contact person Ben Kirtman: bkirtman@rsmas.miami.edu
+
+<h1>GFDL CM2.1</h1>
+<p>
+The GFDL assimilation systems is based on the ensemble /adjustmen/t
+Kalman filter (EaKf; Anderson 2001), which is a deterministic variant
+of the ensemble Kalman filter. The EaKf estimates the probability
+distribution function (PDF) of climate states by combining the prior
+PDF derived from model dynamics and the observational PDF. It uses a
+two-step data assimilation procedure %Gâ%@ the first step
+computes ensemble increments at an observation location and the second
+step distributes the increments over the impacted grids - for an
+ensemble Kalman filter under a local least
+squares framework. In both systems the filtering process is
+implemented by a multivariate linear regression with consideration of
+temperature and salinity covariance (Anderson 2003). The data adjusted
+ensemble members are the realizations of the analysis PDF and serve as
+the initial conditions for the next ensemble integration. 
+</p>
+<p>
+The GFDL system consists of an EaKf applied to GFDL's fully coupled
+climate model CM2.1 (Delworth et al. 2006, Zhang et al. 2007), which
+is designed to produce a better balanced initialization as opposed to
+each component model using its own assimilation system. The ocean
+component of the ensemble coupled data assimilation (ECDA3.1) is the
+Modular Ocean Model version 4 (MOM4) configured with 50 vertical
+levels and 1° horizontal resolution, telescoping to 1/3° meridional
+spacing near the equator. The atmospheric component has a resolution
+of 2.5° x 2° with 24 vertical levels. The first guess is given by a
+fully coupled model where the atmosphere is constrained by an existing
+atmospheric analysis. Ocean observations of temperature, salinity, and
+SST are assimilated using covariance structures from the coupled
+model. Argo observations are included as they became available in the
+post-2000 period. The cross-interface covariance structures in the
+GFDL system allow for fully coupled assimilation. For the ocean
+component, observed temperature and salinity profiles and SST are
+assimilated daily (see details in
+<a href="http://www.gfdl.noaa.gov/ocean-data-assimilation">http://www.gfdl.noaa.gov/ocean-data-assimilation</a>). The atmosphere is
+constrained by an existing atmospheric analysis. All ECDA3.1
+experiments are performed with a 12-member ensemble that is used to
+compute state estimation, ensemble mean, and the spread of the
+estimate. </p>
+<p>
+Using the ECDA analysis ensembles for initial conditions, one year
+predictions of 10 ensemble members are produced beginning on the first
+of every month. 
+</p>
+
+The data for this forecast system can also be obtained from: <a href="http://www.gfdl.noaa.gov/SI_Exp_Predictions">http://www.gfdl.noaa.gov/SI_Exp_Predictions</a>.
+
+
+<h1>IRI ECHAM4.5 Anomaly Coupled</h1>
+<p>
+This model is an updated version of the coupled model described in
+DeWitt (2005). Improvements to the model are in the coupling scheme
+and include a parameterized version of the diurnal solar cycle
+following Danabasoglu et al. (2006), and inclusion of the surface
+currents in the stress calculation following Luo et al. (2005) These
+changes help to reduce the models near-equatorial cold bias. The
+atmospheric component model is the Max-Planck Institute (MPI) ECHAM4.5
+atmospheric general circulation model (AGCM; Roeckner et al., 1994)
+and is initialized with forced runs using observed SST. The ocean
+component model is the Geophysical Fluid Dynamics Laboratory (GFDL)
+Modular Ocean Model Version 3 (MOM3; Pacanowski and Griffies, 1998)
+initialized with a Derber-Rosati (1989) temperature assimilation
+scheme.
+</p>
+  <h3>References</h3>
+<p>
+
+Danabasoglu, G., W. G. Large, J.J. Tribbia, P. R. Gent, and B. P. Briegleb, 2006: Diurnal coupling in the tropical oceans of CCSM3. J. Climate, 19, 2347-2365. Derber, J. and A. Rosati, 1989: A global oceanic data assimilation system. J. Phys. Oceanogr., 19, 1333-1347.
+<p>
+
+DeWitt, D. G., 2005: Retrospective forecasts of interannual sea surface temperature anomalies from 1982 to present using a directly coupled atmosphere-ocean general circulation model. Mon. Wea. Rev., 133, 2972-2995.
+<p>
+
+Luo, J.-J., S. Masson. E. Roeckner, G. Madec, and T. Yamagata, 2005: Reducing climatology bias in an ocean-atmosphere CGCM with improved coupling physics. J. Climate, 18, 2344-2360.
+<p>
+
+Pacanowski, R. C., and S. M. Griffies, 1998: MOM 3.0 manual. NOAA/Geophysical Fluid Dynamics Laboratory, Princeton, NJ, 608pp.
+<p>
+
+Roeckner, and Coauthors, 1996: The atmospheric general circulation model ECHAM4: Model description and simulation of present day climate. Rep. 218, Max-Planck-Institute fur Meteorologie, 90 pp. [Available from MPI fur Meteorologie, Bundesstr. 55, 20146 Hamburg, Germany.]
+<p>
+Contact person: Dave DeWitt: daved@iri.columbia.edu
+
+<h1>IRI ECHAM4.5 Direct Coupled</h1>
+
+<p>
+This model is an updated version of the coupled model described in
+DeWitt (2005). Improvements to the model are in the coupling scheme
+and include a parameterized version of the diurnal solar cycle
+following Danabasoglu et al. (2006), and inclusion of the surface
+currents in the stress calculation following Luo et al. (2005) These
+changes help to reduce the models near-equatorial cold bias. The
+atmospheric component model is the Max-Planck Institute (MPI) ECHAM4.5
+atmospheric general circulation model (AGCM; Roeckner et al., 1994)
+and is initialized with forced runs using observed SST. The ocean
+component model is the Geophysical Fluid Dynamics Laboratory (GFDL)
+Modular Ocean Model Version 3 (MOM3; Pacanowski and Griffies, 1998)
+initialized with a Derber-Rosati (1989) temperature assimilation
+scheme.
+</p>
+  <h3>References</h3>
+<p>
+
+Danabasoglu, G., W. G. Large, J.J. Tribbia, P. R. Gent, and B. P. Briegleb, 2006: Diurnal coupling in the tropical oceans of CCSM3. J. Climate, 19, 2347-2365. Derber, J. and A. Rosati, 1989: A global oceanic data assimilation system. J. Phys. Oceanogr., 19, 1333-1347.
+<p>
+
+DeWitt, D. G., 2005: Retrospective forecasts of interannual sea surface temperature anomalies from 1982 to present using a directly coupled atmosphere-ocean general circulation model. Mon. Wea. Rev., 133, 2972-2995.
+<p>
+
+Luo, J.-J., S. Masson. E. Roeckner, G. Madec, and T. Yamagata, 2005: Reducing climatology bias in an ocean-atmosphere CGCM with improved coupling physics. J. Climate, 18, 2344-2360.
+<p>
+
+Pacanowski, R. C., and S. M. Griffies, 1998: MOM 3.0 manual. NOAA/Geophysical Fluid Dynamics Laboratory, Princeton, NJ, 608pp.
+<p>
+
+Roeckner, and Coauthors, 1996: The atmospheric general circulation model ECHAM4: Model description and simulation of present day climate. Rep. 218, Max-Planck-Institute fur Meteorologie, 90 pp. [Available from MPI fur Meteorologie, Bundesstr. 55, 20146 Hamburg, Germany.]
+<p>
+Contact person: Dave DeWitt: daved@iri.columbia.edu
+</p>
+
+<h1>NCEP CFS v1</h1>
+
+The CFSv1 seasonal predictions out to abt 9 months have been
+    operational at NCEP since August 2004, and although already
+    succeeded by CFSv2, is still running (as of early 2012 at
+    least). The atmospheric component has T62L64 atmospheric
+    resolution and the ocean component is a MOM3 model at 0.30
+    meridional equatorial resolution. Hindcasts are available for
+    1981-2009. At the time it was the first coupled atmosphere-ocean
+    model at NCEP that had a) so-called 1-tier coupling as opposed to
+    the earlier 2-tier or even AMIP approach, b) semi-global (about
+    50S-60N) coupling in all oceans (as opposed to coupling in the
+    tropical Pacific only). Details of the model components, the
+    initial states and some forecast results are in Saha et al(2006).
+<p>
+Saha, S., and Coauthors, 2006: The NCEP Climate Forecast
+System. /J. Climate/, *19*, 3483-3517. doi:
+http://dx.doi.org/10.1175/JCLI3812.1
+<p>
+
+Saha, Suranjana, and Coauthors, 2010: The NCEP Climate Forecast System Reanalysis. /Bull. Amer. Meteor. Soc./, *91*, 1015-1057. doi: http://dx.doi.org/10.1175/2010BAMS3001.1
+
+<h1>NCEP CFS v2</h1>
+
+The CFSv2 model became operational at NCEP, as successor of CFSv1, in
+    March 2011. The atmospheric component has T128L64 atmospheric
+    resolution and the ocean component is a MOM4 model at 0.25
+    meridional equatorial resolution. Hindcasts out to 9 months are
+    available for 1982-2010. The ocean-atmosphere coupling (more
+    frequent than in v1) is now truly global, and an interactive
+    sea-ice model has been added. Initial states for the integration
+    are provided by a coupled Reanalysis at T382L64 resolution (Saha
+    et al 2010). CFSv2 has, as much as practically possible,
+    consistency between the forecast model and the initial
+    states. Further details of the model components, the initial
+    states and some forecast results will be in Saha et al(2012). 
+<p>
+Saha, Suranjana, and Coauthors, 2010: The NCEP Climate Forecast System Reanalysis. /Bull. Amer. Meteor. Soc./, *91*, 1015-1057. doi: http://dx.doi.org/10.1175/2010BAMS3001.1
+<p>
+
+Suranjana Saha, Shrinivas Moorthi, Xingren Wu, Jiande Wang, Sudhir
+Nadiga, Patrick Tripp, Hua-Lu Pan, David Behringer, Yu-Tai Hou, Hui-ya
+Chuang, Mark Iredell, Michael Ek, Jesse Meng, Rongqian Yang, Huug van den Dool, Qin Zhang, Wanqiu Wang, Mingyue Chen, 2012 : The NCEP Climate Forecast System Version 2. (To be submitted to the Journal of Climate.) 
+
+<INGRID>datasetdocumentationtrailer</INGRID>

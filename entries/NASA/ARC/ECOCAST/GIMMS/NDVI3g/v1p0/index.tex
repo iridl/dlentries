@@ -1,0 +1,145 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+
+/simplendvicolors {
+startcolormap
+DATA -0.3 1.0 RANGE
+null sienna sienna -0.3 value
+yellow 0.5 value
+ForestGreen 1.0 value
+ForestGreen 
+endcolormap 
+/plotfirst -0.3 def
+/plotlast 1. def
+} def
+
+:datasetdefs
+
+link:
+/name (Data Source) def
+/description (NASA ECOCAST GIMMS NDVI3g.v1) def
+/href (https://ecocast.arc.nasa.gov/data/pub/gimms/3g.v1/) def
+:link
+
+link:
+/name (Documentation) def
+/description (NCAR/UCAR Climate Data Guide: NDVI 3rd Generation NASA/GSFC GIMMS) def
+/href (https://climatedataguide.ucar.edu/climate-data/ndvi-normalized-difference-vegetation-index-3rd-generation-nasagfsc-gimms) def
+:link
+
+/Institution (NASA/GSFC GIMMS) def
+/description (Version 1.0) def
+/Data (NDVI3g version 1) def
+/Reference (1. Pinzon, J.E.; Tucker, C.J.  A Non-Stationary 1981-2012 AVHRR NDVI3g Time Series. Remote Sens. 2014, 6, 6929-6960.  2. Pinzon, J.E.; Tucker, C.J.  A Non-Stationary 1981-2015 AVHRR NDVI3g.v1 Time Series: an update.  Remote Sens. 2016, in preparation) def 
+/CommentsVersion1 (version1 includes two major fixes (a and b), and three minor (c-g): (a) Reprocessed Level 2 entire SeaWIFS mission for the land products to reduce artifacts in the data, particularly changes in calibration after 2006 that generates drops in ndvi lower values. OB.DAAC / Ocean Biology Processing group NASA/GSFC 616  (april 2016) (b) Recovered ndvi negative values of snow-covered regions in winter Northern latitudes.  In Version0, we masked them with zero values, reating artifacts in phenology parameters.  (c) Arranged data in ncd format, compiled it in two nc4 files a year.  Each nc4 file includes 6 months of ndvi data (jan-jun and jul-dec), with a total of 12 (15-day) composites each semester.  (d) Rescaled ndvi values and splitted the flag values from them.  (e) Added a new variable, percentile, to represent the distribution of ndvi values in the time series. Range 10*[0, 100]   (f) Flag values are (simpler):  flag 0: ndvi without apparent issues (good value)  flag 1: ndvi retrieved from spline interpolation  flag 2: ndvi retrieved from seasonal profile (possible snow/cloud)  (g) Flag values are embeded on the percentile variable:  2000*flag + percentile. Thus, the actual percentile three ranges [0 1000], [2000 3000] and [4000 5000] could provide direct information of how interpolation is affecting the time series.) def
+/SpatialResolution (1/12 x 1/12 degrees) def
+/TemporalResolution (1/24 a year) def
+/NorthernmostLatitude (90) def
+/SouthernmostLatitude (-90) def
+/WesternmostLongitude (-180) def
+/EasternmostLongitude (180) def
+/NCO (4.3.7) def
+
+grid:
+/name /Y def
+degN
+89.95833333
+-89.95833333
+N= 2160 pts
+:grid
+
+grid:
+/name /X def
+degE
+periodic
+-179.95833333
+179.95833333
+N= 4320 pts
+:grid
+
+\end{ingrid}
+
+variable:
+/name /sat def
+/long_name (NOAA satellite) def
+grids: T :grids
+values:
+(n07)
+(n09)
+(n11)
+(n09)
+(n14)
+(n16)
+(n17)
+(n18)
+(n19)
+:values
+:variable
+
+\begin{ingrid}
+
+grid:
+    /name /T def
+    /units (days since 1981-01-01 00:00:00) def
+    values: 
+1 Jul 1981 julian_day 1 Jan 1981 julian_day sub
+1 Jan 2016 julian_day 1 Jan 1981 julian_day sub
+       /pointwidth 0 def
+       :values
+     :grid
+T   monthlyedgesgrid
+   name units gridtype mark gridvalues {dup 15 add}forall
+                     pop
+                     counttomark realarray astore
+        nip NewGRID nip
+    /pointwidth 0 def
+    partialgrid
+/netcdfgrid true def
+name exch def
+
+/ndvi { [ X Y | T ] (/Data/data21/nasa/ECOCAST/GIMMS/NDVI3g/v1p0/ndvi3g_geo_v1_%Y[T]_%m[T]%s[ab].nc4) [ T dup 10 2 onegridmodcounter (%1.1x) sprintf /name /ab def ] readdatafile:
+/name (ndvi) def
+/long_name (NDVI) def
+/scale_factor 0.0001 def
+/missing_value -32768. def
+/valid_range [ -0.3 1.0 ] def
+/shortarraytype netcdfrecords
+:readdatafile
+simplendvicolors
+/iridl:hasSemantics (iridl:NDVI) def
+} defasvarsilent 
+
+/filevalues { [ X Y | T ] (/Data/data21/nasa/ECOCAST/GIMMS/NDVI3g/v1p0/ndvi3g_geo_v1_%Y[T]_%m[T]%s[ab].nc4) [ T dup 10 2 onegridmodcounter (%1.1x) sprintf /name /ab def ] readdatafile:
+/name (percentile) def 
+/long_name (combined percentile and flag original file values) def
+/shortarraytype netcdfrecords
+:readdatafile
+} defasvarsilent
+
+/ndviflag { filevalues 2000 div floor toi4 /long_name (flag) def /units (ids) def 
+/scale_min 0 def
+/scale_max 2 def
+/CLIST [
+(ndvi without apparent issues (good value))
+(ndvi retrieved from spline interpolation)
+(ndvi retrieved from seasonal profile (possible snow/cloud))
+] def
+} defasvarsilent
+
+/percentile { filevalues 2000 ndviflag mul sub /long_name (percentile) def /scale_factor 0.1 def /units (%) def } defasvarsilent
+
+
+/satellites { [ | T ] (/Data/data21/nasa/ECOCAST/GIMMS/NDVI3g/v1p0/ndvi3g_geo_v1_%Y[T]_%m[T]%s[ab].nc4) [ T dup 10 2 onegridmodcounter (%1.1x) sprintf /name /ab def ] readdatafile:
+/name (satellites) def
+/long_name (satellite identifier) def
+/units (ids) def
+/shortarraytype netcdfrecords
+:readdatafile
+} defasvarsilent
+
+
+:dataset
+\end{ingrid}
+

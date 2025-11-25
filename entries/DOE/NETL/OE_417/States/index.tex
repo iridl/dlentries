@@ -1,0 +1,114 @@
+\begin{ingrid}
+
+/iridl:hasSemantics (iridlsemantics:PRISM) def
+
+continuedataset:
+
+/description (State-wise Major Outages) def
+
+datasetdefs:
+
+/gid58 /unitless 0 1207 1 1258 NewEvenIntegerGRID
+name exch def
+
+:datasetdefs
+
+/eventid /unitless 0 1 1 2666 NewEvenIntegerGRID
+name exch def
+
+/gid /unitless 0 1207 1 1257 NewEvenIntegerGRID
+name exch def
+
+/the_geom {
+SOURCES .Features .Political .UnitedStates .firstOrder_GAUL .the_geom
+}defasvar
+
+/label {
+SOURCES .Features .Political .UnitedStates .firstOrder_GAUL .label
+}defasvar
+
+/areaaf
+{ IRIDB (oe417_combined) (areaaf) [(eventid)]open_column_by
+/long_name (Area Affected) def
+}defasvarsilentnoreuse
+
+/city
+{ IRIDB (oe417_combined) (city) [(eventid)]open_column_by
+/long_name (City) def
+}defasvarsilentnoreuse
+
+/county
+{ IRIDB (oe417_combined) (county) [(eventid)]open_column_by
+/long_name (County) def
+}defasvarsilentnoreuse
+
+/Tbegan
+{ IRIDB (oe417_combined) (tbeg) [(eventid)]open_column_by
+/long_name (Date Event Began) def
+/units (days since 2000-01-01) def
+%/missing_value -999999. def
+}defasvarsilentnoreuse
+
+/Trestoration
+{ IRIDB (oe417_combined) (tres) [(eventid)]open_column_by
+/long_name (Date of Restoration) def
+/units (days since 2000-01-01) def
+%/missing_value -999999. def
+}defasvarsilentnoreuse
+
+/demandloss
+{ IRIDB (oe417_combined) (demandloss) [(eventid)]open_column_by
+/long_name (Demand Loss) def
+/units /MW def
+/missing_value -999. def
+/iridl:hasSemantics (iridl:DemandLoss) def
+}defasvarsilentnoreuse
+
+/eventtype
+{ IRIDB (oe417_combined) (eventtype) [(eventid)]open_column_by
+/long_name (Event Type) def
+}defasvarsilentnoreuse
+
+/nercregion
+{ IRIDB (oe417_combined) (nercregion) [(eventid)]open_column_by
+/long_name (NERC Region) def
+}defasvarsilentnoreuse
+
+/ncustaff
+{ IRIDB (oe417_combined) (ncustaff) [(eventid)]open_column_by
+/long_name (Number of Customers Affected) def
+/missing_value -999. def
+/iridl:hasSemantics (iridl:number_of_customers_affected) def
+}defasvarsilentnoreuse
+
+/state
+{ IRIDB (oe417_combined) (state) [(eventid)]open_column_by
+/long_name (State) def
+}defasvarsilentnoreuse
+
+/state_gid
+{ IRIDB (oe417_combined) (state_gid) [(eventid)]open_column_by
+/long_name (State ID) def
+}defasvarsilentnoreuse
+
+/addressused
+{ IRIDB (oe417_combined) (addressused) [(eventid)]open_column_by
+/long_name (Additional Resources Used) def
+}defasvarsilentnoreuse
+
+/statemask {
+[ gid58 eventid | ]
+(/local/datalib/data/DOE/OE417/OE417_combined_geomap.txt)
+readdatafile:
+[0 2] r*4asblank
+:readdatafile
+gid58 first secondtolast RANGE
+gid58 gid replaceGRID
+/missing_value 0 def
+}defasvarsilent
+
+:dataset
+
+%addressused .eventid name exch def
+
+\end{ingrid}

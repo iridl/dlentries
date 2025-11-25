@@ -1,0 +1,55 @@
+<INGRID>datasetdocumentationheader</INGRID>
+<h3>Description of CPC/FEWS Africa Rainfall Estimation Archive, RFE Version 1,
+ June 1995 to December 2000</h3>
+<p>
+<i>Original documentation can be found in the 10day_readme.txt file at <a href="ftp://ftp.ncep.noaa.gov/pub/cpc/fews/10day_archive">ftp.ncep.noaa.gov/pub/cpc/fews/10day_archive</a>. </i>
+<p>
+<i>Also see: <a href="http://www.cpc.ncep.noaa.gov/products/fews/index.html">CPC/FEWS NET</a> and the document <a href="http;//edcintl.cr.usgs.gov/adds/data/rfed/rfedtext.html"> Objectively Determined 10 Day African Rainfall Estimates Created for Famine Early Warning Systems</a></i>
+<p>
+<i>Please note that the estimated precipitation values for Africa are given in terms of 10-day (dekadal) accumulations, and in the Data Library dekads are designated by the central day of the dekad (e.g., 6 Aug 2000 = 1st dekad of August 2000).</i>
+<p>
+<i>The following text is excerpted from the "readme" file referred to above:</i>
+<p>
+<pre>
+
+ftp://ftp.ncep.noaa.gov/pub/cpc/fews/10day_archive/readme.txt
+
+This file contains readme information for archived 10-day Africa precipitation estimate data from the
+CPC rainfall algorithm (version 1), 1995-2000.  The algorithm used to create these estimates was replaced
+on January 1, 2001 and is no longer operational.
+
+The files in this archive are available in .bil and .dat format with a Fortran90 program included to
+convert .dat files to comma delimited ascii.  From 1995-2000, each 10-day rainfall estimate covers the 
+domain from 20W-55E and 40S-20N with a resolution of 0.1 degree.  The file naming convention is as follows:
+
+'afpfinalcalYYMMD.bil' or 'afpfinalcalYYMMD.dat'
+      
+    where YY is the last 2 digits of the year
+          MM is the month (1..12)
+          D is the dekad (10-day period) of the month (1=day 1..10; 2=day 11..20; 3=day 21..end)
+
+Each file contains rainfall estimates over the domain in a (751x601) array in 16-bit integer (.bil)
+and floating point (.dat) binary format.
+
+These rainfall estimates were created by the Climate Prediction Center for the United States Agency for
+International Development (USAID) Famine Early Warning System (FEWS) project to assist in drought
+monitoring and flood forecasting efforts throughout Africa.  This rainfall algorithm (RFE1.0) uses infrared
+temperature satellite data, rainguage data, and modeled wind and relative humidity data to compute ten day
+rainfall estimates.  Meteosat-5 IR temperature data is first used to compute estimated rainfall via the 
+Goes Precipitation Algorithm (GPI).  MOdeled relative humidity and wind data is then compared to 
+topographical data to estimate cross-terrain flow as orographic precipitation.  These two estimates are
+then compared to Global Telecommunications System (GTS) rain guage measurements, and ground truthing is
+performed to remove bias and create the final rainfall estimate.  See:
+
+http://edcintl.cr.usgs.gov/adds/data/rfed/rfedtext.html for further explanation.
+
+For additional information contact:
+
+Tim Love
+Climate Prediction Center
+301-763-8000 x7549
+Tim.Love@noaa.gov
+</pre>
+</p>
+<INGRID>datasetdocumentationtrailer</INGRID>
+

@@ -1,0 +1,302 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+
+grid:
+/name /N def
+/long_name (realization) def
+/standard_name (realization) def
+/units /ids def
+values: 2 9 :values
+:grid
+
+variable:
+/name (version) def
+/long_name (Version Number) def
+/units (ids) def
+grids: N :grids
+values: /v20120629 /v20121213 :values
+:variable
+
+:datasetdefs
+
+ /frequency (monClim) def
+ /model_id (EC-EARTH) def
+ /ETCCDI_institution_id (PCIC) def
+ /parent_experiment_id (piControl) def
+ /ICHEC_references (Model described by Hazeleger et al. (Bull. Amer. Meteor. Soc., 2010, 91, 1357-1363). Also see http://ecearth.knmi.nl.) def
+ /title (ETCCDI indices computed on EC-EARTH model output prepared for CMIP5 historical) def
+ /product (output) def
+ /ICHEC_contact (Alastair McKinstry ) def
+ /input_title (EC-EARTH model output prepared for CMIP5 historical) def
+ /physics_version 1 def
+ /ETCCDI_software_version (0.7.1) def
+ /input_creation_date (2012-03-21T09:16:44Z) def
+ /forcing (Nat,Ant) def
+ /input_tracking_id (a02add71-5c5f-4c91-864b-0408bca4d9ff) def
+ /source (EC-EARTH 2.3 (2011); atmosphere: IFS (cy31R1+modifications, T159L62); ocean: NEMO (version2+modifications, ORCA1-42lev); sea ice: LIM2; land: HTessel) def
+ /project_id (CMIP5) def
+ /contact (bronaugh@uvic.ca) def
+ /institution (EC-EARTH (European Earth System Model)) def
+ /branch_time 2265.0 def
+ /experiment_id (historical) def
+ /Conventions (CF-1.4) def
+ /comment (SMHI contact klaus.wyser-at-smhi.se) def
+ /input_frequency (day) def
+ /ETCCDI_software (climdex.pcic) def
+ /references (http://www.cccma.ec.gc.ca/data/climdex/) def
+ /ETCCDI_institution (Pacific Climate Impacts Consortium) def
+ /parent_experiment (pre-industrial control) def
+ /table_id (Table day (26 July 2011) 0640f2bc62aad4ebefa8ecc119311890) def
+ /experiment (historical) def
+ /initialization_method 1 def
+ /cmor_version (2.8.0) def
+ /ETCCDI_indices_archive (Please check http://www.cccma.ec.gc.ca/data/climdex/climdex.shtml for errata or updates.) def
+ /institute_id (ICHEC) def
+ /nco_openmp_thread_number 1 def
+ /creation_date (2013-06-28T17:04:50Z) def
+ /modeling_realm (atmos) def
+ /references (Sillmann_etal2013a Sillmann_etal2013b) def
+
+grid:
+/name (lon)def
+/long_name (longitude) def
+/standard_name (longitude) def
+periodic
+/units (degree_east)def
+ 0.0 1.125 358.875
+:grid
+
+grid:
+/name (lat)def
+/long_name (latitude) def
+/standard_name (latitude) def
+/units (degree_north)def
+values: -89.141518 -88.029427 -86.910767 -85.790627 -84.669922 -83.54895 -82.427818 -81.306587 -80.18531 -79.06398 -77.942619 -76.821243 -75.699837 -74.57843 -73.457008 -72.335579 -71.214142 -70.09269 -68.971237 -67.849777 -66.728333 -65.606857 -64.485397 -63.36393 -62.242458 -61.120991 -59.999519 -58.87804 -57.756569 -56.63509 -55.513611 -54.392139 -53.27066 -52.14917 -51.027691 -49.906212 -48.784729 -47.66325 -46.541759 -45.42028 -44.29879 -43.177311 -42.05582 -40.934341 -39.812851 -38.691368 -37.569881 -36.448391 -35.326908 -34.205421 -33.083931 -31.96244 -30.84096 -29.719469 -28.59798 -27.47649 -26.355 -25.233509 -24.11203 -22.99054 -21.869049 -20.747561 -19.62607 -18.50458 -17.383089 -16.2616 -15.14011 -14.01862 -12.89713 -11.77564 -10.65415 -9.5326595 -8.41117 -7.28968 -6.16819 -5.0467 -3.92521 -2.80372 -1.68223 -0.56074 0.56074 1.68223 2.80372 3.92521 5.0467 6.16819 7.28968 8.41117 9.5326595 10.65415 11.77564 12.89713 14.01862 15.14011 16.2616 17.383089 18.50458 19.62607 20.747561 21.869049 22.99054 24.11203 25.233509 26.355 27.47649 28.59798 29.719469 30.84096 31.96244 33.083931 34.205421 35.326908 36.448391 37.569881 38.691368 39.812851 40.934341 42.05582 43.177311 44.29879 45.42028 46.541759 47.66325 48.784729 49.906212 51.027691 52.14917 53.27066 54.392139 55.513611 56.63509 57.756569 58.87804 59.999519 61.120991 62.242458 63.36393 64.485397 65.606857 66.728333 67.849777 68.971237 70.09269 71.214142 72.335579 73.457008 74.57843 75.699837 76.821243 77.942619 79.06398 80.18531 81.306587 82.427818 83.54895 84.669922 85.790627 86.910767 88.029427 89.141518 :values
+:grid
+
+grid:
+/name (time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/pointwidth 1 def
+16 Jan 1850 ensotime
+1
+16 Dec 2012 ensotime
+:grid
+
+grid:
+/name /N def
+/long_name (realization) def
+/standard_name (realization) def
+/units /ids def
+values: 2 9 :values
+:grid
+
+grid:
+/name /M def
+/long_name (initialization method) def
+/units /ids def
+values: 1 :values
+:grid
+
+grid:
+/name /L def
+/long_name (perturbed physics) def
+/units /ids def
+values: 1 :values
+:grid
+
+variable:
+/name (version) def
+/long_name (Version Number) def
+/units (ids) def
+grids: N :grids
+values: /v20120629 /v20121213 :values
+:variable
+
+/dtr { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/dtrETCCDI_mon_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_185001-201212.nc) [ N M L version ] readdatafile:
+/name (dtrETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Mean Diurnal Temperature Range) def
+ /iridl:hasSemantics [ (climdex:DTR) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/rx1day { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/rx1dayETCCDI_mon_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_185001-201212.nc) [ N M L version ] readdatafile:
+/name (rx1dayETCCDI) def
+ /units (mm) def
+ /long_name (Monthly Maximum 1-day Precipitation) def
+ /iridl:hasSemantics [ (climdex:Rx1day) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/rx5day { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/rx5dayETCCDI_mon_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_185001-201212.nc) [ N M L version ] readdatafile:
+/name (rx5dayETCCDI) def
+ /units (mm) def
+ /long_name (Monthly Maximum Consecutive 5-day Precipitation) def
+ /iridl:hasSemantics [ (climdex:Rx5day) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tn10p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tn10pETCCDI_mon_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_185001-201212.nc) [ N M L version ] readdatafile:
+/name (tn10pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Minimum Temperature is Below the 10th Percentile) def
+ /iridl:hasSemantics [ (climdex:TN10p) ] def
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tn90p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tn90pETCCDI_mon_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_185001-201212.nc) [ N M L version ] readdatafile:
+/name (tn90pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Minimum Temperature is Above the 90th Percentile) def
+ /iridl:hasSemantics [ (climdex:TN90p) ] def 
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tnn { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tnnETCCDI_mon_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_185001-201212.nc) [ N M L version ] readdatafile:
+/name (tnnETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Minimum of Daily Minimum Temperature) def
+ /iridl:hasSemantics [ (climdex:TNn) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+ 
+/tnx { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tnxETCCDI_mon_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_185001-201212.nc) [ N M L version ] readdatafile:
+/name (tnxETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Maximum of Daily Minimum Temperature) def
+ /iridl:hasSemantics [ (climdex:TNx) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+ 
+/tx10p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tx10pETCCDI_mon_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_185001-201212.nc) [ N M L version ] readdatafile:
+/name (tx10pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Maximum Temperature is Below the 10th Percentile) def
+ /iridl:hasSemantics [ (climdex:TX10p) ] def
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tx90p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tx90pETCCDI_mon_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_185001-201212.nc) [ N M L version ] readdatafile:  
+/name (tx90pETCCDI) def
+ /units (percent) def
+ /long_name (Percentage of Days when Daily Maximum Temperature is Above the 90th Percentile) def
+ /iridl:hasSemantics [ (climdex:TX90p) ] def
+ /missing_value 1.00000002E20 def
+ /base_period (1961-1990) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+ 
+/txn { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/txnETCCDI_mon_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_185001-201212.nc) [ N M L version ] readdatafile: 
+/name (txnETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Minimum of Daily Maximum Temperature) def
+ /iridl:hasSemantics [ (climdex:TXn) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/txx { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/txxETCCDI_mon_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_185001-201212.nc) [ N M L version ] readdatafile:
+/name (txxETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Monthly Maximum of Daily Maximum Temperature) def
+ /iridl:hasSemantics [ (climdex:TXx) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/r95thresh { [ lon lat | N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (r95thresh) def
+ /long_name (95th_percentile_baseline_wet_day_pr) def
+ /missing_value 1.00000002E20 def
+ /units (kg m-2 d-1)cvn def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/r99thresh { [ lon lat | N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (r99thresh) def
+ /long_name (99th_percentile_baseline_wet_day_pr) def
+ /missing_value 1.00000002E20 def
+ /units (kg m-2 d-1)cvn def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+grid:
+/name (bnds)def
+/units (unitless)def
+ 1.0 1.0 2.0
+:grid
+
+grid:
+/name (time2) def
+/standard_name (time) def
+/units (days since 1850-1-1)def
+ 45655.0 1.0 46019.0
+:grid
+
+/time_bnds { [ bnds | time2 N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (time_bnds) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/tn10thresh { [ lon lat | time2 N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (tn10thresh) def
+ /long_name (10th_percentile_running_baseline_tasmin) def
+ /missing_value 1.00000002E20 def
+ /units /degree_Celsius def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+ time2 /time renameGRID
+}defasvarsilent
+
+/tn90thresh { [ lon lat | time2 N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (tn90thresh) def
+ /long_name (90th_percentile_running_baseline_tasmin) def
+ /missing_value 1.00000002E20 def
+ /units /degree_Celsius def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+ time2 /time renameGRID
+}defasvarsilent
+
+/tx10thresh { [ lon lat | time2 N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (tx10thresh) def
+ /long_name (10th_percentile_running_baseline_tasmax) def
+ /missing_value 1.00000002E20 def
+ /units /degree_Celsius def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+ time2 /time renameGRID
+}defasvarsilent
+
+/tx90thresh { [ lon lat | time2 N M L ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/EC-EARTH/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/thresholds_monClim_EC-EARTH_historical_r%d[N]i%d[M]p%d[L]_1961-1990.nc) [ N M L version ] readdatafile:
+/name (tx90thresh) def
+ /long_name (90th_percentile_running_baseline_tasmax) def
+ /missing_value 1.00000002E20 def
+ /units /degree_Celsius def
+ /base_period (1961-1990) def
+ /doublearraytype netcdfrecords :readdatafile
+ time2 /time renameGRID
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

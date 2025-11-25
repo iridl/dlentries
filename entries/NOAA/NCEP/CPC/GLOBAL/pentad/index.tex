@@ -1,0 +1,79 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+1.25 2.5 358.75
+periodic
+:grid
+grid:
+/name /Y def
+degN
+90 2.5 -90
+:grid
+grid:
+/name /T def
+/units (pentads since 1979-01-01) def
+1 .5 sub
+1
+%1998 1979 sub 73 mul 40 add
+\end{ingrid}
+The script should update this, but has been failing lately,
+so we are not using it.
+1884 % enddate
+This calculated the number of points in the file
+and sets last_modified to match the data file.
+
+Points in file does not quite work, because they fill the file with
+zeros until the end of the year.
+\begin{ingrid}
+(/Data/data6/noaa/cpc/olr/olr) dup deflastmod
+filelength
+73 144 mul 4 mul div
+\end{ingrid}
+This calculated the number of points until the last_modified time of the file
+\begin{ingrid}
+last_modified
+     systemtime2ymd ymd2d365c
+     1979
+      1 1 ymd2d365c
+      sub
+     5 idiv
+\end{ingrid}
+we take the smaller of the two and shift by 1/2
+\begin{ingrid}
+imin
+.5 sub
+/defaultvalue {last} def
+%This is clearly not updating anymore so no more expire
+%dup
+%73 19 mul add
+%5 mul
+%8 add d365c2ymd
+%ymd2systemtime
+%/expires exch def
+:grid
+variable:
+/name /olr def
+/long_name (outgoing longwave radiation) def
+/missing_value -9999. def
+/units (W/m2) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/noaa/cpc/olr/olr) def
+random
+:file
+:variable
+variable:
+/name /olra def
+/long_name (outgoing longwave radiation anomaly) def
+/missing_value -9999. def
+/units (W/m2) def
+grids: X Y | T :grids
+file:
+/name (/Data/data6/noaa/cpc/olr/olra) def
+random
+:file
+:variable
+:dataset
+\end{ingrid}

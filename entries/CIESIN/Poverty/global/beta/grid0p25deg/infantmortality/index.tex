@@ -1,0 +1,57 @@
+\begin{ingrid}
+/CIESIN datadownloadsareIRIonlyPassword
+continuedataset:
+/long_name (Infant Mortality Rates) def
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+periodic
+-179.875 0.25 179.875
+:grid
+
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+84.875 0.25 -57.875
+:grid
+
+variable:
+/name /imr def
+/long_name (Infant mortality rates, year 2000) def
+/missing_value -9999 def
+/units (Infant deaths per 10,000 live births) def
+grids: X Y :grids
+file:
+formatted
+/name (/Data/data5/ciesin/poverty/global/beta/grid0p25deg/infantmortality/imrq/imrq.asc) def
+:file
+:variable
+
+variable:
+/name /births def
+/long_name (Births, year 2000) def
+/missing_value -9999 def
+/units (Number of Persons) def
+grids: X Y :grids
+file:
+formatted
+/name (/Data/data5/ciesin/poverty/global/beta/grid0p25deg/infantmortality/birthsq/birthsq.asc) def
+:file
+:variable
+
+variable:
+/name /deaths def
+/long_name (Infant Deaths, year 2000) def
+/missing_value -9999 def
+/units (Number of Persons) def
+grids: X Y :grids
+file:
+formatted
+/name (/Data/data5/ciesin/poverty/global/beta/grid0p25deg/infantmortality/deathsq/deathsq.asc) def
+:file
+:variable
+
+:dataset
+\end{ingrid}

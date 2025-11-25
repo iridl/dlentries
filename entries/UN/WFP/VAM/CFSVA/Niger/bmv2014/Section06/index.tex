@@ -1,0 +1,653 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 21668
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 345
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Base_menage_vulnerabilite_2014.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Dépenses) def
+/Q32 {
+mytable
+myquestion 
+99 VALUE
+ myquestion removeGRID
+/long_name (Q32: Depuis récolte 2014 avez vous été endetté pour satisfaire vos besoins) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q32A {
+mytable
+myquestion 
+100 VALUE
+ myquestion removeGRID
+/long_name (Q32a: Si oui quelle est la nature de l'endettement) def 
+/units /ids def
+/CLIST [(En espèce)(En nature)(En espece et en nature)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q33A01A {
+mytable
+myquestion 
+101 VALUE
+ myquestion removeGRID
+/long_name (Q33: Céréales: dépense au comptant) def 
+}defasvarsilent
+
+/Q33A01B {
+mytable
+myquestion 
+102 VALUE
+ myquestion removeGRID
+/long_name (Q33: Céréales:  dépense au  crédit) def 
+}defasvarsilent
+
+/Q33A02 {
+mytable
+myquestion 
+103 VALUE
+ myquestion removeGRID
+/long_name (Q33: Céréales: consomation) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q33A03 {
+mytable
+myquestion 
+104 VALUE
+ myquestion removeGRID
+/long_name (Q33: Céréales: principale source) def 
+/units /ids def
+/CLIST [(Prodution propre)(Cueillete chasse peche)(Donation aide cadeau)(Recu en echange de travail ou article)(Achat anterieur)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q33A04 {
+mytable
+myquestion 
+105 VALUE
+ myquestion removeGRID
+/long_name (Q33: Céréales: Quelle est la valeur estimée en F CFA) def 
+}defasvarsilent
+
+/Q34A01A {
+mytable
+myquestion 
+106 VALUE
+ myquestion removeGRID
+/long_name (Q34:Tubercules: dépense au comptant) def 
+}defasvarsilent
+
+/Q34A01B {
+mytable
+myquestion 
+107 VALUE
+ myquestion removeGRID
+/long_name (Q34:Tubercules: dépense au  crédit) def 
+}defasvarsilent
+
+/Q34A02 {
+mytable
+myquestion 
+108 VALUE
+ myquestion removeGRID
+/long_name (Q34:Tubercules: consomation) def 
+}defasvarsilent
+
+/Q34A03 {
+mytable
+myquestion 
+109 VALUE
+ myquestion removeGRID
+/long_name (Q34:Tubercules: principale source) def 
+/units /ids def
+/CLIST [(Prodution propre)(Cueillete chasse peche)(Donation aide cadeau)(Recu en echange de travail ou article)(Achat anterieure)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q34A04 {
+mytable
+myquestion 
+110 VALUE
+ myquestion removeGRID
+/long_name (Q34:Tubercules: Quelle est la valeur estimée en F CFA) def 
+}defasvarsilent
+
+/Q35A01A {
+mytable
+myquestion 
+111 VALUE
+ myquestion removeGRID
+/long_name (Q35: Légumineuses: dépense au comptant) def 
+}defasvarsilent
+
+/Q35A01B {
+mytable
+myquestion 
+112 VALUE
+ myquestion removeGRID
+/long_name (Q35: Légumineuses: dépense au  crédit) def 
+}defasvarsilent
+
+/Q35A02 {
+mytable
+myquestion 
+113 VALUE
+ myquestion removeGRID
+/long_name (Q35: Légumineuse: consomation) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q35A03 {
+mytable
+myquestion 
+114 VALUE
+ myquestion removeGRID
+/long_name (Q35: Légumineuses: principale source) def 
+/units /ids def
+/CLIST [(Prodution propre)(Cueillete chasse peche)(Donation aide cadeau)(Recu en echange de travail ou article)(Achat anterieure)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q35A04 {
+mytable
+myquestion 
+115 VALUE
+ myquestion removeGRID
+/long_name (Q35: Légumineuses: Quelle est la valeur estimée en F CFA) def 
+}defasvarsilent
+
+/Q36A01A {
+mytable
+myquestion 
+116 VALUE
+ myquestion removeGRID
+/long_name (Q36: fruits et légumes: dépense au comptant) def 
+}defasvarsilent
+
+/Q36A01B {
+mytable
+myquestion 
+117 VALUE
+ myquestion removeGRID
+/long_name (Q36: Fruits er légumes: dépense au  crédit) def 
+}defasvarsilent
+
+/Q36A02 {
+mytable
+myquestion 
+118 VALUE
+ myquestion removeGRID
+/long_name (Q36: Fruits et  légumes: consomation) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q36A03 {
+mytable
+myquestion 
+119 VALUE
+ myquestion removeGRID
+/long_name (Q36: Fruits et légumes: principale source) def 
+/units /ids def
+/CLIST [(Prodution propre)(Cueillete chasse peche)(Donation aide cadeau)(Recu en echange de travail ou article)(Achat anterieure)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q36A04 {
+mytable
+myquestion 
+120 VALUE
+ myquestion removeGRID
+/long_name (Q36: Fruits et légumes: Quelle est la valeur estimée en F CFA) def 
+}defasvarsilent
+
+/Q37A01A {
+mytable
+myquestion 
+121 VALUE
+ myquestion removeGRID
+/long_name (Q37: Poisson/Viande/Ooeuf/poulet: dépense au comptant) def 
+}defasvarsilent
+
+/Q37A01B {
+mytable
+myquestion 
+122 VALUE
+ myquestion removeGRID
+/long_name (Q37: Poisson/Viande/Oeuf/Poulet: dépense au  crédit) def 
+}defasvarsilent
+
+/Q37A02 {
+mytable
+myquestion 
+123 VALUE
+ myquestion removeGRID
+/long_name (Q37: Poisson/Viandes/Oeuf/Poulet : consomation) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q37A03 {
+mytable
+myquestion 
+124 VALUE
+ myquestion removeGRID
+/long_name (Q37: Poisson/Viandes/Oeuf/Poulet : principale source) def 
+/units /ids def
+/CLIST [(Prodution propre)(Cueillete chasse peche)(Donation aide cadeau)(Recu en echange de travail ou article)(Achat anterieure)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q37A04 {
+mytable
+myquestion 
+125 VALUE
+ myquestion removeGRID
+/long_name (Q37: Poisson/Viande/Oeuf/Poulet: Quelle est la valeur estimée en F CFA) def 
+}defasvarsilent
+
+/Q38A01A {
+mytable
+myquestion 
+126 VALUE
+ myquestion removeGRID
+/long_name (Q38: Huiles, matières grasses: dépense au comptant) def 
+}defasvarsilent
+
+/Q38A01B {
+mytable
+myquestion 
+127 VALUE
+ myquestion removeGRID
+/long_name (Q38: Huiles, matières grasses: dépense au  crédit) def 
+}defasvarsilent
+
+/Q38A02 {
+mytable
+myquestion 
+128 VALUE
+ myquestion removeGRID
+/long_name (Q38: Huiles, matières grasses: consomation) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q38A03 {
+mytable
+myquestion 
+129 VALUE
+ myquestion removeGRID
+/long_name (Q38: Huiles, matières grasses: principale source) def 
+/units /ids def
+/CLIST [(Prodution propre)(Cueillete chasse peche)(Donation aide cadeau)(Recu en echange de travail ou article)(Achat anterieure)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q38A04 {
+mytable
+myquestion 
+130 VALUE
+ myquestion removeGRID
+/long_name (Q38: Huiles, matières grasses: Quelle est la valeur estimée en F CFA) def 
+}defasvarsilent
+
+/Q39A01A {
+mytable
+myquestion 
+131 VALUE
+ myquestion removeGRID
+/long_name (Q39: Lait /Fromage/Yagourt: dépense au comptant) def 
+}defasvarsilent
+
+/Q39A01B {
+mytable
+myquestion 
+132 VALUE
+ myquestion removeGRID
+/long_name (Q39: Lait/Fromage/Yagourt : dépense au  crédit) def 
+}defasvarsilent
+
+/Q39A02 {
+mytable
+myquestion 
+133 VALUE
+ myquestion removeGRID
+/long_name (Q39: Lait/Fromage/Yagourt : consomation) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q39A03 {
+mytable
+myquestion 
+134 VALUE
+ myquestion removeGRID
+/long_name (Q39: Lait/Fromage/Yagourt : principale source) def 
+/units /ids def
+/CLIST [(Prodution propre)(Cueillete chasse peche)(Donation aide cadeau)(Recu en echange de travail ou article)(Achat anterieure)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q39A04 {
+mytable
+myquestion 
+135 VALUE
+ myquestion removeGRID
+/long_name (Q39: Lait/Fromage/Yagourt: Quelle est la valeur estimée en F CFA) def 
+}defasvarsilent
+
+/Q40A01A {
+mytable
+myquestion 
+136 VALUE
+ myquestion removeGRID
+/long_name (Q40: Sucre/Sel: dépense au comptant) def 
+}defasvarsilent
+
+/Q40A01B {
+mytable
+myquestion 
+137 VALUE
+ myquestion removeGRID
+/long_name (Q40: Sucre/Sel: dépense au  crédit) def 
+}defasvarsilent
+
+/Q40A02 {
+mytable
+myquestion 
+138 VALUE
+ myquestion removeGRID
+/long_name (Q40: Sucre/Sel: consomation) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q40A03 {
+mytable
+myquestion 
+139 VALUE
+ myquestion removeGRID
+/long_name (Q40: Sucre/Sel: principale source) def 
+/units /ids def
+/CLIST [(Prodution propre)(Cueillete chasse peche)(Donation aide cadeau)(Recu en echange de travail ou article)(Achat anterieure)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q40A04 {
+mytable
+myquestion 
+140 VALUE
+ myquestion removeGRID
+/long_name (Q40: Sucre/Sel: Quelle est la valeur estimée en F CFA) def 
+}defasvarsilent
+
+/Q41A01A {
+mytable
+myquestion 
+141 VALUE
+ myquestion removeGRID
+/long_name (Q41: Thé/Café: dépense au comptant) def 
+}defasvarsilent
+
+/Q41A01B {
+mytable
+myquestion 
+142 VALUE
+ myquestion removeGRID
+/long_name (Q41: Thé/Café: dépense au  crédit) def 
+}defasvarsilent
+
+/Q41A02 {
+mytable
+myquestion 
+143 VALUE
+ myquestion removeGRID
+/long_name (Q41: Thé/Café: consomation) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q41A03 {
+mytable
+myquestion 
+144 VALUE
+ myquestion removeGRID
+/long_name (Q41: Thé/Café: principale source) def 
+/units /ids def
+/CLIST [(Prodution propre)(Cueillete chasse peche)(Donation aide cadeau)(Recu en echange de travail ou article)(Achat anterieure)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q41A04 {
+mytable
+myquestion 
+145 VALUE
+ myquestion removeGRID
+/long_name (Q41: Thé/Café: Quelle est la valeur estimée en F CFA) def 
+}defasvarsilent
+
+/Q42A01A {
+mytable
+myquestion 
+146 VALUE
+ myquestion removeGRID
+/long_name (Q42: Autres repas consommés hors de la maison: dépense au comptant) def 
+}defasvarsilent
+
+/Q42A01B {
+mytable
+myquestion 
+147 VALUE
+ myquestion removeGRID
+/long_name (Q42: Autres repas consommés hors de la maison: dépense  à credit) def 
+}defasvarsilent
+
+/Q42A02 {
+mytable
+myquestion 
+148 VALUE
+ myquestion removeGRID
+/long_name (Q42: Autres repas consommés hors de la maison: consommation) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q42A03 {
+mytable
+myquestion 
+149 VALUE
+ myquestion removeGRID
+/long_name (Q42: Autres repas consommés hors de la maison: principale source) def 
+/units /ids def
+/CLIST [(Prodution propre)(Cueillete chasse peche)(Donation aide cadeau)(Recu en echange de travail ou article)(Achat anterieure)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q42A04 {
+mytable
+myquestion 
+150 VALUE
+ myquestion removeGRID
+/long_name (Q42: Autres repas consommés hors de la maison: Quelle est la valeur estimée en F) def 
+}defasvarsilent
+
+/Q43A01A {
+mytable
+myquestion 
+151 VALUE
+ myquestion removeGRID
+/long_name (Q43: Cérémonie: dépense au comptant) def 
+}defasvarsilent
+
+/Q43A01B {
+mytable
+myquestion 
+152 VALUE
+ myquestion removeGRID
+/long_name (Q43: Cérémonie: dépense au  crédit) def 
+}defasvarsilent
+
+/Q44A01A {
+mytable
+myquestion 
+153 VALUE
+ myquestion removeGRID
+/long_name (Q44: Santé: dépense au comptant) def 
+}defasvarsilent
+
+/Q44A01B {
+mytable
+myquestion 
+154 VALUE
+ myquestion removeGRID
+/long_name (Q44: Santé: dépense au  crédit) def 
+}defasvarsilent
+
+/Q45A01A {
+mytable
+myquestion 
+155 VALUE
+ myquestion removeGRID
+/long_name (Q45: Education: dépense au comptant) def 
+}defasvarsilent
+
+/Q45A01B {
+mytable
+myquestion 
+156 VALUE
+ myquestion removeGRID
+/long_name (Q45: Education: dépense au  crédit) def 
+}defasvarsilent
+
+/Q46A01A {
+mytable
+myquestion 
+157 VALUE
+ myquestion removeGRID
+/long_name (Q46: Dons/Zakat: dépense au comptant) def 
+}defasvarsilent
+
+/Q46A01B {
+mytable
+myquestion 
+158 VALUE
+ myquestion removeGRID
+/long_name (Q46: Dons/zakat: dépense au  crédit) def 
+}defasvarsilent
+
+/Q47A01A {
+mytable
+myquestion 
+159 VALUE
+ myquestion removeGRID
+/long_name (Q47: Transport: dépense au comptant) def 
+}defasvarsilent
+
+/Q47A01B {
+mytable
+myquestion 
+160 VALUE
+ myquestion removeGRID
+/long_name (Q47: Transport: dépense au  crédit) def 
+}defasvarsilent
+
+/Q48A01A {
+mytable
+myquestion 
+161 VALUE
+ myquestion removeGRID
+/long_name (Q48: Remboursement de dettes: dépense au comptant) def 
+}defasvarsilent
+
+/Q49A01A {
+mytable
+myquestion 
+162 VALUE
+ myquestion removeGRID
+/long_name (Q49: Communication: dépense au comptant) def 
+}defasvarsilent
+
+/Q49A01B {
+mytable
+myquestion 
+163 VALUE
+ myquestion removeGRID
+/long_name (Q49: Communication: dépense au  crédit) def 
+}defasvarsilent
+
+/Q50A01A {
+mytable
+myquestion 
+164 VALUE
+ myquestion removeGRID
+/long_name (Q50: Autres depenses non alimentaire: dépense au comptant) def 
+}defasvarsilent
+
+/Q50A01B {
+mytable
+myquestion 
+165 VALUE
+ myquestion removeGRID
+/long_name (Q50: Autres dépenses non alimentaires: dépense au  crédit) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

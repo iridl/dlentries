@@ -1,0 +1,512 @@
+<html>
+<head>
+    <title>LEVITUS94 Ocean Climatology</title>
+</head>
+<body>
+    <h1>LEVITUS94 Ocean Climatology</h1>
+The data are <a      href="http://ingrid.ldgo.columbia.edu/SOURCES/.LEVITUS94/">here</a>.
+<p>
+The Ocean Climate Laboratory (OCL) at the National Oceanographic Data Center
+(NODC) is supported by the NOAA Climate and Global Change program to produce
+scientifically quality controlled oceanographic databases.  Work to date
+includes quality control of historical in situ temperature, salinity, oxygen,
+phosphate, nitrate, and silicate data and the preparation of one-degree
+latitude-longitude mean fields for each of these parameters using objective
+analysis techniques.  Specifically, this project has produced four ocean
+atlases describing the global distributions of these parameters and two
+technical reports describing the quality control and processing procedures
+(see section 6 of this documentation for a listing of these publications).  
+
+Observed and standard level profile data (along with quality control flags)
+used in the production of these atlases are being made available to the
+international oceanographic community on the World Ocean Atlas 1994 CD-ROM
+series (referred to herein as WOA94).  In addition, the CD-ROM series contains
+the objectively analyzed one-degree latitude-longitude mean fields for each of
+the measured parameters, and two derived parameters (Apparent Oxygen
+Utilization and oxygen saturation), and five-degree square statistics of
+standard level values.
+
+Profile data on the CD-ROM series are recorded in ASCII format and sorted
+geographically, so they are easy to access and manipulate. The CD-ROMs are
+formatted in the ISO 9660 standard.  
+
+The Ocean Climate Laboratory expresses its thanks to all those who provided us
+with their comments and helped us develop an improved product.
+
+
+
+<h2>  DlSC CONTENTS</h2>
+
+<h3>A. DATA SOURCES</h3>
+
+The data used in this project are all the data found in the NODC archives as
+of the first quarter of 1993.  Levitus and Gelfeld (1992) show global
+distribution maps of the data held in these files for all years (1900-1992). 
+In addition, data gathered as a result of the NODC's National Oceanographic
+Data Archaeology and Rescue (NODAR) and the IOC/IODE Global Oceanographic Data
+Archaeology and Rescue (GODAR) projects, not yet incorporated into the NODC
+master archives, were included in this study.  A description of the NODAR and
+GODAR projects can be found in Levitus et al. (1994e).  The NODAR and GODAR
+data sets are in separate files (since they have not yet been archived at the
+NODC). 
+<p>
+Data on the CD-ROM series includes the following flagged data:
+
+
+<h4>1. BOTTLE -  NODC Station Data </h4>
+
+Parameters: Station data profiles may have one or more of the following
+parameters:
+<ul>
+<li> Temperature (in situ)
+<li> Salinity
+<li> Oxygen
+<li> Phosphate
+<li> Silicate
+<li> Nitrate
+</ul>
+Source:  NODC Station Data
+
+<h4>2. BOTTLE2 - Station Data not incorporated in the NODC archives as of the
+   first quarter of 1993</h4>
+
+Sources:
+<ul>
+<li>Alfred Wegner Institute for Polar Studies Southern Ocean data set
+<li>Australian station data (CSIRO)
+<li>China Sea station data (from POI, Russia)
+<li>Combined Mediterranean area station data
+<li>German station data
+<li>Icelandic station data
+<li>ICES (International Council for the Exploration of the Sea) station data
+<li>Indian NODC station data
+<li>Japanese station data (JODC)
+<li>Korean NODC station data
+<li>Miscellaneous ship of opportunity station data
+<li>Station Data from the Southtow cruise (Scripps Institution of Oceanography)
+</ul>
+<h4>3. CTD - NODC CTD/STD (Conductivity/Salinity, Temperature, Depth probe)</h4>
+
+Parameters: Temperature and/or salinity
+<p>
+Source:  All data from NODC's low resolution CTD file (CTD profiles from the
+         NODC Station Data file were transferred to this file)
+
+<h4>4. CTD2 - CTD data not incorporated in the NODC archives as of the first 
+          quarter of 1993 </h4>
+             
+Sources:
+<ul>
+<li>Russian Barents Sea CTD data
+<li>Eastern Arctic CTD data from the National Snow and Ice Data Center (CD-ROM)
+<li>CTD data from the Southtow cruise
+</ul>
+<h4>5. MBT - NODC Mechanical Bathythermograph data</h4>
+
+Parameter: Temperature
+<p>
+Source:  NODC MBT file
+         (Includes NODC MBT data from the NODC Selected Bathythermograph (SBT) 
+         data file that contains data at selected depths)
+
+<h4>6. MBT2 - MBT data not incorporated in the NODC archives as of the first
+          quarter of 1993</h4>
+
+Sources:
+Argentine MBT data
+French Salinobathythermograph data
+Japanese Fisheries MBT data
+Canadian (MEDS) MBT data
+Miscellaneous ship of opportunity MBT data
+Russian MBT data
+Declassified Russian Navy MBT data and Russian NODC MBT data
+MBT data from Woods Hole Oceanographic Institution
+
+
+<h4>7. XBT - NODC Expendable Bathythermograph data </h4>
+
+Parameter: Temperature
+
+Source:  NODC XBT file.  
+         (Includes XBT data from NODC SBT (Selected Bathythermograph) file)
+
+[NOTE: XBT standard level values were interpolated using observed level
+measurements corrected for a drop rate error for T4, T6, and T7 probes.  T5
+depths were not recalculated (any measurement at a depth greater than 725 m
+was assumed to be from a T5  probe).]
+<p>
+
+The drop rate correction applied was:
+<p>
+zc = 6.733t - 0.00254t2
+<p>
+where 
+<p>
+zc = the corrected depth 
+<p>
+"t", the elapsed time since the instrument entered the ocean, is determined
+by:
+<p>
+t = 1498.14 - (2244447.430 - 462.963z0)1/2
+<p>
+where
+<p>
+z0 = originally calculated depth 
+(Szabados, personal communication).
+
+
+<h4>8. XBT2 - XBT data not incorporated in the NODC archives as of the first
+          quarter of 1993</h4>
+
+Sources:
+<ul>
+<li>British XBT data
+<li>Real time GTSPP (Global Temperature-Salinity Pilot Project) XBT data
+<li>Delayed mode GTSPP XBT data
+<li>Canadian (MEDS) XBT data
+<li>Declassified US Navy XBT data
+</ul>
+[NOTE: XBT standard level values were interpolated using observed level
+measurements corrected for a drop rate error for T4, T6, and T7 probes.  T5
+depths were not recalculated.]
+
+
+<h4>9. DBT2 - Digital Bathythermograph data </h4>
+
+Parameter: Temperature
+            
+Sources:
+Canadian (MEDS) DBT data
+Japanese DBT data
+
+
+<h4>10. ISD - Station data from India (data set received too late to incorporate
+          into BOTTLE2 file)</h4>
+
+Parameters: Temperature and/or salinity
+
+
+
+<h2>B. PARAMETER INFORMATION</h2>
+
+Table 1 shows the units, precision, and number of profiles for each parameter.
+<pre>
+Table 1.  Precision and number of profiles for each parameter.
+----------------------------------------------------------------                                       
+                                        Maximum 
+                                        stored          # of
+Parameter            Unit               precision     Profiles
+----------------------------------------------------------------
+Temperature         degrees C             xx.xxx      4,553,426
+Salinity            p.s.u.                xx.xxx      1,254,771
+Oxygen              ml/l                   xx.xx        367,635
+Phosphate           micromolar             xx.xx        184,153
+Silicate            micromolar             xxx.x        110,413
+Nitrate             micromolar              xx.x         75,403
+----------------------------------------------------------------
+</pre>
+Each parameter is identified in the data by a numeric code.  The parameters
+and their associated codes are listed in Table 2.
+
+<pre>
+Table 2.  Numeric codes associated with each parameter
+
+--------------------------------------
+Code            Parameter
+--------------------------------------
+ 0              Depth
+ 1              Temperature (in-situ)
+ 2              Salinity
+ 3              Oxygen
+ 4              Phosphate
+ 6              Silicate
+ 8              Nitrate
+--------------------------------------
+</pre>
+
+<h3>C.  QUALITY CONTROL PROCEDURES</h3>
+
+Observed level data were checked for quality prior to interpolation to
+standard levels.  We call the actual measured value of an oceanographic
+parameter at some depth an "observed level" datum.  The value interpolated to
+a standard level depth is referred to as a "standard level" datum.
+<p>
+For many analysis purposes, it is necessary to interpolate from observed level
+to standard depth levels.  The standard depth analysis levels selected for
+this study are listed in Table 3 and include the 30 NODC standard depths and
+three additional levels at 3500, 4500, and 5500 meters.  There are additional
+standard level depth data in some of the standard level profiles (i.e., 6000,
+6500, 7000, 7500, 8000, 8500, 9000 meters, numbered 34 through 40).  
+
+<pre>
+Table 3.  Standard levels and depths (in meters)
+------------------------------------------------
+ Level       Depth       Level       Depth
+     1           0          18         900
+     2          10          19        1000
+     3          20          20        1100
+     4          30          21        1200
+     5          50          22        1300
+     6          75          23        1400
+     7         100          24        1500
+     8         125          25        1750
+     9         150          26        2000
+    10         200          27        2500
+    11         250          28        3000
+    12         300          29        3500
+    13         400          30        4000
+    14         500          31        4500
+    15         600          32        5000
+    16         700          33        5500
+    17         800
+------------------------------------------------
+</pre>
+The quality of the observed and standard level data were checked using the
+following procedures:
+<p>
+At the NODC:
+<dl COMPACT>
+<dt>1.<dd>  NODC Data Processing Branch checks - date/time fields (valid
+    values, ship speed between stations).  It also performs broad 
+    range checks, compares each station to an NODC T-S climatology, 
+    and checks for large density inversions.
+</dl>
+At the NODC/Ocean Climate Laboratory:
+<dl COMPACT>
+<dt>2.<dd>  Preliminary checks - checks for duplicate profiles, depth inversions;
+<dt>3.<dd>  Range check of the observed level data for each major basin as a function                     
+    of depth; 
+    [Note: some temperature values reported in the XBT2 observed level file 
+    exceeded 999.999 and therefore were set to the missing value -99.999.  
+    These values are flagged with a 1 (failed range check).]
+<dt>4.<dd>  Large temperature inversion and gradient checks;
+<dt>5.<dd>  Density inversion check on the standard level data;
+<dt>6.<dd>  XBT drop rate correction before interpolation of observed level to 
+    standard level data for T4, T6, and T7 probes;
+<dt>7.<dd>  Standard deviation check; 
+<dt>8.<dd>  Check for unrealistic features after an initial computation of the 
+    objective analysis.
+<p>Data were flagged for each quality control check.  A datum or profile flagged
+as an outlier was excluded from further checks.  A description of the flags
+can be found in Appendix 1.  The quality control procedures have been
+documented in two NOAA Technical Reports (Boyer and Levitus, 1994; Conkright
+et al., 1994).  
+</dl>
+<h3>D. AVAILABLE OBJECTIVELY ANALYZED FIELDS</h3>
+
+Table 4 lists the mean objectively analyzed fields for each parameter.
+<pre>
+Table 4.  Available objectively analyzed fields for each parameter.
+----------------------------------------------------------------------
+PARAMETER                      ANNUAL*     SEASON**     MONTH***
+
+Temperature                          X          X           X 
+Salinity                             X          X           X 
+Dissolved oxygen                     X          X
+Apparent Oxygen Utilization          X          X
+Oxygen saturation                    X          X 
+Phosphate                            X 
+Nitrate                              X         
+Silicate                             X
+
+  *ANNUAL - composite of all data regardless of season or year
+ **SEASON - data composite based on seasons following the Northern 
+            Hemisphere convention.  The seasons are defined as:
+                  Winter (January - March)
+                  Spring (April - June)
+                  Summer (July - September)
+                  Fall (October - December)
+*** MONTH - data composite for each month.  January through December 
+            analysis for 19 depth levels only (0-1000 m)
+----------------------------------------------------------------------
+</pre>
+For all the files in Table 4, there are accompanying mask files. The mask file
+contains the number of grid points which contain data within the radius of
+influence surrounding each grid box.  If a grid box contains three or fewer
+observations within its radius of influence, the mask value for that
+one-degree square will be zero.  This file is used in plotting routines to
+"mask" or cover up areas with three or less observations (see maps in the
+World Ocean Atlases for fields plotted using these masks).
+
+
+
+<h2>6.  REFERENCES ASSOCIATED WITH THE DATA</h2>
+<pre>
+
+A.  DOCUMENTATION DESCRIBING THE QUALITY CONTROL PROCEDURES:
+
+    (a)  Boyer, T.P. and S. Levitus.  1994.  Quality control and processing of 
+         historical temperature, salinity and oxygen data.  NOAA 
+         Technical Report NESDIS 81.  U.S. Department of Commerce. Washington,
+         D.C.  65 pp.
+
+    (b)  Conkright, M.E., T.P. Boyer and S. Levitus.  1994.  Quality control 
+         and processing of historical nutrient data.  NOAA Technical Report 
+         NESDIS 79.  U.S. Departement of Commerce, Washington, D.C. 75 pp.
+
+
+
+B.  DOCUMENTATION DESCRIBING THE ANALYSIS PROCEDURES AND THE DATA 
+    DISTRIBUTION AND ANALYSIS:
+
+    (a)  Conkright, M.E., S. Levitus and T.P. Boyer.  1994. World Ocean Atlas 
+         1994 Volume 1: Nutrients.  NOAA Atlas NESDIS 1.  U.S. Department of
+         Commerce, Washington, D.C.  150 pp.
+
+    (b)  Levitus S. and T.P. Boyer.  1994a. World Ocean Atlas 1994 Volume 2: 
+         Oxygen. NOAA Atlas NESDIS 2.  U.S. Department of Commerce, Washington,
+         D.C.  186 pp.
+
+    (c)  Levitus S., R. Burgett and T.P. Boyer.  1994b. World Ocean Atlas 1994 
+         Volume 3: Salinity. NOAA Atlas NESDIS 3.  U.S. Department of Commerce,
+         Washington, D.C.  99 pp.
+
+    (d)  Levitus S. and T.P. Boyer.  1994c. World Ocean Atlas 1994 Volume 4:                   
+                               
+         Temperature.  NOAA Atlas NESDIS 4.  U.S. Department of Commerce, 
+         Washington, D.C. 117 pp.
+ 
+
+C.  DOCUMENTATION DESCRIBING THE NON-ARCHIVED NODC DATA USED:
+
+    Levitus, S., R. Gelfeld, T. Boyer and D. Johnson.  1994e.  Results of the
+    NODC and IOC Oceanographic Data Archaeology and Rescue Projects.  Key
+    to Oceanographic Records Documentation No. 19, NODC, Washington, D.C.
+
+
+D.  DOCUMENTATION DESCRIBING THE NODC ARCHIVED DATA USED:
+
+    Levitus, S. and R. Gelfeld.  1992.  NODC Inventory of Physical
+    Oceanographic Profiles.  Key to Oceanographic Records Documentation No. 18,  
+    NODC, Washington, D.C.
+
+
+
+Appendix 1.  Description of flags used in the quality check of observed and
+             standard level                                                                        data.
+
+ERROR FLAGS
+         
+WHOLE-PROFILE FLAGS (AS A FUNCTION OF PARAMETER)
+              0 - accepted profile
+              1 - failed annual standard deviation check
+              2 - two or more density inversions (Levitus 1982 criteria)
+              3 - flagged cruise
+              4 - failed seasonal standard deviation check
+              5 - failed monthly standard deviation check
+              6 - failed annual and seasonal standard deviation check
+              7 - failed annual and monthly standard deviation check
+              8 - failed seasonal and monthly standard deviation check
+              9 - failed annual, seasonal, and monthly standard deviation 
+                  check
+
+FLAGS ON INDIVIDUAL DEPTHS AND OBSERVATIONS
+
+Depth Flags:
+              0 - accepted value
+              1 - error in recorded depth (same or less than previous depth)
+              2 - temperature inversion of magnitude > 0.3 degrees/meter
+              3 - temperature gradient of magnitude  > 0.7 degrees/meter 
+              4 - temperature gradient (of > 0.7 degrees/meter) followed 
+                  closely by a temperature inversion (of > 0.3 degrees/meter) 
+                  or vice versa
+    
+Observed Level Flags:
+              0 - accepted value
+              1 - range outlier (outside of range check)
+              2 - density inversion
+              3 - failed range check and density inversion check
+
+Standard Level Flags:
+              0 - accepted value
+              1 - bullseye marker
+              2 - density inversion
+              3 - failed annual standard deviation check
+              4 - failed seasonal standard deviation check
+              5 - failed monthly standard deviation check
+              6 - failed annual and seasonal standard deviation check
+              7 - failed annual and monthly standard deviation check
+              8 - failed seasonal and monthly standard deviation check
+              9 - failed annual, seasonal and monthly standard deviation check
+
+EXPLANATION OF ERROR FLAGS
+
+
+A.  CHECK FOR DEPTH INVERSIONS AND DUPLICATE DEPTHS
+
+Depth error flags:
+
+(1)  If the second of two successive depths is shallower than the first (a
+     depth inversion), the second depth will be marked with a flag value = 1.  
+
+(2)  If two successive depths are shallower than the first depth, every depth
+     reading following the first will be marked with a flag value = 1.
+
+(3)  If two successive depth readings are equal, the second reading will be
+     marked with a flag value = 1.
+
+(4)  All correct depths are marked with a flag value = 0.
+
+
+B.   STANDARD DEVIATION CHECK ON STANDARD LEVEL DATA
+
+This check calculates the mean and standard deviation of five-degree square
+latitude-longitude boxes for annual (all parameters), seasonal (temperature,
+salinity, and oxygen), and monthly (temperature and salinity) periods.
+
+Data are flagged if
+
+(1)  a value is five standard deviations away from the mean in coastal waters
+     (defined as any five-degree grid box adjacent to a land grid point or any
+     five-degree grid box with a bottom depth of less than 200 m);
+
+(2)  a value is four standard deviations away from the mean in near coastal
+     waters or near the ocean floor (defined as any one-degree grid point
+     where the depth is equal to or less than the depth in an adjacent 
+     one-degree box) or any adjacent five-degree grid box is designated 
+     coastal;
+
+(3)  a value is three standard deviations away from the mean in open ocean;
+
+(4)  if a profile contains two or more standard deviation failures, the
+     whole profile is flagged. 
+
+
+
+
+C.   DENSITY CHECKS FOR TEMPERATURE AND SALINITY PROFILES
+
+The criteria for an instability are described by Levitus (1982).  
+
+
+Flags are assigned 
+
+(1)  for density inversions at the depths where they occur in the observed and
+     standard level profiles;
+
+(2)   when two or more density inversions (or instabilities) occur in a
+      standard level profile. The entire profile is then flagged.
+
+[Note: Stability checks were performed on observed as well as standard level
+data.  Observed level flags are included for information only, since they were
+not used to exclude any data from the profile data sets.  Whole-profile flags
+for stability and standard deviation checks are for standard level data only. 
+For informational purposes, if a standard level profile includes a whole
+profile density flag (or standard deviation flag), the observed level data
+will also include a whole profile flag.]
+
+
+D.   CRUISE FLAGS 
+
+Indicates all profiles from a cruise have anomalous data.  
+
+
+E.   BULLSEYE FLAGS 
+
+Flags individual depths with anomalous data which cause ripple effects or
+"bullseyes" in the contoured objectively analyzed data.  
+</pre>
+<p>
+<address><a href="mailto:benno@ldeo.columbia.edu">benno@ldeo.columbia.edu</a></address>
+</body>
+</html>

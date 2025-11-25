@@ -1,0 +1,67 @@
+\begin{ingrid}
+
+continuedataset:
+
+grid:
+/name /T def
+/standard_name (time) def
+/units (days since 1981-01-01  12:00:00) def
+0 1.0
+%systemtime systemtime2ymd
+2022 1 31
+ymd2rjt
+1981 1 1 ymd2rjt
+sub
+/defaultvalue {last} def
+
+% 0 1.0 systemtime
+% systemtime2ymd ymd2rjt
+% 1
+% Jan 1981 julian_day
+% sub
+
+:grid
+
+% T { (/Data/data23/Vietnam/ENACTS_MERGED/MON/PRECIP/DAILY/rr_mrg_%Y%m[T]%d[T]_MON.nc) [T]} removeextrausing
+% name exch def
+
+% T
+% /expires last rjt2ymd ymd:nextmonth ymd:nextmonth ymd2systemtime def
+%    name exch def
+%    /expires T .expires def
+%    /last_modified T .last_modified def
+
+% T /defaultvalue {last} def pop
+
+%%%%%
+
+grid:
+/name /X def
+/units /degree_east def
+102.025 0.05 109.475
+/long_name (Longitude) def
+:grid
+
+grid:
+/name /Y def
+/units /degree_north def
+8.025 0.05 23.475
+/long_name (Latitude) def
+:grid
+
+ /rfe_merged{
+[ X Y | T] (/Data/data23/Vietnam/ENACTS_MERGED/MON/PRECIP/DAILY/rr_mrg_%Y%m%d[T]_MON.nc) [T]
+readdatafile:
+/name (precip) def
+/long_name (Merged Station-Satellite Rainfall) def
+/units /mm def
+/missing_value -99. def
+/realarraytype netcdfrecords
+:readdatafile
+cmorph_dekad_colors %applies a colorscale named cmorph_dekad_colors to the variable
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

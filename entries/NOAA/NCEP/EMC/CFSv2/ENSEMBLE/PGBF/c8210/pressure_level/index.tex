@@ -1,0 +1,23 @@
+\begin{ingrid}
+
+continuedataset:
+
+/UGRD_ensemble_mean {
+ SOURCES .NOAA .NCEP .EMC .CFSv2 .ENSEMBLE .PGBF .pressure_level .UGRD
+  [M]average
+  S (1982) (0000 1 Dec 2010) RANGE
+  S 12 splitstreamgrid
+  [S2]average
+}defasvar
+
+/VGRD_ensemble_mean {
+ SOURCES .NOAA .NCEP .EMC .CFSv2 .ENSEMBLE .PGBF .pressure_level .VGRD
+  [M]average
+  S (1982) (0000 1 Dec 2010) RANGE
+  S 12 splitstreamgrid
+  [S2]average
+}defasvar
+
+:dataset
+
+\end{ingrid}

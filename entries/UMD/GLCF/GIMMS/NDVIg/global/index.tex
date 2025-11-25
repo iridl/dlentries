@@ -1,0 +1,287 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/simplendvicolors {
+startcolormap
+DATA -0.1 1.0 RANGE
+null sienna sienna -0.1 value
+yellow 0.5 value
+ForestGreen 1.0 value
+ForestGreen 
+endcolormap 
+/plotfirst -.1 def
+/plotlast 1. def
+} def
+:datasetdefs
+
+grid:
+/name /X def
+degE
+periodic
+-179.99568
+180.00430
+N= 4950 pts
+:grid
+/X1 X def
+
+grid:
+/name /X def
+degE
+periodic
+-179.95932
+179.96794
+N= 4950 pts
+:grid
+
+grid:
+/name /Y def
+degN
+89.222914
+-62.849808
+N= 2091 pts
+:grid
+/Y1 Y def
+
+grid:
+/name /Y def
+degN
+89.186551
+-62.813444
+N= 2091 pts
+:grid
+
+grid:
+/name /T def
+/units (days since 1981-01-01 00:00:00) def
+values: 
+1 Jul 1981 julian_day 1 Jan 1981 julian_day sub
+1 Mar 1985 julian_day 1 Jan 1981 julian_day sub
+1 Nov 1988 julian_day 1 Jan 1981 julian_day sub
+1 Sep 1994 julian_day 1 Jan 1981 julian_day sub
+16 Jan 1995 julian_day 1 Jan 1981 julian_day sub
+1 Nov 2000 julian_day 1 Jan 1981 julian_day sub 
+1 Jan 2004 julian_day 1 Jan 1981 julian_day sub 
+/pointwidth 0 def
+:values
+:grid
+variable:
+/name /sat def
+/long_name (NOAA satellite) def
+grids: T :grids
+values:
+(n07)
+(n09)
+(n11)
+(n09)
+(n14)
+(n16)
+(n17)
+:values
+:variable
+grid:
+    /name /T def
+    /units (days since 1981-01-01 00:00:00) def
+    values: 
+1 Jul 1981 julian_day 1 Jan 1981 julian_day sub
+1 Jan 2007 julian_day 1 Jan 1981 julian_day sub
+       /pointwidth 0 def
+       :values
+     :grid
+T   monthlyedgesgrid
+   name units gridtype mark gridvalues {dup 15 add}forall
+                     pop
+                     counttomark realarray astore
+        nip NewGRID nip
+    /pointwidth 0 def
+    partialgrid
+name exch def
+%/X 4943 NewIntegerGRID name exch def
+%/Y  2104 NewIntegerGRID name exch def
+/ndvi {
+[ X Y | T ] 
+
+(/Data/data7/umd/glcf/gimms/ndvig/global/geographic/update2006/%y[T]%b:lc[T]15%s[ab].%s[sat]-VIg_data.tif)
+[T dup
+        10 2 onegridmodcounter
+        (%1.1x) sprintf
+        /name /ab def
+sat
+[T]regridLB
+]
+ readdatafile:
+/shortarraytype tiffimage
+/missing_value -10000 def
+/scale_factor 0.001 def
+/long_name (NDVI) def
+:readdatafile
+simplendvicolors
+/scale_min -100. def
+/scale_max 1000. def
+/iridl:hasSemantics (iridl:NDVI) def
+} defasvarcachesilent
+
+/flag {
+[ X1 Y1 | T ]
+(/Data/data7/umd/glcf/gimms/ndvig/global/geographic/update2006/%y[T]%s[lmon]15%s[ab].%s[sat]-VIg_flag.tif)
+[T dup (%b)strftimes tolower /name /lmon def
+1 index
+        10 2 onegridmodcounter
+        (%1.1x) sprintf
+        /name /ab def
+sat
+[T]regridLB
+]
+readdatafile:
+/shortarraytype tiffimage
+/long_name (flag) def
+/units (ids) def
+/scale_min 0 def
+/scale_max 6 def
+/CLIST [
+(Good value)
+(Good value, possibly snow)
+(NDVI retrieved from spline interpolation)
+(NDVI retrieved from spline interpolation, possibly snow)
+(NDVI retrieved from average seasonal profile)
+(NDVI retrieved from average seasonal profile, possibly snow)
+(missing data)
+] def
+:readdatafile
+} defasvarsilent
+sat name exch def
+:dataset
+\end{ingrid}
+
+This data set was updated through the end of 2006 on 06 Aug 2010.  The new files are "shortarraytype"
+rather than "realarraytype", and the spatial domain is a bit different -- including a difference between
+the NDVI and flag values.  The new data are not described as a new version -- the old data have simply
+been replaced at GLCF/GIMMS.  The description file for the previous installment of this data set, which
+ran through 2003, is given below, and the data files remain on /Data/data7.  The data for the updated
+version are in a new subdirectory called "update2006".
+
+continuedataset:
+datasetdefs:
+/simplendvicolors {
+startcolormap
+DATA -0.1 1.0 RANGE
+null sienna sienna -0.1 value
+yellow 0.5 value
+ForestGreen 1.0 value
+ForestGreen 
+endcolormap 
+/plotfirst -.1 def
+/plotlast 1. def
+} def
+:datasetdefs
+grid:
+/name /X def
+degE
+-179.5166667
+179.90016944
+N= 4943 pts
+:grid
+grid:
+/name /Y def
+degN
+90.
+-62.94488056
+N= 2104 pts
+:grid
+grid:
+/name /T def
+/units (days since 1981-01-01 00:00:00) def
+values: (0000 1 Jul 1981) readunits
+(0000 1 Mar 1985) readunits
+(0000 1 Nov 1988) readunits
+(0000 1 Sep 1994) readunits
+(0000 16 Jan 1995) readunits
+(0000 1 Nov 2000) readunits
+/pointwidth 0 def
+:values
+:grid
+variable:
+/name /sat def
+/long_name (NOAA satellite) def
+grids: T :grids
+values:
+(n07)
+(n09)
+(n11)
+(n09)
+(n14)
+(n16)
+:values
+:variable
+grid:
+    /name /T def
+    /units (days since 1981-01-01 00:00:00) def
+    values: (0000 1 Jul 1981) readunits
+      (0000 1 Jan 2004) readunits
+       /pointwidth 0 def
+       :values
+     :grid
+T   monthlyedgesgrid
+   name units gridtype mark gridvalues {dup 15 add}forall
+                     pop
+                     counttomark realarray astore
+        nip NewGRID nip
+    /pointwidth 0 def
+    partialgrid
+name exch def
+%/X 4943 NewIntegerGRID name exch def
+%/Y  2104 NewIntegerGRID name exch def
+/ndvi {
+[ X Y | T ] 
+
+%(/beluga/data/mbell/gimms.d/avhrr.d/ndvi.d/tiff/81aug15%s[ab].n07-VIg_data.tif)
+
+(/Data/data7/umd/glcf/gimms/ndvig/global/geographic/%y[T]%s[lmon]15%s[ab].%s[sat]-VIg_data.tif)
+[T dup (%b)strftimes tolower /name /lmon def
+1 index
+        10 2 onegridmodcounter
+        (%1.1x) sprintf
+        /name /ab def
+sat
+[T]regridLB
+]
+ readdatafile:
+/realarraytype tiffimage
+/missing_value [ -1000 -500 ] def
+/scale_factor 0.001 def
+/long_name (NDVI) def
+:readdatafile
+simplendvicolors
+/scale_min -100. def
+/scale_max 1000. def
+/iridl:hasSemantics (iridl:NDVI) def
+} defasvarsilent
+/flag {
+[ X Y | T ]
+(/Data/data7/umd/glcf/gimms/ndvig/global/geographic/%y[T]%s[lmon]15%s[ab].%s[sat]-VIg_flag.tif)
+[T dup (%b)strftimes tolower /name /lmon def
+1 index
+        10 2 onegridmodcounter
+        (%1.1x) sprintf
+        /name /ab def
+sat
+[T]regridLB
+]
+readdatafile:
+/realarraytype tiffimage
+/long_name (flag) def
+/units (ids) def
+/scale_min 0 def
+/scale_max 6 def
+/CLIST [
+(Good value)
+(Good value, possibly snow)
+(NDVI retrieved from spline interpolation)
+(NDVI retrieved from spline interpolation, possibly snow)
+(NDVI retrieved from average seasonal profile)
+(NDVI retrieved from average seasonal profile, possibly snow)
+(missing data)
+] def
+:readdatafile
+} defasvarsilent
+sat name exch def
+:dataset

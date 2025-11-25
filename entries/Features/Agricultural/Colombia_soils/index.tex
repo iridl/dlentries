@@ -1,0 +1,18 @@
+\begin{ingrid}
+/Soils_Colombia
+/description ( Soil types of Colombia) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,ord,the_geom from soils_colombia order by gid) (gid) openqueryby
+        ord 
+            /long_name (ORD) def
+            /units /ids def 
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (soil type geometry) def
+        name exch def
+}defasvarsilent
+\end{ingrid}

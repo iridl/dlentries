@@ -1,0 +1,74 @@
+\begin{ingrid}
+continuedataset:
+
+/references (Sillmann_etal2013a Sillmann_etal2013b) def
+
+ dataset:
+ /name (r1i1p1) def
+
+grid:
+/name /lon def
+/units (degree_east) def
+periodic
+0 2.5 357.5
+:grid
+grid:
+/name /lat def
+/units (degree_north) def
+90 2.5 -90 
+:grid
+grid:
+/name /time def
+/units (months since 01-Jan) def
+periodic
+Jan 1.0 Dec
+:grid
+
+/r95thresh { (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/thresholds_monClim_ERA40_historical_r1i1p1_1961-1990.nc) readCDF .r95thresh longitude /lon renameGRID
+latitude /lat renameGRID
+} defasvarsilent
+
+/r99thresh { (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/thresholds_monClim_ERA40_historical_r1i1p1_1961-1990.nc) readCDF .r99thresh longitude /lon renameGRID
+latitude /lat renameGRID
+} defasvarsilent
+
+/tn10thresh {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/thresholds_monClim_ERA40_historical_r1i1p1_1961-1990.nc) readCDF
+  time name
+    (months since 01-Jan) periodic Jan 1.0 Dec NewEvenGRID
+    replaceGRID
+  .tn10thresh 
+longitude /lon renameGRID
+latitude /lat renameGRID
+} defasvarsilent
+
+/tn90thresh {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/thresholds_monClim_ERA40_historical_r1i1p1_1961-1990.nc) readCDF
+  time name
+    (months since 01-Jan) periodic Jan 1.0 Dec NewEvenGRID
+    replaceGRID
+  .tn90thresh 
+longitude /lon renameGRID
+latitude /lat renameGRID
+} defasvarsilent
+
+/tx10thresh {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/thresholds_monClim_ERA40_historical_r1i1p1_1961-1990.nc) readCDF
+  time name
+    (months since 01-Jan) periodic Jan 1.0 Dec NewEvenGRID
+    replaceGRID
+  .tx10thresh 
+longitude /lon renameGRID
+latitude /lat renameGRID
+} defasvarsilent
+
+/tx90thresh {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERA40/r1i1p1/thresholds_monClim_ERA40_historical_r1i1p1_1961-1990.nc) readCDF
+  time name
+    (months since 01-Jan) periodic Jan 1.0 Dec NewEvenGRID
+    replaceGRID
+  .tx90thresh 
+longitude /lon renameGRID
+latitude /lat renameGRID
+} defasvarsilent
+
+ :dataset
+
+:dataset
+\end{ingrid}

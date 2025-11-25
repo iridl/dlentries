@@ -1,0 +1,127 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (IDENTIFICATION) def
+
+/departmentID { IRIDB (sen_ensar_2019) (departmentid) [(idm)] open_column_by
+/long_name (﻿department) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/commune { IRIDB (sen_ensar_2019) (commune) [(idm)] open_column_by
+/long_name (commune) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/quartier { IRIDB (sen_ensar_2019) (quartier) [(idm)] open_column_by
+/long_name (quartier) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/VillageID { IRIDB (sen_ensar_2019) (villageid) [(idm)] open_column_by
+/long_name (Village ID) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/lon { IRIDB (sen_ensar_2019) (lon) [(idm)] open_column_by
+/long_name (AvgLong) def 
+/missing_value -999 def
+/units /degree_east def
+/scale_min -17.6 def
+/scale_max -11.2 def
+
+}defasvarsilentnoreuse
+
+/lat { IRIDB (sen_ensar_2019) (lat) [(idm)] open_column_by
+/long_name (AvgLat) def 
+/missing_value -999 def
+/units /degree_north def
+/scale_min 12.2 def
+/scale_max 16.8 def
+
+}defasvarsilentnoreuse
+
+/idm { IRIDB (sen_ensar_2019) (idm) [(idm)] open_column_by
+/long_name (identifiant du menage) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/pf { IRIDB (sen_ensar_2019) (pf) [(idm)] open_column_by
+/long_name (poids final) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Region { IRIDB (sen_ensar_2019) (region) [(idm)] open_column_by
+/long_name (region) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/strates13_3 { IRIDB (sen_ensar_2019) (strates13_3) [(idm)] open_column_by
+/long_name (strates 13 regions + 3 dep saint-louis) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/departement { IRIDB (sen_ensar_2019) (departement) [(idm)] open_column_by
+/long_name (departement) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/communeID { IRIDB (sen_ensar_2019) (communeid) [(idm)] open_column_by
+/long_name (commune) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/quartierID { IRIDB (sen_ensar_2019) (quartierid) [(idm)] open_column_by
+/long_name (quartier) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/dr { IRIDB (sen_ensar_2019) (dr) [(idm)] open_column_by
+/long_name (district recensement) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/mdr { IRIDB (sen_ensar_2019) (mdr) [(idm)] open_column_by
+/long_name (milieu de residence) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/distS { IRIDB (sen_ensar_2019) (dists) [(idm)] open_column_by
+/long_name (district sante) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/postS { IRIDB (sen_ensar_2019) (posts) [(idm)] open_column_by
+/long_name (poste sante) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/grappe { IRIDB (sen_ensar_2019) (grappe) [(idm)] open_column_by
+/long_name (grappe) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/equipe { IRIDB (sen_ensar_2019) (equipe) [(idm)] open_column_by
+/long_name (equipe) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/superviseur { IRIDB (sen_ensar_2019) (superviseur) [(idm)] open_column_by
+/long_name (superviseur) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/nm { IRIDB (sen_ensar_2019) (nm) [(idm)] open_column_by
+/long_name (numero menage) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+
+/location { lon lat geopt /units undef /scale_min undef /scale_max undef } defasvar 
+
+:dataset
+
+superviseur .idm name exch def
+\end{ingrid}
+

@@ -1,0 +1,111 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Identifcation, demographie et education) def
+
+/Q1_1 { IRIDB (efsa201802) (q1_1) [(hhid)] open_column_by
+/long_name (Région) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q1_2 { IRIDB (efsa201802) (q1_2) [(hhid)] open_column_by
+/long_name (Departement) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q1_3 { IRIDB (efsa201802) (q1_3) [(hhid)] open_column_by
+/long_name (Commune) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q1_4 { IRIDB (efsa201802) (q1_4) [(hhid)] open_column_by
+/long_name (Zone de moyens d'existence) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q1_5 { IRIDB (efsa201802) (q1_5) [(hhid)] open_column_by
+/long_name (Village ou Quartier) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q1_6 { IRIDB (efsa201802) (q1_6) [(hhid)] open_column_by
+/long_name (Milieu de residence) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(Rural)
+(Urbain)
+] def
+
+/scale_min 1.00 def
+/scale_max 2.00 def
+}defasvarsilentnoreuse
+
+/Q1_72 { IRIDB (efsa201802) (q1_72) [(hhid)] open_column_by
+/long_name (Code menage) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q1_12 { IRIDB (efsa201802) (q1_12) [(hhid)] open_column_by
+/long_name (Q1_12 : Sexe du Chef de menage) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(Masculin)
+(Feminin)
+] def
+
+/scale_min 1.00 def
+/scale_max 2.00 def
+}defasvarsilentnoreuse
+
+/Q1_11 { IRIDB (efsa201802) (q1_11) [(hhid)] open_column_by
+/long_name (Q1_11 : Age du Chef de menage) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q1_13 { IRIDB (efsa201802) (q1_13) [(hhid)] open_column_by
+/long_name (Q1_13 : QUEL EST LE NIVEAU D'INSTRUCTION DU CHEF DE MENAGE ?) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(Primaire)
+(Moyen-6eme a 3eme-)
+(Secondaire -Seconde a Terminale-)
+(Superieur)
+(Sait lire et ecrire en arabe)
+(Alphabetise en langue locale)
+(Aucune instruction)
+(Autres)
+] def
+
+/scale_min 1.00 def
+/scale_max 8.00 def
+}defasvarsilentnoreuse
+
+/Q1_14 { IRIDB (efsa201802) (q1_14) [(hhid)] open_column_by
+/long_name (Q1_14 : Quel est le Statut Matrimonial du chef de menage ?) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(Celibataire)
+(Marie -e-monogame -Une seule epouse-)
+(Marie -e-polygame -Plusieurs epouses-)
+(Divorce)
+(Veuf -ve-)
+(Autres)
+] def
+
+/scale_min 1.00 def
+/scale_max 6.00 def
+}defasvarsilentnoreuse
+
+/Q1_15 { IRIDB (efsa201802) (q1_15) [(hhid)] open_column_by
+/long_name (Combien de personnes au total vivent présentement dans le ménage ?) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/zdummy {c: 0 :c}defasvar
+
+:dataset
+
+Q1_1 .hhid name exch def
+\end{ingrid}
+

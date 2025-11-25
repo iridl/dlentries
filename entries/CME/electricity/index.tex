@@ -1,0 +1,37 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+grid:
+/name /px_last def
+1 1 1
+:grid
+:datasetdefs
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+15 Dec 2008 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+4 Nov 2019 julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+:grid
+
+
+/PX_LAST {
+[px_last T |]
+(/Data/PRISM/Finance/commodities/electricity/electricity_gridded.tsv)
+readdatafile:
+/missing_value NaN def
+[1 2] r*4astsv
+:readdatafile
+px_last 1 VALUE
+px_last removeGRID
+/iridl:hasSemantics (iridl:price) def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

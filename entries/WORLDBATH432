@@ -1,0 +1,35 @@
+\begin{ingrid}
+dataset:
+/name /WORLDBATH432 cvx def
+/dataset_documentation.html descriptions  /dbdb5.html get def
+/description (Sampled ETOPO5 5x5 minute Navy bathymetry) def
+/iridl:hasSemantics (iridl:NOAA) def
+link:
+/name (NOAA NGDC ETOPO5) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NGDC/.ETOPO5/) def
+/description (superceded by NOAA NDGC ETOPO5) def
+/semantics /dcterm:isReplacedBy def
+:link
+grid: /name /X def 
+/units /degreeE def
+periodic 
+0 to 360 .8333435 sub N= 432 pts :grid 
+grid: /name /Y def 
+/units /degreeN def
+-90 to 90 N= 217 pts :grid 
+variable:
+/name /bath cvx def
+/long_name (topography) def
+/units (m) def
+grids: X Y :grids
+file:
+random
+/name 
+%(/Data/data4/topog/worldbath432) def
+(/Data/data2/topog/worldbath432) def
+:file
+topographycolorscale
+:variable
+:dataset
+\end{ingrid}
+

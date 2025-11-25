@@ -1,0 +1,56 @@
+\begin{ingrid*}
+/Nepal_districts
+/description (Nepal Districts from maplibrary.org) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select * from npl order by gid) (gid) openqueryby
+}defasvarsilent
+
+\end{ingrid*}
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (iridl:Nepal) def
+dataset:
+/name /Nepal_districts def
+/description (Nepal Districts from maplibrary.org) def
+/code
+{IRIDB
+(npl) (code) [ (gid) ]open_column_by
+/long_name (Code) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+(npl) (the_geom) [ (gid) ]open_column_by
+/long_name (the_geom) def
+}defasvarsilentnoreuse
+/division
+{IRIDB
+(npl) (division) [ (gid) ]open_column_by
+/long_name (Division) def
+}defasvarsilentnoreuse
+/mm_uid
+{IRIDB
+(npl) (mm_uid) [ (gid) ]open_column_by
+/long_name (mm u ID) def
+}defasvarsilentnoreuse
+/name1
+{IRIDB
+(npl) (name1) [ (gid) ]open_column_by
+/long_name (Admin level 1) def
+}defasvarsilentnoreuse
+/name2
+{IRIDB
+(npl) (name2) [ (gid) ]open_column_by
+/long_name (District) def
+}defasvarsilentnoreuse
+/label
+{IRIDB
+(npl) ((name1 ||', '|| name2) as label) [ (gid)]open_column_by
+/long_name (label) def
+}defasvarsilentnoreuse
+:dataset
+:dataset
+Nepal_districts mm_uid .gid name exch put
+\end{ingrid}

@@ -1,0 +1,256 @@
+\begin{ingrid}
+continuedataset:
+
+dataset:
+/name (ens25) def
+/description (25 Ensemble Members) def
+
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+06 Jan 2015 julian_day 01 Jan 1960 julian_day sub
+1.0
+%systemtime
+%(%d %b %Y) 12 strftime interp julian_day
+15 Mar 2017 julian_day
+01 Jan 1960 julian_day sub
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+%S {(/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [S]} removeextrausing
+%name exch def
+
+grid:
+/name /L def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+1.5 1. 33.5
+/pointwidth 0. def
+:grid
+
+grid:
+/name /M def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+0 1 24
+:grid
+
+ dataset:
+/name (ensembles) def
+
+[ M L S ] {name exch def } forall
+
+ /RMM1 { [ M L | S ] 
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+readdatafile:
+((/,32(/,25(11X,F6.3,/)),(/,24(11X,F6.3,/),(11X,F6.3)))) formatted
+:readdatafile
+/long_name (RMM1) def
+/units (unitless) def
+} defasvarsilent
+
+ /RMM2 { [ M L | S ] 
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+ readdatafile:
+ ((/,32(/,25(18X,F6.3,/)),(/,24(18X,F6.3,/),(18X,F6.3)))) formatted
+ :readdatafile
+ /long_name (RMM2) def
+ /units (unitless) def
+ } defasvarsilent
+
+ /amplitude { [ M L | S ]
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+ readdatafile:
+ ((/,32(/,25(25X,F6.3,/)),(/,24(25X,F6.3,/),(25X,F6.3)))) formatted
+ :readdatafile
+ /long_name (amplitude) def
+ /units (unitless) def
+ } defasvarsilent
+
+ /phase { [ M L | S ]
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+ readdatafile:
+ ((/,32(/,25(32X,F1.0,/)),(/,24(32X,F1.0,/),(32X,F1.0)))) formatted
+ :readdatafile
+ /long_name (phase) def
+ /units (unitless) def
+ } defasvarsilent
+ :dataset
+
+ dataset:
+/name (ensemble_mean) def
+
+[ L S ] {name exch def } forall
+
+ /RMM1 { [ L | S ] 
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+ readdatafile:
+ ((/,32(11X,F6.3,26(/)),(11X,F6.3))) formatted
+ :readdatafile
+ /long_name (RMM1) def
+ /units (unitless) def
+ } defasvarsilent
+
+ /RMM2 { [ L | S ]
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+ readdatafile:
+ ((/,32(18X,F6.3,26(/)),(18X,F6.3))) formatted
+ :readdatafile
+ /long_name (RMM2) def
+ /units (unitless) def
+ } defasvarsilent
+
+ /amplitude { [ L | S ] 
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+ readdatafile:
+ ((/,32(25X,F6.3,26(/)),(25X,F6.3))) formatted
+ :readdatafile
+ /long_name (amplitude) def
+ /units (unitless) def
+ } defasvarsilent
+
+ /phase { [ L | S ] 
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+ readdatafile:
+ ((/,32(32X,F1.0,26(/)),(32X,F1.0))) formatted
+ :readdatafile
+ /long_name (phase) def
+ /units (unitless) def
+ } defasvarsilent
+
+ :dataset
+
+:dataset
+
+dataset:
+/name (ens50) def
+/description (50 Ensemble Members) def
+
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+22 Mar 2017 julian_day 01 Jan 1960 julian_day sub
+1.0
+systemtime
+(%d %b %Y) 12 strftime interp julian_day
+01 Jan 1960 julian_day sub
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+S {(/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [S]} removeextrausing
+name exch def
+
+grid:
+/name /L def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+1.5 1. 32.5
+/pointwidth 0. def
+:grid
+
+grid:
+/name /M def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+0 1 49
+:grid
+
+ dataset:
+/name (ensembles) def
+
+[ M L S ] {name exch def } forall
+
+ /RMM1 { [ M L | S ] 
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+readdatafile:
+((/,31(/,50(11X,F6.3,/)),(/,49(11X,F6.3,/),(11X,F6.3)))) formatted
+:readdatafile
+/long_name (RMM1) def
+/units (unitless) def
+} defasvarsilent
+
+ /RMM2 { [ M L | S ] 
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+ readdatafile:
+ ((/,31(/,50(18X,F6.3,/)),(/,49(18X,F6.3,/),(18X,F6.3)))) formatted
+ :readdatafile
+ /long_name (RMM2) def
+ /units (unitless) def
+ } defasvarsilent
+
+ /amplitude { [ M L | S ]
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+ readdatafile:
+ ((/,31(/,50(25X,F6.3,/)),(/,49(25X,F6.3,/),(25X,F6.3)))) formatted
+ :readdatafile
+ /long_name (amplitude) def
+ /units (unitless) def
+ } defasvarsilent
+
+ /phase { [ M L | S ]
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+ readdatafile:
+ ((/,31(/,50(32X,F1.0,/)),(/,49(32X,F1.0,/),(32X,F1.0)))) formatted
+ :readdatafile
+ /long_name (phase) def
+ /units (unitless) def
+ } defasvarsilent
+ :dataset
+
+ dataset:
+/name (ensemble_mean) def
+
+[ L S ] {name exch def } forall
+
+ /RMM1 { [ L | S ] 
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+ readdatafile:
+ ((/,31(11X,F6.3,26(/)),(11X,F6.3))) formatted
+ :readdatafile
+ /long_name (RMM1) def
+ /units (unitless) def
+ } defasvarsilent
+
+ /RMM2 { [ L | S ]
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+ readdatafile:
+ ((/,31(18X,F6.3,26(/)),(18X,F6.3))) formatted
+ :readdatafile
+ /long_name (RMM2) def
+ /units (unitless) def
+ } defasvarsilent
+
+ /amplitude { [ L | S ] 
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+ readdatafile:
+ ((/,31(25X,F6.3,26(/)),(25X,F6.3))) formatted
+ :readdatafile
+ /long_name (amplitude) def
+ /units (unitless) def
+ } defasvarsilent
+
+ /phase { [ L | S ] 
+ (/Data/data25/ECMWF/S2S/JMA/REL/RMMS/%Y[S]/%m[S]/z_s2s_rmm_rjtd_prod_rt_%Y%m%d[S]12.txt) [ S ]
+ readdatafile:
+ ((/,31(32X,F1.0,26(/)),(32X,F1.0))) formatted
+ :readdatafile
+ /long_name (phase) def
+ /units (unitless) def
+ } defasvarsilent
+
+ :dataset
+
+:dataset
+
+:dataset
+\end{ingrid}

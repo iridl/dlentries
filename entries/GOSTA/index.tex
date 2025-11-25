@@ -1,0 +1,120 @@
+\begin{ingrid}
+continuedataset:
+%  /dataset_documentation.html { (/Data/data2/DataCatalog/descriptions/) /GOSTA.html readfilein} def
+%	dataareLDGOonly
+  grid:
+  /name (X) def
+	degE
+  periodic
+  -237.5 to 117.5 N= 72 pts
+  :grid
+  grid:
+  /name (Y) def
+	degN
+  -87.5 to 87.5 N= 36 pts
+  :grid
+datasetdefs:
+/oldgrids [ X Y ] def
+/AIRmSEA
+{
+atlas7 .climatology .5deg .airsea
+oldgrids { 2 copy .name get exch SAMPLE } forall
+} defasvar
+/SST
+{
+atlas7 .climatology .5deg .sst
+oldgrids { 2 copy .name get exch SAMPLE } forall
+} defasvar
+/SSTA
+{
+atlas7 .MOHSST5 .ssta
+oldgrids { 2 copy .name get exch SAMPLE } forall
+} defasvar
+/NMATa
+{
+atlas7 .MOHMAT2N .ssta
+oldgrids { 2 copy .name get exch SAMPLE } forall
+} defasvar
+  grid:
+  /name (T) def
+  /units /month def
+  periodic
+  Jan to Dec N= 12 pts
+  :grid
+  grid:
+  /name (T) def
+  /units /monthtime def
+  16 Jan 1856 ensotime 1. 1 index 1631 add 
+  :grid
+:datasetdefs
+/description (Global Ocean Surface Temperature Atlas) def
+/iridl:hasSemantics (iridl:BADC) def
+[ /atlas7 /atlas8 /gisst22 /landsst /disclaimer.html]
+{ currentobject 1 index get def} forall
+link:
+/name (PO DAAC CD-ROM Online) def
+/href (http://podaac.jpl.nasa.gov/cdrom/gostaplus_binary/order.htm) def
+:link
+link:
+/name (UK Met Office) def
+/href (http://badc.nerc.ac.uk/data/gosta/) def
+:link
+/source (PO DAAC binary Data Format CD-ROM (except for Atlas 7 5 deg sst climatology))def
+/long_name (GOSTAplus) def
+\end{ingrid}
+  variable:
+  /name (SST) def
+  /long_name (sea surface temperature climatology) def
+        /units /Celsius def
+  /missing_value -999.9 def
+  grids: X Y | T :grids
+  file:
+  random
+  /name (/Data/data1/surface/gosta/dat02_sstNORM5.grads)
+  def
+  :file
+  :variable
+  variable:
+  /name (AIRmSEA) def
+  /long_name (air-sea surface temperature difference climatology) def
+        degC
+  /missing_value -999.9 def
+  grids: X Y | T :grids
+  file:
+  random
+  /name (/Data/data1/surface/gosta/dat04_Air-SeaNORM5.grads)
+  def
+  :file
+  :variable
+  grid:
+  /name (T) def
+  /units /monthtime def
+  16 Jan 1856 ensotime 1. 1 index 1631 add 
+  :grid
+  variable:
+  /name (SSTa) def
+  /long_name (monthly sea surface temperature anomaly) def 
+        degC
+  /missing_value -999.9 def
+  grids: X Y | T :grids
+  file:
+  random
+  /name (/Data/data1/surface/gosta/dat09_sst5Dcorranom.grads)
+  def
+  :file
+  :variable
+  variable:
+  /name (NMATa) def
+  /long_name (monthly night marine air temperature anomaly) def 
+        degC
+  /missing_value -999.9 def
+  grids: X Y | T :grids
+  file:
+  random
+  /name (/Data/data1/surface/gosta/dat12_nmat5Dcorranom.grads)
+  def
+  :file
+  :variable
+\begin{ingrid}
+  :dataset
+\end{ingrid}

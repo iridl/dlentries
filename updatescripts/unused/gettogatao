@@ -1,0 +1,13 @@
+#! /bin/sh
+cd /home/datag/sources/ndbc
+ftp -n ftp.pmel.noaa.gov <<eoc
+user SECRET_USER SECRET_PASSWORD
+cd taographics/igoss
+binary
+prompt
+ls
+mget *.cdf
+quit
+eoc
+/usr/local/bin/ingrid convert.tex
+

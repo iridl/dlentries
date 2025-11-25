@@ -1,0 +1,48 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+grid:
+/name /mycol def
+1 1 2
+:grid
+:datasetdefs
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+16 May 2002 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+31 Dec 2018 julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+:grid
+
+/Price {
+[mycol T | ]
+(/Data/PRISM/Finance/REITS/ER/ER/er_gridded.tsv)
+readdatafile:
+[1 3] r*4astsv
+:readdatafile
+mycol 1 VALUE
+mycol removeGRID
+/iridl:hasSemantics (iridl:price) def
+}defasvarsilent
+
+
+/Return {
+[mycol T | ]
+(/Data/PRISM/Finance/REITS/ER/ER/er_gridded.tsv)
+readdatafile:
+[1 3] r*4astsv
+:readdatafile
+mycol 2 VALUE
+mycol removeGRID
+/iridl:hasSemantics (iridl:return) def
+}defasvarsilent
+
+
+
+:dataset
+
+\end{ingrid}

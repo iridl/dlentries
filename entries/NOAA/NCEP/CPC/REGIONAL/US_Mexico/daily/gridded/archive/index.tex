@@ -1,0 +1,33 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+-140 1 -60
+:grid
+grid:
+/name /Y def
+degN
+10 1 60
+:grid
+grid:
+/name /T def
+/units (days since 1948-01-01 12:00:00) def
+/defaultvalue { last } def
+0
+1
+31 Dec 2004 julian_day
+1 Jan 1948 julian_day sub
+:grid
+/prcp {
+[X Y | T] (/Data/data6/noaa/cpc/regional/US_Mexico/archive/us_mex.y%Y[T]) [T yearlyedgesgrid first secondtolast subgrid]readdatafile:
+direct
+/name (prcp) def
+/long_name (Precipitation) def
+/units (mm/day) def
+/missing_value -9999. def
+precip_colors
+:readdatafile
+} defasvarsilent
+:dataset
+\end{ingrid}

@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <title>ERSST.v3:  Extended Reconstructed Sea Surface Temperature Dataset, Version 3</title>
+  <link REL=stylesheet TYPE="text/css" HREF="/site.html">
+</head>
+<INGRID>standardHeader</INGRID>
+<body>
+<h2>ERSST.v3:  Extended Reconstructed Sea Surface Temperature Dataset, Version 3</h2>
+<pre>
+
+Extended Reconstructed Sea Surface Temperatures, version 3 (ERSST.v3), beginning January
+1854.
+
+ 
+ERSST.v3 is an improved extended reconstruction over version 2. Most of the improvements are justified 
+by testing with simulated data.  The major differences are caused by the improved low-frequency (LF) 
+tuning of ERSST.v3 which reduces the SST anomaly damping before 1930 using the optimized parameters. 
+Beginning in 1985, ERSST.v3 is also improved by explicitly including bias-adjusted satellite infrared 
+data from AVHRR.
+
+One of the additional changes is that the low frequency 15-year filter uses data centered on the current year. 
+If some of data for 15-year period has not yet been observed, it can, of course, not be used. However, 
+with time these data will become available. Thus, there may be slight modifications of recent 
+ERSST fields with time. 
+
+The NetCDF file names are: ersst.yyyymm.nc
+The files can be found at: ftp://eclipse.ncdc.noaa.gov/pub/ersst/netcdf/
+
+Each file contains 3 fields for each month. The fields are: 
+Extended reconstructed sea surface temperature(ERSST), ERSST anomaly, 
+and Estimated error standard deviation of analyzed_ersst.
+
+The anomalies are computed with respect to a 1971-2000 month climatology.
+The climatology is described in
+Xue, Y., T. M. Smith, and R. W. Reynolds, 2003: Interdecadal changes of 
+30-yr SST normals during 1871-2000. J. Climate, 16, 1601-1612. 
+
+-------------------------------------------------------------------------------------
+You can get the header of the NetCDF file by using a NetCDF program (ncdump).
+
+An example is:
+
+ncdump -h ersst.200708.nc
+
+netcdf ersst.200708 {
+dimensions:
+        time = 1 ;
+        zlev = 1 ;
+        lat = 89 ;
+        lon = 180 ;
+
+variables:
+        float time(time) ;
+                time:long_name = "Center time of the day" ;
+                time:units = "days since 1854-01-15" ;
+                time:delta_t = "0000-01-00" ;
+                time:avg_period = "0000-01-00" ;
+        float zlev(zlev) ;
+                zlev:long_name = "Sea surface height" ;
+                zlev:units = "meters" ;
+                zlev:actual_range = "0, 0" ;
+        float lat(lat) ;
+                lat:long_name = "Latitude" ;
+                lat:units = "degrees_north" ;
+                lat:grids = "Uniform grid from -88 to 88 by 2" ;
+        float lon(lon) ;
+                lon:long_name = "Longitude" ;
+                lon:units = "degrees_east" ;
+                lon:grids = "Uniform grid from 0 to 358 by 2" ;
+        short sst(time, zlev, lat, lon) ;
+                sst:long_name = "Extended reconstructed sea surface temperature" ;
+                sst:units = "degrees C" ;
+                sst:_FillValue = -999s ;
+                sst:add_offset = 0.f ;
+                sst:scale_factor = 0.0099999998f ;
+                sst:valid_min = -300s ;
+                sst:valid_max = 4500s ;
+        short anom(time, zlev, lat, lon) ;
+                anom:long_name = "Extended reconstructed SST anomalies" ;
+                anom:units = "degrees C" ;
+                anom:_FillValue = -999s ;
+                anom:add_offset = 0.f ;
+                anom:scale_factor = 0.0099999998f ;
+                anom:valid_min = -1200s ;
+                anom:valid_max = 1200s ;
+        short err(time, zlev, lat, lon) ;
+                err:long_name = "Estimated error standard deviation of analyzed_ersst" ;
+                err:units = "degrees C" ;
+                err:_FillValue = -999s ;
+                err:add_offset = 0.f ;
+                err:scale_factor = 0.0099999998f ;
+                err:valid_min = 0s ;
+                err:valid_max = 1000s ;
+
+// global attributes:
+                :title = "ERSST" ;
+                :history = "Version 3.0" ;
+                :description = "Smith, T.M., and R.W. Reynolds, 2003: Extended Reconstruction of Global Sea Surface 
+		                Temperatures Based on COADS Data (1854-1997). Journal of Climate, 16, 1495-1510. 
+				A vailable at http://www.ncdc.noaa.gov/img/climate/research/sst/ersst.pdf  
+				Climatology is based on 1971-2000 OI.v2 SST, Satellite data: Navy NOAA17 AVHRR" ;
+                :source = "NOAA/National Climatic Data Center" ;
+                :contact = "Dick Reynolds, email: Richard.W.Reynolds@noaa.gov & 
+		            Chunying Liu, email: Chunying.liu@noaa.gov" ;
+                :netcdf_Convention = "COARDS" ;
+}
+
+
+Thomas M. Smith         (e-mail: Tom.Smith@noaa.gov) 
+National Climate Data Center
+4115 Computer and Space Sciences Building
+University of Maryland
+College Park, MD  20742-2465  USA
+
+
+Richard W. Reynolds     (e-mail: Richard.W.Reynolds@noaa.gov)
+National Climate Data Center
+151 Patton Ave., Room 514,
+Asheville, NC  28801
+
+UPDATED: 12 September 2007
+
+</pre>
+</body>
+</html>

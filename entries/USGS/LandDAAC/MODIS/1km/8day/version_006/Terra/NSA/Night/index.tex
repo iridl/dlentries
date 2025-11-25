@@ -1,0 +1,164 @@
+
+Output image info
+-----------------
+output image corners (lat/lon):
+    UL:  13.000000000000 -82.000000000000 
+    UR:  13.000000000000 -33.993715363503 
+    LL:  -20.003277072708 -82.000000000000 
+    LR:  -20.003277072708 -33.993715363503 
+
+output image corners (X-Y projection units):
+    UL:  -82.000000000000 13.000000000000 
+    UR:  -33.993715363503 13.000000000000 
+    LL:  -82.000000000000 -20.003277072708 
+    LR:  -33.993715363503 -20.003277072708 
+
+     band               type lines smpls pixsiz      min    max   fill
+  1) LST_Day_1km      UINT16  3953  5750 0.0083   7500  65535      0
+
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/long_name (Northern_South_America_night) def
+/iridl:hasSemantics (irigaz:South_America_366_0)  def
+grid:
+/name /X def
+degE
+%20 60.004280024641
+-82.  -33.993715363503
+2 copy exch sub 5750 div exch
+% converts edges to centers
+1 index .5 mul sub
+3 -1 roll
+2 index .5 mul add
+3 1 roll
+:grid
+grid:
+/name /Y def
+degN
+%40. -0.004280024641
+13 -20.003277072708
+2 copy exch sub 3953 div exch
+% converts edges to centers
+1 index .5 mul sub
+3 -1 roll
+2 index .5 mul add
+3 1 roll
+:grid
+
+grid:
+/name /T def
+/units (days since 2003-01-01) def
+/pointwidth 0 def
+values:
+2000
+1
+2000
+{
+dup  1 1 ymd2rjt 64 add 2003 1 1 ymd2rjt sub
+exch
+8. exch
+1 add 1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+{} for
+} for
+2001
+1
+2021
+{
+dup  1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+exch
+8. exch
+1 add 1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+{} for
+} for
+
+2022
+1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+8.
+2022 11 17 ymd2rjt 2003 1 1 ymd2rjt sub
+2 index
+     sub
+    8. div
+    cvi
+    8. mul
+2 index add
+{} for
+:values
+:grid
+
+/T T
+partialgrid
+/defaultvalue {last} def
+def
+/last_modified T .last_modified def
+
+grid:
+/name /band def
+values: /Day /Night :values
+:grid
+
+/LST
+%{[X Y | band T]
+%(/Data/data8/usgs/landdaac/componentimagesTR1km8dLSTSA/%Y[T]/A%Y%j[T]SA2.LST_%s[band]_1km.dat.gz)  [band T integralgrid first secondtolast subgrid]
+{[X Y | T]
+(/Data/data8/usgs/landdaac/componentimagesTR1km8dLSTSA_v006/%Y/A%Y%j[T]SA2.LST_Night_1km.dat.gz)  [T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value 0 def
+/valid_min 7500 def
+/valid_max 65535 def
+/scale_factor 2e-2 def
+/units (K) def
+%/scale_min valid_min def
+%/scale_max valid_max def
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+ui*2 :readdatafile
+  startcolormap
+   DATA 12750. 16500. RANGE
+     white 20 20 170 RGB
+      20 20 170 RGB 12750. VALUE
+       DodgerBlue 13250. VALUE
+	MediumAquamarine 13750. VALUE
+	 GreenYellow 14250. VALUE
+	  255 255 0 RGB 14750. VALUE
+	   255 165 0 RGB 15250. VALUE
+	    255 99 71 RGB 15750. VALUE
+	     255 0 0 RGB 16500. VALUE
+	      255 0 0 RGB
+	       endcolormap
+DATA 255 330 RANGE
+} defasvarsilent
+%defasvarcachesilent
+
+/view_angl
+{[X Y | T]
+(/Data/data8/usgs/landdaac/componentimagesTR1km8dLSTSA_v006/%Y/A%Y%j[T]SA2.Night_view_angl.dat.gz)
+     [T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value 255 def
+/valid_min 0 def
+/valid_max 130 def
+/scale_min valid_min def
+/scale_max valid_max def
+ui*1 :readdatafile
+
+} defasvarsilent
+%defasvarcachesilent
+/view_time
+{[X Y | T]
+(/Data/data8/usgs/landdaac/componentimagesTR1km8dLSTSA_v006/%Y/A%Y%j[T]SA2.Night_view_time.dat.gz)
+     [T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value 255 def
+/units (hours) def
+/valid_min 0 def
+/valid_max 240 def
+/scale_factor 0.1 def
+/scale_min valid_min def
+/scale_max valid_max def
+ui*1 :readdatafile
+
+} defasvarsilent
+%defasvarcachesilent
+
+:dataset
+\end{ingrid}

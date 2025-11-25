@@ -1,0 +1,409 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+
+grid:
+/name /N def
+/long_name (realization) def
+/standard_name (realization) def
+/units /ids def
+1 1 3 
+:grid
+
+variable:
+/name (version) def
+/long_name (Version Number) def
+/units (ids) def
+grids: N :grids
+values: /v20111006 /v20111006 /v20111006 :values
+:variable
+
+:datasetdefs
+
+ /parent_experiment (pre-industrial control) def
+ /parent_experiment_id (piControl) def
+ /contact (bronaugh@uvic.ca) def
+ /title (ETCCDI indices computed on MPI-ESM-LR model output prepared for CMIP5 historical) def
+ /product (output) def
+ /table_id (Table day (27 April 2011) 86d1558d99b6ed1e7a886ab3fd717b58) def
+ /input_frequency (day) def
+ /ETCCDI_software_version (0.7.1) def
+ /institute_id (MPI-M) def
+ /physics_version 1 def
+ /ETCCDI_institution_id (PCIC) def
+ /source (MPI-ESM-LR 2011; URL: http://svn.zmaw.de/svn/cosmos/branches/releases/mpi-esm-cmip5/src/mod; atmosphere: ECHAM6 (REV: 4603), T63L47; land: JSBACH (REV: 4603); ocean: MPIOM (REV: 4603), GR15L40; sea ice: 4603; marine bgc: HAMOCC (REV: 4603);) def
+ /experiment_id (historical) def
+ /experiment (historical) def
+ /input_title (MPI-ESM-LR model output prepared for CMIP5 historical) def
+ /ETCCDI_software (climdex.pcic) def
+ /nco_openmp_thread_number 1 def
+ /forcing (GHG Oz SD Sl Vl LU) def
+ /model_id (MPI-ESM-LR) def
+ /frequency (yr) def
+ /initialization_method 1 def
+ /MPI-M_contact (cmip5-mpi-esm@dkrz.de) def
+ /branch_time 10957.0 def
+ /ETCCDI_indices_archive (Please check http://www.cccma.ec.gc.ca/data/climdex/climdex.shtml for errata or updates.) def
+ /cmor_version (2.5.9) def
+ /Conventions (CF-1.4) def
+ /references (http://www.cccma.ec.gc.ca/data/climdex/) def
+ /MPI-M_references (ECHAM6: n/a; JSBACH: Raddatz et al., 2007. Will the tropical land biosphere dominate the climate-carbon cycle feedback during the twenty first century? Climate Dynamics, 29, 565-574, doi 10.1007/s00382-007-0247-8;  MPIOM: Marsland et al., 2003. The Max-Planck-Institute global ocean/sea ice model with orthogonal curvilinear coordinates. Ocean Modelling, 5, 91-127;  HAMOCC: http://www.mpimet.mpg.de/fileadmin/models/MPIOM/HAMOCC5.1_TECHNICAL_REPORT.pdf;) def
+ /input_creation_date (2011-05-27T17:18:57Z) def
+ /creation_date (2013-06-28T13:16:54Z) def
+ /input_tracking_id (cd1f610d-ce7b-4164-a36a-c07157045357) def
+ /modeling_realm (atmos) def
+ /ETCCDI_institution (Pacific Climate Impacts Consortium) def
+ /institution (Max Planck Institute for Meteorology) def
+ /project_id (CMIP5) def
+ /references (Sillmann_etal2013a Sillmann_etal2013b) def
+
+grid:
+/name (lon)def
+/long_name (longitude) def
+/standard_name (longitude) def
+periodic
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+
+grid:
+/name (lat)def
+/long_name (latitude) def
+/standard_name (latitude) def
+/units (degree_north)def
+values: -88.572166 -86.722534 -84.861969 -82.99894 -81.134979 -79.270561 -77.405891 -75.541061 -73.676132 -71.811134 -69.946083 -68.080994 -66.215874 -64.350731 -62.485569 -60.620396 -58.755211 -56.890015 -55.024807 -53.159595 -51.294376 -49.429153 -47.563927 -45.698692 -43.833458 -41.96822 -40.102978 -38.237736 -36.37249 -34.507244 -32.641994 -30.776745 -28.911493 -27.04624 -25.180986 -23.315731 -21.450476 -19.585218 -17.719961 -15.854704 -13.989446 -12.124187 -10.258928 -8.3936691 -6.5284095 -4.6631498 -2.7978897 -0.93263 0.9326299 2.7978899 4.6631498 6.5284095 8.3936691 10.258928 12.124187 13.989446 15.854704 17.719961 19.585218 21.450476 23.315731 25.180986 27.04624 28.911493 30.776745 32.641994 34.507244 36.37249 38.237736 40.102978 41.96822 43.833458 45.698692 47.563927 49.429153 51.294376 53.159595 55.024807 56.890011 58.755211 60.620396 62.485569 64.350731 66.215874 68.080994 69.946083 71.811134 73.676132 75.541061 77.405891 79.270561 81.134979 82.99894 84.861969 86.722534 88.572166 :values
+:grid
+
+grid:
+/name (time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/pointwidth 12 def
+01 Jul 1850 ensotime
+12
+01 Jul 2005 ensotime
+:grid
+
+grid:
+/name /N def
+/long_name (realization) def
+/standard_name (realization) def
+/units /ids def
+1 1 3 
+:grid
+
+grid:
+/name /M def
+/long_name (initialization method) def
+/units /ids def
+values: 1 :values
+:grid
+
+grid:
+/name /L def
+/long_name (perturbed physics) def
+/units /ids def
+values: 1 :values
+:grid
+
+variable:
+/name (version) def
+/long_name (Version Number) def
+/units (ids) def
+grids: N :grids
+values: /v20111006 /v20111006 /v20111006 :values
+:variable
+
+/altcdd { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/altcddETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (altcddETCCDI) def
+ /units (days) def
+ /long_name (Maximum Number of Consecutive Days Per Year with Less Than 1 mm of Precipitation) def
+ /iridl:hasSemantics [ (climdex:ALTCDD) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/altcsdi { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/altcsdiETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (altcsdiETCCDI) def
+ /units (days) def
+ /base_period (1961-1990) def
+ /long_name (Cold Spell Duration Index Spanning Years) def
+ /iridl:hasSemantics [ (climdex:ALTCSDI) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/altcwd { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/altcwdETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (altcwdETCCDI) def
+ /units (days) def
+ /long_name (Maximum Number of Consecutive Days Per Year with At Least 1mm of Precipitation) def
+ /iridl:hasSemantics [ (climdex:ALTCWD) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/altwsdi { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/altwsdiETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (altwsdiETCCDI) def
+ /units (days) def
+ /base_period (1961-1990) def
+ /long_name (Warm Spell Duration Index Spanning Years) def
+ /iridl:hasSemantics [ (climdex:ALTWSDI) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/cdd { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/cddETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (cddETCCDI) def
+ /units (days) def
+ /long_name (Maximum Number of Consecutive Days with Less Than 1mm of Precipitation) def
+ /iridl:hasSemantics [ (climdex:CDD) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/csdi { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/csdiETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (csdiETCCDI) def
+ /units (days) def
+ /base_period (1961-1990) def
+ /long_name (Cold Spell Duration Index) def
+ /iridl:hasSemantics [ (climdex:CSDI) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/cwd { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/cwdETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (cwdETCCDI) def
+ /units (days) def
+ /long_name (Maximum Number of Consecutive Days with At Least 1mm of Precipitation) def
+ /iridl:hasSemantics [ (climdex:CWD) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/dtr { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/dtrETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (dtrETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Mean Diurnal Temperature Range) def
+ /iridl:hasSemantics [ (climdex:DTR) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/fd { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/fdETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (fdETCCDI) def
+ /units (days) def
+ /long_name (Number of Frost Days) def
+ /iridl:hasSemantics [ (climdex:FD) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/gsl { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/gslETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (gslETCCDI) def
+ /units (days) def
+ /long_name (Growing Season Length) def
+ /iridl:hasSemantics [ (climdex:GSL) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/id { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/idETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (idETCCDI) def
+ /units (days) def
+ /long_name (Number of Icing Days) def
+ /iridl:hasSemantics [ (climdex:ID) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/prcptot { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/prcptotETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (prcptotETCCDI) def
+ /units (mm) def
+ /long_name (Annual Total Precipitation in Wet Days) def
+ /iridl:hasSemantics [ (climdex:PRCPTOT) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/r10mm { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/r10mmETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (r10mmETCCDI) def
+ /units (days) def
+ /long_name (Annual Count of Days with At Least 10mm of Precipitation) def
+ /iridl:hasSemantics [ (climdex:R10mm) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/r1mm { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/r1mmETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (r1mmETCCDI) def
+ /units (days) def
+ /long_name (Annual Count of Days with At Least 1mm of Precipitation) def
+ /iridl:hasSemantics [ (climdex:R01mm) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/r20mm { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/r20mmETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (r20mmETCCDI) def
+ /units (days) def
+ /long_name (Annual Count of Days with At Least 20mm of Precipitation) def
+ /iridl:hasSemantics [ (climdex:R20mm) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/r95p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/r95pETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (r95pETCCDI) def
+ /units (mm) def
+ /base_period (1961-1990) def
+ /long_name (Annual Total Precipitation when Daily Precipitation Exceeds the 95th Percentile of Wet Day Precipitation) def
+ /iridl:hasSemantics [ (climdex:R95pTOT) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/r99p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/r99pETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (r99pETCCDI) def
+ /units (mm) def
+ /base_period (1961-1990) def
+ /long_name (Annual Total Precipitation when Daily Precipitation Exceeds the 99th Percentile of Wet Day Precipitation) def
+ /iridl:hasSemantics [ (climdex:R99pTOT) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/rx1day { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/rx1dayETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (rx1dayETCCDI) def
+ /units (mm) def
+ /long_name (Annual Maximum 1-day Precipitation) def
+ /iridl:hasSemantics [ (climdex:Rx1day) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/rx5day { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/rx5dayETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (rx5dayETCCDI) def
+ /units (mm) def
+ /long_name (Annual Maximum Consecutive 5-day Precipitation) def
+ /iridl:hasSemantics [ (climdex:Rx5day) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/sdii { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/sdiiETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (sdiiETCCDI) def
+ /units (mm/day) def
+ /long_name (Simple Precipitation Intensity Index) def
+ /iridl:hasSemantics [ (climdex:SDII) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/su { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/suETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (suETCCDI) def
+ /units (days) def
+ /long_name (Number of Summer Days) def
+ /iridl:hasSemantics [ (climdex:SU) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tn10p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tn10pETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (tn10pETCCDI) def
+ /units (percent) def
+ /base_period (1961-1990) def
+ /long_name (Percentage of Days when Daily Minimum Temperature is Below the 10th Percentile) def
+ /iridl:hasSemantics [ (climdex:TN10p) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tn90p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tn90pETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (tn90pETCCDI) def
+ /units (percent) def
+ /base_period (1961-1990) def
+ /long_name (Percentage of Days when Daily Minimum Temperature is Above the 90th Percentile) def
+ /iridl:hasSemantics [ (climdex:TN90p) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tnn { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tnnETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (tnnETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Annual Minimum of Daily Minimum Temperature) def
+ /iridl:hasSemantics [ (climdex:TNn) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tnx { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tnxETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (tnxETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Annual Maximum of Daily Minimum Temperature) def
+ /iridl:hasSemantics [ (climdex:TNx) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tr { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/trETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (trETCCDI) def
+ /units (days) def
+ /long_name (Number of Tropical Nights) def
+ /iridl:hasSemantics [ (climdex:TR) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tx10p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tx10pETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (tx10pETCCDI) def
+ /units (percent) def
+ /base_period (1961-1990) def
+ /long_name (Percentage of Days when Daily Maximum Temperature is Below the 10th Percentile) def
+ /iridl:hasSemantics [ (climdex:TX10p) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tx90p { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/tx90pETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (tx90pETCCDI) def
+ /units (percent) def
+ /base_period (1961-1990) def
+ /long_name (Percentage of Days when Daily Maximum Temperature is Above the 90th Percentile) def
+ /iridl:hasSemantics [ (climdex:TX90p) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/txn { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/txnETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (txnETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Annual Minimum of Daily Maximum Temperature) def
+ /iridl:hasSemantics [ (climdex:TXn) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/txx { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/txxETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (txxETCCDI) def
+ /units (degree_Celsius) def
+ /long_name (Annual Maximum of Daily Maximum Temperature) def
+ /iridl:hasSemantics [ (climdex:TXx) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/wsdi { [ lon lat | N M L time ] (/Data/data21/CCCma/ETCCDI/CMIP5/historical/MPI-ESM-LR/r%d[N]i%d[M]p%d[L]/%s[version]/base_1961-1990/wsdiETCCDI_yr_MPI-ESM-LR_historical_r%d[N]i%d[M]p%d[L]_1850-2005.nc) [ N M L version ] readdatafile:
+/name (wsdiETCCDI) def
+ /units (days) def
+ /base_period (1961-1990) def
+ /long_name (Warm Spell Duration Index) def
+ /iridl:hasSemantics [ (climdex:WSDI) ] def
+ /missing_value 1.00000002E20 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+:dataset
+\end{ingrid}
+

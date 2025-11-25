@@ -1,0 +1,200 @@
+\begin{ingrid}
+
+continuedataset:
+datasetdefs:
+
+grid:
+/name /mycol def
+1 1 7 
+:grid
+
+grid:
+/name /mylin def
+1 1 3
+:grid
+
+:datasetdefs
+
+grid:
+/name /WMOID def
+/units (ids) def
+values: 83980   83919   83942   83912   83964   83881   83914   83967   83995   83936   83997   83907   83948   83927 :values
+:grid
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+1 Jan 1961 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+31 Dec 2012 julian_day 01 Jan 1960 julian_day sub 0.5 add
+:grid
+
+grid:
+/name /Stn def
+values: (bage)    (bomjesus)        (caxiasdosul)     (cruzalta)        (encruzilhadadosul)       (irai)    (passofundo)      (portoalegre)     (riogrande)       (santamaria)      (santavitoriadopalmar)    (saoluizgonzaga)  (torres)  (uruguaiana) :values
+:grid
+
+/lat {
+[mycol mylin | WMOID]
+(/data/remic/mydatafiles/inmet/databank/DadosCompletos/%d[WMOID]_geo.csv) [WMOID]
+readdatafile:
+[3 0] r*4astsv
+:readdatafile
+mycol 1 VALUE
+mycol removeGRID
+mylin 2 VALUE
+mylin removeGRID
+dup 10000 div cvi
+dup 10000 mul
+-1 mul 3 -1 roll add
+dup 100 div cvi
+dup 100 mul
+-1 mul 3 -1 roll add
+3600. div exch 60. div
+add add
+-1 mul
+/long_name (Latitude) def
+/units (degree_north) def
+/scale_min -34 def
+/scale_max -26 def
+}defasvar
+
+/lon {
+[mycol mylin | WMOID]
+(/data/remic/mydatafiles/inmet/databank/DadosCompletos/%d[WMOID]_geo.csv) [WMOID]
+readdatafile:
+[3 0] r*4astsv
+:readdatafile
+mycol 1 VALUE
+mycol removeGRID
+mylin 3 VALUE
+mylin removeGRID
+dup 10000 div cvi
+dup 10000 mul
+-1 mul 3 -1 roll add 
+dup 100 div cvi
+dup 100 mul
+-1 mul 3 -1 roll add
+3600. div exch 60. div 
+add add
+-1 mul
+/long_name (Longitude) def
+/units (degree_east) def
+/scale_min -58 def
+/scale_max -48 def
+}defasvar
+
+/elev {
+[mycol mylin | WMOID]
+(/data/remic/mydatafiles/inmet/databank/DadosCompletos/%d[WMOID]_geo.csv) [WMOID]
+readdatafile:
+[3 0] r*4astsv
+:readdatafile
+mycol 1 VALUE
+mycol removeGRID
+mylin 1 VALUE
+mylin removeGRID
+/long_name (elevation) def
+/units (m) def
+}defasvar
+
+/temp_med {
+[mycol T | WMOID ]
+(/data/remic/mydatafiles/inmet/databank/DadosCompletos/%d[WMOID].csv) [WMOID]
+readdatafile:
+[7 1] r*4astsv
+:readdatafile
+mycol 3 VALUE
+mycol removeGRID
+/long_name (Temperatura Média Compensada) def
+/units (Celsius_scale) def
+/missing_value -999 def
+}defasvar
+
+/temp_max {
+[mycol T | WMOID ] 
+(/data/remic/mydatafiles/inmet/databank/DadosCompletos/%d[WMOID].csv) [WMOID]
+readdatafile:
+[7 1] r*4astsv
+:readdatafile
+mycol 1 VALUE
+mycol removeGRID
+/long_name (Temperatura Máxima) def
+/units (Celsius_scale) def
+/missing_value -999 def
+}defasvar
+
+/temp_min {
+[mycol T | WMOID ]
+(/data/remic/mydatafiles/inmet/databank/DadosCompletos/%d[WMOID].csv) [WMOID]
+readdatafile:
+[7 1] r*4astsv
+:readdatafile
+mycol 2 VALUE
+mycol removeGRID
+/long_name (Temperatura Mínima) def
+/units (Celsius_scale) def
+/missing_value -999 def
+}defasvar
+
+/umidade_med {
+[mycol T | WMOID ]
+(/data/remic/mydatafiles/inmet/databank/DadosCompletos/%d[WMOID].csv) [WMOID]
+readdatafile:
+[7 1] r*4astsv
+:readdatafile
+mycol 5 VALUE
+mycol removeGRID
+/long_name (Umidade Relativa do Ar Média) def
+/units (percent) def
+/missing_value -999 def
+}defasvar
+
+/insolacao {
+[mycol T | WMOID ]
+(/data/remic/mydatafiles/inmet/databank/DadosCompletos/%d[WMOID].csv) [WMOID]
+readdatafile:
+[7 1] r*4astsv
+:readdatafile
+mycol 7 VALUE
+mycol removeGRID
+/long_name (Insolação Total Diário) def
+/units (h) def
+/missing_value -999 def
+}defasvar
+
+/vel_vento_med {
+[mycol T | WMOID ]
+(/data/remic/mydatafiles/inmet/databank/DadosCompletos/%d[WMOID].csv) [WMOID]
+readdatafile:
+[7 1] r*4astsv
+:readdatafile
+mycol 6 VALUE
+mycol removeGRID
+/long_name (Velocidade Média do Vento) def
+/units (m/s) def
+/missing_value -999 def
+}defasvar
+
+/precipitacao {
+[mycol T | WMOID ]
+(/data/remic/mydatafiles/inmet/databank/DadosCompletos/%d[WMOID].csv) [WMOID]
+readdatafile:
+[7 1] r*4astsv
+:readdatafile
+mycol 4 VALUE
+mycol removeGRID
+/long_name (Precipitação Total Diária) def
+/units (mm) def
+/missing_value -999 def
+}defasvar
+
+:dataset
+
+
+/location {
+lon lat geopt
+}defasvar
+
+\end{ingrid}

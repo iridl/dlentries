@@ -1,0 +1,26 @@
+\begin{ingrid}
+
+continuedataset:
+
+/tmin {
+    SOURCES .NOAA .NCEP .CPC .temperature .daily .tmin
+    monthlyAverage
+}defasvarcache
+
+/tmax {
+    SOURCES .NOAA .NCEP .CPC .temperature .daily .tmax
+    monthlyAverage
+}defasvarcache
+
+/tmean {
+    tmax tmin add 2. div
+    /long_name (Mean Temperature) def
+}defasvar
+
+:dataset
+
+tmin .X name exch def
+tmin .Y name exch def
+tmin .T name exch def
+
+\end{ingrid}

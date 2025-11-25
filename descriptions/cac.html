@@ -1,0 +1,32 @@
+<INGRID>datasetdocumentationheader</INGRID>
+    <h1>CAC:  Climate Analysis Center monthly observed sea surface temperature, anomalies
+      and climatology</h1>
+The data are <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.CAC/">here</a>.<h2>Variables</h2>
+<dl>
+
+<dt> sst<dd>sea surface temperature (degrees C)
+<dt> ssta<dd>sea surface temperature anomalies (degrees C)
+<dt> CLIMATOLOGY sst<dd>climatological sea surface temperature (degrees C)
+<dt> SMOOTHED sst<dd>smoothed sea surface temperature (degrees C)
+<dt> SMOOTHED ssta<dd>smoothed sea surface temperature anomalies (degrees C)
+</dl>
+
+<h2> New Data Product as of January 1995 </h2> 
+<P>
+    The Climate Analysis Center discontinued the SST product we'd
+    been using and offered an optimum interpolation product in its
+    place.  The new product (<a href="http://ingrid.ldgo.columbia.edu/SOURCES/.IGOSS/.nmc/.monthly/">NMC Monthly</a>) has been
+    computed over all ocean areas on a 1x1 degree grid and extends back
+    to November 1981. For details on the new product, see the
+<a
+      href="http://rainbow.ldeo.columbia.edu/igoss/productsbulletin/descriptions/reynolds.html">NMC Monthly Documentation</a>.
+<P>
+    We chose to combine our original data and this new product as
+    follows.  We retained our CAC data from Jan 1970 through Oct 1981
+    and and then regridded the new product to match the old 2x2 grid
+    from Nov 1981 through the present.  A new climatology was
+    computed for the period Jan 1970 through December 1985 and then
+    used to recompute all the anomalies for the entire period.  All
+    other procedures (i.e. smoothing) were kept the same.
+</P>
+<INGRID>datasetdocumentationtrailer</INGRID>

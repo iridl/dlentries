@@ -1,0 +1,28 @@
+\begin{ingrid}
+continuedataset:
+/long_name (North Atlantic Oscillation Index) def
+/description (North Atlantic Oscillation Index) def
+/source (James Hurrell) def
+/iridl:hasSemantics [(iridl:NorthAtlanticOscillationIndex) (iridl:NCAR)] def
+grid:
+/name /T def
+monthtime
+/pointwidth 4 def
+1 Feb 1864 ensotime
+12
+1 Feb 1995 ensotime % enddate
+:grid
+variable:
+/name /slp def
+/long_name (sea level pressure difference) def
+/units (mb) def
+grids: T :grids
+file:
+/name (/Data/data1/indices/nao.txt) def
+/format ((7X,f15.0)) def
+formatted
+:file
+:variable
+:dataset
+\end{ingrid}
+

@@ -1,0 +1,113 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+/prcp_dekadrate_max600_smooth {
+  startcolormap
+    0.0 600.0 RANGE
+    LightGrey white white
+       0.0 VALUE
+       LightCyan
+        10.0 VALUE
+        SkyBlue
+         15.0 VALUE
+         DodgerBlue
+          50.0 VALUE
+          MediumBlue
+           100.0 VALUE
+           DarkSeaGreen
+            150.0 VALUE
+            MediumSeaGreen
+             200.0 VALUE
+             LightSeaGreen
+              300.0 VALUE
+              khaki
+               400.0 VALUE
+               SandyBrown
+                500.0 VALUE
+                firebrick 600.0 VALUE
+                firebrick endcolormap
+} defcolorscale
+:datasetdefs
+
+link:
+/name (source) def
+/href (ftp://ftp.chc.ucsb.edu/pub/org/chc/products/CHIRP/dekads/) def
+:link
+
+link:
+/name (USGS Data Series 832) def
+/description (Reference paper PDF) def
+/href (http://pubs.usgs.gov/ds/832/) def
+:link
+
+link:
+/name (CHIRPS Home Page) def
+/description (CHIRPS page at UCSB Climate Hazards Center) def
+/href (https://www.chc.ucsb.edu/data/chirps/) def
+:link
+
+grid:
+/name /X def
+/standard_name (longitude) def
+degE
+periodic
+-180. 180. 7201 pts 1 index sub
+:grid
+X partialgrid name exch def
+grid:
+/name /Y def
+/standard_name (latitude) def
+degN
+50. -50. 2001 pts
+:grid
+Y partialgrid name exch def
+1 Jan 1981 julian_day
+systemtime (%d %b %Y) 12 strftime interp julian_day dekadGRID
+%10 Mar 2015 julian_day dekadGRID
+/standard_name (time) def
+name exch def
+
+T { (ftp://ftp.chc.ucsb.edu/pub/org/chc/products/CHIRP/dekads/CHIRP.%Y.%m[T].%d[dkd].tif) [T dup day2dom 5. add 10. div toi4 /name /dkd def]} remoteremoveextrausing
+%T { (ftp://chg-ftpout.geog.ucsb.edu/pub/org/chg/products/CHIRP/dekads/CHIRP.%Y.%m[T].%d[dkd].tif) [T dup day2dom 5. add 10. div toi4 /name /dkd def]} remoteremoveextrausing
+%T { (ftp://chg-ftpout.geog.ucsb.edu/pub/org/chg/products/CHIRP/dekads/CHIRP.%Y.%m[T].%d[dkd].tif) [T dup 0 3 onegridmodcounter 1 add /name /dkd def]} remoteremoveextrausing
+name exch def
+
+T 
+/expires last_modified systemtime2ymd dup
+        20 lt
+        {10 lt {11}{21}ifelse}{ymd:nextmonth}ifelse
+       ymd2systemtime
+     def 
+   name exch def
+   /expires T .expires def
+   /last_modified T .last_modified def
+
+ T /defaultvalue {last} def pop
+
+\end{ingrid}
+\begin{ingrid}
+
+/prcp {
+ [X
+    Y |
+    T] (ftp://ftp.chc.ucsb.edu/pub/org/chc/products/CHIRP/dekads/CHIRP.%Y.%m[T].%d[dkd].tif) [T dup
+        0 3 onegridmodcounter
+        1 add
+        /name /dkd def
+        ]readdatafile:
+      /realarraytype tiffimage
+/long_name (precipitation) def
+/standard_name (lwe_precipitation_rate) def
+/missing_value -9999. def
+/units (mm) def
+      :readdatafile
+prcp_dekadrate_max600_smooth
+} defasvarsilent
+
+\end{ingrid}
+\begin{ingrid}
+/references (Funk_etal2014) def
+
+:dataset
+\end{ingrid}

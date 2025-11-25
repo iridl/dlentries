@@ -1,0 +1,379 @@
+\begin{ingrid}
+
+continuedataset:
+/description (In this dataset SPI values calculated on merged NMME_MME_prcp hindcast data and observed monthly GOB data over Jan 1982-Dec 2010 are correlated with SPI calculated from GOB alone, and this correlation is compared to the equivalent correlation from the optimal persistence calculation to flag which is larger.  This flag will be used to make a skill mask for the MME/Optimal Persistence drought forecast tool.  In this dataset the start time corresponds to the last calendar month of observations before forecast data are appended, NOT a 0000 1 Jan forecast start, for example.) def
+
+dataset:
+/name (jan) def
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/units (degree_east) def
+0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/long_name (latitude) def
+/units (degree_north) def
+-60.0 1.0 75.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+1 1 2
+:grid
+
+/flag { [ X Y | L ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/NMME_combined_hind_obs/NMME_MME_prcp/c8210/corr_diff_flag_NMME_MME_prcp_OptPersist.d/SPI3.d/corrSPI3_diff_flag_Jan_start_%1.0f[L]_lead.r4) [ L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (feb) def
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/units (degree_east) def
+0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/long_name (latitude) def
+/units (degree_north) def
+-60.0 1.0 75.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+1 1 2
+:grid
+
+/flag { [ X Y | L ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/NMME_combined_hind_obs/NMME_MME_prcp/c8210/corr_diff_flag_NMME_MME_prcp_OptPersist.d/SPI3.d/corrSPI3_diff_flag_Feb_start_%1.0f[L]_lead.r4) [ L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (mar) def
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/units (degree_east) def
+0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/long_name (latitude) def
+/units (degree_north) def
+-60.0 1.0 75.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+1 1 2
+:grid
+
+/flag { [ X Y | L ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/NMME_combined_hind_obs/NMME_MME_prcp/c8210/corr_diff_flag_NMME_MME_prcp_OptPersist.d/SPI3.d/corrSPI3_diff_flag_Mar_start_%1.0f[L]_lead.r4) [ L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (apr) def
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/units (degree_east) def
+0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/long_name (latitude) def
+/units (degree_north) def
+-60.0 1.0 75.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+1 1 2
+:grid
+
+/flag { [ X Y | L ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/NMME_combined_hind_obs/NMME_MME_prcp/c8210/corr_diff_flag_NMME_MME_prcp_OptPersist.d/SPI3.d/corrSPI3_diff_flag_Apr_start_%1.0f[L]_lead.r4) [ L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (may) def
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/units (degree_east) def
+0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/long_name (latitude) def
+/units (degree_north) def
+-60.0 1.0 75.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+1 1 2
+:grid
+
+/flag { [ X Y | L ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/NMME_combined_hind_obs/NMME_MME_prcp/c8210/corr_diff_flag_NMME_MME_prcp_OptPersist.d/SPI3.d/corrSPI3_diff_flag_May_start_%1.0f[L]_lead.r4) [ L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (jun) def
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/units (degree_east) def
+0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/long_name (latitude) def
+/units (degree_north) def
+-60.0 1.0 75.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+1 1 2
+:grid
+
+/flag { [ X Y | L ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/NMME_combined_hind_obs/NMME_MME_prcp/c8210/corr_diff_flag_NMME_MME_prcp_OptPersist.d/SPI3.d/corrSPI3_diff_flag_Jun_start_%1.0f[L]_lead.r4) [ L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (jul) def
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/units (degree_east) def
+0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/long_name (latitude) def
+/units (degree_north) def
+-60.0 1.0 75.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+1 1 2
+:grid
+
+/flag { [ X Y | L ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/NMME_combined_hind_obs/NMME_MME_prcp/c8210/corr_diff_flag_NMME_MME_prcp_OptPersist.d/SPI3.d/corrSPI3_diff_flag_Jul_start_%1.0f[L]_lead.r4) [ L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (aug) def
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/units (degree_east) def
+0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/long_name (latitude) def
+/units (degree_north) def
+-60.0 1.0 75.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+1 1 2
+:grid
+
+/flag { [ X Y | L ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/NMME_combined_hind_obs/NMME_MME_prcp/c8210/corr_diff_flag_NMME_MME_prcp_OptPersist.d/SPI3.d/corrSPI3_diff_flag_Aug_start_%1.0f[L]_lead.r4) [ L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (sep) def
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/units (degree_east) def
+0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/long_name (latitude) def
+/units (degree_north) def
+-60.0 1.0 75.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+1 1 2
+:grid
+
+/flag { [ X Y | L ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/NMME_combined_hind_obs/NMME_MME_prcp/c8210/corr_diff_flag_NMME_MME_prcp_OptPersist.d/SPI3.d/corrSPI3_diff_flag_Sep_start_%1.0f[L]_lead.r4) [ L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (oct) def
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/units (degree_east) def
+0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/long_name (latitude) def
+/units (degree_north) def
+-60.0 1.0 75.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+1 1 2
+:grid
+
+/flag { [ X Y | L ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/NMME_combined_hind_obs/NMME_MME_prcp/c8210/corr_diff_flag_NMME_MME_prcp_OptPersist.d/SPI3.d/corrSPI3_diff_flag_Oct_start_%1.0f[L]_lead.r4) [ L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (nov) def
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/units (degree_east) def
+0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/long_name (latitude) def
+/units (degree_north) def
+-60.0 1.0 75.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+1 1 2
+:grid
+
+/flag { [ X Y | L ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/NMME_combined_hind_obs/NMME_MME_prcp/c8210/corr_diff_flag_NMME_MME_prcp_OptPersist.d/SPI3.d/corrSPI3_diff_flag_Nov_start_%1.0f[L]_lead.r4) [ L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (dec) def
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/units (degree_east) def
+0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/long_name (latitude) def
+/units (degree_north) def
+-60.0 1.0 75.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+1 1 2
+:grid
+
+/flag { [ X Y | L ] (/Data/data21/noaa/ncep/cpc/GOB/v0px/NMME_deg1p0/NMME_combined_hind_obs/NMME_MME_prcp/c8210/corr_diff_flag_NMME_MME_prcp_OptPersist.d/SPI3.d/corrSPI3_diff_flag_Dec_start_%1.0f[L]_lead.r4) [ L ] readdatafile:
+direct
+:readdatafile
+} defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}

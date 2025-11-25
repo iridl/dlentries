@@ -1,0 +1,52 @@
+\begin{ingrid}
+/description (Baseline climatological dataset of gridded temperature and precipitation anomalies derived from the Global Historical Climate Network) def
+continuedataset:
+grid:
+/name /X def
+degE
+periodic
+0 5 355
+:grid
+grid:
+/name /Y def
+degN
+-90 5 90
+:grid
+grid: 
+/name /T def
+monthtime
+/defaultvalue {last} def
+16 Jan 1851 ensotime 1. 16 Dec 1993 ensotime
+:grid
+dataset:
+/name /precipitation def
+variable:
+/name /anomalies def
+/units (mm) def
+grids: X Y | T :grids
+/missing_value -9999.99 def
+/history (<a href="http://www.ncdc.noaa.gov/onlinedata/climatedata/grid.prcp.monthanom.html">NOAA Baseline Climatological Dataset</a>) def
+/references (Baker_etal1995) def
+file:
+/name (/Data/data1/noaa/ncdc/prcp/precip.grid.r4) def
+random
+:file
+:variable
+:dataset
+dataset:
+/name /temperature def
+variable:
+/name /anomalies def
+degC
+grids: X Y | T :grids
+/missing_value -999.999 def
+/history (<a href="http://www.ncdc.noaa.gov/onlinedata/climatedata/grid.temp.monthanom.html">NOAA Baseline Climatological Dataset</a>) def
+file:
+/name (/Data/data1/noaa/ncdc/temp/temp.grid.r4) def
+random
+:file
+:variable
+:dataset
+:dataset
+\end{ingrid}
+

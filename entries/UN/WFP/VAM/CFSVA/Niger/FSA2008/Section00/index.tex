@@ -1,0 +1,330 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9575
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 586
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAnov2008.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Questionnaire) def
+
+/IDMEN {
+mytable
+myquestion 
+1 VALUE
+ myquestion removeGRID
+/long_name (IDMEN) def 
+}defasvarsilent
+
+/ID0 {
+mytable
+myquestion 
+2 VALUE
+ myquestion removeGRID
+/long_name (Identifiant ménage) def 
+}defasvarsilent
+
+/Pondmen {
+mytable
+myquestion 
+3 VALUE
+ myquestion removeGRID
+/long_name (Pondération ménage) def 
+}defasvarsilent
+
+/Pondind {
+mytable
+myquestion 
+4 VALUE
+ myquestion removeGRID
+/long_name (Ponderation individu) def 
+}defasvarsilent
+
+/classevul {
+mytable
+myquestion 
+5 VALUE
+ myquestion removeGRID
+/long_name (Classe de vulnérabilité retenue finale) def 
+/units /ids def
+/CLIST [(Sévère)(Modérée)( A risque)(En sécurité alimentaire)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/ISA4 {
+mytable
+myquestion 
+6 VALUE
+ myquestion removeGRID
+/long_name (CLASSES INSECURITE ALIMENTAIRE RETENUE) def 
+/units /ids def
+/CLIST [(SEVERE)(MODEREE)(A RISQUE)(EN SECURITE ALIMENTAIRE)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/ISA5 {
+mytable
+myquestion 
+7 VALUE
+ myquestion removeGRID
+/long_name (CLASSES INSECURITE ALIMENTAIRE RETENUE FINALE) def 
+/units /ids def
+/CLIST [(SEVERE)(MODEREE)(A RISQUE)(EN SECURITE ALIMENTAIRE)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/poste_dep {
+mytable
+myquestion 
+8 VALUE
+ myquestion removeGRID
+/long_name (Poste de dépense) def 
+/units /ids def
+/CLIST [(Alimentation)(Santé)(Education)(Transport)(Logement  eau et electricité)(Habits et chaussues)(Cérémonies et funérailles)(Remboursement  emprunts  et dettes)(Autres dépenses)] def
+/scale_min 1 def
+/scale_max 9 def
+}defasvarsilent
+
+/SCORE {
+mytable
+myquestion 
+9 VALUE
+ myquestion removeGRID
+/long_name (Score consommation alimentaire) def 
+}defasvarsilent
+
+/CSI {
+mytable
+myquestion 
+10 VALUE
+ myquestion removeGRID
+/long_name (Coping strategy index ponderation universelle) def 
+}defasvarsilent
+
+/RCSI {
+mytable
+myquestion 
+11 VALUE
+ myquestion removeGRID
+/long_name (Reduced coping strategy index ponderation universelle) def 
+}defasvarsilent
+
+/STOCK {
+mytable
+myquestion 
+12 VALUE
+ myquestion removeGRID
+/long_name (Duree des stocks) def 
+}defasvarsilent
+
+/UBT {
+mytable
+myquestion 
+13 VALUE
+ myquestion removeGRID
+/long_name (UBT) def 
+}defasvarsilent
+
+/Deptotet {
+mytable
+myquestion 
+14 VALUE
+ myquestion removeGRID
+/long_name (Depenses totales par tete et par jour) def 
+}defasvarsilent
+
+/Pdepal {
+mytable
+myquestion 
+15 VALUE
+ myquestion removeGRID
+/long_name (Proportion despenses alimentaires dans les depenses globales) def 
+}defasvarsilent
+
+/Q1 {
+mytable
+myquestion 
+16 VALUE
+ myquestion removeGRID
+/long_name (Région) def 
+/units /ids def
+/CLIST [(<none>)(Agadez)(Diffa)(Dosso)(Maradi)(Tahoua)(Tillabéri)(Zinder)(Niamey)] def
+/scale_min 0 def
+/scale_max 8 def
+}defasvarsilent
+
+/Q2 {
+mytable
+myquestion 
+17 VALUE
+ myquestion removeGRID
+/long_name (Département) def 
+}defasvarsilent
+
+/Q3 {
+mytable
+myquestion 
+18 VALUE
+ myquestion removeGRID
+/long_name (C.urbain ou canton ou Z. restante) def 
+}defasvarsilent
+
+/Q6 {
+mytable
+myquestion 
+19 VALUE
+ myquestion removeGRID
+/long_name (Commune) def 
+}defasvarsilent
+
+/Q7 {
+mytable
+myquestion 
+20 VALUE
+ myquestion removeGRID
+/long_name (N° Grappe) def 
+/units /ids def
+/CLIST [(<none>)(NUMERO DE GRAPPE)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q8 {
+mytable
+myquestion 
+21 VALUE
+ myquestion removeGRID
+/long_name (Numéro ZD) def 
+/units /ids def
+/CLIST [(<none>)(NUMERO DE ZD)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q11 {
+mytable
+myquestion 
+22 VALUE
+ myquestion removeGRID
+/long_name (Numéro du ménage) def 
+/units /ids def
+/CLIST [(<none>)(NUMERO MENAGE)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q12 {
+mytable
+myquestion 
+23 VALUE
+ myquestion removeGRID
+/long_name (Zone agro écologique) def 
+/units /ids def
+/CLIST [(Agricole)(Agropastorale)(Pastorale et désertique)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Depart {
+mytable
+myquestion 
+24 VALUE
+ myquestion removeGRID
+/long_name (Département) def 
+}defasvarsilent
+
+/region {
+mytable
+myquestion 
+25 VALUE
+ myquestion removeGRID
+/long_name (Région) def 
+/units /ids def
+/CLIST [(Agadez)(Diffa)(Dosso)(Maradi)(Tahoua)(Tillabéri)(Zinder)(Niamey)] def
+/scale_min 1 def
+/scale_max 8 def
+}defasvarsilent
+
+/CODE_ENQUETEUR {
+mytable
+myquestion 
+26 VALUE
+ myquestion removeGRID
+/long_name (CODE ENQUETEUR) def 
+}defasvarsilent
+
+/CODE_CHEF_D_EQUIPE {
+mytable
+myquestion 
+27 VALUE
+ myquestion removeGRID
+/long_name (CODE CHEF D'EQUIPE) def 
+/units /ids def
+/CLIST [(BOUREIMA HAMIDOU)(SEYNI TOUMANE)(BOUKAR MAHAMADOU HABOU)(ELHADJI OUMAROU M.)(YOUNOUSSI BILAN)(HASSANA ZOUBEIROU)(SEYNI ABDOU)(HAMADOU SEYNI)(YACOUBA SEYDOU)(ABOUBACAR M. GAMBO)(BACHIR BAWA)(MAHAMANE I. BALLARABE)(RABIOU MAHAMANE)(MOUSTAPHA MAHAMADOU)(ISSOUFOU HALAROU TANKORA)(ABDOU HAMIDINE)(NASSIROU SALISSOU)(IBRAHIM BEIDOU)(BOHARI MOUSSA)(IDRISSA GANDA)(HAMADOU IDRISSA)(ABOUBACAR IDE TIDJANI)(ABDOU ABARCHI)(INSA ABARI)(BELLO GOUROUZA)(MME MOSSI ODILE ECLOU)(MOCTAR GOUROUZA HABI)(YAYE GOUROUZA OUMAROU)(MME HAOUA KANFIDENI)(SOULEYMANE TANKARI)(MOHAMED YACOUBA)(OUMAROU BEIDOU)(LAHADI ISSA)(JOHOA MEYAKI)(MME ABDOU HALIMATOU ISSA)] def
+/scale_min 1 def
+/scale_max 35 def
+}defasvarsilent
+
+/JOUR {
+mytable
+myquestion 
+28 VALUE
+ myquestion removeGRID
+/long_name (Jour de Passage) def 
+}defasvarsilent
+
+/MOIS {
+mytable
+myquestion 
+29 VALUE
+ myquestion removeGRID
+/long_name (Mois de Passage) def 
+}defasvarsilent
+
+/AN {
+mytable
+myquestion 
+30 VALUE
+ myquestion removeGRID
+/long_name (Année de Passage) def 
+}defasvarsilent
+
+/CODE_AGENT_DE_SAISIE {
+mytable
+myquestion 
+31 VALUE
+ myquestion removeGRID
+/long_name (CODE AGENT DE SAISIE) def 
+/units /ids def
+/CLIST [(Mamane Djibrilla)(Oumarou Yahaya)(Hadjara Karimou Tinni)(Ramatoulaye Idrissa)(Aboubacar Illa Abdoulaye)(Sidi Garba)(Mayaki Naroua)(Aminatou  Dodo)(Abdoulkader Maïmouna)(Ayindé Nathalie Nignon)(Dambagi Haoua)(Hadiza Garba)(Inoussa Jigo)(Alou Idi)(Rachidou Amadou)(Ousmane Gounabi)(Ibrahim Hamani)(Ibrahim Abdou Katouné)(Adamou Garba)(Hamissou Mahamadou Hafizou)] def
+/scale_min 1 def
+/scale_max 20 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

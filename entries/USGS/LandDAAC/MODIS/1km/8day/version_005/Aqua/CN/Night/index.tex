@@ -1,0 +1,141 @@
+Output image info
+-----------------
+output image corners (lat/lon):
+    UL:  54.000000000000 73.000000000000
+    UR:  54.000000000000 135.009509297032
+    LL:  17.999462625727 73.000000000000
+    LR:  17.999462625727 135.009509297032
+
+output image corners (X-Y projection units):
+    UL:  73.000000000000 54.000000000000
+    UR:  135.009509297032 54.000000000000
+    LL:  73.000000000000 17.999462625727
+    LR:  135.009509297032 17.999462625727
+
+     band               type lines smpls pixsiz      min    max   fill
+  1) LST_Day_1km      UINT16  3495  6020 0.0103   7500  65535      0
+
+
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/long_name (China_night) def
+grid:
+/name /X def
+degE
+73.0  135.009509297032
+2 copy exch sub  6020  div exch
+% converts edges to centers
+1 index .5 mul sub
+3 -1 roll
+2 index .5 mul add
+3 1 roll
+:grid
+grid:
+/name /Y def
+degN
+54. 17.999462625727
+2 copy exch sub 3495 div exch
+% converts edges to centers
+1 index .5 mul sub
+3 -1 roll
+2 index .5 mul add
+3 1 roll
+:grid
+
+grid:
+/name /T def
+/units (days since 2003-01-01) def
+/pointwidth 0 def
+values:
+2002
+1
+2002
+{
+dup  1 1 ymd2rjt 184 add 2003 1 1 ymd2rjt sub
+exch
+8. exch
+1 add 1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+{} for
+} for
+2003
+1
+2016
+{
+dup  1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+exch
+8. exch
+1 add 1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+{} for
+} for
+
+2017
+1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+8.
+2017 3 30 ymd2rjt 2003 1 1 ymd2rjt sub
+2 index
+     sub
+    8. div
+    cvi
+    8. mul
+2 index add
+{} for
+:values
+:grid
+
+/T T
+partialgrid
+/defaultvalue {last} def
+def
+/last_modified T .last_modified def
+
+
+/LST
+{[X Y | T]
+(/Data/data21/usgs/landdaac/componentimagesAQ1km8dLSTCN/%Y/A%Y%j[T]CN.LST_Night_1km.dat.gz)  [T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value 0 def
+/valid_min 7500 def
+/valid_max 65535 def
+/scale_factor 2e-2 def
+/units (K) def
+%/scale_min valid_min def
+%/scale_max valid_max def
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+ui*2 :readdatafile
+} defasvarcachesilent
+%defasvarcachesilent
+
+/view_angl
+{[X Y | T]
+(/Data/data21/usgs/landdaac/componentimagesAQ1km8dLSTCN/%Y/A%Y%j[T]CN.Night_view_angl.dat.gz)
+     [T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value 255 def
+/valid_min 0 def
+/valid_max 130 def
+/scale_min valid_min def
+/scale_max valid_max def
+ui*1 :readdatafile
+
+} defasvarcachesilent
+%defasvarcachesilent
+/view_time
+{[X Y | T]
+(/Data/data21/usgs/landdaac/componentimagesAQ1km8dLSTCN/%Y/A%Y%j[T]CN.Night_view_time.dat.gz)
+     [T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value 255 def
+/units (hours) def
+/valid_min 0 def
+/valid_max 240 def
+/scale_factor 0.1 def
+/scale_min valid_min def
+/scale_max valid_max def
+ui*1 :readdatafile
+
+} defasvarcachesilent
+%defasvarcachesilent
+
+:dataset
+\end{ingrid}

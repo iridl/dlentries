@@ -1,0 +1,37 @@
+\begin{ingrid}
+/MajorLakes
+/description ( Lakes of the World) def
+{db: /server IRIDB def
+  /dbname (iridb) def
+  :db
+  (select gid,name as l_name,surf_elev,depth,sqmi,sqkm,the_geom from lakes order by gid) (gid) openqueryby
+        l_name
+            /long_name (Name) def
+        CopyStream
+        name exch def
+        surf_elev
+            /long_name (Surface Elevation) def
+            /units (feet) def
+        CopyStream
+        name exch def
+        depth
+            /long_name (Depth) def
+            /units (feet) def
+        CopyStream
+        name exch def
+        sqmi
+            /long_name (Area sqmi) def
+            /units (mile2) def
+        CopyStream
+        name exch def
+        sqkm
+            /long_name (Area sqkm) def
+            /units (km2) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Geometry) def
+        CopyStream
+        name exch def
+} defasvarsilent
+\end{ingrid}

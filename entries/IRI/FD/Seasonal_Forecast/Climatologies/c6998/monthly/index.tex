@@ -1,0 +1,34 @@
+\begin{ingrid}
+ continuedataset:
+ grid:
+ /name (X) def
+ /units (degreeE) def
+ /fullname (Longitude) def
+ periodic
+ 1.25 2.5 358.75 
+ :grid
+ grid:
+ /name (Y) def
+ /units (degreeN) def
+ /fullname (Latitude) def
+ 88.75 2.5 -88.75
+ :grid
+ grid:
+ /name (T) def
+ /units monthclimoname def
+ periodic
+ Jan 1. Dec 
+ :grid
+ variable:
+ /name (prcp) def
+ /long_name (precipitation) def
+ grids: X Y | T :grids
+ file:
+decsequential
+/name (/beluga/data/goddard/DATA/obs/pcp/2p5deg/obs.pcp.6998.clm) def
+ :file
+/missing_value -9999. def
+/units (mm/day) def
+ :variable
+ :dataset
+\end{ingrid}

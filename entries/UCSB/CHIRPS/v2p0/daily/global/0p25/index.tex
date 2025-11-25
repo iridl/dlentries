@@ -1,0 +1,110 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+
+/prcp_dailyrate_max100_smooth {
+  startcolormap
+    0.0 100.0 RANGE
+    LightGrey white white
+       0.0 VALUE
+       LightCyan
+        2.0 VALUE
+        SkyBlue
+         4.0 VALUE
+         DodgerBlue
+          9.0 VALUE
+          MediumBlue
+           16.0 VALUE
+           DarkSeaGreen
+            25.0 VALUE
+            MediumSeaGreen
+             33.0 VALUE
+             LightSeaGreen
+              50.0 VALUE
+              khaki
+               67.0 VALUE
+               SandyBrown
+                83.0 VALUE
+                firebrick 100.0 VALUE
+                firebrick endcolormap
+} defcolorscale
+
+:datasetdefs
+
+ /creator_name (Pete Peterson) def
+ /creator_email (pete@geog.ucsb.edu) def
+ /title (CHIRPS Version 2.0) def
+ /documentation (http://pubs.usgs.gov/ds/832/) def
+ /version (Version 2.0) def
+ /website (http://chg.geog.ucsb.edu/data/chirps/index.html) def
+ /acknowledgements (The Climate Hazards Group InfraRed Precipitation with Stations development process was carried out through U.S. Geological Survey (USGS) cooperative agreement #G09AC000001 "Monitoring and Forecasting Climate, Water and Land Use for Food Production in the Developing World" with funding from: U.S. Agency for International Development Office of Food for Peace, award #AID-FFP-P-10-00002 for "Famine Early Warning Systems Network Support," the National Aeronautics and Space Administration Applied Sciences Program, Decisions award #NN10AN26I for "A Land Data Assimilation System for Famine Early Warning," SERVIR award #NNH12AU22I for "A Long Time-Series Indicator of Agricultural Drought for the Greater Horn of Africa," The National Oceanic and Atmospheric Administration award NA11OAR4310151 for "A Global Standardized Precipitation Index supporting the US Drought Portal and the Famine Early Warning System Network," and the USGS Land Change Science Program.) def
+ /reference (Funk, C.C., Peterson, P.J., Landsfeld, M.F., Pedreros, D.H., Verdin, J.P., Rowland, J.D., Romero, B.E., Husak, G.J., Michaelsen, J.C., and Verdin, A.P., 2014, A quasi-global precipitation time series for drought monitoring: U.S. Geological Survey Data Series 832, 4 p., http://dx.doi.org/110.3133/ds832. ) def
+ /date_created (2015-02-19) def
+ /history (created by Climate Hazards Group) def
+ /faq (http://chg-wiki.geog.ucsb.edu/wiki/CHIRPS_FAQ) def
+ /ftp_url (ftp://chg-ftpout.geog.ucsb.edu/pub/org/chg/products/CHIRPS-latest/) def
+ /institution (Climate Hazards Group.  University of California at Santa Barbara) def
+
+ /note (IMPORTANT NOTE:  As of 24 April 2015, all daily CHIRPS 2.0 data from year 2000 onward available in the Data Library were removed and new data requests for that period will access data reprocessed by the UCSB Climate Hazards Group.  The reprocessing corrects a problem found in daily CHIRPS for the CPC-IR time period, 2000 – present.  There was a problem creating the daily percent cold cloud duration (percent CCD) map used in the downscaling. Places with missing IR data were set to zero instead of missing. Anywhere this happened, the precipitation was set to zero. This was always a problem for Eastern Australia/Indonesia/Japan, where a gap between two geostationary satellites exists. There were a small number of times this problem occurred outside of these particular areas.) def
+
+link:
+/name (USGS Data Series 832) def
+/description (Reference paper PDF) def
+/href (http://pubs.usgs.gov/ds/832/) def
+:link
+
+link:
+/name (CHIRPS Home Page) def
+/description (CHIRPS page at UCSB Climate Hazards Group) def
+/href (http://chg.geog.ucsb.edu/data/chirps/) def
+:link
+
+link:
+ /name (daily-improved) def
+ /href (http://iridl.ldeo.columbia.edu/SOURCES/.UCSB/.CHIRPS/.v2p0/.daily-improved/.global/.0p25/.prcp/) def
+ /description (This dataset is replaced by CHIRPS v2.0 daily-improved dataset with new temporal downscaling methodology) def
+ /semantics /dcterm:isReplacedBy def
+:link
+
+grid:
+/name /X def
+degE
+periodic
+-179.875 0.25 179.875
+:grid
+
+grid:
+/name /Y def
+degN
+49.875 0.25 -49.875
+:grid
+
+grid:
+/name /T def
+/standard_name (time) def
+/netcdfgrid true def
+/units (julian_day) def
+1 Jan 1981 julian_day
+1.0
+30 Nov 2015 julian_day
+:grid
+
+ T /defaultvalue {last} def pop
+
+/prcp {
+ [X Y | T ]
+ (/Data/ingridcache/ftp/chg-ftpout.geog.ucsb.edu/pub/org/chg/products/CHIRPS-2.0/global_daily/tifs/p25/%Y[T]/chirps-v2.0.%Y.%m.%d[T].tif.gz/chirps-v2.0.%Y.%m.%d[T].tif) [T] readdatafile:
+ /realarraytype tiffimage 
+/long_name (precipitation) def
+/standard_name (lwe_precipitation_rate) def
+/missing_value -9999. def
+/units (mm/day) def
+:readdatafile
+prcp_dailyrate_max100_smooth
+} defasvarsilent
+
+/references (Funk_etal2014) def
+
+:dataset
+\end{ingrid}

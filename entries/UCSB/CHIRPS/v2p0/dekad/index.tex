@@ -1,0 +1,117 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+/prcp_dekadrate_max600_smooth {
+  startcolormap
+    0.0 600.0 RANGE
+    LightGrey white white
+       0.0 VALUE
+       LightCyan
+        10.0 VALUE
+        SkyBlue
+         15.0 VALUE
+         DodgerBlue
+          50.0 VALUE
+          MediumBlue
+           100.0 VALUE
+           DarkSeaGreen
+            150.0 VALUE
+            MediumSeaGreen
+             200.0 VALUE
+             LightSeaGreen
+              300.0 VALUE
+              khaki
+               400.0 VALUE
+               SandyBrown
+                500.0 VALUE
+                firebrick 600.0 VALUE
+                firebrick endcolormap
+} defcolorscale
+:datasetdefs
+
+link:
+/name (source) def
+/href (ftp://ftp.chc.ucsb.edu/pub/org/chc/products/CHIRPS-2.0/global_dekad/tifs/) def
+:link
+
+link:
+/name (USGS Data Series 832) def
+/description (Reference paper PDF) def
+/href (http://pubs.usgs.gov/ds/832/) def
+:link
+
+link:
+/name (CHIRPS Home Page) def
+/description (CHIRPS page at UCSB Climate Hazards Center) def
+/href (https://www.chc.ucsb.edu/data/chirps/) def
+:link
+
+grid:
+/name /X def
+degE
+periodic
+-180. 180. 7201 pts 1 index sub
+:grid
+X partialgrid name exch def
+grid:
+/name /Y def
+degN
+50. -50. 2001 pts
+:grid
+Y partialgrid name exch def
+\end{ingrid}
+set up a dekad T grid that ends at the end of last month
+\begin{ingrid}
+1 Jan 1981 julian_day
+systemtime (%d %b %Y) 12 strftime interp julian_day rjt2ymd ymd:lastmonth ymd:nextmonth 1 sub ymd2rjt
+dekadGRID
+%31 Mar 2016 julian_day dekadGRID
+name exch def
+
+T {
+   (/Data/data23/UCSB/CHIRPS/v2p0/dekad/tifs/%Y[T]/chirps-v2.0.%Y.%m[T].%d[dkd].tif)
+   [T dup
+0 3 onegridmodcounter
+1 add
+/name /dkd def
+]
+} removeextrausing
+name exch def
+\end{ingrid}
+Set up time grid T
+Set up /expires to be the middle of the current or next month
+\begin{ingrid}
+T 
+/expires last 1 Jan 1960 julian_day add 50 add rjt2ymd ymd2systemtime def
+name exch def
+T /defaultvalue {last} def
+pop
+\end{ingrid}
+Copying from T to the dataset
+\begin{ingrid}
+   /expires T .expires def
+   /last_modified T .last_modified def
+
+/prcp {
+ [X
+    Y |
+    T] (/Data/data23/UCSB/CHIRPS/v2p0/dekad/tifs/%Y[T]/chirps-v2.0.%Y.%m[T].%d[dkd].tif) [T dup
+        0 3 onegridmodcounter
+        1 add
+        /name /dkd def
+        ]readdatafile:
+/realarraytype tiffimage
+/long_name (precipitation) def
+/standard_name (lwe_precipitation_rate) def
+/missing_value -9999. def
+/units (mm) def
+      :readdatafile
+prcp_dekadrate_max600_smooth
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+/references (Funk_etal2014) def
+
+:dataset
+\end{ingrid}

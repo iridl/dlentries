@@ -1,0 +1,85 @@
+This is pacific SST, updated monthly, from CAC
+\begin{ingrid}
+dataset:
+/name /CAC def
+/description (Climatological, smoothed, and raw sea surface temperature data for the tropical Pacific Ocean from the Climate Analysis Center (now known as the Climate Prediction Center))def
+/references (Woodruff_etal1993 Reynolds_Smith1994) def
+/iridl:hasSemantics (iridl:NOAA) def
+/dataset_documentation.html descriptions /cac.html get def
+grid: /name /X def degE  124 to 290 N= 84 pts :grid 
+grid: /name /Y def degN  -29 to 29 N= 30 pts :grid 
+grid: /name /T def /units /monthtime def 
+/defaultvalue { last } def
+16 Jan 1970 ensotime 
+1.
+16 mar 2003 ensotime % enddate
+:grid
+/history (Climate Analysis Center SST) def
+variable:
+/name /sst def
+/units (centigrade) def
+/long_name (Sea Surface Temperature) def
+grids: X Y | T :grids
+file:
+sequential
+/name (/Data/data3/data/cac.sstf) def
+:file
+:variable
+variable:
+/name /ssta def
+degC
+/long_name (Sea Surface Temperature Anomaly) def
+sstacolorscale
+grids: X Y | T :grids
+file:
+sequential
+/name (/Data/data3/data/cac.ssta) def
+:file
+:variable
+dataset:
+/name /climatology def
+grid: /name /T def /units /month def 
+periodic
+16 Jan 1960 ensotime to 16 Dec 1960 ensotime
+N= 12 pts :grid
+variable:
+/name /sst def
+/units (centigrade) def
+/long_name (Sea Surface Temperature) def
+grids: X Y | T :grids
+file:
+sequential
+/name (/Data/data3/data/cac.sstm) def
+:file
+:variable
+:dataset
+dataset:
+/name /smoothed def
+variable:
+/name /sst def
+/units (centigrade) def
+/long_name (Sea Surface Temperature) def
+grids: X Y | T :grids
+file:
+sequential
+/name (/Data/data3/data/cacsm.sstf) def
+:file
+:variable
+variable:
+/name /ssta def
+degC
+/long_name (Sea Surface Temperature Anomaly) def
+sstacolorscale
+grids: X Y | T :grids
+file:
+sequential
+/name (/Data/data3/data/cacsm.ssta) def
+:file
+:variable
+:dataset
+:dataset
+\end{ingrid}
+
+
+
+

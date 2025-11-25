@@ -1,0 +1,33 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9741
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 289
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_rapid_FSAdec_2009.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Migration) def
+:dataset
+
+\end{ingrid}
+

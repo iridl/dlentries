@@ -1,0 +1,36 @@
+\begin{ingrid}
+continuedataset: 
+grid: /name /T def monthtime 16 Jan 1950 ensotime 1 16 Dec 2000 ensotime :grid
+grid: /name /Y def degN 89 2 -89 :grid
+grid: /name /X def degE periodic 0 2.5 357.5 :grid
+grid: /name /M def
+1 1 9
+:grid
+variable:
+/name /prcp def
+/long_name (precipitation rate) def
+/units (mm/day) def
+grids: X Y | M T :grids
+file:
+decsequential
+/name (/beluga/data/goddard/DATA/gsfc/pcp/gsfc.pcp.5000.ano.%d2) def
+/filecnt0 11 def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /t2m def
+/long_name (temperature at 2m) def
+/units (degreeC) def
+/missing_value -9999. def
+grids: X Y | M T :grids
+file:
+decsequential
+/name (/beluga/data/goddard/DATA/gsfc/2mt/gsfc.2mt.5000.ano.%d2) def
+/filecnt0 11 def
+M setfilenamegrid
+:file
+:variable
+:dataset
+\end{ingrid}
+

@@ -1,0 +1,55 @@
+Information for the use of the monthly 1-degree SST NMC climatology
+
+This climatology has been derived from monthly optimum interpolation
+(OI) SST analyses with an adjusted base period of 1950-79. A complete
+paper on the SST climatology has been prepared and sent to the Journal
+of Climate.  A copy of the paper can be found in the directory,
+climpap, which is on the same level as this directory, aoiclim.  The
+paper is contained in 14 UNIX compressed files. To obtain the paper
+from this directory:  "cd ..", "cd climpap", ftp the 14 files in binary
+mode, uncompress them, and send them to a postscript printer.  An
+abstract of the paper is attached to the end of this note.  The paper
+should be referenced as:
+
+Reynolds, R. W. and T. M. Smith, 1994: A high resolution global sea
+     surface temperature climatology. J. Climate, (submitted).
+
+The monthly climatology fields are stored in the binary file:
+aoi.clim. 
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (iridl:climatology) def
+grid:
+/name /X def
+degE
+periodic
+-179.5 1. 179.5
+:grid
+grid:
+/name /Y def
+degN
+-89.5 1. 89.5
+:grid
+grid:
+/name /T def
+/units monthclimoname def
+periodic
+Jan 1. Dec
+:grid
+variable:
+/name /sst def
+/long_name (Sea Surface Temperature) def
+/units /Celsius def
+/labelinterval 5. def
+/scale_factor .01 def
+/history [(Climatological sea surface temperature (blended from ship and buoy, data (1950-1979)).) (<B><a href="/SOURCES/.NOAA/.NCEP/.EMC/.CMB/.GLOBAL/.climatology/.dataset_documentation.html">USA</a></B>)]def
+sstcolorscale
+grids: X Y | T :grids
+/PLOTCOAST 1 def
+file:
+i*2
+/name (/Data/data1/ocean/nmc/sstoimonthclimo) def
+:file
+:variable
+:dataset
+\end{ingrid}

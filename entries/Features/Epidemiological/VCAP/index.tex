@@ -1,0 +1,9 @@
+\begin{ingrid}
+/epidemic_map
+/description ( Vectoral Capacity Epidemic map for Africa) def
+{db: /server IRIDB def
+  /dbname (iridb) def
+  :db
+  (select gid,id,the_geom from epidemic2006 order by gid) (gid) openqueryby
+} defasvarcachesilent
+\end{ingrid}

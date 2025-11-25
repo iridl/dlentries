@@ -1,0 +1,21 @@
+\begin{ingrid}
+/WMO currentobject /agreement.html get addagreement
+%dataareWMOrestricted
+%        dataareLDGOonly
+(/Data/data5/ghcn/v2beta.cuf)continuewithCUF
+/references (Vose_etal1992) def
+/description (Monthly weather station precipitation data from the Global Historical Climate Network) def
+continuedataset:
+/location { lon -180 180 masknotrange /scale_min undef /scale_max undef lat geopt }
+defasvarsilent
+/label {Name} defasvarsilent
+
+%T /expires last_modified
+% systemtime2ymd ymd:nextmonth ymd2systemtime 24 6 mul 3600 mul add def
+% dataset is being rewritten to avoid CUF
+%/expires 2014 05 15 ymd2systemtime def
+%name exch def
+%/expires T .expires def
+
+:dataset
+\end{ingrid}

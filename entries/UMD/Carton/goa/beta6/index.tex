@@ -1,0 +1,29 @@
+\begin{ingrid}
+link:
+/name (SODA 1.4.2) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.CARTON-GIESE/.SODA/.v1p4p2/) def
+/description (current version of SODA is now SODA 1.4.2) def
+/semantics /dcterm:isReplacedBy def
+:link
+/references (Carton_etal2000a Carton_etal2000b) def
+(/Data/data6/carton/goa/beta6.ctl) deflastmod
+(/Data/data6/carton/goa/beta6.ctl) continuewithGRADS
+Z (m) setunits pop
+/u u X 
+name units gridtype 1 2 359 NewEvenGRID replaceGRID0
+Y name units gridtype -59.48 -57.44 -55.40 -53.36 -51.32 -49.29 -47.25 -45.22
+ -43.19 -41.16 -39.14 -37.11 -35.09 -33.07 -31.06 -29.04 -27.03 -25.02
+ -23.01 -21.01 -19.00 -17.00 -15.00 -13.00 -11.00  -9.00  -7.07  -5.29
+  -3.73  -2.43  -1.35  -0.43   0.43   1.35   2.43   3.73   5.29   7.07
+   9.00  11.00  13.00  15.00  17.00  19.00  21.01  23.01  25.02  27.03
+  29.04  31.06  33.07  35.09  37.11  39.14  41.16  43.19  45.22  47.25
+  49.29  51.32  53.36  55.40  57.44  59.48 64 realarray astore
+NewGRID replaceGRID0
+ def
+/v v X u .X replaceGRID0
+Y u .Y replaceGRID0 def
+{ u v s t taux tauy z20 hc125 hc500 sfh } 
+{exec /last_modified dataset .last_modified def name exch def } forall
+
+\end{ingrid}
+

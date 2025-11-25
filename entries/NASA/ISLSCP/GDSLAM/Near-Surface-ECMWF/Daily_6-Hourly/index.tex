@@ -1,0 +1,84 @@
+\begin{ingrid}
+continuedataset:
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 1 -89.5
+:grid
+grid:
+/name /T def
+/fullname (Date) def
+/units /julian_day def
+1 Jan 1987 julian_day 
+1
+31 Dec 1988 julian_day 
+:grid
+grid:
+/name /C def
+/fullname (Hour of Day (Z)) def
+0
+6
+18
+:grid
+
+variable:
+/name /dwpnt_2m def
+/long_name (2-Meter Dew Point Temperature) def
+/units (K) def
+/scale_min 215 def
+/scale_max 306 def
+grids: X Y | C T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ecdly6hr/d87_88.r4) def
+:file
+:variable
+
+variable:
+/name /temp_2m def
+/long_name (2-Meter Temperature) def
+/units (K) def
+/scale_min 220 def
+/scale_max 330 def
+grids: X Y | C T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ecdly6hr/t87_88.r4) def
+:file
+:variable
+
+variable:
+/name /mwnd_10m def
+/long_name (10-Meter Wind Magnitude) def
+/units (m s-1) def
+/scale_min 0 def
+/scale_max 35 def
+grids: X Y | C T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ecdly6hr/w87_88.r4) def
+:file
+:variable
+
+variable:
+/name /sur_prsr def
+/long_name (Surface Pressure) def
+/units (Pa) def
+/scale_min 50000 def
+/scale_max 106000 def
+grids: X Y | C T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ecdly6hr/p87_88.r4) def
+:file
+:variable
+
+:dataset
+\end{ingrid}
+

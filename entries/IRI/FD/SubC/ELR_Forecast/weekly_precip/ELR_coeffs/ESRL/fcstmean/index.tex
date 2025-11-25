@@ -1,0 +1,59 @@
+\begin{ingrid}
+
+continuedataset:
+
+(iri.columbia.edu/terms/forecast/1) cvn datadownloadsareRestricted
+/Cookie varies_on
+
+/description (Forecast Ensemble Mean. ESRL from May 7, 2021, using GPCP v1.3 obs data) def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+0.5 1 359.5
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+-89.5 1 89.5
+:grid
+
+/L
+SOURCES .IRI .FD .SubC .ELR_Forecast .weekly_precip .ELR_coeffs .ESRL .L
+def
+
+/S
+SOURCES .IRI .FD .SubC .ELR_Forecast .weekly_precip .ELR_coeffs .ESRL .S
+def
+
+S { (/crunch/c10/jingyuan/Subx_forecast/Subx_flexible_forecast/Subx_flexible_weekly_pr_v21_ELR_forecast/ESRL_v21/Subx_global_pr_issue_Fri_%d_%b_%Y[S]_weekly_fcst_mean.nc) [S] } removeextrausing
+   name exch def
+
+S
+/expires
+S last 6 add cvsunits nip interp exch 0.5 add 4 -2 roll exch pop ymd2systemtime
+def
+name exch def
+
+/expires S .expires def
+
+/precip {
+[ X Y last first subgrid L | S ]
+(/crunch/c10/jingyuan/Subx_forecast/Subx_flexible_forecast/Subx_flexible_weekly_pr_v21_ELR_forecast/ESRL_v21/Subx_global_pr_issue_Fri_%d_%b_%Y[S]_weekly_fcst_mean.nc) [S]
+readdatafile:
+/name (mean) def
+/doublearraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/long_name (Ensemble Mean Precipitation) def
+/units (mm/week) def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

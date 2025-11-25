@@ -1,0 +1,36 @@
+\begin{ingrid}
+/PAGASA datadownloadsareRestricted
+(/Data/data6/PAGASA/daily/station/PAGASAdailyprcp77_08.cuf) continuewithCUF
+
+continuedataset:
+lon /long_name (Longitude) def /scale_min 114.0 def /scale_max 132.0 def name exch def
+lat /long_name (Latitude) def /scale_min 3.0 def /scale_max 22.0 def name exch def
+:dataset
+\end{ingrid} 
+
+ replaced previous 1977-2004 data with updated data for 1977-2008 with additional
+ stations on June 24, 2010.  In this updated version, all data and metadata are
+ contained within the PAGASAdailyprcp77_08.cuf cuf file.
+(/Data/data6/PAGASA/daily/station/dailyprcp_77stns_7704.cuf) continuewithCUF
+
+%grid:
+%/name (T) def
+%/units (julian_day) def
+%
+%01 Jan 1977 julian_day
+%1
+%31 Dec 2004 julian_day
+%
+%:grid
+%
+%variable:
+%/name (prcp) def
+%/long_name (precipitation) def
+%/units (mm) def
+%/missing_value -9.999 def
+%grids: STNID | T :grids
+%file:
+%direct
+%/name (/Data/data6/PAGASA/daily/station/new_masterfile77stns77_04.r4) def
+%:file
+%:variable

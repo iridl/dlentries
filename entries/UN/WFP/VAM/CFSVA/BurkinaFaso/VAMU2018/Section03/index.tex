@@ -1,0 +1,33 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (DEMOGRAPHIE) def
+
+/QD0b { IRIDB (BF_VAMU_2018) (qd0b) [(hhid)] open_column_by
+/long_name (Femmes en âge de procréer) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Oui)
+(Non)
+] def
+/scale_min 1.000 def
+/scale_max 2.000 def
+}defasvarsilentnoreuse
+
+/femme_selectionnee { IRIDB (BF_VAMU_2018) (femme_selectionnee) [(hhid)] open_column_by
+/long_name (femme_selectionnee) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/femme_eligible { IRIDB (BF_VAMU_2018) (femme_eligible) [(hhid)] open_column_by
+/long_name (femme_eligible) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/zdummy {c: 0 :c}defasvar
+:dataset
+
+QD0b .hhid name exch def
+\end{ingrid}
+

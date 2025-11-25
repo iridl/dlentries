@@ -1,0 +1,135 @@
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name /L def
+/units (months) def
+/standard_name (forecast_period) def
+0.5 1. 9.5
+:grid
+grid:
+/name /M def
+/long_name (Member) def
+1 1 4
+:grid
+
+grid:
+/name (S) def
+/units (days since 2009-01-01) def
+/standard_name (forecast_reference_time) def
+/defaultvalue {last} def
+/pointwidth 0 def
+134
+1
+%systemtime
+%systemtime2ymd ymd2rjt 2 sub
+2012 09 24 ymd2rjt
+2009 01 01  ymd2rjt
+sub
+:grid
+%S monthlyedgesgrid first secondtolast subgrid 
+%/long_name (Forecast Issue Time) def
+%/standard_name (forecast_reference_time) def
+%name exch def
+
+/T{
+currentobject
+S
+monthlyedgesgrid first secondtolast subgrid
+ first cvsunits
+    interp ensotime
+     nip cvi onegridcounter
+
+/units (months since 1960-01-01) def
+L add
+[S] regridLB nip 
+/long_name (Forecast Time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/calendar /360 def
+/pointwidth 1 def
+}defasvarsilent
+
+%S
+%{(/Data/data21/noaa/ncep/cfs/fcst/%Y[S]/%m[S]/%d[S]/dd.%Y[T]%m[T]_pa.member04_tl.ocean) [ S  dup L .last add /name /T def]
+%}
+%removeextrausing
+%/expires last 3 add 
+%2009 01 01  ymd2rjt
+%add
+%rjt2ymd ymd2systemtime
+%     def
+%name exch def
+%/expires S .expires def
+%/last_modified S .last_modified def
+
+
+grid:
+/name (X)def
+/units (degree_east)def
+periodic
+%0.9375 1.875 360 0.9375 sub
+1.0 2.0 360 1.0 sub
+:grid
+grid:
+/name (Y) def
+/units (degree_north)def
+64.0 -1.0 -74.0
+
+:grid
+
+
+grid:
+/name /Z def
+/long_name (Depth) def
+/units (m) def
+values:
+%-5 -15 -25 -35 -45 -55 -65 -75 -85 -95 -105 -115 -125 -135 -145 -155 -165 -175 -185 -195 -205 -215 -225 -239 -262 -303 -367 -459 -585 -747 -950 -1194 -1480 -1807 -2175 -2579 -3017 -3483 -3972 -4479
+4479 3972 3483 3017 2579 2175 1807 1480 1194 950 747 585 459 367 303 262 239 225 215 205 195 185 175 165 155 145 135 125 115 105 95 85 75 65 55 45 35 25 15 5  
+:values
+:grid
+grid:
+/name /P def
+/long_name (isotherm level) def
+/units (Celsius_scale) def
+values:
+2.5 5.0 10.0 15.0 20.0 25.0 28.0
+:values
+:grid
+
+dataset: /name /surface def :dataset
+dataset: /name /below_sea_levl def :dataset
+dataset: /name /ocean_isotherm_level def :dataset
+dataset: /name /ocean_isothermal_layer_bot def :dataset
+dataset: /name /ocean_mixed_layer_bot def :dataset
+dataset: /name /0-300m_ocean_layer def :dataset
+
+[ X Y M S L T ] { name exch def } forall
+[ X Y | /NVZ 215 NewIntegerGRID M L S] 
+(/Data/data21/noaa/ncep/cfs/fcst/%Y[S]/%m[S]/%d[S]/dd.%Y[T]%m[T]_pa.member%2.2d[M]_tl.ocean) [M L S T]
+%(/beluga/data/haibo/TestData/noaa/ncep/cfs/fcst/2009/05/15/dd.201002_pa.member04_tl.ocean)
+readdatafile: 
+/gribparam 84 def
+/gribNumBits 14 def
+/missing_value 9.99900026E20 def
+GRIB1record
+:readdatafile
+definevariables:
+below_sea_levl 40 Zvariable:/name (pot) def /long_name (potential temp.) def /units (Kelvin_scale) def :Zvariable
+below_sea_levl 40 Zvariable:/name (salty) def /long_name (salinity) def /units (kg kg-1) def :Zvariable
+below_sea_levl 40 Zvariable:/name (uogrd) def /long_name (u of current) def /units (m s-1) def :Zvariable
+below_sea_levl 40 Zvariable:/name (vogrd) def /long_name (v of current) def /units (m s-1) def :Zvariable
+below_sea_levl 40 Zvariable:/name (dzdt) def /long_name (Geometric vertical velocity) def /units (m s-1) def :Zvariable
+surface 0 Zvariable:/name (var202) def /long_name (var202) def :Zvariable
+surface 0 Zvariable:/name (var199) def /long_name (var199) def :Zvariable
+surface 0 Zvariable:/name (uflx) def /long_name (zonal momentum flux) def  /units (N m-2) def :Zvariable
+surface 0 Zvariable:/name (vflx) def /long_name (meridional momentum flux) def  /units (N m-2) def :Zvariable
+surface 0 Zvariable:/name (dist) def /long_name (geometric height) def  /units (m) def :Zvariable
+ocean_isotherm_level 7 Pvariable:/name (depth) def /long_name (ocean_isotherm_level) def  /units (m) def :Pvariable
+ocean_mixed_layer_bot 0 Zvariable:/name (depth) def /long_name (ocean_mixed_layer_bot) def  /units (m) def :Zvariable
+ocean_isothermal_layer_bot 0 Zvariable:/name (depth) def /long_name (ocean_isothermal_layer_bot) def  /units (m) def :Zvariable
+0-300m_ocean_layer 0 Zvariable:/name (vstm) def /long_name (v-component of storm motion) def  /units (m s-1) def :Zvariable
+:definevariables
+:dataset
+\end{ingrid}
+

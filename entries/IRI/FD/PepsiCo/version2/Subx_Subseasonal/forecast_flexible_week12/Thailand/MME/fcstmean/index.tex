@@ -1,0 +1,46 @@
+\begin{ingrid}
+
+continuedataset:
+
+  /name /fcstmean def
+
+   /precip {
+      1 index .dataset .dataset
+     mark Models {name /fcstmean ne { pop}{.precip}ifelse }{name /fcstmean ne {pop}{.precip}ifelse}foralldatasets2
+     counttomark dup dup
+        4 add %2 object on the top + 2 dup object on the bottom
+        1 roll
+       1 sub
+       {add}repeat
+    3 index div
+    3 {exch pop} repeat
+  }defasvar
+
+   /tref {
+      1 index .dataset .dataset
+     mark Models {name /fcstmean ne { pop}{.temperature}ifelse }{name /fcstmean ne {pop}{.temperature}ifelse}foralldatasets2
+     counttomark dup dup
+        4 add %2 object on the top + 2 dup object on the bottom
+        1 roll
+       1 sub
+       {add}repeat
+    3 index div
+    3 {exch pop} repeat
+    temp_colors
+   /scale_symmetric false def
+   DATA AUTO AUTO RANGE
+  }defasvar
+
+/target_date { S L add /long_name (forecast time) def /standard_name (time) def } defasvar
+
+
+
+:dataset
+
+precip .S name exch def
+precip .L name exch def
+precip .X name exch def
+precip .Y name exch def
+
+
+\end{ingrid}

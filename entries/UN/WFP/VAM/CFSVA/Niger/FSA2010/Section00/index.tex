@@ -1,0 +1,286 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9195
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 554
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAavril2010.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Questionnaire) def
+
+/Pond_men {
+mytable
+myquestion 
+1 VALUE
+ myquestion removeGRID
+/long_name (Pondération ménage) def 
+}defasvarsilent
+
+/Pond_ind {
+mytable
+myquestion 
+2 VALUE
+ myquestion removeGRID
+/long_name (Pondération individu) def 
+}defasvarsilent
+
+/ID {
+mytable
+myquestion 
+3 VALUE
+ myquestion removeGRID
+/long_name (IDENTIFIANT MENAGE) def 
+}defasvarsilent
+
+/ID0 {
+mytable
+myquestion 
+4 VALUE
+ myquestion removeGRID
+/long_name (IDENTIFIANT MENAGE) def 
+}defasvarsilent
+
+/Q01 {
+mytable
+myquestion 
+5 VALUE
+ myquestion removeGRID
+/long_name (Région) def 
+/units /ids def
+/CLIST [(Agadez)(Diffa)(Dosso)(Maradi)(Tahoua)(Tillabéry)(Zinder)(Niamey)] def
+/scale_min 1 def
+/scale_max 8 def
+}defasvarsilent
+
+/Foodlnsec {
+mytable
+myquestion 
+6 VALUE
+ myquestion removeGRID
+/long_name (Classe d'insecurite alimentaire definitive) def 
+/units /ids def
+/CLIST [(Severe)(Moderee)(A risque)(Securite alimentaire)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/departement {
+mytable
+myquestion 
+7 VALUE
+ myquestion removeGRID
+/long_name (Département administratif) def 
+}defasvarsilent
+
+/depart {
+mytable
+myquestion 
+8 VALUE
+ myquestion removeGRID
+/long_name (Département administratif) def 
+}defasvarsilent
+
+/Q02 {
+mytable
+myquestion 
+9 VALUE
+ myquestion removeGRID
+/long_name (Département) def 
+}defasvarsilent
+
+/milieu {
+mytable
+myquestion 
+10 VALUE
+ myquestion removeGRID
+/long_name (MILIEU DE RESIDENCE) def 
+/units /ids def
+/CLIST [(Rural)(Centres urbains)(Périphérie de Ny)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q03 {
+mytable
+myquestion 
+11 VALUE
+ myquestion removeGRID
+/long_name (Centre urbain/Canton/Zone restante) def 
+}defasvarsilent
+
+/Q07 {
+mytable
+myquestion 
+12 VALUE
+ myquestion removeGRID
+/long_name (Numéro de la grappe) def 
+}defasvarsilent
+
+/Q08 {
+mytable
+myquestion 
+13 VALUE
+ myquestion removeGRID
+/long_name (Numéro de la ZD) def 
+}defasvarsilent
+
+/Q11 {
+mytable
+myquestion 
+14 VALUE
+ myquestion removeGRID
+/long_name (Numéro du ménage) def 
+}defasvarsilent
+
+/Q12 {
+mytable
+myquestion 
+15 VALUE
+ myquestion removeGRID
+/long_name (Zone agro écologique) def 
+/units /ids def
+/CLIST [(Zone agricole)(Zone agro pastorale)(Zone pastorale et désertique)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q14A {
+mytable
+myquestion 
+16 VALUE
+ myquestion removeGRID
+/long_name (Numéro d'ordre dans le ménage) def 
+}defasvarsilent
+
+/Q14C {
+mytable
+myquestion 
+17 VALUE
+ myquestion removeGRID
+/long_name (Lien de parenté avec le CM) def 
+/units /ids def
+/CLIST [(Chef de ménage)(Epoux(se))(Fils/fille)(Père/mère)(Frère/Soeur)(Petits enfants)(Neveu ou nièce)(Autres parents)(Aucun lien de parenté)] def
+/scale_min 1 def
+/scale_max 9 def
+}defasvarsilent
+
+/Q14D {
+mytable
+myquestion 
+18 VALUE
+ myquestion removeGRID
+/long_name (Sexe) def 
+/units /ids def
+/CLIST [(Masculin)(Féminin)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q15B {
+mytable
+myquestion 
+19 VALUE
+ myquestion removeGRID
+/long_name (Nombre d'enfants de moins de 5 ans) def 
+}defasvarsilent
+
+/Q18 {
+mytable
+myquestion 
+20 VALUE
+ myquestion removeGRID
+/long_name (Age du chef de ménage) def 
+}defasvarsilent
+
+/Q14F {
+mytable
+myquestion 
+21 VALUE
+ myquestion removeGRID
+/long_name (Satatut de résidence) def 
+/units /ids def
+/CLIST [(Présent)(Absent)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q14E {
+mytable
+myquestion 
+22 VALUE
+ myquestion removeGRID
+/long_name (Age en année révolue) def 
+}defasvarsilent
+
+/Q14H {
+mytable
+myquestion 
+23 VALUE
+ myquestion removeGRID
+/long_name (Le niveau d'instruction) def 
+/units /ids def
+/CLIST [(Aucun)(Alphabétisé)(Coranique)(Préscolaire)(Primaire)(Secondaire)(Supérieur)(Non applicable)] def
+/scale_min 1 def
+/scale_max 8 def
+}defasvarsilent
+
+/Q15C {
+mytable
+myquestion 
+24 VALUE
+ myquestion removeGRID
+/long_name (Nombre d'enfants de 6 à 24 mois) def 
+}defasvarsilent
+
+/Q15A {
+mytable
+myquestion 
+25 VALUE
+ myquestion removeGRID
+/long_name (Total membres dans le ménage) def 
+}defasvarsilent
+
+/Q15D {
+mytable
+myquestion 
+26 VALUE
+ myquestion removeGRID
+/long_name (Nombre total des membres actifs dans le ménage) def 
+}defasvarsilent
+
+/TEAM {
+mytable
+myquestion 
+27 VALUE
+ myquestion removeGRID
+/long_name (NUMERO EQUIPE) def 
+/units /ids def
+/CLIST [(MALLAM YACINE)( ABOUBACAR OUSSEINI)( ELH OUMAROU MAINA)( MOUNKAILA MAIGA)(HAMSATOU TAHIROU)( YACOUBA SEYNI)( IBRAHIM MAHAMADOU GARBA)( SANI ALI)( BOHARI MOUSSA)( ALI OUSMANE)( HAMZA LIMAN)( ILLA SOULEY)( AMINOU HASSANE)(MAMANE MAMANE LAOUALI)( AÏCHATOU AMADOU HASSANE)(SEYNI SOUMAILA IBRAHIM)(MAHAMADOU IBRAHIM)(OUMAROU INAZEDANE YACOUBA)( HAMIDOU AMADOU)( OUMAROU BELLO)( BOUKARI  BAWA MAMAN BACHIR)( SINA OUMAROU)( BELLO GOUROUZA)( ABASSE SOLIMAN)( HAMANI DJIBO)(  ISSA BOUBACAR)( ABDOU GASSAMA)( ABARI MOUSTAPHA)( SOULEYMANE TAHIROU)( MAMANE B. ALLASSANE KABOYE)( RABIOU MAHAMANE)( TANKARI MAHAMANE LAOUALI)( LAHADI ISSA)( BOUBACAR MOHAMED GAOH)] def
+/scale_min 12 def
+/scale_max 45 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

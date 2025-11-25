@@ -1,0 +1,106 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (irigaz:Africa_Greater_Horn_305_0) def
+grid:
+/name /X def
+degE
+20 0.002115475488 50.001673378
+% converts edges to centers
+1 index .5 mul sub
+3 -1 roll
+2 index .5 mul add
+3 1 roll
+:grid
+grid:
+/name /Y def
+degN
+20. -0.002115475488 -0.001820744
+% converts edges to centers
+1 index .5 mul sub
+3 -1 roll
+2 index .5 mul add
+3 1 roll
+:grid
+grid:
+/name /T def
+/units (days since 2003-01-01) def
+\end{ingrid}
+file 2004.05.08/MOD13Q1.A2004129.h17v07.004.2004148112503.hdf to  ../modus.2004/MOD13Q1.A2004129.h17v07.004.2004148112503.hdf
+
+file 2004.05.24/MOD13Q1.A2004145.h19v08.004.2004165081004.hdf to  ../modus.2004/MOD13Q1.A2004145.h19v08.004.2004165081004.hdf
+
+Turns out the first number is the first day of the interval, the second date is
+not the end of the interval (the interval is 16 days wide). 
+So I enter the edges grid and take the partial to get the right time grid.
+Filenames are generated from the left edge values.
+\begin{ingrid}
+/pointwidth 0 def
+values:
+2003 12 21 ymd2rjt 2003 1 1 ymd2rjt sub
+
+2004 
+1
+2008 %systemtime systemtime2ymd pop pop 1 sub
+{
+dup  1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+exch
+16. exch
+1 add 1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+{} for
+} for
+\end{ingrid}
+systemtime systemtime2ymd pop pop 
+1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+16.
+systemtime
+    systemtime2ymd ymd2rjt 2003 1 1 ymd2rjt sub
+2 index 
+     sub
+    16 div
+    cvi
+    16 mul
+2 index add
+{} for
+\begin{ingrid}
+:values
+:grid
+/T T 
+first
+1 index
+{(/Data/data8/usgs/landdaac/componentimageshorn_v004/A%Y%j[T]horn.250m_16_days_red_reflectance.dat.gz) [T]}
+removeextrausing
+3 1 roll
+     /last_modified 3 index .last_modified def
+     3 -1 roll
+.npts indextovalue subgrid
+\end{ingrid}
+this dataset no longer updates
+/expires last 2003 1 1 ymd2rjt add 16 add
+3 add % processing time
+rjt2ymd ymd2systemtime
+def
+\begin{ingrid}
+partialgrid
+/defaultvalue {last} def
+def
+%/expires T .expires def
+/last_modified T .last_modified def
+grid:
+/name /band def
+values: /MIR /NIR /red :values
+:grid
+/image
+{[X Y | band T]
+%(/beluga/data/benno/usgs/landdaac/componentimageshorn/A%Y%j[T]horn.250m_16_days_%s[band]_reflectance.dat)
+(/Data/data8/usgs/landdaac/componentimageshorn_v004/A%Y%j[T]horn.250m_16_days_%s[band]_reflectance.dat.gz)
+     [band T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value -1000 def
+/valid_min 1 def
+/valid_max 9999 def
+ui*2 :readdatafile
+9999.   254 div   1 255 SCALEtoui1
+} defasvarcachesilent
+%defasvarcachesilent
+:dataset
+\end{ingrid}

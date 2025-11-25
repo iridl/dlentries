@@ -1,0 +1,614 @@
+\begin{ingrid}
+continuedataset:
+
+/SubX_Model (Navy Earth System Model (NESM)) def
+
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.0 359.0
+periodic
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ -90.0 1.0 90.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (days) def
+ 0.5 1.0 44.5
+/pointwidth 1.0 def
+/standard_name (forecast_period) def
+:grid
+
+grid:
+/name (M) def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+values: 1 :values
+:grid
+
+\end{ingrid}
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 850 200 :values
+/netcdfgrid true def
+:grid
+
+/P0 P def
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 500 200 :values
+/netcdfgrid true def
+:grid
+
+/P1 P def
+
+\begin{ingrid}
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 850 500 200 100 50 30 10 :values
+/netcdfgrid true def
+:grid
+
+grid:
+/name (S) def
+/long_name (Start Time) def
+02 Jan 1999 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+31 Dec 2016 julian_day 01 Jan 1960 julian_day sub 0.5 add
+/standard_name (forecast_reference_time) def
+/units (days since 1960-01-01) def
+/pointwidth 0. def
+:grid
+
+ /pr{
+[ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/pr_sfc/%Y[S]/%b:lc[S]/pr_sfc_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ M S ]   readdatafile: 
+/name (pr) def
+ /long_name (Total Precipitation) def
+ /units (kg m-2 s-1)cvn def
+ /missing_value -9999.0 def
+ /frequency (Average per 24 hours) def
+ /level (sfc) def
+ /CF_name (precipitatoin_flux) def 
+ /abbrev (pr) def 
+ /standard_name (precipitation_flux) def
+ /level_type (surface) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /rlut{
+[ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/rlut_toa/%Y[S]/%b:lc[S]/rlut_toa_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (rlut) def
+ /long_name (Outgoing Longwave Radiation at Top of Atmosphere) def
+ /units (W/m2)cvn def
+ /missing_value -9999.0 def
+ /level (toa) def
+ /CF_name (toa_outgoing_longwave_flux) def
+ /level_type (top of atmosphere) def
+ /frequency (Accumulated every 24 hours) def
+ /abbrev (rlut) def 
+ /standard_name (toa_outgoing_longwave_flux) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tas{
+[ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/tas_2m/%Y[S]/%b:lc[S]/tas_2m_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (tas) def
+ /frequency (Daily Average 00Z-00Z) def
+ /level (2m) def
+ /abbrev (tas) def
+ /missing_value -9999.0 def
+ /long_name (2-meter Air Temperature) def
+ /units /Kelvin_scale def
+ /navgem_type (mean) def
+ /CF_name (air_temperature) def
+ /level_type (2 meters above ground) def
+ /standard_name (air_temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ts{
+[ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/ts_sfc/%Y[S]/%b:lc[S]/ts_sfc_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (ts) def
+ /CF_name (surface_temperature) def
+ /navgem_type (mean) def
+ /level (sfc) def
+ /frequency (Daily Average 00Z-00Z) def
+ /long_name (Surface Temperature) def
+ /units /Kelvin_scale def
+ /missing_value -9999.0 def
+ /level_type (surface) def
+ /abbrev (ts) def
+ /standard_name (surface_temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ua {
+[ X Y | L M S P ] (/Data/SubX/NRL/NESM/hindcast/ua_%d[P]/%Y[S]/%b:lc[S]/ua_%d[P]_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ P S M ] readdatafile:
+/name (ua) def
+ /abbrev (ua) def
+ /long_name (Zonal Velocity) def
+ /units (m s-1)cvn def
+ /missing_value -9999.0 def
+ /level_unit (hPa) def
+ /frequency (Average of instantaneous values at 0Z,6Z,12Z,18Z) def
+ /CF_name (eastward_wind) def
+ /navgem_type (flat_files) def
+ /level_type (pressure level) def
+ /standard_name (eastward_wind) def
+ /realarraytype netcdfrecords :readdatafile
+ P 850 200 100 50 30 10 VALUES
+}defasvarsilent
+
+ /va {
+[ X Y | L M S P ] (/Data/SubX/NRL/NESM/hindcast/va_%d[P]/%Y[S]/%b:lc[S]/va_%d[P]_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ P S M ] readdatafile:
+/name (va) def
+ /abbrev (va) def
+ /frequency (Average of instantaneous values at 0Z,6Z,12Z,18Z) def
+ /level_unit (hPa) def
+ /long_name (Meridional Velocity) def
+ /units (m s-1)cvn def
+ /missing_value -9999.0 def
+ /level_type (pressure level) def
+ /navgem_type (flat_files) def
+ /CF_name (northward_wind) def
+ /standard_name (northward_wind) def
+ /realarraytype netcdfrecords :readdatafile
+ P 850 200 100 50 30 10 VALUES
+}defasvarsilent
+
+ /zg {
+[ X Y | L M S P ] (/Data/SubX/NRL/NESM/hindcast/zg_%d[P]/%Y[S]/%b:lc[S]/zg_%d[P]_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ P S M ] readdatafile:
+/name (zg) def
+ /long_name (Geopotential Height) def
+ /level_unit (hPa) def
+ /frequency (Average of instantaneous values at 0Z,6Z,12Z,18Z) def
+ /CF_name (geopotential_height) def
+ /navgem_type (flat_files) def
+ /missing_value -9999.0 def 
+ /units /m def
+ /level_type (pressure level) def
+ /standard_name (geopotential_height) def
+ /abbrev (zg) def
+ /realarraytype netcdfrecords :readdatafile
+ P 850 500 200 50 30 10 VALUES
+}defasvarsilent
+
+/cape {
+[ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/cape_sfc/%Y[S]/%b:lc[S]/cape_sfc_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (cape) def
+ /missing_value -9999.0 def
+ /abbrev (cape) def
+ /CF_name (atmosphere_convective_available_potential_energy) def
+ /standard_name (atmosphere_convective_available_potential_energy) def
+ /level (sfc) def
+ /level_type (surface) def
+ /long_name (Convective available potential energy (CAPE)) def
+ /units (J kg-1) def
+ /frequency (Daily Average) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/hfls {
+[ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/hfls_sfc/%Y[S]/%b:lc[S]/hfls_sfc_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (hfls) def
+ /missing_value -9999.0 def
+ /abbrev (hfls) def
+ /standard_name (surface_upward_latent_heat_flux) def
+ /level (sfc) def
+ /level_type (surface) def
+ /units (W m-2) def
+ /long_name (Surface latent heat flux) def
+ /CF_name (surface_upward_latent_heat_flux) def
+ /level (sfc) def
+ /frequency (Accumulated every 24hrs) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/hfss {
+[ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/hfss_sfc/%Y[S]/%b:lc[S]/hfss_sfc_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (hfss) def
+ /missing_value -9999.0 def
+ /abbrev (hfss) def
+ /standard_name (surface_upward_sensible_heat_flux) def
+ /level (sfc) def
+ /level_type (surface) def
+ /units (W m-2) def
+ /long_name (Surface sensible heat flux) def
+ /CF_name (surface_upward_sensible_heat_flux) def
+ /frequency (Accumulated every 24hrs) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/psl {
+[ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/psl_msl/%Y[S]/%b:lc[S]/psl_msl_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (psl) def
+ /missing_value -9999.0 def
+ /abbrev (psl) def
+ /standard_name (air_pressure_at_mean_sea_level) def
+ /level (msl) def
+ /level_type (surface) def
+ /units (Pa) def
+ /long_name (Mean sea level pressure) def
+ /CF_name (air_pressure_at_sea_level) def
+ /frequency (Average of instantaneous values at 0Z,6Z,12Z,18Z) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/rad {
+[ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/rad_sfc/%Y[S]/%b:lc[S]/rad_sfc_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (rad) def
+ /level (sfc) def
+ /level_type (surface) def
+ /missing_value -9999.0 def
+ /frequency (Accumulated every 24 hrs) def
+ /units (W m-2) def
+ /abbrev (rad) def
+ /long_name (Net surface Radiation (LWup-LWdown+SWup-SWdown)) def
+ /CF_name (net_surface_radiation) def
+ /standard_name (surface_net_downward_radiative_flux) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/sic {
+[ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/sic_sfc/%Y[S]/%b:lc[S]/sic_sfc_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (sic) def
+ /missing_value -9999.0 def
+ /frequency (Daily Average 00Z-00Z) def
+ /CF_name (sea_ice_area_fraction) def
+ /standard_name (sea_ice_area_fraction) def
+ /level (sfc) def
+ /level_type (surface) def
+ /long_name (Sea ice concentration) def
+ /units /unitless def
+ /abbrev (sic) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/stx {
+[ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/stx_sfc/%Y[S]/%b:lc[S]/stx_sfc_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (stx) def
+ /missing_value -9999.0 def
+ /units (N m-2) def
+ /frequency (Daily Average 00Z-00Z) def
+ /CF_name (surface_zonal_stress_positive_to_the_west) def
+ /long_name (Surface stress (taux)) def
+ /abbrev (stx) def
+ /level (sfc) def
+ /level_type (surface) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/sty {
+[ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/sty_sfc/%Y[S]/%b:lc[S]/sty_sfc_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (sty) def
+ /missing_value -9999.0 def
+ /CF_name (surface_meridional_stress_positive_to_the_south) def
+ /abbrev (sty) def
+ /frequency (Daily Average 00Z-00Z) def
+ /level (sfc) def
+ /level_type (surface) def
+ /long_name (Surface stress (tauy)) def
+ /units (N m-2) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/tdps {
+[ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/tdps_2m/%Y[S]/%b:lc[S]/tdps_2m_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (tdps) def
+ /level (2m) def
+ /level_type (2 meters above ground) def
+ /missing_value -9999.0 def
+ /unit (K) def
+ /abbrev (tdps) def
+ /frequency (Daily Average 00Z-00Z) def
+ /long_name (2m dewpoint temperature) def
+ /units /unitless def
+ /CF_name (dew_point_temperature) def
+ /standardname (dew_point_temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/uas {
+[ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/uas_10m/%Y[S]/%b:lc[S]/uas_10m_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (uas) def
+ /level (10m) def
+ /CF_name (eastward_wind) def
+ /missing_value -9999.0 def
+ /long_name (10-meter U-Component of Wind) def
+ /standard_name (eastward_wind) def
+ /level_type (10 meters above ground) def
+ /navgem_type (flat_files) def
+ /abbrev (uas) def
+ /units (m s-1) def
+ /frequency (Average of instantaneous values at 0Z,6Z,12Z,18Z) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/vas {
+[ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/vas_10m/%Y[S]/%b:lc[S]/vas_10m_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (vas) def
+ /level (10m) def
+ /CF_name (northward_wind) def
+ /missing_value -9999.0 def
+ /long_name (10-meter V-Component of Wind) def
+ /standard_name (northward_wind) def
+ /level_type (10 meters above ground) def
+ /navgem_type (flat_files) def
+ /abbrev (vas) def
+ /units (m s-1) def
+ /frequency (Average of instantaneous values at 0Z,6Z,12Z,18Z) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/wap {
+[ X Y | L M S P ] (/Data/SubX/NRL/NESM/hindcast/wap_%d[P]/%Y[S]/%b:lc[S]/wap_%d[P]_NESM_%d[S]%b:lc[S]%Y[S]_12z_d01_d45_m0%1.1d[M].nc) [ P S M ] readdatafile:
+/name (wap) def
+ /CF_name (lagrangian_tendency_of_air_pressure) def
+ /standard_name (lagrangian_tendency_of_air_pressure) def
+ /units (Pa s-1) def
+ /abbrev (wap) def
+ /missing_value -9999.0 def
+ /long_name (Vertical Velocity (omega)) def
+ /frequency (Average of instantaneous values at 0Z,6Z,12Z,18Z) def
+ /level_unit (hPa) def
+ /level_type (pressure level) def 
+ /navgem_type (flat_files) def
+ /realarraytype netcdfrecords :readdatafile 
+ P 500 VALUE
+}defasvarsilent
+
+ dataset:
+
+ /name (dc9915) def
+ /description (1999-2015 Daily Hindcast Climatology) def
+ /MatlabSource () def
+ /CreationDate (2018/02/22 18:27:52) def
+ /title (SubX Climatology) def
+ /long_title (SubX Climatology) def
+ /institution (IRI) def
+ /CreatedBy (kpegion) def
+ /comments (SubX project http://cola.gmu.edu/~kpegion/subx/) def
+ /source (SubX IRI) def
+
+ grid:
+ /name (X) def
+ /units (degree_east) def
+ periodic
+ 0.0 1.0 359.0
+ :grid
+
+ grid:
+ /name (Y) def
+ /units (degree_north) def
+ -90.0 1.0 90.0
+ :grid
+
+ grid:
+ /name (P) def
+ /long_name (Pressure Level) def
+ /units (hPa) def
+ values: 850 500 200 100 50 30 10 :values
+ /standard_name (air_pressure) def
+ :grid
+
+ grid:
+ /name (S) def
+ /long_name (Start Time) def
+ /standard_name (forecast_reference_time) def
+ 01 Jan 1960 julian_day 01 Jan 1960 julian_day sub 0.5 add
+ 1.0
+ 31 Dec 1960 julian_day 01 Jan 1960 julian_day sub 0.5 add
+ /units (days since 1960-01-01) def
+ /pointwidth 0. def
+ :grid
+
+ grid:
+ /name (L) def
+ /long_name (Lead) def
+ /units (days) def
+ /standard_name (forecast_period) def
+ 0.5 1.0 44.5
+ /pointwidth 1.0 def
+ :grid
+
+ /pr{
+ [ X Y | L S ] (/Data/SubX/NRL/NESM/hindcast/climatology/pr_sfc/pr_NRL-NESM_%m%d[S].climo.p.nc) [ S ] readdatafile:
+ /name (pr) def
+ /missing_value -9999.0 def
+ /long_name (Total Precipitation) def
+ /standard_name (precipitation_flux) def
+ /units (kg m-2 s-1) def
+ /level_type (surface) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /rlut{
+ [ X Y | L S ] (/Data/SubX/NRL/NESM/hindcast/climatology/rlut_toa/rlut_NRL-NESM_%m%d[S].climo.p.nc) [ S ] readdatafile:
+ /name (rlut) def
+ /missing_value -9999.0 def
+ /long_name (Outgoing Longwave Radiation at Top of Atmosphere) def
+ /standard_name (toa_outgoing_longwave_flux) def
+ /units (W/m2) def
+ /level_type (top of atmosphere) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /tas{
+ [ X Y | L S ] (/Data/SubX/NRL/NESM/hindcast/climatology/tas_2m/tas_NRL-NESM_%m%d[S].climo.p.nc) [ S ] readdatafile:
+ /name (tas) def
+ /missing_value -9999.0 def
+ /units (Kelvin_scale) def
+ /long_name (2-meter Mean Air Temperature) def
+ /standard_name (air_temperature) def
+ /level_type (2 meters above ground) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /ts{
+ [ X Y | L S ] (/Data/SubX/NRL/NESM/hindcast/climatology/ts_sfc/ts_NRL-NESM_%m%d[S].climo.p.nc) [ S ] readdatafile:
+ /name (ts) def
+ /missing_value -9999.0 def
+ /long_name (Surface Temperature) def
+ /standard_name (surface_temperature) def
+ /units (Kelvin_scale) def
+ /level_type (surface) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /ua{
+ [ X Y | L S P ] (/Data/SubX/NRL/NESM/hindcast/climatology/ua_%d[P]/ua_NRL-NESM_%m%d[S].climo.p.nc) [ S P ] readdatafile:
+ /name (ua) def
+ /missing_value -9999.0 def
+ /long_name (Zonal Velocity) def
+ /standard_name (eastward_wind) def
+ /level_type (pressure level) def
+ /units (m s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+ P 850 200 VALUES
+ }defasvarsilent
+
+ /va{
+ [ X Y | L S P ] (/Data/SubX/NRL/NESM/hindcast/climatology/va_%d[P]/va_NRL-NESM_%m%d[S].climo.p.nc) [ S P ] readdatafile:
+ /name (va) def
+ /missing_value -9999.0 def
+ /long_name (Meridional Velocity) def
+ /standard_name (northward_wind) def
+ /level_type (pressure level) def
+ /units (m s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+ P 850 200 VALUES
+ }defasvarsilent
+
+ /zg{
+ [ X Y | L S P ] (/Data/SubX/NRL/NESM/hindcast/climatology/zg_%d[P]/zg_NRL-NESM_%m%d[S].climo.p.nc) [ S P ] readdatafile:
+ /name (zg) def
+ /missing_value -9999.0 def
+ /long_name (Geopotential Height) def
+ /standard_name (geopotential_height) def
+ /level_type (pressure level) def
+ /units (m)cvn def
+ /realarraytype netcdfrecords :readdatafile
+ P 500 200 VALUES
+ }defasvarsilent
+
+ :dataset
+
+ dataset:
+ /name /RMM def
+ /long_name (Real-time Multivariate MJO Indices Including Interannual Variability) def
+ /institution (IRI) def
+ /source (SubX IRI) def
+ /comments (SubX project http://cola.gmu.edu/~kpegion/subx/) def
+ /CreatedBy (kpegion) def
+ /title (SubX RMM) def
+ /MatlabSource () def
+%/CreationDate (2018/05/20 17:58:44) def
+ /long_title (SubX RMM) def
+
+ grid:
+ /name (X)def
+ /units (degree_east)def
+ values: 0.0 :values
+ :grid
+
+ grid:
+ /name (Y)def
+ /units (degree_north)def
+ values: -90.0 :values
+ :grid
+
+ grid:
+ /name (L) def
+ /long_name (Lead) def
+ /units (days) def
+ 0.5 1.0 44.5
+ /pointwidth 1.0 def
+ /standard_name (forecast_period) def
+ :grid
+
+ grid:
+ /name (M) def
+ /long_name (Ensemble Member) def
+ /standard_name (realization) def
+ /units (ids) def
+ values: 1 :values 
+ :grid
+
+ grid:
+ /name (S) def
+ /long_name (Start Time) def
+ 02 Jan 1999 julian_day 01 Jan 1960 julian_day sub
+ 1.0
+ 31 Dec 2015 julian_day 01 Jan 1960 julian_day sub
+ /standard_name (forecast_reference_time) def
+ /units (days since 1960-01-01) def
+ /pointwidth 0. def
+ :grid
+
+ /RMM1 {
+ [ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/RMM/interannual/rmm_NRL-NESM_%Y%m%d[S].interannual.daily.e%1.1d[M].nc) [ M S ] readdatafile:
+ /name (rmm1) def
+ /long_name (RMM1) def
+ /missing_value -9999. def 
+ /units (unitless) def
+ /realarraytype netcdfrecords :readdatafile
+ X removeGRID
+ Y removeGRID
+ } defasvarsilent 
+
+ /RMM2 {
+ [ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/RMM/interannual/rmm_NRL-NESM_%Y%m%d[S].interannual.daily.e%1.1d[M].nc) [ M S ] readdatafile:
+ /name (rmm2) def
+ /long_name (RMM2) def
+ /missing_value -9999. def 
+ /units (unitless) def
+ /realarraytype netcdfrecords :readdatafile
+ X removeGRID
+ Y removeGRID
+ } defasvarsilent 
+
+ /phase {
+ [ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/RMM/interannual/rmm_NRL-NESM_%Y%m%d[S].interannual.daily.e%1.1d[M].nc) [ M S ] readdatafile:
+ /name (phase) def
+ /long_name (phase) def
+ /missing_value -9999. def 
+ /units (unitless) def
+ /realarraytype netcdfrecords :readdatafile
+ X removeGRID
+ Y removeGRID
+ } defasvarsilent
+
+ /amplitude {
+ [ X Y | L M S ] (/Data/SubX/NRL/NESM/hindcast/RMM/interannual/rmm_NRL-NESM_%Y%m%d[S].interannual.daily.e%1.1d[M].nc) [ M S ] readdatafile:
+ /name (amp) def
+ /long_name (amplitude) def
+ /missing_value -9999. def 
+ /units (unitless) def
+ /realarraytype netcdfrecords :readdatafile
+ X removeGRID
+ Y removeGRID
+ } defasvarsilent 
+
+ :dataset
+
+:dataset
+\end{ingrid}
+

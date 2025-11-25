@@ -1,0 +1,120 @@
+<HEAD>
+<TITLE> Linear Inverse Calculation</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html394 HREF=subsection3_9_2.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html392 HREF=section3_9.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html386 HREF=section3_9.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html395 HREF=subsection3_9_2.html> Fine tuning of </A>
+<B>Up:</B> <A NAME=tex2html393 HREF=section3_9.html> Fine tuning of </A>
+<B> Previous:</B> <A NAME=tex2html387 HREF=section3_9.html> Fine tuning of </A>
+<HR> <P>
+<H2><A NAME=SECTION0009100000000000000> Linear Inverse Calculation</A></H2>
+<P>
+<A NAME=secinverse_theory><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A>
+<P>
+Without loss of generality, let us consider the fine tuning of heat 
+fluxes. Assuming no heat exchange with the continents,
+(<A HREF=section3_9.html#eqheat_bal>43</A>) can be integrated to produce an estimate of the
+vertically and zonally integrated meridional heat transport
+<P><A NAME=eqmht><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1363.xbm"><P>
+where cartesian coordinates have been adopted for notational 
+convenience.
+In (<A HREF=subsection3_9_1.html#eqmht>45</A>), <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3553.xbm"> is a northern latitude where <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3555.xbm"> is
+specified as a boundary condition. In addition to latitude, the
+meridional heat transport <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3557.xbm"> also depends on the particular 
+choice of <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3559.xbm"> parameters <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3561.xbm"> 
+entering the bulk formulas. 
+We explicitly denote this dependence by
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1369.xbm"><P>
+Let us denote by <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3597.xbm"> the current choice of parameters in the bulk
+formulas. The goal is to find small adjustments <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3565.xbm"> so that
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3567.xbm"> agrees in some sense with <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3569.xbm"> oceanographic
+measurements <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3571.xbm">, <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3573.xbm">. For the cases considered here,
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3575.xbm">, leading to an <em>underdetermined</em> problem. We make the
+following assumptions:
+<OL><LI> The bulk formula parameter errors are normally distributed and
+uncorrelated, with an error covariance matrix denoted by <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3577.xbm">.
+<P>
+<LI> The measurement errors are normally distributed and
+uncorrelated, with an error covariance matrix denoted by <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3579.xbm">.
+<P>
+<LI> Bulk formula parameter errors and measurement errors 
+are uncorrelated.
+<P>
+</OL>
+<P>
+For small adjustments <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3671.xbm"> the meridional 
+heat transport can be linearized about <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3597.xbm"> at the
+measurement locations:
+<P><A NAME=eqlinear_mht><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1382.xbm"><P>
+where <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3585.xbm"> are the elements of the <em>sensitivity matrix</em>
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3587.xbm">,
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1389.xbm"><P>
+A solution of this underdetermined problem is
+found by minimizing the functional
+<P><A NAME=eqfunc1><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1394.xbm"><P>
+where <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3589.xbm"> denotes transpose, and
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3591.xbm"> contains the imbalances between 
+the measurements and the meridional heat transport with 
+the adjusted parameters <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3593.xbm">, viz.
+<P><A NAME=eqnl_imbalance><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1402.xbm"><P>
+In a least square sense, the first term in the RHS of (<A HREF=subsection3_9_1.html#eqfunc1>49</A>)
+penalizes large changes in <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3681.xbm"> from the reference value <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3597.xbm">,
+while the second term penalizes large imbalances between measured and
+computed meridional heat transport. Therefore, the measurements <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3599.xbm">
+enter (<A HREF=subsection3_9_1.html#eqnl_imbalance>50</A>) 
+as a <em>weak constraint</em>. Both terms of the functional are
+weighted by the inverse of the error covariance matrices,
+which in principle need not be diagonal as assumed here.
+Under the assumption of normality
+stated above,
+the functional (<A HREF=subsection3_9_1.html#eqfunc1>49</A>) follows from a maximum
+likelihood principle (Menke 1984).
+<P>
+Using (<A HREF=subsection3_9_1.html#eqlinear_mht>47</A>), a
+linearized version of (<A HREF=subsection3_9_1.html#eqfunc1>49</A>) can be found
+<P><A NAME=eqfunc><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1408.xbm"><P>
+where <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3601.xbm">, <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3573.xbm">, denotes 
+the imbalance between the measurements and the
+meridional heat transport computed with the current set of parameters
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3597.xbm">.
+Setting <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3607.xbm"> one finds that the desired minimum
+satisfies
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1425.xbm"><P>
+or equivalently,
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1432.xbm"><P>
+Using the following matrix identity (e.g., Jazwinski 1970, p. 261)
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1437.xbm"><P>
+one arrives at the final result
+<P><A NAME=eqmultiple><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1444.xbm"><P>
+(Notice that this equation differs slightly from eq. (13'') in
+Isemer <em>et al.</em> (1989) where the solution is shown as <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3611.xbm">. This typographic error
+has been acknowledged by H.-J. Isemer [personal communication].  )
+<P>
+In the particular case of a single measurement (<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3613.xbm">), 
+eq. (<A HREF=subsection3_9_1.html#eqmultiple>55</A>) reduces to
+<P><A NAME=eqsingle><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1458.xbm"><P>
+where <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3615.xbm"> (the index <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3617.xbm"> 
+has been omitted).
+<P>
+A plausibility condition to be checked <em>a posteriori</em> is whether
+the adjustments <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3619.xbm"> are small enough compared to the 
+assumed errors <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3669.xbm">. Following Isemer <em>et al.</em> (1989), 
+we accept a solution if
+<P><A NAME=eqerror_cond><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation1464.xbm"><P>
+As discussed by Isemer <em>et al.</em> (1989), the standard <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3623.xbm">-test, used
+to assess the <em>goodness-of-fit</em> of the parameter estimates, is
+problematic given that one has very little confidence on the error
+variances <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3625.xbm">.
+<P>
+<HR> <A NAME=tex2html394 HREF=subsection3_9_2.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html392 HREF=section3_9.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html386 HREF=section3_9.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html395 HREF=subsection3_9_2.html> Fine tuning of </A>
+<B>Up:</B> <A NAME=tex2html393 HREF=section3_9.html> Fine tuning of </A>
+<B> Previous:</B> <A NAME=tex2html387 HREF=section3_9.html> Fine tuning of </A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>
+Fri Oct 20 12:28:33 EDT 1995</I>
+</ADDRESS>

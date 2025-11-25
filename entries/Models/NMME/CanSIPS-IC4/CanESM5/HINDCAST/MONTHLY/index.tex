@@ -1,0 +1,92 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+
+/prmsl_iri0 { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .prmsl_iri0
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/prmsl_iri1 { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .prmsl_iri1
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+:datasetdefs
+
+/references (Kirtman_etal2014) def
+
+/T { S L add
+/long_name (Time) def
+/standard_name (time) def } defasvarsilent
+
+
+/tref { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .tref
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/sst { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .sst
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/prec { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .prec
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/prsml { prmsl_iri1 } defasvar
+
+/tmax { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .tmax
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+ 
+/tmin { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .tmin
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/tmp { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .tmp
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/ugrd { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .ugrd
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/vgrd { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .vgrd
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/hgt { 
+SOURCES .Models .NMME .CanSIPS-IC4 .HINDCAST .MONTHLY .hgt
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+:dataset
+
+ugrd .M name exch def
+ugrd .L name exch def
+ugrd .S name exch def
+ugrd .Y name exch def
+ugrd .X name exch def
+
+\end{ingrid}
+

@@ -1,0 +1,129 @@
+\begin{ingrid}
+continuedataset:
+%/name (const_2d)def
+ /comment (GEOS-5.2.0. This file updated on 2012-09-19 to add AREA parameter.) def
+ /contact (http://gmao.gsfc.nasa.gov/) def
+ /source (Global Modeling and Assimilation Office. GEOSops_5_2_0) def
+ /HDFEOSVersion (HDFEOS_V2.14) def
+ /history (File written by CFIO) def
+ /Conventions (CF-1.0) def
+ /institution (Global Modeling and Assimilation Office, NASA Goddard Space Flight Center, Greenbelt, MD 20771) def
+ /missing_value 9.99999987E14 def
+ /references (http://gmao.gsfc.nasa.gov/research/merra/) def
+ /title (MERRA reanalysis. GEOS-5.2.0) def
+
+link:
+/name (link to MERRA project) def
+/description (MODERN-ERA RETROSPECTIVE ANALYSIS FOR RESEARCH AND APPLICATIONS) def
+/href (http://gmao.gsfc.nasa.gov/research/merra/) def
+:link
+
+grid:
+/name (X)def
+/units (degree_east)def
+ -180.0 0.6666666 179.33333
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ -90.0 0.5 90.0
+:grid
+grid:
+/name (T)def
+/units (minutes since 1979-01-01 00:00:00)def
+values: 0.0 :values
+:grid
+ /AREA{
+[ X Y | T ] (/Data/data20/jallen/MERRA/constants/MERRA300.prod.assim.const_2d_asm_Nx.00000000.hdf) readdatafile:
+/name (AREA) def
+ /standard_name (horizontal_area_of_grid_box) def
+ /units /m2 def
+ /long_name (Horizontal area of grid box) def
+ /fmissing_value 9.99999987E14 def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FRLAKE{
+[ X Y | T] (/Data/data20/jallen/MERRA/constants/MERRA300.prod.assim.const_2d_asm_Nx.00000000.hdf) readdatafile:
+/name (FRLAKE) def
+ /standard_name (fraction_of_lake) def
+ /units /unitless def
+ /long_name (Fraction of lake type in grid box) def
+ /fmissing_value 9.99999987E14 def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FRLAND{
+[ X Y | T] (/Data/data20/jallen/MERRA/constants/MERRA300.prod.assim.const_2d_asm_Nx.00000000.hdf) readdatafile:
+/name (FRLAND) def
+ /standard_name (land_fraction) def
+ /units /unitless def
+ /long_name (Fraction of land type in grid box) def
+ /fmissing_value 9.99999987E14 def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FRLANDICE{
+[ X Y | T] (/Data/data20/jallen/MERRA/constants/MERRA300.prod.assim.const_2d_asm_Nx.00000000.hdf) readdatafile:
+/name (FRLANDICE) def
+ /standard_name (fraction_of_land_ice) def
+ /units /unitless def
+ /long_name (Fraction of land ice type in grid box) def
+ /fmissing_value 9.99999987E14 def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FROCEAN{
+[ X Y | T] (/Data/data20/jallen/MERRA/constants/MERRA300.prod.assim.const_2d_asm_Nx.00000000.hdf) readdatafile:
+/name (FROCEAN) def
+ /standard_name (fraction_of_ocean) def
+ /units /unitless def
+ /long_name (Fraction of ocean in grid box) def
+ /fmissing_value 9.99999987E14 def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /PHIS{
+[ X Y | T] (/Data/data20/jallen/MERRA/constants/MERRA300.prod.assim.const_2d_asm_Nx.00000000.hdf) readdatafile:
+/name (PHIS) def
+ /standard_name (surface geopotential height) def
+ /units (m2/s2)cvn def
+ /long_name (Surface geopotential) def
+ /fmissing_value 9.99999987E14 def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /SGH{
+[ X Y | T] (/Data/data20/jallen/MERRA/constants/MERRA300.prod.assim.const_2d_asm_Nx.00000000.hdf) readdatafile:
+/name (SGH) def
+ /standard_name (standard_deviation_of_topography) def
+ /units /m def
+ /long_name (Standard deviation of topography for gravity wave drag) def
+ /fmissing_value 9.99999987E14 def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,95 @@
+\begin{ingrid}
+continuedataset:
+
+link:
+/name (NASA IDS) def
+/href (https://cad4nasa.gsfc.nasa.gov/) def
+:link
+
+% X grid has 12X128=1536 pixels at 0.25 degree resolution
+grid:
+/name (X)def
+/long_name (Longitude) def
+/standard_name (longitude) def
+/units (degree_east)def
+%  -180 0.25 179.75  1440 grid points
+-180.
+0.25
+179.75
+% 1 index sub
+:grid
+
+% each tile is 128X128
+X partialgrid
+step 128 mul partitiongrid
+name 3 index !
+name 2 index !
+
+% Y grid has 5X128=640 pixels at 0.25 degree resolution
+grid:
+/name (Y)def
+/long_name (Latitude) def
+/standard_name (latitude) def
+/units (degree_north)def
+%80 0.25 -59.75 560 grid points
+80.
+0.25
+-59.75
+% 1 index sub
+:grid
+
+% each tile is 128X128
+Y partialgrid
+step 128 mul partitiongrid
+name 3 index !
+name 2 index !
+
+grid:
+/name (T) def
+/units (months since 1960-01-01) def
+%16 Jan 1983 ensotime
+16 Jan 1983 ensotime
+1
+16 Dec 2013 ensotime
+:grid
+
+grid:
+/name (T2) def
+/units (months since 1960-01-01) def
+%16 Jan 1983 ensotime
+16 Jan 2000 ensotime
+1
+16 Dec 2014 ensotime
+:grid
+
+/et{ [X2 Y2] [X Y T] (/Data/data23/nasa_ids/HAIN_30yrET_ReGrids/Quarter_Degree/HainET30Y_%Y[T]_%m[T].tif.tif) [T] readdatafile:
+/name (ET) def
+/long_name (HainET30Y Evapotranspiration) def
+/units (mm/day) def
+/missing_value -9999.0 def
+/scale_factor 0.408 def
+/valid_min 0.0 def
+/realarraytype tiledtiffimage :readdatafile
+}defasvarsilent
+
+/esi{ [X2 Y2] [X Y T] (/Data/data23/nasa_ids/Hain_30yr_ESI_Regrid/Hain_30yr_ESI_Regrid/Quarter_Degree/HainET_%Y[T]_%m[T].tif) [T] readdatafile:
+/name (ESI) def
+/long_name (Hain30Y ESI) def
+/units (mm/day) def
+/missing_value -9999.0 def
+/scale_factor 0.408 def
+/valid_min 0.0 def
+/realarraytype tiledtiffimage :readdatafile
+}defasvarsilent
+
+/modishainet{ [X2 Y2] [X Y T2] (/Data/data23/nasa_ids/MODISET_ReGrid/Quarter_Degree/MODISET_%Y[T2]_%m[T2].tif) [T2] readdatafile:
+/name (MODISHAINET) def
+/long_name (MODIS HAIN ET) def
+/units (mm/day) def
+/missing_value -9999.0 def
+/valid_min 0.0 def
+/doublearraytype tiledtiffimage :readdatafile
+}defasvarsilent
+
+:dataset
+\end{ingrid}

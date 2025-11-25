@@ -1,0 +1,65 @@
+\begin{ingrid}
+
+continuedataset:
+
+
+ /description (Merged data (Stations from IDEAM + MERRA2) 1980-2019) def 
+
+grid:
+/name (Y)def
+/units (degree_north)def
+-5.0 0.1 15.0
+/long_name (Latitude) def
+:grid
+
+grid:
+/name (X)def
+/units (degree_east)def
+%periodic
+-80.0 0.1 -65.0
+/long_name (Longitude) def
+:grid
+
+
+grid:
+ /name /T def
+ /standard_name (time) def
+ /units (julian_day) def
+ /defaultvalue {last} def
+ 1 Jan 1980 julian_day
+ 1.0
+ 31 Dec 2019 julian_day
+:grid
+
+ /tmax{
+[ X Y | T ]  (/Data/data23/Colombia/ENACTS/V1/Tmax/Daily/Merged/DATA_NetCDF/tmax_mrg_%Y%m%d[T].nc) [T]
+readdatafile:
+ /name (temp) def
+ /units (Celsius) def
+ /long_name (Maximum temperature) def
+ /missing_value -99.0 def
+ /realarraytype netcdfrecords :readdatafile
+ DATA -10 45 RANGE
+}defasvarsilent
+
+ /tmin{
+[ X Y | T ]  (/Data/data23/Colombia/ENACTS/V1/Tmin/Daily/Merged/DATA_NetCDF/tmin_mrg_%Y%m%d[T].nc) [T]
+readdatafile:
+ /name (temp) def
+ /units (Celsius) def
+ /long_name (Minimum temperature) def
+ /missing_value -99.0 def
+ /realarraytype netcdfrecords :readdatafile
+ DATA -10 45 RANGE
+}defasvarsilent
+
+/tmean{
+   SOURCES .Colombia .ENACTS .ENACTS_v1 .ALL .Temperature .daily .tmax
+  SOURCES .Colombia .ENACTS .ENACTS_v1 .ALL .Temperature .daily .tmin add
+  2 div
+  /units (Celsius) def
+  /long_name (Mean temperature) def
+}defasvarsilent
+
+:dataset
+\end{ingrid}

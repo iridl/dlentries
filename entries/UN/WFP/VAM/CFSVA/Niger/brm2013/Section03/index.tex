@@ -1,0 +1,133 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 5648
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 507
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Baseruralmenagenov2013.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Élevage) def
+/Q28 {
+mytable
+myquestion 
+79 VALUE
+ myquestion removeGRID
+/long_name (Le ménage possède t-il des aminaux) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q28A1 {
+mytable
+myquestion 
+80 VALUE
+ myquestion removeGRID
+/long_name (Si oui, : nombre de Bovins) def 
+}defasvarsilent
+
+/Q28A2 {
+mytable
+myquestion 
+81 VALUE
+ myquestion removeGRID
+/long_name (Si oui, : nombre de Ovins) def 
+}defasvarsilent
+
+/Q28A3 {
+mytable
+myquestion 
+82 VALUE
+ myquestion removeGRID
+/long_name (Si oui, : nombre de Caprins) def 
+}defasvarsilent
+
+/Q28A4 {
+mytable
+myquestion 
+83 VALUE
+ myquestion removeGRID
+/long_name (Si oui, : nombre de Camelins) def 
+}defasvarsilent
+
+/Q28A5 {
+mytable
+myquestion 
+84 VALUE
+ myquestion removeGRID
+/long_name (Si oui, : nombre de Asins) def 
+}defasvarsilent
+
+/Q28A6 {
+mytable
+myquestion 
+85 VALUE
+ myquestion removeGRID
+/long_name (Si oui, : nombre de Equins) def 
+}defasvarsilent
+
+/Q28A7 {
+mytable
+myquestion 
+86 VALUE
+ myquestion removeGRID
+/long_name (Si oui, : nombre de Poulets) def 
+}defasvarsilent
+
+/Q28A8 {
+mytable
+myquestion 
+87 VALUE
+ myquestion removeGRID
+/long_name (Si oui, : nombre de Pintades) def 
+}defasvarsilent
+
+/Q28A9 {
+mytable
+myquestion 
+88 VALUE
+ myquestion removeGRID
+/long_name (Si oui, : nombre de Canards/Oies) def 
+}defasvarsilent
+
+/Q28A10 {
+mytable
+myquestion 
+89 VALUE
+ myquestion removeGRID
+/long_name (Si oui, : nombre de Pigeons) def 
+}defasvarsilent
+
+/Q28A11 {
+mytable
+myquestion 
+90 VALUE
+ myquestion removeGRID
+/long_name (Si oui, : nombre de Autres) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

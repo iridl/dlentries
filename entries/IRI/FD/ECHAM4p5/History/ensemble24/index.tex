@@ -1,0 +1,28 @@
+\begin{ingrid}
+
+datasetdefs:
+%/MONTHLY { SIX-HOURLY T .125 shiftGRID monthlyAverage } defasvarcachesilent
+%/DAILY { SIX-HOURLY T .125 shiftGRID dailyAverage } defasvarcachesilent
+:datasetdefs
+\end{ingrid}
+This uses the 2 column GRIB index file
+\begin{ingrid*}
+/SIX-HOURLY
+{(/Data/data1/iri/fd/echam4.5/history/ensemble242Dv2.cuf) readfile
+/hybrid_lev { (/Data/data1/iri/fd/echam4.5/history/ensemble243Dv2.cuf) readfile .hybrid_lev}defasvarsilent
+surface
+/prcp { prl prc add /long_name (Total Precipitation) def 
+/gribparam 260 def
+/grib_name /totprcp def
+} defasvar
+name exch def
+} defasvarsilent
+SIX-HOURLY .surface .prcp cachevar pop
+\end{ingrid*}
+
+This is the old 3 column GRIB index file
+
+/SIX-HOURLY
+{(/Data/data1/iri/fd/echam4.5/history/ensemble242D.cuf) readfile
+/hybrid_lev { (/Data/data1/iri/fd/echam4.5/history/ensemble243D.cuf) readfile .hybrid_lev}defasvarsilent
+} defasvarsilent

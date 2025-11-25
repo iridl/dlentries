@@ -1,0 +1,85 @@
+\begin{ingrid}
+continuedataset:
+/long_name (1971-2000) def
+/prcp {
+  SOURCES .UEA .CRU .TS2p0 .monthly .prcp
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+} defasvarcache
+
+dataset:
+/name /mean def
+/temp {
+  SOURCES .UEA .CRU .TS2p0 .monthly .mean .temp
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+} defasvarcache
+:dataset
+
+dataset:
+/name /minimum def
+/temp {
+  SOURCES .UEA .CRU .TS2p0 .monthly .minimum .temp
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+} defasvarcache
+:dataset
+
+dataset:
+/name /maximum def
+/temp {
+  SOURCES .UEA .CRU .TS2p0 .monthly .maximum .temp
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+} defasvarcache
+:dataset
+
+/cloud {
+  SOURCES .UEA .CRU .TS2p0 .monthly .cloud
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+} defasvarcache
+
+/dtr {
+  SOURCES .UEA .CRU .TS2p0 .monthly .dtr
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+} defasvarcache
+
+/frost {
+  SOURCES .UEA .CRU .TS2p0 .monthly .frost
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+} defasvarcache
+
+/vap {
+  SOURCES .UEA .CRU .TS2p0 .monthly .vap
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+} defasvarcache
+
+/wet {
+  SOURCES .UEA .CRU .TS2p0 .monthly .wet
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+} defasvarcache
+
+grid:
+/name /X def
+degE
+periodic
+-179.75 .5 179.75
+:grid
+grid:
+/name /Y def
+degN
+-89.75 .5 89.75
+:grid
+grid:
+/name /T def
+/units monthclimoname def
+periodic
+Jan 1. Dec
+:grid
+:dataset
+\end{ingrid}

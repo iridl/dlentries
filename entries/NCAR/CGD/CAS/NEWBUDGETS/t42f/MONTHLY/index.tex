@@ -1,0 +1,56 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /lon def
+degE
+periodic
+0 2.8125 357.1875
+:grid
+/lat 64 namedgaussianlat
+%high low subgrid 
+name exch def
+grid:
+/name /time def
+monthtime
+16 Jan 1979 ensotime
+1.
+16 Dec 2001 ensotime
+:grid
+/QTEN {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_QTEN_1979-2001_MM.nc)readfile .QTEN time 3 index .time replaceGRID} defasvarsilent
+/ASR {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_ASR_198502-198904_MM.nc)readfile .ASR time 3 index .time replaceGRID} defasvarsilent
+/TEDIV {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_TEDIV_1979-2001_MM.nc)readfile .TEDIV time 3 index .time replaceGRID} defasvarsilent
+/DSEDIV {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_DSEDIV_1979-2001_MM.nc)readfile .DSEDIV time 3 index .time replaceGRID} defasvarsilent
+/TETEN {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_TETEN_1979-2001_MM.nc)readfile .TETEN time 3 index .time replaceGRID} defasvarsilent
+/EP {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_EP_1979-2001_MM.nc)readfile .EP time 3 index .time replaceGRID} defasvarsilent
+/TE {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_TE_1979-2001_MM.nc)readfile .TE time 3 index .time replaceGRID} defasvarsilent
+/FS {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_FS_198502-198904_MM.nc)readfile .FS time 3 index .time replaceGRID} defasvarsilent
+/T {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_T_1979-2001_MM.nc)readfile .T time 3 index .time replaceGRID} defasvarsilent
+/ITEN {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_ITEN_1979-2001_MM.nc)readfile .ITEN time 3 index .time replaceGRID} defasvarsilent
+/UC {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_UC_1979-2001_MM.nc)readfile .UC time 3 index .time replaceGRID} defasvarsilent
+/KEDIV {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_KEDIV_1979-2001_MM.nc)readfile .KEDIV time 3 index .time replaceGRID} defasvarsilent
+/UK {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_UK_1979-2001_MM.nc)readfile .UK time 3 index .time replaceGRID} defasvarsilent
+/KE {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_KE_1979-2001_MM.nc)readfile .KE time 3 index .time replaceGRID} defasvarsilent
+/UQ {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_UQ_1979-2001_MM.nc)readfile .UQ time 3 index .time replaceGRID} defasvarsilent
+/KTEN {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_KTEN_1979-2001_MM.nc)readfile .KTEN time 3 index .time replaceGRID} defasvarsilent
+/UT {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_UT_1979-2001_MM.nc)readfile .UT time 3 index .time replaceGRID} defasvarsilent
+/LEDIV {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_LEDIV_1979-2001_MM.nc)readfile .LEDIV time 3 index .time replaceGRID} defasvarsilent
+/UZ {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_UZ_1979-2001_MM.nc)readfile .UZ time 3 index .time replaceGRID} defasvarsilent
+/LETEN {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_LETEN_1979-2001_MM.nc)readfile .LETEN time 3 index .time replaceGRID} defasvarsilent
+/U {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_U_1979-2001_MM.nc)readfile .U time 3 index .time replaceGRID} defasvarsilent
+/MRES {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_MRES_1979-2001_MM.nc)readfile .MRES time 3 index .time replaceGRID} defasvarsilent
+/VC {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_VC_1979-2001_MM.nc)readfile .VC time 3 index .time replaceGRID} defasvarsilent
+/NET {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_NET_198502-198904_MM.nc)readfile .NET time 3 index .time replaceGRID} defasvarsilent
+/VK {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_VK_1979-2001_MM.nc)readfile .VK time 3 index .time replaceGRID} defasvarsilent
+/OLR {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_OLR_198502-198904_MM.nc)readfile .OLR time 3 index .time replaceGRID} defasvarsilent
+/VQ {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_VQ_1979-2001_MM.nc)readfile .VQ time 3 index .time replaceGRID} defasvarsilent
+/PHISTEN {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_PHISTEN_1979-2001_MM.nc)readfile .PHISTEN time 3 index .time replaceGRID} defasvarsilent
+/VT {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_VT_1979-2001_MM.nc)readfile .VT time 3 index .time replaceGRID} defasvarsilent
+/PSTEN {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_PSTEN_1979-2001_MM.nc)readfile .PSTEN time 3 index .time replaceGRID} defasvarsilent
+/VZ {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_VZ_1979-2001_MM.nc)readfile .VZ time 3 index .time replaceGRID} defasvarsilent
+/PS {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_PS_1979-2001_MM.nc)readfile .PS time 3 index .time replaceGRID} defasvarsilent
+/V {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_V_1979-2001_MM.nc)readfile .V time 3 index .time replaceGRID} defasvarsilent
+/PW {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_PW_1979-2001_MM.nc)readfile .PW time 3 index .time replaceGRID} defasvarsilent
+/Z {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_Z_1979-2001_MM.nc)readfile .Z time 3 index .time replaceGRID} defasvarsilent
+/Q1QF {(/Data/data6/ncar/cgd/CAS/NEWBUDGETS/T42t_Q1QF_1979-2001_MM.nc)readfile .Q1QF time 3 index .time replaceGRID} defasvarsilent
+:dataset
+\end{ingrid}

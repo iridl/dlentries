@@ -1,0 +1,61 @@
+\begin{ingrid}
+continuedataset:
+/description (Africa 1st and 2nd Order Administrative Boundaries) def
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Provinces def
+/country_na
+{ IRIDB (mews_prov) (country_na) [(feature_id)]open_column_by
+}defasvarsilentnoreuse
+/prov_na
+{ IRIDB (mews_prov) (prov_na) [(feature_id)]open_column_by
+}defasvarsilentnoreuse
+/label
+{ IRIDB (mews_prov) (label) [(feature_id)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (mews_prov) (the_geom) [(feature_id)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+dataset:
+/name /Districts def
+/country_na
+{ IRIDB (mews_dist) (country_na) [(feature_id)]open_column_by
+}defasvarsilentnoreuse
+/prov_na
+{ IRIDB (mews_dist) (prov_na) [(feature_id)]open_column_by
+}defasvarsilentnoreuse
+/dist_na
+{ IRIDB (mews_dist) (dist_na) [(feature_id)]open_column_by
+}defasvarsilentnoreuse
+/label
+{ IRIDB (mews_dist) (label) [(feature_id)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (mews_dist) (the_geom) [(feature_id)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+dataset:
+/name /Prov_SALB_2008 def
+/code1
+{ IRIDB (g2008_1_africa) (code1) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/name1
+{ IRIDB (g2008_1_africa) (name1) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/name2
+{ IRIDB (g2008_1_africa) (name2) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (g2008_1_africa) (the_geom) [(gid)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+Districts dist_na .feature_id name exch put
+Provinces prov_na .feature_id name exch put
+\end{ingrid}
+
+

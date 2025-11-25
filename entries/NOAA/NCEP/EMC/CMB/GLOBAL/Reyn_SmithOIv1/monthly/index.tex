@@ -1,0 +1,52 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+periodic
+-179.5 1. 179.5
+:grid
+grid:
+/name /Y def
+degN
+-89.5 1. 89.5
+:grid
+grid:
+/name /T def
+monthtime
+16 Nov 1981 ensotime
+1. 
+16 Mar 2003 ensotime % enddate
+/defaultvalue { last } def
+:grid
+variable:
+/name /sst def
+/long_name (Sea Surface Temperature) def
+/units /Celsius def
+/scale_factor .01 def
+/history [(Monthly mean sea surface temperature (blended from ship, buoy and bias-corrected satellite data). )]def
+sstcolorscale
+grids: X Y | T :grids
+/PLOTCOAST 1 def
+file:
+i*2
+/name (/Data/data3/ocean/nmc/sstoimonth) def
+:file
+:variable
+%/ssta { sst SOURCES >IGOSS >nmc >climatology >sst sub /name /ssta def /long_name (Sea Surface Temperature Anomalies) def } def
+variable:
+/name /ssta def
+/long_name (Sea Surface Temperature Anomaly) def
+sstacolorscale
+degC
+%/labelinterval 1. def
+/history [(Monthly mean sea surface temperature anomaly (blended from ship, buoy, and bias-corrected satellite data))]def
+grids: X Y | T :grids
+/PLOTCOAST 1 def
+file:
+random
+/name (/Data/data3/ocean/nmc/ssta) def
+:file
+:variable
+:dataset
+\end{ingrid}

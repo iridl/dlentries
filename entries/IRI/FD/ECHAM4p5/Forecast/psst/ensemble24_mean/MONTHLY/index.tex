@@ -1,0 +1,22 @@
+\begin{ingrid}
+/T SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble24 .MONTHLY .T def
+/X SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble24 .SIX-HOURLY .X def
+/Y SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble24 .SIX-HOURLY .Y def
+SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble24 .SIX-HOURLY
+{totype dup /pendingdatasettype eq exch /datasettype eq or
+{
+dup cvntos 3 4 getinterval interp 2001 ge {
+[
+{SOURCES .IRI .FD .ECHAM4p5 .Forecast .psst .ensemble24 .MONTHLY}
+aload pop
+9 index cvpops
+{[M] average} aload pop
+] cvx defasvarcache
+}
+{pop}ifelse
+}
+{pop}ifelse
+}
+forsomedataset
+/ifvar? false def
+\end{ingrid}

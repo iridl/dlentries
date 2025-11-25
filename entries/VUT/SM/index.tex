@@ -1,0 +1,177 @@
+\begin{ingrid}
+% use realm from dlauth
+%(iri.columbia.edu/u_vienna/sm) cvn dataareRestricted
+%/Cookie varies_on
+
+datasetdefs:
+
+/dnflag { v02p3 .dnflag } def
+/flag { v02p3 .flag } def
+/freqband { v02p3 .freqband } def
+/mode { v02p3 .mode } def
+/sensor { v02p3 .sensor } def
+/sm { v02p3 .sm } def
+/sm_uncertainty { v02p3 .sm_uncertainty } def
+/t0 { v02p3 .t0 } def
+
+:datasetdefs
+
+/v02p3 currentobject /v02p3 get def
+/v04p4 currentobject /v04p4 get def
+
+\end{ingrid}
+
+% The following entry was moved to the v02p3 directory and replaced with the redirection above
+
+%/NotOpen dataareIRIonlyPassword
+
+continuedataset:
+/name (ESACCI-SOILMOISTURE-L3S-SSMV-COMBINED-197811-201512.nc)def
+ /references (http://www.esa-soilmoisture-cci.org; Liu, Y.Y., Dorigo, W.A., Parinussa, R.M., de Jeu, R.A.M. , Wagner, W., McCabe, M.F., Evans, J.P., van Dijk, A.I.J.M. (2012). Trend-preserving blending of passive and active microwave soil moisture retrievals, Remote Sensing of Environment, 123, 280-297, doi: 10.1016/j.rse.2012.03.014; Liu, Y.Y., Parinussa, R.M., Dorigo, W.A., De Jeu, R.A.M., Wagner, W., van Dijk, A.I.J.M., McCabe, M.F., & Evans, J.P. (2011): Developing an improved soil moisture dataset by blending passive and active microwave satellite based retrievals. Hydrology and Earth System Sciences, 15, 425-436; Wagner, W., W. Dorigo, R. de Jeu, D. Fernandez, J. Benveniste, E. Haas, M. Ertl (2012): Fusion of active and passive microwave observations to create an Essential Climate Variable data record on soil moisture. ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume I-7, 2012. XXII ISPRS Congress, 25 August – 01 September 2012, Melbourne, Australia) def
+ /contact (cci_sm_contact@eodc.eu) def
+ /license (data use is free and open for all registered users) def
+ /creator_url (http://rs.geo.tuwien.ac.at) def
+ /keywords_vocabulary (NASA Global Change Master Directory (GCMD) Science Keywords) def
+ /time_coverage_end (20151231T235959Z) def
+ /nco_openmp_thread_number 1 def
+ /NCO (4.4.4) def
+ /geospatial_lon_resolution (0.25 degree) def
+ /tracking_id (c6a6a4c1-76f6-4e51-9c82-63622990a238) def
+ /Conventions (CF-1.5) def
+ /geospatial_lon_min (-180.0) def
+ /creator_email (cci_sm_developer@eodc.eu) def
+ /title (ESA CCI Surface Soil Moisture Combined Product) def
+ /geospatial_lon_max (180.0) def
+ /geospatial_lat_resolution (0.25 degree) def
+ /time_coverage_duration (P37Y) def
+ /source (WARP 5.5R1.1/AMI-WS/ERS12 Level 2 Soil Moisture; WARP 5.4R1.0/AMI-WS/ERS2 Level 2 Soil Moisture; WARP 5.5R2.2/ASCAT/MetOp-A Level 2 Soil Moisture; LPRMv05/SMMR/Nimbus 7 L3 Surface Soil Moisture, Ancillary Params, and quality flags; LPRMv05/SSMI/F08, F11, F13 DMSP L3 Surface Soil Moisture, Ancillary Params, and quality flags; LPRMv05/TMI/TRMM L2 Surface Soil Moisture, Ancillary Params, and QC; LPRMv05/AMSR-E/Aqua L2B Surface Soil Moisture, Ancillary Params, and QC; LPRMv05/WINDSAT/CORIOLIS L2 Surface Soil Moisture, Ancillary Params, and QC; LPRMv05/AMSR2/GCOM-W1 L3 Surface Soil Moisture, Ancillary Params) def
+ /standard_name_vocabulary (NetCDF Climate and Forecast (CF) Metadata Convention) def
+ /product_version (02.3) def
+ /geospatial_lat_min (-90.0) def
+ /comment (These data were produced as part of the ESA soil moisture CCI projects. Contract No. ESRIN 22086/08/I-EC, ESRIN 4000104814/11/I-NB) def
+ /summary (The data set was produced during the CCI project.) def
+ /project (Climate Change Initiative - European Space Agency) def
+ /institution (Vienna University of Technology, VU University Amsterdam) def
+ /geospatial_lon_units (degrees_east) def
+ /geospatial_lat_units (degrees_north) def
+ /geospatial_vertical_min (0.0) def
+ /cdm_data_type (Grid) def
+ /keywords (Soil Moisture/Water Content) def
+ /naming_authority (TU Wien) def
+ /id (ESACCI-SOILMOISTURE-L3S-SSMV-COMBINED-19781101000000-fv02.3.nc) def
+ /time_coverage_resolution (P1D) def
+ /creator_name (Department of Geodesy and Geoinformation, Vienna University of Technology) def
+ /platform (Nimbus 7, DMSP, TRMM, ERS-1, ERS-2, METOP-A, AQUA, Coriolis, GCOM-W1) def
+ /time_coverage_start (19781101T000000Z) def
+ /geospatial_vertical_max (0.0) def
+ /date_created (20160204T153622Z) def
+ /spatial_resolution (25km) def
+ /geospatial_lat_max (90.0) def
+grid:
+/name (lon)def
+/units (degree_east)def
+ -179.875 0.25 179.875
+:grid
+grid:
+/name (lat)def
+/units (degree_north)def
+ 89.875 0.25 -89.875
+:grid
+grid:
+/name (time)def
+/units (days since 1970-01-01 00:00:00 UTC)def
+ 3226.0 1.0 16800.0
+:grid
+ /dnflag{
+[ lon lat | time] (/Data/data23/vienna_u/ESACCI-SOILMOISTURE-L3S-SSMV-COMBINED-197811-201512.nc) readdatafile:
+/name (dnflag) def
+ /long_name (Day(100) or Night(110) Flag) def
+ /_CoordinateAxes (lat lon time) def
+ /units /unitless def
+ /flag_values [ 216 132 ] def
+ /flag_meanings (day night) def
+ /missing_value [ 0 ] def
+ /stringtype 1 netcdfrecords :readdatafile
+}defasvarsilent
+ /flag{
+[ lon lat | time] (/Data/data23/vienna_u/ESACCI-SOILMOISTURE-L3S-SSMV-COMBINED-197811-201512.nc) readdatafile:
+/name (flag) def
+ /long_name (Flag) def
+ /_CoordinateAxes (lat lon time) def
+ /units /unitless def
+ /flag_values [ 112 5 82 10 ] def
+ /flag_meanings (no_data_inconsistency_detected snow_coverage_or_temperature_below_zero dense_vegetation others_no_convergence_in_the_model_thus_no_valid_sm_estimates) def
+ /missing_value [ 0 ] def
+ /stringtype 1 netcdfrecords :readdatafile
+}defasvarsilent
+ /freqband{
+[ lon lat | time] (/Data/data23/vienna_u/ESACCI-SOILMOISTURE-L3S-SSMV-COMBINED-197811-201512.nc) readdatafile:
+/name (freqband) def
+ /long_name (Frequency Band) def
+ /_CoordinateAxes (lat lon time) def
+ /units /unitless def
+ /flag_values [ 112 6 82 10 95 ] def
+ /flag_meanings (c_band c_band c_band x_band ku_band) def
+ /missing_value [ 240 ] def
+ /stringtype 1 netcdfrecords :readdatafile
+}defasvarsilent
+ /mode{
+[ lon lat | time] (/Data/data23/vienna_u/ESACCI-SOILMOISTURE-L3S-SSMV-COMBINED-197811-201512.nc) readdatafile:
+/name (mode) def
+ /long_name (Satellite Mode) def
+ /_CoordinateAxes (lat lon time) def
+ /units /unitless def
+ /flag_values [ 0 0 ] def
+ /flag_meanings (ascending descending) def
+ /missing_value [ 0 ] def
+ /stringtype 1 netcdfrecords :readdatafile
+}defasvarsilent
+ /sensor{
+[ lon lat | time] (/Data/data23/vienna_u/ESACCI-SOILMOISTURE-L3S-SSMV-COMBINED-197811-201512.nc) readdatafile:
+/name (sensor) def
+ /long_name (Sensor) def
+ /_CoordinateAxes (lat lon time) def
+ /units /unitless def
+ /flag_values [ 224 115 129 0 224 115 129 0 36 0 0 0 1 0 ] def
+ /flag_meanings (SMMR SSMI TMI AMSR_E AMI_WS ASCAT SSMI+AMI_WS TMI+AMI_WS AMSR_E+AMI_WS AMSR_E+ASCAT WindSat AMSR2 WindSat+ASCAT AMSR2+ASCAT) def
+ /missing_value [ 0 ] def
+ /stringtype 1 netcdfrecords :readdatafile
+}defasvarsilent
+ /sm{
+[ lon lat | time] (/Data/data23/vienna_u/ESACCI-SOILMOISTURE-L3S-SSMV-COMBINED-197811-201512.nc) readdatafile:
+/name (sm) def
+ /long_name (Volumetric Soil Moisture) def
+ /units /unitless def
+ /_CoordinateAxes (lat lon time) def
+ /scale_factor 9.99999975E-05 def
+ /missing_value -9999 def
+ /valid_range [ 0.0 10000.0 ] def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /sm_uncertainty{
+[ lon lat | time] (/Data/data23/vienna_u/ESACCI-SOILMOISTURE-L3S-SSMV-COMBINED-197811-201512.nc) readdatafile:
+/name (sm_uncertainty) def
+ /units /unitless def
+ /scale_factor 9.99999975E-05 def
+ /description (Uncertainty is the estimated standard deviation of the observation) def
+ /long_name (Volumetric Soil Moisture Uncertainty) def
+ /_CoordinateAxes (lat lon time) def
+ /missing_value -9999 def
+ /valid_range [ 0.0 10000.0 ] def
+ /shortarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /t0{
+[ lon lat | time] (/Data/data23/vienna_u/ESACCI-SOILMOISTURE-L3S-SSMV-COMBINED-197811-201512.nc) readdatafile:
+/name (t0) def
+ /long_name (Observation Timestamp) def
+ /units (days since 1970-01-01 00:00:00 UTC)cvn def
+ /_CoordinateAxes (lat lon time) def
+ /calendar /standard def
+ /missing_value -9999.0 def
+ /valid_range [ 3225.5 3226.5 ] def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+:dataset
+%(/Data/data23/vienna_u/ESACCI-SOILMOISTURE-L3S-SSMV-COMBINED-197811-201512.nc) continuewithCDF
+
+\end{ingrid}

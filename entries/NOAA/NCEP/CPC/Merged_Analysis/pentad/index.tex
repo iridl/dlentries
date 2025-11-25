@@ -1,0 +1,86 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/ver1{ v9810 .ver1 }def
+/ver2{ v9810 .ver2 }def
+:datasetdefs
+{v9810 v0107 v0203 v0207 v0301 v0309 v0410 v0504 v0512 v0605 v0610 v0705 v0802 v0806 v0811 v0911
+v1201 v1306 }
+{currentobject 1 index get def} forall
+/latest { v1306 } defasvar
+:dataset
+\end{ingrid}
+
+grid: 
+/name /X def
+degE
+periodic
+1.25 2.5 358.75
+:grid
+grid:
+/name /Y def
+degN
+-88.75 2.5 88.75
+:grid
+grid:
+name /T def
+/units (pentads since 1979-01-01) def
+.5
+1.
+42  1998 1979 sub 73 mul add .5 sub % enddate
+%4 1999  1979 sub 73 mul add .5 sub % enddate
+:grid
+dataset:
+/name /ver1 def
+/long_name (Version 1) def
+/description (using rain gauge , satellite, and  Numerical Model Predictions) def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/units (mm/day) def
+/missing_value -999. def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cac/cmap/pentad/xie.rain1.r4) def
+:file
+:variable
+variable:
+/name /error def
+/units (percent) def
+/missing_value -999. def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cac/cmap/pentad/xie.err1.r4) def
+:file
+:variable
+:dataset
+dataset:
+/name /ver2 def
+/long_name (Version 2)def
+/description (using rain gauge and satellite estimates) def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/units (mm/day) def
+/missing_value -999. def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cac/cmap/pentad/xie.rain2.r4) def
+:file
+:variable
+variable:
+/name /error def
+/units (percent) def
+/missing_value -999. def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cac/cmap/pentad/xie.err2.r4) def
+:file
+:variable
+:dataset
+:dataset
+

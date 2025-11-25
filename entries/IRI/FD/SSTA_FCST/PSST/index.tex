@@ -1,0 +1,88 @@
+\begin{ingrid}
+continuedataset:
+%datasetdefs:
+grid:
+/name /T def
+monthtime
+/pointwidth 1 def
+periodic
+1 Jan 1996 ensotime
+1.
+1 Dec 1996 ensotime
+:grid
+variable:
+/name /Month def
+grids: T :grids
+values:
+(jan) 
+(feb) 
+(mar) 
+(apr) 
+(may) 
+(jun) 
+(jul) 
+(aug) 
+(sep) 
+(oct) 
+(nov) 
+(dec)
+:values
+:variable
+:datasetdefs
+grid:
+/name /T def
+/long_name (Observation time) def
+/units (months since 1960-01-01) def 
+/calendar /360 def
+monthtime
+/pointwidth 0 def
+1 Jan 1996 ensotime
+1.
+%16 Oct 2008 ensotime
+systemtime
+systemtime2ymd
+ymd:lastmonth
+ymd:nextmonth
+ymd2rm1960
+:grid
+
+grid:
+/name /X def
+/units (degree_east)def
+ periodic
+ 0 2.8125 360 2.8125 sub
+:grid
+grid:
+/name /Y def
+/units (degree_north)def
+ 87.86379 -2.78933 -87.86379
+:grid
+T
+/expires {last rm19602ymd
+1 {ymd:nextmonth ymd:nextmonth } repeat
+%1 {ymd:nextmonth} repeat
+pop
+6 ymd2systemtime} def
+{(/Data/data21/iri/forecast/data/ssta_fcst/psst/%Y[T]/%b:lc[T]%y[T]anom_t42.bin)[T]} 
+
+removeextrausing
+/defaultvalue {last} def
+/expires expires def
+name exch def
+/last_modified T .last_modified def
+/expires T .expires def
+/ssta 
+{
+[ X Y | T ]
+(/Data/data21/iri/forecast/data/ssta_fcst/psst/%Y[T]/%s[Month]%y[T]anom_t42.bin) [T Month]
+%(/Data/data21/iri/forecast/data/ssta_fcst/psst/1996/jan96anom_t42.bin) 
+readdatafile:
+/long_name (observed SST_Anomaly) def
+/units (degree C) cvn def
+decdirect
+:readdatafile
+
+}defasvarsilent
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,594 @@
+\begin{ingrid}
+
+continuedataset:
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+1 Dec 1980 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+28 Feb 2010 julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+:grid
+
+ T
+dup (Dec-Feb 1980-1990) (Dec-Feb 2000-2010) VALUES
+name exch def
+
+datasetdefs:
+
+/Tmonth T monthlygrid dup (Dec-Feb 1980-1990) (Dec-Feb 2000-2010) VALUES  def
+
+grid:
+/name /x def
+1 1 198
+:grid
+
+grid:
+/name /y def
+1 1 199
+:grid
+
+/lat2d {
+[x y | ]
+(/Data/data21/WRF_SESA/M8WRF3_d01_2010-02.nc)
+readdatafile:
+/name (lat2d) def
+/realarraytype netcdfrecords
+:readdatafile
+%/units (degree_north) def
+x first VALUE x removeGRID
+}defasvarsilent
+
+/lon2d {
+[x y | ]
+(/Data/data21/WRF_SESA/M8WRF3_d01_2010-02.nc)
+readdatafile:
+/name (lon2d) def
+/realarraytype netcdfrecords
+:readdatafile
+%/units (degree_east) def
+y first VALUE y removeGRID
+}defasvarsilent
+
+:datasetdefs
+
+grid:
+/name /X def
+/units (degree_east) def
+/long_name (Longitude) def
+values:
+-79.87514
+-79.67234
+-79.46953
+-79.26672
+-79.06392
+-78.86111
+-78.6583
+-78.45549
+-78.25269
+-78.04988
+-77.84707
+-77.64426
+-77.44145
+-77.23865
+-77.03584
+-76.83303
+-76.63023
+-76.42741
+-76.22461
+-76.0218
+-75.81899
+-75.61619
+-75.41338
+-75.21057
+-75.00777
+-74.80495
+-74.60215
+-74.39934
+-74.19653
+-73.99373
+-73.79092
+-73.58811
+-73.3853
+-73.1825
+-72.97969
+-72.77688
+-72.57407
+-72.37126
+-72.16846
+-71.96565
+-71.76284
+-71.56004
+-71.35722
+-71.15442
+-70.95161
+-70.7488
+-70.546
+-70.34319
+-70.14038
+-69.93758
+-69.73476
+-69.53196
+-69.32915
+-69.12634
+-68.92354
+-68.72073
+-68.51792
+-68.31511
+-68.1123
+-67.9095
+-67.70669
+-67.50388
+-67.30107
+-67.09827
+-66.89546
+-66.69265
+-66.48985
+-66.28703
+-66.08423
+-65.88142
+-65.67861
+-65.47581
+-65.27299
+-65.07019
+-64.86739
+-64.66457
+-64.46177
+-64.25896
+-64.05615
+-63.85334
+-63.65054
+-63.44773
+-63.24492
+-63.04211
+-62.83931
+-62.6365
+-62.43369
+-62.23088
+-62.02808
+-61.82527
+-61.62246
+-61.41965
+-61.21685
+-61.01404
+-60.81123
+-60.60842
+-60.40562
+-60.20281
+-60
+-59.79719
+-59.59438
+-59.39158
+-59.18877
+-58.98596
+-58.78315
+-58.58035
+-58.37754
+-58.17473
+-57.97192
+-57.76912
+-57.56631
+-57.3635
+-57.16069
+-56.95789
+-56.75508
+-56.55227
+-56.34946
+-56.14666
+-55.94385
+-55.74104
+-55.53823
+-55.33543
+-55.13262
+-54.92981
+-54.727
+-54.52419
+-54.32139
+-54.11858
+-53.91577
+-53.71296
+-53.51015
+-53.30735
+-53.10454
+-52.90173
+-52.69893
+-52.49612
+-52.29331
+-52.0905
+-51.8877
+-51.68489
+-51.48208
+-51.27927
+-51.07647
+-50.87366
+-50.67085
+-50.46804
+-50.26524
+-50.06243
+-49.85962
+-49.65681
+-49.454
+-49.2512
+-49.04839
+-48.84558
+-48.64277
+-48.43996
+-48.23716
+-48.03435
+-47.83154
+-47.62874
+-47.42593
+-47.22312
+-47.02031
+-46.8175
+-46.6147
+-46.41189
+-46.20908
+-46.00628
+-45.80347
+-45.60066
+-45.39785
+-45.19505
+-44.99224
+-44.78943
+-44.58662
+-44.38382
+-44.18101
+-43.9782
+-43.77539
+-43.57258
+-43.36977
+-43.16697
+-42.96416
+-42.76135
+-42.55855
+-42.35574
+-42.15293
+-41.95012
+-41.74731
+-41.54451
+-41.3417
+-41.13889
+-40.93608
+-40.73328
+-40.53047
+-40.32766
+-40.12486
+-39.92205
+:values
+:grid
+
+grid:
+/name /Y def
+/units (degree_north) def
+/long_name (Latitude) def
+values:
+-44.9313
+-44.78755
+-44.64343
+-44.49895
+-44.35413
+-44.20893
+-44.06338
+-43.91747
+-43.77119
+-43.62457
+-43.47758
+-43.33023
+-43.18253
+-43.03447
+-42.88605
+-42.73727
+-42.58814
+-42.43864
+-42.28879
+-42.13858
+-41.98802
+-41.83709
+-41.68582
+-41.53418
+-41.38219
+-41.22984
+-41.07714
+-40.92408
+-40.77067
+-40.61689
+-40.46277
+-40.30829
+-40.15346
+-39.99828
+-39.84273
+-39.68684
+-39.53059
+-39.374
+-39.21704
+-39.05974
+-38.90209
+-38.74408
+-38.58573
+-38.42702
+-38.26797
+-38.10857
+-37.94881
+-37.78872
+-37.62827
+-37.46747
+-37.30633
+-37.14484
+-36.98301
+-36.82083
+-36.65831
+-36.49544
+-36.33224
+-36.16868
+-36.00479
+-35.84055
+-35.67597
+-35.51106
+-35.34581
+-35.18021
+-35.01427
+-34.84801
+-34.6814
+-34.51446
+-34.34718
+-34.17957
+-34.01162
+-33.84335
+-33.67474
+-33.50579
+-33.33652
+-33.16692
+-32.99699
+-32.82673
+-32.65615
+-32.48523
+-32.314
+-32.14243
+-31.97055
+-31.79834
+-31.62582
+-31.45297
+-31.2798
+-31.10632
+-30.93251
+-30.75838
+-30.58395
+-30.4092
+-30.23413
+-30.05875
+-29.88307
+-29.70707
+-29.53077
+-29.35415
+-29.17723
+-29
+-28.82247
+-28.64463
+-28.4665
+-28.28806
+-28.10932
+-27.93029
+-27.75095
+-27.57132
+-27.3914
+-27.21119
+-27.03068
+-26.84988
+-26.6688
+-26.48741
+-26.30576
+-26.12381
+-25.94158
+-25.75906
+-25.57626
+-25.3932
+-25.20984
+-25.02621
+-24.84231
+-24.65813
+-24.47368
+-24.28896
+-24.10397
+-23.91872
+-23.73318
+-23.5474
+-23.36135
+-23.17504
+-22.98846
+-22.80163
+-22.61455
+-22.42721
+-22.23961
+-22.05177
+-21.86367
+-21.67532
+-21.48674
+-21.2979
+-21.10883
+-20.9195
+-20.72995
+-20.54015
+-20.35012
+-20.15985
+-19.96935
+-19.77863
+-19.58767
+-19.39648
+-19.20507
+-19.01344
+-18.82159
+-18.62952
+-18.43723
+-18.24472
+-18.052
+-17.85907
+-17.66593
+-17.47259
+-17.27904
+-17.08527
+-16.89132
+-16.69716
+-16.50281
+-16.30825
+-16.11351
+-15.91858
+-15.72345
+-15.52814
+-15.33264
+-15.13696
+-14.9411
+-14.74506
+-14.54884
+-14.35246
+-14.15589
+-13.95915
+-13.76225
+-13.56518
+-13.36795
+-13.17056
+-12.97301
+-12.7753
+-12.57743
+-12.37942
+-12.18125
+-11.98293
+-11.78448
+-11.58588
+-11.38713
+-11.18824
+-10.98922
+-10.79006
+-10.59077
+-10.39136
+-10.19182
+:values
+:grid
+
+grid:
+/name /M def
+1 1 8
+/long_name (Member) def
+:grid
+
+grid:
+/name /P def
+values: 1000 925 850 700 500 400 300 250 200 150 :values
+/long_name (pressure levels) def
+/units (mb) def
+:grid
+
+/pr {
+[X Y | M T ]
+(/Data/data21/WRF_SESA/M%-d[M]WRF3_d01_%Y-%m[T].nc) [M Tmonth]
+readdatafile:
+/name (pr) def
+/realarraytype netcdfrecords
+:readdatafile
+/missing_value 9.96921e+36 def
+/long_name (Daily precipitation) def
+/units (mm/day) def
+precip_colors
+DATA 0 AUTO RANGE
+%lon2d use_as_grid
+%lat2d use_as_grid
+}defasvarsilent
+
+/tx {
+[X Y | M T ]
+(/Data/data21/WRF_SESA/M%-d[M]WRF3_d01_%Y-%m[T].nc) [M Tmonth]
+readdatafile:
+/name (tx) def
+/realarraytype netcdfrecords
+:readdatafile
+/long_name (Maximum daily temperature) def
+/units (Kelvin_scale) def
+/missing_value 9.96921e+36 def
+temp_colors
+%lon2d use_as_grid
+%lat2d use_as_grid
+}defasvarsilent
+
+/tn {
+[X Y | M T ]
+(/Data/data21/WRF_SESA/M%-d[M]WRF3_d01_%Y-%m[T].nc) [M Tmonth]
+readdatafile:
+/name (tn) def
+/realarraytype netcdfrecords
+:readdatafile
+/long_name (Minimum daily temperature) def
+/units (Kelvin_scale) def
+/missing_value 9.96921e+36 def
+temp_colors
+%lon2d use_as_grid
+%lat2d use_as_grid
+}defasvarsilent
+
+/z {
+[X Y P | M T ]
+(/Data/data21/WRF_SESA/M%-d[M]WRF3_d01_%Y-%m[T].nc) [M Tmonth]
+readdatafile:
+/name (z) def
+/realarraytype netcdfrecords
+:readdatafile
+/long_name (Geopotential) def
+/units (m2 s2) def
+/missing_value 9.96921e+36 def
+%lon2d use_as_grid
+%lat2d use_as_grid
+}defasvarsilent
+
+/u {
+[X Y P | M T ]
+(/Data/data21/WRF_SESA/M%-d[M]WRF3_d01_%Y-%m[T].nc) [M Tmonth]
+readdatafile:
+/name (u) def
+/realarraytype netcdfrecords
+:readdatafile
+/long_name (wind u-component) def
+/units (m/s) def
+/missing_value 9.96921e+36 def
+windspeed_colors
+DATA 0 AUTO RANGE
+%lon2d use_as_grid
+%lat2d use_as_grid
+}defasvarsilent
+
+/v {
+[X Y P | M T ]
+(/Data/data21/WRF_SESA/M%-d[M]WRF3_d01_%Y-%m[T].nc) [M Tmonth]
+readdatafile:
+/name (v) def
+/realarraytype netcdfrecords
+:readdatafile
+/long_name (wind v-component) def
+/units (m/s) def
+/missing_value 9.96921e+36 def
+windspeed_colors
+DATA 0 AUTO RANGE
+%lon2d use_as_grid
+%lat2d use_as_grid
+}defasvarsilent
+
+/t2 {
+[X Y | M T ]
+(/Data/data21/WRF_SESA/M%-d[M]WRF3_d01_%Y-%m[T].nc) [M Tmonth]
+readdatafile:
+/name (t2) def
+/realarraytype netcdfrecords
+:readdatafile
+/long_name (Mean daily temperature) def
+/units (Kelvin_scale) def
+/missing_value 9.96921e+36 def
+temp_colors
+%lon2d use_as_grid
+%lat2d use_as_grid
+}defasvarsilent
+
+:dataset
+
+T name exch def
+
+\end{ingrid}

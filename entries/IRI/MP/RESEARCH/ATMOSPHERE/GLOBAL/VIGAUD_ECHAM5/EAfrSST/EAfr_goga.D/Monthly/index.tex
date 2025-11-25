@@ -1,0 +1,125 @@
+\begin{ingrid}
+/references(Roeckner_etal2006) def
+continuedataset:
+datasetdefs:
+
+grid:
+/name /T def
+/long_name (Time) def
+/units (months since 1960-01-01) def
+/calendar /360 def
+monthtime
+/pointwidth 1 def
+16 Jan 1949 ensotime
+1.
+16 Dec 2010
+%systemtime
+%systemtime2ymd pop .5 sub exch
+ensotime
+/defaultvalue {last} def
+:grid
+
+
+
+grid:
+/name /P def
+/long_name (Pressure level) def
+/units (mb) def
+values:
+1000 925 850 775 700 600 500 450 400 350 300 250 200 150 100 50 25
+:values
+:grid
+
+grid:
+/name /X def
+/units (degree_east)def
+ periodic
+ 0 2.8125 360  2.8125 sub
+:grid
+
+grid:
+/name /Y def
+/units (degree_north)def
+values:
+87.86 85.10 82.31 79.53 76.74 73.95 71.16 68.37
+ 65.58 62.79 60.00 57.21 54.42 51.63 48.84 46.04 43.25 40.46
+ 37.67 34.88 32.09 29.30 26.51 23.72 20.93 18.14 15.35 12.56
+ 9.77  6.98  4.19  1.40   -1.40   -4.19   -6.98   -9.77  -12.56  -15.35
+ -18.14  -20.93  -23.72  -26.51  -29.30  -32.09  -34.88  -37.67  -40.46  -43.25
+ -46.04  -48.84  -51.63  -54.42  -57.21  -60.00  -62.79  -65.58  -68.37  -71.16
+ -73.95  -76.74  -79.53  -82.31  -85.10  -87.86
+:values
+:grid
+
+dataset: /name /PressureLevel def :dataset
+dataset: /name /Surface def :dataset
+
+
+%DATASET 11 object %this causes extra field 'adataset  adataset[T ]' in ingrid
+[ X Y T ] { name exch def } forall
+[ X Y |/NVZ 225  NewIntegerGRID T ]
+%(/Data/data1/iri/forecast/forecast/ECHAM5_T42.D/ECHAM5_EC3_SST_GHG/%b:lc[S]/%2.2d[M]/c4219EC%2.2d[M]_2N3d_monthly_echamcout.%Y%m[T]) [M L S T]
+(/Data/data24/ECHAM5_3.23.D/EXP.D/EAfr_goga.D/Output/00001test_2N3d_monthly_echamcout.%Y%m[T]) [T]
+readdatafile:
+decsequential
+:readdatafile
+
+
+
+definevariables:
+Surface 0 Zvariable:/name (oro) def /long_name (orography)  def /units (m2 s-2) def :Zvariable
+Surface 0 Zvariable:/name (stl) def /long_name (land surface temperature) def /units (kelvin_scale) def :Zvariable
+Surface 0 Zvariable:/name (sw) def /long_name (soil wetness)  def /units (m) def :Zvariable
+Surface 0 Zvariable:/name (sd) def /long_name (snow depth) def /units (m) def :Zvariable
+Surface 0 Zvariable:/name (precl) def /long_name (large scale precipitation) def /units (kg m-2 s-1) def :Zvariable
+Surface 0 Zvariable:/name (precc) def /long_name (convective precipitation) def /units (kg m-2 s-1) def :Zvariable
+Surface 0 Zvariable:/name (sf) def /long_name (snowfall) def /units (kg m-2 s-1) def :Zvariable
+Surface 0 Zvariable:/name (sh) def /long_name (sensible heat flux) def /standard_name (surface_downward_sensible_heat_flux) def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (lh) def /long_name (laten heat flux) def /standard_name (surface_downward_latent_heat_flux) def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (slp) def /long_name (mean sea level pressure) def /standard_name (air_pressure_at_sea_level) def /units (Pa)def :Zvariable
+Surface 0 Zvariable:/name (runoff) def /long_name (surface runoff) def /units (kg m-2 s-1) def :Zvariable
+Surface 0 Zvariable:/name (drain) def /long_name (drainage) def /units (kg m-2 s-1) def :Zvariable
+Surface 0 Zvariable:/name (cld) def /long_name (cloud cover) def :Zvariable
+Surface 0 Zvariable:/name (u10m) def /long_name (10 meter u wind) def /standard_name (eastward_wind) def /units (m s-1) def :Zvariable
+Surface 0 Zvariable:/name (v10m) def /long_name (10 meter v wind) def /standard_name (northward_wind) def  /units (m s-1) def :Zvariable
+Surface 0 Zvariable:/name (t2m) def /long_name (2 meter temperature) def /standard_name (air_temperature) def /units (kelvin_scale) def :Zvariable
+Surface 0 Zvariable:/name (t2md) def /long_name (2 meter dew point temperature) def /standard_name (dew_point_temperature) def /units (kelvin_scale) def :Zvariable
+Surface 0 Zvariable:/name (st) def /long_name (surface temperature) def /standard_name (surface_temperature) def /units (kelvin_scale) def :Zvariable
+Surface 0 Zvariable:/name (wind10) def /long_name (10 meter wind speed) def /units (m s-1) def :Zvariable
+Surface 0 Zvariable:/name (slm) def /long_name (land sea mask) def :Zvariable
+Surface 0 Zvariable:/name (alb) def /long_name (albedo) def /units (percentage) def :Zvariable
+Surface 0 Zvariable:/name (nswg) def /long_name (net shortwave at ground) def /standard_name (surface_net_downward_shortwave_flux) def /units ( W m-2) def :Zvariable
+Surface 0 Zvariable:/name (nlwg) def /long_name (net longwave at ground) def  /standard_name (surface_net_downward_longwave_flux) def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (nswt) def /long_name (net shortwave at top) def  /standard_name (toa_net_downward_shortwave_flux) def /units ( W m-2) def :Zvariable
+Surface 0 Zvariable:/name (olr) def /long_name (outgoing longwave radation) def  /standard_name (toa_net_downward_longwave_flux) def /units ( W m-2) def :Zvariable
+Surface 0 Zvariable:/name (taux) def /long_name (zonal wind stress) def /units (Pa) def :Zvariable
+Surface 0 Zvariable:/name (tauy) def /long_name (meridional wind stress) def /units (Pa) def :Zvariable
+Surface 0 Zvariable:/name (evap) def /long_name (evapration) def /units (kg m-2 s-1) def :Zvariable
+Surface 0 Zvariable:/name (src) def /long_name (skin reservoir content) def /units (m) def :Zvariable
+Surface 0 Zvariable:/name (t2mmax) def /long_name (two meter maximum temperature) def /standard_name (air_temperature) def /units (kelvin_scale) def :Zvariable
+Surface 0 Zvariable:/name (t2mmin) def /long_name (two meter minimum temperature) def /standard_name (air_temperature) def /units (kelvin_scale) def :Zvariable
+%Surface 0 Zvariable:/name (uswg) def /long_name (upward shortwave at ground) def /units ( W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (ulwg) def /long_name (upward longwave at ground) def /units (W m-2) def :Zvariable
+Surface 0 Zvariable:/name (sice) def /long_name (sea ice fraction) def :Zvariable
+Surface 0 Zvariable:/name (icedep) def /long_name (sea ice depth) def /units (m) def :Zvariable
+Surface 0 Zvariable:/name (glac) def /long_name (glacier depth) def /units (m) def :Zvariable
+Surface 0 Zvariable:/name (sni) def /long_name (water equivalent snow depth) def /standard_name (lwe_thickness_of_surface_snow_amount) def /units (m) def :Zvariable
+Surface 0 Zvariable:/name (pwat) def /long_name (precipitable water) def /units (kg m-2 s-1) def :Zvariable
+Surface 0 Zvariable:/name (cwat) def /long_name (vertically integrated cloud water) def /units (kg m-2 s-1) def :Zvariable
+Surface 0 Zvariable:/name (prec) def /long_name (total precipitation) def /standard_name (lwe_thickness_of_precipitation_amount) def /units (kg m-2 s-1) def :Zvariable
+PressureLevel 17 Pvariable:/name (tmp) def /long_name (temperature) def /standard_name (air_temperature) def /units (kelvin_scale) def :Pvariable
+PressureLevel 17 Pvariable:/name (u) def /long_name (zonal wind) def /standard_name (eastward_wind) def/units (m/s) def :Pvariable
+PressureLevel 17 Pvariable:/name (v) def /long_name (meridional wind) def /standard_name (northward_wind) def /units (m/s) def :Pvariable
+PressureLevel 17 Pvariable:/name (q) def /long_name (specific humidity)  def /standard_name (specific_humidity) def /units (kg/kg) def :Pvariable
+PressureLevel 17 Pvariable:/name (omg) def /long_name (vertical pressure velocity)  def /units (pascals/s) def :Pvariable
+PressureLevel 17 Pvariable:/name (vrt) def /long_name (vorticity)  def /units (s-1) def :Pvariable
+PressureLevel 17 Pvariable:/name (stream) def /long_name (stream function) def :Pvariable
+PressureLevel 17 Pvariable:/name (velpot) def /long_name (velocity potential) def /units (m2 s-1) def :Pvariable
+PressureLevel 17 Pvariable:/name (div) def /long_name (divergence) def /units (s-1) def :Pvariable
+PressureLevel 17 Pvariable:/name (gz) def /long_name (geopotential height) def /standard_name (geopotential) def /units (m2 s-2) def :Pvariable
+PressureLevel 17 Pvariable:/name (rh) def /long_name (relative humidity) def :Pvariable
+:definevariables
+
+:dataset
+
+\end{ingrid}

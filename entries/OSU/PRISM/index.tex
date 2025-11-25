@@ -1,0 +1,280 @@
+\begin{ingrid}
+continuedataset:
+link:
+/name /dataset_documentation def
+/href (http://www.prism.oregonstate.edu/) def
+:link
+link:
+/name /PRISMCG def
+/description (PRISM Climate Group) def
+/href (http://www.prismclimate.org) def
+:link
+/references (Daly_etal1994 Daly_etal2002) def
+dataset:
+/name /monthly def
+grid:
+/name /X def
+degE
+-125.020833333333
+.04166666666
+ -66.47916757
+:grid
+/X X partialgrid def
+grid:
+/name /Y def
+degN
+ 49.93750000
+-.04166666666
+24.06250000000
+:grid
+/Y Y partialgrid def
+grid:
+/name /T def
+monthtime
+/defaultvalue {last} def
+ 16 Jan 1895 ensotime
+1
+16 Apr 2013 ensotime
+%systemtime systemtime2ymd ymd:lastmonth pop
+%    16 ymd2rm1960
+:grid
+%T
+%{(ftp://prism.oregonstate.edu/pub/prism/us/grids/ppt/%=[decade]/us_ppt_%Y.%m[T].asc.gz) [T
+%dup
+%        1200 add
+%        120 div
+%        floor toi4
+%        120 mul
+%        60 add
+%        1200 sub
+%        /name /decade def
+%        /pointwidth 120 def
+%]}
+%removeextrausing
+%last
+%    rm19602ymd ymd:nextmonth ymd:nextmonth ymd2systemtime
+%/expires exch def
+%name exch def
+%/expires T .expires def
+T .last_modified set_last_modified
+\end{ingrid}
+% OSU apparently changed filenames, adding "asc", possibly at end of Jan 2013
+\begin{ingrid}
+/ppt {
+ [X
+    Y |
+    T] (ftp://prism.oregonstate.edu/pub/prism/us/grids/ppt/%=[decade]/us_ppt_%Y.%m[T].asc.gz) [T dup
+        1200 add
+        120 div
+        floor toi4
+        120 mul
+        60 add
+        1200 sub
+        /name /decade def
+        /pointwidth 120 def
+        ]readdatafile:
+ 121 set:file_byteoffset
+      /missing_value -9999 def
+      X .npts
+       Y .npts mul
+       6 mul
+       i*4asascii
+       /scale_factor .01 def
+       /units (mm) def
+       /standard_name(precipitation_amount) def
+      :readdatafile
+} defasvarsilent
+\end{ingrid}
+ftp://prism.oregonstate.edu//pub/prism/us/grids/tmax/1900-1909/us_tmax_1904.01.asc.gz
+\begin{ingrid}
+/tmax {
+ [X
+    Y |
+    T] (ftp://prism.oregonstate.edu/pub/prism/us/grids/tmax/%=[decade]/us_tmax_%Y.%m[T].asc.gz) [T dup
+        1200 add
+        120 div
+        floor toi4
+        120 mul
+        60 add
+        1200 sub
+        /name /decade def
+        /pointwidth 120 def
+        ]readdatafile:
+ 121 set:file_byteoffset
+      /missing_value -9999 def
+      X .npts
+       Y .npts mul
+       6 mul
+       i*4asascii
+       /scale_factor .01 def
+       /units (Celsius_scale) def
+       /standard_name (air_temperature) def
+      :readdatafile
+} defasvarsilent
+\end{ingrid}
+ftp://prism.oregonstate.edu//pub/prism/us/grids/tmin/2010-2019/us_tmin_2010.01.asc.gz
+\begin{ingrid}
+/tmin {
+ [X
+    Y |
+    T] (ftp://prism.oregonstate.edu/pub/prism/us/grids/tmin/%=[decade]/us_tmin_%Y.%m[T].asc.gz) [T dup
+        1200 add
+        120 div
+        floor toi4
+        120 mul
+        60 add
+        1200 sub
+        /name /decade def
+        /pointwidth 120 def
+        ]readdatafile:
+ 121 set:file_byteoffset
+      /missing_value -9999 def
+      X .npts
+       Y .npts mul
+       6 mul
+       i*4asascii
+       /scale_factor .01 def
+       /units (Celsius_scale) def
+       /standard_name (air_temperature) def
+      :readdatafile
+} defasvarsilent
+\end{ingrid}
+ftp://prism.oregonstate.edu//pub/prism/us/grids/tdmean/1900-1909/us_tdmean_1904.01.asc.gz
+\begin{ingrid}
+/tdmean {
+ [X
+    Y |
+    T] (ftp://prism.oregonstate.edu/pub/prism/us/grids/tdmean/%=[decade]/us_tdmean_%Y.%m[T].asc.gz) [T dup
+        1200 add
+        120 div
+        floor toi4
+        120 mul
+        60 add
+        1200 sub
+        /name /decade def
+        /pointwidth 120 def
+        ]readdatafile:
+ 121 set:file_byteoffset
+      /missing_value -9999 def
+      X .npts
+       Y .npts mul
+       6 mul
+       i*4asascii
+       /scale_factor .01 def
+       /units (Celsius_scale) def
+       /standard_name (dew_point_temperature) def
+      :readdatafile
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+:dataset
+dataset:
+/name /climatology def
+/long_name (climatology 1971-2000) def
+grid:
+/name /X def
+degE
+-125.020833333333
+0.00833333333
+ -66.47916757
+:grid
+/X X partialgrid def
+grid:
+/name /Y def
+degN
+ 49.93750000
+-0.00833333333
+24.06250000000
+:grid
+/Y Y partialgrid def
+grid:
+/name /T def
+monthtime
+periodic
+Jan 1 Dec
+:grid
+\end{ingrid}
+ftp://prism.oregonstate.edu//pub/prism/us_30s/grids/ppt/Normals/us_ppt_1971_2000.01.asc.gz
+\begin{ingrid}
+/ppt {
+ [X
+    Y |
+    T] (ftp://prism.oregonstate.edu/pub/prism/us_30s/grids/ppt/Normals/us_ppt_1971_2000.%m[T].gz) [T]readdatafile:
+ 116 set:file_byteoffset
+      /missing_value -9999 def
+      X .npts
+       Y .npts mul
+       6 mul
+       i*4asascii
+       /scale_factor .01 def
+       /units (mm) def
+       /standard_name(precipitation_amount) def
+      :readdatafile
+} defasvarcachesilent
+\end{ingrid}
+\begin{ingrid}
+/tmax {
+ [X
+    Y |
+    T] (ftp://prism.oregonstate.edu/pub/prism/us_30s/grids/tmax/Normals/us_tmax_1971_2000.%m[T].gz) [T]readdatafile:
+ 116 set:file_byteoffset
+      /missing_value -9999 def
+      X .npts
+       Y .npts mul
+       6 mul
+       i*4asascii
+       /scale_factor .01 def
+       /units (Celsius_scale) def
+       /standard_name (air_temperature) def
+      :readdatafile
+} defasvarcachesilent
+\end{ingrid}
+\begin{ingrid}
+/tmin {
+ [X
+    Y |
+    T] (ftp://prism.oregonstate.edu/pub/prism/us_30s/grids/tmin/Normals/us_tmin_1971_2000.%m[T].gz) [T]readdatafile:
+ 116 set:file_byteoffset
+      /missing_value -9999 def
+      X .npts
+       Y .npts mul
+       6 mul
+       i*4asascii
+       /scale_factor .01 def
+       /units (Celsius_scale) def
+       /standard_name (air_temperature) def
+      :readdatafile
+} defasvarcachesilent
+\end{ingrid}
+\begin{ingrid}
+%/tdmean {
+%[X
+%   Y |
+%   T] (ftp://prism.oregonstate.edu/pub/prism/us_30s/grids/tdmean/Normals/us_tdmean_1971_2000.%m[T].gz) [T]readdatafile:
+%116 set:file_byteoffset
+%     /missing_value -9999 def
+%     X .npts
+%      Y .npts mul
+%      6 mul
+%      i*4asascii
+%      /scale_factor .01 def
+%      /units (Celsius_scale) def
+%      /standard_name (dew_point_temperature) def
+%     :readdatafile
+%} defasvarcachesilent
+\end{ingrid}
+\begin{ingrid}
+:dataset
+:dataset
+\end{ingrid}
+
+sample data
+
+ncols  1405
+nrows  621
+xllcorner  -125.020833333337
+yllcorner  24.062499999999676
+cellsize 0.04166667
+NODATA_value -9999
+ -9999 -9999 -9999 -9999 -9999 -9999 -9999 
+

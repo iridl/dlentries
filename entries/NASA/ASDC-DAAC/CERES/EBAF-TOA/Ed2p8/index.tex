@@ -1,0 +1,213 @@
+\begin{ingrid}
+continuedataset:
+
+/description (Edition 2.8) def
+
+ /comment (Data is from East to West and South to North. Climatology from 03/2000 to 05/2015.) def
+ /institution (NASA/LaRC (Langley Research Center) Hampton, Va) def
+ /Fill_Value (Fill Value is -999.0) def
+ /title (CERES EBAF (Energy Balanced and Filled) TOA Fluxes. Monthly Averages and 15-year Climatology.) def
+ /version (This is version 2.8: August 21, 2015) def
+% /reference (Loeb, N.G., B.A. Wielicki, D.R. Doelling, G.L. Smith, D.F. Keyes, S. Kato, N. Manalo-Smith, and T. Wong, 2009: Toward Optimal Closure of the Earth's Top-of-Atmosphere Radiation Budget. Journal of Climate, Volume 22, Issue 3 (February 2009) pp. 748-766. doi: 10.1175/2008JCLI2637.1) def
+ /references (Loeb_etal2009) def
+
+
+link:
+/name (Product Description) def
+/description (CERES EBAF-TOA Product Information) def
+/href (http://ceres.larc.nasa.gov/products.php?product=EBAF-TOA) def
+:link
+
+link:
+/name (Product Data Quality Summary) def
+/description (CERES_EBAF_Ed2.8 Data Quality Summary) def
+/href (http://ceres.larc.nasa.gov/documents/DQ_summaries/CERES_EBAF_Ed2.8_DQS.pdf) def
+:link
+
+link:
+/name (source) def
+/description (CERES_EBAF-TOA_Ed2.8 Subsetting and Browsing) def
+/href (http://ceres-tool.larc.nasa.gov/ord-tool/jsp/EBAFSelection.jsp) def
+:link
+
+grid:
+/name /lat def
+/units /degree_north def
+-89.5 1.0 89.5
+:grid
+
+grid:
+/name /lon def
+/units /degree_east def
+periodic
+0.5 1.0 359.5
+:grid
+
+grid:
+/name /time def
+/units (months since 1960-01-01) def
+16 Mar 2000 ensotime
+1.0 
+16 May 2015 ensotime
+:grid
+
+
+/solar_mon{ 
+[ lon lat | time] (/Data/data21/nasa/CERES/EBAF-TOA/CERES_EBAF-TOA_Ed2.8_Subset_200003-201505.nc) readdatafile:
+/name (solar_mon) def
+ /missing_value -999.0 def
+ /long_name (Incoming Solar Flux, Monthly Means) def
+ /valid_min (0.00000) def
+ /units (W/m2)cvn def
+%/standard_name (Incoming Solar Flux) def
+ /standard_name (toa_incoming_shortwave_flux) def
+ /CF_name (toa_incoming_shortwave_flux) def
+ /IPCC_name (none) def
+ /valid_max (800.000) def
+ /realarraytype netcdfrecords :readdatafile
+1.0 mul
+}defasvarsilent
+
+ /toa_cre_lw_mon{
+[ lon lat | time] (/Data/data21/nasa/CERES/EBAF-TOA/CERES_EBAF-TOA_Ed2.8_Subset_200003-201505.nc) readdatafile:
+/name (toa_cre_lw_mon) def
+ /missing_value -999.0 def
+ /long_name (Top of The Atmosphere Cloud Radiative Effects Longwave Flux, Monthly Means) def
+ /valid_min (-100.000) def
+ /units (W/m2)cvn def
+%/standard_name (TOA CRE Longwave Flux) def
+ /standard_name (toa_longwave_cloud_radiative_effect) def
+ /CF_name (toa_longwave_cloud_radiative_effect) def
+ /IPCC_name (none) def
+ /valid_max (300.000) def
+ /realarraytype netcdfrecords :readdatafile
+1.0 mul
+}defasvarsilent
+
+ /toa_cre_net_mon{
+[ lon lat | time] (/Data/data21/nasa/CERES/EBAF-TOA/CERES_EBAF-TOA_Ed2.8_Subset_200003-201505.nc) readdatafile:
+/name (toa_cre_net_mon) def
+ /missing_value -999.0 def
+ /long_name (Top of The Atmosphere Cloud Radiative Effects Net Flux, Monthly Means) def
+ /valid_min (-400.000) def
+ /units (W/m2)cvn def
+%/standard_name (TOA CRE Net Flux) def
+%/CF_name (toa_net_cloud_radiative_effect) def
+ /IPCC_name (none) def
+ /valid_max (400.000) def
+ /realarraytype netcdfrecords :readdatafile
+1.0 mul
+}defasvarsilent
+
+ /toa_cre_sw_mon{
+[ lon lat | time] (/Data/data21/nasa/CERES/EBAF-TOA/CERES_EBAF-TOA_Ed2.8_Subset_200003-201505.nc) readdatafile:
+/name (toa_cre_sw_mon) def
+ /missing_value -999.0 def
+ /long_name (Top of The Atmosphere Cloud Radiative Effects Shortwave Flux, Monthly Means) def
+ /valid_min (-400.000) def
+ /units (W/m2)cvn def
+%/standard_name (TOA CRE Shortwave Flux) def
+ /standard_name (toa_shortwave_cloud_radiative_effect) def
+ /CF_name (toa_shortwave_cloud_radiative_effect) def
+ /IPCC_name (none) def
+ /valid_max (100.000) def
+ /realarraytype netcdfrecords :readdatafile
+1.0 mul
+}defasvarsilent
+
+ /toa_lw_all_mon{
+[ lon lat | time] (/Data/data21/nasa/CERES/EBAF-TOA/CERES_EBAF-TOA_Ed2.8_Subset_200003-201505.nc) readdatafile:
+/name (toa_lw_all_mon) def
+ /missing_value -999.0 def
+ /long_name (Top of The Atmosphere Longwave Flux, Monthly Means, All-Sky conditions) def
+ /valid_min (0.00000) def
+ /units (W/m2)cvn def
+%/standard_name (TOA Longwave Flux - All-Sky) def
+ /standard_name (toa_outgoing_longwave_flux) def
+ /CF_name (toa_outgoing_longwave_flux) def
+ /IPCC_name (none) def
+ /valid_max (400.000) def
+ /realarraytype netcdfrecords :readdatafile
+1.0 mul
+}defasvarsilent
+
+ /toa_lw_clr_mon{
+[ lon lat | time] (/Data/data21/nasa/CERES/EBAF-TOA/CERES_EBAF-TOA_Ed2.8_Subset_200003-201505.nc) readdatafile:
+/name (toa_lw_clr_mon) def
+ /missing_value -999.0 def
+ /long_name (Top of The Atmosphere Longwave Flux, Monthly Means, Clear-Sky conditions) def
+ /valid_min (0.00000) def
+ /units (W/m2)cvn def
+%/standard_name (TOA Longwave Flux - Clear-Sky) def
+ /standard_name (toa_outgoing_longwave_flux_assuming_clear_sky) def
+ /CF_name (toa_outgoing_longwave_flux_assuming_clear_sky) def
+ /IPCC_name (none) def
+ /valid_max (400.000) def
+ /realarraytype netcdfrecords :readdatafile
+1.0 mul
+}defasvarsilent
+
+ /toa_net_all_mon{
+[ lon lat | time] (/Data/data21/nasa/CERES/EBAF-TOA/CERES_EBAF-TOA_Ed2.8_Subset_200003-201505.nc) readdatafile:
+/name (toa_net_all_mon) def
+ /missing_value -999.0 def
+ /long_name (Top of The Atmosphere Net Flux, Monthly Means, All-Sky conditions) def
+ /valid_min (-400.000) def
+ /units (W/m2)cvn def
+%/standard_name (TOA Net Flux - All-Sky) def
+%/CF_name (toa_net_downward_flux) def
+ /IPCC_name (none) def
+ /valid_max (400.000) def
+ /realarraytype netcdfrecords :readdatafile
+1.0 mul
+}defasvarsilent
+
+ /toa_net_clr_mon{
+[ lon lat | time] (/Data/data21/nasa/CERES/EBAF-TOA/CERES_EBAF-TOA_Ed2.8_Subset_200003-201505.nc) readdatafile:
+/name (toa_net_clr_mon) def
+ /missing_value -999.0 def
+ /long_name (Top of The Atmosphere Net Flux, Monthly Means, Clear-Sky conditions) def
+ /valid_min (-400.000) def
+ /units (W/m2)cvn def
+%/standard_name (TOA Net Flux - Clear-Sky) def
+%/CF_name (toa_net_downward_flux_assuming_clear_sky) def
+ /IPCC_name (none) def
+ /valid_max (400.000) def
+ /realarraytype netcdfrecords :readdatafile
+1.0 mul
+}defasvarsilent
+
+ /toa_sw_all_mon{
+[ lon lat | time] (/Data/data21/nasa/CERES/EBAF-TOA/CERES_EBAF-TOA_Ed2.8_Subset_200003-201505.nc) readdatafile:
+/name (toa_sw_all_mon) def
+ /missing_value -999.0 def
+ /long_name (Top of The Atmosphere Shortwave Flux, Monthly Means, All-Sky conditions) def
+ /valid_min (0.00000) def
+ /units (W/m2)cvn def
+%/standard_name (TOA Shortwave Flux - All-Sky) def
+ /standard_name (toa_outgoing_shortwave_flux) def
+ /CF_name (toa_outgoing_shortwave_flux) def
+ /IPCC_name (none) def
+ /valid_max (600.000) def
+ /realarraytype netcdfrecords :readdatafile
+1.0 mul
+}defasvarsilent
+
+ /toa_sw_clr_mon{
+[ lon lat | time] (/Data/data21/nasa/CERES/EBAF-TOA/CERES_EBAF-TOA_Ed2.8_Subset_200003-201505.nc) readdatafile:
+/name (toa_sw_clr_mon) def
+ /missing_value -999.0 def
+ /long_name (Top of The Atmosphere Shortwave Flux, Monthly Means, Clear-Sky conditions) def
+ /valid_min (0.00000) def
+ /units (W/m2)cvn def
+%/standard_name (TOA Shortwave Flux - Clear-Sky) def
+ /standard_name (toa_outgoing_shortwave_flux_assuming_clear_sky) def
+ /CF_name (toa_outgoing_shortwave_flux_assuming_clear_sky) def
+ /IPCC_name (none) def
+ /valid_max (600.000) def
+ /realarraytype netcdfrecords :readdatafile
+1.0 mul
+}defasvarsilent
+
+:dataset
+\end{ingrid}

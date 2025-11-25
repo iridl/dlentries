@@ -1,0 +1,46 @@
+\begin{ingrid}
+/CARDONE insertdataset:
+/description (ECMWF five day average wind stress; Cardone Level 2B data) def
+/iridl:hasSemantics (iridl:Oceanweather) def
+grid:
+/name /X def
+degE
+-80.625 1.875 15.
+:grid
+grid:
+/name /Y def
+degN
+-30. 1.875 30.
+:grid
+grid:
+/name /T def
+/units (julian_day) def
+/add_offset 2444971 def
+2
+5
+218 5 mul 2 index add
+:grid
+file:
+/name (/Data/data3/rainbow/card5da.wi.2b) def
+formatted
+/format ((26F5.0)) def
+grids: X Y [/taux /tauy ] | T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+/scale_factor .001 def
+/missing_value 9999. def
+/history (ECMWF five day average wind stress.  This is Cardone Level 2B data.) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dyne/cm2) def
+/scale_factor .001 def
+/missing_value 9999. def
+/history (ECMWF five day average wind stress.  This is Cardone Level 2B data.) def
+:variable
+:file
+:insertdataset
+\end{ingrid}

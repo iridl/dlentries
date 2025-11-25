@@ -1,0 +1,128 @@
+\begin{ingrid}
+
+/description (Version 1 Revision 1) def
+
+link:
+/name (NCEI Page) def
+/description (Precipitation - PERSIANN-CDR) def
+/href (https://www.ncdc.noaa.gov/cdr/atmospheric/precipitation-persiann-cdr) def
+:link
+
+link:
+/name (Overview) def
+ /description (PERSIANN-CDR Overview) def
+%/href (http://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/PERSIANN/Overview.pdf) def
+ /href (https://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/PERSIANN/CDR_Flyer_01B-16.pdf) def
+:link
+
+link:
+/name (Use Agreement) def
+ /description (PERSIANN-CDR Use Agreement) def
+%/href (http://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/PERSIANN/UseAgreement.pdf) def
+ /href (https://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/PERSIANN/UseAgreement_01B-16.pdf) def
+:link
+
+link:
+/name (THREDDS) def
+ /description (PERSIANN-CDR THREDDS) def
+%/href (http://www.ncdc.noaa.gov/thredds/catalog/cdr/persiann/catalog.html?dataset=cdr/persiann/persiann.ncml) def
+ /href (https://www.ncei.noaa.gov/thredds/satellite/persiann.html) def
+:link
+
+link:
+/name (Data Source) def
+ /description (PERSIANN-CDR HTTPS Access) def
+ /href (https://www.ncei.noaa.gov/data/precipitation-persiann/access/) def
+:link
+
+link:
+/name (Algorithm Description) def
+ /description (PERSIANN-CDR Algorithm Description) def
+%/href (http://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/PERSIANN/AlgorithmDescription.pdf) def
+ /href (https://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/PERSIANN/AlgorithmDescription_01B-16.pdf) def
+:link
+
+link:
+/name (Data Flow Diagram) def
+ /description (PERSIANN-CDR Data Flow Diagram) def
+%/href (http://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/PERSIANN/DataFlowDiagram.pdf) def
+ /href (https://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/PERSIANN/DataFlowDiagram_01B-16.pdf) def
+:link
+
+link:
+/name (Maturity Matrix) def
+ /description (PERSIANN-CDR Maturity Matrix) def
+%/href (http://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/PERSIANN/MaturityMatrix.pdf) def
+ /href (https://www1.ncdc.noaa.gov/pub/data/sds/cdr/CDRs/PERSIANN/MaturityMatrix_01B-16.pdf) def
+:link
+
+continuedataset:
+
+%/references (Ashouri H., K. Hsu, S. Sorooshian, D. K. Braithwaite, K. R. Knapp,
+%L. D. Cecil, B. R. Nelson, and O. P. Prat, 2015: PERSIANN - CDR: Daily Precipitation Climate
+%Data Record from Multi-Satellite Observations for Hydrological and Climate Studies. Bull. Amer.
+%Meteor. Soc., 96, 69-83, doi: http://dx.doi.org/10.1175/BAMS-D-13-00068.1) def
+
+/references (Ashouri_etal2015) def
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+1 Jan 1983 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+%30 Jun 2015 julian_day 01 Jan 1960 julian_day sub 0.5 add
+30 Sep 2019 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%systemtime (%d %b %Y) 12 strftime interp julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+/netcdfgrid true def
+:grid
+
+%T {(https://www.ncei.noaa.gov/data/precipitation-persiann/access/%Y[T]/PERSIANN-CDR_v01r01_%Y%m%d[T]_c*.nc) [ T ]} remoteremoveextrausing
+%T {(/Data/data23/noaa/ncdc/data.ncdc.noaa.gov/cdr/persiann/files/%Y[T]/PERSIANN-CDR_v01r01_%Y%m%d[T]_c*.nc) [ T ]} removeextrausing
+%name exch def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+0.125 0.25 359.875
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+59.875 0.25 -59.875
+:grid
+
+/precipitation{
+[Y X | T ]
+(/Data/data23/noaa/ncdc/data.ncdc.noaa.gov/cdr/persiann/files/%Y/PERSIANN-CDR_v01r01_%Y%m%d[T]_c*.nc) [T]
+%(https://www.ncei.noaa.gov/data/precipitation-persiann/access/%Y[T]/PERSIANN-CDR_v01r01_%Y%m%d[T]_c*.nc) [T]
+readdatafile:
+/name (precipitation) def
+% /long_name (NOAA Climate Data Record of PERSIANN-CDR daily precipitation) def
+ /valid_min 0.0 def
+ /units (mm/day) def
+% /cell_method (sum) def
+% /standard_name (precipitation_amount) def
+/standard_name (lwe_thickness_of_precipitation_amount) def
+ /valid_max 999999.0 def
+ /missing_value -9999.0 def
+ /realarraytype netcdfrecords :readdatafile
+
+%readdatafile:
+%/name (precipitation) def
+%/missing_value -9999. def
+%/realarraytype netcdfrecords
+%:readdatafile
+/long_name (precipitation amount) def
+%/units /mm def
+precip_colors
+DATA 0 AUTO RANGE
+} defasvarsilent
+
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,21 @@
+\begin{ingrid}
+continuedataset:
+/description (forced by ten-member ECHAM ensemble) def
+dataset:
+/name /MONTHLY def
+/surface
+{
+dataset .HOURLY .surface T -.0625 shiftGRID T monthlyAverage 
+} defasvarcache
+/atm
+{
+dataset .HOURLY .atm T -.125 shiftGRID T monthlyAverage 
+} defasvarcache
+/rad
+{
+dataset .HOURLY .rad T -.125 shiftGRID T monthlyAverage 
+} defasvarcache
+:dataset
+/iridl:hasSemantics (irigaz:Philippines_119_1)def
+:dataset
+\end{ingrid}

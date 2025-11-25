@@ -1,0 +1,34 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Africa_West_302_0) def
+
+/Regions
+/description ( Regions) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,gid as geom_id,neww,country,the_geom from centralwestafrica order by gid) (gid) openqueryby
+        geom_id
+            /long_name (Geometry id) def
+        CopyStream
+        name exch def
+        neww
+            /long_name (Region name abbrev.) def
+        CopyStream
+        name exch def
+        country
+            /long_name (Country id) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Region geometry) def
+        name exch def
+}defasvarcachesilent
+/last_modified 
+{  db: 
+   /server (localhost) def 
+   /dbname (iridb) def 
+   :db
+   (select max ( last_modified ) as last_modified from centralwestafrica) openquery .last_modified
+}def
+\end{ingrid}

@@ -1,0 +1,103 @@
+\begin{ingrid}
+
+/S SOURCES .NOAA .NCEP .EMC .CFSv2 .NMME_REALTIME_ENSEMBLE .FLXF .T .S def
+continuedataset:
+
+link:
+/name (SamplingTable) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCEP/.EMC/.CFSv2/.NMME_REALTIME_ENSEMBLE/.FLXF/mark/sampleS/M/4/STEP/S/exch%5BM%5Dtable:/mark/:table/.html) def
+/description (gives daily start date (last day of previous month and first 7 days of current month) as a function of ensemble member M and monthly start S) def
+:link
+
+grid:
+/name /X def
+/long_name (longitude) def
+/standard_name (longitude) def
+0.0 1.0 359.0
+periodic
+/units (degree_east) def
+:grid
+
+grid:
+/name /Y def
+/long_name (latitude) def
+/standard_name (latitude) def
+-90.0 1.0 90.0 
+/units (degree_north) def
+:grid
+
+grid:
+/name /M def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units /unitless def
+1.0 1.0 32.0
+:grid
+
+grid:
+/name /L def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (months) def
+0.5 1.0 9.5
+:grid
+
+/prec {
+ SOURCES .Models .NMME .NCEP-CFSv2 .MONTHLY .prec
+  L 0.5 VALUE
+  M 1.0 VALUE
+  S last VALUE
+  SOURCES .NOAA .NCEP .EMC .CFSv2 .NMME_REALTIME_ENSEMBLE .FLXF .surface .PRATE
+   [X Y]regridAverage
+   nip
+ c:
+   0.001 (m3 kg-1) :c
+   mul
+  c:
+   1000 (mm m-1) :c
+   mul
+  c:
+   86400 (s day-1) :c
+   mul
+/long_name (Total Precipitation) def
+/standard_name (lwe_precipitation_rate) def
+S /defaultvalue {last} def pop
+} defasvarcachesilent
+
+/tref {
+ SOURCES .Models .NMME .NCEP-CFSv2 .MONTHLY .tref
+  L 0.5 VALUE
+  M 1.0 VALUE
+  S last VALUE
+  SOURCES .NOAA .NCEP .EMC .CFSv2 .NMME_REALTIME_ENSEMBLE .FLXF .2m_above_ground .TMP
+   [X Y]regridAverage
+   nip
+/long_name (Reference Temperature) def
+/standard_name (air_temperature) def
+S /defaultvalue {last} def pop
+} defasvarcachesilent
+
+/sst {
+ SOURCES .NOAA .NCEP .EMC .CFSv2 .NMME_REALTIME_ENSEMBLE .OCNF .surface .TMP
+  Y -90 90 RANGE
+/long_name (Sea Surface Temperature) def
+/standard_name (sea_surface_temperature) def
+S /defaultvalue {last} def pop
+0 maskle
+9.999000E+20 maskge
+(Celsius_scale) unitconvert
+} defasvarcachesilent
+
+/hgt {
+SOURCES .NOAA .NCEP .EMC .CFSv2 .NMME_REALTIME_ENSEMBLE .PGBF .pressure_level .HGT
+ P 200 VALUE
+ Y -90 90 RANGE
+/long_name (Geopotential Height at 200 hPa) def
+/standard_name (geopotential_height) def
+S /defaultvalue {last} def pop
+} defasvarsilent
+
+/T { SOURCES .NOAA .NCEP .EMC .CFSv2 .NMME_REALTIME_ENSEMBLE .FLXF .T } defasvarsilent
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,112 @@
+<HEAD>
+<TITLE> Fine tuning of heat and fresh water fluxes</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html378 HREF=subsection3_9_1.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html376 HREF=vol1.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html370 HREF=section3_8.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html379 HREF=subsection3_9_1.html> Linear Inverse Calculation</A>
+<B>Up:</B> <A NAME=tex2html377 HREF=vol1.html> Atlas of Surface </A>
+<B> Previous:</B> <A NAME=tex2html371 HREF=section3_8.html> Computation of monthly </A>
+<HR> <P>
+<H1><A NAME=SECTION0009000000000000000> Fine tuning of heat and fresh water fluxes</A></H1>
+<P>
+<A NAME=sectuning><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A>
+<P>
+One of the applications of surface marine fluxes 
+is the study of the heat and fresh water balances of the
+world oceans. Similar calculations based on surface marine data have
+been performed by many authors (Budyko 1956, Baumgartner and Reichel
+1975, Esbensen and Kushnir 1981, Hastenrath 1982, Hsiung 1985,
+Oberhuber 1988, Isemer <em>et al.</em> 1989, among others).  As an example,
+consider the vertically integrated heat budget equation for the oceans
+<P><A NAME=eqheat_balance><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation757.xbm"><P>
+where
+<P><A NAME=eqqnet><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_eqnarray763.xbm"><P>
+Integrating (<A HREF=section3_9.html#eqheat_balance>39</A>) for a sufficiently long period of
+time, the storage term <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3521.xbm"> can be neglected,
+resulting in the balance equation
+<P><A NAME=eqheat_bal><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation776.xbm"><P>
+which relates the surface net heat flux to the divergence of the
+mean vertically integrated oceanic transport. If this equation is integrated
+over the globe, the left hand side (LHS) vanishes, as the heat
+exchange with the
+continents is negligibly small. This imposes a consistency condition
+on the net heat fluxes:
+<P><A NAME=eqqnet_consist><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation780.xbm"><P>
+As can be seen from (<A HREF=section3_9.html#eqqnet>42</A>), <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3523.xbm"> is computed as a
+residual from large, uncertain terms and the condition 
+(<A HREF=section3_9.html#eqqnet_consist>44</A>) is not
+guaranteed to be met.  Figure <A HREF=section3_9.html#figunnhf>8</A> shows the mean 
+annual net heat flux over the
+global ocean (in W/m<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2891.xbm">).  Clearly, the amount of outgoing (negative)
+heat flux is not sufficient to balance the amount of incoming
+(positive) heat flux. The imbalance is about 10.5 PW
+(10.5<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3527.xbm"> W) which averages to 30.2 W/m<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2891.xbm"> over the entire
+ocean.  Likewise, there are imbalances between our
+estimates of evaporation and precipitation that cannot be accounted
+for by the Baumgartner and Reichel (1975) estimates of river runoff
+(not shown).  If our heat
+fluxes were used ``as is'' to force global oceanic models, an
+unrealistically large warming trend would result in global mean heat content.
+The goal of this section is to describe an additional set of
+corrections aimed at producing physically consistent (in the sense of
+approximately satisfying eq. (<A HREF=section3_9.html#eqqnet_consist>44</A>) or independent
+oceanic measurements) surface heat and fresh water fluxes over the
+global oceans.
+<P>
+<P><A NAME=figunnhf><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_figure*790.gif"><P>
+<P>
+There are two main sources of errors in estimates of surface marine
+fluxes from historical data. First, there are observational errors
+associated with instrument bias (section <A HREF=section3_4.html#secbiases>4</A>) and sampling
+problems associated with the uneven, and in some areas inadequate,
+data coverage of the world oceans (section <A HREF=section3_10.html#secfwb>10</A>). Second,
+even in the presence of perfect surface marine data, one needs to rely
+on bulk parameterizations - simplified representations of complex
+air-sea interaction processes.  A typical example is the short wave
+radiation which depends on the optical properties of the
+three-dimensional atmosphere.  Its parameterization, however, is in
+terms of monthly mean fractional cloud cover with constant
+coefficients for transmission and water vapor absorption
+(section <A HREF=subsection3_7_6.html#secradiation>7.5</A>).  In addition to these simplified
+expressions, the tuning of bulk parameterizations is usually performed
+in specific geographic locations.  Tuning derived in one location may
+not be representative of other parts of the oceans (e.g., Large and
+Pond (1981, 1982) where transfer coefficients have been experimentally
+derived on a deep water tower in the North Atlantic and OWS Papa in
+the North Pacific). The individual
+components that make up the net heat flux depicted in
+Fig. <A HREF=section3_9.html#figunnhf>8</A> are affected by all of these uncertainties. Since
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3533.xbm"> is a small residual from heat gain (incoming solar
+radiation) and heat loss (primarily due to evaporation) terms, its
+relative error is much larger than the relative error for each of the
+individual components.
+<P>
+In section <A HREF=section3_4.html#secbiases>4</A> we have documented our attempts to
+reduce some of the observational biases in COADS. Here, we perform a
+simple linear inverse calculation to derive small corrections for some
+of the bulk formula parameters, thereby producing a more physically
+consistent net heat flux.  The technique is standard in geophysics
+and the development here is similar to Isemer <em>et al.</em> (1989). 
+A more detailed exposition can be found in Menke (1984).
+<P>
+<HR>
+<UL> 
+<LI> <A NAME=tex2html380 HREF=subsection3_9_1.html#SECTION0009100000000000000> Linear Inverse Calculation</A>
+<LI> <A NAME=tex2html381 HREF=subsection3_9_2.html#SECTION0009200000000000000> Fine tuning of heat fluxes</A>
+<LI> <A NAME=tex2html382 HREF=subsection3_9_3.html#SECTION0009300000000000000> Fine tuning of fresh water fluxes</A>
+<LI> <A NAME=tex2html383 HREF=subsection3_9_4.html#SECTION0009400000000000000> Consistent heat/fresh water flux tuning</A>
+<LI> <A NAME=tex2html384 HREF=subsection3_9_5.html#SECTION0009500000000000000> Constrained fluxes in UWM/ COADS</A>
+<LI> <A NAME=tex2html385 HREF=subsection3_9_6.html#SECTION0009600000000000000> Producing your own fine tuned fluxes</A>
+</UL>
+<HR> <A NAME=tex2html378 HREF=subsection3_9_1.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html376 HREF=vol1.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html370 HREF=section3_8.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html379 HREF=subsection3_9_1.html> Linear Inverse Calculation</A>
+<B>Up:</B> <A NAME=tex2html377 HREF=vol1.html> Atlas of Surface </A>
+<B> Previous:</B> <A NAME=tex2html371 HREF=section3_8.html> Computation of monthly </A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>
+Fri Oct 20 12:28:33 EDT 1995</I>
+</ADDRESS>

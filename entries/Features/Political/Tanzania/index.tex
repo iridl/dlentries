@@ -1,0 +1,56 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (irigaz:Tanzania_145_1) def
+/Sub-Districts
+/description ( Sub-Districts, Wards) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,gid as geom_id,reg_id,region,dist_id,district,wardid,ward_shehi,area_km2,transform(the_geom,4326) as the_geom from tz_wards_2002 order by gid) (gid) openqueryby
+        geom_id
+            /long_name (Geometry id) def
+        CopyStream
+        name exch def
+        reg_id
+            /long_name (Region id) def
+        CopyStream
+        name exch def
+        region 
+            /long_name (Region name) def
+        CopyStream
+        name exch def
+        dist_id
+            /long_name (District id) def
+        CopyStream
+        name exch def
+        district
+            /long_name (District name) def
+        CopyStream
+        name exch def
+        wardid
+            /long_name (Ward id) def
+        CopyStream
+        name exch def
+        ward_shehi
+            /long_name (Ward name) def
+        CopyStream
+        name exch def
+        area_km2
+            /long_name (Ward area) def
+            /units (km2) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Ward/Sub-District geometry) def
+        name exch def
+}defasvarcachesilent
+/last_modified
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select max ( last_modified ) as last_modified from tz_wards_2002) openquery .last_modified /last_modified undef
+}defasvarsilent
+:dataset
+\end{ingrid}

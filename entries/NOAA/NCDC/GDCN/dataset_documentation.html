@@ -1,0 +1,78 @@
+<html><head>
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+    <title>Global Daily Climatology Network</title>
+    <link REL=stylesheet TYPE="text/css" HREF="/site.html">
+</head>
+<INGRID>standardHeader</INGRID>
+<body>
+<p>
+The GDCN data can be found <a href="http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCDC/.GDCN/">here</a>.
+<p>
+<b><u>COUNTRY CODES</u></b>
+<br>
+The country code key is located 
+<a href="http://www.ncdc.noaa.gov/oa/climate/research/gdcn/Appendix_A_V1_0.txt">here</a>.
+<p>
+<b><u>DATA MEASUREMENT FLAG (DMFlag)</u></b>
+<br>
+<table>
+<tr><td></td><td>-</td><td>No data measurement information (Tx,Tn,Pr)</td></tr>
+<tr><td>65</td><td>-</td><td>Accumulated precipitation value (Pr)</td></tr>
+<tr><td>67</td><td>-</td><td>Begin or continuing precipitation accumulation (Pr)</td></tr>
+<tr><td>69</td><td>-</td><td>Estimated value provided by source (Pr)</td></tr>
+<tr><td>72</td><td>-</td><td>Accumulated precipitation indicated by source, however 
+	<br>no accumulated precipitation value was provided (Pr)</td></tr>
+<tr><td>74</td><td>-</td><td>Source provided accumulated precipitation value, however 
+	<br>no information on accumulation period was provided(Pr)</td></tr>
+<tr><td>84</td><td>-</td><td>Trace accumulation reported by source (Pr)</td></tr>
+</table>
+<br>
+<br>
+<b><u>QUALITY CONTROL FLAG (QCFlag)</u></b>
+<br>
+<table>
+<tr><td></td><td>-</td><td>No quality control information (Tx,Tn,Pr)</td></tr>
+<tr><td>70</td><td>-</td><td>Failed source quality control (Tx,Tn,Pr)</td></tr>
+<tr><td>83</td><td>-</td><td>Suspect value identified by source (Tx,Tn,Pr)</td></tr>
+<tr><td>88</td><td>-</td><td>Exceeds known world daily extreme for that particular 
+	<br>element (Krause and Flood, 1997) (Tx,Tn,Pr)</td></tr>
+<tr><td>79</td><td>-</td><td>Temperature value is greater than or equal to 6.0 bi-weight 
+	<br> standard deviations from the period bi-weight mean (Tx,Tn)</td></tr>
+<tr><td>5</td><td>-</td><td>Temperature value is greater than or equal to 5.0 and less  
+	<br> than 6.0 bi-weight standard deviations from the period 
+	<br> bi-weight mean (Tx,Tn)</td></tr>
+<tr><td>4</td><td>-</td><td>Temperature value is greater than or equal to 4.0 and less  
+	<br> than 5.0 bi-weight standard deviations from the period 
+	<br> bi-weight mean (Tx,Tn)</td></tr>
+<tr><td>3</td><td>-</td><td>Temperature value is greater than or equal to 3.0 and less  
+	<br> than 4.0 bi-weight standard deviations from the period 
+	<br> bi-weight mean (Tx,Tn)</td></tr>
+<tr><td>75</td><td>-</td><td>Streak value (value occurs 10 or more days in a row).  
+	<br> Note 0.0 mm precipitation values are excluded. (Tx,Tn,Pr)</td></tr>
+<tr><td>69</td><td>-</td><td>Extreme precipitation value ( >= 90th percentile of all observations  
+	<br> within that month for the period on record). (Pr)</td></tr>
+<tr><td>73</td><td>-</td><td>Internal consistency error, minimum temperature value greater than   
+	<br> same day maximum temperature value (Tx,Tn)</td></tr>
+</table>
+<br>
+It is possible that one or more quality control flags may apply to a single datum.  Therefore, the 
+<br>above listed flags are listed in order of precedence.  Thus, if a value is suspect (e.g., flag=83) 
+<br> and also an outlier (e.g., flag=79), then the suspect flag will be set for that datum.
+<p>
+<b>Note:</b> A list of stations with <b>potentially inconsistent accumulated precipitation observing practices</b> 
+can be found <a href="http://www.ncdc.noaa.gov/oa/climate/research/gdcn/Appendix_D_V1_0.txt">here</a>.  More 
+information can be found on page 14 of the 
+<a href="http://www.ncdc.noaa.gov/oa/climate/research/gdcn/gdcn.html#docu">official documentation</a>.
+<p>
+<b>Note:</b>  A portion of the stations were given new ids to facilitate their entry into 
+the Data Library.  A list of these stations, along with their original and new ids, can be found 
+<a href="http://iri.columbia.edu/~grover/DataLibrary/gdcn-id.txt">here</a>.
+<p>
+<a href="http://www.ncdc.noaa.gov/oa/climate/research/gdcn/gdcn.html#docu">Full documentation</a> 
+for this dataset can be obtained from NCDC.
+
+
+</body>
+</html>
+
+

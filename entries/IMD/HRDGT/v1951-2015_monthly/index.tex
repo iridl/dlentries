@@ -1,0 +1,31 @@
+\begin{ingrid}
+continuedataset:
+/description (IMD High Resolution Monthly Gridded Temperature Data Set) def
+%/IRIONLY datadownloadsareIRIonlyPassword
+%/IMDPrecipERFS dataareRestricted
+/IMDPrecipERFS datadownloadsareRestricted
+
+%link:
+%/name (dataset_documentation) def
+%/href (http://www.imdpune.gov.in/ncc_rept/RESEARCH%20%20REPORT%208.pdf) def
+%/description (NCC Research Report 8) def
+%:link
+
+/references (Srivastava_etal2008) def
+
+/tmean {
+SOURCES .IMD .HRDGT .v1951-2015 .tmean 
+monthlyAverage
+/long_name (Temperature Monthly Average) def
+T /defaultvalue { last } def pop
+}defasvar
+
+/tmean_climo {
+SOURCES .IMD .HRDGT .v1951-2015 .tmean 
+monthlyAverage yearly-climatology
+/long_name (Temperature Monthly Climatology 1951-2015) def
+T /defaultvalue { last } def pop
+}defasvar
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,1057 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9741
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 289
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_rapid_FSAdec_2009.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Stratégies) def
+/Q28A {
+mytable
+myquestion 
+126 VALUE
+ myquestion removeGRID
+/long_name (Q28 : Combien de repas collectifs sont pris par jour dans le) def 
+}defasvarsilent
+
+/Q28B {
+mytable
+myquestion 
+127 VALUE
+ myquestion removeGRID
+/long_name (Q28 : Combien de repas collectifs sont pris par jour dans le) def 
+}defasvarsilent
+
+/Q29A {
+mytable
+myquestion 
+128 VALUE
+ myquestion removeGRID
+/long_name (Q29 : Combien de repas sont pris par jour dans le ménage par) def 
+}defasvarsilent
+
+/Q29B {
+mytable
+myquestion 
+129 VALUE
+ myquestion removeGRID
+/long_name (Q29 : Combien de repas sont pris par jour dans le ménage par) def 
+}defasvarsilent
+
+/Q301A {
+mytable
+myquestion 
+130 VALUE
+ myquestion removeGRID
+/long_name (Q30.1  : Y a-t-il eu des moments où vous n'aviez pas assez d) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q301B {
+mytable
+myquestion 
+131 VALUE
+ myquestion removeGRID
+/long_name (Q30.1  : Y a-t-il eu des moments où vous n'aviez pas assez d) def 
+}defasvarsilent
+
+/Q302A {
+mytable
+myquestion 
+132 VALUE
+ myquestion removeGRID
+/long_name (Q30.2  : Est-ce que votre ménage a consommé des aliments moi) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q302B {
+mytable
+myquestion 
+133 VALUE
+ myquestion removeGRID
+/long_name (Q30.2  : Est-ce que votre ménage a consommé des aliments moi) def 
+}defasvarsilent
+
+/Q303A {
+mytable
+myquestion 
+134 VALUE
+ myquestion removeGRID
+/long_name (Q30.3  : Est-ce que votre ménage a emprunté des vivres chez) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q303B {
+mytable
+myquestion 
+135 VALUE
+ myquestion removeGRID
+/long_name (Q30.3  : Est-ce que votre ménage a emprunté des vivres chez) def 
+}defasvarsilent
+
+/Q304A {
+mytable
+myquestion 
+136 VALUE
+ myquestion removeGRID
+/long_name (Q30.4  : Est-ce que votre ménage a acheté des vivres à crédi) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q304B {
+mytable
+myquestion 
+137 VALUE
+ myquestion removeGRID
+/long_name (Q30.4  : Est-ce que votre ménage a acheté des vivres à crédi) def 
+}defasvarsilent
+
+/Q305A {
+mytable
+myquestion 
+138 VALUE
+ myquestion removeGRID
+/long_name (Q30.5  : Est-ce que votre ménage a dû dépendre de l'aide ali) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q305B {
+mytable
+myquestion 
+139 VALUE
+ myquestion removeGRID
+/long_name (Q30.5  : Est-ce que votre ménage a dû dépendre de l'aide ali) def 
+}defasvarsilent
+
+/Q306A {
+mytable
+myquestion 
+140 VALUE
+ myquestion removeGRID
+/long_name (Q30.6  : Est-ce que votre ménage a dû renoncer au paiement d) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q306B {
+mytable
+myquestion 
+141 VALUE
+ myquestion removeGRID
+/long_name (Q30.6  : Est-ce que votre ménage a dû renoncer au paiement d) def 
+}defasvarsilent
+
+/Q307A {
+mytable
+myquestion 
+142 VALUE
+ myquestion removeGRID
+/long_name (Q30.7  : Est-ce que votre ménage a eu recours inhabituel à l) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q307B {
+mytable
+myquestion 
+143 VALUE
+ myquestion removeGRID
+/long_name (Q30.7  : Est-ce que votre ménage a eu recours inhabituel à l) def 
+}defasvarsilent
+
+/Q308A {
+mytable
+myquestion 
+144 VALUE
+ myquestion removeGRID
+/long_name (Q30.8  : Est-ce que votre ménage a consommé des semences pou) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q308B {
+mytable
+myquestion 
+145 VALUE
+ myquestion removeGRID
+/long_name (Q30.8  : Est-ce que votre ménage a consommé des semences pou) def 
+}defasvarsilent
+
+/Q309A {
+mytable
+myquestion 
+146 VALUE
+ myquestion removeGRID
+/long_name (Q30.9  : Est-ce que votre ménage a dû demander à d'autres mé) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q309B {
+mytable
+myquestion 
+147 VALUE
+ myquestion removeGRID
+/long_name (Q30.9  : Est-ce que votre ménage a dû demander à d'autres mé) def 
+}defasvarsilent
+
+/Q3010A {
+mytable
+myquestion 
+148 VALUE
+ myquestion removeGRID
+/long_name (Q30.10  : Est-ce que au moins un membre de votre ménage a eu) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q3010B {
+mytable
+myquestion 
+149 VALUE
+ myquestion removeGRID
+/long_name (Q30.10  : Est-ce que au moins un membre de votre ménage a eu) def 
+}defasvarsilent
+
+/Q3011A {
+mytable
+myquestion 
+150 VALUE
+ myquestion removeGRID
+/long_name (Q30.11  : Est-ce que votre ménage a diminué la ration journa) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q3011B {
+mytable
+myquestion 
+151 VALUE
+ myquestion removeGRID
+/long_name (Q30.11  : Est-ce que votre ménage a diminué la ration journa) def 
+}defasvarsilent
+
+/Q3012A {
+mytable
+myquestion 
+152 VALUE
+ myquestion removeGRID
+/long_name (Q30.12  : Est-ce que votre ménage a dû diminuer la ration jo) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q3012B {
+mytable
+myquestion 
+153 VALUE
+ myquestion removeGRID
+/long_name (Q30.12  : Est-ce que votre ménage a dû diminuer la ration jo) def 
+}defasvarsilent
+
+/Q3013A {
+mytable
+myquestion 
+154 VALUE
+ myquestion removeGRID
+/long_name (Q30.13  : Est-ce que votre ménage a dû acheter des repas pou) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q3013B {
+mytable
+myquestion 
+155 VALUE
+ myquestion removeGRID
+/long_name (Q30.13  : Est-ce que votre ménage a dû acheter des repas pou) def 
+}defasvarsilent
+
+/Q3014A {
+mytable
+myquestion 
+156 VALUE
+ myquestion removeGRID
+/long_name (Q30.14  : Est-ce que votre ménage a diminué le nombre de rep) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q3014B {
+mytable
+myquestion 
+157 VALUE
+ myquestion removeGRID
+/long_name (Q30.14  : Est-ce que votre ménage a diminué le nombre de rep) def 
+}defasvarsilent
+
+/Q3015A {
+mytable
+myquestion 
+158 VALUE
+ myquestion removeGRID
+/long_name (Q30.15  : Est-ce que votre ménage a dû passer toute une jour) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q3015B {
+mytable
+myquestion 
+159 VALUE
+ myquestion removeGRID
+/long_name (Q30.15  : Est-ce que votre ménage a dû passer toute une jour) def 
+}defasvarsilent
+
+/Q311A {
+mytable
+myquestion 
+160 VALUE
+ myquestion removeGRID
+/long_name (Q31.1  : Est-ce que votre ménage a enregistré des départs d') def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q311B {
+mytable
+myquestion 
+161 VALUE
+ myquestion removeGRID
+/long_name (Q31.1  : Est-ce que votre ménage a enregistré des départs d') def 
+}defasvarsilent
+
+/Q312A {
+mytable
+myquestion 
+162 VALUE
+ myquestion removeGRID
+/long_name (Q31.2  : Est-ce que votre ménage a vendu des animaux reprodu) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q312B {
+mytable
+myquestion 
+163 VALUE
+ myquestion removeGRID
+/long_name (Q31.2  : Est-ce que votre ménage a vendu des animaux reprodu) def 
+}defasvarsilent
+
+/Q313A {
+mytable
+myquestion 
+164 VALUE
+ myquestion removeGRID
+/long_name (Q31.3  : Est-ce que votre ménage a vendu des biens non produ) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q313B {
+mytable
+myquestion 
+165 VALUE
+ myquestion removeGRID
+/long_name (Q31.3  : Est-ce que votre ménage a vendu des biens non produ) def 
+}defasvarsilent
+
+/Q314A {
+mytable
+myquestion 
+166 VALUE
+ myquestion removeGRID
+/long_name (Q31.4  : Est-ce que votre ménage a vendu des biens productif) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q314B {
+mytable
+myquestion 
+167 VALUE
+ myquestion removeGRID
+/long_name (Q31.4  : Est-ce que votre ménage a vendu des biens productif) def 
+}defasvarsilent
+
+/Q315A {
+mytable
+myquestion 
+168 VALUE
+ myquestion removeGRID
+/long_name (Q31.5  : Est-ce que votre ménage a vendu des terres pour des) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q315B {
+mytable
+myquestion 
+169 VALUE
+ myquestion removeGRID
+/long_name (Q31.5  : Est-ce que votre ménage a vendu des terres pour des) def 
+}defasvarsilent
+
+/Q316A {
+mytable
+myquestion 
+170 VALUE
+ myquestion removeGRID
+/long_name (Q31.6  : Est-ce que votre ménage a retiré les enfants de l'é) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q316B {
+mytable
+myquestion 
+171 VALUE
+ myquestion removeGRID
+/long_name (Q31.6  : Est-ce que votre ménage a retiré les enfants de l'é) def 
+}defasvarsilent
+
+/Q32 {
+mytable
+myquestion 
+172 VALUE
+ myquestion removeGRID
+/long_name (Q32.  : Connaissez-vous des ménages de votre localité qui on) def 
+/units /ids def
+/CLIST [(Oui)(Non)(NSP)] def
+/scale_min 1 def
+/scale_max 9 def
+}defasvarsilent
+
+/CSI0 {
+mytable
+myquestion 
+174 VALUE
+ myquestion removeGRID
+/long_name (Coping strategy index ponderation universelle) def 
+}defasvarsilent
+
+/RCSI0 {
+mytable
+myquestion 
+175 VALUE
+ myquestion removeGRID
+/long_name (Reduced coping strategy index ponderation universelle) def 
+}defasvarsilent
+
+/Q_301A {
+mytable
+myquestion 
+186 VALUE
+ myquestion removeGRID
+0 flaggt/long_name () def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_302A {
+mytable
+myquestion 
+187 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_302A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_303A {
+mytable
+myquestion 
+188 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_303A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_304A {
+mytable
+myquestion 
+189 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_304A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_305A {
+mytable
+myquestion 
+190 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_305A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_306A {
+mytable
+myquestion 
+191 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_306A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_307A {
+mytable
+myquestion 
+192 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_307A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_308A {
+mytable
+myquestion 
+193 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_308A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_309A {
+mytable
+myquestion 
+194 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_309A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_3010A {
+mytable
+myquestion 
+195 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_3010A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_3011A {
+mytable
+myquestion 
+196 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_3011A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_3012A {
+mytable
+myquestion 
+197 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_3012A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_3013A {
+mytable
+myquestion 
+198 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_3013A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_3014A {
+mytable
+myquestion 
+199 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_3014A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_3015A {
+mytable
+myquestion 
+200 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_3015A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_311A {
+mytable
+myquestion 
+201 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_311A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_312A {
+mytable
+myquestion 
+202 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_312A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_313A {
+mytable
+myquestion 
+203 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_313A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_314A {
+mytable
+myquestion 
+204 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_314A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_315A {
+mytable
+myquestion 
+205 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_315A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q_316A {
+mytable
+myquestion 
+206 VALUE
+ myquestion removeGRID
+0 flaggt/long_name (Q_316A) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/CSI_20 {
+mytable
+myquestion 
+207 VALUE
+ myquestion removeGRID
+/long_name (Coping strategy index ponderation adaptée) def 
+}defasvarsilent
+
+/CSI_21 {
+mytable
+myquestion 
+208 VALUE
+ myquestion removeGRID
+/long_name (Coping strategy index ponderation adaptée) def 
+}defasvarsilent
+
+/CSI_22 {
+mytable
+myquestion 
+209 VALUE
+ myquestion removeGRID
+/long_name (Coping strategy index ponderation adaptée) def 
+}defasvarsilent
+
+/CSI_forte1 {
+mytable
+myquestion 
+210 VALUE
+ myquestion removeGRID
+/long_name (CSI_forte1) def 
+}defasvarsilent
+
+/CSI_02 {
+mytable
+myquestion 
+211 VALUE
+ myquestion removeGRID
+/long_name (Coping strategy index ponderation adaptée finale) def 
+}defasvarsilent
+
+/Q301_A {
+mytable
+myquestion 
+212 VALUE
+ myquestion removeGRID
+/long_name (Y-a-t-il eu des moments où vous n'aviez pas assez de vivres ou d'argent pour en acheter ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q302_A {
+mytable
+myquestion 
+213 VALUE
+ myquestion removeGRID
+/long_name (Est-ce que votre ménage a consommé des aliments moins préférés ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q303_A {
+mytable
+myquestion 
+214 VALUE
+ myquestion removeGRID
+/long_name (Est-ce que votre ménage a emprunté des vivres chez des parents, des voisins ou des amis ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q304_A {
+mytable
+myquestion 
+215 VALUE
+ myquestion removeGRID
+/long_name (Est-ce que votre ménage a  acheté des vivres à crédit ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q305_A {
+mytable
+myquestion 
+216 VALUE
+ myquestion removeGRID
+/long_name (Est-ce que votre ménage a dû dépendre de l’aide alimentaire extérieure ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q306_A {
+mytable
+myquestion 
+217 VALUE
+ myquestion removeGRID
+/long_name (Est-ce que votre ménage a dû renoncer au paiement de dettes contractées pour acheter des vivres ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q307_A {
+mytable
+myquestion 
+218 VALUE
+ myquestion removeGRID
+/long_name (Est-ce que votre ménage a eu recours inhabituel à la consommation d’aliments de pénurie (Anza, Jigga, Agua, Guera sp.)) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q308_A {
+mytable
+myquestion 
+219 VALUE
+ myquestion removeGRID
+/long_name (Est-ce que votre ménage a consommé des  semences pour des raisons d’insécurité alimentaire ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q309_A {
+mytable
+myquestion 
+220 VALUE
+ myquestion removeGRID
+/long_name (Est-ce que votre ménage a dû  demander à d’autres ménages de la nourriture pour les enfants ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q3010_A {
+mytable
+myquestion 
+221 VALUE
+ myquestion removeGRID
+/long_name (Est-ce que  au moins un membre de votre ménage a eu recours à la mendicité ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q3011_A {
+mytable
+myquestion 
+222 VALUE
+ myquestion removeGRID
+/long_name (Est-ce que votre ménage a diminué la ration journalière ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q3012_A {
+mytable
+myquestion 
+223 VALUE
+ myquestion removeGRID
+/long_name (Est-ce que votre ménage a dû diminuer la ration journalière pour les adultes au profit des enfants ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q3013_A {
+mytable
+myquestion 
+224 VALUE
+ myquestion removeGRID
+/long_name (Est-ce que votre ménage a dû acheter des repas pour des raisons d’économie ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q3014_A {
+mytable
+myquestion 
+225 VALUE
+ myquestion removeGRID
+/long_name (Est-ce que votre ménage a diminué le nombre de repas pris par jour ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q3015_A {
+mytable
+myquestion 
+226 VALUE
+ myquestion removeGRID
+/long_name (Est-ce que votre ménage a dû passer toute une journée sans manger ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q31_1A {
+mytable
+myquestion 
+227 VALUE
+ myquestion removeGRID
+/long_name (Est ce que votre ménage a enregistré des départs d’actifs plus que d’habitude ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q31_2A {
+mytable
+myquestion 
+228 VALUE
+ myquestion removeGRID
+/long_name (Est ce que votre ménage a  vendu des animaux reproducteurs pour des besoins alimentaires ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q31_3A {
+mytable
+myquestion 
+229 VALUE
+ myquestion removeGRID
+/long_name (Est ce que votre ménage a vendu des biens non productifs (bijoux, objets de valeur…) pour des besoins alimentaires ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q31_4A {
+mytable
+myquestion 
+230 VALUE
+ myquestion removeGRID
+/long_name (Est ce que votre ménage a  vendu des biens productifs (bœufs de trait, charrue, charrette) pour des raisons  d’insécurité alimentaire ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q31_5A {
+mytable
+myquestion 
+231 VALUE
+ myquestion removeGRID
+/long_name (Est ce que votre ménage a  vendu des terres pour des raisons d’insécurité  alimentaire ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q31_6A {
+mytable
+myquestion 
+232 VALUE
+ myquestion removeGRID
+/long_name (Est ce que votre ménage a  retiré les enfants de l’école pour des raisons alimentaires ?) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

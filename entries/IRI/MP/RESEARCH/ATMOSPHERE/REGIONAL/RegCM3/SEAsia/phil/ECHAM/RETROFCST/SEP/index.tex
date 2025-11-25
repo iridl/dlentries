@@ -1,0 +1,72 @@
+Regional climate model RegCM3 over Philippines South East Asia  with 25km-grid, 10-member ensemble (10-19) monthly output:
+/Data/data1/iri/modelling/jqian/SEAsia/phil/retrofcst/mar,sep
+
+\begin{ingrid}
+continuedataset:
+%datasetdefs:
+grid:
+/name /S def
+/long_name (Start time) def
+/units (months since  1960-01-01 00:00:00) def
+/calendar /360 def
+(0000 01 Sep 2001)
+12
+(0000 01 Sep 2008)
+:grid
+S /pointwidth 0 def pop
+%/IRIAccess dataareIRIonlyPassword
+grid:
+/name /X def
+degE
+116.0926 .2248 2 copy 59 1 sub mul add
+:grid
+grid:
+/name /Y def
+degN
+values:
+3.94   4.17   4.39   4.61   4.84   5.06   5.29   5.51   5.73   5.96
+   6.18   6.40   6.63   6.85   7.07   7.30   7.52   7.74   7.97   8.19
+   8.41   8.63   8.86   9.08   9.30   9.52   9.74   9.96  10.19  10.41
+  10.63  10.85  11.07  11.29  11.51  11.73  11.95  12.17  12.39  12.61
+  12.83  13.05  13.27  13.49  13.70  13.92  14.14  14.36  14.58  14.79
+  15.01  15.23  15.44  15.66  15.88  16.09  16.31  16.53  16.74  16.96
+  17.17  17.39  17.60  17.81  18.03  18.24  18.46  18.67  18.88  19.09
+  19.31  19.52  19.73  19.94  20.15  20.36  20.57  20.78  20.99
+:values
+:grid
+
+grid:
+/name /L def
+/long_name (lead Time) def
+/standard_name (forecast_period) def
+/units (months) def
+0.5 1 6.5
+:grid
+
+
+%/t{
+%S 6 add
+%}defasvar
+
+/T{
+S L add
+/long_name (Forecast Time) def
+/calendar /360 def
+}defasvar
+/Tl {
+T L last VALUE  L removeGRID /name /Tl def
+}defasvar
+[X
+    Y | /NVZ 1 NewIntegerGRID 
+  L S ]  (/data/dstore4/iri/modelling/jqian/SEAsia/phil/retrofcst/sep/regcm3.pcp.%Y%m[S]_%Y%m[Tl].mon.10-19)  [S Tl]
+% T L last VALUE  L removeGRID /name /Tl def
+%]
+readdatafile: 
+direct
+:readdatafile
+definevariables:
+0 Zvariable: /name (pcp) def /long_name (total precipitation)  def /units (mm/day) def
+:Zvariable
+:definevariables
+:dataset
+\end{ingrid}

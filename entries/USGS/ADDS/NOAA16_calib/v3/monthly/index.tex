@@ -1,0 +1,39 @@
+data set restricted at the request of Matayo Indeje since approval
+to make the data set public has not been obtained from the original
+data source
+\begin{ingrid}
+/USGS-ADDS dataareIRIonlyPassword
+continuedataset:
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+-20. 0.1 55.
+:grid
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+40. 0.1 -40.
+:grid
+grid:
+/name /T def
+monthtime
+/defaultvalue { last } def
+16 Jan 1982 ensotime
+1. 
+16 Dec 2002 ensotime %enddate
+:grid
+/NDVI {[T] T (/Data/data6/usgs/ndvie/monthly/ndvie.%Y%m) strftimes recordsandfilenames nip [X Y] 253 readui1direct
+/long_name (Normalized Difference Vegetation Index) def
+/missing_value 251 252 253 3 integerarray astore  def
+/valid_min 0 def
+/valid_max 250 def
+/missing_value undef
+%toNaN
+/scale_factor 0.004 def
+/add_offset 0 def
+/units /unitless def
+/description (Reprojected and recomposited (to monthly) NOAA-16 NDVI data for Africa) def}defasvarsilent
+:dataset
+\end{ingrid}

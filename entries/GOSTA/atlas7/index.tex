@@ -1,0 +1,253 @@
+\begin{ingrid}
+continuedataset:
+/references (Bottomley_etal1990) def
+/description (Global Ocean Surface Temperature Atlas 7) def
+  grid:
+  /name (X) def
+	degE
+  periodic
+  -177.5 to 177.5 N= 72 pts
+  :grid
+  grid:
+  /name (Y) def
+	degN
+  87.5 to -87.5 N= 36 pts
+  :grid
+  grid:
+  /name (T) def
+  /units /month def
+  periodic
+  Jan to Dec N= 12 pts
+  :grid
+  grid:
+  /name (T) def
+  /units monthtimename def
+16 Jan 1856 ensotime
+1.
+16 Dec 1991 ensotime
+  :grid
+dataset:
+/name /climatology def
+/long_name (MOHSST4 Climatology 1951-1980) def
+  grid:
+  /name (T) def
+  /units /month def
+  periodic
+  Jan to Dec N= 12 pts
+  :grid
+dataset:
+/name /5deg def
+\end{ingrid}
+Insert code for reading old climatology
+\begin{ingrid}
+  grid:
+  /name (X) def
+	degE
+  periodic
+  -237.5 to 117.5 N= 72 pts
+  :grid
+  grid:
+  /name (Y) def
+	degN
+  -87.5 to 87.5 N= 36 pts
+  :grid
+  grid:
+  /name (T) def
+  /units /month def
+  periodic
+  Jan to Dec N= 12 pts
+  :grid
+  variable:
+  /name /oldsst def
+  /long_name (sea surface temperature climatology) def
+        /units /Celsius def
+  /missing_value -999.9 def
+  grids: X Y | T :grids
+  file:
+  random
+  /name (/Data/data1/surface/gosta/dat02_sstNORM5.grads)
+  def
+  :file
+  :variable
+datasetdefs:
+:datasetdefs
+\end{ingrid}
+\begin{ingrid}
+  grid:
+  /name (X) def
+	degE
+  periodic
+  -177.5 to 177.5 N= 72 pts
+  :grid
+  grid:
+  /name (Y) def
+	degN
+  87.5 to -87.5 N= 36 pts
+  :grid
+dataset .T name exch def
+/sst {
+oldsst X 3 index .X SAMPLE
+Y 3 index .Y SAMPLE
+} defasvarsilent
+\end{ingrid}
+This data file is flawed -- using our old version above
+\begin{ingrid***}
+/sst
+{
+ [X
+    Y |
+    T] (/Data/data6/GOSTA/data/atlas7/A702SN5D.RAW)
+        readdatafile:
+   i*2 
+/units (Celsius_scale) def
+512 set:file_byteoffset
+/scale_factor .01 def
+/missing_value -32768 def
+:readdatafile
+toNaN sstcolorscale
+} defasvarsilent
+\end{ingrid***}
+\begin{ingrid}
+/airsea
+{
+ [X
+    Y |
+    T] (/Data/data6/GOSTA/data/atlas7/A704DN5D.RAW)
+        readdatafile:
+   i*2 
+/units (degree_Celsius) def
+512 set:file_byteoffset
+/scale_factor .01 def
+/missing_value -32768 def
+/long_name (air-sea surface temperature difference) def
+:readdatafile
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+grid:
+    /name /bucket def
+    values:
+     /wooden /canvas :values
+     :grid
+  grid:
+    /name /wspd def
+    /units (m/s) def
+    /pointwidth 0 def
+    values:
+     4 7 :values
+     :grid
+/bucketcorrection
+{
+  [X
+    Y |
+    T wspd bucket] (/Data/data6/GOSTA/data/atlas7/A70%d[cnt]BX%1.1s[B]%s[SF].RAW) [bucket wspd bucket tostring toupper
+         /name /B def
+         wspd CopyStream
+          /S
+           /F 2 namearray astore
+           constantdata
+          /name /SF def
+          [wspd bucket]
+           5 onegridcounter
+           /name /cnt def
+           ]readdatafile: i*2
+      /units (degree_Celsius) def
+      512 set:file_byteoffset
+      /scale_factor 0.01 def
+      /missing_value -32768 def
+      /long_name(Bucket Corrections (1991))def
+      :readdatafile
+} defasvarsilent
+
+:dataset
+dataset:
+/name /1deg def
+  grid:
+  /name (X) def
+	degE
+  periodic
+  -179.5 1. 179.5
+  :grid
+  grid:
+  /name (Y) def
+	degN
+  89.5 -1 -89.5
+  :grid
+dataset .T name exch def
+/sst
+{
+ [X
+    Y |
+    T] (/Data/data6/GOSTA/data/atlas7/A703SN1D.RAW)
+        readdatafile:
+   i*2 
+/units (Celsius_scale) def
+512 set:file_byteoffset
+/scale_factor .01 def
+/missing_value -32768 def
+:readdatafile
+toNaN sstcolorscale
+} defasvarsilent
+:dataset
+:dataset
+dataset:
+/name /MOHSST5 def
+dataset [X Y T] nip {name exch def} forall
+/ssta
+{
+ [X
+    Y |
+    T] (/Data/data6/GOSTA/data/atlas7/A709SA%d[cnt].RAW) [grid:
+        /name /T def
+        /units monthtimename def
+        16
+         Jan 1856 ensotime
+         120. 16
+           Jan 1986 ensotime
+           :grid
+       /pointwidth 0 def
+       dup
+        85 onegridcounter
+        /name /cnt def
+        ]readdatafile:
+   i*2 
+/units (degree_Celsius) def
+512 set:file_byteoffset
+/scale_factor .01 def
+/missing_value -32768 def
+/long_name (sea surface temperature anomaly) def
+:readdatafile
+toNaN sstacolorscale
+} defasvarsilent
+:dataset
+dataset:
+/name /MOHMAT2N def
+dataset [X Y T] nip {name exch def} forall
+/ta
+{
+ [X
+    Y |
+    T] (/Data/data6/GOSTA/data/atlas7/A712AA%d[cnt].RAW) [grid:
+        /name /T def
+        /units monthtimename def
+        16
+         Jan 1856 ensotime
+         120. 16
+           Jan 1986 ensotime
+           :grid
+       /pointwidth 0 def
+       dup
+        85 onegridcounter
+        /name /cnt def
+        ]readdatafile:
+   i*2 
+/units (degree_Celsius) def
+512 set:file_byteoffset
+/scale_factor .01 def
+/missing_value -32768 def
+:readdatafile
+/long_name (night marine air temperature anomaly) def
+} defasvarsilent
+:dataset
+:dataset
+\end{ingrid}

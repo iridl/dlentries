@@ -1,0 +1,65 @@
+\begin{ingrid}
+continuedataset:
+/description (North Atlantic Oscillation) def
+/references (Barnston_Livezey1987 Frederiksen_Lin2013 Johansson2007 Lin_etal2009) def
+
+datasetdefs:
+grid:
+/name /micol def
+1 1 1
+:grid
+:datasetdefs
+
+%DEFINE MONTHLY DATA
+    grid:
+      /name /T def
+      monthtime
+      /defaultvalue { last } def
+      /pointwidth 1.0 def
+        /standard_name (time) def
+       16 Jan 1950 ensotime
+        1.0
+       16 systemtime systemtime2ymd dup 15 lt {
+         ymd:lastmonth
+         }if
+       ymd2systemtime
+	(%b %Y) 10 strftime interp ensotime
+    :grid
+
+T { (/Data/data1/noaa/indices/nao/nao_%Y[T]-%m[T].txt) [T]  } removeextrausing
+/expires
+  T last cvsunits
+    interp exch
+     0.5 add
+     6 ymd:nextmonth
+      6 add
+      ymd2systemtime
+      nip
+def
+
+  name exch def
+/expires T .expires  def
+
+
+/nao {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/nao/nao_%Y[T]-%m[T].txt) [T]
+ readdatafile:
+  [ 3 1 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /missing_value -999 def
+	/long_name (North Atlantic Oscillation) def
+   temp_anomaly_colors
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+ /title (North Atlantic Oscillation ) def
+ link:
+  /name (ftp_url) def
+  /description (https://www.cpc.ncep.noaa.gov/products/precip/CWlink/pna/norm.nao.monthly.b5001.current.ascii.table) def
+  /href (https://www.cpc.ncep.noaa.gov/products/precip/CWlink/pna/norm.nao.monthly.b5001.current.ascii.table) def
+ :link
+}defasvarsilent
+
+:dataset
+\end{ingrid}

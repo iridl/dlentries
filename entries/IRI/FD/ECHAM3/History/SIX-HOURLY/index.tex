@@ -1,0 +1,41 @@
+\begin{ingrid}
+Ingrid:
+/toPlvl{
+[Z] regridLinear
+exch 
+dup /sp known {128 64 tsptogau} if
+ exch
+    (mb) unitconvert
+    Z 1000 925 850 700 600 500 400 300 250 200 150 100 70 50 30 20 10 toS
+} def
+/PtoS { counttoobject 3 add /PtoS publicproc:
+counttoobject realarray astore exch toS
+:publicproc
+} def
+/ECHAM6defs
+{
+surface
+prl
+/units (m/s)preferredunitname def
+pop
+prc
+/units (m/s)preferredunitname def
+pop
+pop
+defaftervars
+} def
+pop
+/OperationalForecasts dataareIRIonlyPassword
+continuedataset:
+datasetdefs:
+/ensemblef { (/Data/data1/iri/fd/echam3/history/ens4-10.cuf)readCUF 
+/description (runs R25004-R25010) def
+}defasvarsilent
+:datasetdefs
+/ensemble { ensemblef defaftervars} defasvarsilent
+{ R25001 R25002 R25003 
+R25011 R25012 R25013 } {currentobject 1 index get def } forall
+:dataset
+\end{ingrid}
+:dataset
+:dataset

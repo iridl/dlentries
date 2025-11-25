@@ -1,0 +1,151 @@
+\begin{ingrid}
+  continuedataset:
+    grid:
+      /name (X) def
+      /units (degreeE) def
+      /fullname (Longitude) def
+      70.25 to 99.75 N= 60 pts
+    :grid
+    grid:
+      /name (Y) def
+      /units (degreeN) def
+      /fullname (Latitude) def
+      20.25 to 35.75 N= 32 pts
+    :grid
+    grid:
+      /name (T) def
+      monthtime
+      /units (month) def
+      periodic
+      Jan to Dec N= 12 pts
+    :grid
+    grid:
+      /name (T2) def
+      monthtime
+      /pointwidth 12 def
+      1 Jul 1979 ensotime
+      12
+      1 Jul 2008 ensotime
+      /long_name (Training period) def
+    :grid
+    grid:
+      /name /S def
+      monthtime
+      /long_name (Start time) def
+      /standard_name (forecast_reference_time) def
+      /defaultvalue { last } def
+      /pointwidth 0 def
+      values:
+%        16 Mar 2009 ensotime
+%        1
+%        16 Mar 2009 ensotime
+        1 Nov 2012 ensotime
+        1
+        systemtime
+        systemtime2ymd
+        ymd:lastmonth
+        ymd:nextmonth 15 add
+        ymd2rm1960
+%        16 Jan 2009 ensotime
+        {} for
+      :values
+      /expires
+        systemtime
+        last_modified sub
+        86400 lt {
+          null
+        }{
+          last_modified
+          systemtime2ymd pop dup 12 lt {
+            1 add
+          }{
+            pop 1 add 1
+          }ifelse
+          9 ymd2systemtime
+        }ifelse
+      def
+    :grid
+S { (/Data/data1/iri/forecast/data/echam/CCAFS/temp/Forecasts_%Y_Start%-m[S]_Tmax.Lead1.txt) [S] } removeextrausing
+   name exch def
+    grid:
+      /name (L) def
+      /units (months) def
+      /long_name (Forecast Lead Time in Months) def
+      /pointwidth 3. def
+      2.5 1 5.5
+    :grid
+    /target_date {L S add /long_name (forecast time) def} defasvar
+    /hindcast_date {T2 6 sub T 0.5 sub add L add /long_name (hindcast time) def /pointwidth 3 def} defasvar
+    /PearsonR {
+      [ X Y last first subgrid | T L ]
+      (/Data/data1/iri/forecast/data/echam/CCAFS/temp/PearsonR_Start%-m[T]_Tmax.Lead%d[L].txt) [T L 1.5 sub] 
+      readdatafile: 
+        [4 1] r*4astsv 
+      :readdatafile
+        /name (PearsonR) def
+        /long_name (Pearson correlation skill values) def
+        /fullname (Pearson R) def
+        /units (unitless) def
+        /missing_value -999. def
+        correlationcolorscale
+        /scale_min -1. def
+        /scale_max 1. def
+        Y last first RANGE    
+    }defasvarsilent
+    /CrossValHind {
+      [ X Y last first subgrid T2 | T L ]
+      (/Data/data1/iri/forecast/data/echam/CCAFS/temp/CrossValPred_Start%-m[T]_Tmax.Lead%d[L].txt) [T L 1.5 sub]
+      readdatafile:
+        [2 1 3] r*4astsv
+      :readdatafile
+        /name (CrossValHind) def
+        /long_name (cross-validated hindcasts) def
+        /fullname (Hindcast) def
+        /units (Celsius_scale) def
+        /missing_value -999. def
+        Y last first RANGE    
+    }defasvarsilent
+    /Forecast {
+      [ X Y last first subgrid | S L ]
+      (/Data/data1/iri/forecast/data/echam/CCAFS/temp/Forecasts_%Y_Start%-m[S]_Tmax.Lead%d[L].txt) [S L 1.5 sub]
+      readdatafile:
+        [5 1] r*4astsv
+      :readdatafile
+        /missing_value -999. def
+        /name (Forecast) def
+        /long_name (current forecast) def
+        /fullname (Forecast) def
+        /units (Celsius_scale) def
+      temp_colors
+        Y last first RANGE    
+    }defasvarsilent
+    /PredErrorVars {
+      [ X Y last first subgrid | S L ]
+      (/Data/data1/iri/forecast/data/echam/CCAFS/temp/PredErrorVars_%Y_Start%-m[S]_Tmax.Lead%d[L].txt) [S L 1.5 sub]
+      readdatafile:
+        [5 1] r*4astsv
+      :readdatafile
+        /missing_value -999. def
+      /name (PredErrorVars) def
+      /long_name (prediction error variance) def
+      /fullname (Error) def
+      /units (Celsius_scale) def
+      /scale_min 0. def
+        Y last first RANGE    
+    }defasvarsilent
+    /InputObs {
+      [ X Y last first subgrid T2 | T L]
+      (/Data/data1/iri/forecast/data/echam/CCAFS/temp/YinputData_Start%-m[T]_Tmax.Lead%d[L].txt) [T L 1.5 sub]
+      readdatafile:
+        [2 1 3] r*4astsv
+      :readdatafile
+        /name (InputObs) def
+        /long_name (input observations) def
+        /fullname (Obs) def
+        /units (Celsius_scale) def
+        /missing_value -999. def
+        Y last first RANGE    
+    }defasvarsilent
+  /history (Output from CPT for 12 3-month running seasons for 1979-2008 with UEA CRU TS3p1 monthly dataset, CPT v10) def
+  :dataset
+\end{ingrid}

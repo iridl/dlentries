@@ -1,0 +1,156 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (irigaz:Philippines_119_1) def
+/description (Philippines Districts, Municipalities, Provinces and Regions) def
+dataset:
+/name /Districts def
+/description (Districts) def
+/geom_id
+{IRIDB (philippines2) (gid as geom_id) [(gid)] open_column_by
+/long_name (Geometry id) def
+}defasvarsilentnoreuse
+/name2
+{IRIDB (philippines2) (name2) [(gid)] open_column_by
+/long_name (District name) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB (philippines2) (the_geom) [(gid)] open_column_by
+/long_name (District geometry) def
+}defasvarsilentnoreuse
+/label
+{IRIDB (philippines2) (name2 as label) [(gid)] open_column_by
+}defasvarsilentnoreuse
+
+%{  db:
+%   /server (localhost) def
+%   /dbname (iridb) def
+%   :db
+%   (select gid,gid as geom_id,name2,the_geom from philippines2 order by gid) (gid) openqueryby
+%        geom_id
+%            /long_name (Geometry id) def
+%        CopyStream
+%        name exch def
+%        name2
+%            /long_name (District name) def
+%        CopyStream
+%        name exch def
+%        the_geom
+%            /long_name (District geometry) def
+%        CopyStream
+%        name exch def
+%}defasvarcachesilent
+/last_modified 
+{  db: 
+   /server (localhost) def 
+   /dbname (iridb) def 
+   :db
+   (select max ( last_modified ) as last_modified from philippines2) openquery .last_modified
+}def
+:dataset
+
+dataset:
+/name /Municipalities def
+/description (Municipalities) def
+/dist
+{ IRIDB (philbar_basemap_updated) (dist) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/muncity
+{ IRIDB (philbar_basemap_updated) (muncity) [(gid)]open_column_by
+/long_name (Municipaity) def
+}defasvarsilentnoreuse
+/munctycode
+{ IRIDB (philbar_basemap_updated) (munctycode) [(gid)]open_column_by
+/long_name (Municipality Code) def
+}defasvarsilentnoreuse
+/munoldname
+{ IRIDB (philbar_basemap_updated) (munoldname) [(gid)]open_column_by
+/long_name (Municipality Old Name) def
+}defasvarsilentnoreuse
+/provcode
+{ IRIDB (philbar_basemap_updated) (provcode) [(gid)]open_column_by
+/long_name (Province Code) def
+}defasvarsilentnoreuse
+/provname
+{ IRIDB (philbar_basemap_updated) (provname) [(gid)]open_column_by
+/long_name (Province Name) def
+}defasvarsilentnoreuse
+/provname1
+{ IRIDB (philbar_basemap_updated) (provname1) [(gid)]open_column_by
+/long_name (Province Name) def
+}defasvarsilentnoreuse
+/regcode
+{ IRIDB (philbar_basemap_updated) (regcode) [(gid)]open_column_by
+/long_name (Region Code) def
+}defasvarsilentnoreuse
+/region
+{ IRIDB (philbar_basemap_updated) (region) [(gid)]open_column_by
+/long_name (Region) def
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (philbar_basemap_updated) (the_geom) [(gid)]open_column_by
+/long_name (Municipality Geometry) def
+}defasvarsilentnoreuse
+/label
+{ IRIDB (philbar_basemap_updated) ((muncity ||', '|| provname ||', '|| region) as label) [(gid)]open_column_by
+}defasvarsilentnoreuse
+%/last_modified
+%{  db:
+%   /server (localhost) def
+%   /dbname (iridb) def
+%   :db
+%   (select max ( last_modified ) as last_modified from philbar_basemap_updated) openquery .last_modified
+%}def
+:dataset
+
+dataset:
+/name /Provinces def
+/description (Provinces) def
+/provcode
+{ IRIDB (philbar_provinces) (provcode) [(gid)]open_column_by
+/long_name (Province Code) def
+}defasvarsilentnoreuse
+/provname
+{ IRIDB (philbar_provinces) (provname) [(gid)]open_column_by
+/long_name (Province Name) def
+}defasvarsilentnoreuse
+/regcode
+{ IRIDB (philbar_provinces) (regcode) [(gid)]open_column_by
+/long_name (Region Code) def
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (philbar_provinces) (the_geom) [(gid)]open_column_by
+/long_name (Provinces Geometry) def
+}defasvarsilentnoreuse
+/label
+{ IRIDB (philbar_provinces) ((provname ||', '|| regcode) as label) [(gid)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+
+dataset:
+/name /Regions def
+/description (Regions) def
+/count
+{ IRIDB (philbar_regions) (count) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/regcode
+{ IRIDB (philbar_regions) (regcode) [(gid)]open_column_by
+/long_name (Region Code) def
+}defasvarsilentnoreuse
+/region
+{ IRIDB (philbar_regions) (region) [(gid)]open_column_by
+/long_name (Region) def
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (philbar_regions) (the_geom) [(gid)]open_column_by
+/long_name (Regions Geometry) def
+}defasvarsilentnoreuse
+/label
+{ IRIDB (philbar_regions) (region as label) [(gid)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+:dataset
+Districts name2 .gid name exch put
+Municipalities dist .gid name exch put
+Provinces regcode .gid name exch put
+Regions count .gid name exch put 
+\end{ingrid}

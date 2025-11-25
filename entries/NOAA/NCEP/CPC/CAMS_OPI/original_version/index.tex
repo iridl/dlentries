@@ -1,0 +1,172 @@
+\begin{ingrid}
+continuedataset:
+link:
+/name (v9906) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCEP/.CPC/.CAMS_OPI/.v9906/) def
+/description (this dataset was replaced by v9906) def
+/semantics /dcterm:isReplacedBy def
+:link
+grid:
+/name /X def
+degE
+1.25 2.5 358.75 
+periodic
+:grid
+grid:
+/name /Y def
+degN
+-88.75 2.5 88.75
+:grid
+dataset:
+grid:
+/name /T def
+monthtime
+Jan
+1.
+Dec
+periodic
+:grid
+/name /climatology def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/units (mm/month) def
+/missing_value -999 def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cpc/CAMS-OPI/climo.r4) def
+:file
+:variable
+:dataset
+grid:
+/name /T def
+monthtime
+16 Jan 1979 ensotime
+1.
+1 index 224 add 1 sub 
+/defaultvalue {last} def
+:grid
+dataset:
+/name /percentile def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/missing_value -999 def
+/units (percentile) def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cpc/CAMS-OPI/ptile.r4) def
+:file
+:variable
+:dataset
+grid:
+/name /T def
+monthtime
+16 Sep 1997 ensotime
+1.
+16 Sep 1999 ensotime %enddate
+/defaultvalue {last} def
+:grid
+dataset: 
+/name /gauge def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/units (mm/month) def
+/missing_value -999 def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cpc/CAMS-OPI/gprcp.r4) def
+:file
+:variable
+variable:
+/name /count def
+/long_name (count) def
+/missing_value -999 def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cpc/CAMS-OPI/ngauge.r4) def
+:file
+:variable
+:dataset
+dataset: 
+/name /satellite def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/units (mm/month) def
+/missing_value -999 def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cpc/CAMS-OPI/sprcp.r4) def
+:file
+:variable
+:dataset
+grid:
+/name /T def
+monthtime
+16 Jan 1979 ensotime
+1.
+16 Sep 1999 ensotime %enddate
+/defaultvalue {last} def
+:grid
+dataset:
+/name /mean def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/units (mm/month) def
+/missing_value -999 def
+startcolormap
+DATA 0 800 RANGE
+white
+grey
+cyan 0 VALUE
+blue 600 VALUE
+navy 800 VALUE
+darkgrey
+endcolormap
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cpc/CAMS-OPI/prcp.r4) def
+:file
+:variable
+:dataset
+dataset:
+/name /anomaly def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/units (mm/month) def
+/missing_value -999 def
+startcolormap
+DATA -400 400 RANGE
+white
+darkgrey
+DarkRed -400 VALUE
+red -300 VALUE
+orange -200 VALUE
+yellow -100 VALUE
+moccasin 0 VALUE
+PaleGreen 100 VALUE
+aquamarine 200 VALUE
+DeepSkyBlue 300 VALUE
+blue 400 VALUE
+navy
+endcolormap
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cpc/CAMS-OPI/prcpa.r4) def
+:file
+:variable
+:dataset
+/T mean .prcp .T def
+:dataset
+\end{ingrid}

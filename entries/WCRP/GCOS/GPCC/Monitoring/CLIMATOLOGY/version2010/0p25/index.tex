@@ -1,0 +1,57 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+periodic
+-179.875 0.25 179.875
+:grid
+grid:
+/name /Y def
+degN
+89.875 -0.25 -89.875
+:grid
+grid:
+/name /col def
+1 1 13
+:grid
+
+%grid:
+%/name /T def
+%monthtime
+%periodic
+%16 Jan 1960 ensotime
+%1.
+%16
+%Dec 1960 ensotime
+%:grid
+/prcp {
+ [col    X Y |
+   ] (/Data/data21/gpcc/climate_normals_v2010/RASTER_DATA/gpcc_precipitation_normals_rr_version_2010_0_25_degree) 
+readdatafile:
+      [510 134784510]r*4asascii
+      /missing_value -99999.99 def
+      :readdatafile
+col 1 12 RANGE col /T (months since 01-Jan) periodic Jan 1 Dec NewEvenGRID replaceGRID
+/name /prcp def
+/long_name (Total Precipitation) def
+/standard_name (precipitation_amount) def
+/units (mm/month) def
+[X Y T] REORDER 2 RECHUNK
+} defasvarsilent
+
+/cnts {
+ [ col   X Y |
+    ] (/Data/data21/gpcc/climate_normals_v2010/RASTER_DATA/gpcc_precipitation_normals_numgauges_version_2010_0_25_degree)
+readdatafile:
+  [500 134784500]r*4asascii
+  /missing_value -99999.99 def
+:readdatafile
+  /long_name (Number of gauges per grid) def
+col 1 12 RANGE col /T (months since 01-Jan) periodic Jan 1 Dec NewEvenGRID replaceGRID 
+[X Y T] REORDER 2 RECHUNK
+} defasvarsilent
+
+:dataset
+\end{ingrid}
+

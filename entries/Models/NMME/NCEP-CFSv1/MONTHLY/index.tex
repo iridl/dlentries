@@ -1,0 +1,388 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/fileavail {
+prec dataflag[X Y]average 0 maskle 0 flaggt L first VALUE M first VALUE grid: /name /S1 def /units monthtimename def /gridtype periodic def Jan 1 Dec :grid grid: /name /S2 def /units monthtimename def /pointwidth 12 def 1 Jul 1981 ensotime 12 1 Jul 2012 ensotime :grid add 6.5 sub S .first S .last masknotrange  /pointwidth 0 def[S]sample-along /fullname (fileavail) def
+} defasvar
+/filenames {
+} def
+grid:
+/name (S)def
+/units (months since 1960-01-01)def
+/calendar /360 def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+periodic
+0 1 11
+:grid
+/Sper S def
+grid:
+/name /year def
+1981 1 2009
+:grid
+:datasetdefs
+/references (Kirtman_etal2014) def
+link:
+/name (data_availability) def
+/href (fileavail/mark/exch/S2/exch[S1]table:/mark/:table/.html) def 
+:link
+grid:
+/name (S)def
+/units (months since 1960-01-01)def
+/calendar /360 def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+1 Jan 1981 ensotime
+ 1. 
+1 Dec 2009 ensotime
+:grid
+/Slong S def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1. 359.
+/standard_name (longitude) def
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 1. -90.
+/standard_name (latitude) def
+:grid
+grid:
+/name (L) def
+/units (months) def
+/standard_name (forecast_period) def
+0.5 1 8.5
+:grid
+/M 15 NewIntegerGRID
+/standard_name (realization) def
+ name exch def
+/T { S L add
+/standard_name (time) def } defasvarsilent
+grid:
+/name (Z) def
+/units (m) def
+/long_name (Height) def
+/standard_name (height) def
+2 :grid
+\end{ingrid}
+\begin{ingrid}
+ /prec{
+[X
+    Y  |
+    M L Sper year] (/data/dstore4/iri/modelling/daved/NMME_Data.D/CFSV1.D/%b.D/prate.%m[S]0100.%2.2d[M].CFSv1.fcst.avrg.1x1.grb) [M Sper]
+readdatafile:
+/name (prate) def
+  /scale_max 6.66600012E-04 def
+ /gribNumBits 12 def
+ /gribcenter 7 def
+ /PTVersion 2 def
+ /gribparam 59 def
+ /gribfield 1 def
+ /center (US Weather Service - National Met. Center) def
+ /units (kg/m^2/s)cvn def
+ /long_name (Precipitation rate) def
+ /process 98 def
+ /subcenter (Environmental Modeling Center) def
+ /grib_name /PRATE def
+ /scale_min 0.0 def
+ /gribleveltype 1 def
+ /PDS_TimeRange 3 def
+ /GRIBgridcode 3 def
+/long_name (Total Precipitation) def
+/standard_name (precipitation_rate) def
+1 GRIB2record :readdatafile
+decompress
+[Sper year] Slong replaceGRIDstream
+c: 0.001 (m3 kg-1) :c
+mul (mm/day) unitconvert
+Y low high RANGE
+}defasvarcachesilent
+\end{ingrid}
+\begin{ingrid}
+ /tref{
+[ X Y Z | M L Sper year] 
+(/data/dstore4/iri/modelling/daved/NMME_Data.D/CFSV1.D/%b.D/tmp2m.%m[S]0100.%2.2d[M].CFSv1.fcst.avrg.1x1.grb)
+ [M Sper]
+readdatafile:
+/scale_max 313.57999 def
+ /gribNumBits 14 def
+ /gribcenter 7 def
+ /PTVersion 2 def
+ /gribparam 11 def
+ /gribfield 1 def
+ /center (US Weather Service - National Met. Center) def
+ /units /Kelvin_scale def
+ /long_name (Temperature) def
+ /PDS_TimeRange 3 def
+ /grib_name /TMP def
+ /subcenter (Environmental Modeling Center) def
+ /process 98 def
+ /scale_min 206.63 def
+ /gribleveltype 105 def
+ /GRIBgridcode 3 def
+/long_name (Reference Temperature) def
+/standard_name (air_temperature) def
+/units (Kelvin_scale) def
+ 1 GRIB2record :readdatafile
+decompress
+[Sper year] Slong replaceGRIDstream
+Y low high RANGE
+}defasvarcachesilent
+\end{ingrid}
+\begin{ingrid}
+ /sst{
+[ X Y | M L Sper year] 
+(/data/dstore4/iri/modelling/daved/NMME_Data.D/CFSV1.D/%b.D/tmpsfc.%m[S]0100.%2.2d[M].CFSv1.fcst.avrg.1x1.grb)
+ [M Sper]
+readdatafile:
+/name (temp) def
+ /scale_max 314.31 def
+ /PTVersion 2 def
+ /gribcenter 7 def
+ /gribNumBits 14 def
+ /gribfield 1 def
+ /gribparam 11 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 3 def
+ /units /Kelvin_scale def
+ /long_name (Temperature) def
+ /process 98 def
+ /subcenter (Environmental Modeling Center) def
+ /grib_name /TMP def
+ /scale_min 201.56 def
+ /gribleveltype 1 def
+ /GRIBgridcode 3 def
+1 GRIB2record :readdatafile
+decompress
+[Sper year] Slong replaceGRIDstream
+(Celsius_scale) unitconvert
+/long_name (Sea Surface Temperature) def
+/standard_name (sea_surface_temperature) def
+Y low high RANGE
+}defasvarcachesilent
+\end{ingrid}
+\begin{ingrid}
+
+ dataset:
+ /name (additional_variables) def
+
+/references (Kirtman_etal2014) def
+
+grid:
+/name (S)def
+/long_name (Start Time) def
+/units (months since 1960-01-01)def
+/calendar /360 def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+1 Jan 1982 ensotime
+ 1. 
+1 Jul 2012 ensotime
+:grid
+/Slong S def
+
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1. 359.
+ periodic
+/standard_name (longitude) def
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 1. -90.
+/standard_name (latitude) def
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+/standard_name (forecast_period) def
+0.5 1 9.5
+:grid
+/M 28 NewIntegerGRID
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+ name exch def
+
+/T { S L add
+/standard_name (time) def /long_name (Time) def } defasvarsilent
+
+grid:
+/name (Z) def
+/units (m) def
+/long_name (Height) def
+/standard_name (height) def
+2 :grid
+
+grid:
+/name (Z1) def
+/units (ids) def
+/long_name (Depth) def
+/standard_name (depth) def
+values: (0-200 cm down) :values
+:grid
+
+grid:
+/name (P) def
+/units (hPa) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+values: 200 :values
+:grid
+
+\end{ingrid}
+\begin{ingrid}
+
+ /soilw{
+[X
+    Y  |
+     Z1 L M S] (/Data/data23/NMME/CFS.D/%b:lc[S]/soilw/soilm.m%2.2d[M].%b:lc[S].%Y[S].cfs.1x1.grb) [M S]
+readdatafile:
+/name (soilw) def
+/missing_value 9.9990003E20 def
+%/gribNumBits 12 def
+/gribcenter 7 def
+%/PTVersion 2 def
+/gribparam 86 def
+%/gribfield 1 def
+/center (US National Weather Service, National Centers for Environmental Prediction (NCEP)) def
+/units (kg/m^2)cvn def
+/long_name (Soil Moisture Content) def
+/process 98 def
+%/subcenter (Environmental Modeling Center) def
+/grib_name /SOILM def
+%/scale_min 0.0 def
+/gribleveltype 112 def
+/PDS_TimeRange 3 def
+/GRIBgridcode 3 def
+/standard_name (moisture_content_of_soil_layer) def
+ GRIB1record :readdatafile
+decompress
+Y low high RANGE
+}defasvarsilent
+
+ /tmax{
+[X
+    Y  |
+     Z L M S] (/Data/data23/NMME/CFS.D/%b:lc[S]/tmax/tmax.m%2.2d[M].%b:lc[S].%Y[S].cfs.1x1.grb) [M S]
+readdatafile:
+/name (tmax) def
+/missing_value 9.9990003E20 def
+%/gribNumBits 12 def
+/gribcenter 7 def
+%/PTVersion 2 def
+/gribparam 15 def
+%/gribfield 1 def
+/center (US National Weather Service, National Centers for Environmental Prediction (NCEP)) def
+/units (Kelvin_scale)cvn def
+/long_name (2-Meter Maximum Temperature) def
+/process 98 def
+%/subcenter (Environmental Modeling Center) def
+/grib_name /TMAX def
+%/scale_min 0.0 def
+/gribleveltype 105 def
+/PDS_TimeRange 3 def
+/GRIBgridcode 3 def
+/standard_name (air_temperature) def
+ GRIB1record :readdatafile
+decompress
+Y low high RANGE
+}defasvarsilent
+
+ /tmin{
+[X
+    Y  |
+     Z L M S] (/Data/data23/NMME/CFS.D/%b:lc[S]/tmin/tmin.m%2.2d[M].%b:lc[S].%Y[S].cfs.1x1.grb) [M S]
+readdatafile:
+/name (tmax) def
+/missing_value 9.9990003E20 def
+%/gribNumBits 12 def
+/gribcenter 7 def
+%/PTVersion 2 def
+/gribparam 16 def
+%/gribfield 1 def
+/center (US National Weather Service, National Centers for Environmental Prediction (NCEP)) def
+/units (Kelvin_scale)cvn def
+/long_name (2-Meter Minimum Temperature) def
+/process 98 def
+%/subcenter (Environmental Modeling Center) def
+/grib_name /TMIN def
+%/scale_min 0.0 def
+/gribleveltype 105 def
+/PDS_TimeRange 3 def
+/GRIBgridcode 3 def
+/standard_name (air_temperature) def
+ GRIB1record :readdatafile
+decompress
+Y low high RANGE
+}defasvarsilent
+
+ /watr{
+[X
+    Y  |
+     L M S] (/Data/data23/NMME/CFS.D/%b:lc[S]/watr/watr.m%2.2d[M].%b:lc[S].%Y[S].cfs.1x1.grb) [M S]
+readdatafile:
+/name (watr) def
+/missing_value 9.9990003E20 def
+%/gribNumBits 12 def
+/gribcenter 7 def
+%/PTVersion 2 def
+/gribparam 90 def
+%/gribfield 1 def
+/center (US National Weather Service, National Centers for Environmental Prediction (NCEP)) def
+/units (kg/m^2)cvn def
+/long_name (Water Runoff) def
+%/process 98 def
+%/subcenter (Environmental Modeling Center) def
+/grib_name /WATR def
+%/scale_min 0.0 def
+/gribleveltype 1 def
+/PDS_TimeRange 3 def
+/GRIBgridcode 3 def
+/standard_name (air_temperature) def
+ GRIB1record :readdatafile
+decompress
+Y low high RANGE
+}defasvarsilent
+
+ /z200{
+[X
+    Y  |
+     P L M S] (/Data/data23/NMME/CFS.D/%b:lc[S]/z200/z200.m%2.2d[M].%b:lc[S].%Y[S].cfs.1x1.grb) [M S]
+readdatafile:
+/name (z200) def
+/missing_value 9.9990003E20 def
+%/gribNumBits 12 def
+/gribcenter 7 def
+%/PTVersion 2 def
+/gribparam 7 def
+%/gribfield 1 def
+/center (US National Weather Service, National Centers for Environmental Prediction (NCEP)) def
+/units (gpm)cvn def
+/long_name (Geopotential Height) def
+/process 98 def
+%/subcenter (Environmental Modeling Center) def
+/grib_name /HGT def
+%/scale_min 0.0 def
+/gribleveltype 100 def
+/PDS_TimeRange 3 def
+/GRIBgridcode 3 def
+/standard_name (geopotential_height) def
+ GRIB1record :readdatafile
+decompress
+Y low high RANGE
+}defasvarsilent
+
+\end{ingrid}
+\begin{ingrid}
+
+ :dataset
+
+:dataset
+\end{ingrid}

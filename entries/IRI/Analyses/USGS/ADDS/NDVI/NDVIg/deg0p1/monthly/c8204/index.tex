@@ -1,0 +1,48 @@
+\begin{ingrid}
+/description (1982-2004 climatology of monthly NDVIg data) def
+/long_name (1982-2004 climatology) def
+continuedataset:
+
+/avgNDVImonmax {
+ SOURCES .USGS .ADDS .NDVI .NDVIg .dekadal .maximum 
+ lon lat NDVI
+  T (1 Jan 1982) (26 Dec 2004) RANGE
+  T name
+    npts NewIntegerGRID
+    replaceGRID
+  T 3 splitstreamgrid
+  [T]maxover
+  T2 name
+     /monthtime ordered 264.5 1 539.5 NewEvenGRID
+     replaceGRID
+  T2 (Jan 1982) (Dec 2004) RANGE
+  T2 /T renameGRID
+  T 12 splitstreamgrid
+  [T2]average
+  [x y]weaver:
+    X -20 55 0.1 RANGEEDGESTEP
+    Y -40 40 0.1 RANGEEDGESTEP
+    false setweave
+    :weaver
+    nip
+  /long_name (1982-2004 Avg. of Monthly Maximum NDVI) def
+}defasvarcachesilent
+
+/avgNDVImonavg {
+ SOURCES .USGS .ADDS .NDVI .NDVIg .dekadal .maximum 
+  lon lat NDVI
+  T (1 Jan 1982) (26 Dec 2004) RANGE
+  T monthlyAverage
+  T 12 splitstreamgrid
+  [T2]average
+  [x y]weaver:
+     X -20 55 0.1 RANGEEDGESTEP
+     Y -40 40 0.1 RANGEEDGESTEP
+     false setweave
+     :weaver
+    nip
+  /long_name (1982-2004 Avg. of Monthly Average NDVI) def
+}defasvarcachesilent
+
+:dataset
+\end{ingrid}

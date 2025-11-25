@@ -1,0 +1,40 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Eritrea_47_1) def
+/description (Ministry of Health Sub Zobas) def
+/MOH_SubZobas
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select mohcode_2 as mohcode,zonecode_2,zonename_2,mohcode_2,mohname_2,subz_geom as the_geom from subzoba_boundary_june9 order by mohcode_2) (mohcode_2) openqueryby
+        mohcode
+            /long_name (Ministry of Health Sub-Zoba code) def
+        CopyStream
+        name exch def
+        mohcode_2
+            /long_name (Ministry of Health Sub-Zoba code) def
+        name exch def
+        zonecode_2
+            /long_name (Zone code) def
+        CopyStream
+        name exch def
+        zonename_2
+            /long_name (Zone name) def
+        CopyStream
+        name exch def
+        mohname_2
+            /long_name (Ministry of Health Sub-Zoba name) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Ministry of Health Sub-Zoba geometry) def
+        name exch def
+}defasvarcachesilent
+/last_modified 
+{  db: 
+   /server (localhost) def 
+   /dbname (iridb) def 
+   :db
+   (select max ( last_modified ) as last_modified from subzoba_boundary_june9) openquery .last_modified
+}def
+\end{ingrid}

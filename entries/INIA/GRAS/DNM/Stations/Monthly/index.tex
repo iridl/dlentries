@@ -1,0 +1,38 @@
+\begin{ingrid}
+/INIA_Uruguay datadownloadsareRestricted
+
+%(/beluga/data/mbell/dldata/uruguay.d/INIA.d/monthly.d/uruguay_monthly_prcp.cuf)continuewithCUF
+(/Data/data6/INIA/GRAS/DNM/monthly/station/uruguay_monthly_prcp.cuf)continuewithCUF
+
+continuedataset:
+grid:
+ /name (T) def
+ /standard_name (time) def
+ /units (months since 1960-01-01) def
+ /defaultvalue {last} def
+ 16 Jan 1980 ensotime
+ 1
+16 Nov 2013 ensotime %enddate
+:grid
+
+%grid:
+%/name (STNID) def
+%/units (ids) def
+%values:
+%(BU) (ART) (RIV) (SAL) (TAC) (PAY) (MEL) (YOU) (PDT) (MER) (TYT) (DUR) (TRI) (FLO) (MI)
+%(COL) (ROC) (LIB) (PR) (CAR)
+%:values
+% :grid
+
+/prcp {
+[ STNID T | ] (/Data/data6/INIA/GRAS/DNM/monthly/station/uy_monthly_prcp_20stns.txt) readdatafile:
+[3 1] r*4astsv
+ /missing_value -999 def
+ /units (mm/month) def
+ /long_name (Precipitation) def
+ /standard_name (lwe_precipitation_rate) def
+:readdatafile
+} defasvarsilent
+
+ :dataset
+\end{ingrid}

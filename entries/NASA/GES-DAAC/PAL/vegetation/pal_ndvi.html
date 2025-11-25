@@ -1,0 +1,645 @@
+<html>
+<head>
+<title>Pathfinder AVHRR Land NDVI Data</title>
+</head>
+<BODY BGCOLOR="#FFFFFF">
+
+<CENTER>
+<BR><IMG SRC="graphics/pal_ndvi_readme_af&eu.gif" ALT="PAL NDVI Data on CD" ALIGN=middle VSPACE=10>
+</CENTER>
+
+<CENTER>
+<IMG SRC="graphics/pal_dingbat_af&eu.gif" ALT="rule" ALIGN=absmiddle>
+</CENTER>
+
+<H3>PAL NDVI Readme Contents</H3>
+
+<BLOCKQUOTE>
+<DL><dt><A HREF="#100"><B>Data Set Overview</B></a>
+<dd><A HREF="#101">Sponsor</a>
+<dd><A HREF="#102">Original Archive</a>
+<dd><A HREF="#103">Future Updates</a></dl><p>
+<dl><dt><A HREF="#200"><B>The Data</B></a>
+<dd><A HREF="#201">Characteristics</a>
+<dd><A HREF="#202">Source</a></dl><p>
+<dl><dt><A HREF="#300"><B>The Files</B></a>
+<dd><A HREF="#301">Format</a>
+<dd><A HREF="#302">Name and Directory Information</A>
+<dd><A HREF="#303">Companion Software</A></dl><p>
+<dl><dt><A HREF="#400"><B>The Science</B></a>
+<dd><A HREF="#401">Theoretical Basis of Data</A>
+<dd><A HREF="#402">Processing Sequence and Algorithms</A>
+<dd><A HREF="#403">Scientific Potential of Data</A>
+<dd><A HREF="#404">Validation of Data</A></dl><p>
+<dl><dt><A HREF="#500"><B>Data Access and Contacts</B></a>
+<dd><A HREF="#501">FTP Site</a>
+<dd><A HREF="#502">Points of Contact</a></dl><p>
+<A HREF="#600"><B>References</B></a><p>
+</BLOCKQUOTE>
+
+<CENTER><IMG SRC="graphics/pal_dingbat_af&eu.gif" ALT="rule" ALIGN=absmiddle></CENTER>
+
+<p>
+<A name="100"><H3>Data Set Overview</H3></a>
+
+<BLOCKQUOTE>
+The NDVI continental subsets on this CD-ROM were extracted from the PAL Global 8-km, 10-day composite, Normalized Difference Vegetation Index (NDVI) product archived at the Goddard Earth Sciences, <a href="http://daac.gsfc.nasa.gov">Distributed Active Archive Center</a> (GES-DAAC). The data covers the time period from July 13, 1981 through December 31, 1999.<p>
+
+The PAL 10-day data were originally created from the PAL 8-km daily product using a temporal re-sampling method based on maximum NDVI values. The PAL 8-km daily data were spatially re-sampled, based on maximum NDVI values, from the Advanced Very High Resolution Radiometers (AVHRR), Global Area Coverage (GAC) data, which has a nominal resolution of 4 km.  Only data from the "afternoon" NOAA operational meteorological satellites (NOAA-7, -9, -11, -14) were used for these products.<P>
+<A name="101"><B>Sponsor</B></a>
+
+<BR>The production and distribution of this data set are funded by <A HREF="http://www.earth.nasa.gov/">NASA's Earth Science Enterprise</a> program.  The data are not copyrighted; however, we request that, when you publish data or results using these data, please acknowledge as follows:
+<p>
+
+<blockquote>
+<i>The authors wish to thank the Goddard Earth Science, Data and Information Services Center (GES DISC) at the Goddard Space Flight Center, Greenbelt, MD, 20771, for producing the data in there present form and distributing them.  The original data products were produced under the NOAA/NASA Pathfinder program, by a processing team headed by Ms. Mary James of the Goddard Global Change Data Center; and the science algorithms were established by the AVHRR Land Science Working Group, chaired by Dr. John Townshend of the University of Maryland.  Goddard's contributions to these activities were sponsored by NASA's Mission to Planet Earth program.</i>
+</blockquote>
+
+<a name="102"><B>Original Archive</B></a>
+
+<BR>This data set is part of the Pathfinder Land data set archived at the Goddard DAAC, which contains NDVI, channel 1, 2 reflectance, channel 3-5 brightness temperature, cloudiness, quality assessment information and solar and scan geometry information.  The data on this CD is a subset of the PAL Global 10-day composite NDVI product, which was originally derived from the PAL 8-km daily data.  The PAL daily data are derived from the NOAA AVHRR Global Area Coverage (GAC) 1B data, available from <A HREF="http://www.saa.noaa.gov/">NOAA's Satellite Active Archive.</a>
+<p>
+You can obtain additional information on the Pathfinder AVHRR Land data set at the
+<A HREF="http://daac.gsfc.nasa.gov/CAMPAIGN_DOCS/LAND_BIO/GLBDST_main.html">
+Global Land Biosphere Data and Information Web Site</a>.<p>
+
+<A NAME="103"><B>Future Updates</B></a>
+<BR>The NOAA/NASA PAL data set is continually being processed and data after 1999 are available, online, at the Goddard Space Flight Center, <a HREF="http://daac.gsfc.nasa.gov/">DAAC</a>.
+</BLOCKQUOTE>
+<P>
+
+<H3><a name="200">The Data</a></H3>
+
+<BLOCKQUOTE>
+<B><a name="201">Characteristics</a></B>
+
+<pre><B>Parameters, Units, Range</B>
+_________________________________________________________________________________
+PARAMETER           DESCRIPTION                    UNITS            DATA RANGE
+_________________________________________________________________________________
+
+NDVI                Normalized Difference          Unitless         -1 to +1      
+                    Vegetation Index derived                        This is the
+                    from the visible and                            theoretical
+                    near-infrared channel                           range, actual
+                    reflectances (0.58 to                           range is less
+                    0.68 um and 0.73 to 
+                    1.10 um, respectively)
+
+elev                Ancillary elevation file       Meters           -1500 to 10000
+
+lsm                 Ancillary Land Sea Mask        Not Applicable   0 to 1
+
+lat                 Ancillary Latitude file        Degrees          -90 to 90
+
+lon                 Ancillary Longitude file       Degrees          -180 to 180
+_________________________________________________________________________________
+</pre>
+<p>
+<UL>
+<LI><b>Temporal Coverage:</b>  July 13, 1981 through December 31, 1999
+<LI><b>Temporal Resolution:</b>  10-day composites
+<LI><b>Spatial Coverage:</b> Continental
+<LI><b>Spatial Resolution:</b>  8 km x 8 km</UL>
+<pre>
+<b>Starting Points and End Points</b>
+___________________________________________________________________________
+              North            South             West            East
+Area          Latitude         Latitude          Longitude       Longitude
+___________________________________________________________________________
+Africa            38.5            -37.8              -20.0            61.3
+Asia              79.0              4.5               25.6           143.7
+Australia          7.5            -48.0               93.5           179.5
+Europe            76.7             23.4              -13.0            60.5
+North America     72.5              9.0             -165.0           -60.0
+South America     13.2            -57.0              -83.0           -33.0  
+___________________________________________________________________________
+</pre>
+<B><A name="202">Source</a></B>
+<BR>These data were collected by the Advanced Very High Resolution 
+Radiometer (AVHRR) flown on NOAA-series satellites. 
+<dl><dt>Nominal orbit parameters for the NOAA-7, -9, and -11 are<p>
+<dd><b>Launch date:</b> 6/23/81 (NOAA-7), 12/12/84 (NOAA-9), 
+9/24/88 (NOAA-11), 12/30/94 (NOAA-14)
+<dd><b>Data date ranges:</b><br>
+<dl>
+<dd>NOAA-7 Jul. 13, 1981 through Feb. 5, 1985
+<dd>NOAA-9 Feb. 6, 1985 through Nov. 7, 1988
+<dd>NOAA-11 Nov. 8, 1988 through Sep. 14, 1994
+<dd>NOAA-14 Jan. 3, 1995 to Dec. 31, 1999
+<dd>Note: 10-day periods that cross platform dates contain data from both platforms.
+</dl>
+<dd><b>Orbit:</b> Sun synchronous, near polar
+<dd><b>Nominal altitude:</b> 833 km
+<dd><b>Inclination:</b> 98.8 degrees
+<dd><b>Orbital period:</b> 102 minutes
+<dd><dl><dt><b>Ascending node times at launch:</b> 14.30 (NOAA-7), 14.20 
+(NOAA-9),
+<dd>13.30 (NOAA-11), 13.30 (NOAA-14) LST</dl>
+<dd><b>Nodal Increment:</b> 25.3 degrees
+</dl>
+The orbital period of about 102 minutes produces 14.1 orbits per day. Because the daily number of orbits is not an integer, the sub-orbital tracks do not repeat daily, although the local solar time of the satellite's passage is essentially unchanged for any latitude.  The 110.8 degrees cross-track scan equates to a swath of about 2700-km. This swath width is greater than the 25.3 degrees separation between successive orbital tracks and provides overlapping coverage (side-lap).
+<P>
+The  bandwidths and Instantaneous Field of View (IFOV) of the AVHRR instrument are given in the following table.
+<PRE>
+     Channel    Wavelength  (micrometer)    IFOV (milliradian)
+     -------    ------------------------    ------------------
+        1           0.58  -   0.68          1.39
+        2           0.73  -   1.10          1.41
+        3           3.55  -   3.93          1.51
+        4          10.3   -  11.3           1.41
+        5          11.5   -  12.5           1.30
+</PRE><p>
+A more comprehensive description of the NOAA series satellites, the AVHRR instrument, and the AVHRR GAC 1B data can be found in the <A HREF="http://www2.ncdc.noaa.gov/docs/podug/"><i>NOAA Polar Orbiter Data User's Guide</i></a> (Kidwell 1991), which can be obtained from NOAA's National Climate Data Center (NCDC).<P>
+</BLOCKQUOTE>
+
+<A name="300"><H3>The Files</H3></a>
+
+<BLOCKQUOTE>
+<a name="301"><B>Format</B></a>
+
+<P>Compressed format:<P>
+<BLOCKQUOTE>The Pathfinder data on this CD-ROM has been compressed using Gzip, which reduces the size of the named files using Lempel-Ziv coding. Decompression software, for various platforms, are available in the directory <A HREF="../software/decompression/">software/decompression/</a>.
+</BLOCKQUOTE><P> 
+
+<P>Uncompressed format:
+<BLOCKQUOTE>
+The Pathfinder data are processed as 32-bit floating-point numbers to maintain maximum accuracy. In generating the output data are scaled to an appropriate 8-bit (unsigned) or 16-bit (unsigned) integer value corresponding to the ranges shown in the table below. Consequently, to obtain the geophysical values from the scaled data value the offsets must be subtracted from the scaled data value and the result multiplied by the gain. Complete information on scaling and bit representations are provided in the table below.
+<P>
+<pre>
+________________________________________________________________________ 
+Parm.         bits               Offset        Gain        Bin. min/max
+________________________________________________________________________  
+NDVI          8-bit unsigned        128        .008         3 /   253 
+lsm           8-bit unsigned          0        1            0 /     2
+elev         16-bit unsigned      15010        1           10 / 25010
+lat          16-bit unsigned       9010        .01         10 / 18010
+lon          16-bit unsigned      18010        .01         10 / 36010
+________________________________________________________________________
+</pre>
+<P>
+<pre>
+<B>File Size, File Dimension</B> 
+__________________________________________________________________________________
+File Type                      File Size (bytes) X-Origin  Columns Y-Origin  Rows
+                               uncompressed                           
+__________________________________________________________________________________
+Africa NDVI & lsm              1166000           2250      1100    550       1060 
+Africa elev, lat & lon         2332000           2250      1100    550       1060                 
+Asia NDVI & lsm                1320500           2880      1390     70        950 
+Asia elev, lat & lon           2641000           2880      1390     70        950 
+Australia NDVI & lsm            831600           3800      1080    980        770 
+Australia elev, lat & lon      1663200           3800      1080    980        770 
+Europe NDVI & lsm               522600           2470       780     90        670  
+Europe elev, lat & lon         1045200           2470       780     90        670 
+North America NDVI & lsm        893800            560      1090    130        820 
+North America elev, lat & lon  1787600            560      1090    130        820 
+South America NDVI & lsm        669300           1340       690    900        970 
+South America elev, lat & lon  1338600           1340       690    900        970
+__________________________________________________________________________________
+</pre>
+X-Origin and Y-Origin are the top left file coordinates, for the continent, in the PAL global 8-km file, when using an origin of 0,0 for top left corner of the global file.
+<P>
+<UL>
+<LI><b>Headers, Trailers, and Delimiters:</b>  None.
+<LI><b>Fill Values:</b> 0 is Missing Data Over Land, 1 is Ocean, 2 is Goode's Interrupted Space.
+<LI><b>Image Orientation:</b> North to South
+<LI><b>Map Projection:</b> Interrupted <A HREF="#Goode 25">Goode</a> Homolosine Projection </ul>
+<p>
+<b>Interrupted Goode Homolosine global projection parameters</b>
+<table border=1 cellspacing=2 cellpadding=1>
+<tr>
+<th rowspan=2>Region</td>
+<th rowspan=2>Latitude range</td>
+<th rowspan=2>Longitude range</td>
+<th rowspan=2>Projection</td>
+<th rowspan=2>False eastings, for each of the twelve regions</b></td>
+<th rowspan=2>Central meridian</td>
+<th colspan=4>Global Goode's window</td>
+<th colspan=2>Local projection <br> Upper Left, <b>as taken from center of pixel</b></td>
+<th colspan=2>Goode's projection <br> Upper left, <b>as taken from center of pixel</b></td>
+<tr>
+<th>SL</th>
+<th>SS</th>
+<th>NL</th>
+<th>NS</th>
+<th>Y</td>
+<th>X</td>
+<th>Y</td>
+<th>X</td>
+<TR>
+<td>1</td>
+<td>90 N to 40 44' N</td>
+<td>180 W to 40 W</td>
+<td>Mollweide</td>
+<td>-11119487.43</td>
+<td>100 W</td>
+<td>0</td> <td>270</td> <td>518</td> <td>1474</td>
+<td>9 005 911.00</td>  <td>-6 737 012.00 </td>
+<td>8 669 500.00</td> <td>-17 856 500.00</td> 
+<TR>
+<td>2</td>
+<td>90 N to 40 44' N</td>
+<td>180 W to 40 W</td>
+<td>Mollweide</td>
+<td>3335846.23</td>
+<td>30 E</td>
+<td>0</td><td>2182</td><td>518</td><td>2316</td>
+<td>9 005 911.00</td>   <td>-5 894 346.00</td>
+<td>8 669 500.00</td>   <td>-2 558 500.00</td>
+<TR>
+<td>3</td>
+<td>40 44' N to 0</td>
+<td>180 W to 40 W</td>
+<td>Sinisoidal</td>
+<td>-11119487.43</td>
+<td>100 W</td>
+<td>518</td><td>0</td><td>566</td><td>1946</td>
+<td>4 525 500.00</td>   <td>-8 892 013.00</td>
+<td>4 525 500.00</td>   <td>-20 011 500.00</td>
+<tr>
+<td>4</td>
+<td>40 44' N to 0</td>
+<td>40 W to 180 E</td>
+<td>Sinisoidal</td>
+<td>3335846.23</td>
+<td>30 E</td>
+<td>518</td><td>1946</td><td>566</td><td>3058</td>
+<td>4 525 500.00</td>   <td>-7 779 346.00</td>
+<td>4 525 500.00</td>   <td>-4 443 500.00</td> 
+<TR>
+<td>5</td>
+<td>0 to 40 44' S</td>
+<td>180 W to 100 W</td>
+<td>Sinusoidal</td>
+<td>-17791179.89</td>
+<td>160 W</td>
+<td>1084</td><td>0</td><td>566</td><td>1112</td>
+<td>-4 500.00</td>     <td>-2 220 320.00</td>
+<td>-4 500.00</td>     <td>-20 011 500.00</td>
+<TR>
+<td>6</td>
+<td>0 to 40 44' S</td>
+<td>100W to 20 W</td>
+<td>Sinusoidal</td>
+<td>-6671692.46</td>
+<td>60 W</td>
+<td>1084</td><td>1112</td><td>566</td><td>1111</td>
+<td>-4 500.00</td>     <td>-4 442 807.50</td>
+<td>-4 500.00</td>     <td>-11 114 500.00</td>
+<TR>
+<td>7</td>
+<td>0 to 40 44' S</td>
+<td>20 W to 80 E</td>
+<td>Sinusoidal</td>
+<td>2223897.49</td>
+<td>20 E</td>
+<td>1084</td><td>2224</td><td>566</td><td>1390</td>
+<td>-4 500.00</td>     <td>-4 443 397.50</td>
+<td>-4 500.00</td>     <td>-2 219 500.00</td>
+<TR>
+<td>8</td>
+<td>0 to 40 44' S</td>
+<td>80 E to 180 E</td>
+<td>Sinusoidal</td>
+<td>15567282.40</td>
+<td>140 E</td>
+<td>1084</td><td>3614</td><td>566</td><td>1390</td>
+<td>-4 500.00</td>     <td>-6 666 782.50</td>
+<td>-4 500.00</td>     <td>8 900 500.00</td>
+<tr>
+<td>9</td>
+<td>40 44' S to 90 S</td>
+<td>180 W to 100 W</td>
+<td>Mollweide</td>
+<td>-17791179.89</td>
+<td>160 W</td>
+<td>1650</td><td>67</td><td>518</td><td>593</td>
+<td>-4 869 911.00</td>  <td>-1 681 320.12</td>
+<td>-4 533 500.00</td>  <td>-19 472 500.00</td>
+<TR>
+<td>10</td>
+<td>40 44' S to 90 S</td>
+<td>100 W to 20 W</td>
+<td>Mollweide</td>
+<td>-6671692.46</td>
+<td>60 W</td>
+<td>1650</td><td>1246</td><td>518</td><td>593</td>
+<td>-4 869 911.00</td>  <td>-3 366 807.50</td>
+<td>-4 533 500.00</td>  <td>-10 038 500.00</td>
+<TR>
+<td>11</td>
+<td>40 44' S to 90 S</td>
+<td>20 W to 80 E</td>
+<td>Mollweide</td>
+<td>2223897.49</td>
+<td>20 E</td>
+<td>1650</td><td>2359</td><td>518</td><td>1053</td>
+<td>-4 869 911.00</td>  <td>-3 366 397.50</td>
+<td>-4 533 500.00</td>  <td>-1 142 500.00</td>
+<TR>
+<td>12</td>
+<td>40 44' S to 90 S</td>
+<td>80 E to 180 E</td>
+<td>Mollweide</td>
+<td>15567282.40</td>
+<td>140 E</td>
+<td>1650</td><td>3816</td><td>518</td><td>1053</td>
+<td>-4 869 911.00</td>  <td>-5 051 782.50</td>
+<td>-4 533 500.00</td>  <td>10 515 500.00</td>
+</table>
+<dl>
+<dd>Earth's Radius = 6 370 997 meters<br>
+<dd>Top of global image in Goode's meters = 8 669 500 m (Maximum Y)<br>
+<dd>Bottom = -8 669 500 m (Minimum Y)<br>
+<dd>Left side = -20 011 500 m (Minimum X)<br>
+<dd>Right side = 20 011 500 m (Maximum X)
+<p></dl>
+</BLOCKQUOTE>
+<P>
+<a name="302"><B>Name and Directory Information</B></a>
+
+<P>Naming Convention:
+
+<BLOCKQUOTE>The file naming convention for this data set is
+<p> 
+<DL>
+<DD>          xxxxxxxx.pppppp.lctgrr.yymmdd.gz
+<DD>          xxxxxxxx.pppppp.lctgrr.gz<p>
+<DT>where:<p>
+<DD>          xxxxxxxx:  data product designator (i.e. avhrrpf)
+<DD>          pppppp:  parameter name
+<DL>
+<DD>                ndvi = Normalize Difference Vegetation Index
+<DD>                elev = Elevation
+<DD>                 lat = Latitude
+<DD>                 lon = Longitude
+<DD>                 lsm = Land/Sea Mask
+</DL>  
+<DD>          lctgrr: code for spatial/temporal resolution & coverage
+<DL>
+<DD>                l = number of vertical levels (1 level for this data set)
+<DD>                c = vertical coordinate(n = not applicable for this data set) 
+<DD>                t = temporal period, with the following definitions:
+<DL>
+<DD>                        t  =   ten day composites
+<DD>                        n  =   not applicable
+</DL>
+<DD>                g = horizontal grid resolution
+<DL>
+<DD>                        f  =   8 km x 8 km
+</DL>
+<DD>                rr= spatial coverage, with the following definitions:
+<DL>                    
+<DD>                        af     africa
+<DD>                        as     asia 
+<DD>                        eu     europe
+<DD>                        sa     south america
+<DD>                        na     north america
+<DD>                        au     australia
+</DL>
+</DL>
+<DD>          yy:  year (e.g. 87=1987)
+<DD>          mm:  month (e.g. 12=December)
+<DD>          dd: first day of ten day period
+<DD>          gz: designates gzip compressed file
+</DL><p>
+</BLOCKQUOTE>
+
+<P>Directory Path:
+<BLOCKQUOTE>The directory path for data files is:
+<DL>
+<DD>/data/cccccccc/yyyy/ <p>
+<DT>where:<p>
+<DD>cccccccc is the continent
+<DD>yyyy is year
+</DL><p>
+The directory path for ancillary files is:<p>
+<DL>
+<DD>/data/cccccccc/ancillary/
+</DL>
+</BLOCKQUOTE><p>
+<a name="303"><B>Companion Software</B></a>
+<BR>
+The PAL CD set has been supplied with <A HREF="../software/decompression/">decompression</A> software. We have provided a list of <A HREF="links.html">links</a> to software products that can be used to analyze the data. Read files in C and Fortran for global data are also accessible at the following 
+<A HREF="http://daac.gsfc.nasa.gov/CAMPAIGN_DOCS/LAND_BIO/GLBDST_Misc_SW.html">Global Land Biosphere resources page</A>. 
+<p>
+</BLOCKQUOTE>
+<a name="400"><H3> The Science</H3></a>
+
+<BLOCKQUOTE>
+<a name="401"><B>Theoretical Basis of Data</B></a>
+<P>Spectral Wavelengths
+<BR>
+<BLOCKQUOTE>
+On the NOAA (7, 9, 11 and 14) satellites, the AVHRR sensor measures emitted and reflected radiation in five channels (bands) of the electromagnetic spectrum: 
+<P>
+<UL>
+<LI>a visible (0.58 to 0.68 micrometer) band that is used for daytime cloud and surface mapping
+<LI>a near-infrared (0.725 to 1.1 micrometer) band used for surface water delineation and vegetation cover mapping
+<LI>a mid-infrared (3.55 to 3.93 micrometer) band used for sea surface temperature and nighttime cloud mapping
+<LI>a thermal infrared (10.5 to 11.5 micrometer) band used for surface temperature and day and night cloud mapping
+<LI>a thermal infrared (11.5 to 12.5 micrometer) band used for surface temperature mapping (<A HREF="#Kidwell 91">Kidwell 1991</A>).
+</UL>
+</BLOCKQUOTE><p>
+Vegetation Index
+<BR><BLOCKQUOTE>
+The first AVHRR channel is in a part of the spectrum where chlorophyll causes considerable absorption of incoming radiation, and the second channel is in a spectral region where spongy mesophyll leaf structure leads to considerable reflectance.  This contrast between responses of the two bands can be shown by a ratio transform; i.e., dividing one band by the other.  Several ratio transforms have been proposed for studying different land surfaces (<A HREF="#Tucker 79">Tucker, 1979</A>).  The Normalized Difference Vegetation Index (NDVI) is one such ratio, which has been shown to be highly correlated with vegetation parameters such as green-leaf biomass and green-leaf area and, hence, is of considerable value for vegetation discrimination (<A HREF="#Justice 85">Justice et al. 1985</A>).<p>
+</BLOCKQUOTE>
+
+NDVI Relationships With Geophysical Variables
+<BR>
+
+<BLOCKQUOTE>
+A ratio between bands is of considerable use in reducing variations caused by surface topography (<A HREF="#Holben 81">Holben and Justice 1981</A>). It compensates for variations in radiance as a function of Sun elevation for different parts of an image.  The ratios do not eliminate additive effects caused by atmospheric attenuation, but the basis for the NDVI and vegetation relationship holds generally.  The soil background contributes a reflected signal apart from the vegetation, and interacts with the overlying vegetation through multiple scattering of radiant energy.  <A HREF="#Huete 88">Huete (1988)</A> found the NDVI to be as sensitive to soil darkening (moisture and soil type) as to plant density over partially vegetated areas.<p>
+</BLOCKQUOTE>
+
+<A name="402"><B>Processing Sequence and Algorithms</B></a>
+<br>
+Key components of processing sequence for the original PAL 8-km data are described below. For a more comprehensive description of these methods see <A HREF="#James 94">James and Kalluri, (1994)</a> and <A HREF="#Agbu 94">Agbu and James (1994)</a>.
+<p>
+Calibration<BR>
+<BLOCKQUOTE>
+The original AVHRR GAC data were converted to re-calibrated radiance using the method described by Rao (<A HREF="#Rao 93">1993</a>, <A HREF="#Rao 94">1994</a>). Time-dependent calibration coefficients were used that incorporate the slopes derived from calibration investigations, which used the southeastern Libyan Desert as a time-invariant calibration target (<A HREF="#Staylor 90">Staylor 1990</A>).<p>
+Given the days since launch, t<sub>d</sub>, gains may be calculated as<p>
+<dl>
+<dd><b>NOAA-7 Channel 1:</b> GAIN=(0.5753)(exp[(1.01)(10<sup>-4</sup>)(t<sub>d</sub>)])<br>
+<dd><b>NOAA-7 Channel 2:</b> GAIN=(0.3914)(exp[(1.20)(10<sup>-4</sup>)(t<sub>d</sub>)])<p>
+
+<dd><b>NOAA-9 Channel 1:</b> GAIN=(0.5406)(exp[(1.66)(10<sup>-4</sup>)(t<sub>d</sub>)])<br>
+<dd><b>NOAA-9 Channel 2:</b> GAIN=(0.3808)(exp[(0.98)(10<sup>-4</sup>)(t<sub>d</sub>)])<p>
+
+<dd><b>NOAA-11 Channel 1:</b> GAIN=(0.5496)(exp[(0.33)(10<sup>-4</sup>)(t<sub>d</sub>)])<br>
+<dd><b>NOAA-11 Channel 2:</b> GAIN=(0.3680)(exp[(0.55)(10<sup>-4</sup>)(t<sub>d</sub>)])<p>
+
+<dd><b>NOAA-14 Channel 1:</b> GAIN=( 0.566)(exp[(0.1219)(10<sup>-3</sup>)(t<sub>d</sub>)])<br>
+<dd><b>NOAA-14 Channel 2:</b> GAIN=( 0.440)(exp[(0.0989)(10<sup>-3</sup>)(t<sub>d</sub>)])</dl>
+
+The calibrated radiance for each channel, L<sub>i</sub>, is then computed as:<p>
+
+<dl><dd>L<sub>i</sub>=(GAIN<sub>i</sub>) (Counts<sub>i</sub>-Offset<sub>i</sub>)</dl><p>
+Where: Counts<sub>i</sub> is the measured counts, and Offset<sub>i</sub> are the offsets for<p> 
+<dl>
+<dd><b>NOAA-7 Channel 1:</b> 36.0
+<dd><b>NOAA-7 Channel 2:</b> 37.0
+<dd><b>NOAA-9 Channel 1:</b> 37.0
+<dd><b>NOAA-9 Channel 2:</b> 39.6
+<dd><b>NOAA-11 Channel 1:</b> 40.0
+<dd><b>NOAA-11 Channel 2:</b> 40.0
+<dd><b>NOAA-14 Channel 1:</b> 41.0
+<dd><b>NOAA-14 Channel 2:</b> 41.0
+</dl>
+<p>
+The recommended offsets for NOAA-9 data are tied to 1986 and 1988 ER-2 aircraft underflights. The offsets for NOAA-7, NOAA-9, and NOAA-14 offsets are based on NOAA-9 offsets. These radiances are used in the atmospheric correction algorithms.<p>
+</BLOCKQUOTE><p>
+Atmospheric Correction<p>
+<BLOCKQUOTE>
+Channel 1 and channel 2 have been corrected for Rayleigh scattering and ozone absorption. The Pathfinder Land Science Working Group (LSWG), decided not to correct for atmospheric water vapor and aerosols <A HREF="#James 94">(James and Kalluri, 1994)</a>. The Rayleigh correction is calculated and applied using a standard radiative transfer equation and methodology, which follows the work of <A HREF="#Gordon 88">Gordon et al. (1988)</A>. This includes a correction for ozone absorption using daily ozone data from the Total Ozone Mapping Spectrometer (<A HREF="#McPeters 93">McPeters et al. 1993</A>). In addition, the pixel elevation as determined from the ETOPO5 data set (<A HREF="#NGDC 93">NGDC 1993</A>) is used to correct the pressure level used in the calculation of Rayleigh coefficients. The Rayleigh correction terms are applied to the Channels 1 and 2 radiance, and the resulting reflectances are normalized for solar illumination.<p>
+
+The original PAL 8-km 10-day data (1981 to 1994) has been reprocessed as a result of coding error described in the <A HREF="#404">Validation section</A> of this readme. The reprocessing involved calculating correct solar zenith angles and relative azimuth angles, and re-extracting radiances from the original reflectance values of channel 1 and 2. The atmospheric corrections were then re-applied to the radiance using the methods described in <A HREF="#Ye 95">Ye et al. (1995)</a> and the following <A HREF="new_corrections.pdf">supplemental document</a>, in PDF format. The NDVI was then recalculated using the corrected reflectances.
+<p>
+A similar error existed in the NOAA-14 PAL data (1995 to 1999), except in this case the solar zenith angles were correct, but applied incorrectly to the normalization, of channels 1 and 2. A variation of the method described above was used to correct this problem.
+</BLOCKQUOTE>
+Calculation of NDVI<br>
+<BLOCKQUOTE>
+<dl><dt><A NAME="NDVI">NDVI</A> is derived:<P>
+<dd>(Channel 2 reflectance - Channel 1 reflectance)
+<dd>-------------------------------------------------------
+<dd>(Channel 2 reflectance + Channel 1 reflectance)</dl><P>
+</BLOCKQUOTE>
+Binning and Compositing<BR>
+<BLOCKQUOTE>
+The original PAL 10-day data are a composite data set, based on maximum NDVI, that can actually represent an 8 to 11 day period, based on the month and year, or fewer than 8 days if there is a lack of data. The purpose of the compositing is to find the pixel with the highest NDVI value for that 10-day period. This results in data with minimal cloud and atmospheric contamination.
+<p>
+The compositing begins with the daily data, where GAC 4-km pixels are binned into one of the 8-km pixels of the PAL daily product. The bin is based on maximum NDVI, and all relating channel data as well as other parameters are selected based on the location of this bin. For the daily data pixels with scan angle greater than 42 degrees are not chosen, unless there are no pixels with scan angles less then 42 degrees. Pixels with solar zenith angle greater than 80 degrees are not used.
+<p>
+The PAL 10-day composite data set is generated using a similar binning method. For each month, the first ten days are composited, the second 10 days are composited, and the remaining days of the month (8, 9, 10 or 11) are used for the final composite. The bin with the maximum NDVI, for an 8-km pixel, during the 10-day period is selected, and only data that are within 42 degrees of nadir are considered in generating the composite data.
+<p>
+</BLOCKQUOTE>
+<a name="403"><B>Scientific Potential of Data</B></a><br>
+The PAL NDVI 8-km data set product is particularly useful for studies of temporal and interannual behavior of surface vegetation and for developing surface background characteristics for use in climate modeling.  Some uses of NDVI include<p>
+<ul>
+<li>Global land cover classification
+<li>Regional agricultural crop monitoring
+<li>Desertification studies and drought monitoring
+<li>Terrestrial environmental monitoring
+<li>Global water and energy balance studies.
+</ul>
+<p>
+<BR>Numerous articles on the NOAA/NASA PAL 8-km data set have been published since the data set was released in 1994, providing a comprehensive history of the data set and examples of applications of the data:<p>
+<OL>
+<LI><A HREF="#Townshend 94">Townshend (1994)</A>, gives an introduction to the PAL data set as well as other AVHRR data sets that have been developed for land applications. 
+<LI><A HREF="#Maiden 94">Maiden and Greco (1994)</A>, discuss the Land portion of the NASA Pathfinder program, and the PAL 8-km data set part in this program. 
+<LI><A HREF="#Justice 94">Justice and Townshend (1994)</A>, provide a comprehensive view of current and future science, instrument and data-handling needs connected with global land data sets, such as PAL. 
+<li><A HREF="#Ye 95">Ye et al., (1995)</a>, Developed a method for correcting the PAL 8-km data for stratospheric aerosol.
+<LI><A HREF="#Prince 96">Prince and Goward (1996)</A>, evaluate the application of the PAL 8-km data set, in driving the GLObal Production Efficiency (GLO-PEM) primary production model.
+<LI><A HREF="#Smith 97">Smith et al., (1997)</A>, provides specifics on the PAL 8-km product, including processing features, known problems with the data set and potential applications. 
+<LI><A HREF="#DeFries 00">DeFries et al., (2000)</A>, derives global continuous fields of percentage woody vegetation, herbaceous vegetation and bare ground from the PAL 8-km data set using a linear mixture model.
+</OL>
+<p>
+<A name="404"><B>Validation of Data</B></a><p>
+<I>Goddard DAAC Validation</I><br>
+<BLOCKQUOTE>
+A few validation checks have been built into the Pathfinder data processing (Quality Control Flags. Automated quality checks are made for consistency in fields such as date and satellite or scan times. Geophysical values are checked to see that they are within a reasonable range. Certain anomalies may exist in the data set because of conditions inherent in the input data, for example, missing scan lines or orbits, incorrect or incomplete calibration coefficients, and many of these data are flagged with the Quality control indicator.
+<p>
+Coding errors in the PAL software have required that we re-issue a corrected version of the 10-day composite data set. Three errors have been discovered and are described below.
+
+<OL TYPE="a" START="1"><LI>The solar zenith angle (SZA) parameter was calculated incorrectly. This error in the SZA in the daily and composite data, varies systematically with time and geographical location. An analysis of SZA from the PAL data set showed that the errors are smaller in the recent data (e.g., ±2o in the 1992 data) and larger in the earlier data (e.g., ±7o in the 1982 data). Errors in the solar zenith angle layer affect channel 1 and 2 reflectances, NDVI, CLAVR flags and the relative azimuth angles. A <A HREF="zenith_angle_memo.html">memo has been written</A> that discusses the impact of these errors on the PAL data set.<p>
+
+<P><LI>The channel 1 and channel 2 reflectance parameters were not properly normalized for SZA variations.
+
+<P><LI>An incomplete atmospheric correction was applied to the channel 1 and channel 2 radiances.</OL>
+
+For a more detailed explanation of the b,c errors and their impact on the data products see the following 
+ <A HREF="pal_coding_errors.pdf">supplemental document</A> in PDF format.
+</BLOCKQUOTE>
+<I>Outside Source Validation</I><br>
+<BLOCKQUOTE>
+<P>
+<A HREF="#Young 99">Young and Anyamba (1999)</a>, compared NOAA/NASA PAL 8-km data with the NOAA GIV data. China was chosen as the area for comparison and Principal Components Analysis (PCA) was used to analyze the data sets over this region. Results indicate that the sensor related problems of orbital drift and radiometric miscalibration, associated with the GVI still exist with PAL. However, both orbital drift and radiometric miscalibration have been greatly reduced in PAL. In both cases the effects are most sever in NOAA-11 data. Evidence was also found that there may be some form of spatial misregistration in the PAL NOAA-9 data.
+<P>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<A name="500"><H3>Data Access and Contacts</H3></a>
+
+<BLOCKQUOTE>
+<B><a name="501">FTP SITE</a></B>
+<BR>The PAL NDVI Data is accessible from the "data/" directory on this CD-ROM.  You may also access the files from this document,<p>
+<a 
+href="../data/"><img align=middle src="graphics/arch.gif" alt="FTP GIF"><b>Pathfinder AVHRR Land Data</b></a> (Binary data 
+files)<p>
+
+<p>
+<a name="502"><B>Points of Contact</B></a>
+<BR>For information about or assistance in using any DAAC data, 
+contact<p>
+<DL>
+<dd>EOS Distributed Active Archive Center(DAAC)
+<dd>Code 902.2
+<dd>NASA Goddard Space Flight Center
+<dd>Greenbelt, Maryland 20771
+<p>
+<dd>Internet:  daacuso@daac.gsfc.nasa.gov
+<dd>301-614-5224 or 1-800-257-6151 (voice)
+<dd>301-614-5268 (fax)<p>
+</DL>
+</BLOCKQUOTE>
+
+<A name="600"><H3> References</H3></a>
+
+<BLOCKQUOTE>
+<A NAME="Agbu 94">Agbu</A>, P.A., and M.E. James, 1994. <I>The NOAA/NASA Pathfinder AVHRR Land Data Set User's Manual</I>, Goddard Distributed Active Archive Center, NASA, Goddard Space Flight Center, Greenbelt, MD.<p>
+<A NAME="Brown 85">Brown</A>, O.W., J.W. Brown, and R.H. Evans. 
+1985. Calibration of Advanced Very High Resolution Radiometer observations. <i>Journal of Geophysical Research,</i> 90:11667-11677.<P>
+<A NAME="DeFries 00">DeFries</A>, R.S., M.C. Hansen and J.R.G. Townshend, 2000. Global continuous fields of vegetation characteristics: a linear mixture model applied to multi-year 8km AVHRR data, <I>International Journal of Remote Sensing</I>, 21:(6&7) 1389-1414.<p>
+<A NAME="Gutman 96">Gutman</a>, G., and A. Ignatov, 1996. The relative merit of cloud/clear identification in the NOAA/NASA Pathfinder AVHRR Land 10-day composites, <I>International Journal of Remote Sensing</I>, 17:(16) 3295-3304.<P>
+<A NAME="Goode 25">Goode</a>, J.P., 1925, The Homolosine projection:  a new device for portraying the Earth's surface entire:  <I>Assoc. Am. Geographers, Annals</I>, 15:119-125<p>
+<A NAME="Gordon 88">Gordon</A>, H.R., J.W. Brown, and R.H. Evans, 1988. Exact Rayleigh scattering calculations for use with the Nimbus-7 coastal zone color scanner, <i>Applied Optics,</i> 27:2111-2122.<P>
+<A NAME="Holben 81">Holben</A>, B.N., and C.O. Justice, 1981. An examination of spectral band ratioing to reduce the topographic effect on remotely sensed data, <i>International Journal of Remote Sensing,</i> 2:115-133.<P>
+<A NAME="Huete 88">Huete</A>, A.R., 1988. A soil adjusted vegetation index (SAVI), <i>Remote Sensing of the Environment,</i> 25:295-309.<P>
+<A NAME="James 94">James, M.E., and S.N.V. Kalluri, 1994. The Pathfinder AVHRR land data set: An imporved coarse resolution data set for terrestrial monitoring, <I>International Journal of Remote Sensing</I>, 15:(17) 3347-3363.<p>
+<A NAME="Justice 94">Justice</A>, C.O., and J.R. Townshend, 1994. Data sets for global remote sensing: lessons learnt, International Journal of Remote Sensing</I>, 15:(17) 3621-3639.<P>
+<A NAME="Justice 85">Justice</A>, C.O., J.R.G. Townshend, B.N. Holben, and C.J. 
+Tucker, 1985. Analysis of the phenology of global vegetation using meteorological satellite data, <i>International Journal of Remote Sensing,</i> 6:1271-1318.<P>
+<A NAME="Kidwell 91">Kidwell</A>, K., 1991. <I>NOAA Polar Orbiter Data User's Guide</I>, National Climatic Data Center, Washington, DC.<P>
+<A NAME="Maiden 94">Maiden</A>, M.E.,and S. Greco, 1994. NASA's Pathfinder data set programme: land surface parameters, <I>Internationa Journal of Remote Sensing</I>, 15:(17) 3333-3345.<P> 
+<A NAME="McPeters 93">McPeters</A>, R.D., et al., 1993.  <i>Nimbus-7 Total Ozone Mapping Spectrometer (TOMS) Data Products User's Guide,</i>  NASA Reference Publication 1323.<P>
+<A NAME="NGDC 93">NGDC</A>, 1993. <i>5 Minute Gridded World Elevation. NGDC Data,</i> Announcement DA 93-MGG-01. Boulder.<P>
+<A NAME="Prince 96">Prince</A>, S.D., and S.N. Goward, 1996. Evaluation of the NOAA/NASA Pathfinder AVHRR Land Data Set for global primary production modelling, <I>Internation Journal of Remote Sensing</I>, 17:(1) 217-221.<p>
+<A NAME="Rao 94">Rao</a>, C.R.N., J. Chen, 1994. Post launch clibration of the visible and near infrared channels of the advanced very high resolution radiometer on NOAA-7, 9 and 11 spacecraft, <I>NOAA Technical Report NESDIS-78</I>, NOAA/NESDIS. Washington, DC.<P>
+<A NAME="Rao 93">Rao</A>, C.R.N., 1993. Degradation of the visible and near-infrared channels of the Advanced Very High Resolution Radiometer on the NOAA-9 spacecraft: assessment and recommendations for corrections, <i>NOAA Technical Report NESDIS-70</i>, NOAA/NESDIS. Washington, DC.<P>
+<A NAME="Smith 97">Smith</A>, P.M., S.N.V. Kalluri, S.D. Prince, and R.S. DeFries, 1997. The NOAA/NASA Pathfinder AVHRR 8-km land data set, <I>Photogrammetric Engineering and remote sensing</I>, 63:12-31.<p>
+<A NAME="Snyder 89">Snyder</A>, J.P. and P.M. Voxland, 1989. An Album of Map Projections, <I>U.S. Geological Survey Professional Paper 1453</I>, United State Government Printing Office, Washington D.C.<p>
+<A NAME="Snyder 87">Snyder</A>, J.P., 1987. Map Projections--A Working Manual, <I>U.S. Geological Survey Professional Paper 1395</I> (Supersedes USGS Bulletin 1532), United State Government Printing Office, Washington D.C.<p>
+<A NAME="Staylor 90">Staylor</A>, W.F., 1990. Degradation rates of the AVHRR visible channel from the NOAA-6, -7, and -9 spacecraft, <i>Journal of Atmospheric and Oceanic Technology,</i> 7:411-423.<P>
+<A NAME="Townshend 94">Townshend</A>, J.R.G., 1994. Global data sets for land applications from the Advanced Very High Resolution Radiometer: and introduction, <I>International Journal of Remote Sensing</I>. 15:(17) 3319-3332.<p>
+<A NAME="Tucker 79">Tucker</A>, C.J., 1979. Red and photographic infrared linear combinations for monitoring vegetation, <i>Remote Sensing of the Environment,</i> 8:127-150.<P>
+<A NAME="Weinreb 90">Weinreb</A>, M.P., G. Hamilton, S. Brown, and R.J. Koczor, 1990. Nonlinearity corrections in calibration of Advanced Very High Resolution Radiometer infrared channels, <i>Journal of Geophysical Research,</i> 95:381-7388.<p>
+<A NAME="Ye 95">Ye, G., M. James, E. Vermote, 1995. Correcting the NOAA/NASA Pathfinder AVHRR Land Data Set for stratospheric aerosols, 
+<A NAME="Young 99">Young</a>, S.S. and A. Anayamba, 1999. Comparison of NOAA/NASA PAL and NOAA GVI data for vegetation change studies over China, <I> Photogrammetric Engineering & Remote Sensing</I>, 65:(6) 679-688.
+</BLOCKQUOTE>
+
+<P><HR><P>
+
+<CENTER>
+<table cellspacing=1 cellpadding=0>
+<tr>
+<td><a href="http://www.nasa.gov/"><img src="graphics/nasa_icon.gif" alt="NASA" border=0 height=45 width=71></a>
+<td><a href="http://pao.gsfc.nasa.gov/"><img src="graphics/goddard_icon.gif" alt="GSFC" border=0 height=45 width=71></a>
+<td><a href="http://daac.gsfc.nasa.gov/"><img
+src="graphics/DAAC_Icon.gif" alt="Goddard DAAC" border=0 height=45 width=71></a>
+<td><A HREF="http://daac.gsfc.nasa.gov/CAMPAIGN_DOCS/LAND_BIO/GLBDST_main.html"><IMG SRC="graphics/glbdst_icon.jpeg" alt="ftp site" border=0 height=45 width=71></A>
+<tr>
+<td align=center><a href="http://www.nasa.gov/">NASA</a><td
+align=center><a href="http://pao.gsfc.nasa.gov/">Goddard</a><td
+align=center><a href="http://daac.gsfc.nasa.gov/">GDAAC</a><td
+align=center><A HREF=" http://daac.gsfc.nasa.gov/CAMPAIGN_DOCS/LAND_BIO/GLBDST_main.html"> Biosphere</A>
+</table>
+</CENTER>
+
+<ADDRESS>Last update:Thu July 27 16:40:10 EST 2000<BR>
+NASA official: Steve Kempler, DAAC Manager -- kempler@daac.gsfc.nasa.gov     
+<BR>
+</ADDRESS>
+</body>
+</html>

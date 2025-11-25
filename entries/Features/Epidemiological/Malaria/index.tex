@@ -1,0 +1,10 @@
+\begin{ingrid}
+/iridl:hasSemantics [(iridl:Malaria)(irigaz:Africa_3327_1)] def
+/Risk_map
+/description ( Risk map for malaria in Africa) def
+{db: /server IRIDB def
+  /dbname (iridb) def
+  :db
+  (select id,epiz_new2_geom as the_geom from epiz_new2 order by id) (id) openqueryby
+} defasvarcachesilent
+\end{ingrid}

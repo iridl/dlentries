@@ -1,0 +1,114 @@
+20 March 2006
+
+Hi Benno,
+Richard and I have a link from the North American Drought pages at Lamont to the Dai PDSI dataset
+
+   http://iridl.ldeo.columbia.edu/expert/SOURCES/.NCAR/.CGD/.CAS/.Indices/.PDSI2004
+
+which is currently password protected for just IRI access.  Richard has checked with Aiguo Dai
+who has indicated that it may be distributed without restriction.  Would you be willing to add his link
+and open up access to this dataset?
+Thanks,
+Naomi
+
+p.s. the  new version of ingrid is working great on kage - the problem with the reanalysis monthly
+data is gone.
+
+
+---------- Forwarded message ----------
+Date: Mon, 20 Mar 2006 12:59:50 -0700
+From: Aiguo Dai <adai@ucar.edu>
+To: Richard Seager <rich@maatkare.ldgo.columbia.edu>
+Subject: Re: PDSI data set on Ingrid?
+
+Richard,
+
+It is ok to post it in the IRI/LDEO site. You might want to add a link to our website
+(http://www.cgd.ucar.edu/cas/catalog/climind/pdsi.html) where we may post periodically (e.g., annually)
+updated PDSI data.
+
+I am doing fine. Hope everything is going well at Lamont.
+Aiguo
+
+Aiguo Dai, Scientist                         Email: adai@ucar.edu
+Climate & Global Dynamics Division           Phone: 303-497-1357
+National Center for Atmospheric Research     Fax  : 303-497-1333
+P.O. Box 3000, Boulder, CO  80307, USA       www.cgd.ucar.edu/cas/adai/
+Street Address: 1850 Table Mesa Drive, Boulder, CO 80305, USA
+
+
+
+Richard Seager wrote:
+
+>
+> Hi Aiguo,
+>
+> We are wondering if you would mind if we placed your
+> instrumental PDSI data set on our IRI/LDEO Ingrid-based
+> data server:
+>
+> http://ingrid.ldgo.columbia.edu/
+>
+> in a way that would allow unrestricted access
+> by all who use this data base (pretty much
+> all climate researchers I think!).
+>
+> Currently the IRI maintain a version for use
+> by IRI personnel omly that we at LDEO (and everyone
+> else) cannot access.
+>
+> Hope all is well!
+>
+> Best,
+> Richard
+>
+
+So we remove the following
+/NotOpen dataareIRIonlyPassword
+% Data set restricted at the request of the folks at CGD/CAS  2 Dec 2005
+
+Dai, A., K. E. Trenberth, and T. Qian, 2004: A global data set of Palmer Drought Severity Index for 1870-2002: Relationship with soil moisture and effects of surface warming. J. Hydrometeorology, 5, 1117-1130.
+
+\begin{ingrid}
+continuedataset:
+/references (Heddinghaus_Sabol1991 Guttman1991) def
+/description (Palmer Drought Severity Index from the National Center for Atmospheric Research) def
+grid: 
+/name /X def
+degE
+periodic
+-180 2.5 177.5
+:grid
+grid:
+/name /Y def
+degN
+-58.75 2.5 76.25
+:grid
+grid:
+/name /T def
+/units (monthtime) def
+16 Jan 1860 ensotime
+1
+16 Dec 1995 ensotime
+:grid
+variable:
+/name /PDSI def
+/long_name (Palmer Drought Severity Index) def
+/missing_value -99999. def
+link:
+/name (PDSI2004) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NCAR/.CGD/.CAS/.Indices/.PDSI2004/.PDSI/) def
+/semantics /dcterm:isReplacedBy def
+/description (replaced by PDSI2004) def
+:link
+grids: X Y | T :grids
+file:
+/name (/Data/data5/ucar/PDSI/pdsi.monthly.maps.1860-1995.bin)def
+sequential
+:file
+:variable
+:dataset
+dup /PDSI.dataset_documentation.html get
+ /dataset_documentation.html PDSI !
+/PDSI.dataset_documentation.html undef
+\end{ingrid}

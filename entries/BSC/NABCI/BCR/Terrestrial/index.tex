@@ -1,0 +1,30 @@
+\begin{ingrid}
+
+continuedataset:
+
+/bcr {
+IRIDB (bcr_terrestrial_master_international) (bcr) [(gid)] open_column_by
+/long_name (Bird Conservation Region ID) def
+}defasvarsilentnoreuse
+
+/bcrname {
+IRIDB (bcr_terrestrial_master_international) (bcrname) [(gid)] open_column_by
+/long_name (Bird Conservation Region name) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (bcr_terrestrial_master_international) (label) [(gid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (bcr_terrestrial_master_international) (the_geom) [(gid)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+:dataset
+
+bcrname .gid name exch def
+
+\end{ingrid}
+

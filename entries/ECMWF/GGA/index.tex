@@ -1,0 +1,116 @@
+These data are in a series of random access files, one per variable.
+\begin{ingrid}
+  continuedataset:
+  /dataset_documentation.html descriptions /ecmwf.html get def
+/references (Trenberth1992) def
+	dataareLDGOonly
+  grid: 
+  /name (X) def
+  /units (degreeE) def
+  /fullname (Longitude) def
+  periodic
+  0 to 357.5 N= 144 pts
+  :grid
+  grid:
+  /name (Y) def
+  /units (degreeN) def
+  /fullname (Latitude) def
+  90 to -90 N= 73 pts
+  :grid
+  grid:
+  /name (P) def
+ /long_name (Pressure) def
+	/units (mb) def
+values: 10 30 50 70 100 150 200 250 300 400 500 700 850 1000. :values
+/defaultvalue {last} def
+  :grid
+  grid:
+  /name (T) def
+  /units (monthtime) def
+  16 Jan 1985 ensotime 1. 16 Dec 1992 ensotime 
+  :grid
+  variable:
+  /name (u) def
+	/units (m/s) def
+  /long_name (zonal velocity) def
+  /history (European Center analyzed zonal wind; 1985-1992) def
+  grids: Y X P | T :grids
+  file:
+  random
+  /name (/Data/data9/ecmwf/u.eccompl) def
+  :file
+  :variable
+  variable:
+  /name (v) def
+  /long_name (meridional velocity) def
+	/units (m/s) def
+  grids: Y X P | T :grids
+  file:
+  random
+  /name (/Data/data9/ecmwf/v.eccompl) def
+  :file
+  :variable
+  variable:
+  /name (phi) def
+  /long_name (geopotential) def
+	/units (gpm) def
+  grids: Y X P | T :grids
+  file:
+  random
+  /name (/Data/data9/ecmwf/phi.eccompl) def
+  :file
+  :variable
+  variable:
+  /name (sphm) def
+  /long_name (specific humidity) def
+	/units (kg/kg) def
+  grids: Y X P | T :grids
+  file:
+  random
+  /name (/Data/data9/ecmwf/sphm.eccompl) def
+  :file
+  :variable
+  variable:
+  /name (phis) def
+  /long_name (surface height) def
+	/units (gpm) def
+  grids: Y X :grids
+  file:
+  random
+  /name (/Data/data9/ecmwf/phis.eccompl) def
+  :file
+  :variable
+  variable:
+  /name (psfc) def
+  /long_name (surface pressure) def
+	/units (mb) def
+  grids: Y X | T :grids
+  file:
+  random
+  /name (/Data/data9/ecmwf/psfc.eccompl) def
+  :file
+  :variable
+  variable:
+  /name (t2m) def
+  /long_name (temperature at 2m) def
+	/units (K) def
+  grids: Y X | T :grids
+  file:
+  random
+  /name (/Data/data9/ecmwf/t2.eccompl) def
+  :file
+  :variable
+dataset:
+/name 
+	/CLIMATOLOGY  def
+datasetdefs:
+/|u| { absu } def
+:datasetdefs
+/absu
+{(/Data/data1/atm/models/ecmwf/climo.cdf) readCDF
+.w_clim
+P /mb setunits pop X /degreeE setunits pop Y /degreeN setunits pop 
+} defasvarsilent
+:dataset
+  :dataset
+\end{ingrid}

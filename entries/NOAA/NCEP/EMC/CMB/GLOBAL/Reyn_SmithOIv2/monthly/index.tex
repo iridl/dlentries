@@ -1,0 +1,87 @@
+\begin{ingrid}
+continuedataset:
+/note (revised 13 Sep 2005: replaced pre Apr 2002 files with Apr 2002 versions) def
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+/standard_name (longitude) def
+periodic
+0.5 1. 359.5
+:grid
+
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+/standard_name (latitude) def
+-89.5 1. 89.5
+:grid
+
+grid:
+/name /T def
+/standard_name (time) def
+/defaultvalue { last } def
+monthtime
+16 Nov 1981 ensotime
+1
+16 Jan 2023 ensotime %enddate
+:grid
+
+/sst {
+[X Y | T] (/Data/data3/ocean/nmc/RSOIver2/monthly/oiv2mon.%Y%m[T].gz) [ T ] readdatafile:
+/long_name (Sea Surface Temperature) def
+/standard_name (sea_surface_temperature) def
+/units /Celsius def
+direct
+44 set:file_byteoffset
+sstcolorscale
+:readdatafile
+} defasvarsilent
+
+/sea_ice {
+[X Y | T] (/Data/data3/ocean/nmc/RSOIver2/monthly/oiv2mon.%Y%m[T].gz) [ T ] readdatafile:
+/long_name (Sea Ice Concentration) def
+/standard_name (sea_ice_area_fraction) def
+/units /percent def
+/scale_min 0 def
+/scale_max 100 def 
+/valid_min 0 def
+/valid_max 100 def
+ui*1
+259252 set:file_byteoffset
+:readdatafile
+} defasvarsilent
+
+variable:
+/name /mask def
+/long_name (Land-Sea Mask) def
+/standard_name (land_binary_mask) def
+grids: X Y :grids
+file:
+direct
+/name (/Data/data3/ocean/nmc/RSOIver2/lstags.onedeg.dat) def
+:file
+:variable
+
+
+/ssta { SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .Reyn_SmithOIv2
+ a: .monthly .sst
+  :a: .climatology .sst :a
+   sub 
+sstacolorscale
+/long_name (Sea Surface Temperature Anomaly) def
+/standard_name (sea_surface_temperature) def
+ } defasvar
+ 
+ /ssta_c9120 { SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .Reyn_SmithOIv2
+  a: .monthly .sst
+   :a: .climatology .c9120 .sst :a
+    sub 
+ sstacolorscale
+ /long_name (1991-2020 Sea Surface Temperature Anomaly) def
+ /standard_name (sea_surface_temperature) def
+  } defasvar
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,154 @@
+\begin{ingrid}
+continuedataset:
+/BRF dataareRestricted
+/OldHQ_rad 
+/description (Old HQ Main Snow Station Radiation 10min. Observations) def
+{
+        db:
+                /server IRIDB def
+                /dbname (grover) def
+        :db
+        (select cm3upavg,cm3dnavg,cg3upavg,cg3dnavg,tempcavg,tempkavg,netrsavg,netrlavg,albedoavg,uptotalavg,dntotalavg,nettotalavg,time from oldhq_rad_lt order by time) (time) openqueryby
+	time
+		(days since 2000-01-01 00:00:00) setunits
+		/pointwidth 0.006944444444 def
+	pop	
+        cm3upavg
+                /long_name (CM_up_AVG) def
+                /units (watts^m*m) def
+        CopyStream
+        name exch def
+        cm3dnavg
+                /long_name (CM_dn_AVG) def
+                /units (watts^m*m) def
+        CopyStream
+        name exch def
+        cg3upavg
+                /long_name (CG_up_AVG) def
+                /units (watts^m*m) def
+        CopyStream
+        name exch def
+        cg3dnavg
+                /long_name (CG_dn_AVG) def
+                /units (watts^m*m) def
+        CopyStream
+        name exch def
+        tempcavg
+                /long_name (Temperature:C) def
+                /units (Celcius_scale) def
+        CopyStream
+        name exch def
+        tempkavg
+                /long_name (Temperature:K) def
+                /units (Kelvin_scale) def
+        CopyStream
+        name exch def
+        netrsavg
+                /long_name (Net_Rs_AVG) def
+                /units (watts^m*m) def
+        CopyStream
+        name exch def
+        netrlavg
+                /long_name (Net_Rl_AVG) def
+                /units (watts^m*m) def
+        CopyStream
+        name exch def
+        albedoavg
+                /long_name (Albedo_AVG) def
+                /units (unitless) def
+        CopyStream
+        name exch def
+        uptotalavg
+                /long_name (Up_total_AVG) def
+                /units (watts^m*m) def
+        CopyStream
+        name exch def
+        dntotalavg
+                /long_name (Dn_total_AVG) def
+                /units (watts^m*m) def
+        CopyStream
+        name exch def
+        nettotalavg
+                /long_name (Net_total_AVG) def
+                /units (watts^m*m) def
+        CopyStream
+        name exch def
+} defasvarcachesilent
+
+/OldHQ_main_1D_vars 
+/description (Old HQ main Snow Station Main Hourly Observations) def
+{
+        db:
+                /server IRIDB def
+                /dbname (grover) def
+        :db
+        (select snow_depth_tempf_avg,snow_depth_depth_avg,snow_depth_retries_avg,volumetric_water_content_1_avg,volumetric_water_content_2_avg,uv_b,uv_temp,uv_a,battery_min,paneltemp_avg,time from oldhq_main_hrly_lt order by time) (time) openqueryby
+        time
+                (seconds since 1970-01-01 00:00:00) setunits
+        pop
+        snow_depth_tempf_avg
+                /long_name (Snow Depth Temperature) def
+                /units (Fahrenheit_scale) def
+        CopyStream
+        name exch def
+        snow_depth_depth_avg
+                /long_name (Snow Depth) def
+                /units (inches) def
+        CopyStream
+        name exch def
+        snow_depth_retries_avg
+                /long_name (Snow Depth Retries) def
+                /units (unitless) def
+        CopyStream
+        name exch def
+        volumetric_water_content_1_avg
+                /long_name (Volumetric Water Content 1) def
+                /units (percent) def
+        CopyStream
+        name exch def
+        volumetric_water_content_2_avg 
+                /long_name (Volumetric Water Content 2) def
+                /units (percent) def
+        CopyStream
+        name exch def
+        uv_b
+                /long_name (UV-B) def
+                /units (watts^m*m) def
+        CopyStream
+        name exch def
+        uv_temp
+                /long_name (UV-temp) def
+                /units (mV) def
+        CopyStream
+        name exch def
+        uv_a
+                /long_name (UV-A) def
+                /units (watts^m*m) def
+        CopyStream
+        name exch def
+        battery_min
+                /long_name (Battery Minimum) def
+                /units (volts) def
+        CopyStream
+        name exch def
+        paneltemp_avg
+                /long_name (Panel Temperature) def
+                /units (Celsius_scale) def
+        CopyStream
+        name exch def
+} defasvarcachesilent
+/OldHQ_Thermistors
+/description (Old HQ main Snow Station Main Hourly Observations) def
+{
+        db:
+                /server IRIDB def
+                /dbname (grover) def
+        :db
+  (select thrmtem_avg from oldhq_main_therm where thermid=%d[tid] AND time='%F %R[time]' ) [ (select time from oldhq_main_therm group by time order by time) (select thermid as tid from oldhq_main_therm group by tid order by tid) ]openquery .thrmtem_avg
+                /long_name (Thermistor Temperature) def
+                /units (Celsius_scale) def
+        CopyStream
+} defasvarcachesilent
+:dataset
+
+\end{ingrid}

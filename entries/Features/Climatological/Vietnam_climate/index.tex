@@ -1,0 +1,34 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (iridl:Vietnam) def 
+/description (Climate Zones in Vietnam) def 
+\end{ingrid}
+
+\begin{ingrid}
+dataset:
+
+/name /Climate_Zones_Vietnam def 
+/clim_zone_id
+{ IRIDB (region_7vung) (id) [(gid)]open_column_by
+/long_name (Climate Zone ID) def	
+}defasvarsilentnoreuse
+
+/the_geom
+{ IRIDB (region_7vung) (the_geom) [(gid)]open_column_by
+/long_name (Climate Zone geometry) def
+}defasvarsilentnoreuse
+
+/label
+{ IRIDB (region_7vung) (('Climate Zone ' || id) as label) [(gid)]open_column_by
+/long_name (Climate Zone label) def	
+}defasvarsilentnoreuse
+
+:dataset
+\end{ingrid}
+
+\begin{ingrid}
+:dataset
+Climate_Zones_Vietnam clim_zone_id .gid name exch put
+\end{ingrid}
+
+

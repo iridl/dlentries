@@ -1,0 +1,413 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 5648
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 507
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Baseruralmenagenov2013.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Stratégies) def
+/Q91A {
+mytable
+myquestion 
+380 VALUE
+ myquestion removeGRID
+/long_name (Q91. : Combien de repas collectifs sont pris par jour dans le ménage : Actuellem) def 
+}defasvarsilent
+
+/Q91B {
+mytable
+myquestion 
+381 VALUE
+ myquestion removeGRID
+/long_name (Q91. : Combien de repas collectifs sont pris par jour dans le ménage : Habituell) def 
+}defasvarsilent
+
+/Q92A {
+mytable
+myquestion 
+382 VALUE
+ myquestion removeGRID
+/long_name (Q92. : Combien de repas sont pris dans le ménage par les enfants : Actuellement) def 
+}defasvarsilent
+
+/Q92B {
+mytable
+myquestion 
+383 VALUE
+ myquestion removeGRID
+/long_name (Q92. : Combien de repas sont pris dans le ménage par les enfants : Habituellemen) def 
+}defasvarsilent
+
+/Q931 {
+mytable
+myquestion 
+384 VALUE
+ myquestion removeGRID
+/long_name (Q93.1 : Y a-t-il eu des moments où vous n'avez pas assez de vivre ou d'argent po) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q932 {
+mytable
+myquestion 
+385 VALUE
+ myquestion removeGRID
+/long_name (Q93.2 : Est-ce que votre ménage a consommé des aliments moins préférés) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q933 {
+mytable
+myquestion 
+386 VALUE
+ myquestion removeGRID
+/long_name (Q93.3 : Est-ce que votre ménage a emprunté des vivres chez des parents, des vois) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q934 {
+mytable
+myquestion 
+387 VALUE
+ myquestion removeGRID
+/long_name (Q93.4 : Est-ce que votre ménage a acheté des vivres à crédits) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q935 {
+mytable
+myquestion 
+388 VALUE
+ myquestion removeGRID
+/long_name (Q93.5 : Est-ce que votre ménage a dû dépendre de l'aide alimentaire extérieure) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q936 {
+mytable
+myquestion 
+389 VALUE
+ myquestion removeGRID
+/long_name (Q93.6 : Est-ce que votre ménage a du renoncer au paiement de dettes contractées) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q937 {
+mytable
+myquestion 
+390 VALUE
+ myquestion removeGRID
+/long_name (Q93.7 : Est-ce que votre ménage a eu recours inhabituel à la consommation d'alim) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q938 {
+mytable
+myquestion 
+391 VALUE
+ myquestion removeGRID
+/long_name (Q93.8 : Est-ce que votre ménage a consommé des semences pour des raisons d'inséc) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q939 {
+mytable
+myquestion 
+392 VALUE
+ myquestion removeGRID
+/long_name (Q93.9 : Est-ce que votre ménage a dû demander à d'autres ménages de la nourritur) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q9310 {
+mytable
+myquestion 
+393 VALUE
+ myquestion removeGRID
+/long_name (Q93.10 : Est-ce que au moins un membre de votre ménage a eu recours à la mendici) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q9311 {
+mytable
+myquestion 
+394 VALUE
+ myquestion removeGRID
+/long_name (Q93.11 : Est-ce que votre ménage a diminué la ration journalière) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q9312 {
+mytable
+myquestion 
+395 VALUE
+ myquestion removeGRID
+/long_name (Q93.12 : Est-ce que votre ménage a dû diminuer la ration journalière pour les ad) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q9313 {
+mytable
+myquestion 
+396 VALUE
+ myquestion removeGRID
+/long_name (Q93.13 : Est-ce que votre ménage a dû acheter des repas pour des raisons d'écono) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q9314 {
+mytable
+myquestion 
+397 VALUE
+ myquestion removeGRID
+/long_name (Q93.14 : Est-ce que votre ménage a diminué le nombre de repas pris par jour) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q9315 {
+mytable
+myquestion 
+398 VALUE
+ myquestion removeGRID
+/long_name (Q93.15 : Est-ce que votre ménage a dû passer toute une journée sans manger) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q9316 {
+mytable
+myquestion 
+399 VALUE
+ myquestion removeGRID
+/long_name (Q93.16 : Est-ce que vous-même ou un membre de votre ménage est allé au lit en ay) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q941 {
+mytable
+myquestion 
+400 VALUE
+ myquestion removeGRID
+/long_name (Q94.1 : Est-ce que votre ménage a enregistré des départs d'actifs plus que d'hab) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q942 {
+mytable
+myquestion 
+401 VALUE
+ myquestion removeGRID
+/long_name (Q94.2 : Est-ce que votre ménage a vendu des animaux reproducteurs pour des besoi) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q943 {
+mytable
+myquestion 
+402 VALUE
+ myquestion removeGRID
+/long_name (Q94.3 : Est-ce que votre ménage a vendu des biens non productifs (bijoux...)) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q944 {
+mytable
+myquestion 
+403 VALUE
+ myquestion removeGRID
+/long_name (Q94.4 : Est-ce que votre ménage a vendu des biens productifs (boeufs de trait...)) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q945 {
+mytable
+myquestion 
+404 VALUE
+ myquestion removeGRID
+/long_name (Q94.5 : Est-ce que votre ménage a vendu des terres pour des raisons d'insécurité) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q946 {
+mytable
+myquestion 
+405 VALUE
+ myquestion removeGRID
+/long_name (Q94.6 : Est-ce que votre ménage a retiré les enfants de l'école pour des raisons) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q947 {
+mytable
+myquestion 
+406 VALUE
+ myquestion removeGRID
+/long_name (Q94.7 : Votre ménage a-t-il fait travailler ses enfants (moins de 18 ans) en rép) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q948 {
+mytable
+myquestion 
+407 VALUE
+ myquestion removeGRID
+/long_name (Q94.8 : Reduire les dépenses liées à la santé et/ou à l'éducation pour acheter d) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q949 {
+mytable
+myquestion 
+408 VALUE
+ myquestion removeGRID
+/long_name (Q94.9 : Emprunter de l'argent/nourriture à un commerçant  usurier reconnu du vil) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9410 {
+mytable
+myquestion 
+409 VALUE
+ myquestion removeGRID
+/long_name (Q94.10 : Contraint de dépenser son épargne pour des raisons d'insécurité aliment) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9411 {
+mytable
+myquestion 
+410 VALUE
+ myquestion removeGRID
+/long_name (Q94.11 : Reduire les dépenses prévues pour les intrants agricoles  (semences, en)) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9412 {
+mytable
+myquestion 
+411 VALUE
+ myquestion removeGRID
+/long_name (Q94.12 : Récolte précoce pour consommer) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q9413 {
+mytable
+myquestion 
+412 VALUE
+ myquestion removeGRID
+/long_name (Q94.13 : Vente d'une partie de la récolte sur pied) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

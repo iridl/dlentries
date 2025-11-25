@@ -1,0 +1,544 @@
+ <html>
+<INGRID>standardHeader</INGRID>
+<h1 align=center>Total Leaf Area Index (LAI)<br>
+     <font size=2>LAI (Monthly ; NASA/GSFC)</br>
+Revision Date Of This Document:       April 5, 1995.</font></h1>
+<pre>
+                             2.  INVESTIGATOR(S)
+
+2.1  Investigator(s) Name And Title.
+
+     Sietse O. Los, Piers J. Sellers
+     Biospheric Sciences Branch
+     NASA Goddard Space Flight Center
+
+2.2  Title Of Investigation.
+
+     Earth Observing System - Inter Disciplinary Science
+     project (Sellers - Mooney)
+
+2.3  Contacts (For Data Production Information). 
+
+________________________________________________
+              |             Contact 1           |
+______________|_________________________________|
+2.3.1 Name    |Sietse O. Los                    |
+2.3.2 Address |Biospheric Sciences Branch       |
+              |code 923                         |
+              |NASA Goddard Space Flight Center |
+      City/St.|Greenbelt MD                     |
+      Zip Code|20771                            |
+2.3.3 Fax     |(301) 286-1757                   |
+2.3.4 Email   |Sietse@Jello.gsfc.nasa.gov       |
+______________|_________________________________|
+NOTE: Providing information on these data is not part of my daily routine; 
+      Please read literature and descriptions first. Allow for some delay in 
+      my response.
+
+**********************************************************
+* FOR GENERAL QUESTIONS REGARDING THE DATA CONTACT THE   *
+*             GODDARD DAAC (SEE SECTION 13).             *
+**********************************************************
+
+2.4. Requested Form of Acknowledgment.
+
+     Please cite the following publications when ever these data are used:
+
+      Sellers, P.J., S.O. Los, C.J. Tucker, C.O. Justice, D.A. Dazlich, G.J. 
+         Collatz, and D.A. Randall, 1994. A global 1 by 1 degree NDVI data set 
+         for climate studies. Part 2: The generation of global fields of 
+         terrestrial biophysical parameters from the NDVI.  International 
+         Journal of Remote Sensing, 15(17):3519-3545.
+      Sellers, P.J., S.O. Los, C.J. Tucker, C.O. Justice, D.A. Dazlich, G.J. 
+         Collatz, and D.A. Randall, 1995. A revised land surface 
+         parameterization (SiB2) for atmospheric GCMs. Part 2: The generation 
+         of global fields of terrestrial biophysical parameters from satellite 
+         data. Submitted to Journal of Climate.
+
+     ACKNOWLEDGMENTS
+
+     This research was funded by the NASA Earth Observing System Inter
+     disciplinary science (EOS-IDS) program, Sellers-Mooney team
+
+                            3.  INTRODUCTION
+
+3.1  Objective/Purpose
+
+     The 1 X 1 degree leaf area index (LAI) global data set was compiled for 
+     use within the simple biosphere model (SiB2, see Sellers et al., 1994, 
+     1995), to calculate the energy and water exchange between the biosphere 
+     and atmosphere. With the SiB calculations the effect of vegetation on 
+     climate can be incorporated in a General Circulation Model (GCM) of the 
+     atmosphere.
+
+3.2  Summary of Parameters.
+
+     LAI: Total (life and dead) one-sided Leaf Area
+          Index (ratio between leaf area and ground surface)
+
+3.3  Discussion.
+
+     Not available at this revision.
+
+                          4.  THEORY OF MEASUREMENTS
+
+The FPAR - LAI relationship is assumed exponential for vegetation evenly 
+distributed over a surface (Monteith, 1973) and linear for vegetation 
+concentrated in clusters (Huemmrich and Goward, 1992), likely to occur in 
+classes 4, 5, and 9, see the documentation on vegetation classification in 
+VEG_CLSS.DOC section 8 and Defries and Townshend (1994). We tied the 
+relationship between FPAR and LAI to these two points, an FPAR of 0.95 is 
+equivalent to the maximum LAI for a particular class, an FPAR of 0.001 is 
+equivalent to a minimum LAI. The minimum and maximum LAI values are presented 
+in the table in section 9.
+
+                                5.  EQUIPMENT
+
+5.1  Instrument Description.
+
+     See the NDVI document.
+
+     5.1.1  Platform (Satellite, Aircraft, Ground, Person...).
+
+            See the NDVI document.
+
+     5.1.2  Mission Objectives.
+
+            See the NDVI document.
+
+     5.1.3  Key Variables.
+
+            See the NDVI document.
+
+     5.1.4  Principles of Operation.
+
+            See the NDVI document.
+
+     5.1.5  Instrument Measurement Geometry.
+
+            See the NDVI document.
+
+     5.1.6  Manufacturer of Instrument.
+
+            See the NDVI document.
+
+5.2  Calibration.
+
+     See the NDVI document.
+
+     5.2.1  Specifications.
+
+            See the NDVI document.
+
+            5.2.1.1  Tolerance.
+
+                     See the NDVI document.
+
+     5.2.2  Frequency of Calibration.
+
+            See the NDVI document.
+
+     5.2.3  Other Calibration Information.
+
+            See the NDVI document.
+
+                                   6.  PROCEDURE
+
+6.1  Data Acquisition Methods.
+
+     The 1 X 1 degree LAI data set is calculated from the 1 X 1 degree global 
+     FPAR data set, the VEG_CLSS.VGC data and a look-up table (section 9.2.1).
+
+6.2  Spatial Characteristics.
+
+     6.2.1  Spatial Coverage.
+
+            The coverage is global.  Data in each  file are ordered from North 
+            to South and from West to East begining at the international 
+            dateline.  Point (1,1) represents the grid cell centered at 89.5 N 
+            and 179.5 W (see section 8.4).
+
+     6.2.2  Spatial Resolution. 
+
+            The data are given in an equal-angle grid that has a spatial 
+            resolution of 1 X 1 degree lat/long.
+
+6.3  Temporal Characteristics.
+
+     6.3.1  Temporal Coverage.
+
+            January 1987 through December 1988.
+
+     6.3.2  Temporal Resolution.
+
+            Monthly mean.
+
+                                 7.  OBSERVATIONS
+
+7.1  Field Notes.
+
+     Not applicable.
+
+                               8.  DATA DESCRIPTION
+
+8.1  Table Definition With Comments.
+
+     Not applicable.
+
+8.2  Type of Data.
+
+--------------------------------------------------------------------------------
+|                 8.2.1               |              |              |          |
+|Parameter/Variable Name              |              |              |          |
+--------------------------------------------------------------------------------
+|    |               8.2.2            |     8.2.3    |    8.2.4     |  8.2.5   |
+|    |Parameter/Variable Description  |Range         |Units         |Source    |
+--------------------------------------------------------------------------------
+|LAI                                  |              |              |          |
+|    |Leaf area index, which is the   |min = 0.01    |[Unitless]*   |Sellers   |
+|    |ratio of leaf surface to ground |max =         |              |et al     |
+|    |surface.                        |See footnote$ |              |(1994a)   |
+|    |                                |              |              |          |
+--------------------------------------------------------------------------------
+$A minimum value of 0.01 has been inserted into the FASIR_NDVI data sets for 
+ regions (Antarctic, Greenland...) that are classified as missing data in the 
+ NDVI data set (see NDVI.DOC).  Note: some of these regions have no 
+ vegetation.  The LAI maximum values are dependent on the vegetation class, 
+ see table in section 9.2.1.
+*Leaf area index Units are non-dimensional, [m^2 m^-2].
+
+8.3  Sample Data Base Data Record.
+
+     Not applicable.
+
+8.4  Data Format.
+
+     The CD-ROM file format is ASCII, and consists of numerical fields of 
+     varying length, which are space delimited and arranged in columns and 
+     rows.  Each column contains 180 numerical values and each row contain 360 
+     numerical values.  
+
+          Grid arrangement
+
+             ARRAY(I,J)
+             I  = 1 IS CENTERED AT 179.5W
+             I INCREASES EASTWARD BY 1 DEGREE
+             J  = 1 IS CENTERED AT 89.5N
+             J INCREASES SOUTHWARD BY 1 DEGREE
+
+             90N - | - - - | - - - | - - - | - -
+                   | (1,1) | (2,1) | (3,1) |
+             89N - | - - - | - - - | - - - | - -
+                   | (1,2) | (2,2) | (3,2) |
+             88N - | - - - | - - - | - - - | - -
+                   | (1,3) | (2,3) | (3,3) |
+             87N - | - - - | - - - | - - - |
+                  180W   179W    178W   177W
+
+            ARRAY(360,180)
+
+8.5  Related Data Sets. 
+
+     1 X 1 degree normalized difference vegetation index (NDVI) global data 
+           (on this CD-ROM).
+     1 X 1 degree Fourier based adjustment, solar zenith angle correction, 
+           interpolation of missing data and reconstruction of evergreen 
+           broadleaf land cover types (tropics), (FASIR-NDVI) data (on this 
+           CD-ROM). 
+     1 X 1 degree fraction of photosynthetic active radiation absorbed by the 
+           vegetation canopy (FPAR) monthly global data (on this CD-ROM). 
+     1 X 1 degree leaf area index (LAI) global data (on this CD-ROM). 
+     1 X 1 degree GREENNESS global data (on this CD-ROM). 
+     1 X 1 degree roughness length (ZO) monthly global data (on this CD-ROM).
+     1 X 1 degree snow free SURFACE ALBEDO monthly global data (on this 
+           CD-ROM).
+     1 X 1 degree vegetation classification map (Dorman and Sellers 1989, 
+           Nobre et al. 1991), on this CD-ROM.
+
+     Also see section 8.5 (Related Data Sets) in the NDVI document.
+
+                            9.  DATA MANIPULATIONS
+
+9.1  Formulas.
+
+     Data have been adjusted using both formulas and rules, the
+     description of the complete procedure is provided under 9.2.
+
+     9.1.1  Derivation Techniques/Algorithms.
+
+            See section 9.2
+
+9.2  Data Processing Sequence 
+
+     (Sellers et al., 1994)
+
+     9.2.1  Processing Steps and Data Sets).
+
+            Two data sets and a lookup table are used for the calculation of
+            LAI.
+
+            1. 1 X 1 degree FPAR data set (FPAR87)
+            2. land cover classification (VEG_CLSS.VGC)
+
+                calculation of LAI from FPAR data
+
+            C CALCULATE LEAF AREA INDEX AND GREENNESS FRACTION FROM FPAR.
+            C
+            C FPARM = FPAR previous month
+            C BARKD, STEMSD = biophysical, vegetation type dependent variables
+            C
+            C EXPONENTIAL EXTINCTION USED FOR BROADLEAVES : 1,2,6,7,8,10,11,12
+            C LINEAR MODEL ( CLUMPED CANOPIES ) USED FOR  : 4,5,9
+            C MIXTURE OF LINEAR AND EXPONENTIAL MODELS    : 3
+            C
+            C-----------------------------------------------------------------
+            C
+            C
+            C
+               RLINE = 0.
+               IF( IV .EQ. 4 .OR. IV .EQ. 5 .OR. IV .EQ. 9 ) RLINE = 1.
+               IF( IV .EQ. 3 ) RLINE = 0.5
+            C
+               LAI1  = -1.0/BARK(IV) * ALOG(1.-FPAR ) * (1.-RLINE)
+              &       + FPAR  * LAIMAX(IV) * RLINE
+               LAI0  = -1.0/BARK(IV) * ALOG(1.-FPARM) * (1.-RLINE)
+              &       + FPARM * LAIMAX(IV) * RLINE
+               DEAD  = AMAX1( 0.0001,( LAI0-LAI1) ) + STEM(IV)
+               GREEN = LAI1/( LAI1 + DEAD )
+               LAI   = LAI1 + DEAD
+            C
+               RETURN
+               END
+
+            where
+
+               BARK   = -1/LAIMAX(IV)*ALOG(0.05)
+               LAIMAX = maximum LAI for particular vegetation/land cover type
+
+               IV refers to land cover class, see documentation VEG_CLSS.VGC.
+
+               =====================
+               vegetation parameters
+               =====================
+                1   7.0   0.08
+                2   7.0   0.08
+                3   7.5   0.08
+                4   8.0   0.08
+                5   8.0   0.08
+                6   5.0   0.20
+                7   5.0   0.20
+                8   5.0   0.20
+                9   5.0   0.20
+                10  5.0   0.20
+                11  5.0   0.20
+                12  6.0   0.20
+                IV  LAIMAX STEM
+
+     9.2.2  Processing Changes.
+
+            Not available at this revision.
+
+9.3  Calculations.
+
+     9.3.1  Special Corrections/Adjustments.
+
+            Not available at this revision.
+
+9.4  Graphs and Plots.
+
+     Not available at this revision.
+
+                                   10.  ERRORS
+
+10.1  Sources of Error.
+
+      1. Errors inherited from other data sets (see NDVI,
+         FASIR and FPAR data sets).
+
+      2. Assumptions on LAI - FPAR relation, Note: LAI is not as
+         critical a parameter in the calculation of heat and water
+         exchange as FPAR.
+
+10.2  Quality Assessment. 
+
+      10.2.1  Data Validation by Source. 
+
+              A point-area level verification of these LAI fields has yet
+              to be made (Sellers et al., 1994, 1995).  The numbers obtained
+              are generally lower than those from point measurements 
+              reported in the literature, possibly because these were
+              derived for fairly idealized situations.
+
+      10.2.2  Confidence Level/Accuracy Judgment. 
+
+              See FASIR, NDVI and FPAR documents. The numbers obtained
+              are generally lower than those from point measurements 
+              reported in the literature, possibly because these were
+              derived for fairly idealized situations. There is evidence
+              that the relationship between NDVI and LAI is fairly weak,
+              and by no means as strong as the relationship between FPAR
+              and NDVI. Hence, we have more confidence in the FPAR fields
+              than in the LAI fields. The LAI values are fairly sensitive
+              to changes in the NDVI (e.g. as a result of corrections) or
+              changes in the estimation of the 98 % values of the NDVI
+              distributions (see FASIR documentation).
+
+      10.2.3  Measurement Error for Parameters and Variables.
+
+              See the NDVI, FASIR and FPAR documentation.
+
+      10.2.4  Additional Quality Assessment Applied.
+
+              Not available at this revision.
+
+                                     11.  NOTES
+
+11.1  Known Problems With The Data.
+
+      Not available at this revision.
+
+11.2  Usage Guidance. 
+
+      LAI presents generalized patterns which may result in poor 
+      representations on a local level.
+
+11.3  Other Relevant Information.
+
+      Not available at this revision.
+
+                                 12.  REFERENCES 
+
+12.1  Satellite/Instrument/Data Processing Documentation 
+
+      Not applicable.
+
+12.2  Journal Articles and Study Reports.
+
+      Huemmrich, K. F., and S.N. Goward, 1992. Spectral vegetation indexes
+         and the remote sensing of biophysical parameters. Proceedings of the
+         International Geoscience and Remote Sensing Symposium (IGARSS), held
+         in Houston, Texas. Institute of Electrical and Electronics Engineers,
+         pp. 1017-1019.
+      Los, S.O.,  C.O. Justice, C.J. Tucker, 1994. A global 1 by 1 degree NDVI 
+         data set for climate studies derived from the GIMMS continental NDVI 
+         data. International Journal of Remote Sensing, 15(17):3493-3518. 
+      Monteith, J.L., 1973. Principles of Environmental Physics, Edward 
+         Arnold, 242 pp.
+      Sellers, P.J., S.O. Los, C.J. Tucker, C.O. Justice, D.A. Dazlich, G.J. 
+         Collatz, and D.A. Randall, 1994. A global 1 by 1 degree NDVI data set 
+         for climate studies. Part 2: The generation of global fields of 
+         terrestrial biophysical parameters from the NDVI.  International 
+         Journal of Remote Sensing, 15(17):3519-3545.
+      Sellers, P.J., S.O. Los, C.J. Tucker, C.O. Justice, D.A. Dazlich, G.J. 
+         Collatz, and D.A. Randall, 1995. A revised land surface 
+         parameterization (SiB2) for atmospheric GCMs. Part 2: The generation 
+         of global fields of terrestrial biophysical parameters from satellite 
+         data. Submitted to Journal of Climate.
+
+12.3  Archive/DBMS Usage Documentation.
+
+      Contact the EOS Distributed Active Archive Center (DAAC) at NASA Goddard 
+      Space Flight Center (GSFC), Greenbelt Maryland (see Section 13 below).
+      Documentation about using the archive or information about access to the 
+      on-line information system is available through the GSFC DAAC User 
+      Services Office.
+
+                             13.  DATA ACCESS
+
+13.1  Contacts for Archive/Data Access Information.
+
+      GSFC DAAC User Services
+      NASA/Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Phone:     (301) 286-3209
+      Fax:       (301) 286-1775
+      Internet:  daacuso@eosdata.gsfc.nasa.gov
+
+13.2  Archive Identification.
+
+      Goddard Distributed Active Archive Center
+      NASA Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Telephone:  (301) 286-3209
+      FAX:        (301) 286-1775
+      Internet:   daacuso@eosdata.gsfc.nasa.gov
+
+13.3  Procedures for Obtaining Data.
+
+      Users may place requests by accessing the on-line system, by sending 
+      letters, electronic mail, FAX, telephone, or personal visit.
+
+      Accessing the GSFC DAAC Online System:
+
+      The GSFC DAAC Information Management System (IMS) allows users to 
+      ordering data sets stored on-line.  The system is open to the public.
+
+      Access Instructions:
+
+      Node name:  daac.gsfc.nasa.gov
+      Node number: 192.107.190.139
+      Login example: telnet daac.gsfc.nasa.gov
+      Username:  daacims
+      password:  gsfcdaac
+
+      You will be asked to register your name and address during your first
+      session.
+
+      Ordering CD-ROMs:
+
+      To order CD-ROMs (available through the Goddard DAAC) users should 
+      contact the Goddard DAAC User Support Office (see section 13.2).
+
+13.4  GSFC DAAC Status/Plans.
+
+      The ISLSCP Initiative I CD-ROM is available from the Goddard DAAC.
+
+                        14.  OUTPUT PRODUCTS AND AVAILABILITY 
+
+14.1  Tape Products.
+
+      None.
+
+14.2  Film Products. 
+
+      None.
+
+14.3  Other Products. 
+
+      None.
+
+                             15.  GLOSSARY OF ACRONYMS
+
+AVHRR            Advanced Very High Resolution Radiometer
+CD-ROM           Compact Disk (optical), Read Only Memory
+DAAC             Destributed Active Archive Center
+EOS              Earth Observing System
+GAC              Global Area Coverage
+GCM              General Circulation Model of the atmosphere
+CIA              Central Intelligence Agency
+FASIR_NDVI       Fourier Adjusted, Solar zenith angle correction,
+                 Interpolation (of missing data during winter), and
+                 Reconstruction of NDVI over tropical forests.
+FPAR             Fraction of Photosynthetic Active Radiation absorbed by
+                 green vegetation
+GIMMS            Global Inventory Monitoring and Modeling Studies at
+                 NASA GSFC
+GSFC             Goddard Space Flight Center
+GVI              Global Vegetation Index
+IDS              Inter disciplinary Science
+IFOV             Instantaneous Field Of View
+ISLSCP           International Satellite Land Surface Climotology Project
+LAC              Local Area Coverage
+LAI              Leaf Area Index
+NASA             National Aeronautics and Space Administration
+NDVI             Normalized Difference Vegetation Index
+NOAA             National Oceanographic and Atmospheric Administration
+pixel            Picture element
+SiB2             Simple Biosphere model (Sellers et al 1995)
+SR               Simple Ratio
+
+</pre>

@@ -1,0 +1,49 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Florida Public Utilities) def
+datasetdefs:
+grid:
+/name /mycol def
+1 1 2
+:grid
+
+:datasetdefs
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+1 Nov 1990 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+29 Oct 2009 julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+:grid
+
+
+/Price {
+[mycol T | ]
+(/Data/PRISM/Finance/CRSP/Florida_Public_Utilities/florida.tsv)
+readdatafile:
+[1 2] r*4astsv
+:readdatafile
+mycol 1 VALUE
+mycol removeGRID
+/iridl:hasSemantics (iridl:price) def
+}defasvarsilent
+
+/Return {
+[mycol T | ]
+(/Data/PRISM/Finance/CRSP/Florida_Public_Utilities/florida.tsv)
+readdatafile:
+[1 2] r*4astsv
+:readdatafile
+mycol 2 VALUE
+mycol removeGRID
+/iridl:hasSemantics (iridl:return) def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

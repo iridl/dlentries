@@ -1,0 +1,63 @@
+\begin{ingrid}
+continuedataset:
+/description (Seasonal Temperature and Precipitation Climatologies Based Upon UEA TS2p1 Data Set) def
+dataset:
+/name (deg0p5) def
+
+/prcp {  
+  SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+  T (Dec 1968) (Jan 1999) RANGE
+  T 3 runningAverage
+  T 12 splitstreamgrid
+  [T2]average
+  /long_name (Seasonal Precipitation Climatology, 1969-98 Base Period) def
+} defasvarsilent
+
+/temp { 
+ SOURCES .UEA .CRU .TS2p1 .monthly .mean .temp
+  T (Dec 1968) (Jan 1999) RANGE
+  T 3 runningAverage
+  T 12 splitstreamgrid
+  [T2]average
+  /long_name (Seasonal Temperature Climatology, 1969-98 Base Period) def
+  DATA -50 40 RANGE
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (deg2p5) def
+
+/prcp {
+  SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+  T (Dec 1968) (Jan 1999) RANGE
+  T 3 runningAverage
+  T 12 splitstreamgrid
+  [T2]average
+  /long_name (Seasonal Precipitation Climatology, 1969-98 Base Period) def
+  X -178.75 2.5 178.75 GRID
+  Y 88.75 2.5 -88.75 GRID
+  X
+   periodic setgridtype
+   pop
+} defasvarsilent
+
+/temp {
+ SOURCES .UEA .CRU .TS2p1 .monthly .mean .temp
+  T (Dec 1968) (Jan 1999) RANGE
+  T 3 runningAverage
+  T 12 splitstreamgrid
+  [T2]average
+  /long_name (Seasonal Temperature Climatology, 1969-98 Base Period) def
+  X -178.75 2.5 178.75 GRID
+  Y 88.75 2.5 -88.75 GRID
+  X
+   periodic setgridtype
+   pop
+  DATA -50 40 RANGE
+} defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}

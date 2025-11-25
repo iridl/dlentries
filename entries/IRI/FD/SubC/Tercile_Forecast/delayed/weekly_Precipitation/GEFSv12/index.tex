@@ -1,0 +1,57 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (SubC GEFSv12 global weekly probability forecasts of below-normal, above-normal, and near-normal precipitation without land-sea mask for Saturday-Friday target, GEFSv12 model starts from Oct 2, 2020) def
+
+
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+values:
+02 Oct 2020 julian_day 01 Jan 1960 julian_day sub
+7
+systemtime
+(%d %b %Y) 12 strftime interp julian_day 3 add
+01 Jan 1960 julian_day sub
+4 7 mul sub
+{} for
+:values
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+S
+/expires
+S last 4 7 mul add 6 add cvsunits nip interp exch 0.5 add 4 -2 roll exch pop ymd2systemtime
+def
+name exch def
+
+/expires S .expires def
+
+/target_date {S
+SOURCES .IRI .FD .SubC .Tercile_Forecast .weekly_Precipitation .GEFSv12 .L
+add /long_name (forecast time) def /pointwidth 7 def} defasvarsilent
+
+/prob {
+SOURCES .IRI .FD .SubC .Tercile_Forecast .weekly_Precipitation .GEFSv12 .prob
+S first target_date .S .last RANGE
+/expires target_date .S .expires def
+}defasvarsilent
+
+/dominant {
+SOURCES .IRI .FD .SubC .Tercile_Forecast .weekly_Precipitation .GEFSv12 .dominant
+S first target_date .S .last RANGE
+/expires target_date .S .expires def
+} defasvarsilent
+
+:dataset
+
+prob .X name exch def
+prob .Y name exch def
+prob .L name exch def
+prob .C name exch def
+
+\end{ingrid}

@@ -1,0 +1,29 @@
+\begin{ingrid}
+continuedataset: 
+grid: /name /T def monthtime
+16 Jan 1950 ensotime 1 16 Dec 2001 ensotime :grid
+/Y 94 namedgaussianlat high low subgrid name exch def
+grid: /name /X def degE periodic 0 1.875 358.1250 :grid
+variable:
+/name /prcp def
+/long_name (precipitation rate) def
+/units (mm/day) def
+grids: X Y | T :grids
+file:
+decsequential
+/name (/beluga/data/forecast/DATA/ecpc/pcp/ecpc.pcp.5001.tot) def
+:file
+:variable
+variable:
+/name /t2m def
+/long_name (temperature at 2m) def
+/units (degreeK) def
+grids: X Y | T :grids
+file:
+decsequential
+/name (/beluga/data/forecast/DATA/ecpc/2mt/ecpc.2mt.5001.tot) def
+:file
+:variable
+:dataset
+\end{ingrid}
+

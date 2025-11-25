@@ -1,0 +1,434 @@
+
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+grid:
+/name /mycol def
+1 1 8
+:grid
+
+grid:
+/name /state_all def
+/units /ids def
+values:
+(CAAB)
+(CABC)
+(CAMB)
+(CANB)
+(CANL)
+(CANS)
+(CANT)
+(CANU)
+(CAON)
+(CAPE)
+(CAQC)
+(CASK)
+(CAYT)
+(AK)
+(AL)
+(AR)
+(AZ)
+(CA)
+(CO)
+(CT)
+(DE)
+(FL)
+(GA)
+(HI)
+(IA)
+(ID)
+(IL)
+(IN)
+(KS)
+(KY)
+(LA)
+(MA)
+(MD)
+(ME)
+(MI)
+(MN)
+(MO)
+(MS)
+(MT)
+(NC)
+(ND)
+(NE)
+(NH)
+(NJ)
+(NM)
+(NV)
+(NY)
+(OH)
+(OK)
+(OR)
+(PA)
+(RI)
+(SC)
+(SD)
+(TN)
+(TX)
+(UT)
+(VA)
+(VT)
+(WA)
+(WI)
+(WV)
+(WY)
+:values
+:grid
+
+:datasetdefs
+
+grid:
+/name /taxon_order def
+values:
+11467
+20558
+21132
+7334
+8110
+24234
+26346
+32090
+21127
+26287
+21160
+20566
+20703
+1968
+6330
+21220
+912
+21215
+28747
+20352
+10620
+1605
+21329
+25873
+32084
+10568
+32477
+26600
+10865
+10637
+32484
+31681
+10641
+12464
+26045
+21228
+25893
+21164
+32582
+31667
+6959
+8693
+21210
+32550
+4966
+7331
+26041
+978
+26967
+32070
+26120
+20655
+1214
+27412
+2176
+26784
+3453
+16679
+20382
+11343
+26975
+26937
+10805
+8358
+365
+8991
+26739
+30395
+8527
+20380
+988
+11297
+10598
+10604
+16590
+2945
+8399
+20311
+9707
+1697
+20260
+1527
+10831
+31084
+30329
+7950
+18358
+2175
+20381
+10817
+1750
+26970
+1702
+5485
+26953
+3140
+21155
+490
+20404
+12166
+497
+21144
+899
+388
+330
+6996
+8501
+33194
+20643
+5786
+30145
+10815
+31709
+29508
+6961
+11150
+746
+5341
+25885
+33214
+1901
+12252
+10830
+7163
+5068
+9692
+1437
+1798
+32114
+1590
+31654
+966
+32541
+1688
+8003
+2933
+7622
+1682
+2004
+20353
+32531
+21225
+6267
+8348
+1900
+34225
+10855
+2252
+7954
+7367
+12176
+1706
+20392
+24405
+5036
+20559
+12177
+31891
+:values
+:grid
+
+/ra {
+[mycol state_all taxon_order | ]
+(/Data/PRISM/eBird/state_yr/state_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 1 VALUE
+mycol removeGRID
+taxon_order first VALUE taxon_order removeGRID
+        state_all (AL) (AK) (AR) (AZ) (CA) (CO) (CT) (DE) (FL) (GA) (HI) (ID) (IL) (IN) (IA) (KS) (KY) (LA) (ME) (MD) (MA) (MI) (MN) (MS) (MO) (MT) (NE) (NV) (NH) (NJ) (NM) (NY) (NC) (ND) (OH) (OK) (OR) (PA) (RI) (SC) (SD) (TN) (TX) (UT) (VT) (VA) (WA) (WV) (WI) (WY) VALUES
+        state_all
+SOURCES .Features .Political .UnitedStates .firstOrder_GAUL
+   .gid 1207 1208 1209 1210 1211 1212 1213 1214 1216 1217 1218 1219 1220 1221 1222 1223 1224 1225 1226 1227 1228 1229 1230 1231 1232 1233 1234 1235 1236 1237 1238 1239 1240 1241 1242 1243 1244 1245 1246 1247 1248 1249 1250 1251 1252 1253 1254 1255 1256 1257 subgrid
+replaceGRID
+/missing_value -1 def
+/long_name (Region Area) def
+}defasvarsilent
+
+
+/strt_dt {
+[mycol state_all taxon_order | ]
+(/Data/PRISM/eBird/state_yr/state_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 2 VALUE
+mycol removeGRID
+
+        state_all (AL) (AK) (AR) (AZ) (CA) (CO) (CT) (DE) (FL) (GA) (HI) (ID) (IL) (IN) (IA) (KS) (KY) (LA) (ME) (MD) (MA) (MI) (MN) (MS) (MO) (MT) (NE) (NV) (NH) (NJ) (NM) (NY) (NC) (ND) (OH) (OK) (OR) (PA) (RI) (SC) (SD) (TN) (TX) (UT) (VT) (VA) (WA) (WV) (WI) (WY) VALUES
+        state_all
+SOURCES .Features .Political .UnitedStates .firstOrder_GAUL
+   .gid 1207 1208 1209 1210 1211 1212 1213 1214 1216 1217 1218 1219 1220 1221 1222 1223 1224 1225 1226 1227 1228 1229 1230 1231 1232 1233 1234 1235 1236 1237 1238 1239 1240 1241 1242 1243 1244 1245 1246 1247 1248 1249 1250 1251 1252 1253 1254 1255 1256 1257 subgrid
+replaceGRID
+/missing_value -1 def
+/long_name (Start Date) def
+}defasvarsilent
+
+
+/end_dt {
+[mycol state_all taxon_order | ]
+(/Data/PRISM/eBird/state_yr/state_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 3 VALUE
+mycol removeGRID
+
+        state_all (AL) (AK) (AR) (AZ) (CA) (CO) (CT) (DE) (FL) (GA) (HI) (ID) (IL) (IN) (IA) (KS) (KY) (LA) (ME) (MD) (MA) (MI) (MN) (MS) (MO) (MT) (NE) (NV) (NH) (NJ) (NM) (NY) (NC) (ND) (OH) (OK) (OR) (PA) (RI) (SC) (SD) (TN) (TX) (UT) (VT) (VA) (WA) (WV) (WI) (WY) VALUES
+        state_all
+SOURCES .Features .Political .UnitedStates .firstOrder_GAUL
+   .gid 1207 1208 1209 1210 1211 1212 1213 1214 1216 1217 1218 1219 1220 1221 1222 1223 1224 1225 1226 1227 1228 1229 1230 1231 1232 1233 1234 1235 1236 1237 1238 1239 1240 1241 1242 1243 1244 1245 1246 1247 1248 1249 1250 1251 1252 1253 1254 1255 1256 1257 subgrid
+replaceGRID
+/missing_value -1 def
+/long_name (End Date) def
+}defasvarsilent
+
+/am {
+[mycol state_all taxon_order | ]
+(/Data/PRISM/eBird/state_yr/state_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 4 VALUE
+mycol removeGRID
+
+        state_all (AL) (AK) (AR) (AZ) (CA) (CO) (CT) (DE) (FL) (GA) (HI) (ID) (IL) (IN) (IA) (KS) (KY) (LA) (ME) (MD) (MA) (MI) (MN) (MS) (MO) (MT) (NE) (NV) (NH) (NJ) (NM) (NY) (NC) (ND) (OH) (OK) (OR) (PA) (RI) (SC) (SD) (TN) (TX) (UT) (VT) (VA) (WA) (WV) (WI) (WY) VALUES
+        state_all
+SOURCES .Features .Political .UnitedStates .firstOrder_GAUL
+   .gid 1207 1208 1209 1210 1211 1212 1213 1214 1216 1217 1218 1219 1220 1221 1222 1223 1224 1225 1226 1227 1228 1229 1230 1231 1232 1233 1234 1235 1236 1237 1238 1239 1240 1241 1242 1243 1244 1245 1246 1247 1248 1249 1250 1251 1252 1253 1254 1255 1256 1257 subgrid
+replaceGRID
+/missing_value -1 def
+/long_name (Abundance Mean) def
+/iridl:hasSemantics (iridl:abundance) def
+}defasvarsilent
+
+
+/popu {
+[mycol state_all taxon_order | ]
+(/Data/PRISM/eBird/state_yr/state_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 5 VALUE
+mycol removeGRID
+
+        state_all (AL) (AK) (AR) (AZ) (CA) (CO) (CT) (DE) (FL) (GA) (HI) (ID) (IL) (IN) (IA) (KS) (KY) (LA) (ME) (MD) (MA) (MI) (MN) (MS) (MO) (MT) (NE) (NV) (NH) (NJ) (NM) (NY) (NC) (ND) (OH) (OK) (OR) (PA) (RI) (SC) (SD) (TN) (TX) (UT) (VT) (VA) (WA) (WV) (WI) (WY) VALUES
+        state_all
+SOURCES .Features .Political .UnitedStates .firstOrder_GAUL
+   .gid 1207 1208 1209 1210 1211 1212 1213 1214 1216 1217 1218 1219 1220 1221 1222 1223 1224 1225 1226 1227 1228 1229 1230 1231 1232 1233 1234 1235 1236 1237 1238 1239 1240 1241 1242 1243 1244 1245 1246 1247 1248 1249 1250 1251 1252 1253 1254 1255 1256 1257 subgrid
+replaceGRID
+/missing_value -1 def
+/long_name (Total Population Percent) def
+/iridl:hasSemantics (iridl:Population) def
+}defasvarsilent
+
+
+/range_occ {
+[mycol state_all taxon_order | ]
+(/Data/PRISM/eBird/state_yr/state_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 6 VALUE
+mycol removeGRID
+
+        state_all (AL) (AK) (AR) (AZ) (CA) (CO) (CT) (DE) (FL) (GA) (HI) (ID) (IL) (IN) (IA) (KS) (KY) (LA) (ME) (MD) (MA) (MI) (MN) (MS) (MO) (MT) (NE) (NV) (NH) (NJ) (NM) (NY) (NC) (ND) (OH) (OK) (OR) (PA) (RI) (SC) (SD) (TN) (TX) (UT) (VT) (VA) (WA) (WV) (WI) (WY) VALUES
+        state_all
+SOURCES .Features .Political .UnitedStates .firstOrder_GAUL
+   .gid 1207 1208 1209 1210 1211 1212 1213 1214 1216 1217 1218 1219 1220 1221 1222 1223 1224 1225 1226 1227 1228 1229 1230 1231 1232 1233 1234 1235 1236 1237 1238 1239 1240 1241 1242 1243 1244 1245 1246 1247 1248 1249 1250 1251 1252 1253 1254 1255 1256 1257 subgrid
+replaceGRID
+/missing_value -1 def
+/long_name (Range Percent Occupied) def
+/iridl:hasSemantics (iridl:area_occupied) def
+}defasvarsilent
+
+
+/range_tot {
+[mycol state_all taxon_order | ]
+(/Data/PRISM/eBird/state_yr/state_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 7 VALUE
+mycol removeGRID
+
+        state_all (AL) (AK) (AR) (AZ) (CA) (CO) (CT) (DE) (FL) (GA) (HI) (ID) (IL) (IN) (IA) (KS) (KY) (LA) (ME) (MD) (MA) (MI) (MN) (MS) (MO) (MT) (NE) (NV) (NH) (NJ) (NM) (NY) (NC) (ND) (OH) (OK) (OR) (PA) (RI) (SC) (SD) (TN) (TX) (UT) (VT) (VA) (WA) (WV) (WI) (WY) VALUES
+        state_all
+SOURCES .Features .Political .UnitedStates .firstOrder_GAUL
+   .gid 1207 1208 1209 1210 1211 1212 1213 1214 1216 1217 1218 1219 1220 1221 1222 1223 1224 1225 1226 1227 1228 1229 1230 1231 1232 1233 1234 1235 1236 1237 1238 1239 1240 1241 1242 1243 1244 1245 1246 1247 1248 1249 1250 1251 1252 1253 1254 1255 1256 1257 subgrid
+replaceGRID
+/missing_value -1 def
+/long_name (Range Total Percent) def
+/iridl:hasSemantics (iridl:area_occupied) def
+}defasvarsilent
+
+
+/range_days {
+[mycol state_all taxon_order | ]
+(/Data/PRISM/eBird/state_yr/state_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 8 VALUE
+mycol removeGRID
+
+        state_all (AL) (AK) (AR) (AZ) (CA) (CO) (CT) (DE) (FL) (GA) (HI) (ID) (IL) (IN) (IA) (KS) (KY) (LA) (ME) (MD) (MA) (MI) (MN) (MS) (MO) (MT) (NE) (NV) (NH) (NJ) (NM) (NY) (NC) (ND) (OH) (OK) (OR) (PA) (RI) (SC) (SD) (TN) (TX) (UT) (VT) (VA) (WA) (WV) (WI) (WY) VALUES
+        state_all
+SOURCES .Features .Political .UnitedStates .firstOrder_GAUL
+   .gid 1207 1208 1209 1210 1211 1212 1213 1214 1216 1217 1218 1219 1220 1221 1222 1223 1224 1225 1226 1227 1228 1229 1230 1231 1232 1233 1234 1235 1236 1237 1238 1239 1240 1241 1242 1243 1244 1245 1246 1247 1248 1249 1250 1251 1252 1253 1254 1255 1256 1257 subgrid
+replaceGRID
+/missing_value -1 def
+/long_name (Range Days Occupation) def
+/iridl:hasSemantics (iridl:days_occupied) def
+}defasvarsilent
+
+/species_code {
+IRIDB (stateyr) (species_code) [(taxon_order)] open_column_by
+taxon_order range_days .taxon_order .gridvalues VALUES
+/long_name (Species Code) def
+}defasvarsilentnoreuse
+
+/sci_name {
+IRIDB (stateyr) (sci_name) [(taxon_order)] open_column_by
+taxon_order range_days .taxon_order .gridvalues VALUES
+/long_name (Scientific Name) def
+}defasvarsilentnoreuse
+
+/cm_name {
+IRIDB (stateyr) (cm_name) [(taxon_order)] open_column_by
+taxon_order range_days .taxon_order .gridvalues VALUES
+/long_name (Common Name) def
+}defasvarsilentnoreuse
+
+/the_geom {
+ SOURCES .Features .Political .UnitedStates .firstOrder_GAUL .the_geom
+gid 1207 1208 1209 1210 1211 1212 1213 1214 1216 1217 1218 1219 1220 1221 1222 1223 1224 1225 1226 1227 1228 1229 1230 1231 1232 1233 1234 1235 1236 1237 1238 1239 1240 1241 1242 1243 1244 1245 1246 1247 1248 1249 1250 1251 1252 1253 1254 1255 1256 1257 VALUES
+}defasvar
+
+/label  {
+ SOURCES .Features .Political .UnitedStates .firstOrder_GAUL .label
+gid 1207 1208 1209 1210 1211 1212 1213 1214 1216 1217 1218 1219 1220 1221 1222 1223 1224 1225 1226 1227 1228 1229 1230 1231 1232 1233 1234 1235 1236 1237 1238 1239 1240 1241 1242 1243 1244 1245 1246 1247 1248 1249 1250 1251 1252 1253 1254 1255 1256 1257 VALUES
+}defasvar
+
+:dataset
+ra .gid name exch def
+
+\end{ingrid}

@@ -1,0 +1,73 @@
+\begin{ingrid}
+
+continuedataset:
+
+grid:
+  /name /X def
+  /units /degree_east def
+  periodic
+  -180.
+  3.
+  3600. div
+  180.
+:grid
+
+X partialgrid
+step 20. mul 60. mul 5. mul partitiongrid
+name 3 index !
+name 2 index !
+
+grid:
+  /name /Y def
+  /units /degree_north def
+  60.
+  -3.
+  3600. div
+  -60.
+:grid
+
+Y partialgrid
+step 20. mul 60. mul 5. mul partitiongrid
+name 3 index !
+name 2 index !
+
+ /SRTM {
+[X2 Y2 | X Y ]
+(ftp://srtm.csi.cgiar.org/SRTM_v41/SRTM_Data_GeoTiff/srtm_%2.2d[Xi]_%2.2d[Yi].zip///srtm_%2.2d[Xi]_%2.2d[Yi].tif)
+[X Y X 1 onegridcounter /name /Xi def Y 1 onegridcounter /name /Yi def]
+readdatafile:
+keepMissingFiles
+/missing_value -32768 def
+/shortarraytype tiffimage
+/units (m) def
+:readdatafile
+/long_name (digital elevation) def
+topographycolorscale
+}defasvarsilent 
+
+/SRTM_mk {
+[X2 Y2 | X Y ]
+(ftp://srtm.csi.cgiar.org/SRTM_v41/SRTM_Mask_GeoTiff/srtm_mk_%2.2d[Xi]_%2.2d[Yi].zip///Z_%2.2d[Xi]_%-d[Yi].TIF)
+[X Y X 1 onegridcounter /name /Xi def Y 1 onegridcounter /name /Yi def]
+readdatafile:
+keepMissingFiles
+/missing_value -32768 def
+/shortarraytype tiffimage
+:readdatafile
+1. flagle
+/units /ids def
+/long_name (mask) def
+/CLIST [(available) (interpolated)] def
+startcolormap
+/maxncolor 5 def
+DATA 0 1 RANGE
+transparent blue blue
+ 0. VALUE
+ red 1. VALUE
+ red
+endcolormap
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,165 @@
+\begin{ingrid}
+continuedataset:
+%/iridl:hasSemantics (iridl:Bangladesh) def
+/description (Banglades Division, District, and Upazilla Admin. boundaries) def
+\end{ingrid}
+
+\begin{ingrid}
+dataset:
+/name /Divisions def
+
+/name_1
+{ IRIDB (bangladesh_bmd_divisions) (name_1) [(gid)]open_column_by
+/long_name (Division Name) def
+}defasvarsilentnoreuse
+
+/the_geom
+{ IRIDB (bangladesh_bmd_divisions) (the_geom) [(gid)]open_column_by
+/long_name (Division Geometry) def 
+}defasvarsilentnoreuse
+
+/id_1
+{ IRIDB (bangladesh_bmd_divisions) (id_1) [(gid)]open_column_by
+/long_name (Division id) def
+}defasvarsilentnoreuse
+
+/coastal
+{ IRIDB (bangladesh_bmd_divisions) (coastal) [(gid)]open_column_by
+/long_name (Coastal) def
+}defasvarsilentnoreuse
+
+/area
+{ IRIDB (bangladesh_bmd_divisions) (area) [(gid)]open_column_by
+/long_name (Division area) def
+}defasvarsilentnoreuse
+
+/label 
+{ IRIDB (bangladesh_bmd_divisions) ((name_1) as label) [(gid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+:dataset
+
+
+dataset:
+/name /Districts def
+
+/coastal
+{ IRIDB (bangladesh_bmd_districts) (coastal) [(gid)]open_column_by
+/long_name (Coastal) def
+}defasvarsilentnoreuse
+
+/area
+{ IRIDB (bangladesh_bmd_districts) (area) [(gid)]open_column_by
+/long_name (Division area) def
+}defasvarsilentnoreuse
+
+/name_2
+{ IRIDB (bangladesh_bmd_districts) (name_2) [(gid)]open_column_by
+/long_name (District Name) def
+}defasvarsilentnoreuse
+
+/name_1
+{ IRIDB (bangladesh_bmd_districts) (name_1) [(gid)]open_column_by
+/long_name (Division Name) def
+}defasvarsilentnoreuse
+
+/the_geom
+{ IRIDB (bangladesh_bmd_districts) (the_geom) [(gid)]open_column_by
+/long_name (District Geometry) def
+}defasvarsilentnoreuse
+
+/id_2
+{ IRIDB (bangladesh_bmd_districts) (id_2) [(gid)]open_column_by
+/long_name (District id) def
+}defasvarsilentnoreuse
+
+/id_1
+{ IRIDB (bangladesh_bmd_districts) (id_1) [(gid)]open_column_by
+/long_name (Division id) def
+}defasvarsilentnoreuse
+
+/dis_code
+{ IRIDB (bangladesh_bmd_districts) (dis_code) [(gid)]open_column_by
+/long_name (District code) def
+}defasvarsilentnoreuse
+
+/divcode
+{ IRIDB (bangladesh_bmd_districts) (divcode) [(gid)]open_column_by
+/long_name (Division code) def
+}defasvarsilentnoreuse
+
+/label 
+{ IRIDB (bangladesh_bmd_districts) ((name_2 || ', ' || (name_1)) as label) [(gid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+:dataset
+
+dataset:
+/name /Upazillas def
+
+/name_3
+{ IRIDB (bangladesh_bmd_upazilas) (name_3) [(gid)]open_column_by
+/long_name (Upazilla Name) def
+}defasvarsilentnoreuse
+
+/name_2
+{ IRIDB (bangladesh_bmd_upazilas) (name_2) [(gid)]open_column_by
+/long_name (District Name) def
+}defasvarsilentnoreuse
+
+/name_1
+{ IRIDB (bangladesh_bmd_upazilas) (name_1) [(gid)]open_column_by
+/long_name (Division Name) def
+}defasvarsilentnoreuse
+
+/the_geom
+{ IRIDB (bangladesh_bmd_upazilas) (the_geom) [(gid)]open_column_by
+/long_name (Upazilla Geometry) def
+}defasvarsilentnoreuse
+
+/id_3
+{ IRIDB (bangladesh_bmd_upazilas) (id_3) [(gid)]open_column_by
+/long_name (Upazilla id) def
+}defasvarsilentnoreuse
+
+/id_2
+{ IRIDB (bangladesh_bmd_upazilas) (id_2) [(gid)]open_column_by
+/long_name (District id) def
+}defasvarsilentnoreuse
+
+/id_1
+{ IRIDB (bangladesh_bmd_upazilas) (id_1) [(gid)]open_column_by
+/long_name (Division id) def
+}defasvarsilentnoreuse
+
+/cc_3
+{ IRIDB (bangladesh_bmd_upazilas) (cc_3) [(gid)]open_column_by
+/long_name (Upazilla CC) def
+}defasvarsilentnoreuse
+
+/cc_3
+{ IRIDB (bangladesh_bmd_upazilas) (cc_3) [(gid)]open_column_by
+/long_name (Upazila CC) def
+}defasvarsilentnoreuse
+
+/type_3
+{ IRIDB (bangladesh_bmd_upazilas) (type_3) [(gid)]open_column_by
+/long_name (Admin level 3 Type) def
+}defasvarsilentnoreuse
+
+/label 
+{ IRIDB (bangladesh_bmd_upazilas) ((name_3 || ', ' || name_2 || ', ' || (name_1)) as label) [(gid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+
+\begin{ingrid}
+:dataset
+
+Divisions name_1 .gid name exch put
+Districts name_2 .gid name exch put
+Upazillas name_3 .gid name exch put
+\end{ingrid}
+
+

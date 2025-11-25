@@ -1,0 +1,15 @@
+\begin{ingrid}
+/sst
+{SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .Reyn_SmithOIv2 .climatology .sst
+SOURCES .IRI .MD .Tools .Unaveraging .M2Pentad .avginv
+0 RECHUNK
+mul
+[T]sum
+T2 /T renameGRID
+DATA -2 35 RANGE
+toreal
+} defasvarcache
+/X sst .X def
+/Y sst .Y def
+/T sst .T def
+\end{ingrid}

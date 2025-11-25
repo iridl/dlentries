@@ -1,0 +1,109 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9575
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 586
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAnov2008.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Agriculture) def
+/Q29 {
+mytable
+myquestion 
+67 VALUE
+ myquestion removeGRID
+/long_name (Q29 AVEZ VOUS EXPLOITE DES CHAMPS L' ANNEE PASSEE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q29A {
+mytable
+myquestion 
+68 VALUE
+ myquestion removeGRID
+/long_name (Q29A SI OUI COMBIEN DE CHAMPS SONT-IL EXPLOITES) def 
+}defasvarsilent
+
+/Q29B {
+mytable
+myquestion 
+69 VALUE
+ myquestion removeGRID
+/long_name (Q29B SI OUI QUELLE EST LA SUPERFICIE TOTALE) def 
+}defasvarsilent
+
+/Q30 {
+mytable
+myquestion 
+70 VALUE
+ myquestion removeGRID
+/long_name (Q30 EVOLUTION SUPERFICIES CULTIVEES) def 
+/units /ids def
+/CLIST [(SUPERIEURE)(MEME NIVEAU)(INFERIEURE)(NON APPLICABLE)(ND)] def
+/scale_min 1 def
+/scale_max 9 def
+}defasvarsilent
+
+/Q31 {
+mytable
+myquestion 
+71 VALUE
+ myquestion removeGRID
+/long_name (Q31 COMMENT JUGEZ VOUS LA CAMPAGNE AGRICOLE ACTUELLE) def 
+/units /ids def
+/CLIST [(BONNE)(MOYENNE)(MAUVAISE)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q32A {
+mytable
+myquestion 
+72 VALUE
+ myquestion removeGRID
+/long_name (Q32A PAR RAPPORT CAMPAGNE 2007 NIVEAU DE RECOLTE 2008) def 
+/units /ids def
+/CLIST [(SUPERIEURE)(MEME NIVEAU)(INFERIEURE)(NON APPLICABLE)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q32B {
+mytable
+myquestion 
+73 VALUE
+ myquestion removeGRID
+/long_name (Q32B CAUSE PRINCIPALE) def 
+/units /ids def
+/CLIST [(FAIBLE PLUVIOMETRIE)(INSECTES ET / OU MALADIES)(MANQUE D'INTRANTS)(ARRET PRECOCE DES PUIES)(MANQUE DE TERRE)(INNONDATION)(AUTRES)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

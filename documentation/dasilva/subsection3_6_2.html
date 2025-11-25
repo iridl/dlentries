@@ -1,0 +1,42 @@
+<HEAD>
+<TITLE> Cloudiness</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html254 HREF=subsection3_6_3.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html252 HREF=section3_6.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html246 HREF=subsection3_6_1.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html255 HREF=subsection3_6_3.html> Present Weather</A>
+<B>Up:</B> <A NAME=tex2html253 HREF=section3_6.html> Bias corrections</A>
+<B> Previous:</B> <A NAME=tex2html247 HREF=subsection3_6_1.html> Wind speed</A>
+<HR> <P>
+<H2><A NAME=SECTION0006200000000000000> Cloudiness</A></H2>
+<P>
+<A NAME=seccloudcorr><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A>
+To reduce the bias caused by the underestimation of cloudiness in low
+light levels, we reject all observations taken under dark skies.
+A cloudiness observation is considered 
+acceptable only if one of the following <em>bright sky</em> conditions apply 
+(Hahn <em>et al.</em>  1992):
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation458.xbm"><P>
+or
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation460.xbm"><P>
+where <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2999.xbm"> and <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3001.xbm"> are the altitudes of the sun
+and moon, respectively, with negative altitudes being below the
+horizon.  The phase of the moon <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3003.xbm"> can vary
+between 0 (new moon) and 1 (full moon).  
+Equations to determine the altitude of the sun and altitude and phase of
+the moon can be found in Appendix <A HREF=#secastronomy>B</A>.
+<P>
+We also use the treatment of the <em>sky obscured</em> observation after 
+Hahn <em>et al.</em>  (1992).  Some of the
+phenomena which obscure the sky, such as fog, are associated with
+overcast skies.  If the Present Weather code indicates that
+the sky is obscured due to rain, snow, fog, or any other
+cloud-induced phenomenon, we consider the fractional cloudiness for the 
+ observation to be 1 and include it as a valid observation.
+<P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>
+Fri Oct 20 12:28:33 EDT 1995</I>
+</ADDRESS>

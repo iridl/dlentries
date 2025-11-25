@@ -1,0 +1,87 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+grid:
+/name /micol def
+1 1 1
+:grid
+:datasetdefs
+
+%DEFINE MONTHLY DATA
+    grid:
+      /name /T def
+      monthtime
+      /defaultvalue { last } def
+      /pointwidth 0 def
+      values:
+        1 Jan 1948 ensotime
+        1
+        systemtime
+        systemtime2ymd
+        ymd:lastmonth
+        ymd:nextmonth 15 add
+        ymd2rm1960
+        {} for
+      :values
+    :grid
+
+T { (/Data/data1/noaa/indices/qbo/qbo_%Y[T]-%m[T].txt) [T]  } removeextrausing
+last cvsunits
+    interp exch
+       0.5 add
+       3 -1 roll
+       ymd:nextmonth ymd:nextmonth pop
+      6 ymd2systemtime
+     nip
+/expires exch def
+   name exch def
+/expires T .expires def
+
+link:
+  /name (website) def
+  /description (https://psl.noaa.gov/data/climateindices/list/)def
+  /href (https://psl.noaa.gov/data/climateindices/list/)def
+:link
+
+link:
+  /name (ftp_url) def
+  /description (https://psl.noaa.gov/data/correlation/qbo.data) def
+  /href (https://psl.noaa.gov/data/correlation/qbo.data) def
+:link
+
+/institution (Physical Sciences Laboratory |  NOAA) def
+/history (Climate Indices: Monthly Atmospheric and Ocean Time-Series) def
+/description (Quasi-Biennial Oscillation Index) def 
+
+
+/QBO_realtime {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/qbo/qbo_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 1 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /units (ms-1) def
+   /missing_value -999.00 def 
+   /long_name (Quasi-Biennial Oscillation) def
+   std_anomaly_colors
+   DATA -30 30 RANGE
+   micol removeGRID
+
+ /title (Quasi-Biennial Oscillation) def
+ /description (Calculated at PSL (from the zonal average of the 30mb zonal wind at the equator as computed from the NCEP/NCAR Reanalysis).) def
+ /institution (Physical Sciences Laboratory |  NOAA) def
+
+ link:
+  /name (ftp_url) def
+  /description (https://psl.noaa.gov/data/correlation/qbo.data) def
+  /href (https://psl.noaa.gov/data/correlation/qbo.data) def
+ :link
+
+}defasvarsilent
+
+:dataset
+\end{ingrid}
+

@@ -1,0 +1,123 @@
+\begin{ingrid}
+dataset:
+/description (Sea surface temperature and servain wind stress data for the tropical Atlantic Ocean) def
+/name (SERVAIN) def
+/dataset_documentation.html descriptions /servain.html get def
+grid: 
+/name /X def
+degE -59 to 15 N= 38 pts :grid 
+grid: 
+/name /Y def
+degN 29 to -19 N= 25 pts :grid 
+grid: 
+/name /T def
+monthtime 
+16 Jan 1964 ensotime
+1.
+16 dec 1988 ensotime % enddate
+:grid
+file:
+/name (/Data/data3/rainbow/servain.6488w) def
+random
+/scale_factor .02 def
+/missing_value 9999.8 def
+grids: X Y  [ /taux /tauy ] |  T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+:file
+variable:
+/name /sst def
+/long_name (sea surface temperature) def
+/units /Celsius def
+/missing_value 9999.8 def
+grids: X Y | T :grids
+file:
+/name (/Data/data3/rainbow/servain.6488T) def
+random
+:file
+:variable
+dataset:
+/name /CLIMATOLOGY def
+grid: 
+/name /T def
+month
+Jan
+1.
+Dec
+:grid
+file:
+/name (/Data/data3/rainbow/servain.m6488w) def
+random
+/scale_factor .02 def
+/missing_value 9999.8 def
+grids: X Y [ /taux /tauy ] | T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+/history (Servain Winds averaged over 25 years (64-88)) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+/history (Servain Winds averaged over 25 years (64-88)) def
+:variable
+:file
+variable:
+/name /sst def
+/long_name (sea surface temperature) def
+/units /Celsius def
+/history (Servain SST averaged over 25 years (64-88)) def
+/missing_value 9999.8 def
+grids: X Y | T :grids
+file:
+/name (/Data/data3/rainbow/servain.m6488T) def
+random
+:file
+:variable
+:dataset
+dataset:
+/name /OLD def
+grid: 
+/name /T def
+monthtime 
+16 Jan 1964 ensotime
+1.
+16 dec 1985 ensotime % enddate
+:grid
+file:
+/name (/Data/data3/data/servain.tau.RA) def
+random
+/scale_factor .002 def
+/missing_value 99998 def
+grids: X Y | [ /taux /tauy ]  T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+:file
+:dataset
+
+datasetdefs:
+/Tropical_Atlantic { SOURCES .FUNCEME .Tropical_Atlantic } def
+:datasetdefs
+Tropical_Atlantic
+
+:dataset
+\end{ingrid}
+

@@ -1,0 +1,93 @@
+\begin{ingrid}
+
+continuedataset:
+
+  /name /paramfcst2 def
+
+   /precip_b0 {
+     1 index .dataset .dataset
+     mark Models {name /paramfcst2 ne { pop}{.precip  ind 0 VALUE }ifelse }{name /paramfcst2 ne {pop}{.precip  ind 0 VALUE }ifelse}foralldatasets2
+     counttomark dup dup
+        4 add %2 object on the top + 2 dup object on the bottom
+        1 roll
+       1 sub
+       {add}repeat
+    3 index div
+    3 {exch pop} repeat
+      ind removeGRID
+  }defasvar
+
+   /precip_b1 {
+     1 index .dataset .dataset
+     mark Models {name /paramfcst2 ne { pop}{.precip  ind 1 VALUE }ifelse }{name /paramfcst2 ne {pop}{.precip  ind 1 VALUE }ifelse}foralldatasets2
+     counttomark dup dup
+        4 add %2 object on the top + 2 dup object on the bottom
+        1 roll
+       1 sub
+       {add}repeat
+    3 index div
+    3 {exch pop} repeat
+      ind removeGRID
+  }defasvar
+
+   /precip_b2 {
+     1 index .dataset .dataset
+     mark Models {name /paramfcst2 ne { pop}{.precip  ind 2 VALUE }ifelse }{name /paramfcst2 ne {pop}{.precip  ind 2 VALUE }ifelse}foralldatasets2
+     counttomark dup dup
+        4 add %2 object on the top + 2 dup object on the bottom
+        1 roll
+       1 sub
+       {add}repeat
+    3 index div
+    3 {exch pop} repeat
+      ind removeGRID
+  }defasvar
+
+   /tref_b0 {
+     1 index .dataset .dataset
+     mark Models {name /paramfcst2 ne { pop}{.temperature  ind 0 VALUE }ifelse }{name /paramfcst2 ne {pop}{.temperature  ind 0 VALUE }ifelse}foralldatasets2
+     counttomark dup dup
+        4 add %2 object on the top + 2 dup object on the bottom
+        1 roll
+       1 sub
+       {add}repeat
+    3 index div
+    3 {exch pop} repeat
+      ind removeGRID
+  }defasvar
+
+   /tref_b1 {
+     1 index .dataset .dataset
+     mark Models {name /paramfcst2 ne { pop}{.temperature  ind 1 VALUE }ifelse }{name /paramfcst2 ne {pop}{.temperature  ind 1 VALUE }ifelse}foralldatasets2
+     counttomark dup dup
+        4 add %2 object on the top + 2 dup object on the bottom
+        1 roll
+       1 sub
+       {add}repeat
+    3 index div
+    3 {exch pop} repeat
+      ind removeGRID
+  }defasvar
+
+   /tref_b2 {
+     1 index .dataset .dataset
+     mark Models {name /paramfcst2 ne { pop}{.temperature  ind 2 VALUE }ifelse }{name /paramfcst2 ne {pop}{.temperature  ind 2 VALUE }ifelse}foralldatasets2
+     counttomark dup dup
+        4 add %2 object on the top + 2 dup object on the bottom
+        1 roll
+       1 sub
+       {add}repeat
+    3 index div
+    3 {exch pop} repeat
+      ind removeGRID
+  }defasvar
+
+/target_date { S L add /long_name (forecast time) def /standard_name (time) def } defasvar
+
+:dataset
+
+precip_b0 .S name exch def
+precip_b0 .L name exch def
+
+
+\end{ingrid}

@@ -1,0 +1,215 @@
+The data are stored in random access files
+\begin{ingrid}
+dataset:
+/name /OORT def
+/description (Global atmospheric circulation statistics/analysis from the Geophysical Fluid Dynamics Laboratory based on weather station, ship, and buoy data) def
+/dataset_documentation.html descriptions  /oort.html get def
+/references (Oort1983) def
+/iridl:hasSemantics (iridl:NOAA) def
+grid:
+/name /X def
+/long_name /Longitude def
+/units /degreeE def
+periodic 
+-180 to 175 N= 72 pts :grid 
+grid: 
+/name /Y def
+/long_name /Latitude def
+/units /degreeN def
+ -90 to 90 N= 73 pts :grid
+grid:
+/name /P def
+/long_name (Pressure) def
+/units /mb def
+values: 1000. 950. 900. 850. 700. 500. 400. 300. 200. 100. 50. :values
+:grid
+grid: /name /T def
+/long_name /Time def
+/units /month def
+periodic Jan to Dec N= 12 pts :grid 
+dataset:
+/name /Mean def
+/X X def
+/Y Y def
+/T T def
+/P P def
+file:
+/name (/Data/data3/rainbow/oort83.prof) def
+random
+grids: X Y | P T :grids
+variable:
+/name /u def 
+/long_name (zonal velocity) def
+/units (m/s) def
+PS exch
+  startcolormap
+  -4.2 4.2 RANGE
+  black
+  navy -4.2 value
+  blue -2 value
+  DeepSkyBlue -0.6 value
+  
+  SkyBlue -.1 bandmax
+	aquamarine
+  dup	.1 bandmax
+  LawnGreen
+  yellow 0.25 value
+  DarkOrange 1.0 value
+  red 2.0 value
+  DarkRed 4.0 value
+  DarkRed 4.2 value
+  brown
+  endcolormap
+nip
+/CE undef
+/CS undef
+:variable
+variable:
+/name /v def 
+/long_name (meridonal velocity) def
+/units (m/s) def
+PS exch
+  startcolormap
+  -4.2 4.2 RANGE
+  black
+  navy -4.2 value
+  blue -2 value
+  DeepSkyBlue -0.6 value
+  
+  SkyBlue -.1 bandmax
+	aquamarine
+  dup	.1 bandmax
+  LawnGreen
+  yellow 0.25 value
+  DarkOrange 1.0 value
+  red 2.0 value
+  DarkRed 4.0 value
+  DarkRed 4.2 value
+  brown
+  endcolormap
+nip
+/CE undef
+/CS undef
+:variable
+variable:
+/name /tair def
+/long_name (air temperature) def
+/units /Celsius def
+:variable
+variable: /name /zdel def 
+:variable
+variable:
+/name /qhum def
+/long_name (humidity) def
+/units (g/kg) def
+/missing_value 1e10 def
+:variable
+variable: /name /omega def 
+/long_name (vertical wind) def
+/units (10e-4 mb/s) def
+:variable
+:file
+:dataset
+dataset:
+/name /StdDev def
+file:
+/name (/Data/data3/rainbow/oort83.profsd) def
+random
+grids: X Y | P T :grids
+variable:
+/name /u def 
+/long_name (zonal velocity) def
+/units (m/s) def
+:variable
+variable:
+/name /v def 
+/long_name (meridonal velocity) def
+/units (m/s) def
+:variable
+variable:
+/name /tair def
+/long_name (air temperature) def
+/units /Celsius def
+:variable
+variable: /name /zdel def 
+:variable
+variable:
+/name /qhum def
+/long_name (humidity) def
+/units (g/kg) def
+/missing_value 1e10 def
+:variable
+%variable: /name /omega def 
+%/long_name (vertical wind) def
+%/units (10e-4 mb/s) def
+%:variable
+:file
+:dataset
+dataset:
+/name /Surface def
+file:
+/name (/Data/data3/rainbow/oort1983.surf) def
+random
+grids: X Y | T :grids
+variable:
+/name /u def 
+/long_name (zonal velocity) def
+/units (m/s) def
+:variable
+variable:
+/name /v def 
+/long_name (meridonal velocity) def
+/units (m/s) def
+:variable
+variable:
+/name /tair def
+/long_name (air temperature) def
+/units /Celsius def
+:variable
+variable: /name /zdel def 
+/long_name (Z-Zsurface)def
+/units (gpm) def
+:variable
+variable:
+/name /qhum def
+:variable
+variable: /name /qhum def 
+/long_name (humidity) def
+/units (g/kg) def
+:variable
+variable: /name /uu def 
+/units (m2/s2) def
+:variable
+variable: /name /vv def 
+/units (m2/s2) def
+:variable
+variable: /name /TaTa def 
+/units (degreeC2) def
+:variable
+variable: /name /SSTSST def 
+/units (degreeC2) def
+:variable
+variable: /name /zdelzdel def 
+/long_name (zdel variance) def
+/units (gpm2) def
+:variable
+variable: /name /qaqa def 
+/long_name (qa variance) def
+/units (g2/kg2) def
+:variable
+:file
+\end{ingrid}
+We get qhum from a different file (the original tape qhum did not match the paper).
+\begin{ingrid}
+variable:
+/name /qhum def
+grids: X Y | T :grids
+file:
+/name (/Data/data3/rainbow/oort83.qa.surf) def
+random
+:file
+:variable
+:dataset
+:dataset
+\end{ingrid}
+

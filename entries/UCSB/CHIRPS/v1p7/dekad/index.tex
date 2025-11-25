@@ -1,0 +1,41 @@
+\begin{ingrid}
+continuedataset:
+link:
+/name (v1p8) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.UCSB/.CHIRPS/.v1p8/.dekad/) def
+/description (v1.8 replaces v1.7) def
+/semantics /dcterm:isReplacedBy def
+:link
+grid:
+/name /X def
+degE
+periodic
+-180. 180. 7201 pts 1 index sub
+:grid
+X partialgrid name exch def
+grid:
+/name /Y def
+degN
+50. -50. 2001 pts
+:grid
+Y partialgrid name exch def
+1 Jan 1981 julian_day
+30 Nov 2013 julian_day dekadGRID
+name exch def
+
+% this dataset has been superseded by version 1.8 and then 2.0, and the CHIRPS-1.7 directory no longer exists at UCSB
+/prcp {
+ [X Y | T ]
+  (/Data/ingridcache/ftp/chg-ftpout.geog.ucsb.edu/pub/org/chg/products/CHIRPS-1.7/dekads/chirps-v1.7.%Y.%m[T].%d[dkd].tif) [T dup
+        0 3 onegridmodcounter
+        1 add
+        /name /dkd def
+        ]readdatafile:
+      /realarraytype tiffimage
+/missing_value -9999. def
+/units (mm) def
+      :readdatafile
+} defasvarsilent
+
+:dataset
+\end{ingrid}

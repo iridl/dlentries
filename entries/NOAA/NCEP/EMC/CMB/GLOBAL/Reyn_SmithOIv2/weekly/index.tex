@@ -1,0 +1,126 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+grid:
+/name /T def
+/units /julian_day def
+values:
+05 Jan 2000 julian_day
+:values
+:grid
+
+variable:
+/name /extn def
+grids: T :grids
+values: /.gz :values
+:variable
+
+:datasetdefs
+
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+periodic
+0.5 1. 359.5
+:grid
+
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+-89.5 1. 89.5
+:grid
+
+grid:
+/name /T def
+/fullname (Central Date of Week) def
+/defaultvalue { last } def
+/units /julian_day def
+values:
+08 Nov 1981 julian_day
+7
+31 Dec 1989 julian_day
+{} for
+03 Jan 1990 julian_day
+7
+2023 02 01 ymd2rjt %enddate
+{} for
+:values
+:grid
+\end{ingrid}
+
+\begin{ingrid}
+/sst {
+ [X Y | T] (/Data/data3/ocean/nmc/RSOIver2/weekly/oisst.%Y%m%d[T]%s[extn]) [T extn] readdatafile:
+/long_name (Sea Surface Temperature) def
+/units /Celsius def
+direct
+44 set:file_byteoffset
+% using direct read rather than sequential, and skipping control words
+%skip 44 bytes: control word (4) + date/version (32) + control word (4) + control word (4)
+sstcolorscale
+:readdatafile
+} defasvarsilent
+
+/err {
+ [X Y | T] (/Data/data3/ocean/nmc/RSOIver2/weekly/oisst.%Y%m%d[T]%s[extn]) [T extn] readdatafile:
+/long_name (SST Normalized Error Variance) def
+/scale_min 0 def
+/scale_max 1 def
+direct
+259252 set:file_byteoffset
+%skip 259252 bytes: 44 bytes + sst data (259200) + control word (4)+ control word (4)
+:readdatafile
+} defasvarsilent
+
+/sea_ice {
+ [X Y | T] (/Data/data3/ocean/nmc/RSOIver2/weekly/oisst.%Y%m%d[T]%s[extn]) [T extn] readdatafile:
+/long_name (Sea Ice Concentration) def
+/units /percent def
+/scale_min 0 def
+/scale_max 100 def
+ui*1
+518460 set:file_byteoffset
+%skip 518460 bytes: 259252 + err data (259200) + control word (4) + control word (4)
+:readdatafile
+} defasvarsilent
+
+variable:
+/name /mask def
+/long_name (Land-Sea Mask) def
+grids: X Y :grids
+file:
+direct
+/name (/Data/data3/ocean/nmc/RSOIver2/lstags.onedeg.dat) def
+:file
+:variable
+
+/ssta
+{
+  SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .Reyn_SmithOIv2
+  a: .weekly .sst
+  :a: .pentad-climatology .sst :a
+  [T]regridLinear
+  sub
+  sstacolorscale
+  /long_name (Sea Surface Temperature Anomaly) def
+  /PLOTCOAST 1 def
+  } defasvar
+  
+/ssta_c9120
+  {
+    SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .Reyn_SmithOIv2
+    a: .weekly .sst
+    :a: .pentad-climatology .sst_c9120 :a
+    [T]regridLinear
+    sub
+    sstacolorscale
+    /long_name (1991-2020 Sea Surface Temperature Anomaly) def
+    /PLOTCOAST 1 def
+  } defasvar
+    
+:dataset
+\end{ingrid}

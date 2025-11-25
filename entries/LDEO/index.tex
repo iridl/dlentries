@@ -1,0 +1,25 @@
+\begin{ingrid}
+datasetdefs:
+/Deep_Sea_Core.cuf
+{
+[WWWinfo .url (Deep_Sea_Core.cuf) search
+{nip exch (Deep_Sea_Core) exch } if
+] concat redirectto
+} def
+:datasetdefs
+%/Takahashi currentobject 1 index get def
+/Deep_Sea_Core currentobject 1 index get def
+/description (Lamont-Doherty Earth Observatory of Columbia University) def
+/iridl:hasSemantics (iridl:LDEO) def
+/ClimateGroup { (http://kage.ldeo.columbia.edu:81/LOCALSOURCES/.LDEO/.ClimateGroup/thredds.xml)readthredds } defasvarsilent
+\end{ingrid}
+/PO { (http://kage.ldeo.columbia.edu:81/LOCALSOURCES/.LDEO/.PO/thredds.xml)readthredds 
+dup /LADCP known
+{LADCP
+/references (Fischer_Visbeck1993) def
+name exch def
+} if
+} defasvar
+\begin{ingrid}
+/TRL currentobject 1 index get def
+\end{ingrid}

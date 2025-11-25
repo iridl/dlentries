@@ -1,0 +1,25 @@
+\begin{ingrid}
+/RFSoil50
+insertdataset:
+grid:
+/name /T def
+/units (julian_day) def
+112. .5 sub % start date
+.011
+141. .5 sub % end date
+/add_offset 2450084 def
+:grid
+variable:
+/name /temp def
+/long_name (Soil_Temp) def
+/units (degreeF) def
+grids: T :grids
+/missing_value -909090 def
+file:
+%/name (/hosts/fox/room/ftp/pub//biosphere/RFSoil50.txt) def
+/name (/Data/data1/biosphere/RFSoil50.txt) def
+formatted
+:file
+:variable
+:insertdataset
+\end{ingrid}

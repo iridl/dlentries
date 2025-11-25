@@ -1,0 +1,42 @@
+\begin{ingrid}
+continuedataset:
+
+/dekadsum {
+ SOURCES .NOAA .NCEP .CPC .CMORPH .daily_calculated .mean .morphed .cmorph
+  (mm/day) unitconvert
+  1.0 dekadalAverage
+  T differential_mul
+  /long_name (Estimated Dekadal Precipitation) def
+  T /defaultvalue {last}def
+  dup integralgrid
+  1 index
+  a: .first
+  :a: .last :a
+  subgrid
+/myintegralgrid exch def
+pop
+cmorph_dekad_colors
+CopyStream
+/last_modified last_modified 1149798760 imax def
+} defasvarcachesilent
+
+/monthlysum {
+ SOURCES .NOAA .NCEP .CPC .CMORPH .daily_calculated .mean .morphed .cmorph
+ (mm/day) unitconvert
+ 1.0 monthlyAverage
+ a:
+  T (days since 1960-01-01) streamgridunitconvert
+  T differential_mul
+  T :a: .T :a
+  replaceGRID
+ T /defaultvalue {last} def pop
+ /units (mm/month) def
+} defasvarsilent
+
+/monthlyavg {
+SOURCES .NOAA .NCEP .CPC .CMORPH .daily_calculated .mean .morphed .cmorph
+T 0.9 monthlyAverage
+} defasvarcachesilent
+
+:dataset
+\end{ingrid}

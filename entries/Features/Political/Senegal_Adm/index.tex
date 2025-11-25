@@ -1,0 +1,126 @@
+\begin{ingrid}
+continuedataset:
+/description (Senegal Country', '1st', '2nd', '3rd and 4th Order Administrative Boundaries) def
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Pays def
+/country_name
+{ IRIDB (sen_adm0) (name_0) [(id_0)]open_column_by
+id_0 toi4 use_as_grid
+}defasvarsilentnoreuse
+/iso3
+{ IRIDB (sen_adm0) (iso3) [(id_0)]open_column_by
+id_0 toi4 use_as_grid
+}defasvarsilentnoreuse
+/iso2
+{ IRIDB (sen_adm0) (iso2) [(id_0)]open_column_by
+id_0 toi4 use_as_grid
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (sen_adm0) (the_geom) [(id_0)]open_column_by
+id_0 toi4 use_as_grid
+}defasvarsilentnoreuse
+/label
+{ IRIDB (sen_adm0) (name_0) [(id_0)]open_column_by
+/long_name (Label) def
+id_0 toi4 use_as_grid
+}defasvarsilentnoreuse
+:dataset
+dataset:
+/name /Region def
+/region_name
+{ IRIDB (sen_adm1) (name_1) [(id_1)]open_column_by
+id_1 toi4 use_as_grid
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (sen_adm1) (the_geom) [(id_1)]open_column_by
+id_1 toi4 use_as_grid
+}defasvarsilentnoreuse
+/label
+{ IRIDB (sen_adm1) (name_1) [(id_1)]open_column_by
+/long_name (Label) def
+id_1 toi4 use_as_grid
+}defasvarsilentnoreuse
+:dataset
+dataset:
+/name /Department def
+/region_name
+{ IRIDB (sen_adm2) (name_1) [(id_2)]open_column_by
+id_2 toi4 use_as_grid
+}defasvarsilentnoreuse
+/dept_name
+{ IRIDB (sen_adm2) (name_2) [(id_2)]open_column_by
+id_2 toi4 use_as_grid
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (sen_adm2) (the_geom) [(id_2)]open_column_by
+id_2 toi4 use_as_grid
+}defasvarsilentnoreuse
+/label
+{ IRIDB (sen_adm2) ((name_2 ||', '|| name_1) as label) [(id_2)]open_column_by
+/long_name (Label) def
+id_2 toi4 use_as_grid
+}defasvarsilentnoreuse
+:dataset
+dataset:
+/name /Arrondissement def
+/region_name
+{ IRIDB (sen_adm3) (name_1) [(id_3)]open_column_by
+id_3 toi4 use_as_grid
+}defasvarsilentnoreuse
+/dept_name
+{ IRIDB (sen_adm3) (name_2) [(id_3)]open_column_by
+id_3 toi4 use_as_grid
+}defasvarsilentnoreuse
+/arrondissement_name
+{ IRIDB (sen_adm3) (name_3) [(id_3)]open_column_by
+id_3 toi4 use_as_grid
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (sen_adm3) (the_geom) [(id_3)]open_column_by
+id_3 toi4 use_as_grid
+}defasvarsilentnoreuse
+/label
+{ IRIDB (sen_adm3) ((name_3 ||', '|| name_2 ||', '|| name_1) as label) [(id_3)]open_column_by
+/long_name (Label) def
+id_3 toi4 use_as_grid
+}defasvarsilentnoreuse
+:dataset
+dataset:
+/name /Commune def
+/region_name
+{ IRIDB (sen_adm4) (name_1) [(id_4)]open_column_by
+id_4 toi4 use_as_grid
+}defasvarsilentnoreuse
+/dept_name
+{ IRIDB (sen_adm4) (name_2) [(id_4)]open_column_by
+id_4 toi4 use_as_grid
+}defasvarsilentnoreuse
+/arrondissement_name
+{ IRIDB (sen_adm4) (name_3) [(id_4)]open_column_by
+id_4 toi4 use_as_grid
+}defasvarsilentnoreuse
+/commune_name
+{ IRIDB (sen_adm4) (name_4) [(id_4)]open_column_by
+id_4 toi4 use_as_grid
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (sen_adm4) (the_geom) [(id_4)]open_column_by
+id_4 toi4 use_as_grid
+}defasvarsilentnoreuse
+/label
+{ IRIDB (sen_adm4) ((name_4 ||', '|| name_3 ||', '|| name_2 ||', '|| name_1) as label) [(id_4)]open_column_by
+/long_name (Label) def
+id_4 toi4 use_as_grid
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+Pays country_name .id_0 name exch put
+Region region_name .id_1 name exch put
+Department dept_name .id_2 name exch put
+Arrondissement arrondissement_name .id_3 name exch put
+Commune commune_name .id_4 name exch put
+\end{ingrid}

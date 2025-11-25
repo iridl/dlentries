@@ -1,0 +1,66 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Probabilistic CRU TS 4.01 precipitation anomalies associated with ENSO) def
+
+/references (Lenssen_etal2020) def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+ -179.75 0.5 179.75
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+ -89.75 0.5 89.75
+:grid
+
+grid:
+  /name /T def
+  /units monthtimename def
+  periodic
+  Jan
+  1.
+  Dec
+/pointwidth 3 def
+:grid
+
+grid:
+/name /ENSO def
+/units /ids def
+values: (ElNino) (LaNina) :values
+:grid
+
+grid:
+/name /anomaly def
+/units /ids def
+values: (Above_Normal) (Below_Normal) :values
+:grid
+
+grid:
+/name /significance def
+/units /percent def
+values: 85 90 95 99 :values
+:grid
+
+/prob {
+[X Y T ENSO anomaly significance | ]
+(/Data/data21/iri/forecast/lenssen/ensoTeleconnections/finalImpacts.nc)
+readdatafile:
+/name (prob) def
+/realarraytype netcdfrecords 
+:readdatafile
+/missing_value 1.e32 def
+/long_name (Probability of Anomaly) def
+tercileclassesscale
+DATA 0 1 RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

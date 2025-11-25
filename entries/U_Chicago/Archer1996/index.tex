@@ -1,0 +1,154 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+grid:
+/name (X)def
+degE
+ 0.0 1. 359.
+:grid
+grid:
+/name (Y)def
+degN
+ -90. 1. 90.
+:grid
+/Xalt X def
+/Yalt Y def
+grid:
+/name (X)def
+/units (unitless)def
+ 0.5 2. 358.5
+:grid
+grid:
+/name (Y)def
+/units (unitless)def
+ -89.5 2. 88.5
+:grid
+/Xalt2 X def
+/Yalt2 Y def
+:datasetdefs
+link: 
+/name (Archer1996) def
+/href (http://geosci.uchicago.edu/~archer/reprints/archer.gbc1996.atlas.pdf) def
+:link
+link:
+/name (Kleypas_etal1999) def
+/href(http://geosci.uchicago.edu/~archer/reprints/science99/kleypas.pdf) def
+:link
+/references (Archer1996 Kleypas_etal1999) def
+link:
+/name (Source) def
+/href (http://geosci.uchicago.edu/~archer/data/) def
+/description (original files) def
+:link
+grid:
+/name (X)def
+degE
+ 0.5 1. 359.5
+:grid
+grid:
+/name (Y)def
+degN
+ -89.5 1. 89.5
+:grid
+grid:
+/name (Z)def
+/units (unitless)def
+values: 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. 600. 700. 800. 900. 1000. 1100. 1200. 1300. 1400. 1500. 1750. 2000. 2500. 3000. 3500. 4000. 4500. 5000. 5500. :values
+:grid
+ /Alk{
+[ X Y | Z] (/Data/data2/uchicago/archer/alk.cdf) readdatafile:
+/name (Alk) def
+ /units (mEq/l) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+/aou {(/Data/data2/uchicago/archer/aou.cdf)readfile } defasvarsilent
+\begin{ingrid}
+ /AOU{
+[ X Y | Z] (/Data/data2/uchicago/archer/aou.cdf) readdatafile:
+/name (AOU) def
+ /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+/co3 {(/Data/data2/uchicago/archer/co3.cdf)readfile } defasvarsilent
+\begin{ingrid}
+/CO3{
+[ X Y | Z] (/Data/data2/uchicago/archer/co3.cdf)readdatafile:
+/name (CO3) def
+ /units (micromoles / kilogram) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+/dco3bw {(/Data/data2/uchicago/archer/dco3bw.cdf)readfile } defasvarsilent
+\begin{ingrid}
+/bottom_water_dCO3{
+[ Xalt  Yalt |] (/Data/data2/uchicago/archer/dco3bw.cdf) readdatafile:
+/name (BW) def
+ /units (micromoles / kilogram) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+/ksp_arag {(/Data/data2/uchicago/archer/ksp_arag.cdf)readfile
+.Omega_a 
+/missing_value [ -99 9.9692100E+36 ] def
+} defasvarsilent
+\begin{ingrid}
+/ksp_arag{
+[ Xalt2 Yalt2 |] (/Data/data2/uchicago/archer/ksp_arag.cdf) readdatafile:
+/name (Omega_a) def
+ /units /unitless def
+/missing_value  -99 9.9692100E+36 2 realarray astore def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+\end{ingrid}
+/pct_CaCO3_coretop {(/Data/data2/uchicago/archer/pct_CaCO3.coretop.cdf)readfile } defasvarsilent
+\begin{ingrid}
+/CaCO3_coretop_pct{
+[ Xalt Yalt |]  (/Data/data2/uchicago/archer/pct_CaCO3.coretop.cdf)readdatafile:
+/name (Pct) def
+ /units (percent) def
+/missing_value 9.9692100E+36 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+/prepo4 {(/Data/data2/uchicago/archer/prepo4.cdf)readfile } defasvarsilent
+\begin{ingrid}
+ /PrePO4{
+[ X Y | Z] (/Data/data2/uchicago/archer/prepo4.cdf)readdatafile:
+/name (PrePO4) def
+ /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+/tco2 {(/Data/data2/uchicago/archer/tco2.cdf)readfile } defasvarsilent
+\begin{ingrid}
+/surface_water_TCO2{
+[ X Y | Z] (/Data/data2/uchicago/archer/tco2.cdf) readdatafile:
+/name (TCO2) def
+ /units (micromoles / kilogram) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+/depth {(/Data/data2/uchicago/archer/z.cdf)readfile } defasvarsilent
+\begin{ingrid}
+/bath{
+[ Xalt Yalt |] (/Data/data2/uchicago/archer/z.cdf)readdatafile:
+/name (bath) def
+ /units (m) def
+ /missing_value 1.00000002E30 def
+ /history (U.S. Navy bathymetry plus land heights) def
+ /realarraytype netcdfrecords :readdatafile
+topographycolorscale
+}defasvarsilent
+/pct_CaCO3_LGM
+{
+[ X Y |] (/Data/data2/uchicago/archer/pct_CaCO3.LGM.cdf) readdatafile:
+/name (Pct) def
+ /history (Interpolated Calcite) def
+ /units /percent def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+:dataset
+\end{ingrid}

@@ -1,0 +1,43 @@
+\begin{ingrid}
+continuedataset:
+/Y 64 namedgaussianlat
+ high low subgrid 
+name exch def
+grid: /name /X def degE periodic 0 2.8125 357.1875 :grid
+grid:
+/name /M def
+/long_name (member) def
+/units (ids) def
+1 1 24
+:grid
+grid:
+/name /S def
+monthtime
+/long_name (Forecast Started) def
+1 Jan 2002 ensotime
+1.
+1 Aug 2002 ensotime
+:grid
+grid:
+/name /L def
+/units (months) def
+0.5 1 3.5
+:grid
+/T { L S add [L S] REORDER /long_name (Forecast Time) def } defasvar
+/t2m { (167) (ecm4/psst) IRIforecastfilename [ X Y ] readr4fromascii
+/long_name (Temperature at 2m)def
+/units (Kelvin_scale) preferredunitname def
+/last_modified 3 index .last_modified def
+} defasvarcachesilent
+/prcp { (260) (ecm4/psst) IRIforecastfilename [ X Y ] readr4fromascii
+/long_name (precipitation rate) def
+/units (m/s) preferredunitname def
+/last_modified 3 index .last_modified def
+} defasvarcachesilent
+  :dataset
+\end{ingrid}
+
+
+
+
+

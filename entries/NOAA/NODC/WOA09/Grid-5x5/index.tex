@@ -1,0 +1,135 @@
+\begin{ingrid}
+continuedataset:
+
+dataset:
+ /name (Annual) def
+ /long_name (Annual) def
+
+ /temperature { (/Data/data8/noaa/nodc/WOA09/temperature_annual_5deg.nc) readCDF /crs undef } defasvarsilent
+
+ /salinity { (/Data/data8/noaa/nodc/WOA09/salinity_annual_5deg.nc) readCDF /crs undef } defasvarsilent
+ 
+ /dissolved_oxygen { (/Data/data8/noaa/nodc/WOA09/dissolved_oxygen_annual_5deg.nc) readCDF /crs undef } defasvarsilent
+
+ /oxygen_saturation { (/Data/data8/noaa/nodc/WOA09/oxygen_saturation_annual_5deg.nc) readCDF /crs undef } defasvarsilent
+ 
+ /apparent_oxygen_utilization { (/Data/data8/noaa/nodc/WOA09/apparent_oxygen_utilization_annual_5deg.nc) readCDF /crs undef } defasvarsilent
+
+ /phosphate { (/Data/data8/noaa/nodc/WOA09/phosphate_annual_5deg.nc) readCDF /crs undef } defasvarsilent
+
+ /silicate { (/Data/data8/noaa/nodc/WOA09/silicate_annual_5deg.nc) readCDF /crs undef } defasvarsilent
+ 
+ /nitrate { (/Data/data8/noaa/nodc/WOA09/nitrate_annual_5deg.nc) readCDF /crs undef } defasvarsilent
+
+:dataset
+
+dataset:
+ /name (Seasonal) def
+ /long_name (Seasonal) def
+
+ /temperature { (/Data/data8/noaa/nodc/WOA09/temperature_seasonal_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 1.5 3 10.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+
+ /salinity { (/Data/data8/noaa/nodc/WOA09/salinity_seasonal_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 1.5 3 10.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+ 
+ /dissolved_oxygen { (/Data/data8/noaa/nodc/WOA09/dissolved_oxygen_seasonal_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 1.5 3 10.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+
+ /oxygen_saturation { (/Data/data8/noaa/nodc/WOA09/oxygen_saturation_seasonal_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 1.5 3 10.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+ 
+ /apparent_oxygen_utilization { (/Data/data8/noaa/nodc/WOA09/apparent_oxygen_utilization_seasonal_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 1.5 3 10.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+
+ /phosphate { (/Data/data8/noaa/nodc/WOA09/phosphate_seasonal_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 1.5 3 10.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+
+ /silicate { (/Data/data8/noaa/nodc/WOA09/silicate_seasonal_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 1.5 3 10.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+ 
+ /nitrate { (/Data/data8/noaa/nodc/WOA09/nitrate_seasonal_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 1.5 3 10.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+
+:dataset
+
+dataset:
+ /name (Monthly) def
+ /long_name (Monthly) def
+
+ /temperature { (/Data/data8/noaa/nodc/WOA09/temperature_monthly_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 0.5 1 11.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+
+ /salinity { (/Data/data8/noaa/nodc/WOA09/salinity_monthly_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 0.5 1 11.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+ 
+ /dissolved_oxygen { (/Data/data8/noaa/nodc/WOA09/dissolved_oxygen_monthly_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 0.5 1 11.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+
+ /oxygen_saturation { (/Data/data8/noaa/nodc/WOA09/oxygen_saturation_monthly_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 0.5 1 11.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+ 
+ /apparent_oxygen_utilization { (/Data/data8/noaa/nodc/WOA09/apparent_oxygen_utilization_monthly_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 0.5 1 11.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+
+ /phosphate { (/Data/data8/noaa/nodc/WOA09/phosphate_monthly_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 0.5 1 11.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+
+ /silicate { (/Data/data8/noaa/nodc/WOA09/silicate_monthly_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 0.5 1 11.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+ 
+ /nitrate { (/Data/data8/noaa/nodc/WOA09/nitrate_monthly_5deg.nc) readCDF /crs undef 
+   time name
+    (months since 01-Jan) periodic 0.5 1 11.5 NewEvenGRID
+    replaceGRID
+ } defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}

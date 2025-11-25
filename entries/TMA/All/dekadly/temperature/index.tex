@@ -1,0 +1,85 @@
+\begin{ingrid}
+
+%This defines the restriction applied to the data
+%Contact John del Corral for details
+
+%/CarterCenter dataareRestricted
+
+%This begins the new dataset
+
+continuedataset:
+
+%This begins the definition of objects necessary to read the datafiles but not necessary in the dataset page
+
+datasetdefs:
+
+%Here we define an object names 'T' that will be defined as a dekadal time grid
+%I'm not sure it needs to be in the datasetdefs section
+
+/T %names the object
+1 Jan 1961 julian_day %indicates first time
+31 Dec 2013 julian_day %indicates last time
+dekadGRID %defines a dekadal grid according to first end last times above
+/defaultvalue { last } def %sets he default value to be the last one when going to the data viewer
+def %ends the definition of object named 'T'
+
+%This ends the definition of objects necessary to read the datafiles but not necessary in the dataset page
+
+:datasetdefs
+
+%In this section we define the other grids
+
+grid: %starts the definition of  a grid
+/name (Y)def %defines name of grid
+/units (degree_north)def %defines units of grid
+ -11.98125 0.0375 -0.01875 %defines center of first grid point, then resolution (or step), thencenter of last grid point
+:grid %ends the definitionn of a grid
+%Note that by default Ingrid recognizes that a grid names 'Y' with 'degree_north' as units recognizes that is latitude, even if we didn't specify it
+
+%same thing here with longitude
+grid: 
+/name (X)def
+/units (degree_east)def
+ 27.01875 0.0375 41.98125
+:grid
+
+%In this section we define variables that depend on grids defined above
+
+/tmax{ %names the variable and teh '{' starts the definition
+[ X Y | T ] %indicates the grids on which teh variable depends. On the left of teh pipe '|' we have the dimensions fully contained in each file. On the right of teh pipe '|' we have the grids that depend on the datafiles names
+
+(/Data/data23/TMA/ENACTS/Version3/Data/TMax/Merged/tmax_mrg_%Y[T]%m[T]%-d[dekad]_4km.nc) %this is the data files path and their names. Note that the dates in the filenames are dynamically retrieved form the grid T. Make sure that filenames of new files you make have identical pattern. If not, please contact John Del Corral or Remi Cousin for an explaination more detailed
+[T dup day2dom 5. add 10. div toi4 /name /dekad def ] %this is a piece of code that allows the dynamical retrieval of data filenames to work
+readdatafile: %this starts the reading of data files
+/name (temp) def %names the variable
+/long_name (Maximum Temperature) def %gives a more descriptive name to teh variable that will show up ingraphs and maps
+/missing_value -99.0 def %defines the value of missing values in teh data file
+/units /degreesC def %defines the units of the variable
+/realarraytype netcdfrecords %necessary for netcdf files
+:readdatafile %this ends the reading of data files
+%0 masklt %there are some otehr bad values in the data files that are masked. This must be out of the readdatafile commands
+}defasvarsilent %ends the definition of teh variable
+
+%Same thing with Minimum temperature data files
+
+ /tmin{
+[ X Y | T] (/Data/data23/TMA/ENACTS/Version3/Data/TMin/Merged/tmin_mrg_%Y[T]%m[T]%-d[dekad]_4km.nc) [T dup day2dom
+        5. add
+        10. div
+        toi4
+        /name /dekad def
+        ] readdatafile:
+/name (temp) def
+ /long_name (Minimum Temperature) def
+ /units /degreesC def
+ /missing_value -99.0 def
+ /realarraytype netcdfrecords
+:readdatafile
+%-11. masklt
+}defasvarsilent
+
+%This end the new dataset
+
+:dataset
+
+\end{ingrid}

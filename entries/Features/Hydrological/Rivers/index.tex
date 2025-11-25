@@ -1,0 +1,25 @@
+\begin{ingrid}
+/MajorRivers
+/description ( Rivers of the World) def
+{db: /server IRIDB def
+  /dbname (iridb) def
+  :db
+  (select gid,gid as geom_id,name as r_name,system,river_geom as the_geom from rivers order by gid) (gid) openqueryby
+        geom_id
+            /long_name (Geometry id) def
+        CopyStream
+        name exch def
+        r_name
+            /long_name (River name) def
+        CopyStream
+        name exch def
+        system
+            /long_name (River System name) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Geometry) def
+        CopyStream
+        name exch def
+} defasvarsilent
+\end{ingrid}

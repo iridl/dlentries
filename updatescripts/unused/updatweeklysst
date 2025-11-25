@@ -1,0 +1,116 @@
+#! /bin/csh -fx
+# Bring sstoiweekly uptodate via cronjob updatweeklysst
+#
+# Set appropriate variables
+#
+	set head    = "oi.mean.bias."
+	set DataCat = /Data/data1/DataCatalog/entries
+#	set source  = pub/ocean/clim1/oiupdate
+#	set source  = pub/cmb/sst/oiupdate
+	set source  = pub/cmb/misc/tmp
+	set star    = "*"
+	set dir	    = /Data/data3/ocean/nmc
+	set prog    = /Data/data3/ocean/nmc/weekconv0
+	set one     = "01"
+	set ten	    = "10"
+
+#
+# Enter propoer directory
+#
+	cd $dir	
+#
+# Set present year and month in appropriate variables
+#
+	set yr = `date '+%y'`	
+	set ypr = `date '+%y'`	
+	set mn = `date '+%m'`
+#
+# Set previous month and appropriate year variables
+#
+	@ mnp = $mn - 1
+#
+# Add leading 0 when necessary for correct file name
+#	
+	if($mnp < $ten) then
+	set mnp = "0"$mnp
+	endif
+
+	if($mn == $one) then
+		set mnp = 12
+		@ ypr = $yr - 1
+	if($ypr < $ten) then
+	set ypr = "0"$ypr
+	endif
+#once a century
+		if ("$ypr" == "-1") then
+		@ ypr = 99
+		endif
+	endif
+#
+# Create variables with appropriate names for file retrieval
+#
+	set fnow  = $head$yr$mn"$star"
+	set fprev = $head$ypr$mnp"$star"
+
+	set testit = `echo $fnow`
+	if (".$testit" != ".") then
+	set fprev = ""
+	endif
+#
+# Acquire the files via ftp
+#
+	echo FTPing to site and gathering rosebuds
+#
+#ftp -n nic.fb4.noaa.gov << eoftp | Mail elrosen
+ftp -n ftpprd.ncep.noaa.gov << eoftp 
+	user SECRET_USER SECRET_PASSWORD
+	binary
+	hash
+	cd $source
+	prompt	
+	mget $fnow
+	mget $fprev
+eoftp
+#
+	echo Updating our Direct Acess file
+#
+# Read in the goodies, one at a time and store latest julian day
+#
+
+	foreach file ($fnow $fprev)	
+		$prog W $file >> jday
+	end
+
+#
+# Update the Catalog entries
+#
+	set jd = `sort jday | tail -1`
+	sed -e "/endday/s/^[0-9\.]*/$jd/" $DataCat/IGOSS/nmc/Reyn_SmithOIv1/weekly/index.tex > tmp
+	mv $DataCat/IGOSS/nmc/Reyn_SmithOIv1/weekly/index.tex $DataCat/IGOSS/nmc.old
+	mv tmp $DataCat/IGOSS/nmc/Reyn_SmithOIv1/weekly/index.tex
+#
+#
+# update anomalies
+#/usr/local/bin/ingrid <<EOF > weeklyssta.r4
+#\begin{ingrid}
+#defHTMLwords
+#HTMLwords
+#SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL
+#  a: .weekly .sst
+#    :a: .pentad-climatology .sst :a
+#   [T]regridAverage
+#   sub
+#  sstacolorscale
+#data.r4  
+#\end{ingrid}
+#EOF
+
+# check if we have the latest
+/home/datag/cronjobs/checksst
+# Clean up, leave nonfunctional for the moment.
+#
+#	rm $fnow
+	rm $fprev
+	rm $DataCat/IGOSS/nmc.old
+	rm jday
+

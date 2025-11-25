@@ -1,0 +1,703 @@
+\begin{ingrid}
+link:
+/name (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2)) def
+/description (Reanalysis-2 Home Page) def
+/href (http://www.cpc.ncep.noaa.gov/products/wesley/reanalysis2/index.html) def
+:link
+link:
+/name (ftp server) def
+/description (NCEP ftp Server for Reanalysis-2) def
+/href (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/) def
+:link
+/references (Kanamitsu_etal2002b) def
+/description (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2)) def
+continuedataset:
+
+ grid:
+/name (X)def
+/units (degree_east)def
+periodic
+ 0.0 1.875 358.125
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 88.54195 86.65314 84.75323 82.85075 80.94735 79.04348 77.13935 75.23505 73.33065 71.42618 69.52166 67.6171 65.71251 63.80789 61.90326 59.9986 58.09394 56.18927 54.2846 52.37991 50.47522 48.57052 46.66581 44.7611 42.8564 40.95168 39.04697 37.14225 35.23753 33.3328 31.42808 29.52335 27.61863 25.7139 23.80917 21.90444 19.99971 18.09497 16.19024 14.28551 12.38078 10.47604 8.571307 6.666573 4.761838 2.857103 0.9523676 -0.9523676 -2.857103 -4.761838 -6.666573 -8.571307 -10.47604 -12.38078 -14.28551 -16.19024 -18.09497 -19.99971 -21.90444 -23.80917 -25.7139 -27.61863 -29.52335 -31.42808 -33.3328 -35.23753 -37.14225 -39.04697 -40.95168 -42.8564 -44.7611 -46.66581 -48.57052 -50.47522 -52.37991 -54.2846 -56.18927 -58.09394 -59.9986 -61.90326 -63.80789 -65.71251 -67.6171 -69.52166 -71.42618 -73.33065 -75.23505 -77.13935 -79.04348 -80.94735 -82.85075 -84.75323 -86.65314 -88.54195 :values
+:grid
+
+grid:
+/name (Z) def
+/units (m) def
+/long_name (Height) def
+values: 2 :values
+:grid
+
+grid:
+/name (Z1) def
+/units (m) def
+/long_name (Height) def
+values: 10 :values
+:grid
+
+grid:
+/name (Z2) def
+/units (ids) def
+/long_name (Depth) def
+values: (10-200 cm down) (0-10 cm down) :values
+:grid
+
+grid:
+/name (T) def
+/units monthclimoname def
+/long_name (Time) def
+/standard_name (time) def
+periodic
+Jan 1. Dec
+:grid
+
+[ X Y Z Z1 Z2 T ] { name exch def } forall
+
+% parameters to GRIBvariable, in order, are: 1. GRIB variable parameter code, 2. GRIB level/layer type code, and
+% 3. field ID (generally 1).  So, for example, pressure-level absolute vorticity would be "41 100 1 GRIBvariable"
+
+/tmpsoilt { [ X Y | Z2 T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812)
+readdatafile:
+11 112 1 GRIBvariable
+:readdatafile
+Z2 (0-10 cm down) VALUE
+/long_name (Temperature between 0-10 cm Below Ground Level) def
+/units (Kelvin_scale) def
+/missing_value 9.9990003E+20 def
+} defasvarsilent
+
+/tmpsoilm { [ X Y | Z2 T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812)
+readdatafile:
+11 112 1 GRIBvariable
+:readdatafile
+Z2 (10-200 cm down) VALUE
+/long_name (Temperature between 10-200 cm Below Ground Level) def
+/units (Kelvin_scale) def
+/missing_value 9.9990003E+20 def
+} defasvarsilent
+
+/soilwsoilt { [ X Y | Z2 T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812)
+readdatafile:
+144 112 1 GRIBvariable
+:readdatafile
+Z2 (0-10 cm down) VALUE
+/long_name (Volumetric Soil Moisture between 0-10 cm Below Ground Level) def
+/units (unitless) def
+/missing_value 9.9990003E+20 def
+} defasvarsilent
+   
+/soilwsoilm { [ X Y | Z2 T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+144 112 1 GRIBvariable
+:readdatafile
+Z2 (10-200 cm down) VALUE
+/long_name (Volumetric Soil Moisture between 10-200 cm Below Ground Level) def
+/units (unitless) def
+/missing_value 9.9990003E+20 def
+} defasvarsilent
+   
+  
+%  dataset: /name (surface) def
+
+%[ X Y T ] { name exch def } forall
+
+
+%    dataset: /name (convective) def
+
+%[ X Y T ] { name exch def } forall
+
+/cprat { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812)
+readdatafile:
+214 1 1 GRIBvariable
+:readdatafile
+/long_name (Convective Precipitation Rate at Surface) def
+/units (kg m-2 s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+%    dataset: /name (downward) def
+
+%[ X Y T ] { name exch def } forall
+
+/dlwrfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812)
+readdatafile:
+205 1 1 GRIBvariable
+:readdatafile
+/long_name (Downward Longwave Radiation Flux at Surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/dswrfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812)
+readdatafile:
+204 1 1 GRIBvariable
+:readdatafile
+/long_name (Downward Solar Radiation Flux at Surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+%    dataset: /name (ground) def
+
+%[ X Y T ] { name exch def } forall
+
+/gflux { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+155 1 1 GRIBvariable
+:readdatafile
+/long_name (Ground heat flux at Surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+/icec { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+91 1 1 GRIBvariable
+:readdatafile
+/long_name (Ice Concentration at Surface) def
+/units (unitless) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/land { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812)
+readdatafile:
+81 1 1 GRIBvariable
+:readdatafile
+/long_name (Land-sea mask) def
+/units (unitless) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    dataset: /name (latent) def
+
+%[ X Y T ] { name exch def } forall
+
+/lhtflsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+121 1 1 GRIBvariable
+:readdatafile
+/long_name (Latent Heat Net Flux at Surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+%    dataset: /name (potential) def
+
+%[ X Y T ] { name exch def } forall
+
+/pevprsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812)
+readdatafile:
+145 1 1 GRIBvariable
+:readdatafile
+/long_name (Potential Evaporation Rate at Surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+/pratesfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+59 1 1 GRIBvariable
+:readdatafile
+/long_name (Precipitation rate at Surface) def
+/units (kg m-2 s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/pressfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+1 1 1 GRIBvariable
+:readdatafile
+/long_name (Pressure at Surface) def
+/units (Pa) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/runof { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812)
+readdatafile:
+90 1 1 GRIBvariable
+:readdatafile
+/long_name (Accumulation of Water Runoff at Surface) def
+/units (kg m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/sdtrhsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+221 1 1 GRIBvariable
+:readdatafile
+/long_name (Std dev of time tend of rel hum) def
+/units (percent) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    dataset: /name (sensible) def
+
+%[ X Y T ] { name exch def } forall
+
+/shtfl { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812)
+readdatafile:
+122 1 1 GRIBvariable
+:readdatafile
+/long_name (Sensible Heat Net Flux at Surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+%    dataset: /name (snow) def
+
+%[ X Y T ] { name exch def } forall
+
+/weasd { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+65 1 1 GRIBvariable
+:readdatafile
+/long_name (Water Equiv. of Accum. Snow Depth at Surface) def
+/units (kg m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%      dataset: /name (melt) def
+
+%[ X Y T ] { name exch def } forall
+
+/snohf { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+229 1 1 GRIBvariable
+:readdatafile
+/long_name (Snow Heat Flux at Surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%      :dataset
+
+/srweq { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+64 1 1 GRIBvariable
+:readdatafile
+/long_name (Liquid Equivalent Snow Fall Rate at Surface) def
+/units (kg m-2 s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%      dataset: /name (sublimation) def
+
+%[ X Y T ] { name exch def } forall
+
+/snoev { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+230 1 1 GRIBvariable
+:readdatafile
+/long_name (Snow evaporative heat flux at Surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%      :dataset
+
+%    :dataset
+
+/uflx { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+124 1 1 GRIBvariable
+:readdatafile
+/long_name (Zonal Momentum Flux at Surface) def
+/units (Pa) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/vflx { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812)
+readdatafile:
+125 1 1 GRIBvariable
+:readdatafile
+/long_name (Meridional Momentum Flux at Surface) def
+/units (Pa) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/tmpsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+11 1 1 GRIBvariable
+:readdatafile
+/long_name (SST/Land Skin Temperature at Surface) def
+/units (Kelvin_scale) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/ugwd { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+147 1 1 GRIBvariable
+:readdatafile
+/long_name (Zonal gravity wave stress at Surface) def
+/units (Pa) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    dataset: /name (upward) def
+
+%[ X Y T ] { name exch def } forall
+
+/ulwrfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+212 1 1 GRIBvariable
+:readdatafile
+/long_name (Upward Longwave Radiation Flux at Surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/uswrfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+211 1 1 GRIBvariable
+:readdatafile
+/long_name (Upward Shortwave Radiation Flux at Surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+/vgwd { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+148 1 1 GRIBvariable
+:readdatafile
+/long_name (Meridional gravity wave stress at Surface) def
+/units (Pa) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%  :dataset
+  
+%  dataset: /name (above_ground) def
+
+%[ X Y Z Z1 T ] { name exch def } forall
+
+%    dataset: /name (maximum) def
+
+%[ X Y Z T ] { name exch def } forall
+
+/tmax2m { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+15 105 1 GRIBvariable
+:readdatafile
+/long_name (Maximum Temperature at 2 m) def
+/units (Kelvin_scale) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+%    dataset: /name (minimum) def
+
+%[ X Y Z T ] { name exch def } forall
+
+/tmin2m { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+16 105 1 GRIBvariable
+:readdatafile
+/long_name (Minimum Temperature at 2 m) def
+/units (Kelvin_scale) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+/spfh2m { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+51 105 1 GRIBvariable
+:readdatafile
+/long_name (Specific humidity at 2 meters) def
+/units (unitless) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/tmp2m { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+11 105 1 GRIBvariable
+:readdatafile
+/long_name (Air Temperature at 2 meters) def
+/units (Kelvin_scale) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/ugrd10m { [ X Y | Z1 T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812)
+readdatafile:
+33 105 1 GRIBvariable
+:readdatafile
+/long_name (Zonal Wind at 10 m) def
+/units (m s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/vgrd10m { [ X Y | Z1 T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812)
+readdatafile:
+34 105 1 GRIBvariable
+:readdatafile
+/long_name (Meridional Wind at 10 m) def
+/units (m s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%  :dataset
+   
+%  dataset: /name (high-cloud) def
+
+%[ X Y T ] { name exch def } forall
+
+%    dataset: /name (bottom) def
+
+%[ X Y T ] { name exch def } forall
+
+/preshcb { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+1 232 1 GRIBvariable
+:readdatafile
+/long_name (Pressure at the High Cloud Bottom) def
+/units (Pa) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+/tcdchcl { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+71 234 1 GRIBvariable
+:readdatafile
+/long_name (High Cloud Cover Fraction) def
+/units (percent) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    dataset: /name (top) def
+
+%[ X Y T ] { name exch def } forall
+
+/preshct { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812)
+readdatafile:
+1 233 1 GRIBvariable
+:readdatafile
+/long_name (Pressure at the High Cloud Top) def
+/units (Pa) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/tmphct { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812)
+readdatafile:
+11 233 1 GRIBvariable
+:readdatafile
+/long_name (Temperature at the High Cloud Top) def
+/units (Kelvin_scale) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+%  :dataset
+
+%  dataset: /name (low-cloud) def
+
+%[ X Y T ] { name exch def } forall
+
+%    dataset: /name (bottom) def
+
+%[ X Y T ] { name exch def } forall
+
+/preslcb { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+1 212 1 GRIBvariable
+:readdatafile
+/long_name (Pressure at the Low Cloud Bottom) def
+/units (Pa) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+/tcdclcl { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+71 214 1 GRIBvariable
+:readdatafile
+/long_name (Low Cloud Cover Fraction) def
+/units (percent) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    dataset: /name (top) def
+
+%[ X Y T ] { name exch def } forall
+
+/preslct { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+1 213 1 GRIBvariable
+:readdatafile
+/long_name (Pressure at the Low Cloud Top) def
+/units (Pa) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/tmplct { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+11 213 1 GRIBvariable
+:readdatafile
+/long_name (Temperature at the Low Cloud Top) def
+/units (Kelvin_scale) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+%  :dataset
+
+%  dataset: /name (middle-cloud) def
+
+%[ X Y T ] { name exch def } forall
+
+%    dataset: /name (bottom) def
+
+%[ X Y T ] { name exch def } forall
+
+/presmcb { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+1 222 1 GRIBvariable
+:readdatafile
+/long_name (Pressure at the Middle Cloud Bottom) def
+/units (Pa) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+/tcdcmcl { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+71 224 1 GRIBvariable
+:readdatafile
+/long_name (Middle Cloud Cover Fraction) def
+/units (percent) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    dataset: /name (top) def
+
+%[ X Y T ] { name exch def } forall
+
+/presmct { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+1 223 1 GRIBvariable
+:readdatafile
+/long_name (Pressure at the Middle Cloud Top) def
+/units (Pa) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/tmpmct { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+11 223 1 GRIBvariable
+:readdatafile
+/long_name (Temperature at the Middle Cloud Top) def
+/units (Kelvin_scale) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+%  :dataset
+
+%  dataset: /name (top) def  
+
+%[ X Y T ] { name exch def } forall
+
+%    dataset: /name (downward) def
+
+%[ X Y T ] { name exch def } forall
+
+/dswrftoa { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+204 8 1 GRIBvariable
+:readdatafile
+/long_name (Downward Solar Radiation Flux at the Nominal Top of Atmosphere) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+%    dataset: /name (upward) def
+
+%[ X Y T ] { name exch def } forall
+
+/ulwrftoa { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+212 8 1 GRIBvariable
+:readdatafile
+/long_name (Upward Longwave Radiation Flux at the Nominal Top of Atmosphere) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/uswrftoa { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+211 8 1 GRIBvariable
+:readdatafile
+/long_name (Upward Solar Radiation Flux at the Nominal Top of Atmosphere) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+%    :dataset
+
+%  :dataset
+
+%  dataset: /name (total_air_column) def   
+
+%[ X Y T ] { name exch def } forall
+
+/tcdcclm { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+71 200 1 GRIBvariable
+:readdatafile
+/long_name (Total Cloud Cover Fraction for Total Air Column) def
+/units (percent) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/cworkclm { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+146 200 1 GRIBvariable
+:readdatafile
+/long_name (Cloud work function for Total Air Column) def
+/units (J kg-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/pwat { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/flx.ft06.climo.197901-199812) 
+readdatafile:
+54 200 1 GRIBvariable
+:readdatafile
+/long_name (Precipitable water for Total Air Column) def
+/units (kg m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+
+%  :dataset
+
+:dataset
+\end{ingrid}
+

@@ -1,0 +1,17 @@
+#!/usr/bin/env perl
+#
+while (<>) {
+    chomp;
+
+    ($dirname, $mstorematch) = split(':');
+
+    next if $mstorematch =~ /^%/;
+
+    $regex = "(\/mstore.*\/).*%";
+    @matches = $mstorematch =~ /$regex/;
+
+    # Check if the match exists
+    if (! -d @matches[0] ) {
+	printf "%s\n", (@matches[0]);
+    }
+}

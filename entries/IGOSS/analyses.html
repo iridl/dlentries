@@ -1,0 +1,76 @@
+<INGRID>
+last_modified
+1 index {pop} {/last_modified get max } foralldatasets2
+cvi /last_modified exch def mimeheader
+</INGRID>
+<html>
+<INGRID> null 5 object exch dup type /realtype ne
+{/dotime {} def /dotimeb {} def /dotimec {} def}
+{/dotime { (&T.value=) print T 2 index VALUE T .first  ==ns pop}def
+/dotimeb { (&time.value=) print dup 12 div ==ns }def
+/mytime STREAM /T /monthtime 0 [ 
+200.5  3 16 May 1998 ensotime {} for
+16 Jul 1998 ensotime
+1.
+16 Feb 1999 ensotime { } for
+counttomark realarray astore nip NewGRID nip def
+/dotimec { ( for ) print mytime 
+1 index 
+dup 16 Jun 1998 ensotime gt
+{ /pointwidth 1. def } if
+printunits pop} def
+} ifelse
+</INGRID>
+<head>
+    <title>IGOSS Data Products<INGRID>dotimec </INGRID></title>
+</head>
+<INGRID>standardHeader</INGRID>
+<h1>IGOSS Data Products<INGRID>dotimec </INGRID></h1>
+<h2>Global</h2>
+<ul>
+<li> <a
+	href=".sio/.monthly/heat_storage/.anomalies/html+viewer?plottype=plaincolor&color_smoothing=null&plotcoast=on<INGRID>sio .monthly .heat_storage dotime</INGRID>">Heat Storage</a>
+<INGRID>sio .monthly .heat_storage .T first printunits ( to )print last printunits pop</INGRID>
+<li> <a
+	href=".nmc/.monthly/.sst/html+viewer?X.value=-150&plottype=plaincolor&plotcoast=on<INGRID>nmc .monthly dotime</INGRID>">Monthly Mean Sea Surface Temperature</a>
+<INGRID>nmc .monthly .T first printunits ( to )print last printunits pop</INGRID>
+<li> <a
+	href=".nmc/.monthly/.ssta/html+viewer?X.value=-150&plottype=plaincolor&plotcoast=on<INGRID>nmc .monthly dotime</INGRID>">Monthly Mean Sea Surface Temperature Anomaly</a>
+<INGRID>nmc .monthly .T first printunits ( to )print last printunits pop</INGRID>
+<li> <a
+	href=".fsu/|u|u+|u|v/html+viewer?plottype=plainvector&plotcoast=on<INGRID>fsu dotime</INGRID>">Monthly Mean Surface Pseudo-Stress</a>
+<INGRID> fsu .T first printunits ( to )print last printunits pop</INGRID>
+<li> <a
+	href=".australia/u+v/html+viewer?X.value=-150&plottype=vectoramplitudecolor&plotcoast=on<INGRID>australia dotime</INGRID>">Monthly Mean Surface Winds</a>
+<INGRID> australia .T first printunits ( to )print last printunits pop</INGRID>
+<li> <a
+	href=".TOPEX/.NOAA/.ssha/html+viewer?plottype=plaincolor&plotcoast=on<INGRID>TOPEX .NOAA dotime</INGRID>">TOPEX Sea Surface Height Anomaly (NOAA)</a>
+<INGRID> TOPEX .NOAA .T first printunits ( to )print last printunits pop</INGRID>
+<li> <a
+	href=".TOPEX/.UTCSR/.ssha/html+viewer?plottype=plaincolor&plotcoast=on<INGRID>TOPEX .UTCSR dotime</INGRID>">TOPEX Sea Surface Height Anomaly (UTCSR)</a>
+<INGRID> TOPEX .UTCSR .T first printunits ( to )print last printunits pop</INGRID>
+</ul>
+<h2>Pacific</h2>
+<ul>
+<li> <a
+href="TOGA-TAO.cdf/nip/html+togaviewer?plottype=vectorcontour&plotcoast=on<INGRID>dotimeb </INGRID>">TOGA-TAO</a>
+<li> <a
+href="leetma/u/v/html+viewer?plottype=plainvector&plotcoast=on<INGRID>leetma
+ .u dotime</INGRID>">Pacific
+      monthly mean surface currents</a>
+<INGRID> leetma .u .T first printunits ( to )print last printunits pop</INGRID>
+<li> <a
+href="leetma/d20C/html+viewer?plottype=plaincolor&T.flip=on&xovery=.625&color_smoothing=null<INGRID>leetma
+.d20C dotime</INGRID>">Pacific
+      equatorial thermocline depth</a>
+<INGRID> leetma .d20C .T first printunits ( to )print last printunits pop</INGRID>
+<li> <a
+	href="ers1/sealevel/html+viewer?plottype=plaincontour&plotcoast=on<INGRID>ers1 .sealevel dotime</INGRID>">Monthly Pacific Sea Level Anomaly</a>
+<INGRID> ers1 .sealevel .T first printunits ( to )print last printunits pop</INGRID>
+</ul>
+</body></html>
+
+
+
+
+

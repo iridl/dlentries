@@ -1,0 +1,125 @@
+/references (Smith, T.M., and R.W. Reynolds, 2004: Improved Extended Reconstruction of SST [1854-1997]. Journal of Climate, 17, 2466-2477) def
+\begin{ingrid}
+continuedataset:
+	/description (Improved extended reconstructed global sea surface temperature data based on COADS data) def
+/references (Smith_Reynolds2004)def
+link:
+/name (NCDC SST Documentation Page) def
+/href (http://lwf.ncdc.noaa.gov/oa/climate/research/sst/sst.html) def
+:link
+link:
+/name (ERSSTv3) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCDC/.ERSST/.version3/) def
+/description (ERSST.v3: Extended Reconstructed Sea Surface Temperature Dataset, Verson 3) def
+/semantics /dcterm:isReplacedBy def
+:link
+	grid:
+		/name (X) def
+		/units (degreeE) def
+		/fullname (Longitude) def
+		periodic
+		0 2 358 
+	:grid
+	grid:
+		/name (Y) def
+		/units (degreeN) def
+		/fullname (Latitude) def
+		-88 2 88
+	:grid
+	grid:
+		/name (T) def
+		/units (monthtime) def
+                   /standard_name (time) def
+		/fullname (Time) def
+		16 Jan 1854 ensotime 1. 
+   16 Dec 1999 ensotime
+   (/Data/data6/noaa/ncdc/ersstv2/ersst.v2.2000.2009.asc) dup deflastmod filelength
+    11556000
+     120 idiv
+     idiv
+    add
+% -- no longer updated
+%% expires monday after the Sun-Sat week that contains the end of the month
+%% first the end of the month
+%dup rm19602ymd
+%ymd:nextmonth
+%ymd:nextmonth
+% ymd2systemtime
+%% now the end of the week plus processing
+%dup
+% (%w) 20 strftime
+%  interp
+%  6 exch sub % adds days to get to Saturday (end of week)
+%2 add % processing time
+%  86400 mul add
+%dup
+%/expires exch def
+% -- no longer updated
+	:grid
+/SST { [Y
+    X |
+    T] (/Data/data6/noaa/ncdc/ersstv2/ersst.v2.%Y[T].%Y[T2].asc) [grid: /T (months since 1960-01-01) 0 values: 1
+             Jan 1854 ensotime
+             1
+              Jan 1860 ensotime
+              120. 1
+                Jan 2000 ensotime
+                {}
+                 for :values
+            :grid
+       /pointwidth 0 def
+       dup dup c:
+          (1 Jan 1859) (monthtime) :c
+          flaglt
+         c:
+          48 (months) :c
+          mul
+         sub
+        c:
+         110 (months) :c
+         add
+        /name /T2 def
+        ]readdatafile:
+      11556000
+       120 idiv
+       i*4asascii
+      /long_name (Sea Surface Temperature) def
+      /units (Celsius_scale) def
+      /scale_factor .01 def
+      /missing_value -9999 def :readdatafile 
+} defasvarcachesilent
+/err { [Y
+    X |
+    T] (/Data/data6/noaa/ncdc/ersstv2/ersst.v2.serrv.%Y[T].%Y[T2].asc) [grid: /T (months since 1960-01-01) 0 values: 1
+             Jan 1854 ensotime
+             1
+              Jan 1860 ensotime
+              120. 1
+                Jan 2000 ensotime
+                {}
+                 for :values
+            :grid
+       /pointwidth 0 def
+       dup dup c:
+          (1 Jan 1860) (monthtime) :c
+          flaglt
+         c:
+          48 (months) :c
+          mul
+         sub
+        c:
+         110 (months) :c
+         add
+        /name /T2 def
+        ]readdatafile:
+      11556000
+       120 idiv
+       i*4asascii
+      /long_name (Estimated sampling error variance) def
+      /units (unitless) def
+      /scale_factor .01 def
+      /missing_value -9999 def :readdatafile 
+} defasvarsilent
+:dataset
+\end{ingrid}
+

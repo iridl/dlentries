@@ -1,0 +1,164 @@
+\begin{ingrid}
+
+/iridl:hasSemantics (iridlsemantics:PRISM) def
+
+continuedataset:
+
+datasetdefs:
+grid:
+/name /T def
+/standard_name (time) def
+/units (days since 1980-01-01) def
+/pointwidth 1. def
+/defaultvalue {last} def
+values:
+1. 2 div
+1992 1 1 ymd2rjt
+1980 1 1 ymd2rjt sub
+1. 2 div sub
+% 200
+1992 1 1 ymd2rjt
+1980 1 1 ymd2rjt sub
+1. 2 div sub
+
+2001 1 1 ymd2rjt
+1980 1 1 ymd2rjt sub
+1. 2 div sub
+% 300
+2001 1 1 ymd2rjt
+1980 1 1 ymd2rjt sub
+1. 2 div sub
+
+2011 1 1 ymd2rjt
+1980 1 1 ymd2rjt sub
+1. 2 div sub
+% 400
+2011 1 1 ymd2rjt
+1980 1 1 ymd2rjt sub
+1. 2 div sub
+
+2016 6 1 ymd2rjt
+1980 1 1 ymd2rjt sub
+1. 2 div sub
+:values
+:grid
+
+
+:datasetdefs
+
+/description (2D Variables) def
+
+link:
+/name (link to MERRA2 project) def
+/description (MODERN-ERA RETROSPECTIVE ANALYSIS FOR RESEARCH AND APPLICATIONS, Version 2) def
+/href (http://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/) def
+:link
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/standard_name (latitude) def
+/units /degree_north def
+-90.
+0.5
+90.
+:grid
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/standard_name (longitude) def
+/units /degree_east def
+-180.
+360.
+576 div
+179.375
+:grid
+
+grid:
+/name /T def
+/standard_name (time) def
+/units (days since 1980-01-01) def
+/pointwidth 1. def
+/defaultvalue {last} def
+1. 2 div
+1.
+%2016 06 01 ymd2rjt
+systemtime (%d %b %Y) 12 strftime interp julian_day rjt2ymd ymd:lastmonth ymd:nextmonth ymd2rjt
+1980 1 1 ymd2rjt sub
+1. 2 div sub
+
+
+:grid
+
+T { (/Data/data23/NASA/GES_DISC/MERRA2/DAILY/M2SDNXSLV.5.12.4/%Y[T]/%m[T]/MERRA2_*.statD_2d_slv_Nx.%Y%m%d[T].nc4) [T dailyedgesgrid first secondtolast subgrid] } removeextrausing
+/expires
+T
+last cvsunits
+    interp exch
+      0.5 add
+      3 -1 roll
+      ymd:nextmonth ymd:nextmonth pop
+     17 ymd2systemtime %usually, NASA releases the data between 17th - 28th
+    nip
+def
+
+  name exch def
+%/last_modified last_modified T .last_modified imax  def
+/expires T .expires  def
+
+
+ /t2mmean{
+[ X Y | T]
+%(ftp://goldsmr4.sci.gsfc.nasa.gov/data/s4pa/MERRA2/M2SDNXSLV.5.12.4/%Y[T]/%m[T]/MERRA2_%s[mver].statD_2d_slv_Nx.%Y%m%d[T].nc4) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+(/Data/data23/NASA/GES_DISC/MERRA2/DAILY/M2SDNXSLV.5.12.4/%Y[T]/%m[T]/MERRA2_*.statD_2d_slv_Nx.%Y%m%d[T].nc4) [T dailyedgesgrid first secondtolast subgrid] readdatafile:
+/name (T2MMEAN) def
+/standard_name (2-meter_air_temperature) def
+/long_name (Mean temperature at 2 m) def
+ /missing_value 1.E15 def
+ /units (Kelvin_scale) def
+ /realarraytype netcdfrecords :readdatafile
+DATA 185 320 RANGE
+}defasvarsilent
+
+ /t2mmax{
+[ X Y | T]
+%(ftp://goldsmr4.sci.gsfc.nasa.gov/data/s4pa/MERRA2/M2SDNXSLV.5.12.4/%Y[T]/%m[T]/MERRA2_%s[mver].statD_2d_slv_Nx.%Y%m%d[T].nc4) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+(/Data/data23/NASA/GES_DISC/MERRA2/DAILY/M2SDNXSLV.5.12.4/%Y[T]/%m[T]/MERRA2_*.statD_2d_slv_Nx.%Y%m%d[T].nc4) [T dailyedgesgrid first secondtolast subgrid] readdatafile:
+/name (T2MMAX) def
+/standard_name (2-meter_air_temperature) def
+/long_name (Maximum temperature at 2 m) def
+ /missing_value 1.E15 def
+ /units (Kelvin_scale) def
+ /realarraytype netcdfrecords :readdatafile
+DATA 185 340 RANGE
+ }defasvarsilent
+
+ /t2mmin{
+[ X Y | T]
+%(ftp://goldsmr4.sci.gsfc.nasa.gov/data/s4pa/MERRA2/M2SDNXSLV.5.12.4/%Y[T]/%m[T]/MERRA2_%s[mver].statD_2d_slv_Nx.%Y%m%d[T].nc4) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+(/Data/data23/NASA/GES_DISC/MERRA2/DAILY/M2SDNXSLV.5.12.4/%Y[T]/%m[T]/MERRA2_*.statD_2d_slv_Nx.%Y%m%d[T].nc4) [T dailyedgesgrid first secondtolast subgrid] readdatafile:
+/name (T2MMIN) def
+/standard_name (2-meter_air_temperature) def
+/long_name (Minimum temperature at 2 m) def
+ /missing_value 1.E15 def
+ /units (Kelvin_scale) def
+ /realarraytype netcdfrecords :readdatafile
+DATA 180 315 RANGE
+ }defasvarsilent
+
+ /tprecmax{
+[ X Y | T]
+%(ftp://goldsmr4.sci.gsfc.nasa.gov/data/s4pa/MERRA2/M2SDNXSLV.5.12.4/%Y[T]/%m[T]/MERRA2_%s[mver].statD_2d_slv_Nx.%Y%m%d[T].nc4) [T dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+(/Data/data23/NASA/GES_DISC/MERRA2/DAILY/M2SDNXSLV.5.12.4/%Y[T]/%m[T]/MERRA2_*.statD_2d_slv_Nx.%Y%m%d[T].nc4) [T dailyedgesgrid first secondtolast subgrid] readdatafile:
+/name (TPRECMAX) def
+/standard_name (total precipitation) def
+/long_name (Maximum Total Precipitation) def
+ /missing_value 1.E15 def
+ /units (kg m-2 s-1) def
+ /realarraytype netcdfrecords :readdatafile
+DATA 0 0.04 RANGE
+ }defasvarsilent
+
+:dataset
+\end{ingrid}

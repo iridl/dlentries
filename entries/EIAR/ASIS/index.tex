@@ -1,0 +1,88 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Agricultural Stress Index System) def
+
+grid:
+/name /Y def
+/units /degree_north def
+ 3.39 0.009 2 copy 1290 1 sub mul add
+ /long_name (Latitude) def
+:grid
+
+grid:
+/name /X def
+/units /degree_east def
+ 33. 0.009 2 copy 1681 1 sub mul add
+/long_name (Longitude) def
+:grid
+
+grid:
+/name /T def
+/units (monthtime) def
+/defaultvalue { last } def
+1 Jul 1985 ensotime
+12
+1 Jul 2020 ensotime
+/pointwidth 12 def
+:grid
+
+grid:
+/name /season_id def
+/long_name (Season ID) def
+/units /ids def
+1 1 2
+:grid
+
+grid:
+/name /season def
+/long_name (Season) def
+/units /ids def
+values: /Belg /Kiremt :values
+:grid
+
+grid:
+/name /crop_id def
+/long_name (Crop ID) def
+/units /ids def
+1 1 4
+:grid
+
+grid:
+/name /crop def
+/long_name (Crop) def
+/units /ids def
+values: /Wheat /Maize /Sorghum /Barley :values
+:grid
+
+/ASI {
+[X Y last first subgrid T | season_id crop_id]
+(/Data/data23/ACTodayASISOutputData/ASIS_1985_2020_annual_s%d[season_id]_crop_%d[crop_id].nc)
+[season_id crop_id]
+readdatafile:
+/name (ASI) def
+/realarraytype netcdfrecords
+/missing_value -3.4e+38 def
+:readdatafile
+Y last first RANGE
+/units /percent def
+/long_name (Agricultural Stress Index) def
+DATA 0 100 RANGE
+startcolormap
+transparent ForestGreen
+ForestGreen 0 VALUE
+ForestGreen ForestGreen 10 bandmax
+green green 25 bandmax
+yellow yellow 40 bandmax
+orange orange 55 bandmax
+tomato tomato 70 bandmax
+red red 85 bandmax
+firebrick firebrick 100 bandmax
+firebrick
+endcolormap
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

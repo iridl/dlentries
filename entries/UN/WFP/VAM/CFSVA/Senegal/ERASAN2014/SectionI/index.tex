@@ -1,0 +1,131 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+
+grid:
+/name /mycol def
+1 1 2
+:grid
+
+:datasetdefs
+
+/description (Identifcation) def
+
+grid:
+/name /hhid def
+1. 1. 5270.
+:grid
+
+/i00 { IRIDB (erasan2014) (i00) [(hhid)] open_column_by
+/long_name (numero du questionnaire) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/region { IRIDB (erasan2014) (region) [(hhid)] open_column_by
+/long_name (region) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/departement { IRIDB (erasan2014) (departement) [(hhid)] open_column_by
+/long_name (departement) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/village { IRIDB (erasan2014) (village) [(hhid)] open_column_by
+/long_name (village) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/sexe { IRIDB (erasan2014) (sexe) [(hhid)] open_column_by
+/long_name (sexe du chef de ménage) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(masculin)
+(feminin)
+] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilentnoreuse
+
+/i10_agecm { IRIDB (erasan2014) (i10_agecm) [(hhid)] open_column_by
+/long_name (age du chef de ménage) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/i12_enq { IRIDB (erasan2014) (i12_enq) [(hhid)] open_column_by
+/long_name (code enquêteur) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/sca { IRIDB (erasan2014) (sca) [(hhid)] open_column_by
+/long_name (score de consommation alimentaire) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/gca { IRIDB (erasan2014) (gca) [(hhid)] open_column_by
+/long_name (groupe de consommation alimentaire) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(pauvre)
+(limite)
+(acceptable)
+] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilentnoreuse
+
+/csi { IRIDB (erasan2014) (csi) [(hhid)] open_column_by
+/long_name (stratégies de survie) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/id_2 {  
+[ mycol departement .hhid | ]  
+(/Data/data6/WFP/senegal/ERASAN/ERASANid2.txt)  
+readdatafile:  
+[0 1] r*4astsv  
+:readdatafile  
+mycol first VALUE  
+mycol removeGRID  
+/long_name (ID Département) def  
+}defasvarsilent
+
+[/NVZ 2 NewIntegerGRID hhid |]
+(/Data/data6/WFP/senegal/ERASAN/2014ERASAN_matched_idnew_ll.txt)
+readdatafile:
+[1 1]r*4astsv
+:readdatafile
+/missing_value -999 def
+
+definevariables:
+
+0 Zvariable:
+/name /lat def
+/long_name (Latitude) def
+/units /degree_north def
+/scale_min 12.2 def
+/scale_max 16.8 def
+:Zvariable
+
+0 Zvariable:
+/name /lon def
+/long_name (Longitude) def
+/units /degree_east def
+/scale_min -17.7 def
+/scale_max -11.2 def
+:Zvariable
+
+:definevariables
+
+/location {
+lon lat geopt
+/long_name (Location) def
+}defasvar
+
+:dataset
+
+%i00 .hhid name exch def
+\end{ingrid}
+

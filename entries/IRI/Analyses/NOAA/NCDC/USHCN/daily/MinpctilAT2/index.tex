@@ -1,0 +1,86 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+/mycolorscale {
+ startcolormap DATA
+    -0.5 4.5 RANGE
+    white LightGray LightGray
+       -0.5 VALUE
+       LightGray LightGray
+         0.5 bandmax
+         gold gold
+           1.5 bandmax
+           orange orange
+             2.5 bandmax
+             red red
+               3.5 bandmax
+               brown brown
+                 4.5 bandmax
+                 brown endcolormap
+          } defcolorscale
+
+
+:datasetdefs
+
+grid:
+      /name (X) def
+      /units (degreeE) def
+      /fullname (Longitude) def
+      -126.75 to -65.25 N= 124 pts
+:grid
+
+grid:
+      /name (Y) def
+      /units (degreeN) def
+      /fullname (Latitude) def
+      49.75 to 23.25 N= 54 pts
+:grid
+
+grid:
+/name /T def
+/units (julian_day) def
+01 May 1979 julian_day
+1.0
+30 Sep 2013 julian_day
+:grid
+
+/percentile {
+[X Y | T ] (/Data/data21/noaa/ncdc/ushcn/daily/TDailyUSHCN_7913_pctilmap_heatAT2/DailyMin/%Y%b%d[T]) [T] readdatafile:
+%[X Y | T ] (/beluga/data/tonyb/iri_html/TDailyUSHCN_7913_pctilmap_heatAT2/DailyMin/%Y%b%d[T]) [T] readdatafile:
+        ((124F1.0)) formatted
+      :readdatafile
+%     /long_name (MaxT Heat %ile Categ 80,85,90,95) def
+      /long_name (Min Apparent Temperature Percentile Category) def
+       /missing_value 9 def
+%      mycolorscale
+%     /units (1,2,3,4) def
+%
+/scale_min 0 def
+/scale_max 4 def
+/units /ids def
+/CLIST [
+(below 80th)
+(80-85th)
+(85-90th)
+(90-95th)
+(≥ 95th)
+] def
+
+startcolormap
+/maxncolor 8 def
+DATA 0 4 RANGE
+transparent
+LightGray
+LightGray
+gold
+orange
+red
+brown
+brown
+endcolormap
+
+} defasvarsilent
+
+:dataset
+\end{ingrid}

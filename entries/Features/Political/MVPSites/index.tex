@@ -1,0 +1,17 @@
+\begin{ingrid}
+/MillenniumVillages
+/description (Earth Institute Millennium Villages) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,village,the_geom from mvpsites_point) (gid) openqueryby
+    village
+     /long_name (Village Name) def
+    CopyStream
+    name exch def
+    the_geom
+      /long_name (Village point geometry) def
+    name exch def
+}defasvarcachesilent
+\end{ingrid}

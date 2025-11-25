@@ -1,0 +1,68 @@
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name (T) def
+/units (days since 1960-01-01) def
+/long_name (Time) def
+01 Jan 1981 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+31 Dec 2016 julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+%/defaultvalue { last } def
+:grid
+
+variable:
+/name /RMM1 def
+grids: T :grids
+file:
+/name (/Data/data25/ECMWF/S2S/EI2/RMMS/z_s2s_rmm_ei_prod_an_1981-2016.txt) def 
+formatted
+/format ((11X,F6.3)) def 
+:file
+/missing_value -9.999 def
+/long_name (RMM1) def
+/units (unitless) def
+:variable
+
+variable:
+/name /RMM2 def
+grids: T :grids
+file:
+/name (/Data/data25/ECMWF/S2S/EI2/RMMS/z_s2s_rmm_ei_prod_an_1981-2016.txt) def 
+formatted
+/format ((18X,F6.3)) def 
+:file
+/missing_value -9.999 def
+/long_name (RMM2) def
+/units (unitless) def
+:variable
+
+variable:
+/name /amplitude def
+grids: T :grids
+file:
+/name (/Data/data25/ECMWF/S2S/EI2/RMMS/z_s2s_rmm_ei_prod_an_1981-2016.txt) def 
+formatted
+/format ((25X,F6.3)) def 
+:file
+/missing_value -9.999 def
+/long_name (amplitude) def
+/units (unitless) def
+:variable
+
+variable:
+/name /phase def
+grids: T :grids
+file:
+/name (/Data/data25/ECMWF/S2S/EI2/RMMS/z_s2s_rmm_ei_prod_an_1981-2016.txt) def 
+formatted
+/format ((32X,F1.0)) def 
+:file
+/missing_value 9 def
+/long_name (phase) def
+/units (unitless) def
+:variable
+
+:dataset
+\end{ingrid}

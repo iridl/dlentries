@@ -1,0 +1,191 @@
+updates for this dataset are found at http://ncc.cma.gov.cn/to_iri_updated/
+
+
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+dataset:
+/name /GODAS0 def
+grid:
+/name /X def
+degE
+0 1.875 361.875
+:grid
+grid:
+/name /Y def
+degN
+values:
+  [ .714       2.353       4.208       6.070       7.933       9.797      11.662      13.527
+      15.391      17.256      19.121      20.986      22.852      24.717      26.582      28.447
+      30.312      32.177      34.043      35.908      37.773      39.638      41.503      43.369
+      45.234      47.099      48.964      50.830      52.695      54.560      56.425      58.291
+      60.156      62.021      63.886      65.752      67.617      69.482      71.347      73.213
+      75.078      76.943      78.808      80.674      82.539      84.404      86.269      88.135
+      90.000      91.865      93.731      95.596      97.461      99.326     101.192     103.057
+     104.922     106.787     108.653     110.518     112.383     114.248     116.114     117.979
+     119.844     121.709     123.575     125.440     127.305     129.170     131.036     132.901
+     134.766     136.631     138.497     140.362     142.227     144.092     145.957     147.823
+     149.688     151.553     153.418     155.283     157.148     159.014     160.879     162.744
+     164.609     166.473     168.338     170.200] {90. exch sub} forall
+
+:values
+:grid
+/Y_01 Y def
+grid:
+/name /Y def
+degN
+values:
+90. 88.571999 86.723 84.862 82.999001 81.135002 79.270996 77.405998 75.541 73.676003 71.811005 69.945999 68.081001 66.216003 64.350998 62.486 60.620003 58.754997 56.889999 55.025002 53.16 51.293999 49.429001
+ 47.563999 45.699001 43.833 41.967999 40.103001 38.237999 36.372002 34.507 32.641998 30.777 28.910999 27.046001 25.181 23.316002
+ 21.449997 19.584999 17.720001 15.855003 13.988998 12.124001 10.259003 8.3939972 6.5279999 4.663002 2.7979965 0.9329987 -0.9329987 -2.7979965 -4.663002 -6.5279999 -8.3939972 -10.259003 -12.124001 -13.988998
+ -15.855003 -17.720001 -19.584999 -21.449997 -23.316002 -25.181 -27.045998 -28.911003 -30.777 -32.641998 -34.507004 -36.372002 -38.238007 -40.102997 -41.968002 -43.832993 -45.699005 -47.563995 -49.429001
+ -51.294006 -53.160004 -55.024994 -56.889999 -58.755005 -60.619995 -62.485992 -64.350998 -66.216003 -68.080994 -69.945999 -71.811005 -73.675995 -75.541 -77.406006 -79.270996
+:values
+:grid
+grid:
+/name /T def
+/units (monthtime) def
+/defaultvalue { last } def
+16 Jan 1982 ensotime
+1.
+16 May 2014 ensotime
+%16 
+%systemtime 
+%(%b %Y) 10 strftime
+%interp
+%ensotime
+:grid
+%T { (/beluga/data/datag/CMA/BCC/GODAS/bccocn%Y%m[T].dat) [T]} removeextrausing
+%/expires
+%last_modified systemtime2ymd ymd:nextmonth
+%ymd2systemtime 7 3600 mul add
+%def  
+%/defaultvalue last def
+%name exch def
+%/expires T .expires def
+/last_modified T .last_modified def
+grid:
+/name /Z def
+/units (m) def
+values:
+      .000     25.000     50.000     75.000    100.000    125.000    150.000    175.000
+    200.000    225.000    250.000    275.000    300.000    327.047    362.218    413.392
+    487.961
+:values
+:grid
+/Z_01 Z def
+grid:
+/name /Z def
+/units (m) def
+values:
+ 12.500     37.500     62.500     87.500    112.500    137.500    162.500    187.500
+    212.500    237.500    262.500    287.500    313.523    344.632    387.805    450.677
+    540.282
+:values
+:grid
+/NVZ 17 4 mul  NewIntegerGRID
+name exch def
+ [X
+    Y |
+    NVZ T] (/beluga/data/datag/CMA/BCC/GODAS/bccocn%Y%m[T].dat) [T]readdatafile:
+      6
+       12 add
+       set:file_byteoffset
+/missing_value 9999  def
+      direct :readdatafile
+definevariables:
+17 Zvariable:
+/name /temp def
+/units (Celsius_scale) def
+:Zvariable
+17 Zvariable:
+/name /sal def
+/units (1e-3 PSU above 35) def
+/iridl:hasSemantics (iridl:Salinity) def
+:Zvariable
+17 Zvariable:
+/name /u def
+/units (m/s) def
+X .5 step mul shiftGRID
+Y Y_01 replaceGRID
+/Z Z_01 def
+:Zvariable
+17 Zvariable:
+/name /v def
+/units (m/s) def
+X .5 step mul shiftGRID
+Y Y_01 replaceGRID
+/Z Z_01 def
+:Zvariable
+:definevariables
+:dataset
+:datasetdefs
+/dataset_documentation.html currentobject 1 index get def
+/description (global ocean data assimilation operational system) def
+/iridl:hasSemantics (iridl:Ocean) def
+/references (Liu_etal2005a Liu_etal2005b) def
+/temp {GODAS0 .temp
+X first dup 360
+       step sub
+       add
+      RANGE
+   X
+    1 setgridtype
+    pop
+  } defasvarsilent
+/sal {GODAS0 .sal
+X first dup 360
+       step sub
+       add
+      RANGE
+   X
+    1 setgridtype
+    pop
+  } defasvarsilent
+/u {GODAS0 .u
+X first dup 360
+       step sub
+       add
+      RANGE
+   X
+    1 setgridtype
+    pop
+  } defasvarsilent
+/v {GODAS0 .v
+X first dup 360
+       step sub
+       add
+      RANGE
+   X
+    1 setgridtype
+    pop
+  } defasvarsilent
+temp .streamgridarray {name exch def} forall
+%/expires GODAS0 .expires def
+/last_modified GODAS0 .last_modified def
+:dataset
+\end{ingrid}
+
+Chet Ropelewski <chet@iri.columbia.edu> 	Thu, Sep 16, 2004 at 2:11 PM
+To: liuym@cma.gov.cn
+Cc: Carolyn Mutter <czm@iri.columbia.edu>, Benno Blumenthal <benno@iri.columbia.edu>
+Dear Dr. Liu Yimin,
+
+Thank you for your emial.  The IRI will be pleased to distribute the data from the Beijing Climate Center (BCC) Global Ocean Data Assimilation System (GODAS).  The request will be handled by Dr. Benno Blumenthal (email benno@iri.columbia.edu) or a member of his Data Library Staff.  He will contact you to discuss any details and with any questions relating to the data and its transfer.
+
+Please let us know if there are other data sets or model simulations that we might be able to distribute or if there are other ways that we might collaborate with BCC.
+
+Best Regards,
+
+C. F. Ropelewski
+Director, Climate and Environmental Monitoring
+-- 
+
+E-mail: chet@iri.ldeo.columbia.edu
+Phone: (+1) 845 680 4490        Fax: (+1) 845 680  4864
+Web site http://iri.ldeo.columbia.edu/
+C. F. Ropelewski, Director Climate and Environmental Monitoring
+IRI - International Research Institute for climate prediction
+Lamont-Doherty Earth Observatory of Columbia University
+61 Route 9W - Monell 115
+Palisades, New York 10964-8000  USA

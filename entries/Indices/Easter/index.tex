@@ -1,0 +1,55 @@
+\begin{ingrid}
+continuedataset:
+%/name /Easter def
+/long_name (Easter Island) def
+/description (Sea level pressure data from Easter Island) def
+/iridl:hasSemantics (iridl:NOAA) def
+grid:
+/name /T def
+monthtime
+16 Jan 1951 ensotime 1 
+16 Dec 1995 ensotime 
+% enddate
+:grid
+dataset:
+/name /slp def
+/long_name (sea level pressure) def
+variable:
+/name /full def
+/long_name (sea level pressure) def
+/units (mb@1000) def
+/missing_value -999.9 def
+grids: T :grids
+file:
+/name (/Data/data1/noaa/indices/easter.full) def
+/format ((4X,12f6.1)) def
+formatted
+:file
+:variable
+variable:
+/name /anomaly def
+/long_name (sea level pressure anomaly) def
+/units (mb@1000) def
+/missing_value -999.9 def
+grids: T :grids
+file:
+/name (/Data/data1/noaa/indices/easter.anom) def
+/format ((4X,12f6.1)) def
+formatted
+:file
+:variable
+variable:
+/name /standardized def
+/long_name (standardized sea level pressure) def
+/missing_value -999.9 def
+grids: T :grids
+file:
+/name (/Data/data1/noaa/indices/easter.stan) def
+/format ((4X,12f6.1)) def
+formatted
+:file
+:variable
+:dataset
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,411 @@
+\begin{ingrid}
+
+/iridl:hasSemantics (iridl:BCR) def
+
+continuedataset:
+
+datasetdefs:
+grid:
+/name /mycol def
+1 1 8
+:grid
+
+grid:
+/name /bcr_all def
+/units /ids def
+/long_name (Bird Conservation Region ID) def
+values:
+ 1
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+2
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+3
+30
+31
+32
+33
+34
+35
+36
+37
+4
+5
+6
+7
+8
+9
+-1
+-2
+-3
+-4
+-5
+-6
+-7
+-8
+-9
+-10
+-11
+-12
+-13
+-14
+-15
+-16
+-17
+-18
+-19
+-20
+-21
+-22
+-23
+-24
+-25
+-26
+-27
+:values
+:grid
+
+:datasetdefs
+
+grid:
+/name /taxon_order def
+values:
+11467
+20558
+21132
+7334
+8110
+24234
+26346
+32090
+21127
+26287
+21160
+20566
+20703
+1968
+6330
+21220
+912
+21215
+28747
+20352
+10620
+1605
+21329
+25873
+32084
+10568
+32477
+26600
+10865
+10637
+32484
+31681
+10641
+12464
+26045
+21228
+25893
+21164
+32582
+31667
+6959
+8693
+21210
+32550
+4966
+7331
+26041
+978
+26967
+32070
+26120
+20655
+1214
+27412
+2176
+26784
+3453
+16679
+20382
+11343
+26975
+26937
+10805
+8358
+365
+8991
+26739
+30395
+8527
+20380
+988
+11297
+10598
+10604
+16590
+2945
+8399
+20311
+9707
+1697
+20260
+1527
+10831
+31084
+30329
+7950
+18358
+2175
+20381
+10817
+1750
+26970
+1702
+5485
+26953
+3140
+21155
+490
+20404
+12166
+497
+21144
+899
+388
+330
+6996
+8501
+33194
+20643
+5786
+30145
+10815
+31709
+29508
+6961
+11150
+746
+5341
+25885
+33214
+1901
+12252
+10830
+7163
+5068
+9692
+1437
+1798
+32114
+1590
+31654
+966
+32541
+1688
+8003
+2933
+7622
+1682
+2004
+20353
+32531
+21225
+6267
+8348
+1900
+34225
+10855
+2252
+7954
+7367
+12176
+1706
+20392
+24405
+5036
+20559
+12177
+31891
+
+
+:values
+:grid
+
+/ra {
+[mycol bcr_all taxon_order | ]
+(/Data/PRISM/eBird/bcr_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 1 VALUE
+mycol removeGRID
+taxon_order first VALUE taxon_order removeGRID
+  bcr_all (1) (10) (11) (12) (13) (14) (15) (16) (17) (18) (19) (2) (20) (21) (22) (23) (24) (25) (26) (27) (28) (29) (3) (30) (31) (32) (33) (34) (35) (36) (37) (4) (5) (6) (7) (8) (9) VALUES
+bcr_all /bcr renameGRID
+/missing_value -1 def
+/long_name (Region Area) def
+}defasvarsilent
+
+/strt_dt {
+[mycol bcr_all taxon_order | ]
+(/Data/PRISM/eBird/bcr_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 2 VALUE
+mycol removeGRID
+  bcr_all (1) (10) (11) (12) (13) (14) (15) (16) (17) (18) (19) (2) (20) (21) (22) (23) (24) (25) (26) (27) (28) (29) (3) (30) (31) (32) (33) (34) (35) (36) (37) (4) (5) (6) (7) (8) (9) VALUES
+bcr_all /bcr renameGRID
+/missing_value -1 def
+/long_name (Start Date) def
+}defasvarsilent
+
+
+/end_dt {
+[mycol bcr_all taxon_order | ]
+(/Data/PRISM/eBird/bcr_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 3 VALUE
+mycol removeGRID
+  bcr_all (1) (10) (11) (12) (13) (14) (15) (16) (17) (18) (19) (2) (20) (21) (22) (23) (24) (25) (26) (27) (28) (29) (3) (30) (31) (32) (33) (34) (35) (36) (37) (4) (5) (6) (7) (8) (9) VALUES
+bcr_all /bcr renameGRID
+/missing_value -1 def
+/long_name (End Date) def
+}defasvarsilent
+
+/am {
+[mycol bcr_all taxon_order | ]
+(/Data/PRISM/eBird/bcr_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 4 VALUE
+mycol removeGRID
+  bcr_all (1) (10) (11) (12) (13) (14) (15) (16) (17) (18) (19) (2) (20) (21) (22) (23) (24) (25) (26) (27) (28) (29) (3) (30) (31) (32) (33) (34) (35) (36) (37) (4) (5) (6) (7) (8) (9) VALUES
+bcr_all /bcr renameGRID
+/missing_value -1 def
+/long_name (Abundance Mean) def
+/iridl:hasSemantics (iridl:abundance) def
+}defasvarsilent
+
+
+/popu {
+[mycol bcr_all taxon_order | ]
+(/Data/PRISM/eBird/bcr_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 5 VALUE
+mycol removeGRID
+  bcr_all (1) (10) (11) (12) (13) (14) (15) (16) (17) (18) (19) (2) (20) (21) (22) (23) (24) (25) (26) (27) (28) (29) (3) (30) (31) (32) (33) (34) (35) (36) (37) (4) (5) (6) (7) (8) (9) VALUES
+bcr_all /bcr renameGRID
+/missing_value -1 def
+/long_name (Total Population Percent) def
+/iridl:hasSemantics (iridl:Population) def
+}defasvarsilent
+
+
+/range_occ {
+[mycol bcr_all taxon_order | ]
+(/Data/PRISM/eBird/bcr_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 6 VALUE
+mycol removeGRID
+  bcr_all (1) (10) (11) (12) (13) (14) (15) (16) (17) (18) (19) (2) (20) (21) (22) (23) (24) (25) (26) (27) (28) (29) (3) (30) (31) (32) (33) (34) (35) (36) (37) (4) (5) (6) (7) (8) (9) VALUES
+bcr_all /bcr renameGRID
+/missing_value -1 def
+/long_name (Range Percent Occupied) def
+/iridl:hasSemantics (iridl:area_occupied) def
+}defasvarsilent
+
+
+/range_tot {
+[mycol bcr_all taxon_order | ]
+(/Data/PRISM/eBird/bcr_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 7 VALUE
+mycol removeGRID
+  bcr_all (1) (10) (11) (12) (13) (14) (15) (16) (17) (18) (19) (2) (20) (21) (22) (23) (24) (25) (26) (27) (28) (29) (3) (30) (31) (32) (33) (34) (35) (36) (37) (4) (5) (6) (7) (8) (9) VALUES
+bcr_all /bcr renameGRID
+/missing_value -1 def
+/long_name (Range Total Percent) def
+/iridl:hasSemantics (iridl:area_occupied) def
+}defasvarsilent
+
+
+/range_days {
+[mycol bcr_all taxon_order | ]
+(/Data/PRISM/eBird/bcr_year_round.tsv)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+mycol 8 VALUE
+mycol removeGRID
+  bcr_all (1) (10) (11) (12) (13) (14) (15) (16) (17) (18) (19) (2) (20) (21) (22) (23) (24) (25) (26) (27) (28) (29) (3) (30) (31) (32) (33) (34) (35) (36) (37) (4) (5) (6) (7) (8) (9) VALUES
+bcr_all /bcr renameGRID
+/missing_value -1 def
+/long_name (Range Days Occupation) def
+/iridl:hasSemantics (iridl:days_occupied) def
+}defasvarsilent
+
+/species_code {
+IRIDB (bcryr1) (species_code) [(taxon_order)] open_column_by
+taxon_order range_days .taxon_order .gridvalues VALUES
+/long_name (Species Code) def
+}defasvarsilentnoreuse
+
+/sci_name {
+IRIDB (bcryr1) (sci_name) [(taxon_order)] open_column_by
+taxon_order range_days .taxon_order .gridvalues VALUES
+/long_name (Scientific Name) def
+}defasvarsilentnoreuse
+
+/cm_name {
+IRIDB (bcryr1) (cm_name) [(taxon_order)] open_column_by
+taxon_order range_days .taxon_order .gridvalues VALUES
+/long_name (Common Name) def
+}defasvarsilentnoreuse
+
+/the_geom {
+SOURCES .BSC .NABCI .BCR .Terrestrial
+   a: .the_geom
+     :a: .bcr :a
+    use_as_grid
+}defasvar
+
+/label {
+SOURCES .BSC .NABCI .BCR .Terrestrial
+   a: .label
+     :a: .bcr :a
+    use_as_grid
+}defasvar
+
+:dataset
+ra .bcr name exch def
+
+\end{ingrid}

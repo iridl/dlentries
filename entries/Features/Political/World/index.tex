@@ -1,0 +1,441 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (iridl:Global) def
+/description (Countries and 1st Order Admin boundaries) def
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Countries_ESRI def
+/objectid_1
+{IRIDB
+   (esri2002_national) (objectid_1) [ (objectid) ]open_column_by
+            /long_name (Object id) def
+}defasvarsilentnoreuse
+/fips_cntry
+{IRIDB
+   (esri2002_national) (fips_cntry) [ (objectid) ]open_column_by
+            /long_name (FIPS code) def
+}defasvarsilentnoreuse
+        
+/gmi_cntry
+{IRIDB
+   (esri2002_national) (gmi_cntry) [ (objectid) ]open_column_by
+            /long_name (GMI code) def
+}defasvarsilentnoreuse
+        
+/iso_2digit
+{IRIDB
+   (esri2002_national) (iso_2digit) [ (objectid) ]open_column_by
+            /long_name (ISO 2digit code) def
+}defasvarsilentnoreuse
+        
+/iso_3digit
+{IRIDB
+   (esri2002_national) (iso_3digit) [ (objectid) ]open_column_by
+            /long_name (ISO 3digit code) def
+}defasvarsilentnoreuse
+/cntry_name
+{IRIDB
+   (esri2002_national) (cntry_name) [ (objectid) ]open_column_by
+            /long_name (Country name) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+   (esri2002_national) (the_geom) [ (objectid) ]open_column_by
+            /long_name (Country geometry) def
+}defasvarsilentnoreuse
+/label
+{IRIDB
+   (esri2002_national) (cntry_name as label) [ (objectid) ]open_column_by
+            /long_name (Label) def
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /firstOrder_ESRI def
+/admin_name 
+{IRIDB
+   (boundaries_level1_2002) (admin_name) [ (objectid) ]open_column_by
+            /long_name (Admin name) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+   (boundaries_level1_2002) (subnational_geom) [ (objectid) ]open_column_by
+            /long_name (Admin geometry) def
+}defasvarsilentnoreuse
+/objectid_1
+{IRIDB
+   (boundaries_level1_2002) (objectid_1) [ (objectid) ]open_column_by
+            /long_name (Object id) def
+}defasvarsilentnoreuse
+/fips_admin
+{IRIDB
+   (boundaries_level1_2002) (fips_admin) [ (objectid) ]open_column_by
+            /long_name (FIPS Admin code) def
+}defasvarsilentnoreuse
+/gmi_admin
+{IRIDB
+   (boundaries_level1_2002) (gmi_admin) [ (objectid) ]open_column_by
+            /long_name (GMI Admin code) def
+}defasvarsilentnoreuse
+/fips_cntry
+{IRIDB
+   (boundaries_level1_2002) (fips_cntry) [ (objectid) ]open_column_by
+            /long_name (FIPS Admin code) def
+}defasvarsilentnoreuse
+/gmi_cntry
+{IRIDB
+   (boundaries_level1_2002) (gmi_cntry) [ (objectid) ]open_column_by
+            /long_name (GMI Country code) def
+}defasvarsilentnoreuse
+/cntry_name
+{IRIDB
+   (boundaries_level1_2002) (cntry_name) [ (objectid) ]open_column_by
+            /long_name (Country name) def
+}defasvarsilentnoreuse
+/label
+{IRIDB
+(boundaries_level1_2002) ((admin_name ||', '|| cntry_name) as label)
+[ (objectid) ]open_column_by
+  /long_name (Label) def
+  }defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /secondOrder_WHO def
+/admin2_name
+{IRIDB
+   (admin2_who) (name as admin2_name) [ (gid) ]open_column_by
+            /long_name (Admin Level2 Name) def
+}defasvarsilentnoreuse
+/lvlid
+{IRIDB
+   (admin2_who) (lvlid) [ (gid) ]open_column_by
+            /long_name (Admin Level2 id) def
+}defasvarsilentnoreuse
+/iso2
+{IRIDB
+   (admin2_who) (iso2) [ (gid) ]open_column_by
+            /long_name (ISO 2 Letter Country code) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+   (admin2_who) (the_geom) [ (gid) ]open_column_by
+            /long_name (Admin2 geometry) def
+}defasvarsilentnoreuse
+/label
+{IRIDB
+  (admin2_who) (name as label) [ (gid) ]open_column_by
+  /long_name (Label) def
+}defasvarsilentnoreuse
+:dataset
+
+dataset:
+/name /Countries_GAUL def
+/adm0_name
+{IRIDB
+   (g2015_2012_0) (adm0_name) [ (adm0_code) ]open_column_by
+            /long_name (Country Name) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+   (g2015_2012_0) (the_geom) [ (adm0_code) ]open_column_by
+            /long_name (Country geometry) def
+}defasvarsilentnoreuse
+/label
+{IRIDB
+   (g2015_2012_0) (adm0_name) [ (adm0_code) ]open_column_by
+            /long_name (Label) def
+}defasvarsilentnoreuse
+:dataset
+
+dataset:
+/name /Countries_GAUL_coarse def
+/adm0_name
+{IRIDB
+   (g2015_2012_0) (adm0_name) [ (adm0_code) ]open_column_by
+            /long_name (Country Name) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+   (g2015_2012_0) (coarse_geom) [ (adm0_code) ]open_column_by
+            /long_name (Coarse Country geometry) def
+}defasvarsilentnoreuse
+/label
+{IRIDB
+   (g2015_2012_0) (adm0_name) [ (adm0_code) ]open_column_by
+            /long_name (Label) def
+}defasvarsilentnoreuse
+:dataset
+
+dataset:
+/name /firstOrder_GAUL def
+/adm1_name
+{IRIDB
+   (g2015_2014_1) (adm1_name) [ (gid) ]open_column_by
+            /long_name (Admin Level1 Name) def
+}defasvarsilentnoreuse
+/adm1_code
+{IRIDB
+   (g2015_2014_1) (adm1_code) [ (gid) ]open_column_by
+            /long_name (Admin Level1 id) def
+}defasvarsilentnoreuse
+/adm1_name
+{IRIDB
+   (g2015_2014_1) (adm1_name) [ (gid) ]open_column_by
+            /long_name (Admin Level1 Name) def
+}defasvarsilentnoreuse
+/adm1_code
+{IRIDB
+   (g2015_2014_1) (adm1_code) [ (gid) ]open_column_by
+            /long_name (Admin Level1 id) def
+}defasvarsilentnoreuse
+/adm0_name
+{IRIDB
+   (g2015_2014_1) (adm0_name) [ (gid) ]open_column_by
+            /long_name (Country Name) def
+}defasvarsilentnoreuse
+/adm0_code
+{IRIDB
+   (g2015_2014_1) (adm0_code) [ (gid) ]open_column_by
+            /long_name (Country id) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+   (g2015_2014_1) (the_geom) [ (gid) ]open_column_by
+            /long_name (Admin1 geometry) def
+}defasvarsilentnoreuse
+/label
+{IRIDB
+   (g2015_2014_1) ((adm1_name ||', '|| adm0_name) as label) [ (gid) ]open_column_by
+            /long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+dataset:
+/name /firstOrder_GAUL_coarse def
+/adm1_name
+{IRIDB
+   (g2015_2014_1) (adm1_name) [ (gid) ]open_column_by
+            /long_name (Admin Level1 Name) def
+}defasvarsilentnoreuse
+/adm1_code
+{IRIDB
+   (g2015_2014_1) (adm1_code) [ (gid) ]open_column_by
+            /long_name (Admin Level1 id) def
+}defasvarsilentnoreuse
+/adm1_name
+{IRIDB
+   (g2015_2014_1) (adm1_name) [ (gid) ]open_column_by
+            /long_name (Admin Level1 Name) def
+}defasvarsilentnoreuse
+/adm1_code
+{IRIDB
+   (g2015_2014_1) (adm1_code) [ (gid) ]open_column_by
+            /long_name (Admin Level1 id) def
+}defasvarsilentnoreuse
+/adm0_name
+{IRIDB
+   (g2015_2014_1) (adm0_name) [ (gid) ]open_column_by
+            /long_name (Country Name) def
+}defasvarsilentnoreuse
+/adm0_code
+{IRIDB
+   (g2015_2014_1) (adm0_code) [ (gid) ]open_column_by
+            /long_name (Country id) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+   (g2015_2014_1) (coarse_geom) [ (gid) ]open_column_by
+            /long_name (Admin1 coarse geometry) def
+}defasvarsilentnoreuse
+/label
+{IRIDB
+   (g2015_2014_1) ((adm1_name ||', '|| adm0_name) as label) [ (gid) ]open_column_by
+            /long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+dataset:
+/name /secondOrder_GAUL def
+/adm2_name
+{IRIDB
+   (g2015_2014_2) (adm2_name) [ (gid) ]open_column_by
+            /long_name (Admin Level2 Name) def
+}defasvarsilentnoreuse
+/adm2_code
+{IRIDB
+   (g2015_2014_2) (adm2_code) [ (gid) ]open_column_by
+            /long_name (Admin Level2 id) def
+}defasvarsilentnoreuse
+/adm1_name
+{IRIDB
+   (g2015_2014_2) (adm1_name) [ (gid) ]open_column_by
+            /long_name (Admin Level1 Name) def
+}defasvarsilentnoreuse
+/adm1_code
+{IRIDB
+   (g2015_2014_2) (adm1_code) [ (gid) ]open_column_by
+            /long_name (Admin Level1 id) def
+}defasvarsilentnoreuse
+/adm0_name
+{IRIDB
+   (g2015_2014_2) (adm0_name) [ (gid) ]open_column_by
+            /long_name (Country Name) def
+}defasvarsilentnoreuse
+/adm0_code
+{IRIDB
+   (g2015_2014_2) (adm0_code) [ (gid) ]open_column_by
+            /long_name (Country id) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+   (g2015_2014_2) (the_geom) [ (gid) ]open_column_by
+            /long_name (Admin2 geometry) def
+}defasvarsilentnoreuse
+/label
+{IRIDB
+   (g2015_2014_2) ((adm2_name ||', '|| adm1_name ||', '|| adm0_name) as label) [ (gid) ]open_column_by
+            /long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+dataset:
+/name /secondOrder_GAUL_coarse def
+/adm2_name
+{IRIDB
+   (g2015_2014_2) (adm2_name) [ (gid) ]open_column_by
+            /long_name (Admin Level2 Name) def
+}defasvarsilentnoreuse
+/adm2_code
+{IRIDB
+   (g2015_2014_2) (adm2_code) [ (gid) ]open_column_by
+            /long_name (Admin Level2 id) def
+}defasvarsilentnoreuse
+/adm1_name
+{IRIDB
+   (g2015_2014_2) (adm1_name) [ (gid) ]open_column_by
+            /long_name (Admin Level1 Name) def
+}defasvarsilentnoreuse
+/adm1_code
+{IRIDB
+   (g2015_2014_2) (adm1_code) [ (gid) ]open_column_by
+            /long_name (Admin Level1 id) def
+}defasvarsilentnoreuse
+/adm0_name
+{IRIDB
+   (g2015_2014_2) (adm0_name) [ (gid) ]open_column_by
+            /long_name (Country Name) def
+}defasvarsilentnoreuse
+/adm0_code
+{IRIDB
+   (g2015_2014_2) (adm0_code) [ (gid) ]open_column_by
+            /long_name (Country id) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+   (g2015_2014_2) (coarse_geom) [ (gid) ]open_column_by
+            /long_name (Admin2 coarse geometry) def
+}defasvarsilentnoreuse
+/label
+{IRIDB
+   (g2015_2014_2) ((adm2_name ||', '|| adm1_name ||', '|| adm0_name) as label) [ (gid) ]open_column_by
+            /long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+dataset:
+
+/name /firstOrder_WHO def
+
+/admin1_name {
+IRIDB (admin1_who) (name as admin1_name) [(gid)]open_column_by
+/long_name (Admin Level1 Name) def
+}defasvarsilentnoreuse
+
+/iso2 {
+IRIDB (admin1_who) (iso2) [(gid)]open_column_by
+/long_name (ISO 2 Letter Country code) def
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (admin1_who) (the_geom) [(gid)]open_column_by
+/long_name (Admin1 geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (admin1_who) (name as label) [(gid)]open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+%{  db:
+%   /server (localhost) def
+%   /dbname (iridb) def
+%   :db
+%   (select gid,name as admin1_name,iso2,the_geom from admin1_who where is_current) (gid) openqueryby
+%        admin1_name
+%            /long_name (Admin Level1 Name) def
+%        CopyStream
+%        name exch def
+%        iso2
+%            /long_name (ISO 2 Letter Country code) def
+%        CopyStream
+%        name exch def
+%        the_geom
+%            /long_name (Admin1 geometry) def
+%        name exch def
+%}defasvarsilentnoreuse
+
+:dataset
+
+:dataset
+
+% define grids in datasets
+
+Countries_GAUL adm0_name .adm0_code name exch put
+firstOrder_GAUL adm0_name .gid name exch put
+secondOrder_GAUL adm0_name .gid name exch put
+
+Countries_GAUL_coarse adm0_name .adm0_code name exch put
+firstOrder_GAUL_coarse adm0_name .gid name exch put
+secondOrder_GAUL_coarse adm0_name .gid name exch put
+
+Countries_ESRI cntry_name .objectid name exch put
+firstOrder_ESRI admin_name .objectid name exch put
+secondOrder_WHO admin2_name .gid name exch put
+
+firstOrder_WHO admin1_name .gid name exch put
+
+% hide the original names
+
+/Countries {Countries_ESRI} def
+/Countries_ESRI currentobject /Countries_ESRI get def
+
+/1st_Order {firstOrder_ESRI} def
+/firstOrder_ESRI currentobject /firstOrder_ESRI get def
+
+/2nd_Order {secondOrder_WHO} def
+/secondOrder_WHO currentobject /secondOrder_WHO get def
+
+/1st_Order_GAUL {firstOrder_GAUL} def
+/firstOrder_GAUL currentobject /firstOrder_GAUL get def
+
+/2nd_Order_GAUL {secondOrder_GAUL} def
+/secondOrder_GAUL currentobject /secondOrder_GAUL get def
+
+/1st_Order_GAUL_coarse {firstOrder_GAUL_coarse} def
+/firstOrder_GAUL_coarse currentobject /firstOrder_GAUL_coarse get def
+
+/2nd_Order_GAUL_coarse {secondOrder_GAUL_coarse} def
+/secondOrder_GAUL_coarse currentobject /secondOrder_GAUL_coarse get def
+
+/1st_Order_WHO {firstOrder_WHO} def
+/firstOrder_WHO currentobject /firstOrder_WHO get def
+
+\end{ingrid}

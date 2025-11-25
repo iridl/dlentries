@@ -1,0 +1,1210 @@
+<INGRID>datasetdocumentationheader</INGRID>
+<table align=right>
+<tr><td align=center><a href="http://ingrid.ldgo.columbia.edu/SOURCES/.NASA/.GPCP/.V1B/.satellite-gauge/.prcp/figviewer.html?map.T.plotvalue=Sep+1998&map.Y.units=degree_north&map.Y.plotlast=88.75N&map.url=X+Y+fig-+colors+coasts+-fig&map.domain=+%7B+/prcp+0.0+30+plotrange+/T+464.5+plotvalue+Y+-88.75+88.75+plotrange+%7D&map.zoom=Zoom&map.Y.plotfirst=88.75S&map.X.plotfirst=0&map.X.units=degree_east&map.X.modulus=360&map.X.plotlast=0&map.prcp.plotfirst=0.0&map.prcp.units=mm/day&map.prcp.plotlast=30&map.newurl.grid0=X&map.newurl.grid1=Y&map.newurl.land=draw+coasts&map.newurl.plot=colors&map.plotaxislength=432&map.plotborder=72&map.fnt=Helvetica&map.fntsze=12&map.XOVY=auto&map.color_smoothing=1&map.iftime=25&map.mftime=25&map.fftime=200" OnMouseOver="self.status='Click here to explore the data';return true"><img src="http://ingrid.ldgo.columbia.edu/SOURCES/.NASA/.GPCP/.V1B/.satellite-gauge/.prcp/X+Y+fig-+colors+coasts+-fig+//prcp/0.0/30/plotrange//T/464.5/plotvalue/Y/-88.75/88.75/plotrange+//plotaxislength+360+psdef+.gif" NOSAVE border=0 ALT="Click for options and more information" width=432 height=250></a><br><img src="http://ingrid.ldgo.columbia.edu/SOURCES/.NASA/.GPCP/.V1B/.satellite-gauge/.prcp/X+Y+fig-+colors+coasts+-fig+.auxfig+//prcp/0.0/30/plotrange//T/464.5/plotvalue/Y/-88.75/88.75/plotrange+//plotaxislength+360+psdef+.gif" NOSAVE border=0 width=382 height=56>
+<br><i>NASA GPCP V1B satellite-gauge precipitation</i></td></tr>
+</table>
+<h1 align=center>GPCP VERSION 1B COMBINED PRECIPITATION DATA SET</h1>
+<P align=center>                                 
+                               George J. Huffman<br>
+                      
+                      SSAI and Laboratory for Atmospheres,
+                       NASA Goddard Space Flight Center<br>
+                        
+                                  March 8, 1999<br>
+</p>                                 
+<br clear=all>
+<PRE>
+                                   CONTENTS
+
+1.  DATA SET NAMES AND GENERAL CONTENT
+2.  RELATED PROJECTS, DATA NETWORKS, AND DATA SETS
+5.  DEFINITIONS AND DEFINING ALGORITHMS
+6.  TEMPORAL AND SPATIAL COVERAGE AND RESOLUTION
+7.  PRODUCTION AND UPDATES
+8.  SENSORS
+9.  ERROR DETECTION AND CORRECTION
+10. MISSING VALUE ESTIMATION AND CODES
+11. QUALITY AND CONFIDENCE ESTIMATES
+12. DATA ARCHIVES
+13. DOCUMENTATION
+14. INVENTORIES
+15. HOW TO ORDER AND OBTAIN INFORMATION ABOUT THE DATA
+
+
+                                   KEYWORDS
+
+absolute error variable
+accuracy
+AGPI coefficients with missing data
+AGPI precipitation product
+algorithm intercomparison projects
+archive and distribution sites
+data file access technique
+data set
+data set archive
+data set creators
+data set inventory
+data set revisions
+date
+documentation creator
+documentation revision history
+estimate missing values
+GPCP
+GPCP components
+GPI number of samples product
+GPI precipitation product
+grid
+intercomparison results
+IR
+IR data correction
+known errors
+missing months
+multi-satellite precipitation product
+number of samples variable
+obtaining data
+originating machine
+pentads
+period of record
+precipitation variable
+production and updates
+products
+quality index
+rain gauge
+rain gauge number of samples product
+rain gauge precipitation product
+rain gauge quality control
+read a month of a product
+read the header record
+references
+satellite-gauge precipitation product
+similar data sets
+source variable
+spatial coverage
+spatial resolution
+SSM/I
+SSM/I composite number of samples product
+SSM/I composite precipitation product
+SSM/I emission number of samples product
+SSM/I emission precipitation product
+SSM/I error detection/correction
+SSM/I scattering number of samples product
+SSM/I scattering precipitation product
+standard missing value
+technique
+temporal resolution
+variable
+
+
+1. DATA SET NAMES AND GENERAL CONTENT
+
+The *data set* is formally referred to as the "GPCP Version 1b Combined 
+Precipitation Data Set."  It is also referred to as the "GPCP Combined 
+Data Set" or the "Version 1b Data Set."
+
+The data set currently contains a suite of 19 products providing monthly, 
+global gridded values of precipitation totals and supporting information 
+for the 11-year period July 1987 through September 1998.
+
+The products include precipitation estimates based on several 
+"single-source" data sets (IR, SSM/I, and rain gauge), precipitation
+estimates based on the combination of multiple satellite data sets, and
+precipitation estimates based on the combination of the satellites with
+the rain gauge analysis.
+
+The main refereed citation for the data set is Huffman et al. (1997)
+(all references are listed in section 13), which also appears in 
+Huffman 1997b.
+...........................................................................
+
+2. RELATED PROJECTS, DATA NETWORKS, AND DATA SETS
+
+The *data set creators* are G.J. Huffman and R.F. Adler, working in the 
+Laboratory for Atmospheres, NASA Goddard Space Flight Center, Code 912, 
+Greenbelt, Maryland, 20771 USA, as the GPCP Merge Development Centre.
+...........................................................................
+
+The work is being carried out as part of the Global Precipitation 
+Climatology Project (*GPCP*), an international project of the 
+WMO/WCRP/GEWEX designed to provide improved long-record estimates of 
+precipitation over the globe.  The GPCP home page is located at
+
+  http://orbit-net.nesdis.noaa.gov/arad/gpcp/
+...........................................................................
+
+The Version 1b Data Set contains data from several *GPCP components*:
+
+1. GPCP Polar Satellite Precipitation Data Centre - Emission (SSM/I 
+   emission estimates),
+2. GPCP Polar Satellite Precipitation Data Centre - Scattering (SSM/I 
+   scattering estimates),
+3. GPCP Geostationary Satellite Precipitation Data Centre (GPI estimates), 
+   and
+4. GPCP Global Precipitation Climatology Centre (rain gauge analyses).
+
+These single-source data sets, as well as combinations based on them are
+contained in the Version 1b Data Set for the period of SSM/I data 
+availability.  Some single-source data sets extend beyone the SSM/I period 
+in their original archival locations.
+...........................................................................
+
+The GPCP has sponsored several *algorithm intercomparison projects*
+(referred to as AIP-1, AIP-2, and AIP-3) for the purpose of evaluating
+and intercomparing a variety of satellite precipitation estimation
+techniques.  As well, the NASA Wetnet Project has sponsored several
+such projects (referred to as Precipitation Intercomparison Projects,
+and labeled PIP-1, PIP-2, and PIP-3).  One use of these projects has
+been to identify competitive techniques for use in the GPCP combined data 
+set.
+...........................................................................
+
+Only a few *similar data sets* are available.  The earlier combined 
+precipitation data set produced by the GPCC, the original "Version 1 Data 
+Set" produced at NASA/GSFC, and the Version 1a Data Set produced at GMDC
+are all superseded by the Version 1b Data Set.  The combination data set 
+by Xie and Arkin (1996) uses similar input data and has similar temporal 
+and spatial coverage, but is carried out with a much different technique.  
+Numerous single-source data sets exist that provide quasi-global coverage; 
+several are included in this release and are described in section 5.
+...........................................................................
+
+5. DEFINITIONS AND DEFINING ALGORITHMS
+
+The GPI estimates originally reported on a 2.5x2.5-deg lat/lon grid
+(2.5-deg GPI) are provided as accumulations over *pentads*, which are
+5-day periods starting Jan. 1 of each year.  That is, pentad 1 covers
+Jan. 1-5, pentad 2 covers Jan. 6-10, and pentad 73 covers Dec. 27-31.
+Leap Day (Feb. 29) is included in pentad 12, which then covers 6 days.
+The pentad accumulation period prevents an exact computation of monthly
+average for the 2.5-deg GPI and subsequent products.  We assume that a 
+pentad crossing a month boundary contributes to the statistics in 
+proportion to the fraction of the pentad in the month.  For example, a 
+pentad with 40 images that starts the last day of the month is assumed 
+to contribute 8 images (one-fifth of the full pentad) of rainfall 
+information.  The 1x1-deg GPI estimates are reported as individual 
+3-hrly images, and all other input single-source data fields are 
+provided to GPCP in monthly form.
+...........................................................................
+
+The data set contains 19 *products*, each of which is named by 
+concatenating a technique name with a variable name.  As shown in Table 1,
+here are eight precipitation estimation techniques and four variables, but 
+only 19 of the 32 possible products are considered useful and archived.  
+Besides product availability, Table 1 displays the abbreviations used for 
+coding the technique and variable in the file names, and the units of the 
+various products.
+
+-->   NOTE:  In general, users wishing to use the "final" combined       <--
+-->          product should use the "psg" data files (satellite-gauge    <--
+-->          combined precipitation product).                            <--
+
+  Table 1.  GPCP Version 1b Combined Precipitation Data Set Product List, 
+  where X denotes an available product, [] gives the abbreviation used for
+  coding the technique or variable in the file names, and () gives the 
+  units of the various products, except Number of Samples, whose units are 
+  displayed in the last column.
+
+           \  Variable |  Precip  | Absolute  |        |                         
+            \          | Rate [p] | Error [e] | Source | Number of Samples
+  Technique  \         |  (mm/d)  |  (mm/d)   |  [s]   | [n] |    (Units)
+  ---------------------+----------+-----------+--------+---------------------
+                       |          |           |        |     |
+  SSMI Emission [se]   |    X     |           |        |  X  | 55 km images
+                       |          |           |        |     |
+  SSMI Scattering [ss] |    X     |           |        |  X  | overpass days
+                       |          |           |        |     |
+  SSMI Composite [sc]  |    X     |    X      |   X    |  X  | 55 km images
+                       |          |           |        |     |
+  GPI [gp]             |    X     |           |        |  X  | 2.5 deg images
+                       |          |           |        |     |
+  AGPI [ag]            |    X     |    X      |        |     |
+                       |          |           |        |     |
+  Multi-Satellite [ms] |    X     |    X      |        |     |
+                       |          |           |        |     |
+  Rain Gauge [ga]      |    X     |    X      |        |  X  |    gauges
+                       |          |           |        |     |
+  Satellite-Gauge [sg] |    X     |    X      |        |     |
+
+For example, the absolute error variable for the multi-satellite 
+technique may be found in files with "ems" in the name, but there is no 
+product giving the number-of-samples variable for the multi-satellite 
+technique.
+...........................................................................
+
+The *technique* name tells what algorithm was used to generate the 
+product.  There are eight such techniques in the Version 1b Data Set:
+SSMI Emission, SSMI Scattering, SSMI Composite, GPI, AGPI, Multi-Satellite,
+Rain Gauge, and Satellite-Gauge.
+...........................................................................
+
+The *variable* name tells what parameter is in the product.  There are
+four such variables in the Version 1b Data Set: Precipitation Rate, 
+Absolute Error, Source, and Number of Samples.
+...........................................................................
+
+The *precipitation variable* is computed as described under the individual
+product headings.  All precipitation products have been converted from
+their original units of mm/mo or mm/hr to mm/d.
+..........................................................................
+
+The *SSM/I emission precipitation product* is produced by the Polar 
+Satellite Precipitation Data Centre - Emission of the GPCP under the 
+direction of A. Chang, located in the Laboratory for Hydrospheric 
+Processes, NASA Goddard Space Flight Center, Code 971, Greenbelt, 
+Maryland, 20771 USA.  The SSM/I (Special Sensor Microwave/Imager) data 
+are recorded by selected Defense Meteorological Satellite Program 
+satellites, and are provided in packed form by Remote Sensing Systems 
+(Santa Clara, CA) for 1987-1998 and National Climatic Data Center 
+(Asheville, NC) starting in 1999.  The algorithm applied is the Wilheit 
+et al. (1991) iterative histogram approach to retrieving precipitation 
+from emission signals in the 19-GHz SSM/I channel.  It assumes a 
+log-normal precipitation histogram and estimates the freezing level from 
+the 19- and 22-GHz channels.  The fit is applied to the full month of 
+data.  Individual estimates on the 2.5x2.5-deg grid occasionally fail to 
+converge.  In that case the corresponding estimate on the 5x5-deg grid 
+is substituted for precipitation, and the number of samples is estimated 
+by smooth-filling from surrounding boxes with data.  In the current 
+version the SSM/I emission products for 1987-1995 are generated for 
+"months" that are rounded to the nearest pentad boundary.  As a result, 
+the period and number of samples will fluctuate compared to the other 
+estimates.  Starting with 1996 the products are generated for calendar 
+months, in agreement with the other estimates.  In a future release all 
+emission estimates will be produced on calendar months.
+...........................................................................
+
+The *SSM/I scattering precipitation product* is produced by the GPCP 
+Polar Satellite Precipitation Data Centre - Scattering under the 
+direction of R. Ferraro, located in the Office of Research and 
+Application of the NOAA National Environmental Satellite Data and 
+Information Service (NESDIS), Washington, DC, 20233 USA.  The SSM/I 
+(Special Sensor Microwave/Imager) data are recorded by selected Defense 
+Meteorological Satellite Program satellites, and are transmitted to 
+NESDIS through theShared Processing System.  The algorithm applied is 
+based on the Grody (1991) Scattering Index (SI), supplemented by the 
+Weng and Grody (1994) emission technique in oceanic areas.  A similar 
+fall-back approach was used during the period when the 85.5-GHz channels 
+were unusable.  Pixel-by-pixel retrievals are accumulated onto separate 
+daily ascending and descending 0.333x0.333 deg lat/long grids, then all 
+the grids are accumulated for the month on the 2.5 deg grid.
+...........................................................................
+
+The *SSM/I composite precipitation product* is produced as part of the
+GPCP Version 1b Combined Precipitation Data Set by the GPCP Merge
+Development Centre (see section 2).  The concept is to take the SSM/I 
+emission estimate over water and the SSM/I scattering estimate over land.  
+Since the emission technique eliminates land-contaminated pixels 
+individually, a weighted transition between the two results is computed 
+in the coastal zone.  The merger may be expressed as
+
+               | R(emiss) ;                    N(emiss) >= 0.75 * N(scat) 
+               |                                                          
+               | N(emiss) * R(emiss) + ( N(scat) - N(emiss) ) * R(scat)   
+R(composite) = | ------------------------------------------------------ ; (1)
+               |                       N(scat)                            
+               |                               N(emiss) < 0.75 * N(scat)  
+
+where R is the precipitation rate; N is the number of samples; composite,
+emiss, and scat denote composite, emission, and scattering, respectively;
+and the 0.75 threshold allows for fluctuations in the methods of counting
+samples in the emission and scattering techniques.  Note that the second
+expression reduces to R(scat) when N(emiss) is zero.
+
+Important Note:  The emission and scattering fields used in this merger
+have been edited to remove known and suspected artifacts, such as high 
+values in polar regions.  These edited fields may be approximated by using 
+the source variable to mask the emission and scattering fields contained 
+in this data set.  That is, the user may infer that editing must have 
+occurred for points where the source variable indicates that the scattering 
+or emission (or both) are not used, but the scattering or emission (or 
+both) values are non-missing.
+............................................................................
+
+The *GPI precipitation product* is produced by the Geostationary Satellite 
+Precipitation Data Centre of the GPCP under the direction of J. Janowiak, 
+located in the Climate Prediction Center, NOAA National Centers for 
+Environmental Prediction, Washington, DC, 20233 USA.  Each cooperating 
+geostationary satellite operator (the Geosynchronous Operational 
+Environmental Satellites, or GOES, United States; the Geosynchronous 
+Meteorological Satellite, or GMS, Japan; and the Meteorological Satellite, 
+or Meteosat, European Community) accumulates three-hourly infrared (IR)
+imagery which are forwarded to GSPDC.  The global IR rainfall estimates are 
+then generated from a merger of these data using the GPI (GOES Precipitation
+Index; Arkin and Meisner, 1987) technique, which relates cold cloud-top
+area to rain rate.  
+
+For the period 1986-March 1998 the GPI data are accumulated on a 2.5x2.5-deg
+lat/lon grid for pentads (5-day periods), preventing an exact computation of 
+the monthly average.  We assume that a pentad crossing a month boundary 
+contributes to the statistics in proportion to the fraction of the pentad in 
+the month.  For example, given a pentad that starts the last day of the 
+month, 0.2 (one-fifth) of its samples are assigned to the month in question 
+and and 0.8 (four-fifths) of its samples are assigned to the following 
+month.
+
+Starting with October 1996 the GPI data are accumulated on a 1x1-deg lat/lon
+grid for individual 3-hrly images.  In this case monthly totals are computed 
+as the sum of all available hours in the month.
+
+In both data sets gaps in geo-IR are filled with low-earth-orbit IR (leo-IR)
+data from the NOAA series of polar orbiting meteorological satellites.
+However, the 2.5x2.5-deg data only contain the leo-IR used for fill-in, 
+while the 1x1-deg data contain the full leo-IR.  The latter allows a more 
+accurate AGPI (see "AGPI precipitation product").
+
+The GPI product is based on the 2.5x2.5-deg data for the period 1987-96,
+and the 1x1-deg beginning in 1997.  The boundary is set at January 1997
+to avoid the 1997-1998 ENSO event.
+...........................................................................
+
+The *AGPI precipitation product* is produced as part of the GPCP Version 
+1b Combined Precipitation Data Set by the GPCP Merge Development Centre 
+(see section 2).  The technique follows the Adjusted GPI (AGPI) of Adler et 
+al. (1994).  Separate monthly averages of approximately coincident GPI and 
+SSM/I precipitation estimates are formed by taking cut-outs of the 3-hourly
+GPI values that correspond most closely in time to the local overpass time 
+of the DMSP platform.  The ratio of SSM/I to GPI averages is computed, 
+controlled to prevent unstable answers, and smoothly filled in regions 
+where the SSM/I is missing but the GPI is available.  In regions of light 
+precipitation an additive adjustment is computed as the difference between 
+smoothed SSM/I and ratio-adjusted GPI values when the SSM/I is 
+greater, and zero otherwise.  The spatially varying arrays of adjustment 
+coefficients are then applied to the full set of GPI estimates.  
+
+In regions lacking geo-IR data, leo-GPI data are calibrated to SSM/I, then
+these SSM/I-calibrated leo-GPI are calibrated to the geo-AGPI.  This
+two-step process tries to mimic the information contained in the AGPI,
+namely the local bias of the SSM/I and possible diurnal cycle biases in
+the geo-AGPI.  The second step can only be done in regions with both
+geo- and leo-IR data, and then smooth-filled across the leo-IR fill-in.
+In the case of the 2.5x2.5-deg IR, which lacks leo-IR in geo-IR regions,
+the missing SSM/I-calibrated leo-GPI is approximated by smoothed SSM/I
+for doing the calibration to geo-AGPI.
+...........................................................................
+
+The *multi-satellite precipitation product* is produced as part of the GPCP 
+Version 1b Combined Precipitation Data Set by the GPCP Merge Development 
+Centre (see section 2) following Huffman et al. (1995).  Geo-AGPI estimates 
+are taken where available (latitudes 40 deg N-S), the weighted combination 
+of the SSM/I combined estimate and the leo-AGPI elsewhere in the 40 deg N-S 
+belt, and the SSM/I combined outside of that zone.  The combination weights 
+are the inverse (estimated) error variances of the respective estimates.  
+Such weighted combination of microwave and leo-AGPI is done because the 
+leo-IR lacks the sampling to support the full AGPI adjustment scheme.
+...........................................................................
+
+The *rain gauge precipitation product* is produced by the Global
+Precipitation Climatology Centre (GPCC) under the direction of B. Rudolf,
+located in the Deutscher Wetterdienst, Offenbach a.M., Germany (Rudolf
+1993).  Rain gauge reports are archived from about 6700 stations around 
+the globe, both from Global Telecommunications Network reports, and from 
+other world-wide or national data collections.  An extensive 
+quality-control system is run, featuring an automated step and then a 
+manual step designed to retain legitimate extreme events that characterize 
+precipitation.  A variant of the SPHEREMAP spatial interpolation routine 
+(Willmott et al. 1985) is used to analyze station values to area averages.  
+The analyzed values have been corrected for climatological estimates of 
+systematic error due to wind effects, side-wetting, evaporation, etc., 
+following Legates (1987).
+...........................................................................
+
+The *satellite-gauge precipitation product* is produced as part of the 
+GPCP Version 1b Combined Precipitation Data Set by the GPCP Merge 
+Development Centre (see section 2) in two steps (Huffman et al. 1995).  
+First, the multi-satellite estimate is adjusted toward the large-scale 
+gauge average for each grid box over land.  That is, the multi-satellite 
+value is multiplied by the ratio of the large-scale (5x5 grid-box) average 
+gauge analysis to the large-scale average of the multi-satellite estimate.  
+Alternatively, in low-precipitation areas the difference in the 
+large-scale averages is added to the multi-satellite value when the 
+averaged gauge exceeds the averaged multi-satellite.  In the second step, 
+the gauge-adjusted multi-satellite estimate and the gauge analysis are 
+combined in a weighted average, where the weights are the inverse 
+(estimated) error variance of the respective estimates.
+...........................................................................
+
+The *absolute error variable* is produced as part of the GPCP Version 1b 
+Combined Precipitation Data Set by the GPCP Merge Development Centre (see 
+section 2).  Following Huffman (1997a), bias error is neglected compared to 
+random error (both physical and algorithmic), then simple theoretical and 
+practical considerations lead to the functional form
+
+      H * ( rbar + S) * [ 720 + 268 * SQRT ( rbar ) ]
+VAR = -----------------------------------------------                   (2)
+                         Ni
+
+for absolute error, where VAR is the estimated error variance of an average
+over a finite set of observations, H is taken as constant (actually 
+slightly dependent on the shape of the precipitation rate histogram),
+rbar is the average precipitation rate in mm/mo, S is taken as constant
+(approximately SQRT(VAR) for rbar=0), Ni is the number of INDEPENDENT 
+samples in the set of observations, and the expression in square brackets 
+is a parameterization of the conditional precipitation rate based on work 
+with the Goddard Scattering Algorithm, Version 2 (Adler et al. 1994) and 
+fitting of (2) to the Surface Reference Data Center analyses (McNab 1995).  
+The "constants" H and S are set for each of the data sets for which error 
+estimates are required by comparison of the data set against the SRDC and 
+GPCC analyses and tropical Pacific atoll gauge data (Morrissey and Green 
+1991).  The computed value of H actually accounts for multiplicative 
+errors in Ni and the conditional rainrate parameterization (the [] term), 
+in addition to H itself.  Table 2 shows the numerical values of H and S.  
+All absolute error fields have been converted from their original units 
+of mm/mo to mm/d.
+
+  Table 2.  Numerical values of H and S constants used to estimate 
+  absolute error for various precipitation estimates.
+
+                       |    S    |
+  Technique            | (mm/mo) |        H
+  ---------------------+---------+-----------------------
+                       |         |     
+  SSMI Emission [se]   |   30    |  3.25 (55 km images)
+                       |         |     
+  SSMI Scattering [ss] |   30    |  4.5 (55 km images)
+                       |         |     
+  AGPI [ag]            |   20    |  0.6 (2.5 deg images)
+                       |         |     
+  Rain Gauge [ga]      |    6    |  0.005 (gauges)
+
+For the indenpendent data sets rbar is taken to be the independent 
+estimate of rain itself.  However, when these errors are used in the 
+combination, theory and tests show that the result is a low bias.
+Rbar needs to have the same value in all the error estimates; so we
+estimate it as the simple average of all rainfall values contributing
+to the combination.  Note that this scheme is only used in computing
+error.
+...........................................................................
+
+The *source variable* is produced as part of the GPCP Version 1b Combined
+Precipitation Data Set by the GPCP Merge Development Centre (see section 
+2).  It is only available for the SSM/I composite technique and gives the 
+fractional contribution to the composite by the SSM/I scattering estimate.  
+Referring to (1) in the "SSM/I composite precipitation product" 
+description, the source SOURCE may be expressed as
+
+         | 0 ;                       N(emiss) >= 0.75 * N(scat) 
+         |                                                          
+SOURCE = | ( N(scat) - N(emiss) )                                     (3)
+         | ---------------------- ;  N(emiss) < 0.75 * N(scat)
+         |       N(scat)                            
+
+where N is the number of samples, emiss and scat denote emission and 
+scattering, respectively, and the 0.75 threshold allows for fluctuations 
+in the methods of counting samples in the emission and scattering 
+techniques.  Note that the second expression reduces to 1 when N(emiss) 
+is zero.
+...........................................................................
+
+The *number of samples variable* is produced in a variety of units as 
+described under the individual product headings.
+...........................................................................
+
+The *SSM/I emission number of samples product* is provided to the GPCP as 
+the number of pixels contributing to the grid box average for the month 
+(i.e., the number of "good" pixels).  As part of the Version 1b Data Set 
+processing, this number is converted to the number of 55x55 km boxes that 
+the number of pixels can evenly and completely cover.  This conversion 
+provides a very approximate (over)estimate of the number of independent 
+samples contributing to the average.
+...........................................................................
+
+The *SSM/I scattering number of samples product* is provided to the GPCP 
+as the number of "overpass days," the count of days in the month that had 
+at least one ascending pass plus days that had at least one descending 
+pass.  As part of the Version 1b Data Set processing, this number is 
+converted to the number of 55x55 km boxes that the number of pixels can 
+evenly and completely cover.  This conversion provides a very approximate 
+(over)estimate of the number of independent samples contributing to the 
+average.
+...........................................................................
+
+The *SSM/I composite number of samples product* is produced as part of the 
+GPCP Version 1b Combined Precipitation Data Set by the GPCP Merge 
+Development Centre (see section 2).  Due to the different units for the 
+SSM/I emission and scattering numbers of samples, it is necessary to 
+convert at least one before doing the merger.  We have chosen to convert 
+overpass days (SSM/I scattering estimates) to an estimate of complete 
+55x55 km boxes (our modified units for the SSM/I emission).  In the 
+latitude belt 60 deg N-S, orbits in the same direction don't overlap on a 
+single day, and there is an approximate linear relationship between 
+overpass days and 55 km boxes.  Outside that belt the overlaps cause 
+non-linearity, but we ignore it because the general lack of reliable SSM/I 
+at higher latitudes overwhelms details about the numbers of samples.  The 
+separate numbers of samples for each technique, measured in 55 km boxes, 
+are merged according to the same formula as the rainfall:
+
+               | N(emiss) ;                    N(emiss) >= 0.75 * N(scat) 
+               |                                                          
+               | N(emiss) * N(emiss) + ( N(scat) - N(emiss) ) * N(scat)   
+N(composite) = | ------------------------------------------------------ ; (4)
+               |                       N(scat)                            
+               |                               N(emiss) < 0.75 * N(scat)  
+
+where N is the number of samples; composite, emiss, and scat denote 
+composite, emission, and scattering, respectively; and the 0.75 threshold 
+allows for fluctuations in the methods of counting samples in the emission 
+and scattering techniques.  Note that the second expression reduces to 
+N(scat) when N(emiss) is zero.
+...........................................................................
+
+The *GPI number of samples product* is provided to the GPCP as the number 
+of IR images that contribute to the 2.5x2.5-deg grid box.  For the
+2.5x2.5-deg IR data it is provided as the number of images per pentad
+(5-day period), while for the 1x1-deg IR data each 3-hrly image is a 
+separate dataset.  For the 2.5x2.5-deg IR data the contribution by 
+pentads that cross month boundaries are taken to be proportional to the 
+fraction of the pentad in the month.to the fraction of the pentad in the 
+month.  For example, given a pentad that starts the last day of the 
+month, 0.2 (one-fifth) of its samples are assigned to the month in 
+question and and 0.8 (four-fifths) of its samples are assigned to the 
+following month.
+..........................................................................
+
+The *rain gauge number of samples product* is provided to the GPCP as the 
+number of stations providing gauge reports for the month in the 2.5x2.5 
+deg grid box.
+..........................................................................
+
+6. TEMPORAL AND SPATIAL COVERAGE AND RESOLUTION
+
+The *date* for a file is the year in which the months it contains 
+occurred.  The date for a grid is the year/month over which the 
+observations were accumulated to form the averages and estimates.
+All dates are UTC.
+...........................................................................
+
+The *temporal resolution* of the products is one calendar month.  The 
+temporal resolution of the original single-source data sets is also one 
+month, except the GPI data source has pentad (five-day) or 3-hrly 
+temporal resolution for the 2.5x2.5-deg and 1x1-deg IR data sets,
+respectively.  Some of the single-source data sets are available from 
+other archives at a finer resolution.
+...........................................................................
+
+The *period of record* for the GPCP Version 1b Combined Precipitation is 
+July 1987 through September 1998, without December 1987.  The start and
+gap are based on the availability of SSM/I data.  The end is based on
+the availability of input analyses, and will be extended in future 
+releases.  Some of the single-source data sets have longer periods of 
+record in their original archival sites.
+...........................................................................
+
+The *grid* on which each field of values is presented is a 2.5x2.5 deg
+latitude--longitude (Cylindrical Equal Distance) global array of points.  
+It is size 144x72, with X (longitude) incrementing most rapidly West to 
+East from the Prime Meridian, and then Y (latitude) incrementing North 
+to South.  Whole- and half-degree values are at grid edges:
+
+First point center  = (88.75N,1.25E)
+Second point center = (88.75N,3.75E)
+Last point center   = (88.75S,1.25W)
+...........................................................................
+
+The *spatial resolution* of the products is 2.5x2.5 deg lat/long, as it
+was for the original single-source data sets, except the 1x1-deg IR (used
+starting January 1997).  Some of the single-source data sets are available 
+from other archives at a finer resolution.
+...........................................................................
+
+The *spatial coverage* of the products is global in the sense that they 
+are provided on a global grid.  However, all of the products have 
+meaningful values only on a subset of the grid points.  The single-source
+products have the largest holes, and the combination products cover
+successively more of the globe.  See the sensor descriptions (section 8)
+for additional discussion of coverage by the single-source products.
+...........................................................................
+
+7. PRODUCTION AND UPDATES
+
+The GPCP is responsible for managing *production and updates* of the 
+GPCP Combined Precipitation Data Set (WCRP 1986).  Version 1b is produced 
+by the GPCP Merge Development Centre (GMDC), located at NASA Goddard Space 
+Flight Center in the Laboratory for Atmospheres.
+
+Various groups in the international science community are given the tasks
+of preparing precipitation estimates from individual data sources, then
+the GMDC is charged with combining these into a "best" global product.  
+This activity takes place after real time, at a pace governed by 
+agreements about forwarding data to the individual centers and activities 
+designed to ensure the quality in each processing step.  The techniques 
+used to compute the individual and combination estimates are described in 
+section 5.
+
+Updates will be released to (1) extend the data record, (2) take advantage 
+of improved combination techniques, or (3) correct errors.  Updates 
+resulting from the last two cases will be given new version numbers.
+
+At the present the GPCP is working to approve Version 2, which will
+feature extension back to Jauary 1986 (before the beginning of SSM/I
+coverage, and filling the December 1987 gap in SSM/I), as well as 
+extension of the observation-only product to the polar regions.  A
+second, more approximate product is being developed to provide globally
+complete observation-only monthly estimates for 1979-1985.  In parallel, 
+the GPCP is working to approve a Daily 1-Deg. product that
+will provide daily estimates on a global 1x1-deg lat/lon grid for the 
+period January 1997 through the present (with a delay).  It is based on 
+SSM/I and geo-IR data with calibration by the monthly GPCP Satellite-
+Gauge Combination product.  Experimental versions of both are available
+from the GMDC, with formal release possible in Summer 1999.
+..........................................................................
+
+A number of *data set revisions* have been integrated into the GPCP 
+Version 1b Combined Precipitation, and additional enhancements are planned
+for Version 2.  In 1996 the GPCP started operational experiments with 
+collecting geosynchronous-orbit IR (geo-IR) data on a 1x1-deg lat/lon grid 
+in parallel with the operational 2.5x2.5-deg gridded data.  In 1998 the GPCP 
+decided that the 1x1-deg data had sufficient similarity with the 2.5x2.5-deg 
+data that only the 1x1-deg data would be collected.  Combinations computed 
+with the new dataset revealed certain processing problems with the old 
+dataset.  None of the problems was considered so severe that immediate 
+reprocessing of the entire dataset was demanded.  However, unless 
+reprocessing occurred (or unless the new data were processed with the same 
+mistakes) the combinations based on the 1x1-deg IR would show systematic 
+differences in climatology from the preceeding years of data based on the
+2.5x2.5-deg IR.
+
+1. ISSUE:  In Version 1a intersatellite calibration was applied to 
+   2.5x2.5-deg pentad IR, but not 2.5x2.5-deg 3-hrly pentad IR, so AGPI 
+   adjustment coefficients were computed without the calibration, but
+   applied to calibrated data.  Since the AGPI scheme acts to calibrate
+   all the IR to the SSM/I, the AGPI thus produced actually contained 
+   approximately two times the actual intersatellite calibration.
+   FIX:  Histograms without intersatellite calibration have been used for 
+   Version 1b.  Tests show the expected approximately neutral difference 
+   between 2.5x2.5- and 1x1-deg results.  Done.
+   The old intersatellite calibration scheme depended on ISCCP data
+   which ceased in 1994, so this needed work anyway.  The Geostationary
+   Satellite Precipitation Data Centre (GSPDC) will pursue the 
+   intersatellite calibration issue for Version 2.  Pending.
+   NOTE:  Having intersatellite calibration would provide a better GPI 
+   and at second order refine the AGPI at satellite data boundaries.
+
+2. ISSUE:  In Version 1a the choice of satellite source is strictly by the 
+   number of images in the 2.5x2.5-deg 3-hrly pentad IR (used to compute
+   adjustment coefficients), but in the 2.5x2.5-deg pentad IR the 
+   distance to the satellite is also considered (used to compute the AGPI).  
+   So, at some locations nearly equidistant between the two satellites the 
+   AGPI is derived for one satellite, but applied to the other.
+   FIX:  GSPDC will produce 2.5x2.5-deg 3-hrly pentad IR for Version 2.  
+   Pending.
+   NOTE:  In the 1x1-deg 3-hrly GPI it is possible for the two satellites 
+   to cut in and out on successive hours.  As long as the relative 
+   contribution of each is in the same proportion for both the SSM/I-
+   matched subset and the full data set this is not too important.  Using 
+   intersatellite calibrated data would overcome this issue, although it 
+   is likely a second-order effect.
+
+3. ISSUE:  The 1x1-deg IR dataset provides comprehensive leo-IR data while
+   the 2.5x2.5-deg IR only provides leo-IR in regions lacking geo-IR.  The
+   additional data in the 1x1-deg IR allows more accuracy in estimating the 
+   calibration of the SSM/I-calibrated leo-GPI to the geo-AGPI, causing 
+   biases between the 1x1- and 2.5x2.5-deg AGPI in leo regions (the Indian 
+   Ocean being the prime case) of up to 15%.
+   FIX:  First, smoothed SSM/I is used in Version 1b to estimate the 
+   SSM/I-calibrated leo-GPI in regions where the 2.5x2.5-deg lacks leo-IR 
+   data, rather than the Version 1a scheme of trying to estimate the 
+   missing data from gradients in the available data.  Second, the leo-GPI 
+   is now not smoothed (in either the 1x1- or 2.5x2.5-deg case) before 
+   calibration against the (smoothed) SSM/I.  The GPI is already pretty 
+   smooth, and this prevents differences between the 1x1-deg leo-GPI and
+   the smoothed SSM/I from bleeding into the leo-only regions due to 
+   smoothing.  Done.
+   NOTE:  Alternatively, a whole different 2.5x2.5-deg pentad low-orbit 
+   GPI dataset could be generated, and then integrated into the system.  
+   The improvement over the FIX should be only second-order.
+
+4. ISSUE:  The Version 1a floor of 0.2 on the SSM/I--IR calibration ratio 
+   is too high to control cold surface (Himalayas, Rockies) and non-raining 
+   cirrus (Sahara) in very dry regions, causing the AGPI to unphysically 
+   exceed the calibrating SSM/I values in those areas.
+   FIX:  The ratio floor is reduced to 0.02.  Done.
+   NOTE:  This ameliorates a long-standing artifact in the Himalayas.
+
+5. ISSUE:  Regions that lack SSM/I data, but have IR were treated 
+   differently in the initial versions of the Version 1b 1x1- and 
+   2.5x2.5-deg AGPI.  Smoothfilling the coefficients leaves residual 
+   artifacts, while smoothfilling the SSM/I underestimates precipitation 
+   and provides better continuity between the 1x1- and 2.5x2.5-deg AGPI.  
+   The third choice is to leave the no-SSM/I region blank as in Version 1a.
+   FIX:  Since coverage is important, but we want to avoid noticeable
+   artifacts, smoothfilling the SSM/I is preferred.  Done.
+
+6. ISSUE:  The use of individual average rainrates in the Version 1a 
+   random error estimates causes the inverse error variance combination 
+   scheme to tend toward the lower rainrate, causing the final combined 
+   value to be systematically lower than expected.
+   FIX:  The inverse error variances used for the combination in a gridbox 
+   should be computed with a single average rainrate; in Version 1b this 
+   has been implemented using the simple average of all rainrates that 
+   contribute to the combination for the gridbox.  
+   Done.
+   NOTE:  This only affects combination values over land and in the
+   leo-IR fill-ins.
+
+7. ISSUE:  The data boundary between 1x1-deg and 2.5x2.5-deg input can be 
+   put any time between Jan. 1997 and April 1998.  An early start ensures 
+   that the entire 1997-98 ENSO event is covered with homogeneous data,
+   while the latest date would allow the longest possible homogeneous
+   record (of 2.5x2.5-deg input).
+   FIX:  Continuity through the ENSO seems most important, so the Jan.
+   1997 start is used.  Done.
+
+8. ISSUE:  During the lifespan of Version 1a, incremental upgrades were
+   made to the GPCC analysis system.  Similarly, incremental upgrades
+   were made to the software for controlling artifacts in the SSM/I data,
+   principally in coastal areas susceptible to ice-contamination 
+   artifacts.  The revisions were considered too minor to recompute the
+   entire data record.
+   FIX:  Version 1b is a complete recomputation, so the latest GPCC
+   analysis has been pulled and the SSM/I artifact control is applied 
+   throughout.
+
+One additional issue has no action at this time:
+
+9. ISSUE:  The GMS 2.5x2.5-deg histograms were collected with temperature 
+   bin boundaries at half-degree values, but the 1x1-deg histograms are 
+   being collected on whole-degree boundaries; this causes GPI differences 
+   in excess of 10% at 30-40 deg latitude, and everywhere the 1x1-deg GPI 
+   is smaller.
+   FIX:  The AGPI largely calibrates out this problem.  Done.
+   NOTE:  The fix leaves the GPI somewhat damaged.  If the GPI itself 
+   needs to be consistent, one could split the 235K class in the 1x1-deg 
+   histograms.  
+
+...........................................................................
+
+8. SENSORS
+
+The Special Sensor Microwave/Imager (*SSM/I*) is a multi-channel passive
+microwave radiometer that has flown on selected Defense Meteorological
+Satellite Program (DMSP) platforms since mid-1987.  The DMSP is placed 
+in a sun-synchronous polar orbit with a period of about 102 min.  The 
+SSM/I provides vertical and horizontal polarization values for 19, 22, 
+37, and 85.5 GHz frequencies (except only vertical at 22) with conical 
+scanning.  Pixels and scans are spaced 25 km apart at the suborbital 
+point, except the 85.5-GHz channels are collected at 12.5 km spacing.  
+Every other high-frequency pixel is co-located with the low-frequency
+pixels, starting with the first pixel in the scan and the first scan in
+a pair of scans.  The channels have resolutions that vary from 12.5x15 
+km for the 85.5 GHz (oval due to the slanted viewing angle) to 60x75 km 
+for the 19 GHz.
+
+The polar orbit provides nominal coverage over the latitudes 85 deg N-S, 
+although limitations in retrieval techniques prevent useful precipitation
+estimates in cases of cold land (scattering), land (emission), or sea ice
+(both scattering and emission).
+
+The SSM/I is an operational sensor, so the data record suffers the usual
+gaps in the record due to processing errors, down time on receivers, etc.
+Over time the coverage has improved as the operational system has matured.
+As well, the first 85.5 GHz sensor to fly degraded quickly due to 
+inadequate solar shielding.  After launch in mid-1987, the 85.5 GHz
+vertical- and horizontal-polarization channels became unusable in 1989
+and 1990, respectively.
+
+Further details are available in Hollinger et al. (1990).
+
+The SSM/I emission estimates are based on data from the F8 instrument 
+from mid-1987 through 1991, with the F11 being used for 1992 through 1995, 
+and the F13 thereafter.  In contrast, the SSM/I scattering estimates are 
+based on F13 starting in May 1995.  In a future release the emission 
+estimates will also be based on F13 starting in May 1995.
+...........................................................................
+
+The infrared (*IR*) data are collected from a variety of sensors.  The
+primary source of IR data is the international constellation of 
+geosynchronous-orbit meteorological satellites -- the Geosynchronous 
+Operational Environmental Satellites (GOES, United States), the 
+Geosynchronous Meteorological Satellite (GMS, Japan), and the 
+Meteorological Satellite (Meteosat, European Community).  There are 
+usually two GOES platforms active, GOES-EAST and -WEST, which cover the 
+eastern and western United States, respectively.  Gaps in geosynchronous 
+coverage (most notably over the Indian Ocean) are filled with IR data 
+from the NOAA-series polar-orbiting meteorological satellites.  The 
+geosynchronous data are collected by scanning (parts of) the earth's disk,
+while the polar-orbit data are collected by cross-track scanning.  The
+data are accumulated for processing from full-resolution (4x8 km) images.
+
+For the period 1986-March 1998 the GPI data are accumulated on a 2.5x2.5-deg
+lat/lon grid for pentads (5-day periods).  Starting with October 1996 the 
+GPI data are accumulated on a 1x1-deg lat/lon grid for individual 3-hrly 
+images.  In both data sets gaps in geo-IR are filled with low earth orbit 
+IR (leo-IR) data from the NOAA series of polar orbiting meteorological 
+satellites. However, the 2.5x2.5-deg data only contain the leo-IR used for 
+fill-in, while the 1x1-deg data contain the full leo-IR.  The GPI product 
+is based on the 2.5x2.5-deg data for the period 1987-196, and the 1x1-deg 
+beginning in 1997.  The boundary is set at January 1997 to avoid placing 
+the boundary during the 1997-1998 ENSO event.
+
+The combination of IR satellites provides near-global coverage, but 
+limitations in retrieval techniques prevent useful precipitation
+estimates poleward of about latitude 40 deg in the summer hemisphere, and 
+about latitude 30 deg in the winter hemisphere.
+
+The various IR instruments are operational sensors, so the data record 
+suffers the usual gaps in the record due to processing errors, down time 
+on receivers, sensor failures, etc.  Most notably, the GOES series 
+experienced successive failures and replacement over the whole period of 
+record.
+
+Further details are available in Janowiak and Arkin (1991).
+...........................................................................
+
+The *rain gauge* data are quite heterogeneous.  Unlike the fairly uniform 
+preparation of satellite data sets, gauge data sources and qualities are 
+extremely variable.  Choice of instrumentation, including wind-shielding 
+(if any), siting, observing practices, error detection/correction, and 
+data transmission techniques are all governed by national or regional 
+rules.  Typical rain-gauge models include simple 8-inch cylinders (read 
+manually), weighing (ink trace on graph paper), or tipping bucket 
+(digital or analog record) devices located in an open area.  Reports are
+usually generated manually and transmitted to a central regional or
+national site.  Most of the rain gauge reports contributing to the GPCP 
+Version 1b Combined Precipitation Data Set were transmitted as SYNOP or
+CLIMAT reports on the Global Telecommunications System, although these
+were supplemented by national and regional collections retrieved after
+real time.
+
+There are about 6700 stations in the current data set, mostly in land
+areas and concentrated in developed countries.  Version 1b uses the
+January 1999 version of the GPCC "monitoring analysis" for 1986-
+September 1998, together with real-time pulls of analyses for subsequent 
+months.
+
+Further details are available in Rudolf (1993).
+...........................................................................
+
+9. ERROR DETECTION AND CORRECTION
+
+*SSM/I error detection/correction* has several parts.  Built-in hot- and 
+cold-load calibration checks are used to convert counts to Antenna 
+Temperature (Ta).  An algorithm has been developed to convert Ta to 
+Brightness Temperature (Tb) for the various channels (eliminating 
+cross-channel leakage).  As well, systematic navigation corrections are 
+performed.  All pixels with non-physical Tb and local calibration errors
+are deleted.
+
+Accuracies in the Tb's are within the uncertainties of the precipitation
+estimation techniques.  For the most part, tests show only small 
+differences among the SSM/I sensors flying on different platforms.
+...........................................................................
+
+The dominant *IR data correction* is for slanted paths through the 
+atmosphere.  Referred to as "limb darkening correction" in polar-orbit 
+data, or "zenith-angle correction" in geosynchronous-orbit data, this 
+correction accounts for the fact that a slanted path through the 
+atmosphere increases the chances that (cold) cloud sides will be viewed, 
+rather than (warm) surface, and raises the altitude dominating the 
+atmospheric emission signal (almost always lowering the equivalent Tb).  
+In addition, the various sensors have a variety of sensitivities to the 
+IR spectrum, usually including the 10-11 micron band.  Inter-satellite 
+calibration differences are documented, but they are not implemented in 
+the current version.  They are planned for a future release.  The AGPI
+largely corrects intersatellite calibration, except for small effects
+at boundaries between satellites.  The satellite operators are 
+responsible for detecting and eliminating navigation and telemetry 
+errors.
+...........................................................................
+
+The *rain gauge quality control* scheme is discussed in Rudolf (1993) and 
+section 13.  For the most part, quality-control errors are deleted.  The 
+largest correctable error for individual reports is the systematic bias.  
+The use of the Legates (1987) climatological correction is only an 
+approximate solution, since the correction ought to be applied to the 
+gauges before averaging.  The availability of rain-gauge reports is 
+extremely variable in space and time, and within a box the coverage by 
+gauges is often not uniform.  As a result, even the "ground truth" of rain 
+gauge data has non-trivial errors.
+...........................................................................
+
+Seven types of *known errors* are contained in part or all of the current 
+data set, and will be corrected in a future general re-run.  They have 
+been uncovered by visual inspection of the combined data fields over 
+several years of production, but are considered too minor or 
+insufficiently understood to provoke an immediate reprocessing.
+
+1. Limit checks on sea ice contamination in the SSM/I emission estimates
+   continue to be refined as additional cases are uncovered.
+2. The climatological bias correction to the gauge data have artifacts
+   in a few areas, particularly in Antarctica and Siberia.
+3. Exact-zero values in marginally snowy land regions (from the SSM/I 
+   scattering field) are probably not reliable, and should simply be
+   "small."
+4. Isolated exact-zero values surrounded by significantly non-zero values
+   (i.e., >30 mm/mo) in oceanic regions are not reliable and are replaced 
+   with the average of the surrounding points.
+5. The emission estimates are not fully converged, resulting in a 13%
+   over-estimate, on average.
+6. The AGPI calibration coefficients for the 2.5x2.5-deg IR input (1987-
+   1996) are derived on one choice of satellites in regions of overlap
+   between geo satellites, and applied to another.
+7. There is no inter-satellite calibration applied to the GPI.
+...........................................................................
+
+10. MISSING VALUE ESTIMATION AND CODES
+
+There is generally no effort to *estimate missing values* in the 
+single-source data sets, although a few missing days of gauge data are
+tolerated in computing monthly values.
+...........................................................................
+
+We must handle two cases of computing the *AGPI coefficients with missing
+data*.  First, when SSM/I data are missing in a region, but GPI data exist, 
+the SSM/I data are smoothly filled across the blank for the purpose of 
+computing the AGPI.  Second, when leo-GPI data are used to fill holes in 
+the geo-GPI, the leo-GPI data are used to estimate a leo-AGPI.  That is, 
+the calibration of the AGPI and SSM/I-calibrated leo-GPI is computed 
+around the edge of the hole, the calibration coefficients are smoothly 
+filled across the hole, and applied to the SSM/I-calibrated leo-GPI in the 
+hole.  Because the 2.5x2.5-deg IR lacks leo-GPI in the geo-GPI region,
+smoothed SSM/I is used to estimate SSM/I-calibrated leo-GPI in the geo-GPI 
+region.
+...........................................................................
+
+All products in the GPCP Version 1b Data Set use the *standard missing
+value* '-99999.'  Some of the single-source data sets possess coded 
+missing values in other archives of the data set.
+...........................................................................
+
+Within a year file, *missing months* are filled entirely with the
+standard missing value, so that the month number and the position of the 
+month in the file always agree.
+...........................................................................
+
+11. QUALITY AND CONFIDENCE ESTIMATES
+
+The *accuracy* of the precipitation products can be broken into 
+systematic departures from the true answer (bias) and random fluctuations
+about the true answer (sampling), as discussed in Huffman (1997a).  The 
+former are the biggest problem for climatological averages, since they 
+will not average out.  However, on the monthly time scale the low number 
+of samples tends to present a more serious problem.  That is, for most of 
+the data sets the sampling is spotty enough that the collection of values 
+over one month is not yet representative of the true distribution of 
+precipitation.
+
+Accordingly, the "random error" is assumed to be dominant, and estimates
+are computed as discussed for the "absolute error variable" (section 5).  
+Note that the rain gauge analysis' random error is just as real as that 
+of the satellite data, even if somewhat smaller.  Random error cannot be 
+corrected.
+
+The "bias error" is not corrected in the SSM/I emission, SSM/I scattering,
+SSM/I composite, and GPI precipitation estimates.  In the AGPI the GPI
+is adjusted to the large-scale bias of the SSM/I, which is assumed lower 
+than the GPI's.  As noted in the "satellite-gauge precipitation product" 
+discussion (section 5), the Multi-Satellite product is adjusted to the 
+large-scale bias of the Gauge analysis before the combination is computed.  
+It continues to be the case that biases over ocean are not corrected by 
+gauges in the Multi-Satellite and Satellite-Gauge products.
+...........................................................................
+
+All four of the single-source estimates have shown strong *intercomparison 
+results* in various intercomparison projects (section 2), which was the 
+basis for selection for this project.
+
+The concept of combination is relatively new, so there is no strong 
+comparison available.  An early validation against the Surface Reference
+Data Center analysis yields the statistics in Table 3.  Overall, the
+combination appears to be working as expected.
+
+  Table 3.  Summary statistics for all cells and months comparing the 
+  SSM/I composite, Multi-satellite, Gauge, and Satellite-gauge products 
+  to the SRDC analysis for July 1987 -- December 1991.
+
+                  |  Bias   | Avg. Diff. | RMS Error
+  Product         | (mm/mo) |  (mm/mo)   |  (mm/mo)
+  ----------------+---------+------------+----------
+                  |         |            |
+  SSM/I composite |  4.03   |   60.10    |   88.05
+                  |         |            |
+  Multi-satellite | -5.80   |   44.20    |   62.47
+                  |         |            |
+  Gauge (GPCC)    |  6.77   |   18.85    |   35.11
+                  |         |            |
+  Satellite-gauge |  3.70   |   20.29    |   32.98
+..........................................................................
+
+The *quality index* variable has recently been proposed by Huffman et
+al. (1997) and developed in Huffman (1997a) as a way of comparing the 
+errors computed for different techniques.  Absolute error tends to zero 
+as the average precipitation tends to zero, while relative error tends 
+to infinity.  According to (2), the dependence is approximately 
+SQRT(rbar) and 1/SQRT(rbar), respectively.  Thus, it is hard to 
+illustrate overall dependence on sample size with either representation.  
+However, if one inverts (2) it is possible to get an expression for a 
+number of samples as a function of precipitation rate and the estimated 
+error variance:
+
+      Hg * ( rbarx + Sg) * [ 720 + 268 * SQRT ( rbarx ) ]
+Neg = ---------------------------------------------------                   (5)
+                          VARx
+
+where rbarx and VARx are the precipitation rate and estimated error
+variance for technique X, Hg and Sg are the values of H and S for
+the gauge analysis, and Neg is the number of "equivalent gauges,"
+an estimate of the number of gauges that corresponds to this case.  Tests 
+show that Neg is well-behaved over the range of rbar, largely reflecting 
+the sampling that provided rbarx and VARx, but also showing differences 
+in the functional form of absolute error over the range of rbar for 
+different techniques.
+
+Qualitatively, higher Neg denotes more confident answers.  Values above
+10 are relatively good.  The SSM/I composite estimates tend to have Neg
+around 1 or 2, while the AGPI has Neg around 3 or 4.  The rain gauge 
+analysis runs the whole range from 0 to a few grid boxes in excess of
+40.
+..........................................................................
+
+12. DATA ARCHIVES
+
+The major *archive and distribution sites* for the GPCP Version 1b 
+Combined Precipitation Data Set are as follows:
+
+Dr. Alan McNab
+World Data Center A (WDC-A)
+National Climatic Data Center (NCDC)
+Rm 514
+151 Patton Ave.
+Asheville, NC  28801-5001  USA
+          Phone: 704-271-4592
+            Fax: 704-271-4328
+       Internet: amcnab@ncdc.noaa.gov
+WDC-A Home Page: http://www.ncdc.noaa.gov/wdcamet.html#GPCP
+
+Dr. Bruno Rudolf
+Global Precipitation Climatology Centre (GPCC)
+Deutscher Wetterdienst (DWD)
+Postfach 10 04 65
+D-63004 Offenbach a.M., Germany
+         Phone: +49-69-8062-2765
+           Fax: +49-69-8062-2880
+      Internet: brudolf@dwd.d400.de
+GPCC Home Page: http://www.dwd.de/research/gpcc
+
+Independent archive and distribution sites exist for the single-source 
+data sets, and a current list may be obtained by contacting Dr. McNab at
+NCDC.
+..........................................................................
+
+13. DOCUMENTATION
+
+The *documentation creator* is:
+
+Dr. George J. Huffman
+Code 912
+NASA Goddard Space Flight Center
+Greenbelt, MD  20771  USA
+   Phone: 301-614-6308
+     Fax: 301-614-5492
+Internet: huffman@agnes.gsfc.nasa.gov
+..........................................................................
+
+The *documentation revision history* is:
+
+April 24, 1996      Draft 1 by GJH
+May 2, 1996         Draft 2 by GJH
+May 3, 1996         Draft 3 by GJH
+May 8, 1996         Draft 4 by GJH
+May 10, 1996        Version 1 by GJH
+June 5, 1996        Version 1a by GJH
+August 13, 1996     Version 1a Rev. 1 by GJH
+September 11, 1996  Version 1a Rev. 2 by GJH
+June 20, 1997       Version 1a Rev. 3 by GJH
+November 11, 1997   Version 1a Rev. 4 by GJH
+January 18, 1998    Version 1a Rev. 5 by GJH
+April 28, 1998      Version 1a Rev. 6 by GJH
+May 5, 1998         Version 1a Rev. 7 by GJH
+June 15, 1998       Version 1a Rev. 8 by GJH
+August 10, 1998     Version 1a Rev. 9 by GJH
+January 26, 1999    Version 1a Rev. 10 by GJH
+March 8, 1999       Version 1b by GJH
+
+The latest version has a new version number, 1b, and features new
+combination errors, consistent lack of inter-satellite calibration,
+a revised leo-AGPI scheme, and use of 1x1-deg IR data starting
+January 1997.
+..........................................................................
+
+The list of *references* used in this documentation is:
+
+Adler, R.F., G.J. Huffman, and P.R. Keehn 1994:  Global rain estimates 
+   from microwave-adjusted geosynchronous IR data.  Remote Sens. Rev., 
+   11, 125-152.
+
+Arkin, P.A., and B. N. Meisner, 1987: The relationship between 
+   large-scale convective rainfall and cold cloud over the Western 
+   Hemisphere during 1982-1984.  Mon. Wea. Rev., 115, 51-74.
+
+Grody, N.C., 1991: Classification of snow cover and precipitation using 
+   the Special Sensor Microwave/Imager (SSM/I).  J. Geophys. Res., 96, 
+   7423-7435.
+
+Huffman, G.J., 1997a:  Estimates of root-mean-square random error 
+   contained in finite sets of estimated precipitation.  J. Appl. Meteor., 
+   36, 1191-1201.
+
+__________, ed., 1997b:  The Global Precipitation Climatology Project 
+  monthly mean precipitation data set.  WMO/TD No. 808, WMO, Geneva, 
+  Switzerland.  37pp.
+  
+__________, R.F. Adler, B. Rudolf, U. Schneider, and P.R. Keehn, 1995: 
+   Global precipitation estimates based on a technique for combining 
+   satellite-based estimates, rain gauge analysis, and NWP model 
+   precipitation information.  J. Climate, 8, 1284-1295.
+
+__________, __________, P.A. Arkin, A. Chang, R. Ferraro, A. Gruber, J.
+   Janowiak, R.J. Joyce, A. McNab, B. Rudolf, U. Schneider, and P. Xie,
+   1997:  The Global Precipitation Climatology Project (GPCP) Combined
+   Precipitation Data Set.  Bull. Amer. Meteor. Soc., 78, 5-20.
+
+Janowiak, J.E., and P.A. Arkin, 1991:  Rainfall variations in the 
+   tropics during 1986-1989.  J. Geophys. Res., 96, 3359-3373.
+   
+Legates, D.R, 1987: A climatology of global precipitation.  Pub. in 
+   Climatol., 40, U. of Delaware.
+
+McNab, A., 1995: Surface Reference Data Center Product Guide. National
+   Climatic Data Center, Asheville,NC, 10 pp.
+   
+Morrissey, M.L., and J. S. Green, 1991:  The Pacific Atoll Raingauge 
+   Data Set.  Planetary Geosci. Div. Contrib. 648, Univ. of Hawaii, 
+   Honolulu, HI, 45 pp.
+
+Rudolf, B., 1993: Management and analysis of precipitation on a routine 
+   basis.  Proc. Internat. WMO/IAHS/ETH SYMP. on Precip. and Evap., 
+   Slovak Hydromet. Inst., Bratislava, Sept. 1993, 1, 69-76.
+   
+Weng, F., and N.C. Grody, 1994: Retrieval of cloud liquid water using 
+   the Special Sensor Microwave Imager (SSM/I).  J. Geophys. Res., 99, 
+   25535-25551.
+
+Wilheit, T., A. Chang and L. Chiu, 1991: Retrieval of monthly rainfall 
+   indices from microwave radiometric measurements using probability 
+   distribution function.  J. Atmos. Ocean. Tech., 8, 118-136.
+
+Willmott, C.J., C.M. Rowe, and W.D. Philpot, 1985: Small-scale climate 
+   maps: A sensitivity analysis of some common assumptions associated 
+   with grid-point interpolation and contouring.  Amer. Cartographer, 12, 
+   5-16.
+
+WCRP, 1986: Report of the workshop on global large scale precipitation
+   data sets for the World Climate Research Programme.  WCP-111, 
+   WMO/TD - No. 94, WMO, Geneva, 45 pp.
+
+Xie, P., and P.A. Arkin, 1996: Analysis of global monthly precipitation
+   using gauge observations, satellite estimates, and numerical model
+   predictions.  J. Climate, 9, 840-858.
+..........................................................................
+
+14. INVENTORIES
+
+The *data set inventory* may be obtained by accessing the home pages or
+contacting the representatives listed in section 12.
+..........................................................................
+
+15. HOW TO ORDER DATA AND OBTAIN INFORMATION ABOUT THE DATA
+
+Users interested in *obtaining data* should access the home pages or
+contact the representatives listed in section 12.
+..........................................................................
+</PRE>
+<INGRID>datasetdocumentationtrailer</INGRID>

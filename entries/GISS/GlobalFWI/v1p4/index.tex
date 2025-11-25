@@ -1,0 +1,271 @@
+\begin{ingrid}
+continuedataset:
+/auxinfo.owl currentobject 1 index get def
+link:
+/name /source def
+/href (ftp://GlobalFWI:@dataportal.nccs.nasa.gov/v1.4/) def
+:link
+link:
+/name /refpaper def
+/description (Development of a global fire weather database for 1980-2012) def
+/href (http://www.nat-hazards-earth-syst-sci-discuss.net/2/6555/2014/)def
+:link
+/references (Field:etal2014)def
+ /minPrec 0.25 def
+ /FFMCStart 85.0 def
+ /snowCoverDaysCalc 60.0 def
+ /startShutDays 2.0 def
+ /precThresh 1.0 def
+ /nClimSkipYears 1.0 def
+ /minT -10.0 def
+ /snoDThresh 0.01 def
+ /DMCDryStartFactor 2.0 def
+ /minLat -58.0 def
+ /maxLat 75.0 def
+ /tempThresh 6.0 def
+ /Configuration (Default) def
+ /minWinterSnoD 0.1 def
+ /minLandFrac 0.1 def
+ /DCDryStartFactor 5.0 def
+ /DMCStart 6.0 def
+ /minSnowDayFrac 0.75 def
+ /DCStart 15.0 def
+dataset:
+datasetdefs:
+/filenames {(/Data/data3/nasa/giss/globalfwi/v1.4/netcdf/FWI.Daily.%Y%m[T].nc) 
+[T monthlyedgesgrid first secondtolast subgrid ] } def
+:datasetdefs
+/name /DAILY cvx def
+grid:
+/name (L)def
+/units (days)def
+/calendar /none def
+ 1.0 1.0 31.0
+:grid
+grid:
+/name (T) def
+/units (days since 1980-01-01 00:00:00) def
+1 Feb 1979 julian_day
+1 Jan 1980 julian_day sub
+.5 add
+1.
+1 Jan 2013 julian_day
+1 Jan 1980 julian_day sub
+0.5 sub
+:grid
+grid:
+/name (lon)def
+/units (degree_east)def
+ -180.0 0.6666666 179.33333
+:grid
+grid:
+/name (lat)def
+/units (degree_north)def
+ -58.0 0.5 75.0
+:grid
+ /C_BUI{
+[ lon lat | T] filenames readdatafile:
+/name (C_BUI) def
+ /long_name (Buildup Index) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /C_DC{
+[ lon lat | T] filenames readdatafile:
+/name (C_DC) def
+ /long_name (Drought Code) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /C_DMC{
+[ lon lat | T] filenames readdatafile:
+/name (C_DMC) def
+ /long_name (Duff Moisture Code) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /C_DSR{
+[ lon lat | T] filenames readdatafile:
+/name (C_DSR) def
+ /long_name (Daily Severity Rating) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /C_FFMC{
+[ lon lat | T] filenames readdatafile:
+/name (C_FFMC) def
+ /long_name (Fine Fuel Moisture Code) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /C_FWI{
+[ lon lat | T] filenames readdatafile:
+/name (C_FWI) def
+ /long_name (Fire Weather Index) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /C_ISI{
+[ lon lat | T] filenames readdatafile:
+/name (C_ISI) def
+ /long_name (Initial Spread Index) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /C_prec{
+[ lon lat | T] filenames readdatafile:
+/name (C_prec) def
+ /long_name (24-hour precipitation from CPC) def
+ /missing_value NaN def /units (mm/day)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /C_prec_count{
+[ lon lat | T] filenames readdatafile:
+/name (C_prec_count) def
+ /long_name (Number of rain gauges from CPC) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /M_BUI{
+[ lon lat | T] filenames readdatafile:
+/name (M_BUI) def
+ /long_name (Buildup Index) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /M_DC{
+[ lon lat | T] filenames readdatafile:
+/name (M_DC) def
+ /long_name (Drought Code) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /M_DMC{
+[ lon lat | T] filenames readdatafile:
+/name (M_DMC) def
+ /long_name (Duff Moisture Code) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /M_DSR{
+[ lon lat | T] filenames readdatafile:
+/name (M_DSR) def
+ /long_name (Daily Severity Rating) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /M_FFMC{
+[ lon lat | T] filenames readdatafile:
+/name (M_FFMC) def
+ /long_name (Fine Fuel Moisture Code) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /M_FWI{
+[ lon lat | T] filenames readdatafile:
+/name (M_FWI) def
+ /long_name (Fire Weather Index) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /M_ISI{
+[ lon lat | T] filenames readdatafile:
+/name (M_ISI) def
+ /long_name (Initial Spread Index) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /M_prec{
+[ lon lat | T] filenames readdatafile:
+/name (M_prec) def
+ /long_name (24-hour precipitation) def
+ /missing_value NaN def /units (mm/day)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /M_rh{
+[ lon lat | T] filenames readdatafile:
+/name (M_rh) def
+ /long_name ("Noon relative humidity, local T) def
+ /missing_value NaN def /units /percent def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /M_snowDepth{
+[ lon lat | T] filenames readdatafile:
+/name (M_snowDepth) def
+ /long_name (Snow depth on ground) def
+ /missing_value NaN def /units /m def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /M_t{
+[ lon lat | T] filenames readdatafile:
+/name (M_t) def
+ /long_name (Noon temperature, local T) def
+ /missing_value NaN def /units /C def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /M_wdSpd{
+[ lon lat | T] filenames readdatafile:
+/name (M_wdSpd) def
+ /long_name (Noon 10m wind speed, local T) def
+ /missing_value NaN def /units (km/h)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /S_BUI{
+[ lon lat | T] filenames readdatafile:
+/name (S_BUI) def
+ /long_name (Buildup Index computed from Sheffield precip) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /S_DC{
+[ lon lat | T] filenames readdatafile:
+/name (S_DC) def
+ /long_name (Drought Code computed from Sheffield precip) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /S_DMC{
+[ lon lat | T] filenames readdatafile:
+/name (S_DMC) def
+ /long_name (Duff Moisture Code computed from Sheffield precip) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /S_DSR{
+[ lon lat | T] filenames readdatafile:
+/name (S_DSR) def
+ /long_name (Daily Severity Rating computed from Sheffield precip) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /S_FFMC{
+[ lon lat | T] filenames readdatafile:
+/name (S_FFMC) def
+ /long_name (Fine Fuel Moisture Code computed from Sheffield precip) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /S_FWI{
+[ lon lat | T] filenames readdatafile:
+/name (S_FWI) def
+ /long_name (Fire Weather Index computed from Sheffield precip) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /S_ISI{
+[ lon lat | T] filenames readdatafile:
+/name (S_ISI) def
+ /long_name (Initial Spread Index computed from Sheffield precip) def
+ /missing_value NaN def /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /S_prec{
+[ lon lat | T] filenames readdatafile:
+/name (S_prec) def
+ /long_name (24-hour precipitation from Sheffield) def
+ /missing_value NaN def /units (mm/day)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+:dataset
+:dataset
+\end{ingrid}

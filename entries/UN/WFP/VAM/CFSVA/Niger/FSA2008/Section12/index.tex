@@ -1,0 +1,1009 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9575
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 586
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAnov2008.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Calculs) def
+/CEREAL {
+mytable
+myquestion 
+397 VALUE
+ myquestion removeGRID
+/long_name (CEREALES) def 
+}defasvarsilent
+
+/TUBERC {
+mytable
+myquestion 
+398 VALUE
+ myquestion removeGRID
+/long_name (TUBERCULES) def 
+}defasvarsilent
+
+/CERTUB {
+mytable
+myquestion 
+399 VALUE
+ myquestion removeGRID
+/long_name (CEREALES & TUBERCULES) def 
+}defasvarsilent
+
+/LEGMSES {
+mytable
+myquestion 
+400 VALUE
+ myquestion removeGRID
+/long_name (LEGUMINEUSES) def 
+}defasvarsilent
+
+/FEUILEGM {
+mytable
+myquestion 
+401 VALUE
+ myquestion removeGRID
+/long_name (FEUILLES ET LEGUMES) def 
+}defasvarsilent
+
+/FRUIT {
+mytable
+myquestion 
+402 VALUE
+ myquestion removeGRID
+/long_name (FRUIT) def 
+}defasvarsilent
+
+/PROTEAN {
+mytable
+myquestion 
+403 VALUE
+ myquestion removeGRID
+/long_name (PROTEINE ANIMALE) def 
+}defasvarsilent
+
+/LAIPDLAI {
+mytable
+myquestion 
+404 VALUE
+ myquestion removeGRID
+/long_name (LAIT ET PRODUITS LAITIERS) def 
+}defasvarsilent
+
+/SUCRE {
+mytable
+myquestion 
+405 VALUE
+ myquestion removeGRID
+/long_name (SUCRE) def 
+}defasvarsilent
+
+/HUILE {
+mytable
+myquestion 
+406 VALUE
+ myquestion removeGRID
+/long_name (HUILE) def 
+}defasvarsilent
+
+/Revmois {
+mytable
+myquestion 
+407 VALUE
+ myquestion removeGRID
+/long_name (Revenu mensuel en cash des menages) def 
+}defasvarsilent
+
+/NRevmois {
+mytable
+myquestion 
+408 VALUE
+ myquestion removeGRID
+/long_name (NTILES of Revmois) def 
+}defasvarsilent
+
+/Revtetj {
+mytable
+myquestion 
+409 VALUE
+ myquestion removeGRID
+/long_name (Revenu par tete et par jour) def 
+}defasvarsilent
+
+/class {
+mytable
+myquestion 
+410 VALUE
+ myquestion removeGRID
+/long_name (class) def 
+}defasvarsilent
+
+/ISA {
+mytable
+myquestion 
+411 VALUE
+ myquestion removeGRID
+/long_name (Classes insecurite alimentaire) def 
+}defasvarsilent
+
+/Depnal12 {
+mytable
+myquestion 
+412 VALUE
+ myquestion removeGRID
+/long_name (Depenses non alimentaires au cours des 12 derniers mois) def 
+}defasvarsilent
+
+/depnse30 {
+mytable
+myquestion 
+413 VALUE
+ myquestion removeGRID
+/long_name (Dépense totales en cash au cours des 30 derniers jours) def 
+}defasvarsilent
+
+/Depalca30 {
+mytable
+myquestion 
+414 VALUE
+ myquestion removeGRID
+/long_name (Depenses alimentaires en cash au cours des 30 derniers jours) def 
+}defasvarsilent
+
+/Depalau30 {
+mytable
+myquestion 
+415 VALUE
+ myquestion removeGRID
+/long_name (Depenses alimentaires en autoconsommation au cours des 30 derniers jours) def 
+}defasvarsilent
+
+/Depalec30 {
+mytable
+myquestion 
+416 VALUE
+ myquestion removeGRID
+/long_name (Depenses alimentaires en produits échangés au cours des 30 derniers jours) def 
+}defasvarsilent
+
+/Depnal1230 {
+mytable
+myquestion 
+417 VALUE
+ myquestion removeGRID
+/long_name (Depenses non alimentaires au cours des 12 derniers mois recalculées par mois) def 
+}defasvarsilent
+
+/Depalto30 {
+mytable
+myquestion 
+418 VALUE
+ myquestion removeGRID
+/long_name (Depenses alimentaires totales au cours des 30 derniers jours) def 
+}defasvarsilent
+
+/Depnalto30 {
+mytable
+myquestion 
+419 VALUE
+ myquestion removeGRID
+/long_name (Depenses non alimentaires totales par mois) def 
+}defasvarsilent
+
+/Deptot30 {
+mytable
+myquestion 
+420 VALUE
+ myquestion removeGRID
+/long_name (Depenses totales par mois) def 
+}defasvarsilent
+
+/Depalca {
+mytable
+myquestion 
+421 VALUE
+ myquestion removeGRID
+/long_name (Depenses alimentaires mensuelles en cash) def 
+}defasvarsilent
+
+/Depnal30 {
+mytable
+myquestion 
+422 VALUE
+ myquestion removeGRID
+/long_name (Depenses non alimentaires au cours des 30 derniers jours) def 
+}defasvarsilent
+
+/ISA2 {
+mytable
+myquestion 
+423 VALUE
+ myquestion removeGRID
+/long_name (ISA2) def 
+}defasvarsilent
+
+/NCSI {
+mytable
+myquestion 
+424 VALUE
+ myquestion removeGRID
+/long_name (NTILES of CSI) def 
+}defasvarsilent
+
+/CLSCORE28 {
+mytable
+myquestion 
+425 VALUE
+ myquestion removeGRID
+/long_name (CLASSES SCORE DE CONSOMMATION ALIMENTAIRE SEUIL 28) def 
+/units /ids def
+/CLIST [(Pauvre)(Limite)(Acceptable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/CLSCORE {
+mytable
+myquestion 
+426 VALUE
+ myquestion removeGRID
+/long_name (Classe score 42 62) def 
+}defasvarsilent
+
+/ISA3 {
+mytable
+myquestion 
+427 VALUE
+ myquestion removeGRID
+/long_name (ISA3) def 
+}defasvarsilent
+
+/NDeptot3 {
+mytable
+myquestion 
+428 VALUE
+ myquestion removeGRID
+/long_name (NTILES of Deptot30) def 
+}defasvarsilent
+
+/Pdepalc {
+mytable
+myquestion 
+429 VALUE
+ myquestion removeGRID
+/long_name (Proportion depenses alimentaires en cash) def 
+}defasvarsilent
+
+/Pauvrete {
+mytable
+myquestion 
+430 VALUE
+ myquestion removeGRID
+/long_name (Pauvrete) def 
+/units /ids def
+/CLIST [(Pauvre)(Non pauvre)] def
+/scale_min 1.00 def
+/scale_max 2.00 def
+}defasvarsilent
+
+/livelihood {
+mytable
+myquestion 
+431 VALUE
+ myquestion removeGRID
+/long_name (Livelihood) def 
+/units /ids def
+/CLIST [(Agriculteurs)(Petit.com&Agric.)(Agro.pasteurs)(Autr.actv&Agric.)(Salarie)(Travail journ.&Agric.)(Transfert &Agric.)(Commerce &Agric.)(Artisanat.&Agrc)(Vent.Boi.pail&Agric.)(Extraction/carri.&Agric.)(Emp.agric.&Pet.com.)(Mendicite)] def
+/scale_min 1.00 def
+/scale_max 13.00 def
+}defasvarsilent
+
+/pppl {
+mytable
+myquestion 
+521 VALUE
+ myquestion removeGRID
+/long_name (pppl) def 
+}defasvarsilent
+
+/ppcs {
+mytable
+myquestion 
+522 VALUE
+ myquestion removeGRID
+/long_name (ppcs) def 
+}defasvarsilent
+
+/ppa {
+mytable
+myquestion 
+523 VALUE
+ myquestion removeGRID
+/long_name (ppa) def 
+}defasvarsilent
+
+/achats {
+mytable
+myquestion 
+524 VALUE
+ myquestion removeGRID
+/long_name (achats) def 
+}defasvarsilent
+
+/dzak {
+mytable
+myquestion 
+525 VALUE
+ myquestion removeGRID
+/long_name (dzak) def 
+}defasvarsilent
+
+/troc {
+mytable
+myquestion 
+526 VALUE
+ myquestion removeGRID
+/long_name (troc) def 
+}defasvarsilent
+
+/aida {
+mytable
+myquestion 
+527 VALUE
+ myquestion removeGRID
+/long_name (aida) def 
+}defasvarsilent
+
+/emp {
+mytable
+myquestion 
+528 VALUE
+ myquestion removeGRID
+/long_name (emp) def 
+}defasvarsilent
+
+/ccp {
+mytable
+myquestion 
+529 VALUE
+ myquestion removeGRID
+/long_name (ccp) def 
+}defasvarsilent
+
+/aut {
+mytable
+myquestion 
+530 VALUE
+ myquestion removeGRID
+/long_name (aut) def 
+}defasvarsilent
+
+/ntalco {
+mytable
+myquestion 
+531 VALUE
+ myquestion removeGRID
+/long_name (Nombre total aliments conommes) def 
+}defasvarsilent
+
+/pppl1 {
+mytable
+myquestion 
+532 VALUE
+ myquestion removeGRID
+/long_name (pourcent propre production pluviale) def 
+}defasvarsilent
+
+/ppcs1 {
+mytable
+myquestion 
+533 VALUE
+ myquestion removeGRID
+/long_name (pourcent propre production contre saison) def 
+}defasvarsilent
+
+/ppa1 {
+mytable
+myquestion 
+534 VALUE
+ myquestion removeGRID
+/long_name (pourcent propre production animale) def 
+}defasvarsilent
+
+/achats1 {
+mytable
+myquestion 
+535 VALUE
+ myquestion removeGRID
+/long_name (pourcent achat) def 
+}defasvarsilent
+
+/dzak1 {
+mytable
+myquestion 
+536 VALUE
+ myquestion removeGRID
+/long_name (pourcent dons/zakat) def 
+}defasvarsilent
+
+/troc1 {
+mytable
+myquestion 
+537 VALUE
+ myquestion removeGRID
+/long_name (pourcent troc) def 
+}defasvarsilent
+
+/aida1 {
+mytable
+myquestion 
+538 VALUE
+ myquestion removeGRID
+/long_name (pourcent aide/assistance) def 
+}defasvarsilent
+
+/emp1 {
+mytable
+myquestion 
+539 VALUE
+ myquestion removeGRID
+/long_name (pourcent emprunt) def 
+}defasvarsilent
+
+/ccp1 {
+mytable
+myquestion 
+540 VALUE
+ myquestion removeGRID
+/long_name (pourcent chasse/cueillette/peche) def 
+}defasvarsilent
+
+/aut1 {
+mytable
+myquestion 
+541 VALUE
+ myquestion removeGRID
+/long_name (pourcent autre) def 
+}defasvarsilent
+
+/Pprod {
+mytable
+myquestion 
+542 VALUE
+ myquestion removeGRID
+/long_name (pourcent propre production) def 
+}defasvarsilent
+
+/Nachats1 {
+mytable
+myquestion 
+543 VALUE
+ myquestion removeGRID
+/long_name (NTILES of achats1) def 
+}defasvarsilent
+
+/Marketd {
+mytable
+myquestion 
+544 VALUE
+ myquestion removeGRID
+/long_name (Market dependance) def 
+/units /ids def
+/CLIST [(Low)(Intermediate)(High)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/q931_1 {
+mytable
+myquestion 
+545 VALUE
+ myquestion removeGRID
+/long_name (Q931 NOMBRE DE JOUR MANQUE ASSEZ DE VIVRE OU D'ARGENT) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/q932_2 {
+mytable
+myquestion 
+546 VALUE
+ myquestion removeGRID
+/long_name (Q932 NOMBRE DE JOUR ALIMENTS MOINS PREFERES) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/q933_3 {
+mytable
+myquestion 
+547 VALUE
+ myquestion removeGRID
+/long_name (Q933 NOMBRE DE JOUR EMPRUNT DES VIVRES) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/q934_4 {
+mytable
+myquestion 
+548 VALUE
+ myquestion removeGRID
+/long_name (Q934 NOMBRE DE JOUR ACHAT DES VIVRES A CREDIT) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/q935_5 {
+mytable
+myquestion 
+549 VALUE
+ myquestion removeGRID
+/long_name (Q935 NOMBRE DE JOUR DEPENDANCE DE L'EXTERIEURE) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/q936_6 {
+mytable
+myquestion 
+550 VALUE
+ myquestion removeGRID
+/long_name (Q936 NOMBRE DE JOUR RENONCER AU PAIEMENT DES DETTES CONTRACT) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/q937_7 {
+mytable
+myquestion 
+551 VALUE
+ myquestion removeGRID
+/long_name (Q937 NOMBRE DE JOUR RECOURS INHABITUEL ALIMENT DE PENURIE) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/q938_8 {
+mytable
+myquestion 
+552 VALUE
+ myquestion removeGRID
+/long_name (Q938 NOMBRE DE JOUR CONSOMMATION DES SEMENCES) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/q939_9 {
+mytable
+myquestion 
+553 VALUE
+ myquestion removeGRID
+/long_name (Q939 NOMBRE DE JOUR DEMANDE DE NOURRITURE POUR LES ENFANTS) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/q9310_10 {
+mytable
+myquestion 
+554 VALUE
+ myquestion removeGRID
+/long_name (Q9310 NOMBRE DE JOUR RECOURS A LA MENDICTE) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/q9311_11 {
+mytable
+myquestion 
+555 VALUE
+ myquestion removeGRID
+/long_name (Q9311 NOMBRE DE JOUR DIMINUTION DE LA RATION JOURNALIERE) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/q9312_12 {
+mytable
+myquestion 
+556 VALUE
+ myquestion removeGRID
+/long_name (Q9312 NOMBRE DE JOUR DIMINUTION DE LA QUANTITE RATION JOURNA) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/q9313_13 {
+mytable
+myquestion 
+557 VALUE
+ myquestion removeGRID
+/long_name (Q9313 NOMBRE DE JOUR ACHAT DES REPAS POUR DES RAISONS ECONOM) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/q9314_14 {
+mytable
+myquestion 
+558 VALUE
+ myquestion removeGRID
+/long_name (Q9314 NOMBRE DE JOUR DIMINUTION DE NOMBRE DE REPAS) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/q9315_15 {
+mytable
+myquestion 
+559 VALUE
+ myquestion removeGRID
+/long_name (Q9315 NOMBRE DE JOUR PASSER TOUTE UNE JOURNEE SANS MANGER) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q24A {
+mytable
+myquestion 
+560 VALUE
+ myquestion removeGRID
+/long_name (Q24A ID) def 
+}defasvarsilent
+
+/Q24C {
+mytable
+myquestion 
+561 VALUE
+ myquestion removeGRID
+/long_name (Q24C lien de parenté avec le Chef de ménage) def 
+/units /ids def
+/CLIST [(CHEF DE MENAGE)(EPOUX/EPOUSE)(FILS/FILLE)(PERE/MERE)(FRERE/SOEUR)(PETITS ENFANTS)(NEVEU OU NIECE)(AUTRES PARENTS)(AUCUN LIEN DE PARENTE)] def
+/scale_min 1 def
+/scale_max 9 def
+}defasvarsilent
+
+/Q24D {
+mytable
+myquestion 
+562 VALUE
+ myquestion removeGRID
+/long_name (Q24D Résidence) def 
+/units /ids def
+/CLIST [(PRESENT)(ABSENT)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q24E {
+mytable
+myquestion 
+563 VALUE
+ myquestion removeGRID
+/long_name (Q24E Age) def 
+}defasvarsilent
+
+/Q24E1 {
+mytable
+myquestion 
+564 VALUE
+ myquestion removeGRID
+/long_name (Q24E1 Age en mois (enfants 0 à 24 mois)) def 
+}defasvarsilent
+
+/Q24F {
+mytable
+myquestion 
+565 VALUE
+ myquestion removeGRID
+/long_name (Q24F Sexe) def 
+/units /ids def
+/CLIST [(MASCULIN)(FEMININ)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q24G {
+mytable
+myquestion 
+566 VALUE
+ myquestion removeGRID
+/long_name (Q24G Occupation principale) def 
+/units /ids def
+/CLIST [(AGRICULTURE)(ELEVAGE)(PETIT COMMERCE)(ARTISANAT)(CHASSE/PECHE)(BUCHERON)(ELEVE/ETUDIANT)(TRAVAUX MENAGERS ET DOMESTIQUES)(SOIN DES ANIMAUX AU SEIN DU MENAGE)(SECTEUR PUBLIC/PRIVE)(COMMERCANT/ENTREPRENEUR)(AUTRES)(NON APPLICABLE)] def
+/scale_min 1 def
+/scale_max 13 def
+}defasvarsilent
+
+/Q24H {
+mytable
+myquestion 
+567 VALUE
+ myquestion removeGRID
+/long_name (Q24H Le niveau d'instruction 5 ans et plus) def 
+/units /ids def
+/CLIST [(PRIMAIRE)(SECONDAIRE)(SUPERIEUR)(CORANIQUE)(ALPHABETISE)(AUCUN)(NON APPLICABLE)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/ISA5_recode {
+mytable
+myquestion 
+568 VALUE
+ myquestion removeGRID
+/long_name (CLASSE VULNERABILITE EN DEUX GROUPES) def 
+/units /ids def
+/CLIST [(Sévère + Modérée)(En sécurité alimentaire)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/poste_dep1 {
+mytable
+myquestion 
+569 VALUE
+ myquestion removeGRID
+/long_name (Alimentation) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/poste_dep2 {
+mytable
+myquestion 
+570 VALUE
+ myquestion removeGRID
+/long_name (Santé) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/poste_dep3 {
+mytable
+myquestion 
+571 VALUE
+ myquestion removeGRID
+/long_name (Education) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/poste_dep4 {
+mytable
+myquestion 
+572 VALUE
+ myquestion removeGRID
+/long_name (Transport) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/poste_dep5 {
+mytable
+myquestion 
+573 VALUE
+ myquestion removeGRID
+/long_name (Logement eau et electricité) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/poste_dep6 {
+mytable
+myquestion 
+574 VALUE
+ myquestion removeGRID
+/long_name (Habits et chaussures) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/poste_dep7 {
+mytable
+myquestion 
+575 VALUE
+ myquestion removeGRID
+/long_name (Cérémonies et funérailles) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/poste_dep8 {
+mytable
+myquestion 
+576 VALUE
+ myquestion removeGRID
+/long_name (Remboursement emprunts et dettes) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/poste_dep9 {
+mytable
+myquestion 
+577 VALUE
+ myquestion removeGRID
+/long_name (Autres dépenses) def 
+/units /ids def
+/CLIST [(Non)(Oui)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/poste_depense {
+mytable
+myquestion 
+578 VALUE
+ myquestion removeGRID
+/long_name (poste_depense) def 
+}defasvarsilent
+
+/v026 {
+mytable
+myquestion 
+579 VALUE
+ myquestion removeGRID
+/long_name (Partition en 15 classes) def 
+/units /ids def
+/CLIST [(Classe 1/15)(Classe 2/15)(Classe 3/15)(Classe 4/15)(Classe 5/15)(Classe 6/15)(Classe 7/15)(Classe 8/15)(Classe 9/15)(Classe 10/15)(Classe 11/15)(Classe 12/15)(Classe 13/15)(Classe 14/15)(Classe 15/15)] def
+/scale_min 1 def
+/scale_max 15 def
+}defasvarsilent
+
+/classevul0 {
+mytable
+myquestion 
+580 VALUE
+ myquestion removeGRID
+/long_name (Classe de vulnérabilité recalculée) def 
+/units /ids def
+/CLIST [(Sévère)(Modérée)( A risque)(En sécurité alimentaire)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/source_revenu {
+mytable
+myquestion 
+581 VALUE
+ myquestion removeGRID
+/long_name (Premières sources de revenu recodée) def 
+/units /ids def
+/CLIST [(Agriculteurs)(Agric&Elev.)(Petit.com)(Transfert)(Travail journ)(Commerce)(Salarie)(Vent.Boi.pail.)(Artisanat)(Autr.)] def
+/scale_min 1 def
+/scale_max 10 def
+}defasvarsilent
+
+/filter_$ {
+mytable
+myquestion 
+582 VALUE
+ myquestion removeGRID
+/long_name (Depart = 55 (FILTER)) def 
+/units /ids def
+/CLIST [(Not Selected)(Selected)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q91A1 {
+mytable
+myquestion 
+583 VALUE
+ myquestion removeGRID
+/long_name (Q91A NBRE REPAS COLLECTIFS PRIS ACTUELLEMENT DANS LE MENAGE) def 
+/units /ids def
+/CLIST [(Un repas)(Deux repas)(Trois repas et plus)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q91B1 {
+mytable
+myquestion 
+584 VALUE
+ myquestion removeGRID
+/long_name (Q91B NBRE REPAS COLLECTIFS PRIS HABITUELLEMENT DANS LE MENAG) def 
+/units /ids def
+/CLIST [(Un repas)(Deux repas)(Trois repas et plus)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q92A1 {
+mytable
+myquestion 
+585 VALUE
+ myquestion removeGRID
+/long_name (Q92A NBRE REPAS COLLECTIFS MOINS 5 ANS ACTUELLEMENT) def 
+/units /ids def
+/CLIST [(Un repas)(Deux repas)(Trois repas et plus)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q92B1 {
+mytable
+myquestion 
+586 VALUE
+ myquestion removeGRID
+/long_name (Q92B NBRE REPAS COLLECTIFS MOINS 5 ANS HABITUELLEMENT) def 
+/units /ids def
+/CLIST [(Un repas)(Deux repas)(Trois repas et plus)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

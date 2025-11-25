@@ -1,0 +1,31 @@
+\begin{ingrid}
+
+continuedataset:
+
+/tmin {
+ SOURCES .ZMD .ENACTS .temperature .MRG .monthly .tmin
+T (1981) (2010) RANGE
+yearly-climatology
+/long_name (tmin 1981-2010 average) def
+temp_colors
+/scale_symmetric false def
+%  DATA 14 26 RANGE
+DATA AUTO AUTO RANGE
+}defasvar
+
+/tmax {
+ SOURCES .ZMD .ENACTS .temperature .MRG .monthly .tmax
+T (1981) (2010) RANGE
+yearly-climatology
+/long_name (tmax 1981-2010 average) def
+temp_colors
+/scale_symmetric false def
+%  DATA 30 43 RANGE
+DATA AUTO AUTO RANGE
+}defasvar
+
+:dataset
+
+\end{ingrid}
+
+

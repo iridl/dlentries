@@ -1,0 +1,215 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/mydata
+{
+/D
+/character unordered 
+  { /gprcp /gcnt /oprcp /prcp /intvar /aprcp /percentofgamma } cvlit
+ NewGRID
+T 1 7 twogridmodcounter
+T (/Data/data5/noaa/cpc/CAMS-OPI-v0208_old/cams_opi_merged.%Y%m) strftimes
+copyachunk
+[X Y ] -999 readr4
+}
+defasvarsilent
+:datasetdefs
+/dataset_documentation.html currentobject 1 index get def
+link:
+/name (v0208) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCEP/.CPC/.CAMS_OPI/.v0208/) def
+/description (this dataset was replaced by v0208) def
+/semantics /dcterm:isReplacedBy def
+:link
+grid:
+/name /X def
+degE
+1.25 2.5 358.75 
+periodic
+:grid
+grid:
+/name /Y def
+degN
+-88.75 2.5 88.75
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1979 ensotime
+1.
+systemtime 
+2419200 sub
+16 exch (%b %Y) 10 strftime interp ensotime
+/defaultvalue {last} def
+:grid
+T 
+{ (/Data/data5/noaa/cpc/CAMS-OPI-v0208_old/cams_opi_merged.%Y%m[T])[T]} 
+removeextrausing 
+%last
+%rm19602ymd
+%ymd:nextmonth
+%ymd:nextmonth
+% ymd2systemtime
+%/expires exch def
+name exch def
+/last_modified T .last_modified def
+%/expires T .expires def
+dataset:
+/name /percentofgamma def
+/prcp 
+{
+dataset .mydata
+D /percentofgamma VALUE D removeGRID
+/long_name (precipitation) def
+/units (percent) def
+} defasvarsilent
+:dataset
+dataset: 
+/name /gauge def
+/prcp 
+{
+dataset .mydata
+D /gprcp VALUE D removeGRID
+/long_name (precipitation) def
+/units (mm/day) def
+startcolormap
+DATA 0 20 RANGE
+white
+grey
+cyan 0 VALUE
+blue 15 VALUE
+navy 20 VALUE
+darkgrey
+endcolormap
+} defasvarsilent
+/count 
+{dataset .mydata
+D /gcnt VALUE D removeGRID
+} defasvarsilent
+:dataset
+dataset: 
+/name /satellite def
+/prcp {
+dataset .mydata
+D /oprcp VALUE D removeGRID
+/long_name (precipitation) def
+/units (mm/day) def
+startcolormap
+DATA 0 20 RANGE
+white
+grey
+cyan 0 VALUE
+blue 15 VALUE
+navy 20 VALUE
+darkgrey
+endcolormap
+} defasvarsilent
+:dataset
+dataset:
+/name /mean def
+/prcp {
+dataset .mydata
+D /prcp VALUE D removeGRID
+/long_name (precipitation) def
+/units (mm/day) def
+startcolormap
+DATA 0 20 RANGE
+white
+grey
+cyan 0 VALUE
+blue 15 VALUE
+navy 20 VALUE
+darkgrey
+endcolormap
+} defasvarsilent
+:dataset
+dataset:
+/name /anomaly def
+/prcp {
+dataset .mydata
+D /aprcp VALUE D removeGRID
+/long_name (precipitation) def
+/units (mm/day) def
+startcolormap
+DATA -40 40 RANGE
+white
+darkgrey
+DarkRed -40 VALUE
+red -30 VALUE
+orange -20 VALUE
+yellow -10 VALUE
+moccasin 0 VALUE
+PaleGreen 10 VALUE
+aquamarine 20 VALUE
+DeepSkyBlue 30 VALUE
+blue 40 VALUE
+navy
+endcolormap
+} defasvarsilent
+:dataset
+:dataset
+\end{ingrid}
+Hi Benno,
+
+I have placed the data files available for the latest version of
+CAMS-OPI in the directory /Data/data5/noaa/cpc/CAMS-OPI-v0208 , along
+with the documentation and the renamed "gauge.input" file.  At the ncep
+ftp server (ftp.ncep.noaa.gov) the files are in the directory
+/pub/precip/data-req/cams_opi_v0208 .
+
+An excerpt from the documentation:
+
+The "CAMS_OPI" data are 2.5 degree lat/lon spatial means of monthly
+mean precipitation derived from station gauges and satellite estimates.
+Each data 'record' is a 144 x 72 array, oriented from SOUTH -> North
+and Eastward from 1.25E.
+
+The array orientation is:
+
+
+     0     2.5E   5.0E        2.5W     0
+     |      |      |           |       |
+     -----------------------------------  South Pole
+     |      |      |           |       |
+     |(1,1) | (2,1)|   ....    |(144,1)|.............88.75S
+     |      |      |           |       |
+     -----------------------------------  87.5S
+     |      |      |           |       |
+     |(1,2) | (2,2)|   ....    |(144,2)|.............86.25S
+     |      |      |           |       |
+     -----------------------------------  85.0S
+                        .
+                        .
+                        .
+     -----------------------------------  87.5N
+     |      |      |           |        |
+     |(1,72)|(2,72)|   ....    |(144,72)|............88.75N
+     |      |      |           |        |
+     -----------------------------------   Nort Pole
+         .      .                  .
+         .      .                  .
+         .      .                  .
+       1.25E  3.75E               1.25W
+
+     Note that the the coordinates for each grid correspond to the
+center of
+     each box since the data values are spatial averages.
+
+A separate data file for each month exists.  The data arrays are in a
+FORTRAN
+77 "direct", binary records ("IEEE") and are grouped as follows:
+
+  Record 1: Precipitation analysis based on raingauge data only (CAMS)
+               2: number of CAMS gauges
+               3: Precipitation analysis based on OPI estimates only
+               4: The blended analysis CAMS_OPI monthly total precip.
+analysis
+               5: For Internal Use only
+               6: CAMS_OPI monthly anomaly (1979-1995 base period)
+               7:    "        "       "    expressed as % of gamma
+distribution
+
+The units are "mm/day" for the means and anomalies.
+
+
+  --Michael

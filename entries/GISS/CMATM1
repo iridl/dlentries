@@ -1,0 +1,46 @@
+The surface diagnostics from a coupled model run that ...
+\begin{ingrid}
+/CMATM1 insertdataset:
+/source (Run C027AM) def
+/contact (Gary L. Russell <I>cmglr@isis.giss.nasa.gov</I>)def
+/history (The surface diagnostics from a coupled model run) def
+grid:
+/name /X def
+degE
+periodic
+-177.5 5 177.5
+:grid
+grid:
+/name /Y def
+degN
+-90 to 90 N= 46 pts
+:grid
+grid:
+/name /L def
+1 1 8
+:grid
+
+grid:
+/name /T def
+monthtime
+16 Dec 1977 ensotime 1. 16 Jan 2098 ensotime
+:grid
+variable:
+/name /sst def
+/long_name (Sea Surface Temperature) def
+/history dataset >history def
+/units (C) def
+grids: X Y | T :grids
+file:
+/name (/hosts/photon/local/data/poscratch/clement/OSUTEM23.M.0174) def
+sequential
+/nskp 20 def
+:file
+:variable
+
+:insertdataset
+\end{ingrid}
+
+
+
+

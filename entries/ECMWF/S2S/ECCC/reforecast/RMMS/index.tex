@@ -1,0 +1,135 @@
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+07 Jan 2016 julian_day 01 Jan 1960 julian_day sub
+1.0
+%02 Mar 2017 julian_day
+systemtime
+(%d %b %Y) 12 strftime interp julian_day
+01 Jan 1960 julian_day sub
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+S {(/Data/data25/ECMWF/S2S/ECCC/REF/RMMS/%Y[S]/%m[S]/z_s2s_rmm_cwao_prod_rf_2014%m[S]%d[S]00_%Y%m%d[S].txt) [S]} removeextrausing
+name exch def
+
+grid:
+/name /hdate def
+/units (months since 1960-01-01) def
+01 Jul 1995 ensotime
+12.0
+01 Jul 2017 ensotime
+/defaultvalue { last } def
+:grid
+
+grid:
+/name /L def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+1. 1. 32.
+/pointwidth 0. def
+:grid
+
+
+grid:
+/name /M def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+0 1 3
+:grid
+
+
+dataset:
+/name (ensembles) def
+
+[ M L S hdate ] {name exch def } forall
+
+ /RMM1 { [ M L | S hdate ] 
+ (/Data/data25/ECMWF/S2S/ECCC/REF/RMMS/%Y[S]/%m[S]/z_s2s_rmm_cwao_prod_rf_%Y[hdate]%m%d[S]00_%Y%m%d[S].txt) [ S hdate ]
+readdatafile:
+((/,31(/,4(11X,F6.3,/)),(/,3(11X,F6.3,/),(11X,F6.3)))) formatted
+:readdatafile
+/long_name (RMM1) def
+/units (unitless) def
+} defasvarsilent
+
+ /RMM2 { [ M L | S hdate ] 
+ (/Data/data25/ECMWF/S2S/ECCC/REF/RMMS/%Y[S]/%m[S]/z_s2s_rmm_cwao_prod_rf_%Y[hdate]%m%d[S]00_%Y%m%d[S].txt) [ S hdate ]
+ readdatafile:
+ ((/,31(/,4(18X,F6.3,/)),(/,3(18X,F6.3,/),(18X,F6.3)))) formatted
+ :readdatafile
+ /long_name (RMM2) def
+ /units (unitless) def
+ } defasvarsilent
+
+ /amplitude { [ M L | S hdate ]
+ (/Data/data25/ECMWF/S2S/ECCC/REF/RMMS/%Y[S]/%m[S]/z_s2s_rmm_cwao_prod_rf_%Y[hdate]%m%d[S]00_%Y%m%d[S].txt) [ S hdate ]
+ readdatafile:
+ ((/,31(/,4(25X,F6.3,/)),(/,3(25X,F6.3,/),(25X,F6.3)))) formatted
+ :readdatafile
+ /long_name (amplitude) def
+ /units (unitless) def
+ } defasvarsilent
+
+ /phase { [ M L | S hdate ]
+ (/Data/data25/ECMWF/S2S/ECCC/REF/RMMS/%Y[S]/%m[S]/z_s2s_rmm_cwao_prod_rf_%Y[hdate]%m%d[S]00_%Y%m%d[S].txt) [ S hdate ]
+ readdatafile:
+ ((/,31(/,4(32X,F1.0,/)),(/,3(32X,F1.0,/),(32X,F1.0)))) formatted
+ :readdatafile
+ /long_name (phase) def
+ /units (unitless) def
+ } defasvarsilent
+:dataset
+
+dataset:
+/name (ensemble_mean) def
+
+[ L S hdate ] {name exch def } forall
+
+ /RMM1 { [ L | S hdate ] 
+ (/Data/data25/ECMWF/S2S/ECCC/REF/RMMS/%Y[S]/%m[S]/z_s2s_rmm_cwao_prod_rf_%Y[hdate]%m%d[S]00_%Y%m%d[S].txt) [ S hdate ]
+ readdatafile:
+ ((/,31(11X,F6.3,5(/)),(11X,F6.3))) formatted
+ :readdatafile
+ /long_name (RMM1) def
+ /units (unitless) def
+ } defasvarsilent
+
+ /RMM2 { [ L | S hdate ]
+ (/Data/data25/ECMWF/S2S/ECCC/REF/RMMS/%Y[S]/%m[S]/z_s2s_rmm_cwao_prod_rf_%Y[hdate]%m%d[S]00_%Y%m%d[S].txt) [ S hdate ]
+ readdatafile:
+ ((/,31(18X,F6.3,5(/)),(18X,F6.3))) formatted
+ :readdatafile
+ /long_name (RMM2) def
+ /units (unitless) def
+ } defasvarsilent
+
+ /amplitude { [ L | S hdate ] 
+ (/Data/data25/ECMWF/S2S/ECCC/REF/RMMS/%Y[S]/%m[S]/z_s2s_rmm_cwao_prod_rf_%Y[hdate]%m%d[S]00_%Y%m%d[S].txt) [ S hdate ]
+ readdatafile:
+ ((/,31(25X,F6.3,5(/)),(25X,F6.3))) formatted
+ :readdatafile
+ /long_name (amplitude) def
+ /units (unitless) def
+ } defasvarsilent
+
+ /phase { [ L | S hdate ] 
+ (/Data/data25/ECMWF/S2S/ECCC/REF/RMMS/%Y[S]/%m[S]/z_s2s_rmm_cwao_prod_rf_%Y[hdate]%m%d[S]00_%Y%m%d[S].txt) [ S hdate ]
+ readdatafile:
+ ((/,31(32X,F1.0,5(/)),(32X,F1.0))) formatted
+ :readdatafile
+ /long_name (phase) def
+ /units (unitless) def
+ } defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}

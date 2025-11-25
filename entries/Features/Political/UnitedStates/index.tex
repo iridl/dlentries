@@ -1,0 +1,251 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (irigaz:United_States_156_1) def
+
+dataset:
+/name /Counties def
+/description (US administrative boundaries) def
+%{  db:
+%   /server (localhost) def
+%   /dbname (iridb) def
+%   :db
+%   (select co99_d00_i,co99_d00_i as co_id,state,county,name as co_name,the_geom from co99_d00 order by co99_d00_i) (co99_d00_i) openqueryby
+
+/state {
+IRIDB (co99_d00) (state) [(co99_d00_i)] open_column_by
+            /long_name (State code) def
+}defasvarsilentnoreuse
+
+/county {
+IRIDB (co99_d00) (county) [(co99_d00_i)] open_column_by
+            /long_name (County code) def
+}defasvarsilentnoreuse
+
+/co_name {
+IRIDB (co99_d00) (name as co_name) [(co99_d00_i)] open_column_by
+            /long_name (County name) def
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (co99_d00) (the_geom) [(co99_d00_i)] open_column_by
+            /long_name (County geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (co99_d00) ((name || ', ' || state) as label)  [(co99_d00_i)] open_column_by
+            /long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+dataset:
+/name /Countries_GAUL def
+
+/adm0_name {
+SOURCES .Features .Political .World .Countries_GAUL .adm0_name
+adm0_code 259 VALUE
+}defasvar
+
+/the_geom {
+SOURCES .Features .Political .World .Countries_GAUL .the_geom
+adm0_code 259 VALUE
+}defasvar
+
+/label {
+SOURCES .Features .Political .World .Countries_GAUL .label
+adm0_code 259 VALUE
+}defasvar
+
+:dataset
+
+dataset:
+/name /Countries_GAUL_coarse def
+
+/adm0_name {
+SOURCES .Features .Political .World .Countries_GAUL_coarse .adm0_name
+adm0_code 259 VALUE
+}defasvar
+
+/the_geom {
+SOURCES .Features .Political .World .Countries_GAUL_coarse .the_geom
+adm0_code 259 VALUE
+}defasvar
+
+/label {
+SOURCES .Features .Political .World .Countries_GAUL_coarse .label
+adm0_code 259 VALUE
+}defasvar
+
+:dataset
+
+dataset:
+/name /firstOrder_GAUL def
+
+/adm1_name {
+SOURCES .Features .Political .World .firstOrder_GAUL .adm1_name
+gid 1207 1257 RANGE
+}defasvar
+
+/adm1_code {
+SOURCES .Features .Political .World .firstOrder_GAUL .adm1_code
+gid 1207 1257 RANGE
+}defasvar
+
+/adm0_name {
+SOURCES .Features .Political .World .firstOrder_GAUL .adm0_name
+gid 1207 1257 RANGE
+}defasvar
+
+/adm0_code {
+SOURCES .Features .Political .World .firstOrder_GAUL .adm0_code
+gid 1207 1257 RANGE
+}defasvar
+
+/the_geom {
+SOURCES .Features .Political .World .firstOrder_GAUL .the_geom
+gid 1207 1257 RANGE
+}defasvar
+
+/label {
+SOURCES .Features .Political .World .firstOrder_GAUL .label
+gid 1207 1257 RANGE
+}defasvar
+
+:dataset
+
+dataset:
+/name /firstOrder_GAUL_coarse def
+
+/adm1_name {
+SOURCES .Features .Political .World .firstOrder_GAUL_coarse .adm1_name
+gid 1207 1257 RANGE
+}defasvar
+
+/adm1_code {
+SOURCES .Features .Political .World .firstOrder_GAUL_coarse .adm1_code
+gid 1207 1257 RANGE
+}defasvar
+
+/adm0_name {
+SOURCES .Features .Political .World .firstOrder_GAUL_coarse .adm0_name
+gid 1207 1257 RANGE
+}defasvar
+
+/adm0_code {
+SOURCES .Features .Political .World .firstOrder_GAUL_coarse .adm0_code
+gid 1207 1257 RANGE
+}defasvar
+
+/the_geom {
+SOURCES .Features .Political .World .firstOrder_GAUL_coarse .the_geom
+gid 1207 1257 RANGE
+}defasvar
+
+/label {
+SOURCES .Features .Political .World .firstOrder_GAUL_coarse .label
+gid 1207 1257 RANGE
+}defasvar
+
+:dataset
+
+dataset:
+/name /secondOrder_GAUL def
+
+/adm2_name {
+SOURCES .Features .Political .World .secondOrder_GAUL .adm2_name
+gid 10669 13808 RANGE
+}defasvar
+
+/adm2_code {
+SOURCES .Features .Political .World .secondOrder_GAUL .adm2_code
+gid 10669 13808 RANGE
+}defasvar
+
+/adm1_name {
+SOURCES .Features .Political .World .secondOrder_GAUL .adm1_name
+gid 10669 13808 RANGE
+}defasvar
+
+/adm1_code {
+SOURCES .Features .Political .World .secondOrder_GAUL .adm1_code
+gid 10669 13808 RANGE
+}defasvar
+
+/adm0_name {
+SOURCES .Features .Political .World .secondOrder_GAUL .adm0_name
+gid 10669 13808 RANGE
+}defasvar
+
+/adm0_code {
+SOURCES .Features .Political .World .secondOrder_GAUL .adm0_code
+gid 10669 13808 RANGE
+}defasvar
+
+/the_geom {
+SOURCES .Features .Political .World .secondOrder_GAUL .the_geom
+gid 10669 13808 RANGE
+}defasvar
+
+/label {
+SOURCES .Features .Political .World .secondOrder_GAUL .label
+gid 10669 13808 RANGE
+}defasvar
+
+:dataset
+
+dataset:
+/name /secondOrder_GAUL_coarse def
+
+/adm2_name {
+SOURCES .Features .Political .World .secondOrder_GAUL_coarse .adm2_name
+gid 10669 13808 RANGE
+}defasvar
+
+/adm2_code {
+SOURCES .Features .Political .World .secondOrder_GAUL_coarse .adm2_code
+gid 10669 13808 RANGE
+}defasvar
+
+/adm1_name {
+SOURCES .Features .Political .World .secondOrder_GAUL_coarse .adm1_name
+gid 10669 13808 RANGE
+}defasvar
+
+/adm1_code {
+SOURCES .Features .Political .World .secondOrder_GAUL_coarse .adm1_code
+gid 10669 13808 RANGE
+}defasvar
+
+/adm0_name {
+SOURCES .Features .Political .World .secondOrder_GAUL_coarse .adm0_name
+gid 10669 13808 RANGE
+}defasvar
+
+/adm0_code {
+SOURCES .Features .Political .World .secondOrder_GAUL_coarse .adm0_code
+gid 10669 13808 RANGE
+}defasvar
+
+/the_geom {
+SOURCES .Features .Political .World .secondOrder_GAUL_coarse .the_geom
+gid 10669 13808 RANGE
+}defasvar
+
+/label {
+SOURCES .Features .Political .World .secondOrder_GAUL_coarse .label
+gid 10669 13808 RANGE
+}defasvar
+
+:dataset
+
+:dataset
+
+secondOrder_GAUL_coarse adm0_name .gid name exch put
+secondOrder_GAUL adm0_name .gid name exch put
+firstOrder_GAUL_coarse adm0_name .gid name exch put
+firstOrder_GAUL adm0_name .gid name exch put
+Countries_GAUL_coarse adm0_name .adm0_code name exch put
+Countries_GAUL adm0_name .adm0_code name exch put
+Counties co_name .co99_d00_i name exch put
+
+\end{ingrid}

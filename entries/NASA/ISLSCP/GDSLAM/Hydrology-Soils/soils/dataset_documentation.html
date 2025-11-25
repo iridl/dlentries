@@ -1,0 +1,791 @@
+<html>
+<INGRID>standardHeader</INGRID>
+<h1 align=center>Global Soil Properties<br>
+ <font size=-1>(Fixed ; FAO, GISS, U. Arizona, NASA/GSFC)</font><br>
+ Revision Date for Document: April 5, 1995
+</h1>
+<p align=center>
+     Randal D. Koster
+     NASA/GSFC,
+
+     Norman B. Bliss 
+     Principal Scientist 
+     Science and Applications Branch, 
+
+     Saud A. Amer
+     ECS DAAC Scientist
+     EROS Data Center,
+
+     Soroosh Sorooshian
+     Professor and Head
+     Department of Hydrology and Water Resources
+     University of Arizona
+</p>
+<br><br>
+<h2>Global Soil Data Set Development and Analysis</h2>
+<br>
+<h3>  Contacts (For Data Production Information)</h3>
+<pre> 
+_________________________________________________
+              |            Contact 1             |
+______________|__________________________________|
+2.3.1 Name    |Dr. Randal D. Koster              |
+2.3.2 Address |Hydrological Sciences Branch      |
+              |Code 974, NASA/GSFC               |
+      City/St.|Greenbelt, MD                     |
+      Zip Code|20771                             |
+2.3.3 Tel.    |(301) 286-7061                    |
+2.3.4 Email   |randy@worldh2o.gsfc.nasa.gov      |
+______________|__________________________________|
+
+2.4  Requested Form of Acknowledgment. 
+
+     The soil texture data set was constructed by Zobler (1986), and
+     the soil profile depth data set was constructed by Webb et al.
+     (1993).  Slope data were originally derived from the FAO Soil Map
+     of the World in a 1 degree grid (GLOBTEX), version 1.0, by the
+     Science and Applications Branch, EROS Data Center, Sioux Falls,
+     South Dakota.  Dr. R.D. Koster performed the analyses necessary to 
+     assign parameter values to the soil map texture classes.
+
+     CREDIT AND DISCLAIMER
+
+     Hughes STX Corporation work performed under USGS contract 
+     1434-92-C-40004.  Any use of trade, product, or firm names is for 
+     descriptive purposes only and does not imply endorsement by the U.S. 
+     Government.   
+
+                              3.   Introduction
+
+3.1  Objective/Purpose.
+
+     Climate modelers need information on the water holding capacity of
+     global soils.  The best source of this information is the Soil Map
+     of the World, which was produced by the Food and Agriculture
+     Organization (FAO) of the United Nations Educational, Scientific,
+     and Cultural Organization (UNESCO) in 10 volumes between 1970 and
+     1978.  It provides the most detailed, globally consistent soil
+     data.
+
+     Because water holding capacity is not an explicit attribute of the
+     FAO soil map, the data on texture, slope, and depth that the soil
+     map does provide may be used as surrogates.  The three data sets
+     described herein were derived, by various researchers, from
+     the FAO soil data.  For climate modelers, a 1 degree by 1 degree
+     grid of latitude and longitude has been deemed adequate.
+
+3.2  Summary of Parameters.
+
+     Soil texture is characterized here as either coarse,
+     medium/coarse, medium, fine/medium, fine, ice or organic.  Soil
+     profile depth is an estimate of the depth from the soil surface to
+     bedrock or other impermeable layer.  Slope is the surface slope,
+     as defined by the topography.
+
+3.3  Discussion.
+
+     A) SOIL TEXTURE.  The soil texture data file is based on the work
+     of Zobler (1986) and uses the indices listed in the table below to
+     identify the texture of the dominant soil type within each 1
+     degree X 1 degree grid square.  The original FAO data provided,
+     for the dominant soil type in a soil unit, the designation
+     "coarse", "medium", "fine", or a combination of these based on the
+     relative amounts of clay, silt, and sand present in the top 30 cm
+     of soil.  Zobler converted this data into a 1 degree X 1 degree
+     array.
+
+     Also listed in the table are some suggested, arbitrarily chosen
+     values (see caveat) for associated soil moisture transport
+     properties.
+
+   index   soil texture       n    psi_s       K_s       b  comments
+   -----   ------------   -----    -----     -----   -----  --------
+     1     coarse         0.421    .0363   1.41E-5    4.26  Loamy sand values*
+     2     medium/coarse  0.434    .1413   5.23E-6    4.74  Sandy loam values*
+     3     medium         0.439    .3548   3.38E-6    5.25  Loam values*
+     4     fine/medium    0.404    .1349   4.45E-6    6.77  Sandy clay loam
+                                                              values*
+     5     fine           0.465    .2630   2.45E-6    8.17  Clay loam values*
+     6     ice              --       --       --       --
+     7     organic        0.439    .3548   3.38E-6    5.25  Loam values*
+     0     (ocean)          --       --       --       --
+
+       where
+         n is the porosity (dimensionless),
+         psi_s is the matric potential at saturation (in m)
+         K_s is the saturated hydraulic conductivity (in m/s), and
+         b (dimensionless) is the slope of the retention curve on a logar-
+            ithmic graph, used to compute transport properties of subsaturated
+            soils.
+
+     * CAUTION: The assignment of loamy sand transport parameter values
+     to coarse soils does NOT imply that the "coarse" designation
+     implies a loamy sand in the USDA soil texture triangle (see
+     below).  Similarly, a "medium/coarse" designation does not imply a
+     sandy loam, a "medium" designation does not imply a loam, and so
+     on.  The mapping of transport parameter values to soil texture in
+     the table is highly arbitrary and technically incorrect.  It is
+     provided solely as a suggestion for the typical large scale (GCM)
+     modeler, who could easily run into trouble if the "technically
+     correct" numbers were used.
+
+     The suggested reclassification in the table reflects the
+     inappropriateness of assigning hydraulic properties of soils as
+     measured in the laboratory to GCM soil columns that represent
+     extensive areas -- they tend to produce unrealistic resistance to
+     soil moisture diffusion.  This is almost certainly due to the
+     inadequacy of current land surface models, which have very limited
+     treatments of subgrid soil moisture variability, and to the fact
+     that properties measured in the laboratory often do not describe
+     soil behavior in the field, which is strongly influenced by
+     spatial variability in texture, the presence of decayed root
+     systems, wormholes, etc.  As a makeshift response to this problem,
+     a given soil type in the table above is arbitrarily assigned
+     transport parameter values for a coarser textured soil.
+     Determining the optimal parameter values for each type, which are
+     probably very different from those listed above, would require
+     much further research.
+
+     The values for the four transport parameters were obtained from
+     the study of Cosby et al. (1984), who analyzed an extensive and
+     diverse collection of soil samples.
+
+     B) SOIL PROFILE DEPTH.  The soil profile thickness file was
+     derived by Webb et al. (1991, 1993) from information contained in
+     Volumes 2-10 of the FAO/UNESCO Soil Map of the World.  First, the
+     Earth was divided into nine continental regions: North America,
+     Mexico/Central America, South America, Europe, Africa,
+     South-Central Asia, North Central Asia, Southeast Asia, and
+     Australia/South Asia.  For each of these regions, the FAO records
+     were examined to determine the profile thickness for a
+     representative sample of every component soil type.  When a
+     thickness was undefined for a soil type, an arbitrary thickness of
+     3.6 meters was assigned; presumably the bedrock is at a greater
+     depth than this.  All soil elements of a given type within a given
+     continental region were then assumed to have the same profile
+     thickness.  The thicknesses stored in the file's 1 degree X 1
+     degree array are the thicknesses for the dominant soil types
+     within the grid squares, as determined by Zobler (1986).
+
+     C) AVERAGE SLOPE.  The average topographical slope for each 1
+     degree X 1 degree square was derived from data sets constructed by
+     the Science and Applications Branch of the EROS Data Center in
+     Sioux Falls, South Dakota.  Unlike the soil texture and soil
+     profile thickness data, the average slope data reflects all of the
+     soil regimes in a square, not just the dominant one.  The slope
+     estimates are crude, however, given the qualitative nature of the
+     original data.  See Section 9.2.1 for details on the construction
+     of the data set.
+ 
+                        4.  Theory of Measurements
+
+Textural classes reflect the relative proportions of clay (fraction less than 
+2 micrometers), silt (2-50 micrometers), and sand (50-2,000 micrometers) in 
+the soil.  The texture of a soil horizon is one of its most permanent 
+characteristics.  It is also a very important one because, in combination with 
+other properties, it influences soil structure, consistence, porosity, cation 
+exchange capacity, permeability and water holding capacity.   
+
+Three textural classes are recognized by the FAO Soil Map of the World:
+
+       1.  Coarse textured:  sands, loamy sands, and sandy loams with less 
+           than 18 percent clay and more than 65 percent sand.
+
+       2.  Medium textured:  sandy loams, loams, sandy clay loams, silt loams, 
+           silt, silty clay loams, and clay loams with less than 35 percent 
+           clay and less than 65 percent sand; the sand fraction may be as 
+           high as 82 percent if a minimum of 18 percent clay is present.
+
+       3.  Fine textured: clays, silty clays, sandy clays, clay loams, and 
+           silty clay loams with more than 35 percent clay.
+
+The textural class refers to the texture of the upper 30 centimeters of
+the soil, which is important for tillage and water retention.  The maps
+often state that a dominant soil type is composed of combinations of
+these textural classes (e.g., coarse AND medium for a given soil).
+
+
+                                       100/\
+                                         /  \
+                                      90/    \10
+                                       /      \
+                                    80/        \20
+                                     /          \
+                     / \          70/            \30
+                      |            /              \
+                      |         60/                \40
+                      |          /       FINE       \
+                Percent clay  50/                    \50  Percent silt
+                               /                      \         |
+                            40/                        \60      |
+                             /--------------------------\       |
+                          30/                            \70   \ /
+                           /                              \
+                        20/                                \80
+                         /--------          MEDIUM          \
+                      10/         \                          \10
+                       /    COARSE \                          \
+                       ----------------------------------------\
+                     100  90  80  70  60  50  40  30  20  10   
+                                   <--------------
+                                     Percent sand
+
+
+To obtain the soil moisture transport parameters listed in the table in
+Section 3.3, points corresponding to these textures or texture
+combinations were located on the U.S. Dept. of Agriculture (1951, p.
+209) textural triangle, a rough reproduction of which is shown below:
+
+
+                                       100/\
+                                         /  \
+                                      90/    \10
+                                       /      \
+                                    80/        \20
+                                     /          \
+                     / \          70/            \30
+                      |            /              \
+                      |         60/       C        \40
+                      |          /                 /\
+                Percent clay  50/\                /  \50  Percent silt
+                               /  \              / SiC\         |
+                            40/ SC \____________/______\60      |
+                             /______\     CL    \ SiCL  \       |
+                          30/ SCL    \___________\_______\70   \ /
+                           /_________/          /         \
+                        20/_         \    L    /   SiL     \80
+                         /  \_   SL   \       /             \
+                      10/\_   \_       \_____/         ______\90
+                       / S \ LS \_          /         /  Si   \
+                      /_____\_____\________/_________/_________\
+                     100  90  80  70  60  50  40  30  20  10   
+                                   <--------------
+                                     Percent sand
+
+The soil textures identified in the figure are:
+               C: Clay
+              SC: Sandy clay
+             SiC: Silty clay
+             SCL: Sandy clay loam
+              CL: Clay loam
+            SiCL: Silty clay loam
+               S: Sand
+              LS: Loamy sand
+              SL: Sandy loam
+               L: Loam
+             SiL: Silt loam
+              Si: Silt
+
+The points were then arbitrarily shifted toward coarser soils (see
+Section 3.3), and transport parameters for the coarser soils were taken
+from Cosby et al. (1984), who used the same triangle to differentiate
+soil types.
+
+Refer to the text published with the Soil Map of the World (FAO,
+1970-78) for additional information on the methods of measurement.  See
+also Zobler (1986) and Webb et al. (1991, 1993) for more background on
+the data used to determine soil texture and soil profile depth.
+
+                            5.  EQUIPMENT
+
+5.1  Instrument Description.
+
+     Not applicable.
+
+     5.1.1  Platform.
+
+            Not applicable.
+
+     5.1.2  Mission Objectives.
+
+            Not applicable.
+
+     5.1.3  Key Variables.
+
+            Not applicable.
+
+     5.1.4  Principles of Operation.
+
+            Not applicable.
+
+     5.1.5  Instrument Measurement Geometry.
+
+            Not applicable.
+
+     5.1.6  Manufacturer of Instrument.
+
+            Not applicable.
+
+5.2  Calibration.
+
+     Not applicable.
+
+     5.2.1  Specifications.
+
+            Not applicable.
+
+            5.2.1.1  Tolerance.
+
+                     Not applicable.
+
+     5.2.2  Frequency of Calibration.
+
+            Not applicable.
+
+     5.2.3  Other Calibration Information.
+
+            Not applicable.
+
+                          6.  PROCEDURE
+
+6.1  Data Acquisition Methods.
+
+     The original source maps are the FAO Soil Map of the World.  The ESRI 
+     digitized the data under contract to the United Nations Environment 
+     Program (UNEP) and the FAO in 1984.  The EROS Data Center obtained
+     the digital data from the ESRI in 1986 and constructed the data
+     sets that were later used to derive the global array of average
+     slope (see Section 9.2.1).
+
+6.2  Spatial Characteristics.
+
+     The original source map had a scale of 1:5,000,000 (1 millimeter on the 
+     map = 5 kilometers).
+
+     6.2.1  Spatial coverage.  
+
+            The coverage is global.  Data in each file are ordered from North 
+            to South and from West to East beginning at 180 degrees West and 
+            90 degrees North.  Point (1,1) represents the grid cell centered 
+            at 89.5 N and 179.5 W (see section 8.4).
+
+     6.2.2  Spatial Resolution.
+
+            The data are given in an equal-angle lat/long grid that has a 
+            spatial resolution of 1 x 1 degree lat/long.
+
+6.3  Temporal Characteristics.
+
+     6.3.1  Temporal coverage.
+
+            Soil survey and correlation work, primarily in the 1960's and 
+            1970's.   
+
+     6.3.2  Temporal resolution.
+
+            The soil map typically portrays time-invariant features.   
+
+                             7.  OBSERVATIONS
+
+7.1  Field Notes.
+
+     Not applicable.  Field notes were used by the soil surveyors in 
+     developing the original FAO Soil Map of the World and are reflected in 
+
+                               8.  DATA DESCRIPTION
+
+8.1  Table Definition.
+
+     Not applicable.
+
+8.2  Type of Data.
+
+-------------------------------------------------------------------------------
+|                 8.2.1              |               |          |             |
+|Parameter/Variable Name             |               |          |             |
+-------------------------------------------------------------------------------
+|                    8.2.2           |     8.2.3     |  8.2.4   |  8.2.5      |
+|     Parameter/Variable Description |     Range     |  Units   |  Source     |
+-------------------------------------------------------------------------------
+|DOMTEX                              |               |          |             |
+|    | Dominant soil texture index   |    min=0      |[Unit-    | Zobler et   |
+|    |                               |    max=7      |less]*    | al. (1986)  |
+|    |                               |               |          |             |
+-------------------------------------------------------------------------------
+|PROFDEP                             |               |          |             |
+|    |Soil profile depth             |    min=0      |   [cm]   | Webb et     |
+|    |                               |    max=800    |          | al. (1993)  |
+|    |                               |               |          |             |
+-------------------------------------------------------------------------------
+|AVGSLOPE                            |               |          |             |
+|    |Average slope                  |    min=10     |   [%]    | Manipulation|
+|    |                               |    max=40     |          | of EROS DATA|
+|    |                               |               |          | CENTER data |
+|    |                               |               |          | files (see  |
+|    |                               |               |          | sect. 9.2.1)|
+-------------------------------------------------------------------------------
+* The values in the soil texture map are an index. See table in section 3.3 
+  for description of each index value.
+
+8.3  Sample Data Record. 
+
+     See Section 8.4, Data Format.
+
+8.4  Data Format.
+
+     The CD-ROM file format is ASCII, and consists of numerical fields of 
+     varying length, which are space delimited and arranged in columns and 
+     rows.  Each column contains 180 numerical values and each row contain 360 
+     numerical values.  
+
+          Grid arrangement
+
+             ARRAY(I,J)
+             I  = 1 IS CENTERED AT 179.5W
+             I INCREASES EASTWARD BY 1 DEGREE
+             J  = 1 IS CENTERED AT 89.5N
+             J INCREASES SOUTHWARD BY 1 DEGREE
+
+             90N - | - - - | - - - | - - - | - -
+                   | (1,1) | (2,1) | (3,1) |
+             89N - | - - - | - - - | - - - | - -
+                   | (1,2) | (2,2) | (3,2) |
+             88N - | - - - | - - - | - - - | - -
+                   | (1,3) | (2,3) | (3,3) |
+             87N - | - - - | - - - | - - - |
+                  180W   179W    178W   177W
+
+            ARRAY(360,180)
+
+8.5  Related Data Sets.
+
+     Digital data for the FAO Soil Map of the World are available from the 
+     Land and Water Development Division, FAO, in Rome, Italy.  The data set 
+     does not include information on the components of the soil map units or 
+     the slope and texture within components.  
+
+     The EROS Data Center in Sioux Falls, South Dakota, has constructed
+     global arrays containing information on the subgrid distributions
+     of important soil properties.  They first divided soil texture
+     into three categories (coarse, medium, and fine), soil depth into
+     three categories (shallow, limited and other), and slope into
+     three categories (0-8%, 8-30%, and >30%).  A given soil element is
+     then described by one of 27 different combinations of texture,
+     depth, and slope.  The EROS Data Center produced an array for each
+     of the 27 combinations, giving the percentage of each 1 degree X 1
+     degree square covered by the particular combination.
+
+                            9.  DATA MANIPULATIONS
+
+9.1  Formulas.
+
+     9.1.1  Derivation techniques and algorithms.
+
+            Arc/Info software was used for most processing steps in the
+            construction of the slope data files generated by the EROS
+            Data Center (which were then used to construct the average
+            slopes), including projection from the bipolar oblique
+            conformal projection to geographic (latitude-longitude)
+            coordinates for the Americas.  The remainder of the world
+            was projected from the Miller oblated stereographic
+            projection using software provided by Sprinsky (1992).
+
+9.2  Data Processing Sequence.
+
+     9.2.1  Processing steps and data sets.
+
+            Data processing for the soil texture and profile depth
+            files are described by Zobler (1986) and Webb et al. (1991,
+            1993), respectively.  The average slopes were generated by
+            some simple processing of data sets produced by the EROS
+            Data Center.  These data sets provide, for each 1 degree X
+            1 degree square, the fractions f1, f2, and f3 of area
+            covered by "level to gently undulating" (0-8%), "rolling to
+            hilly" (8-30%) and "steeply dissected to mountainous"
+            (>30%) slopes, respectively.  For the calculation of the
+            average slope, the 0-8% slope category was assigned a
+            typical slope of 4%, the 8-30% slope category was assigned
+            an average slope of 19%, and the >30% slope category was
+            assigned the arbitrary slope of 40%.  The average slope was
+            then taken to be:
+
+                                       f1*4% + f2*19% + f3*40%
+                     average slope =  -------------------------
+                                              f1+f2+f3
+
+     9.2.2  Processing change.  
+
+            Not applicable.
+
+9.3  Calculations.
+
+     9.3.1  Special corrections and adjustments.  
+
+            See Webb et al. (1991, 1993) for a discussion of the
+            decision rules they used to account for missing or
+            inadequate data in the construction of the soil profile
+            depth data set.
+
+            A few of the 1 degree X 1 degree squares that were assumed
+            by Zobler (1986), Webb et al. (1991, 1993), and/or the EROS
+            data center to be ocean squares are in fact listed as land
+            squares in the vegetation data sets provided on the CD-ROM,
+            and vice-versa.  To correct this inconsistency, the soil
+            data files were modified to use the same land/sea mask as
+            the vegetation data files.  Missing soil data for the "new
+            land squares" were estimated subjectively from neighboring
+            squares.  Some of the "ice" squares in the original soil
+            data sets are considered "tundra" in the vegetation data
+            set; soil properties in these squares were similarly
+            redefined.
+
+9.4  Graphs and Plots. 
+
+     Not applicable.
+
+                                     10.  ERRORS
+
+10.1  Sources of Error.
+
+      The original FAO data represent a generalization of more detailed data, 
+      which may be available in various countries, and which are in
+      turn a generalized representation of reality.  As stated by
+      Zobler (1986), "about 11,000 maps were reviewed [to construct the
+      FAO Soil Map of the World]; they varied widely in reliability,
+      detail, precision, scales, methodologies, etc."  As with any soil
+      map, some of the variability in the actual soils is not shown on
+      the map.  Errors may have been introduced in the digitizing and
+      map projection process.
+
+      The soil texture and profile depth files contain data for the
+      dominant soil type in each 1 degree X 1 degree square and thus
+      ignore contributions from potentially significant secondary
+      components.  The profile depths are generally based on depths
+      measured for an equivalent soil elsewhere on the continent;
+      depths are not actually measured at each square.  For further
+      discussion of the limitations of these data sets, see Zobler
+      (1986) and Webb et al. (1991, 1993).  (The latter
+      note, for example, that "in many cases, the soil profile
+      thicknesses represent minimum possible values because profile
+      descriptions do not always extend to subsurface bedrock".)  An
+      obvious source of error in the average slope file is the
+      arbitrary choice of 40% to represent all steep slopes, when all
+      that is known is that they exceed 30%.  Also, for the files used
+      to compute the average slopes, assumptions were made on the
+      percentage composition of the components.  The vector data sets
+      were gridded as separate data sets, and the data sets were merged
+      in grid form.  Some overlaps between data sets were removed
+      manually.
+
+10.2  Quality Assessment.
+
+      10.2.1  Data validation by source. 
+
+              Not applicable.
+
+      10.2.2  Confidence level and accuracy judgment.
+
+              Some measure of reliability was provided for the original
+              FAO source maps, but these measures were not considered
+              when constructing the soil texture, depth, and slope
+              files, and corresponding arrays of reliability estimates
+              are not available.  The accuracy of the data is, of
+              course, severely limited by the errors outlined in
+              Section 10.1.
+
+      10.2.3  Measurement error for parameters and variables.  
+
+              The published FAO Soil Map of the World contains inset
+              maps showing three categories of reliability for the
+              source data used to make the map.  Those interested in
+              the reliability at a specific site should consult this
+              source; again, digitized global reliability estimates are
+              not available. Detailed soil surveys were performed only
+              over selected areas of each continent.
+
+      10.2.4  Additional quality assessment applied.  
+
+              Not applicable.
+
+                              11.  NOTES
+
+11.1  Known Problems with the Data.
+
+      The FAO Soil Map of the World is becoming out-of-date because of recent 
+      soil surveys and new techniques for measurement and data handling.  An 
+      international effort to develop a replacement, the Soil and Terrain 
+      (SOTER) digital data base of the world, is under development by the 
+      International Society of Soil Science, the International Soil Reference 
+      and Information Center, the FAO, and the UNEP.   
+
+11.2  Usage Guidance.
+
+      The three soil data files are provided mainly for use in defining
+      land surface properties for general circulation model (GCM)
+      applications.  Many land surface models coupled to GCMs require
+      estimates of soil profile depth, surface slope, and soil moisture
+      transport properties (as obtained from soil texture) for their
+      runoff, soil moisture storage, and drainage parameterizations.
+      Inherent in the data are large-scale spatial variations in the
+      soil properties, which presumably are realistic even if values at
+      various grid squares are inaccurate.  This large-scale structure
+      can be important for defining GCM climate.
+
+      Given that climate modelers are the expected users of the data,
+      the danger of using the data for other applications must be
+      stressed.  Extracting a soil texture, slope, or soil profile
+      depth from the files for a specific small-scale region (even a
+      region composed of numerous 1 degree X 1 degree squares) is
+      foolhardy without further research into the reliability of the
+      data in the region, as determined, for example, from the original
+      FAO Soil Map of the World.  At some squares, the data is
+      undoubtedly unreliable.  Even if the reliability were high, soil
+      texture and profile depth are provided only for the dominant soil
+      component of the 1 degree X 1 degree square, and thus the
+      appropriate values in a subgrid region of interest can easily be
+      missed.  The moisture transport parameter values listed in the
+      table in Section 3.3 are undoubtedly inaccurate and are provided
+      ONLY to give climate modelers a consistent basis for performing
+      intercomparison studies.
+
+      The data can be spatially aggregated by averaging the values in 
+      adjacent grid cells to create, for example, a 2x3 degree grid or a 3x5 
+      degree grid.  Although the grid cells are not equal area, and large 
+      errors would be introduced if a cell at the equator were averaged with 
+      a cell at the north pole, the errors from averaging adjacent cells will 
+      be within the accuracy limits for the data set.   
+
+11.3  Other Relevant Information.
+
+      Not applicable.
+
+                             12.  REFERENCES
+
+12.1  Data Processing Documentation.  
+
+      Not applicable.
+
+12.2  Journal Articles and Study Reports.
+
+      Cosby, B.J., G.M. Hornberger, R.B. Clapp, and T.R. Ginn, 1984.  A
+         statistical exploration of the relationships of soil moisture
+         characteristics to the physical properties of soils, Water
+         Resources Research, 20:682-690.
+      Food and Agriculture Organization (FAO) of the United Nations, 1970-78, 
+         Soil map of the world, scale 1:5,000,000, volumes I- X: United 
+         Nations Educational, Scientific, and Cultural Organization, Paris.   
+      Sprinsky, William H., 1992. The inverse solution for the Miller oblated 
+         stereographic projection:  Presented at the 27th International 
+         Geographical Congress, Washington, D.C.   
+      U.S. Dept. of Agriculture, 1951.  Soil Survey Manual.  U.S. Dept. of 
+         Agriculture Agricultural Handbook, 18, 503pp.
+      Webb, R.S., C.E. Rosenzweig, and E.R. Levine, 1991.  A global
+         data set of soil particle size properties, NASA Tech. Memo. 4286,
+         NASA, 34pp.
+      Webb, R.S., C.E. Rosenzweig, and E.R. Levine, 1993.  Specifying
+         land surface characteristics in general circulation models: soil
+         profile data set and derived water-holding capacities, Global
+         Biogeochemical Cycles, 7:97-108.
+      Zobler, L., 1986.  A world soil file for global climate modeling.  NASA 
+         Tech. Memo. 87802, NASA, 33pp.
+      Zobler, Leonard, 1987.  A world soil hydrology file for global climate 
+         modeling: International Geographic Information Systems Symposium: 
+         The Research Agenda, November 15-18, 1987, Arlington, Virginia, 
+         Proceedings. 1:229-244. 
+
+12.3 Archive/DBMS Usage Documentation.
+
+      Contact the EOS Distributed Active Archive Center (DAAC) at NASA Goddard 
+      Space Flight Center (GSFC), Greenbelt Maryland (see Section 13 below).
+      Documentation about using the archive or information about access to the 
+      on-line information system is available through the GSFC DAAC User 
+      Services Office.
+
+                             13.  DATA ACCESS
+
+13.1  Contacts for Archive/Data Access Information.
+
+      GSFC DAAC User Services
+      NASA/Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Phone:     (301) 286-3209
+      Fax:       (301) 286-1775
+      Internet:  daacuso@eosdata.gsfc.nasa.gov
+
+13.2  Archive Identification.
+
+      Goddard Distributed Active Archive Center
+      NASA Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Telephone:  (301) 286-3209
+      FAX:        (301) 286-1775
+      Internet:   daacuso@eosdata.gsfc.nasa.gov
+
+13.3  Procedures for Obtaining Data.
+
+      Users may place requests by accessing the on-line system, by sending 
+      letters, electronic mail, FAX, telephone, or personal visit.
+
+      Accessing the GSFC DAAC Online System:
+
+      The GSFC DAAC Information Management System (IMS) allows users to 
+      ordering data sets stored on-line.  The system is open to the public.
+
+      Access Instructions:
+
+      Node name:  daac.gsfc.nasa.gov
+      Node number: 192.107.190.139
+      Login example: telnet daac.gsfc.nasa.gov
+      Username:  daacims
+      password:  gsfcdaac
+
+      You will be asked to register your name and address during your first
+      session.
+
+      Ordering CD-ROMs:
+
+      To order CD-ROMs (available through the Goddard DAAC) users should 
+      contact the Goddard DAAC User Support Office (see section 13.2).
+
+13.4  GSFC DAAC Status/Plans.
+
+      The ISLSCP Initiative I CD-ROM is available from the Goddard DAAC.
+
+                    14.  OUTPUT PRODUCTS AND AVAILABILITY
+
+14.1  Tape Products.  
+
+      None.
+
+14.2  Film Products.  
+
+      None
+
+14.3  Other Products.
+
+      There are several ways in which these data can be made available to 
+      users.  One alternative assigns a unique identifier to each one degree 
+      cell and uses a relational data base management system to keep track of 
+      all of the attribute information.  This format is appropriate for 
+      researchers with a geographic information system that is linked to a 
+      relational data base management system, especially if additional 
+      interpretations are needed of the 106 FAO soil types.   
+
+                              15.  GLOSSARY OF ACRONYMS
+
+CD-ROM           Compact Disk--Read Only Memory
+DAAC             Distributed Active Archive Center
+DBMS             Data Base Management System
+ECS              EOS-DIS Core System
+EOS              Earth Observing System
+EOS-DIS          EOS Data and Information System
+EROS             Earth Resources Observation Systems
+ESRI             Environmental Systems Research Institute, Inc.
+FAO              Food and Agriculture Organization of the United Nations
+FTS              Data set name prefix: Fao soil type, Texture, and Slope
+GCM              General Circulation Model of the atmosphere
+GLOBTEX          GLOBal soil TEXture and slope data set
+GSFC             Goddard Space Flight Center
+IDS              Inter disciplinary Science
+ISLSCP           International Satellite Land Surface Climotology Project
+NASA             National Aeronautics and Space Administration
+SOTER            SOil and TERrain digital data base of the world
+UNEP             United Nations Environment Program
+UNESCO           United Nations Educational, Scientific, and Cultural 
+                 Organization
+</pre>
+</body></html>

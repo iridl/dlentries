@@ -1,0 +1,58 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.25 .5 359.75
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+89.75 -.5 -89.75
+:grid
+
+grid:
+/name (M) def
+%/long_name (Initial time) def
+values:
+%00 06 12 18
+1 2 3 4
+:values
+:grid
+grid:
+/name /L def
+/units (months) def
+/standard_name (forecast_period) def
+/pointwidth 1 def
+.5 1 119.5
+:grid
+grid:
+/name (S) def
+monthtime
+/pointwidth 0. def
+1 Nov 1960 ensotime
+60
+1 Nov 2000 ensotime
+:grid
+/T { L S add 
+/long_name (Forecast Time) def
+/standard_name (time) def
+/pointwidth 1. def
+} defasvarsilent
+dataset: /name /surface def
+ :dataset
+\end{ingrid}
+\begin{ingrid}
+[X
+    Y | /NVZ 1 NewIntegerGRID
+    M L S] (/Data/data22/cola/cfsv2/01.%Y%m[S]%2.2d[M]00/ocnh.01.%Y%m[S]%2.2d[M]00.%Y%m[T].avrg.grib) [M L S T]readdatafile:
+/missing_value 9.9990003E+20 def
+GRIB1record
+:readdatafile
+definevariables:
+surface 0  Zvariable:/name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def /standard_name (sea surface temperature) def :Zvariable
+:definevariables
+\end{ingrid}
+\begin{ingrid}
+:dataset
+\end{ingrid}

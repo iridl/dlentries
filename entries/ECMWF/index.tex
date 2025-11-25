@@ -1,0 +1,17 @@
+\begin{ingrid}
+  continuedataset:
+  /description (European Center for Medium Range Weather Forecasts) def
+/u {GGA .u redirectto} def
+/v {GGA .v redirectto} def
+/phi {GGA .phi redirectto} def
+/sphm {GGA .sphm redirectto} def
+/phis {GGA .phis redirectto} def
+/psfc {GGA .psfc redirectto} def
+/t2m {GGA .t2m redirectto} def
+/CLIMATOLOGY {GGA .CLIMATOLOGY redirectto} def
+datasetdefs:
+:datasetdefs
+/iridl:hasSemantics (iridl:ECMWF) def
+[ /ERA-15 /GGA /DEMETER /ERA-40 /S2S /TCs /ERA-Interim ] {currentobject 1 index get def} forall
+  :dataset
+\end{ingrid}

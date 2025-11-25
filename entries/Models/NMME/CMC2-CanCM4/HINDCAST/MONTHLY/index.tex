@@ -1,0 +1,356 @@
+\begin{ingrid}
+continuedataset:
+
+/references (Kirtman_etal2014) def
+
+grid:
+/name (X)def
+/standard_name (longitude) def
+/units (degree_east)def
+periodic
+ 0.0 1.0 359
+:grid
+
+grid:
+/name (Y)def
+/standard_name (latitude) def
+/units (degree_north)def
+-90 -1 90
+:grid
+
+grid:
+/name (M) def
+/standard_name (realization) def
+/long_name (Ensemble Member) def
+1 1 10
+:grid
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 200 850 :values
+:grid
+
+grid:
+/name (P2) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 500 200 :values
+:grid
+
+%grid:
+%/name (Z) def
+%/units (m) def
+%/long_name (Height) def
+%/standard_name (height) def
+%2 
+%:grid
+
+grid:
+/name /L def
+/units (months) def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+0.5 1. 11.5
+:grid
+
+grid:
+/name (S) def
+/units (months since 1960-01-01) def
+/long_name (Forecast Start Time) def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+1 Jan 1981 ensotime
+1
+1 Dec 2010 ensotime
+:grid
+
+%S gridvalues
+%     npts integerarray copy
+%     NewGRID
+%name exch def
+%/T{
+%currentobject
+%S 
+%monthlyedgesgrid first secondtolast subgrid
+% first cvsunits
+%    interp ensotime
+%     nip cvi onegridcounter
+%
+%/units (months since 1960-01-01) def
+%L  add
+%[S] regridLB nip
+%/long_name (Forecast Time) def
+%/standarded_name (time) def
+%/units (months since 1960-01-01) def
+%/calendar /360 def
+%/pointwidth 1 def
+%}defasvarsilent
+
+/T { S L add
+/long_name (Time) def
+/standard_name (time) def } defasvarsilent
+
+/tref {
+%[ X Y | Z L M S ] (/data/dstore4/iri/modelling/datag/NMME_Data.D/CMC2_CanCM4.D/Hindcast.D/%b[S].D/tmp2m.%Y[S]%m[S]%d[S]00.%2.2d[M].CMC2.fcst.avrg.1x1.grb) [ M S ]
+[ X Y | L M S ] (/Data/data23/NMME/CMC2_CanCM4.D/Hindcast.D/%b[S].D/tmp2m.%Y[S]%m[S]%d[S]00.%2.2d[M].CMC2.fcst.avrg.1x1.grb) [ M S ]
+readdatafile: 
+/name (tmp2m) def
+/long_name (Reference Temperature at 2 Meters) def
+/standard_name (air_temperature) def
+/grib_name /TMP def
+/gribparam 11 def
+/gribcenter 54 def
+/center (Montreal (RSMC)) def
+/gribNumBits 16 def
+/PDS_TimeRange 10 def
+/gribleveltype 105 def
+/units (K) def
+/missing_value 9.999E+20 def
+GRIB1record
+:readdatafile
+decompress
+} defasvarsilent
+
+/sst {
+%[ X Y | L M S ] (/data/dstore4/iri/modelling/datag/NMME_Data.D/CMC2_CanCM4.D/Hindcast.D/%b[S].D/tmpsfc.%Y[S]%m[S]%d[S]00.%2.2d[M].CMC2.fcst.avrg.1x1.grb) [ M S ]
+[ X Y | L M S ] (/Data/data23/NMME/CMC2_CanCM4.D/Hindcast.D/%b[S].D/tmpsfc.%Y[S]%m[S]%d[S]00.%2.2d[M].CMC2.fcst.avrg.1x1.grb) [ M S ]
+readdatafile: 
+/name (tmpsfc) def
+/long_name (Sea Surface Temperature) def
+/standard_name (sea_surface_temperature) def
+/grib_name /WTMP def
+/gribparam 80 def
+/gribcenter 54 def
+/center (Montreal (RSMC)) def
+/gribNumBits 16 def
+/PDS_TimeRange 10 def
+/gribleveltype 1 def
+/units (K) def
+/missing_value 9.999E+20 def
+GRIB1record
+:readdatafile decompress
+} defasvarsilent
+
+/prec {
+%[ X Y | L M S ] (/data/dstore4/iri/modelling/datag/NMME_Data.D/CMC2_CanCM4.D/Hindcast.D/%b[S].D/prate.%Y[S]%m[S]%d[S]00.%2.2d[M].CMC2.fcst.avrg.1x1.grb) [ M S ]
+[ X Y | L M S ] (/Data/data23/NMME/CMC2_CanCM4.D/Hindcast.D/%b[S].D/prate.%Y[S]%m[S]%d[S]00.%2.2d[M].CMC2.fcst.avrg.1x1.grb) [ M S ]
+readdatafile: 
+/name (prate) def
+/long_name (Total Precipitation) def
+/standard_name (lwe_precipitation_rate) def
+/grib_name /PRATE def
+/gribparam 59 def
+/gribcenter 54 def
+/center (Montreal (RSMC)) def
+/gribNumBits 16 def
+/PDS_TimeRange 10 def
+/gribleveltype 1 def
+/units (kg m-2 s-1) def
+/missing_value 9.999E+20 def
+GRIB1record 
+:readdatafile
+  c:
+   0.001 (m3 kg-1) :c
+   mul
+  c:
+   1000 (mm m-1) :c
+   mul
+  c:
+   86400 (s day-1) :c
+   mul
+} defasvarsilent
+
+/prmsl {
+[ X Y | L M S ]
+(/Data/data23/NMME/CMC2_CanCM4.D/Hindcast.D/%b[S].D/prmsl.%Y[S]%m[S]%d[S]00.%2.2d[M].CMC2.fcst.avrg.1x1.grb)
+[ M S ]
+readdatafile: 
+/name (PRMSL) def
+/long_name (Pressure Reduced to Mean Sea Level) def
+/standard_name (air_pressure_at_sea_level) def
+/grib_name /PRMSL def
+/gribparam 2 def
+/gribcenter 54 def
+/center (Montreal (RSMC)) def
+/gribNumBits 16 def
+/PDS_TimeRange 10 def
+/gribleveltype 102 def
+/units (Pa) def
+/missing_value 9.999E+20 def
+GRIB1record
+:readdatafile decompress
+} defasvarcachesilent
+
+/soilw {
+[ X Y | L M S ]
+(/Data/data23/NMME/CMC2_CanCM4.D/Hindcast.D/%b[S].D/soilw.%Y[S]%m[S]%d[S]00.%2.2d[M].CMC2.fcst.avrg.1x1.grb)
+[ M S ]
+readdatafile: 
+/name (soilw) def
+/long_name (Soil Moisture Content 0-10cm Below Surface) def
+/standard_name (soil_moisture_content) def
+/grib_name /IMGD def
+/gribparam 127 def
+/gribcenter 54 def
+/center (Montreal (RSMC)) def
+/gribNumBits 16 def
+/PDS_TimeRange 0 def
+/gribleveltype 119 def
+/units (kg m-2) def
+/missing_value 9.999E+20 def
+GRIB1record
+:readdatafile decompress
+} defasvarcachesilent
+
+/tmax {
+[ X Y | L M S ] (/Data/data23/NMME/CMC2_CanCM4.D/Hindcast.D/%b[S].D/tmax.%Y[S]%m[S]%d[S]00.%2.2d[M].CMC2.fcst.avrg.1x1.grb)
+[ M S ]
+readdatafile: 
+/name (tmax) def
+/long_name (Maximum Temperature at 2 Meters) def
+/standard_name (air_temperature) def
+/grib_name /TMAX def
+/gribparam 15 def
+/gribcenter 54 def
+/center (Montreal (RSMC)) def
+/gribNumBits 16 def
+/PDS_TimeRange 10 def
+/gribleveltype 105 def
+/units (Kelvin_scale) def
+/missing_value 9.999E+20 def
+GRIB1record
+:readdatafile decompress
+} defasvarsilent
+
+/tmin {
+[ X Y | L M S ] (/Data/data23/NMME/CMC2_CanCM4.D/Hindcast.D/%b[S].D/tmin.%Y[S]%m[S]%d[S]00.%2.2d[M].CMC2.fcst.avrg.1x1.grb)
+[ M S ]
+readdatafile: 
+/name (tmin) def
+/long_name (Minimum Temperature at 2 Meters) def
+/standard_name (air_temperature) def
+/grib_name /TMIN def
+/gribparam 16 def
+/gribcenter 54 def
+/center (Montreal (RSMC)) def
+/gribNumBits 16 def
+/PDS_TimeRange 10 def
+/gribleveltype 105 def
+/units (Kelvin_scale) def
+/missing_value 9.999E+20 def
+GRIB1record
+:readdatafile decompress
+} defasvarsilent
+
+/tmp {
+[ X Y | L P 850 VALUE M S ]
+(/Data/data23/NMME/CMC2_CanCM4.D/Hindcast.D/%b[S].D/tmp.%Y[S]%m[S]%d[S]00.%2.2d[M].CMC2.fcst.avrg.1x1.grb)
+[ M S ]
+readdatafile: 
+/name (tmp) def
+/long_name (850 hPa Temperature) def
+/standard_name (air_temperature) def
+/grib_name /TMP def
+/gribparam 11 def
+/gribcenter 54 def
+/center (Montreal (RSMC)) def
+/gribNumBits 16 def
+/PDS_TimeRange 10 def
+/gribleveltype 100 def
+/units (Kelvin_scale) def
+/missing_value 9.999E+20 def
+11 100 1 GRIBvariable
+:readdatafile decompress
+} defasvarcachesilent
+
+/ugrd {
+[ X Y | P L M S ]
+(/Data/data23/NMME/CMC2_CanCM4.D/Hindcast.D/%b[S].D/ugrd.%Y[S]%m[S]%d[S]00.%2.2d[M].CMC2.fcst.avrg.1x1.grb)
+[ M S ]
+readdatafile:
+33 100 1 GRIBvariable 
+/name (ugrd) def
+/long_name (Zonal Wind) def
+/standard_name (eastward_wind) def
+/grib_name /UGRD def
+/gribparam 33 def
+/gribcenter 54 def
+/center (Montreal (RSMC)) def
+/gribNumBits 16 def
+/PDS_TimeRange 10 def
+/gribleveltype 100 def
+/units (m s-1) def
+/missing_value 9.999E+20 def
+%GRIB1record
+:readdatafile decompress
+} defasvarcachesilent
+
+/vrgd {
+[ X Y | P L M S ]
+(/Data/data23/NMME/CMC2_CanCM4.D/Hindcast.D/%b[S].D/vgrd.%Y[S]%m[S]%d[S]00.%2.2d[M].CMC2.fcst.avrg.1x1.grb)
+[ M S ]
+readdatafile:
+34 100 1 GRIBvariable 
+/name (vgrd) def
+/long_name (Meridional Wind) def
+/standard_name (northward_wind) def
+/grib_name /VGRD def
+/gribparam 34 def
+/gribcenter 54 def
+/center (Montreal (RSMC)) def
+/gribNumBits 16 def
+/PDS_TimeRange 10 def
+/gribleveltype 100 def
+/units (m s-1) def
+/missing_value 9.999E+20 def
+%GRIB1record
+:readdatafile decompress
+} defasvarcachesilent
+
+/vgrd {
+[ X Y | P L M S ]
+(/Data/data23/NMME/CMC2_CanCM4.D/Hindcast.D/%b[S].D/vgrd.%Y[S]%m[S]%d[S]00.%2.2d[M].CMC2.fcst.avrg.1x1.grb)
+[ M S ]
+readdatafile:
+34 100 1 GRIBvariable 
+/name (vgrd) def
+/long_name (Meridional Wind) def
+/standard_name (northward_wind) def
+/grib_name /VGRD def
+/gribparam 34 def
+/gribcenter 54 def
+/center (Montreal (RSMC)) def
+/gribNumBits 16 def
+/PDS_TimeRange 10 def
+/gribleveltype 100 def
+/units (m s-1) def
+/missing_value 9.999E+20 def
+%GRIB1record
+:readdatafile decompress
+} defasvarcachesilent
+
+/hgt {
+[ X Y | P2 L M S ] (/Data/data23/NMME/CMC2_CanCM4.D/Hindcast.D/%b[S].D/hgt.%Y[S]%m[S]%d[S]00.%2.2d[M].CMC2.fcst.avrg.1x1.grb) [ M S ]
+readdatafile:
+7 100 1 GRIBvariable 
+/name (hgt) def
+/long_name (Geopotential Height) def
+/standard_name (geopotential_height) def
+/grib_name /HGT def
+/gribparam 7 def
+/gribcenter 54 def
+/center (Montreal (RSMC)) def
+/gribNumBits 16 def
+/PDS_TimeRange 10 def
+/gribleveltype 100 def
+/units (gpm) def
+/missing_value 9.999E+20 def
+%GRIB1record
+:readdatafile
+} defasvarsilent
+
+:dataset
+\end{ingrid}

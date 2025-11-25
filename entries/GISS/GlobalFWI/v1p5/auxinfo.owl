@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:cfatt="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#" xmlns:climdex="http://www.climdex.org/indices.html#" xmlns:daml="http://www.daml.org/2001/03/daml+oil#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterm="http://purl.org/dc/terms/" xmlns:gcmd="http://marinemetadata.org/2005/08/gcmd-keyw#" xmlns:gcmdi="http://marinemetadata.org/2005/08/gcmd-inst#" xmlns:gcmdp="http://marinemetadata.org/2005/08/gcmd-platf#" xmlns:iridl="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#" xmlns:iridlauth="http://iridl.ldeo.columbia.edu/ontologies/AuthorizationRealms.owl#" xmlns:iridlsemantics="http://iridl.ldeo.columbia.edu/ontologies/iridlsemantics.owl#" xmlns:irigaz="http://iridl.ldeo.columbia.edu/ontologies/irigaz.owl#" xmlns:iriref="http://iridl.ldeo.columbia.edu/ontologies/ReferenceList.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rss="http://purl.org/rss/1.0/" xmlns:term="http://iridl.ldeo.columbia.edu/ontologies/iriterms.owl#" xmlns:units="http://iridl.ldeo.columbia.edu/ontologies/iriunits.owl?units=" xmlns:wms="http://www.opengis.net/wms#" xmlns:xhtml="http://www.w3.org/1999/xhtml/vocab#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#">
+<owl:Ontology rdf:about="">
+<owl:imports rdf:resource="rdf.xml"/>
+    <owl:imports rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iriterms.owl"/>
+</owl:Ontology>
+  <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#DCStart">
+    <term:gloss xml:lang="en">DC starting value after wet winter</term:gloss>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#DMCDryStartFactor" xml:lang="en">
+    <term:gloss>DMC number of days since precip mult factor for dry start.</term:gloss>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#DMCStart" xml:lang="en">
+    <term:gloss>DMC starting value after wet winter</term:gloss>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#FFMCStart" xml:lang="en">
+    <term:gloss>FFMC starting value after any winter</term:gloss>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#maxLat" xml:lang="en">
+    <term:gloss>Max latitude for analysis</term:gloss>
+  </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#minLandFrac" xml:lang="en">
+      <term:gloss>Minimum grid cell land fraction for analysis</term:gloss>
+  </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#minLat" xml:lang="en">
+      <term:gloss>Min latitude for analysis</term:gloss>
+  </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#minPrec" xml:lang="en">
+      <term:gloss>Mask out anything with mean annual prec less than this</term:gloss>
+  </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#minSnowDayFrac" xml:lang="en">
+      <term:gloss>Minimum fraction of days during snowCoverDaysCalc where snow cover was greater than snoDThresh for winter to be considered having had substantial snow cover</term:gloss>
+  </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#minT" xml:lang="en">
+      <term:gloss>Mask out anything with mean annual Tsurf less than this</term:gloss>
+  </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#minWinterSnoD" xml:lang="en">
+      <term:gloss>Minimum mean depth (m) during past snowCoverDaysCalc days for winter to be considered having had substantial snow cover</term:gloss>
+  </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#nClimSkipYears" xml:lang="en">
+      <term:gloss>Use this number of years as startup, during which computed values are excluded from any output</term:gloss>
+  </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#precThresh" xml:lang="en">
+      <term:gloss>Min precip (mm/day) when determining if last three days had any precip</term:gloss>
+  </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#snoDThresh" xml:lang="en">
+      <term:gloss>Minimum depth (m) for there to be considered snow on ground at any given time</term:gloss>
+  </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#snowCoverDaysCalc" xml:lang="en">
+      <term:gloss>Number of days prior to spring over which to determine if winter had substantial snow cover</term:gloss>
+  </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#startShutDays" xml:lang="en">
+      <term:gloss>Number of previous days over which to consider start or end of winter</term:gloss>
+  </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#tempThresh" xml:lang="en">
+      <term:gloss>Temp thresh (C) to define start and end of winter</term:gloss>
+  </rdf:Description>
+    <rdf:Description rdf:about="http://iridl.ldeo.columbia.edu/SOURCES/.GISS/.GlobalFWI/.v1p5/rdf.xml#DCDryStartFactor">
+    <term:gloss xml:lang="en">DC number of days since precip mult factor for dry start.</term:gloss>
+  </rdf:Description>
+  </rdf:RDF>
+

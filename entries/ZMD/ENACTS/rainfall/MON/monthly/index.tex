@@ -1,0 +1,15 @@
+\begin{ingrid}
+
+continuedataset:
+
+/rfe_merged {
+ SOURCES .ZMD .ENACTS .rainfall .MON .dekadly .rfe_merged
+ monthlyAverage 3. mul
+/long_name (Monthly Rainfall) def
+precip_colors
+DATA 0 800 RANGE
+T /defaultvalue { last } def pop
+}defasvar
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,187 @@
+\begin{ingrid}
+%PreferredUnits
+%(w/m^2) (W/m2) def
+%(pa/s) (Pa/s) def
+%(j/kg) (J/kg) def
+%(n/m^2) (N/m2) def
+%(k/s) (K/s) def
+%pop
+link:
+/name (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2)) def
+/description (Reanalysis-2 Home Page) def
+/href (http://www.cpc.ncep.noaa.gov/products/wesley/reanalysis2/index.html) def
+:link
+link:
+/name (ftp server) def
+/description (NCEP ftp Server for Reanalysis-2) def
+/href (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/) def
+:link
+/references (Kanamitsu_etal2002b) def
+/description (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2)) def
+continuedataset:
+
+ grid:
+/name (X)def
+/units (degree_east)def
+periodic
+ 0.0 2.5 357.5
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+90 2.5 -90
+:grid
+
+grid:
+/name (P) def
+/units (mb) def
+/long_name (Pressure Level) def
+values: 1000 925 850 700 600 500 400 300 250 200 150 100 70 50 30 20 10 :values
+:grid
+
+grid:
+/name (T) def
+/units (months since 1960-01-01) def
+/long_name (Time) def
+/standard_name (time) def
+16 Jan 1979 ensotime
+1
+16 Dec 2018 ensotime 
+%16 systemtime systemtime2ymd ymd:lastmonth pop exch ensotime
+:grid
+
+%%T {(ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/pgb/pgb.anl.%Y%m[T].avrg.grib) [T] } remoteremoveextrausing
+%T {(/Data/ingridcache/ftp/nomad3.ncep.noaa.gov/pub/reanalysis-2/month/pgb/pgb.anl.%Y%m[T].avrg.grib) [T] } removeextrausing
+%/expires last
+%    rm19602ymd ymd:nextmonth ymd:nextmonth ymd2systemtime def
+%    name exch def
+%/expires T .expires def
+/last_modified last_modified T .last_modified imax def
+
+%  dataset: /name /PressureLevel def   
+
+[ X Y P T ] { name exch def } forall
+
+% parameters to GRIBvariable, in order, are: 1. GRIB variable parameter code, 2. GRIB level/layer type code, and
+% 3. field ID (generally 1).  So, for example, pressure-level absolute vorticity would be "41 100 1 GRIBvariable"
+
+/hgtprs { [ X Y | P T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/pgb/pgb.anl.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+7 100 1 GRIBvariable
+:readdatafile
+/long_name (Geopotential height) def
+/units (gpm) def
+} defasvarsilent
+
+/ugrdprs { [ X Y | P T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/pgb/pgb.anl.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+33 100 1 GRIBvariable
+:readdatafile
+/long_name (zonal wind) def
+/units (m s-1) def
+} defasvarsilent
+
+/vgrdprs { [ X Y | P T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/pgb/pgb.anl.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+34 100 1 GRIBvariable
+:readdatafile
+/long_name (meridional wind) def
+/units (m s-1) def
+} defasvarsilent
+
+/rhprs { [ X Y | P T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/pgb/pgb.anl.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+52 100 1 GRIBvariable
+:readdatafile
+/long_name (Relative humidity) def
+/units (percent) def
+} defasvarsilent
+
+/tmpprs { [ X Y | P T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/pgb/pgb.anl.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+11 100 1 GRIBvariable
+:readdatafile
+/long_name (Temperature) def
+/units (Kelvin_scale) def
+} defasvarsilent
+
+/vvelprs { [ X Y | P T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/pgb/pgb.anl.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+39 100 1 GRIBvariable
+:readdatafile
+/long_name (Pressure vertical velocity) def
+/units (Pa s-1) def
+} defasvarsilent
+
+/absvprs { [ X Y | P T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/pgb/pgb.anl.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+41 100 1 GRIBvariable
+:readdatafile
+/long_name (Absolute vorticity) def
+/units (s-1) def
+} defasvarsilent
+
+%  :dataset
+
+%  dataset: /name /surface def   
+
+%  [ X Y T ] { name exch def } forall
+
+/pressfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/pgb/pgb.anl.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+1 1 1 GRIBvariable
+:readdatafile
+/long_name (Pressure) def
+/units (Pa) def
+} defasvarsilent
+
+/hgtsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/pgb/pgb.anl.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+7 1 1 GRIBvariable
+:readdatafile
+/long_name (Geopotential height) def
+/units (gpm) def
+} defasvarsilent
+
+/pratesfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/pgb/pgb.anl.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+59 1 1 GRIBvariable
+:readdatafile
+/long_name (Precipitation rate) def
+/units (kg m-2 s-1) def
+} defasvarsilent
+
+%  :dataset
+
+%  dataset: /name /MSL def   
+
+%  [ X Y T ] { name exch def } forall
+
+/presmsl { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/pgb/pgb.anl.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+1 102 1 GRIBvariable
+:readdatafile
+/long_name (Pressure) def
+/units (Pa) def
+} defasvarsilent
+
+%  :dataset
+
+%  dataset: /name /total_air_column def   
+
+%  [ X Y T ] { name exch def } forall
+
+/pwatclm { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/pgb/pgb.anl.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+54 200 1 GRIBvariable
+:readdatafile
+/long_name (Precipitable water) def
+/units (kg m-2) def
+} defasvarsilent
+
+%  :dataset
+
+:dataset
+\end{ingrid}
+

@@ -1,0 +1,127 @@
+\begin{ingrid}
+
+continuedataset:
+
+/TS3p0 datadownloadsareRestricted
+/description (Climatic Suitability for Malaria Transmission) def
+/fuzzy_suit {
+1 SOURCES .UEA .CRU .TS4p05 .climatology .c9120 .tmp
+   40 flagle
+   SOURCES .UEA .CRU .TS4p05 .climatology .c9120 .tmp
+    32 flagge
+    mul
+   0 maskle
+   SOURCES .UEA .CRU .TS4p05 .climatology .c9120 .tmp mul
+   40 sub
+   -8 div
+   pi mul
+   2 div
+   cos
+   dup mul
+   sub
+  0 replaceNaN
+  X -20 55 RANGEEDGES
+  1 SOURCES .UEA .CRU .TS4p05 .climatology .c9120 .tmp
+    22 flagle
+    SOURCES .UEA .CRU .TS4p05 .climatology .c9120 .tmp
+     18 flagge
+     mul
+    0 maskle
+    SOURCES .UEA .CRU .TS4p05 .climatology .c9120 .tmp mul
+    18 sub
+    4 div
+    pi mul
+    2 div
+    cos
+    dup mul
+    sub
+   0 replaceNaN
+   X -20 55 RANGEEDGES
+   add
+  SOURCES .UEA .CRU .TS4p05 .climatology .c9120 .tmp
+   32 flaglt
+   SOURCES .UEA .CRU .TS4p05 .climatology .c9120 .tmp
+    22 flaggt
+    mul
+   X -20 55 RANGEEDGES
+   add
+  SOURCES .UEA .CRU .TS4p05 .climatology .c9120 .pre
+   80 maskgt
+   0 replaceNaN
+   80 sub
+   80 div
+   pi mul
+   2 div
+   cos
+   dup mul
+   SOURCES .UEA .CRU .TS4p05 .climatology .c9120 .pre
+    80 flaggt
+    add
+   X -20 55 RANGEEDGES
+   min
+  a:
+    Y (-40) (7.75) RANGEEDGES
+    T (Jan 1960) (Apr 1961) RANGE
+    T -2 1 2 shiftdatashort
+    T
+     /pointwidth 5 def
+     pop
+    [T_lag]minover
+    [T]maxover
+    :a:
+     Y (8.25) (40) RANGEEDGES
+     T (Jan 1960) (Feb 1961) RANGE
+     T -1 1 1 shiftdatashort
+     T
+      /pointwidth 3 def
+      pop
+     [T_lag]minover
+     [T]maxover
+     :a
+   appendstream
+  1 SOURCES .UEA .CRU .TS4p05 .climatology .c9120 .tmn
+    6 flagle
+    SOURCES .UEA .CRU .TS4p05 .climatology .c9120 .tmn
+     4 flagge
+     mul
+    0 maskle
+    SOURCES .UEA .CRU .TS4p05 .climatology .c9120 .tmn mul
+    4 sub
+    2 div
+    pi mul
+    2 div
+    cos
+    dup mul
+    sub
+   0 replaceNaN
+   SOURCES .UEA .CRU .TS4p05 .climatology .c9120 .tmn
+    0 mul
+    add
+   SOURCES .UEA .CRU .TS4p05 .climatology .c9120 .tmn
+    6 maskgt
+    0 mul
+    add
+   Y -40 40. RANGEEDGES
+   [T]minover
+   min
+  startcolormap
+    0.0 1. RANGE
+    white white white
+       0.0 VALUE
+       SteelBlue SteelBlue
+         0.1 bandmax
+         MediumSeaGreen MediumSeaGreen
+           0.5 bandmax
+           gold gold
+             0.9 bandmax
+             firebrick firebrick
+               1. bandmax
+               black endcolormap
+ /long_name (Fuzzy Suitability) def
+/reference (Craig, M. H., R. W. Snow, and D. le Seur, 1999: A climate-based distribution model of malaria transmission in Sub-Saharan Africa.  Parasitology Today, 15(3), 105-111.) def
+/units (0 = Unsuitable, >0.9 = Highly Suitable) def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

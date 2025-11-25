@@ -1,0 +1,40 @@
+\begin{ingrid}
+/description (VIC Hydrologic Cycle Model) def
+/references (Sheffield_Wood2007 Sheffield_etal2006) def
+/iridl:hasSemantics (iriref:Sheffield_J iriref:Wood_EF iriref:Goteti_G) def
+/mrwso
+{(/Data/data7/princeton/VIC/mrwso_monthly_1948-2000.nc)readCDF
+.mrwso
+time 0.5 shiftGRID
+} defasvarsilent
+/evap
+{(/Data/data7/princeton/VIC/evap_monthly_1948-2000.nc)readCDF
+.evap
+time 0.5 shiftGRID
+} defasvarsilent
+/moist1
+{(/Data/data7/princeton/VIC/moist1_monthly_1948-2000.nc)readCDF
+.moist1
+time 0.5 shiftGRID
+} defasvarsilent
+/moist2
+{(/Data/data7/princeton/VIC/moist2_monthly_1948-2000.nc)readCDF
+.moist2
+time 0.5 shiftGRID
+} defasvarsilent
+/moist3
+{(/Data/data7/princeton/VIC/moist3_monthly_1948-2000.nc)readCDF
+.moist3
+time 0.5 shiftGRID
+} defasvarsilent
+/prcp
+{(/Data/data7/princeton/VIC/prcp_monthly_1948-2000.nc)readCDF
+.prcp
+time 0.5 shiftGRID
+} defasvarsilent
+/runoff
+{(/Data/data7/princeton/VIC/runoff_monthly_1948-2000.nc)readCDF
+.runoff
+time 0.5 shiftGRID
+} defasvarsilent
+\end{ingrid}

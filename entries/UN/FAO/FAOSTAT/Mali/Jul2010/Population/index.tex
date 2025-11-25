@@ -1,0 +1,104 @@
+\begin{ingrid}
+  continuedataset:
+    /source (<a href="http://faostat.fao.org/default.aspx">FAOSTAT</a>) def
+    grid:
+      /name (T) def
+      monthtime
+      /pointwidth 12 def
+      1 Jul 1961 ensotime
+      12
+      1 Jul 2050 ensotime
+    :grid 
+    grid:
+      /name (code) def
+      /units (ids) def
+      /fullname (item code) def
+      values:
+571
+581
+591
+592
+593
+601
+602
+603
+511
+512
+513
+551
+561
+      :values
+    :grid
+
+    variable:
+      /name /Name def
+      grids: code :grids
+      /long_name (item name) def
+      values:
+(Agricultural population)
+(Non-agricultural population)
+(Total economically active population)
+(Male economically active population)
+(Female economically active population)
+(Total economically active population in Agr)
+(Male economically active population in Agr)
+(Female economically active population in Agr)
+(Total Population - Both sexes)
+(Total Population - Male)
+(Total Population - Female)
+(Rural population)
+(Urban population)
+  :values
+    :variable
+
+    /Population {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliPop.csv)
+      readdatafile:
+        ((/,(116X,90(F7.0,14X)))) formatted
+      :readdatafile
+      /long_name (population estimation and projection) def
+      /units (count) def
+      /scale_factor 1000. def
+      /missing_value 0 def
+    }defasvarsilent
+
+    /Flag {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliPop.csv)
+      readdatafile:
+        ((/,(116X,90(20X,F1.0,)))) formatted
+      :readdatafile
+      /long_name (data quality) def
+      /CLIST [
+        (Official data)
+        (Unofficial figure)
+        (FAO estimate)
+        (Data not available)
+        (FAO calculated)
+        (Estimated data using trading partners database)
+        (Manual Estimation)
+        (Country data reported by International Organizations where the country is a member (Semi-official))
+        (Official data reported on FAO Questionnaires from countries)
+      ] def
+      startcolormap
+        /maxncolor 12 def
+        DATA 0 8 RANGE
+        white white
+        black
+        LightBlue
+        red
+        grey
+        orange
+        yellow
+        purple
+        NavyBlue
+        blue
+        white
+      endcolormap
+    }defasvarsilent
+
+  /history (FAOSTAT | © FAO Statistics Division 2010) def
+
+  :dataset
+\end{ingrid}

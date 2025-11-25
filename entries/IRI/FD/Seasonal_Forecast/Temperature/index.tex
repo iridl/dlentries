@@ -1,0 +1,184 @@
+\begin{ingrid}
+
+ continuedataset:
+ datasetdefs:
+/togetherfn {
+ a:
+    C /Below_Normal VALUE
+    :a:
+     C /Normal VALUE
+     masklt
+    :a:
+     C /Above_Normal VALUE
+     masklt
+    -1 mul
+    0 replaceNaN
+    :a:
+     C /Normal VALUE
+     :a:
+      C /Below_Normal VALUE
+      masklt
+     :a:
+      C /Above_Normal VALUE
+      masklt
+     34 masklt
+     0 mul
+     0 replaceNaN
+     add
+    :a:
+     C /Above_Normal VALUE
+     :a:
+      C /Normal VALUE
+      masklt
+     :a:
+      C /Below_Normal VALUE
+      masklt
+     0 replaceNaN
+     add
+ :a:
+     C /Below_Normal VALUE
+     0 mul
+     add
+    :a:
+     C /Normal VALUE
+     :a:
+      C /Below_Normal VALUE
+      masklt
+     :a:
+      C /Above_Normal VALUE
+      masklt
+     34 maskgt
+     0 mul
+     1 add
+     0 replaceNaN
+     /missing_value 1 def
+     add
+    :a
+%dominantterciletempscale
+startcolormap
+DATA -100 100 RANGEEDGES
+null 85 85 200 RGB
+85 85 200 RGB RGBdup -65 bandmax
+129 124 250 RGB RGBdup -55 bandmax
+153 163 250 RGB RGBdup -47.5 bandmax
+177 202 250 RGB RGBdup -42.5 bandmax
+200 240 250 RGB RGBdup -33 bandmax
+gray RGBdup
+33 bandmax
+255 210 210 RGB RGBdup 42.5 bandmax
+242 170 170 RGB RGBdup 47.5 bandmax
+250 120 120 RGB RGBdup 55 bandmax
+255 40 40 RGB RGBdup 65 bandmax
+150 19 19 RGB RGBdup 100 bandmax
+150 19 19 RGB
+endcolormap
+} def
+
+/T {target_date} def
+
+grid:
+ /name (T2) def
+ /units (months since 01-Jan) def
+ periodic
+ 0.5 1 11.5
+:grid
+
+variable:
+ /name /seasabbrev def
+ grids: T2 :grids
+ values: (djf) (jfm) (fma) (mam) (amj) (mjj) (jja) (jas) (aso) (son) (ond) (ndj) :values
+:variable
+
+ grid:
+ /name (L) def
+ /units (months) def
+ /fullname (Forecast Lead Time in Months) def
+ 1 1 4
+ :grid
+/final_season
+{
+F L .last 1 add add
+seasabbrev exch [T2] sample-along
+}defasvarsilent
+
+ :datasetdefs
+
+link:
+ /name (Temperature_ELR) def
+ /href (http://iridl.ldeo.columbia.edu/SOURCES/.IRI/.FD/.NMME_Seasonal_Forecast/.Temperature_ELR/) def
+ /description (New IRI Seasonal Temperature Tercile Forecasts starting from April 2017) def
+ /semantics /dcterm:isReplacedBy def
+:link
+
+ grid:
+ /name (X) def
+ /units (degreeE) def
+ /fullname (Longitude) def
+ periodic
+ -179. 2. 179.
+ :grid
+
+ grid:
+ /name (Y) def
+ /units (degreeN) def
+ /fullname (Latitude) def
+ 89. 2. -89.
+ :grid
+
+ grid:
+ /name (F) def
+ monthtime
+ /fullname (Month Forecast Issued) def
+ /defaultvalue { last } def
+ /pointwidth 1 def
+values:
+ 16 Dec 1997 ensotime
+3
+16 Jun 2001 ensotime
+{} for
+16 Jul 2001 ensotime
+1
+ 16 Mar 2017 ensotime %enddate
+{} for
+:values
+:grid
+
+
+ grid:
+ /name (L) def
+ /units (months) def
+ /fullname (Forecast Lead Time in Months) def
+ 1 1 4
+ :grid
+
+ grid:
+ /name (C) def
+ /units (ids) def
+ /fullname (Tercile Classes) def
+ values: /Below_Normal /Normal /Above_Normal :values
+:grid
+
+ /target_date {F L add 1 add /long_name (forecast time) def /bounds undef /pointwidth 3 def /standard_name (time) def} defasvar
+
+ /target_season {seasabbrev target_date T2 sample-along} defasvar
+
+/prob {
+[ C X Y | L F] (/Data/data1/iriforecasts/T%1.1d[L]y%Ys%m[T]%s[target_season]) [L F 2 copy add 1 add /name /T def
+target_season] readdatafile:
+((13X,3F4.0))formatted
+ /missing_value -9 def
+:readdatafile
+ /units (percent) def
+ /long_name (Tercile Probability) def
+/scale_min 0 def
+/scale_max 100 def
+tercileclassesscale
+} defasvarsilent
+
+/dominant {
+prob togetherfn
+/long_name (Dominant Tercile Probability) def
+C removeGRID
+} defasvarsilent
+ :dataset
+\end{ingrid}

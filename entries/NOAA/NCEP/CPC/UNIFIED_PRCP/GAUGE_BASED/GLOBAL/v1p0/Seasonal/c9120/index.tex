@@ -1,0 +1,21 @@
+\begin{ingrid}
+
+    continuedataset:
+
+/rain {
+    SOURCES .NOAA .NCEP .CPC .UNIFIED_PRCP .GAUGE_BASED .GLOBAL .v1p0 .Monthly .extREALTIME .rain
+  T (Dec 1990) (Jan 2021) RANGEEDGES
+  T 3 runningAverage
+  T 12 splitstreamgrid
+  [T2]0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 0 replacebypercentile
+  [X Y]REORDER
+} defasvarcache
+
+    :dataset
+
+    rain .X name exch def
+    rain .Y name exch def
+    rain .T name exch def
+    rain .percentile name exch def
+
+\end{ingrid}

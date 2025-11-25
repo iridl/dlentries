@@ -1,0 +1,1539 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+\end{ingrid}
+\begin{ingrid}
+/definecsstsix {
+S exch cvsunits nip
+exch
+ds: :ds
+exch /name exch cvx def
+/dataset 4 index def
+continuedataset:
+grid: /name /S def /units (days since 2014-01-01 00:00:00) def ordered 
+6 -1 roll 
+readunits :grid
+datasetdefs:
+grid: /name /T def /units (days since 2014-01-01 00:00:00) def ordered
+/pointwidth 0 def
+/defaultvalue {last} def
+S (months since 2014-01-01) gridunitconvert
+first 2 sub cvsunits .25
+first 7 add cvsunits
+4 -1 roll pop
+:grid
+T first secondtolast subgrid name exch def
+/expno 
+S
+50140 S (months since 2014-01-01) gridunitconvert .first cvi 7 sub add 
+constantdata /units /unitless def toi4
+/name /expno def
+def
+/Tmonthly T monthlyedgesgrid first secondtolast subgrid def
+/filenames {
+%(/data/dstore3/iri/forecast/data/echam4/csst/%b:lc[S]%y[S]/%5.5d[expno]fc%2.2d[M]_%Y%m[T].01) 
+(/Data/data1/iri/forecast/data/echam4/csst/%b:lc[S]%y[S]/%5.5d[expno]fc%2.2d[M]_%Y%m[T].01) 
+[M Tmonthly S expno]} def
+:datasetdefs
+/S S def
+/T T def
+/sp 1892 NewIntegerGRID name exch def
+defXYM
+defineAboveGround
+defineHybridLevel
+defineSoil
+defineSurface
+defineTop
+:dataset
+defaftervars
+defPressureLevel-SF 
+hybrid_lev /omegahalf /omega cachesomevar
+name exch def
+} def
+/defXYM {
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.8125 357.1875
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 87.863838 85.096512 82.312897 79.525612 76.736893 73.94751 71.157745 68.367752 65.577606 62.787342 59.997021 57.206627 54.416195 51.625732 48.835239 46.044724 43.254196 40.463646 37.673084 34.882519 32.091938 29.301359 26.510769 23.720173 20.929573 18.138969 15.348363 12.557755 9.7671442 6.9765334 4.1859202 1.3953068 -1.3953068 -4.1859202 -6.9765334 -9.7671442 -12.557755 -15.348363 -18.138969 -20.929573 -23.720173 -26.510769 -29.301359 -32.091938 -34.882519 -37.673084 -40.463646 -43.254196 -46.044724 -48.835239 -51.625732 -54.416195 -57.206627 -59.997021 -62.787342 -65.577606 -68.367752 -71.157745 -73.94751 -76.736893 -79.525612 -82.312897 -85.096512 -87.863838 :values
+:grid
+/M 24 NewIntegerGRID name exch def
+} def
+\end{ingrid}
+\begin{ingrid}
+/defineAboveGround {
+dataset:
+/name (above_ground)def
+{ X Y M T S} cvlit { exec name exch def} forall
+grid:
+/name (Z)def
+/units (m_above_gnd)def
+values: 2 :values
+:grid
+ /t2m{
+[ X Y | Z M T S ] dataset .filenames readdatafile:
+/name (t2m) def
+ /calendar /standard def
+ /gribleveltype 105 def
+ /subcenter 255 def
+ /units /Kelvin_scale def
+ /scale_min 186.47821 def
+ /long_name (Temperature at 2 m) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /t2m def
+ /scale_max 325.19928 def
+ /gribparam 167 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /t2mmn{
+[ X Y | Z M T S ] dataset .filenames readdatafile:
+/name (t2mmn) def
+ /calendar /standard def
+ /gribleveltype 105 def
+ /subcenter 255 def
+ /scale_min 186.42398 def
+ /units /Kelvin_scale def
+ /long_name (min 2m temp) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /t2mmn def
+ /scale_max 321.54303 def
+ /gribparam 202 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /t2mmx{
+[ X Y | Z M T S ] dataset .filenames readdatafile:
+/name (t2mmx) def
+ /calendar /standard def
+ /gribleveltype 105 def
+ /subcenter 255 def
+ /units /Kelvin_scale def
+ /scale_min 186.48296 def
+ /long_name (max 2m temp) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /t2mmx def
+ /scale_max 326.94537 def
+ /gribparam 201 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /td2m{
+[ X Y | Z M T S ] dataset .filenames readdatafile:
+/name (td2m) def
+ /calendar /standard def
+ /gribleveltype 105 def
+ /subcenter 255 def
+ /units /unitless def
+ /scale_min 1.12086298E-07 def
+  /long_name (Specific Humidity) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /hus def
+ /scale_max 0.03049196 def
+ /gribparam 168 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /uas{
+[ X Y | grid:
+/name (Z)def
+/units (m_above_gnd)def
+values: 10 :values
+:grid
+ M T S ] dataset .filenames readdatafile:
+/name (uas) def
+ /calendar /standard def
+ /gribleveltype 105 def
+ /subcenter 255 def
+ /units (m/s)cvn def
+ /scale_min -28.340942 def
+ /long_name (U-wind at 10) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /uas def
+ /scale_max 31.490906 def
+ /gribparam 165 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /vas{
+[ X Y | grid:
+/name (Z)def
+/units (m_above_gnd)def
+values: 10 :values
+:grid
+ M T S ] dataset .filenames readdatafile:
+/name (vas) def
+ /calendar /standard def
+ /gribleveltype 105 def
+ /subcenter 255 def
+ /units (m/s)cvn def
+ /scale_min -30.607956 def
+ /long_name (V-wind at 10) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /vas def
+ /scale_max 27.596497 def
+ /gribparam 166 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /WIMAX{
+[ X Y | Z M T S ] dataset .filenames readdatafile:
+/name (WIMAX) def
+ /calendar /standard def
+ /gribleveltype 105 def
+ /subcenter 255 def
+ /units (m/s)cvn def
+ /scale_min 0.0637601 def
+ /long_name (maximum 10m wind speed) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /WIMAX def
+ /scale_max 32.43639 def
+ /gribparam 216 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /wind10{
+[ X Y | grid:
+/name (Z)def
+/units (m_above_gnd)def
+values: 10 :values
+:grid
+ M T S ] dataset .filenames readdatafile:
+/name (wind10) def
+ /calendar /standard def
+ /gribleveltype 105 def
+ /subcenter 255 def
+ /scale_min 0.03807249 def
+ /long_name (10m windspeed) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /wind10 def
+ /scale_max 30.716663 def
+ /gribparam 171 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+:dataset
+} def
+\end{ingrid}
+\begin{ingrid}
+/defineHybridLevel {
+dataset:
+/name (hybrid_lev)def
+{ X Y M T S} cvlit { exec name exch def} forall
+/sp 1892 NewIntegerGRID name exch def
+grid:
+/name (Z)def
+/units (unitless)def
+ 1 1.0 19
+:grid
+ /Div{
+[ sp | Z M T S] dataset .filenames readdatafile:
+/name (Div) def
+ /calendar /standard def
+ /gribleveltype 109 def
+ /subcenter 255 def
+ /units /s-1 def
+ /scale_min -1.90526316E-06 def
+ /long_name (Divergence) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /Div def
+ /scale_max 2.07073913E-06 def
+ /gribparam 155 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /hus{
+[ X Y | Z M T S] dataset .filenames readdatafile:
+/name (hus) def
+ /calendar /standard def
+ /gribleveltype 109 def
+ /subcenter 255 def
+ /units /unitless def
+ /scale_min -0.002780734 def
+ /long_name (Specific Humidity) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /hus def
+ /scale_max 0.02625828 def
+ /gribparam 133 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /rvort{
+[ sp | Z M T S] dataset .filenames readdatafile:
+/name (rvort) def
+ /calendar /standard def
+ /gribleveltype 109 def
+ /subcenter 255 def
+ /units /s-1 def
+ /scale_min -1.10468691E-05 def
+ /long_name (vorticity) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /rvort def
+ /scale_max 1.14641625E-05 def
+ /gribparam 138 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /ta{
+[ sp | Z M T S] dataset .filenames readdatafile:
+/name (ta) def
+ /calendar /standard def
+ /gribleveltype 109 def
+ /subcenter 255 def
+ /units /Kelvin_scale def
+ /long_name (Temperature) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /ta def
+ /gribparam 130 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+:dataset
+} def
+\end{ingrid}
+\begin{ingrid}
+/defineSoil {
+dataset:
+/name (soil)def
+{ X Y M T S} cvlit { exec name exch def} forall
+ /td{
+[ X Y | grid:
+/name (Z)def
+/units (cm_down)def
+values: 268 :values
+:grid
+ M T S ] dataset .filenames readdatafile:
+/name (td) def
+ /calendar /standard def
+ /gribleveltype 111 def
+ /subcenter 255 def
+ /units /Kelvin_scale def
+ /scale_min 210.39355 def
+ /long_name (deep soil temperature) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /td def
+ /scale_max 308.7373 def
+ /gribparam 170 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /TD3{
+[ X Y | grid:
+/name (Z)def
+/units (cm_down)def
+values: 3 :values
+:grid
+ M T S ] dataset .filenames readdatafile:
+/name (TD3) def
+ /calendar /standard def
+ /gribleveltype 111 def
+ /subcenter 255 def
+ /units /Kelvin_scale def
+ /scale_min 184.24051 def
+ /long_name (soil temperature) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /TD3 def
+ /scale_max 333.09601 def
+ /gribparam 207 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /TD5{
+[ X Y | grid:
+/name (Z)def
+/units (cm_down)def
+values: 78 :values
+:grid
+ M T S ] dataset .filenames readdatafile:
+/name (TD5) def
+ /calendar /standard def
+ /gribleveltype 111 def
+ /subcenter 255 def
+ /units /Kelvin_scale def
+ /scale_min 200.53949 def
+ /long_name (soil temperature) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /TD5 def
+ /scale_max 315.37347 def
+ /gribparam 209 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /TDCL{
+[ X Y | grid:
+/name (Z)def
+/units (cm_down)def
+values: 698 :values
+:grid
+ M T S ] dataset .filenames readdatafile:
+/name (TDCL) def
+ /calendar /standard def
+ /gribleveltype 111 def
+ /subcenter 255 def
+ /units (m (H2O))cvn def
+ /scale_min 210.45174 def
+ /long_name (soil temp level CL) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /TDCL def
+ /scale_max 309.06305 def
+ /gribparam 183 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+:dataset
+} def
+\end{ingrid}
+\begin{ingrid}
+/defineSurface {
+dataset:
+/name (surface)def
+{ X Y M T S} cvlit { exec name exch def} forall
+ /ALBEDO{  
+[X Y | M T S ] dataset .filenames readdatafile:
+/name (ALBEDO) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units /unitless def
+ /scale_min 0.06999999 def
+ /long_name (Albedo (surface)) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 8 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /ALBEDO def
+ /scale_max 0.8004687 def
+ /gribparam 175 def
+gribparam gribleveltype gribfield GRIBvariable
+:readdatafile
+}defasvarcachedecompresssilent
+dataset:
+{ X Y M T S} cvlit { exec name exch def} forall
+/name (clear_sky)def
+dataset:
+{ X Y M T S} cvlit { exec name exch def} forall
+/name (net)def
+ /lwflx{
+[ X Y | M T S ] dataset .dataset .dataset .filenames readdatafile:
+/name (lwflx) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units (W/m2)cvn def
+ /scale_min -223.31372 def
+ /long_name (longwave flux) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /TRAFS def
+ /scale_max 19.610123 def
+ /gribparam 186 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /solr{
+[ X Y | M T S ] dataset .dataset .dataset .filenames readdatafile:
+/name (solr) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units (W/m2)cvn def
+ /scale_min 0.0 def
+ /long_name (solar flux) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /SRAFS def
+ /scale_max 914.8125 def
+ /gribparam 185 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+:dataset
+:dataset
+ /evs{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (evs) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units (m (H2O))cvn def
+ /scale_min -4.03463815E-07 def
+ /long_name (Evaporation) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 24 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /evs def
+ /scale_max 7.83896326E-08 def
+ /gribparam 182 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /FOREST{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (FOREST) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /scale_min 0.0 def
+ /long_name (vegetation type) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 8 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /FOREST def
+ /scale_max 0.9492188 def
+ /gribparam 212 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /hfls{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (hfls) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units /Wm-2 def
+ /scale_min -1008.9824 def
+ /long_name (Surface Flux of Latent Heat) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /hfls def
+ /scale_max 196.03271 def
+ /gribparam 147 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /hfss{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (hfss) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units /Wm-2 def
+ /scale_min -636.59277 def
+ /long_name (Surface Flux of Sensible Heat) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /hfss def
+ /scale_max 687.8374 def
+ /gribparam 146 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+/sp 1892 NewIntegerGRID name exch def
+ /logpsl{
+[ sp | M T S] dataset .filenames readdatafile:
+/name (logpsl) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /gribfield 1 def
+ /long_name (Log Surface Pressure) def
+ /scale_min -0.02924551 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /logpsl def
+ /scale_max 16.258308 def
+ /gribparam 152 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /lsm{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (lsm) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units ((0,1))cvn def
+ /scale_min 0.0 def
+ /long_name (land-sea mask) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 8 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /lsm def
+ /scale_max 1.0 def
+ /gribparam 172 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+dataset:
+{ X Y M T S} cvlit { exec name exch def} forall
+/name (net)def
+ /lwflx{
+[ X Y | M T S ] dataset .dataset .filenames readdatafile:
+/name (lwflx) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units /Wm-2 def
+ /scale_min -223.02747 def
+ /long_name (longwave flux) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /rls def
+ /scale_max 57.837646 def
+ /gribparam 177 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /swflx{
+[ X Y | M T S ] dataset .dataset .filenames readdatafile:
+/name (swflx) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units /Wm-2 def
+ /scale_min 0.0 def
+ /long_name (Net Shortwave Radiation (surface)) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /rss def
+ /scale_max 914.8125 def
+ /gribparam 176 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+:dataset
+ /prc{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (prc) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units (m/s)cvn def
+ /long_name (Convective Precipitation) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 24 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /prc def
+ /gribparam 143 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /prl{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (prl) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units (m/s)cvn def
+ /scale_min 0.0 def
+ /long_name (Large Scale Precipitation) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 24 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /prl def
+ /scale_max 1.40381042E-06 def
+ /gribparam 142 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /prs{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (prs) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /scale_min -1.68290328E-33 def
+ /long_name (Snow Fall) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 24 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /prs def
+ /scale_max 6.07327536E-07 def
+ /gribparam 144 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /pss{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (pss) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units /Pa def
+ /scale_min 48633.203 def
+ /long_name (Surface Pressure) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /pss def
+ /scale_max 112238.42 def
+ /gribparam 134 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /SEAICE{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (SEAICE) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /scale_min 0.0 def
+ /long_name (sea ice cover) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 8 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /SEAICE def
+ /scale_max 1.0 def
+ /gribparam 210 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /sfr{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (sfr) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units /m def
+ /scale_min 1.49999996E-05 def
+ /long_name (sfc roughness) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /sfr def
+ /scale_max 20.00148 def
+ /gribparam 173 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /SICED{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (SICED) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units /m def
+ /scale_min 0.0 def
+ /long_name (sea ice depth) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /SICED def
+ /scale_max 1.5 def
+ /gribparam 211 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /snd{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (snd) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units /m def
+ /scale_min 0.0 def
+ /long_name (Snow Depth) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /snd def
+ /scale_max 17.541992 def
+ /gribparam 141 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /SNMEL{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (SNMEL) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units (m/s)cvn def
+ /scale_min 0.0 def
+ /long_name (snow melt) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /SNMEL def
+ /scale_max 9.34858690E-07 def
+ /gribparam 218 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /soilm{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (soilm) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /scale_min 0.0 def
+ /long_name (soil wetness) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /soilm def
+ /scale_max 0.6803741 def
+ /gribparam 140 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /SRADSU{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (SRADSU) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units (W/m2)cvn def
+ /scale_min -733.00464 def
+ /long_name (shortwave radiation upward (surface)) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /SRADSU def
+ /scale_max 0.0078125 def
+ /gribparam 204 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /srun{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (srun) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /scale_min 0.0 def
+ /long_name (surface runoff) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 24 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /srun def
+ /scale_max 9.95969344E-07 def
+ /gribparam 160 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /stemp{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (stemp) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /scale_min 184.24051 def
+ /long_name (Surface Temperature) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /stemp def
+ /scale_max 335.45929 def
+ /gribparam 139 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /tas{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (tas) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units /Kelvin_scale def
+ /scale_min 184.25819 def
+ /long_name (air temperature (surface)) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /tas def
+ /scale_max 334.88214 def
+ /gribparam 169 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /tauu{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (tauu) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units /Nm-2 def
+ /scale_min -3.2905951 def
+ /long_name (U-component of Surface Wind Stress) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /tauu def
+ /scale_max 3.3132839 def
+ /gribparam 180 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /tauv{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (tauv) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units /Nm-2 def
+ /scale_min -3.1547146 def
+ /long_name (V-component of Surface Wind Stress) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /tauv def
+ /scale_max 2.7073822 def
+ /gribparam 181 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /TRADSU{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (TRADSU) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units (W/m2)cvn def
+ /scale_min -697.5166 def
+ /long_name (longwave radiation upward (surface)) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /TRADSU def
+ /scale_max -65.136963 def
+ /gribparam 205 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /TSLIN{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (TSLIN) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units (W/m2)cvn def
+ /scale_min -79.089371 def
+ /long_name (TSLIN heat) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /TSLIN def
+ /scale_max 0.008666992 def
+ /gribparam 220 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /zg{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (zg) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units (m2 s-2)cvn def
+ /scale_min -7517.7578 def
+ /long_name (Geopotential) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /zg def
+ /scale_max 58762.242 def
+ /gribparam 129 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+:dataset
+} def
+\end{ingrid}
+\begin{ingrid}
+/defineTop {
+dataset:
+{ X Y M T S} cvlit { exec name exch def} forall
+/name (top)def
+dataset:
+{ X Y M T S} cvlit { exec name exch def} forall
+/name (clear_sky)def
+dataset:
+/name (net)def
+{ X Y M T S} cvlit { exec name exch def} forall
+ /lwflx{
+[ X Y | M T S ] dataset .dataset .dataset .filenames readdatafile:
+/name (lwflx) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units (W/m2)cvn def
+ /scale_min -366.24634 def
+ /long_name (longwave flux) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /TRAF0 def
+ /scale_max -77.136963 def
+ /gribparam 188 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /solr{
+[ X Y | M T S ] dataset .dataset .dataset .filenames readdatafile:
+/name (solr) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units (W/m2)cvn def
+ /scale_min 0.0 def
+ /long_name (solar flux) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /SRAF0 def
+ /scale_max 1112.4062 def
+ /gribparam 187 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+:dataset
+:dataset
+dataset:
+{ X Y M T S} cvlit { exec name exch def} forall
+/name (net)def
+ /lwflx{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (lwflx) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units /Wm-2 def
+ /scale_min -366.24634 def
+ /long_name (longwave flux) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /rlt def
+ /scale_max -77.863525 def
+ /gribparam 179 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /swflx{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (swflx) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units /Wm-2 def
+ /scale_min 0.0 def
+ /long_name (Net Shortwave Radiation (top)) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /rst def
+ /scale_max 1112.1562 def
+ /gribparam 178 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+:dataset
+ /SRAD0U{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (SRAD0U) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units (W/m2)cvn def
+ /scale_min -747.34326 def
+ /long_name (shortwave radiation upward (top)) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /SRAD0U def
+ /scale_max 0.007568359 def
+ /gribparam 203 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+:dataset
+dataset:
+{ X Y M T S} cvlit { exec name exch def} forall
+/name (total_air_column)def
+ /cltm{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (cltm) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /scale_min 0.0 def
+ /long_name (cloud cover total mean[0-1]) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 8 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /cltm def
+ /scale_max 1.0 def
+ /gribparam 164 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /CLTOPMAX{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (CLTOPMAX) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units /Pa def
+ /scale_min 8571.2109 def
+ /long_name (maximum height of convective cloud tops) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /CLTOPMAX def
+ /scale_max 99999.984 def
+ /gribparam 217 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+ /QVI{
+[ X Y | M T S ] dataset .filenames readdatafile:
+/name (QVI) def
+ /calendar /standard def
+ /gribleveltype 1 def
+ /subcenter 255 def
+ /units (kg/m2)cvn def
+ /scale_min 0.05598493 def
+ /long_name (vertically integrated specific humidity) def
+ /gribfield 1 def
+ /process 50 def
+ /gribNumBits 16 def
+ /PDS_TimeRange 10 def
+ /gribcenter 98 def
+ /missing_value 9.99900026E20 def
+ /center (European Center for Medium-Range Weather Forecasts - Reading) def
+ /PTVersion 128 def
+ /grib_name /QVI def
+ /scale_max 75.156113 def
+ /gribparam 230 def
+ gribparam gribleveltype gribfield GRIBvariable
+ :readdatafile
+}defasvarcachedecompresssilent
+:dataset
+} def
+\end{ingrid}
+\begin{ingrid}
+:datasetdefs
+
+/description (Six-hourly forecast from Jan 2003 to present) def
+/S (months since 1960-01-01) ordered
+1 Jan 2003 ensotime
+1.
+systemtime systemtime2ymd pop 1
+ymd2rm1960
+NewEvenGRID
+/pointwidth 0 def
+{
+%(/data/dstore3/iri/forecast/data/echam4/csst/%b:lc[S]%y[S]/)
+(/Data/data1/iri/forecast/data/echam4/csst/%b:lc[S]%y[S]/)
+[S]
+} removeextrausing
+last_modified 86400 add
+systemtime gt 
+{ first secondtolast subgrid} if
+name exch def
+\end{ingrid}
+defines dataset (someday)
+\begin{ingrid}
+S (1 Aug 2014) last subgrid .gridvalues
+{
+dup rm19602ymd pop
+1 sub monthnameslc exch get cvntos exch s== append cvn exch 1 index exch /definecsstsix cvx 3 array astore cvx defasvarsilent
+} forall
+\end{ingrid}
+\begin{ingrid}
+grid:
+/name /T def
+/units (days since 2001-01-01 00:00:00) def
+/standard_name (time) def
+1247 
+.25 1 index
+:grid
+/M 24 NewIntegerGRID name exch def
+(lastgoodmonth)  dup (none) 4 index !
+2003 1 
+systemtime (%Y) 4 strftime interp
+{
+s==
+[ (jan) (feb) (mar)(apr)(may)(jun)(jul)(aug)(sep)(oct)(nov)(dec) ]
+{
+1 index append 
+(/Data/data1/iri/fd/echam4.5/forecast/csst/csst) 1 index (.cuf) 3array astore concat
+dup fileexists?
+{
+4 -1 roll pop 1 
+
+index 4 1 roll
+ exch cvn exch /readCUF cvx 2 array astore cvx 
+{
+defaftervars
+defPressureLevel-SF
+hybrid_lev /omegahalf /omega cachesomevar
+name exch def
+above_ground
+/td2m
+{null  exec
+  /long_name (Specific Humidity) def
+  markunitless
+/grib_name /hus cvx def
+}
+dup 0 currentobject 
+/td2m get
+put
+defasvarsilent
+name exch def
+surface
+/srun
+{null  exec
+/units (m/s) def
+}
+dup 0 currentobject 
+/srun get
+put
+defasvarsilent
+name exch def
+} defasvarcachedecompresssilent
+} 
+{pop pop}ifelse
+} forall
+pop
+} for
+3 1 roll
+/ifvar? false def
+:dataset
+exch
+cvn cvx exec
+pop
+S .last
+rm19602ymd 
+7 {ymd:nextmonth} repeat
+ymd2rjt
+2001 01 01 ymd2rjt sub
+/T
+(days since 2001-01-01 00:00:00)
+0
+730 .25 6 -1 roll 1 index sub
+NewEvenGRID 
+/pointwidth 0 def
+name exch def
+continuedataset:
+defXYM
+:dataset
+\end{ingrid}
+expires Tues of the first week of the month.  If the first is Wed or earlier, it is that week; if the first is Thursday or later, it is the following week.
+\begin{ingrid}
+/expires T .last
+    2001
+     1 1 ymd2rjt
+     add
+    rjt2ymd
+      5 {ymd:lastmonth}repeat
+      ymd2systemtime
+    dup
+     (%w) 5 strftime
+     interp
+     dup
+      3 le
+      {2 exch sub}{9 exch sub}ifelse
+     86400 mul
+     add
+    12
+     3600 mul
+     add
+    def
+\end{ingrid}
+
+
+

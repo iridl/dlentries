@@ -1,0 +1,72 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+1.25 2.5 358.75
+:grid
+grid:
+/name /Y def
+degN
+88.75 -2.5 -88.75
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1979 ensotime
+1
+16 
+(/Data/data7/nasa/gpcp/v2/enddate) readfile
+ensotime
+%dup
+%rm19602ymd
+%      3 {ymd:nextmonth}repeat
+%      14 add
+%      ymd2systemtime
+%/expires exch def
+(/Data/data7/nasa/gpcp/v2/enddate) deflastmod
+:grid
+
+%/name (satellite-gauge) def
+/prcp {
+
+%Y T 2 12 72 mul twogridmodcounter
+%T
+% (/Data/data7/nasa/gpcp/v2/psg/gpcp_v2_psg.%Y) strftimes
+%copyachunk
+%[X] -99999. readr4
+
+[X Y | T]
+(/Data/data7/nasa/gpcp/v2/psg/gpcp_v2_psg.%Y[T]) [T yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+576 set:file_byteoffset
+direct
+/long_name (precipitation) def
+/units (mm/day) def
+/missing_value -99999. def
+/technique (Satellite-Gauge) def
+:readdatafile
+} defasvarsilent
+
+/err {
+
+%Y T 2 12 72 mul twogridmodcounter
+%T
+% (/Data/data7/nasa/gpcp/v2/esg/gpcp_v2_esg.%Y) strftimes
+%copyachunk
+%[X] -99999. readr4
+
+[X Y | T]
+(/Data/data7/nasa/gpcp/v2/esg/gpcp_v2_esg.%Y[T]) [T yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+576 set:file_byteoffset
+direct
+/long_name (abs. error) def
+/units (mm/day) def
+/missing_value -99999. def
+/technique (Satellite-Gauge) def
+:readdatafile
+} defasvarsilent
+
+:dataset
+\end{ingrid}

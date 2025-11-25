@@ -1,0 +1,128 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Revenus et depenses) def
+
+/Q5_1_1 { IRIDB (efsa201802) (q5_1_1) [(hhid)] open_column_by
+/long_name (Q5_1_1 :Combien de sources de revenu le menage dispose-t-il?) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q5_1_2 { IRIDB (efsa201802) (q5_1_2) [(hhid)] open_column_by
+/long_name (Q5_1_2 :Quelle est la principale source de revenu du menage actuellement ?) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(Agriculture)
+(Elevage)
+(Agriculture de contre saison)
+(Maraichage)
+(Artisanat)
+(Exploitation forestiere)
+(Chasse/Peche)
+(Exploitation miniere -Ortoto Fertoto …-)
+(Commerce)
+(Travail Specialise -maçontoto peintretoto menuisiertoto taxi-motototo charrettetoto piroguetoto etc…-)
+(Travail journalier -tâcherontoto dockertoto petits metiers/boulotstoto sourgatoto navetanetoto etc.-)
+(Salarie/Contractuel)
+(Retraite/Pensionnaire)
+(Transferts d'argent -Waritoto Western Uniontoto etc…-)
+(Dons/Aides -Zakat-)
+(Assistance Alimentaire)
+(Autres -A preciser-)
+] def
+
+/scale_min 1.00 def
+/scale_max 17.00 def
+}defasvarsilentnoreuse
+
+/Q5_1_21 { IRIDB (efsa201802) (q5_1_21) [(hhid)] open_column_by
+/long_name (Q5_1_21 : Autres principale source de revenu à preciser) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q5_1_4 { IRIDB (efsa201802) (q5_1_4) [(hhid)] open_column_by
+/long_name (Q5_1_4: Avez-vous une source de revenu reguliere et stable dans votre menage ?) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q5_1_5 { IRIDB (efsa201802) (q5_1_5) [(hhid)] open_column_by
+/long_name (Est-ce que votre ménage a emprunté -en espèce ou en nature- ces 12 derniers mois ?) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q5_1_6 { IRIDB (efsa201802) (q5_1_6) [(hhid)] open_column_by
+/long_name (Si Oui, quelle est la principale source de crédit du ménage ?) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(Parents/Amis)
+(Bianfaisance / ONG)
+(Prêteur local)
+(Banque/crédit mutuel/Caisse)
+(Epargne)
+(Tontine)
+(Coopérative)
+(Employeur)
+] def
+
+/scale_min 1.00 def
+/scale_max 8.00 def
+}defasvarsilentnoreuse
+
+/Q5_1_7 { IRIDB (efsa201802) (q5_1_7) [(hhid)] open_column_by
+/long_name (Quelle est la principale utilisation du crédit contracté ?) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(Achat d'aliments)
+(Paiement de frais de scolarité)
+(Soins de santé)
+(Achat de semances)
+(Achat d'intrants agricoles)
+(Equipements du ménage)
+(Loyer)
+(Mariage / Cérémonies)
+(Achat terre/construction ou achat maison)
+(Activité économique)
+] def
+
+/scale_min 1.00 def
+/scale_max 10.00 def
+}defasvarsilentnoreuse
+
+/Q5_2_a { IRIDB (efsa201802) (q5_2_a) [(hhid)] open_column_by
+/long_name (Alimentation) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q5_2_b { IRIDB (efsa201802) (q5_2_b) [(hhid)] open_column_by
+/long_name (Education) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q5_2_c { IRIDB (efsa201802) (q5_2_c) [(hhid)] open_column_by
+/long_name (Santé) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q5_2_d { IRIDB (efsa201802) (q5_2_d) [(hhid)] open_column_by
+/long_name (Transport) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q5_2_e { IRIDB (efsa201802) (q5_2_e) [(hhid)] open_column_by
+/long_name (Communication) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/Q5_2_f { IRIDB (efsa201802) (q5_2_f) [(hhid)] open_column_by
+/long_name (Autres) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/zdummy {c: 0 :c}defasvar
+
+:dataset
+
+Q5_1_1 .hhid name exch def
+\end{ingrid}
+

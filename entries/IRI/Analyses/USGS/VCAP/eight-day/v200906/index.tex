@@ -1,0 +1,39 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/vcap_colors {
+startcolormap DATA
+0.0 50.0 RANGE
+white grey grey
+0.0 VALUE
+grey grey
+0.0 bandmax
+LemonChiffon LemonChiffon
+2.0 bandmax
+yellow yellow
+4.0 bandmax
+gold gold
+6.0 bandmax
+pink pink
+8.0 bandmax
+LightCoral LightCoral
+10.0 bandmax
+tomato tomato
+15.0 bandmax
+OrangeRed OrangeRed
+20.0 bandmax
+brown brown
+50.0 bandmax
+navy endcolormap } def
+:datasetdefs
+/vcap_coarse {
+SOURCES .USGS .VCAP .eight-day .v200906 .vcap
+ X -20 0.1 55 GRID
+ Y -40 0.1 40 GRID
+% 0 masklt
+%  50 maskgt
+/long_name (Vectorial Capacity) def
+vcap_colors
+} defasvarcachesilent
+:dataset
+\end{ingrid}

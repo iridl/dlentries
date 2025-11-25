@@ -1,0 +1,49 @@
+#! /usr/freeware/bin/perl -w
+
+require "ctime.pl";
+require "/home/datag/perl/getdatafiles.pl";
+
+$GNUDATE="/ClimateGroup/network/gnu/bin/date";
+$DataCat="/Data/data1/DataCatalog/entries";
+$subdir="NOAA/NCEP/CPC/CAMS";
+#$year=`$GNUDATE -d"month ago" +%Y`;
+#chop $year;
+print "Updating $subdir\n";
+#$filename= "grid$year";
+chdir "/Data/data5/noaa/cpc/CAMS";
+
+$check = 0;
+#foreach $newfile (getdatafiles("ftp://ftpprd.ncep.noaa.gov/pub/cpc/wd52mh/", qr/grid\d\d\d\d$/)) {
+foreach $newfile (getdatafiles("ftp://ftp.cpc.ncep.noaa.gov/wd52mh/", qr/grid\d\d\d\d$/)) {
+
+    if($newfile =~ /grid(\d\d\d\d)$/) {
+      $check = 1;
+      $year = $1;
+      $newdate=`./update.tempgrid $year`;
+      chomp $newdate;
+      $olddate=`$GNUDATE -d"2 month ago" +"%b %Y"`;
+      chomp $olddate;
+      if( "$olddate" eq "$newdate" ){
+        open(OUT1,"|mail datag");
+        print OUT1 "grid$year has been updated, but only goes through $newdate.\n";
+        close OUT1;
+      }
+      print "updating catalog entry to $newdate";
+      open(IN1,"$DataCat/$subdir/index.tex");
+      open(OUT2,">tmp");
+      while(<IN1>){
+        if(m/enddate/){
+          s/^.* ensotime/16 $newdate ensotime/;
+        }
+        print OUT2;
+      }
+      close(IN1);
+      close(OUT2);
+      system("cp $DataCat/$subdir/index.tex oldentryfile;mv tmp $DataCat/$subdir/index.tex; chmod g+w $DataCat/$subdir/index.tex");
+
+    }
+}
+if($check == 0) {
+  print "file not yet updated\n";
+}
+exit;

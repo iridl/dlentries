@@ -1,0 +1,457 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9741
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 289
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_rapid_FSAdec_2009.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Agriculture) def
+/Q19 {
+mytable
+myquestion 
+38 VALUE
+ myquestion removeGRID
+/long_name (Q19 : Aviez-vous exploité des champs/jardins cette année ?) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q19A {
+mytable
+myquestion 
+39 VALUE
+ myquestion removeGRID
+/long_name (Q19.a : Comment ont évolué les superficies cultivées cette a) def 
+/units /ids def
+/CLIST [(Supérieure)(Même niveau)(Inférieure)(Non applicable)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q19B1A {
+mytable
+myquestion 
+40 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+}defasvarsilent
+
+/Q19B1B {
+mytable
+myquestion 
+41 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+}defasvarsilent
+
+/Q19B1C {
+mytable
+myquestion 
+42 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q19B2A {
+mytable
+myquestion 
+43 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+}defasvarsilent
+
+/Q19B2B {
+mytable
+myquestion 
+44 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+}defasvarsilent
+
+/Q19B2C {
+mytable
+myquestion 
+45 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q19B3A {
+mytable
+myquestion 
+46 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+}defasvarsilent
+
+/Q19B3B {
+mytable
+myquestion 
+47 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+}defasvarsilent
+
+/Q19B3C {
+mytable
+myquestion 
+48 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q19B4A {
+mytable
+myquestion 
+49 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+}defasvarsilent
+
+/Q19B4B {
+mytable
+myquestion 
+50 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+}defasvarsilent
+
+/Q19B4C {
+mytable
+myquestion 
+51 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q19B5A {
+mytable
+myquestion 
+52 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+}defasvarsilent
+
+/Q19B5B {
+mytable
+myquestion 
+53 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+}defasvarsilent
+
+/Q19B5C {
+mytable
+myquestion 
+54 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q19B6A {
+mytable
+myquestion 
+55 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+}defasvarsilent
+
+/Q19B6B {
+mytable
+myquestion 
+56 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+}defasvarsilent
+
+/Q19B6C {
+mytable
+myquestion 
+57 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q19B7A {
+mytable
+myquestion 
+58 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+}defasvarsilent
+
+/Q19B7B {
+mytable
+myquestion 
+59 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+}defasvarsilent
+
+/Q19B7C {
+mytable
+myquestion 
+60 VALUE
+ myquestion removeGRID
+/long_name (Q19.b : Quel est le niveau de votre production vivrière pour) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q20 {
+mytable
+myquestion 
+61 VALUE
+ myquestion removeGRID
+/long_name (Q20 : Comment jugez-vous la dernière campagne agricole ?) def 
+/units /ids def
+/CLIST [(Bonne)(Moyenne)(Mauvaise)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q21 {
+mytable
+myquestion 
+62 VALUE
+ myquestion removeGRID
+/long_name (Q21: Par rapport à la campagne agricole pluviale de 2008, qu) def 
+/units /ids def
+/CLIST [(Supérieure)(Même niveau)(Inférieure)(Non applicable)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q211 {
+mytable
+myquestion 
+63 VALUE
+ myquestion removeGRID
+/long_name (Q21: Si Q21 = 3, quelle est la cause principale ? 1. Faible) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q212 {
+mytable
+myquestion 
+64 VALUE
+ myquestion removeGRID
+/long_name (Q21: Si Q21 = 3, quelle est la cause principale ? 2. Insecte) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q213 {
+mytable
+myquestion 
+65 VALUE
+ myquestion removeGRID
+/long_name (Q21: Si Q21 = 3, quelle est la cause principale ? 3. Manque) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q214 {
+mytable
+myquestion 
+66 VALUE
+ myquestion removeGRID
+/long_name (Q21: Si Q21 = 3, quelle est la cause principale ? 4. Arrêt p) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q215 {
+mytable
+myquestion 
+67 VALUE
+ myquestion removeGRID
+/long_name (Q21: Si Q21 = 3, quelle est la cause principale ? 5. Manques) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q216 {
+mytable
+myquestion 
+68 VALUE
+ myquestion removeGRID
+/long_name (Q21: Si Q21 = 3, quelle est la cause principale ? 6. Inondat) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q217 {
+mytable
+myquestion 
+69 VALUE
+ myquestion removeGRID
+/long_name (Q21: Si Q21 = 3, quelle est la cause principale ? 7. Autres) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q22 {
+mytable
+myquestion 
+70 VALUE
+ myquestion removeGRID
+/long_name (Q22 : Votre ménage pratique-il des cultures de contre saison) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q22A1 {
+mytable
+myquestion 
+71 VALUE
+ myquestion removeGRID
+/long_name (Q22.a : Si oui, quels types de cultures 1. Cultures vivrière) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q22A2 {
+mytable
+myquestion 
+72 VALUE
+ myquestion removeGRID
+/long_name (Q22.a : Si oui, quels types de cultures 2. Cultures de rente) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q22A3 {
+mytable
+myquestion 
+73 VALUE
+ myquestion removeGRID
+/long_name (Q22.a : Si oui, quels types de cultures 3. Cultures potagère) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q23 {
+mytable
+myquestion 
+74 VALUE
+ myquestion removeGRID
+/long_name (Q23 : Votre ménage a-t-il l'intention de pratiquer des cultu) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q23A1 {
+mytable
+myquestion 
+75 VALUE
+ myquestion removeGRID
+/long_name (Q23.a : Si oui, quels types de cultures 1. Cultures vivrière) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q23A2 {
+mytable
+myquestion 
+76 VALUE
+ myquestion removeGRID
+/long_name (Q23.a : Si oui, quels types de cultures 2. Cultures de rente) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q23A3 {
+mytable
+myquestion 
+77 VALUE
+ myquestion removeGRID
+/long_name (Q23.a : Si oui, quels types de cultures 3. Cultures potagère) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

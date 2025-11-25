@@ -1,0 +1,108 @@
+EASE-grid 1383x586 10 day
+\begin{ingrid}
+continuedataset:
+grid:
+/name /x def
+/units /km def
+-17321.6597775 25.067525 17321.6597775
+:grid
+grid:
+/name /y def
+/units /km def
+7332.2510625 25.067525 -7332.2510625
+:grid
+
+dataset:
+/name /tendayInundation def
+/x x def
+/y y def
+
+1 Jul 2002 julian_day
+31 Jul 2009 julian_day
+dekadGRID 
+name exch def
+
+/inundation {
+ [x y | T] (/Data/data3/nasa/wetlands/global10dayinundation/%Y_%m[T]_FW_INTERVAL_%2.2d[cnt].DAT) [T dup
+        0 3 onegridmodcounter
+        1 add
+        10 mul
+        /name /cnt def
+        ]readdatafile:
+decdirect
+/missing_value -9999. def
+/scale_min 0. def
+/scale_max 1. def
+/units (unitless) def
+(epsg:3410) crsid2srtext /SpatialReferenceSystemWKT exch def
+/SpatialReferenceSystemDims { x y } cvlit def
+ /grid_mapping (Cylindrical_Equal_Area) def
+:readdatafile
+} defasvarsilent
+:dataset
+dataset:
+/name /sixdayInnundation def
+/x x def
+/y y def
+
+grid:
+/name /T def
+/units (days since 1999-01-01 00:00:00) def
+/pointwidth 6. def
+19 Jul 1999 julian_day pointwidth .5 mul add
+1 Jan 1999 julian_day sub
+1
+1 Jan 2013 julian_day pointwidth .5 mul sub 
+1 Jan 1999 julian_day sub
+:grid
+
+/innundation_fraction_anomaly {
+  [x
+    y |
+    T] (/Data/data3/nasa/wetlands/global6dayinundation/FW_ANOMALIES_%Y%m%d[lb]_%Y%m%d[ub].DAT) [T get_bounds dup
+         I_bounds 1 VALUE
+         /name /lb def
+         exch
+         /I_bounds 2 VALUE
+         0.5 sub
+         /name /ub def
+         ]readdatafile:
+decdirect
+/missing_value -9999. def
+/scale_min 0. def
+/scale_max 1. def
+:readdatafile
+/I_bounds undef
+(epsg:3410) crsid2srtext /SpatialReferenceSystemWKT exch def
+/SpatialReferenceSystemDims { x y } cvlit def
+ /grid_mapping (Cylindrical_Equal_Area) def
+} defasvarsilent
+:dataset
+
+:dataset
+\end{ingrid}
+
+Dear Benno,
+
+For the NASA SERVIR project (Development and Implementation of Flood
+Risk Mapping, Water Bodies Monitoring and Climate Information for
+Disaster Management and Human Health (integration within SERVIR), I am
+working with Kat Jensen and Kyle McDonald on Inundated Water fraction
+products.  We would like to have the products developed accessible via
+the Data Library for the user community.  Kyle has already developed
+the global Inundated fraction product (accessible via the Wetlands JPL
+web site (http://wetlands.jpl.nasa.gov/).
+
+
+Could you please upload the data (global Inundated fraction product)
+in the Data Library? 
+I downloaded the from the Wetlands web site Data:
+http://wetlands.jpl.nasa.gov/cgi-bin/data.pl. 
+
+I placed the data set in my Y://pceccato/Inundated fraction/ file called iw_esdr_10day.tar
+
+The product is called :
+Global 10day Inundation Fraction 2002-July to 2009-July (82 MB)
+
+Reference: R Schroeder, K C McDonald, S K Chan, B Chapman , E Podest , T J Bohn, L A Jones, J Kimball, R Zimmermann and M Kppers, 2012 Development and Evaluation of a Global Wetland Data Record Derived from Combined Active/Passive Microwave Remote Sensing Data, in preparation.
+

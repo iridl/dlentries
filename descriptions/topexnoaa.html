@@ -1,0 +1,68 @@
+<html><head>
+<title>NOAA TOPEX/POSEIDON Gridded Sea Level Anomalies and Deviations</title>
+</head><body>
+<h1 align=center>
+           	   TOPEX/POSEIDON Altimeter 
+	      Gridded Sea Level Anomalies and Deviations
+</h1>
+<p align=center>Bob Cheney<br>
+                           Russ Agreen<br>
+			John Lillibridge<br>
+			   Nancy Doyle<br>
+                          Laury Miller<br>
+</p>
+
+<p align=center>             National Ocean Service, NOAA (N/OES11)<br>
+                       Silver Spring, MD 20910
+</p>
+
+The data are <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.IGOSS/.TOPEX/.NOAA/">here</a>.
+
+<h2>  SUMMARY</h2>
+
+    The gridded sea level deviations and anomalies are derived from 
+T/P altimeter data.  For the deviations,
+all sea heights are relative to the 1993/1994 mean.
+For the anomalies, Annual and semi-annual harmonics have been removed, 
+leaving only the interannual change relative to the 1993/1994 mean.  A
+separate file is given for each month.  These data are used, after
+additional spatial filtering, to produce the maps published quarterly
+in the NOAA Climate Diagnostics Bulletin.
+<h2>  PROCESSING METHOD</h2>
+
+The data were processed in the following way using collinear differences:
+<p>
+Standard corrections were applied (troposphere, ionosphere, tides--using
+the Cartwright-Ray ocean tide model, inverse barometer, and sea state bias).
+In addition, corrections to the M2, K1, S2, and O1 tide model constituents
+were made based on an analysis of Topex collinear differences by Carl Wagner
+of NOAA.  The Rapp geoid OSU91A was removed to reduce errors resulting from
+slight cross-track gradients within the 2-km collinear band.  Both Topex
+and Poseidon altimeter data were used, with a height bias of 21.5 cm applied
+to correct for the relative difference in calibration between the two.
+Data are excluded if the satellite attitude was greater than 0.3 degrees
+for Topex, 0.4 degrees for Poseidon.
+<p>
+NO ADJUSTMENT WAS MADE FOR ORBIT ERROR.  Altimeter observations were
+simply averaged in 4x1 cells. 
+<p>
+For the anomalies,
+annual and semiannual harmonics computed for each 4x1 cell were removed from
+the total signal to convert the data from sea level deviations
+to sea level anomalies.  All time series have zero mean over the 2-year
+period Jan - Dec 1994.
+<p>
+<table border>
+<tr>
+<th><a
+href="http://www.grdl.noaa.gov/SAT/products/topex.html">TOPEX/POSEIDON</a></th>
+<td><a href="http://rainbow.ldeo.columbia.edu/">LDEO Climate Group</a></td>
+<td><a href="http://www.ldeo.columbia.edu/">LDEO</a></td>
+</tr></table>
+<p>
+<address>        <a hef="mailto:bob@bigbird.grdl.noaa.gov">bob@bigbird.grdl.noaa.gov</a> </address>
+
+</body></html>
+
+
+

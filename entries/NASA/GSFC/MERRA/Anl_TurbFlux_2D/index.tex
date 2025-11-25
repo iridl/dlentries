@@ -1,0 +1,580 @@
+\begin{ingrid}
+continuedataset:
+/name (Anl_TurbFlux_2D)def
+ /comment (GEOS-5.2.0) def
+ /source (Global Modeling and Assimilation Office. GEOSops_5_2_0) def
+ /missing_value 9.99999987E14 def
+ /institution (Global Modeling and Assimilation Office, NASA Goddard Space Flight Center, Greenbelt, MD 20771) def
+ /Conventions (CF-1.0) def
+ /HDFEOSVersion (HDFEOS_V2.14) def
+ /references (http://gmao.gsfc.nasa.gov/research/merra/) def
+ /contact (http://gmao.gsfc.nasa.gov/) def
+ /title (MERRA reanalysis. GEOS-5.2.0) def
+ /history (File written by CFIO) def
+datasetdefs:
+grid: 
+/name /T def
+/standard_name (time) def
+/units (days since 1979-01-01 00:30:00) def
+/pointwidth 1. 24. div def
+/defaultvalue {last} def
+values:
+% 100
+1. 24. div 2 div 
+1993 1 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+% 200
+1993 1 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+
+2001 1 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+% 300
+2001 1 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+
+2010 5 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+% 301
+2010 5 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+
+2010 9 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+% 300
+2010 9 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+
+2016 01 01 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 24. div 2 div sub
+:values
+:grid
+
+variable:
+/name /mver def
+grids: T :grids
+values: /100 /100 /200 /200 /300 /300 /301 /301 /300 /300 :values
+:variable
+:datasetdefs
+
+/description (Turbulent Fluxes) def
+link:
+/name (link to MERRA project) def
+/description (MODERN-ERA RETROSPECTIVE ANALYSIS FOR RESEARCH AND APPLICATIONS) def
+/href (http://gmao.gsfc.nasa.gov/research/merra/) def
+:link
+
+grid:
+/name (X)def
+/units (degree_east)def
+ -180.0 0.6666666 179.33333
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ -90.0 0.5 90.0
+:grid
+
+%This defines a time grid up to today's date, regardless if there is a data file or not
+grid:
+/name (T)def
+/units (days since 1979-01-01 00:30:00)def
+/pointwidth 1. 24. div def
+/defaultvalue {last} def
+ 1. 24. div 2 div
+ 1. 24. div
+% systemtime
+%   (%d %b %Y) 12 strftime interp julian_day
+2016 01 01 ymd2rjt
+ 1979 01 01 ymd2rjt
+ sub
+ 1. 24. div 2 div sub
+:grid
+
+%This removes all last time steps for which there are no datafiles ensuring that the last time step points to actual data
+%T
+%{ (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] }
+%removeextrausing
+%name exch def
+%/last_modified T .last_modified def
+
+ /BSTAR{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (BSTAR) def
+ /standard_name () def
+ /units (m/s)cvn def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /long_name (Surface buoyancy scale) def
+ /missing_value 9.99999987E14 def
+ /fmissing_value 9.99999987E14 def
+ /vmax 1.00000002E30 def
+ /vmin -1.00000002E30 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /CDH{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (CDH) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (kg/m2/s)cvn def
+ /long_name (Surface exchange coefficient for heat) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /CDM{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (CDM) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (kg/m2/s)cvn def
+ /long_name (Surface exchange coefficient for momentum) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /CDQ{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (CDQ) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (kg/m2/s)cvn def
+ /long_name (Surface exchange coefficient for moisture) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /CN{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (CN) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units /nondimensional def
+ /long_name (Surface neutral drag coefficient) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /DISPH{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (DISPH) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units /m def
+ /long_name (Displacement Height) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /EFLUX{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (EFLUX) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (W/m2)cvn def
+ /long_name (Latent heat flux (positive upward)) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /EVAP{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (EVAP) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (kg/m2/s)cvn def
+ /long_name (Surface evaporation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FRSEAICE{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (FRSEAICE) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units /unitless def
+ /long_name (Ice covered fraction of tile) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /HFLUX{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (HFLUX) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (W/m2)cvn def
+ /long_name (Sensible heat flux (positive upward)) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /HLML{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (HLML) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units /m def
+ /long_name (Height of center of lowest model layer) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /PBLH{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (PBLH) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units /m def
+ /long_name (Planetary boundary layer height) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /PGENTOT{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (PGENTOT) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (kg/m2/s)cvn def
+ /long_name (Total generation of precipitation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /PRECANV{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (PRECANV) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (kg/m2/s)cvn def
+ /long_name (Surface precipitation flux from anvils) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /PRECCON{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (PRECCON) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (kg/m2/s)cvn def
+ /long_name (Surface precipitation flux from convection) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /PRECLSC{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (PRECLSC) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (kg/m2/s)cvn def
+ /long_name (Surface precipitation flux from large-scale) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /PRECSNO{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (PRECSNO) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (kg/m2/s)cvn def
+ /long_name (Surface snowfall flux) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /PRECTOT{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (PRECTOT) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (kg/m2/s)cvn def
+ /long_name (Total surface precipitation flux) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /QLML{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (QLML) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units /unitless def
+ /long_name (Specific Humidity of lowest model layer) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /QSH{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (QSH) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units /unitless def
+ /long_name (Effective turbulence skin humidity) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /QSTAR{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (QSTAR) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units /unitless def
+ /long_name (Surface humidity scale) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /RHOA{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (RHOA) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (kg/m3)cvn def
+ /long_name (Surface air density) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /RI{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (RI) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units /nondimensional def
+ /long_name (Surface Richardson number) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /SPEED{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (SPEED) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (m/s)cvn def
+ /long_name (Effective surface wind speed) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TAUGWX{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (TAUGWX) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (N/m2)cvn def
+ /long_name (Eastward gravity wave surface stress) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TAUGWY{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (TAUGWY) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (N/m2)cvn def
+ /long_name (Northward gravity wave surface stress) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TAUX{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (TAUX) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (N/m2)cvn def
+ /long_name (Eastward surface wind stress) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TAUY{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (TAUY) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (N/m2)cvn def
+ /long_name (Northward surface wind stress) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TLML{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (TLML) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units /Kelvin_scale def
+ /long_name (Temperature of lowest model layer) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TSH{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (TSH) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units /Kelvin_scale def
+ /long_name (Effective turbulence skin temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TSTAR{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (TSTAR) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units /Kelvin_scale def
+ /long_name (Surface temperature scale) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /ULML{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (ULML) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (m/s)cvn def
+ /long_name (Eastward Wind of lowest model layer) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /USTAR{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (USTAR) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (m/s)cvn def
+ /long_name (Surface velocity scale) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /VLML{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (VLML) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units (m/s)cvn def
+ /long_name (Northward Wind of lowest model layer) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /Z0H{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (Z0H) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units /m def
+ /long_name (Roughness length, sensible heat) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /Z0M{
+[ X Y | T ] (/Data/data20/jallen/MERRA/%Y[T]/TurbulentFluxes_2D/%Y[T]/MERRA%s[mver].prod.assim.tavgU_2d_flx_Nx.%Y%m[T].hdf) [T monthlyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (Z0M) def
+ /fmissing_value 9.99999987E14 def
+ /missing_value 9.99999987E14 def
+ /vmin -1.00000002E30 def
+ /vmax 1.00000002E30 def
+ /standard_name () def
+ /valid_range [ -1.00000002E30 1.00000002E30 ] def
+ /units /m def
+ /long_name (Roughness length, momentum) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+\end{ingrid}

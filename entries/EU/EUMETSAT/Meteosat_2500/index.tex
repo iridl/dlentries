@@ -1,0 +1,57 @@
+X range -5432000 5432000  80W->80E 2405 pixels
+Y range -5416000 5416000  81S->81N 2398 pixels
+
+X range -5646570 5646570 2500 pixels
+Y range -5646372 5646372 2500 pixels
+
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name (Y)def
+/units (m)def
+% -6624488.754456 5301.711688 6624488.754456
+-5644113.45 4517.1 5644113.45
+:grid
+
+grid:
+/name (X)def
+/units (m)def
+% -6627428.00956 5304.064033264 6627428.00956
+-5644311.35 4517.3 5644311.35
+:grid
+
+grid:
+/name (T)def
+/netcdfgrid true def
+/units (minutes since 1983-01-01 0:0:0)def
+/pointwidth 0.0 def
+30
+30
+2006 07 01 ymd2rjt 1983 01 01 ymd2rjt sub 24 mul 60 mul 30 sub
+:grid
+
+/temperature{
+[ X Y | T] (/data/dstore3/iri/monitoring/tufa/TIR/%Y[T]/%m[T]/%d[T]/spv-%Y%m%d%H[T]%M[minute].nc) [T dup 60 mod /name /minute def]
+readdatafile:
+/name (temperature) def
+/long_name (Brightness temperature) def
+/units /Kelvin_scale def
+/Meteosat (2-7) def
+/LOFF 1250.5 def
+/ssp_lon 0.0 def
+/short_name (temperature) def
+/missing_value -99 def
+/valid_min 2.0 def
+/CFAC 521518918 def
+/COFF 1250.5 def
+/LFAC 521518918 def
+/shortarraytype netcdfrecords
+/SpatialReferenceSystemWKT (sr-org:81) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit  def
+:readdatafile
+}defasvarcachesilent
+
+:dataset
+
+\end{ingrid}

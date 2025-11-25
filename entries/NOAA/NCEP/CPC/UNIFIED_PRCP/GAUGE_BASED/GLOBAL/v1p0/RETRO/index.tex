@@ -1,0 +1,74 @@
+\begin{ingrid}
+
+    continuedataset:
+    
+    link:
+    /name (Data Source) def
+    /href (ftp://ftp.cpc.ncep.noaa.gov/precip/CPC_UNI_PRCP/GAUGE_GLB/V1.0/) def
+    :link
+    
+    grid:
+    /name /X def
+    periodic
+    /units (degree_east) def
+    0.25 0.5 359.75
+    :grid
+    
+    grid:
+    /name /Y def
+    /units (degree_north) def
+    -89.75 0.5 89.75
+    :grid
+    
+    grid:
+    /name /T def
+    /standard_name (time) def
+    /units (days since 1960-01-01 00:00:00) def
+    /pointwidth 0 def
+    01 Jan 1979 julian_day 01 Jan 1960 julian_day sub
+    1.0
+    31 Dec 2005 julian_day 01 Jan 1960 julian_day sub
+    :grid
+    
+     [ X Y | /NVZ 2 NewIntegerGRID T ] (/Data/data6/noaa/cpc/unified_prcp/global/v1p0/V1.0/%Y[T]/PRCP_CU_GAUGE_V1.0GLB_0.50deg.lnx.%Y[T]%m[T]%d[T].gz) [T] readdatafile:
+    true /useopenfile myreadfileargs !
+    decdirect
+    /missing_value -999.0 def
+    :readdatafile
+    
+    definevariables:
+    
+    0 Zvariable:
+    /name /rain def
+    /long_name (Precipitation) def
+    /standard_name (lwe_precipitation_rate) def
+    /scale_factor 0.1 def
+    /units (mm/day) def
+    :Zvariable
+
+    0 Zvariable:
+    /name /gnum def
+    /long_name (Number of Gauges Available in Each Grid Box) def
+    /units (number of gauges) def
+    :Zvariable
+
+    :definevariables
+    
+    variable:
+     /name (EOD) def
+     /long_name (End of Day Time) def
+     /units (hour) def
+     /missing_value -999.0 def
+     grids: X Y :grids
+     file:
+     decdirect
+     /name (/Data/data6/noaa/cpc/unified_prcp/global/v1p0/PRCP_CU_GAUGE_V1.0GLB_0.50deg_EOD.lnx) def
+     :file
+    :variable
+    
+    /iridl:hasSemantics (gcmdi:RAIN_GAUGES) def
+    /references (Xie_etal2007 Chen_etal2008a Chen_etal2008b) def
+    
+    :dataset
+    
+    \end{ingrid}

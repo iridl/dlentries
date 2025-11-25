@@ -1,0 +1,224 @@
+\begin{ingrid}
+
+continuedataset:
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /km def   
+-3978 1 dup 7376 mul 2 index add 1 sub
+:grid
+
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /km def 
+-4322 1 dup 7877 mul 2 index add 1 sub
+:grid
+
+
+/soil_qual {
+[X Y last first subgrid | ]
+(/data/remic/mydatafiles/Hansen/Water_balance/GYGA_Results/Aggregated_overERZD/af_ERZD_LIMFACTOR__M_1km.tif)
+
+readdatafile:
+/description (Factor (soil quality) limiting Effective Root Zone Depth for Maize) def
+/stringtype tiffimage
+/units /ids def 
+/missing_value 255 def 
+/long_name (Soil quality) def 
+
+/SpatialReferenceSystemWKT (EPSG:9820) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit  def
+:readdatafile
+
+Y last first RANGE
+/scale_min 1 def
+/scale_max 18 def
+/CLIST [
+(CRFVOL)
+(tetaS)
+(BLD.f)
+(SNDPPT)
+(CLY.d)
+(SND.d)
+(PHIHOX.L)
+(PHIHOX.H)
+(ECN)
+(ENA.f)
+(ENA)
+(EACKCL.f)
+(EACKCL)
+(CRB)
+(GYP)
+(DRAINFAO)
+(BDRICM)
+(ERMAIZE)
+] def
+/CLISTdesc [
+(Foothold (Coarse Fragments))
+(Porosity (TetaS))
+(Porosity (bulk density))
+(Excessive sand content)
+(Abrupt change of clay content)
+(Abrupt change of sand content)
+(Acidity (pH low))
+(Alkalinity (pH high))
+(Electric conductivity)
+(Sodicity (ESP; exch Na+ / CEC))
+(Sodicity (exchangeable Na+))
+(Toxicity (exch. acidity saturation; Al3+&H+/eCEC))
+(Toxicity (exchangeable acidity; Al3+&H+))
+(Not included)
+(Not included)
+(Drainage)
+(Depth to bedrock)
+(Maximum root depth maize)
+] def
+}defasvarsilent
+
+
+/root_zone {
+[X Y last first subgrid | ]
+(/data/remic/mydatafiles/Hansen/Water_balance/GYGA_Results/Aggregated_overERZD/af_ERZD__M_1km.tif)
+
+readdatafile:
+/description (Effective Root Zone Depth (cm) for Maize) def
+/stringtype tiffimage
+/units /cm def 
+/missing_value 255 def 
+/long_name (Effective Root Zone Depth) def 
+
+/SpatialReferenceSystemWKT (EPSG:9820) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit  def
+:readdatafile
+
+Y last first RANGE
+}defasvarsilent
+
+
+/wat_cap_fine {
+[X Y last first subgrid | ]
+(/data/remic/mydatafiles/Hansen/Water_balance/GYGA_Results/Aggregated_overERZD/af_agg_ERZD_AWCpF23__M_1km.tif)
+
+readdatafile:
+/description (Available water capacity (percent water by volume, v\%) of the fine earth, aggregated over the Effective Root Zone Depth for Maize, with field capacity defined at pF 2.3) def
+/stringtype tiffimage
+/units /percent def 
+/missing_value 255 def 
+/long_name (Available water capacity - fine earth) def 
+
+/SpatialReferenceSystemWKT (EPSG:9820) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit  def
+:readdatafile
+
+Y last first RANGE
+DATA 0 100 RANGE
+}defasvarsilent
+
+
+/coarse_frag_cont {
+[X Y last first subgrid | ]
+(/data/remic/mydatafiles/Hansen/Water_balance/GYGA_Results/Aggregated_overERZD/af_agg_ERZD_CRFVOL__M_1km.tif)
+
+readdatafile:
+/description (Coarse fragments content (v\%) of the whole earth, aggregated over the Effective Root Zone Depth for Maize) def
+/stringtype tiffimage
+/units /percent def 
+/missing_value 255 def 
+/long_name (Coarse fragments content) def 
+
+/SpatialReferenceSystemWKT (EPSG:9820) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit  def
+:readdatafile
+
+Y last first RANGE
+DATA 0 100 RANGE
+}defasvarsilent
+
+
+/moist_cont_wilt {
+[X Y last first subgrid | ]
+(/data/remic/mydatafiles/Hansen/Water_balance/GYGA_Results/Aggregated_overERZD/af_agg_ERZD_PWP__M_1km.tif)
+
+readdatafile:
+/description (Moisture content (v\%) of the fine earth at permanent wilting point, aggregated over the Effective Root Zone Depth for Maize, with PWP defined at pF 4.2) def
+/stringtype tiffimage
+/units /percent def 
+/missing_value 255 def 
+/long_name (Moisture content of the fine earth - wilting point) def 
+
+/SpatialReferenceSystemWKT (EPSG:9820) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit  def
+:readdatafile
+
+Y last first RANGE
+DATA 0 100 RANGE 
+}defasvarsilent
+
+
+/wat_cap_whole {
+[X Y last first subgrid | ]
+(/data/remic/mydatafiles/Hansen/Water_balance/GYGA_Results/Aggregated_overERZD/af_agg_ERZD_TAWCpF23__M_1km.tif)
+
+readdatafile:
+/description (Total available water capacity (v\%) of the whole earth (incl. both fine earth and coarse fragments), aggregated over the Effective Root Zone Depth for Maize, with field capacity defined at pF 2.3) def
+/stringtype tiffimage
+/units /percent def 
+/missing_value 255 def 
+/long_name (Total available water - fine earth and coarse fragments) def 
+
+/SpatialReferenceSystemWKT (EPSG:9820) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit  def
+:readdatafile
+
+Y last first RANGE
+DATA 0 100 RANGE 
+}defasvarsilent
+
+
+/wat_cap_abs {
+[X Y last first subgrid | ]
+(/data/remic/mydatafiles/Hansen/Water_balance/GYGA_Results/Aggregated_overERZD/af_agg_ERZD_TAWCpF23mm__M_1km.tif)
+
+readdatafile:
+/description (Absolute total available water capacity (mm), aggregated over the Effective Root Zone Depth for Maize) def
+/stringtype tiffimage
+/units /mm def 
+/missing_value 255 def 
+/long_name (Absolute total available water) def
+ 
+/SpatialReferenceSystemWKT (EPSG:9820) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit  def
+:readdatafile
+
+Y last first RANGE
+}defasvarsilent
+
+
+/moist_cont_sat {
+[X Y last first subgrid | ]
+(/data/remic/mydatafiles/Hansen/Water_balance/GYGA_Results/Aggregated_overERZD/af_agg_ERZD_TETAs__M_1km.tif)
+
+readdatafile:
+/description (Moisture content (v\%) of the fine earth at saturation, aggregated over the Effective Root Zone Depth for Maize) def
+/stringtype tiffimage
+/units /percent def 
+/missing_value 255 def 
+/long_name (Moisture content of the fine earth - saturation) def 
+
+/SpatialReferenceSystemWKT (EPSG:9820) crsid2srtext def
+/SpatialReferenceSystemDims { X Y } cvlit  def
+:readdatafile
+
+Y last first RANGE
+DATA 0 100 RANGE
+}defasvarsilent
+
+
+:dataset
+
+\end{ingrid}
+
+

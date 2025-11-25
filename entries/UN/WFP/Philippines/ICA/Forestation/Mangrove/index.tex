@@ -1,0 +1,52 @@
+\begin{ingrid}
+
+/description (Mangrove) def
+
+continuedataset:
+
+grid:
+/name /x def
+/units /m def
+%-175366.674 33.364880 2. div add 33.364880 903553.455 33.364880 2. div sub
+-175366.673908 33.364880 2 copy 32337. 1. sub mul add
+%116.522770 0.002083 2 copy 4958. 1. sub mul add 
+/long_name (Longitude) def
+:grid
+
+x partialgrid
+step 128 mul partitiongrid
+name 3 index !
+name 2 index !
+
+grid:
+/name /y def
+/units /m def
+%2072233.606 33.364880 2. div sub 33.364880 509522.716 33.364880 2. div add
+2072233.606141 33.364880 2 copy 46837. 1. sub mul sub
+%21.041308 0.002083 2 copy 7898. 1. sub mul sub
+/long_name (Latitude) def
+:grid
+
+y partialgrid
+step 128 mul partitiongrid
+name 3 index !
+name 2 index !
+
+/mangrove2000 {
+[ x2 y2 | x y ]
+(/data/remic/mydatafiles/WFP/Philippines/ICA_PHL/Data/Rasters/phl_phy_mangroveforest2000_philgis.tif)
+readdatafile:
+/integerarraytype tiledtiffimage
+:readdatafile
+/missing_value 16 def
+/long_name (Mangrove 2000) def
+%  /scale_min 1 def
+%  /scale_max 11 def
+%  /CLIST [ (Moderate/high density, high increase) (Moderate/high density, low increase) (Moderate/high density, stable) (Low density, high increase) (Low density, low increase) (Low density, stable) (Moderate/high density, low decrease) (Moderate/high density, high decrease) (Low density, low decrease) (Low density, high decrease) (Water Body) ]def
+%  startcolormap transparent ForestGreen ForestGreen LimeGreen green GreenYellow LemonChiffon yellow orange salmon red brown aquamarine aquamarine endcolormap
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

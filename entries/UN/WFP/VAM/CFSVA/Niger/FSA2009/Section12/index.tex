@@ -1,0 +1,557 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9741
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 289
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_rapid_FSAdec_2009.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Calculs) def
+/mil_stock {
+mytable
+myquestion 
+233 VALUE
+ myquestion removeGRID
+/long_name (Stock du mil en kg) def 
+}defasvarsilent
+
+/sorg_stock {
+mytable
+myquestion 
+234 VALUE
+ myquestion removeGRID
+/long_name (Stock du sorgho en kg) def 
+}defasvarsilent
+
+/mais_stock {
+mytable
+myquestion 
+235 VALUE
+ myquestion removeGRID
+/long_name (Stock du mais en kg) def 
+}defasvarsilent
+
+/rizpad_stock {
+mytable
+myquestion 
+236 VALUE
+ myquestion removeGRID
+/long_name (Stock du riz paddyl en kg) def 
+}defasvarsilent
+
+/rizblan_stock {
+mytable
+myquestion 
+237 VALUE
+ myquestion removeGRID
+/long_name (Stock du riz blanchi en kg) def 
+}defasvarsilent
+
+/ble_stock {
+mytable
+myquestion 
+238 VALUE
+ myquestion removeGRID
+/long_name (Stock du blé en kg) def 
+}defasvarsilent
+
+/fonio_stock {
+mytable
+myquestion 
+239 VALUE
+ myquestion removeGRID
+/long_name (Stock du fonio en kg) def 
+}defasvarsilent
+
+/mil_endet {
+mytable
+myquestion 
+240 VALUE
+ myquestion removeGRID
+/long_name (Endettement du mil en kg) def 
+}defasvarsilent
+
+/sorg_endet {
+mytable
+myquestion 
+241 VALUE
+ myquestion removeGRID
+/long_name (Endettement du sorgho en kg) def 
+}defasvarsilent
+
+/mais_endet {
+mytable
+myquestion 
+242 VALUE
+ myquestion removeGRID
+/long_name (Endettement du mais en kg) def 
+}defasvarsilent
+
+/rizpad_endet {
+mytable
+myquestion 
+243 VALUE
+ myquestion removeGRID
+/long_name (Endettement du riz paddyl en kg) def 
+}defasvarsilent
+
+/rizblan_endet {
+mytable
+myquestion 
+244 VALUE
+ myquestion removeGRID
+/long_name (Endettement du riz blanchi en kg) def 
+}defasvarsilent
+
+/ble_endet {
+mytable
+myquestion 
+245 VALUE
+ myquestion removeGRID
+/long_name (Endettement du blé en kg) def 
+}defasvarsilent
+
+/fonio_endet {
+mytable
+myquestion 
+246 VALUE
+ myquestion removeGRID
+/long_name (Endettement du fonio en kg) def 
+}defasvarsilent
+
+/stock_paysan1 {
+mytable
+myquestion 
+247 VALUE
+ myquestion removeGRID
+/long_name (Stock paysan avec toutes les céréales) def 
+}defasvarsilent
+
+/besoin_men {
+mytable
+myquestion 
+248 VALUE
+ myquestion removeGRID
+/long_name (Besoins réels du ménage toutes céréales pour l'année) def 
+}defasvarsilent
+
+/stock_paysan2 {
+mytable
+myquestion 
+249 VALUE
+ myquestion removeGRID
+/long_name (Stock paysan sans le riz et le blé) def 
+}defasvarsilent
+
+/xxx {
+mytable
+myquestion 
+250 VALUE
+ myquestion removeGRID
+/long_name (xxx) def 
+}defasvarsilent
+
+/equivalent {
+mytable
+myquestion 
+251 VALUE
+ myquestion removeGRID
+/long_name (Equivalent 231 kg) def 
+/units /ids def
+/CLIST [(Stock insuffisant)(Stock suffisant)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/besoin_men1 {
+mytable
+myquestion 
+252 VALUE
+ myquestion removeGRID
+/long_name (Besoins du ménage sans le riz et le ble pour l'année) def 
+}defasvarsilent
+
+/XX {
+mytable
+myquestion 
+253 VALUE
+ myquestion removeGRID
+/long_name (XX) def 
+}defasvarsilent
+
+/equivalent1 {
+mytable
+myquestion 
+254 VALUE
+ myquestion removeGRID
+/long_name (Equivalent 207 kg) def 
+/units /ids def
+/CLIST [(Stock insuffisant)(Stock suffisant)] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilent
+
+/mois_equi231 {
+mytable
+myquestion 
+255 VALUE
+ myquestion removeGRID
+/long_name (Besoin mensuel 231kg toutes céréales) def 
+}defasvarsilent
+
+/mois_equi207 {
+mytable
+myquestion 
+256 VALUE
+ myquestion removeGRID
+/long_name (Besoin mensuel 207kg sans le riz et le blé) def 
+}defasvarsilent
+
+/nbmois_eq231 {
+mytable
+myquestion 
+257 VALUE
+ myquestion removeGRID
+/long_name (Nombre de mois que le stock peut couvrir (norme 231kg)) def 
+}defasvarsilent
+
+/nbmois_eq207 {
+mytable
+myquestion 
+258 VALUE
+ myquestion removeGRID
+/long_name (Nombre de mois que le stock peut couvrir (norme 207kg)) def 
+}defasvarsilent
+
+/produc_sec {
+mytable
+myquestion 
+259 VALUE
+ myquestion removeGRID
+/long_name (Production sèche en kg) def 
+}defasvarsilent
+
+/produc_cerea {
+mytable
+myquestion 
+260 VALUE
+ myquestion removeGRID
+/long_name (Production Mil sorgho mais fonio et riz (en kg)) def 
+}defasvarsilent
+
+/mil_prod {
+mytable
+myquestion 
+261 VALUE
+ myquestion removeGRID
+/long_name (Production du mil en kg) def 
+}defasvarsilent
+
+/sorg_prod {
+mytable
+myquestion 
+262 VALUE
+ myquestion removeGRID
+/long_name (Production du sorgho en kg) def 
+}defasvarsilent
+
+/mais_prod {
+mytable
+myquestion 
+263 VALUE
+ myquestion removeGRID
+/long_name (Production du mais en kg) def 
+}defasvarsilent
+
+/rizpad_prod {
+mytable
+myquestion 
+264 VALUE
+ myquestion removeGRID
+/long_name (Production du riz paddyl en kg) def 
+}defasvarsilent
+
+/rizblan_prod {
+mytable
+myquestion 
+265 VALUE
+ myquestion removeGRID
+/long_name (Production du riz blanchi en kg) def 
+}defasvarsilent
+
+/ble_prod {
+mytable
+myquestion 
+266 VALUE
+ myquestion removeGRID
+/long_name (Production du blé en kg) def 
+}defasvarsilent
+
+/fonio_prod {
+mytable
+myquestion 
+267 VALUE
+ myquestion removeGRID
+/long_name (Production du fonio en kg) def 
+}defasvarsilent
+
+/diff {
+mytable
+myquestion 
+268 VALUE
+ myquestion removeGRID
+/long_name (diff) def 
+}defasvarsilent
+
+/UBTTETE {
+mytable
+myquestion 
+269 VALUE
+ myquestion removeGRID
+/long_name (Nouvelle UBT par tête) def 
+}defasvarsilent
+
+/produc_secT {
+mytable
+myquestion 
+270 VALUE
+ myquestion removeGRID
+/long_name (Production mil sorgho mais fonio et riz en tonne) def 
+}defasvarsilent
+
+/produc_cereaT {
+mytable
+myquestion 
+271 VALUE
+ myquestion removeGRID
+/long_name (Production mil sorgho mais fonio et riz en tonne) def 
+}defasvarsilent
+
+/Q30.1A {
+mytable
+myquestion 
+272 VALUE
+ myquestion removeGRID
+/long_name (Q30.1A) def 
+/units /ids def
+/CLIST [(JAMAIS)(RAREMENT)(PARFOIS)(SOUVENT)] def
+/scale_min 0 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q30.2A {
+mytable
+myquestion 
+273 VALUE
+ myquestion removeGRID
+/long_name (Q30.2A) def 
+/units /ids def
+/CLIST [(JAMAIS)(RAREMENT)(PARFOIS)(SOUVENT)] def
+/scale_min 0 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q30.3A {
+mytable
+myquestion 
+274 VALUE
+ myquestion removeGRID
+/long_name (Q30.3A) def 
+/units /ids def
+/CLIST [(JAMAIS)(RAREMENT)(PARFOIS)(SOUVENT)] def
+/scale_min 0 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q30.4A {
+mytable
+myquestion 
+275 VALUE
+ myquestion removeGRID
+/long_name (Q30.4A) def 
+/units /ids def
+/CLIST [(JAMAIS)(RAREMENT)(PARFOIS)(SOUVENT)] def
+/scale_min 0 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q30.5A {
+mytable
+myquestion 
+276 VALUE
+ myquestion removeGRID
+/long_name (Q30.5A) def 
+/units /ids def
+/CLIST [(JAMAIS)(RAREMENT)(PARFOIS)(SOUVENT)] def
+/scale_min 0 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q30.6A {
+mytable
+myquestion 
+277 VALUE
+ myquestion removeGRID
+/long_name (Q30.6A) def 
+/units /ids def
+/CLIST [(JAMAIS)(RAREMENT)(PARFOIS)(SOUVENT)] def
+/scale_min 0 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q30.7A {
+mytable
+myquestion 
+278 VALUE
+ myquestion removeGRID
+/long_name (Q30.7A) def 
+/units /ids def
+/CLIST [(JAMAIS)(RAREMENT)(PARFOIS)(SOUVENT)] def
+/scale_min 0 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q30.8A {
+mytable
+myquestion 
+279 VALUE
+ myquestion removeGRID
+/long_name (Q30.8A) def 
+/units /ids def
+/CLIST [(JAMAIS)(RAREMENT)(PARFOIS)(SOUVENT)] def
+/scale_min 0 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q30.9A {
+mytable
+myquestion 
+280 VALUE
+ myquestion removeGRID
+/long_name (Q30.9A) def 
+/units /ids def
+/CLIST [(JAMAIS)(RAREMENT)(PARFOIS)(SOUVENT)] def
+/scale_min 0 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q30.10A {
+mytable
+myquestion 
+281 VALUE
+ myquestion removeGRID
+/long_name (Q30.10A) def 
+/units /ids def
+/CLIST [(JAMAIS)(RAREMENT)(PARFOIS)(SOUVENT)] def
+/scale_min 0 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q30.11A {
+mytable
+myquestion 
+282 VALUE
+ myquestion removeGRID
+/long_name (Q30.11A) def 
+/units /ids def
+/CLIST [(JAMAIS)(RAREMENT)(PARFOIS)(SOUVENT)] def
+/scale_min 0 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q30.12A {
+mytable
+myquestion 
+283 VALUE
+ myquestion removeGRID
+/long_name (Q30.12A) def 
+/units /ids def
+/CLIST [(JAMAIS)(RAREMENT)(PARFOIS)(SOUVENT)] def
+/scale_min 0 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q30.13A {
+mytable
+myquestion 
+284 VALUE
+ myquestion removeGRID
+/long_name (Q30.13A) def 
+/units /ids def
+/CLIST [(JAMAIS)(RAREMENT)(PARFOIS)(SOUVENT)] def
+/scale_min 0 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q30.14A {
+mytable
+myquestion 
+285 VALUE
+ myquestion removeGRID
+/long_name (Q30.14A) def 
+/units /ids def
+/CLIST [(JAMAIS)(RAREMENT)(PARFOIS)(SOUVENT)] def
+/scale_min 0 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q30.15A {
+mytable
+myquestion 
+286 VALUE
+ myquestion removeGRID
+/long_name (Q30.15A) def 
+/units /ids def
+/CLIST [(JAMAIS)(RAREMENT)(PARFOIS)(SOUVENT)] def
+/scale_min 0 def
+/scale_max 3 def
+}defasvarsilent
+
+/Pond_INDI {
+mytable
+myquestion 
+287 VALUE
+ myquestion removeGRID
+/long_name (Pondération individu) def 
+}defasvarsilent
+
+/hhweight {
+mytable
+myquestion 
+288 VALUE
+ myquestion removeGRID
+/long_name (Pondération ménage) def 
+}defasvarsilent
+
+/CSI {
+mytable
+myquestion 
+289 VALUE
+ myquestion removeGRID
+/long_name (Coping strategy index ponderation universelle) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

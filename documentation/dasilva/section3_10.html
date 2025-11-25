@@ -1,0 +1,121 @@
+<HEAD>
+<TITLE> Assessing sampling errors in the analyzed data products</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html452 HREF=subsection3_10_1.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html450 HREF=vol1.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html444 HREF=subsection3_9_6.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html453 HREF=subsection3_10_1.html> Data source and </A>
+<B>Up:</B> <A NAME=tex2html451 HREF=vol1.html> Atlas of Surface </A>
+<B> Previous:</B> <A NAME=tex2html445 HREF=subsection3_9_6.html> Producing your own </A>
+<HR> <P>
+<H1><A NAME=SECTION00010000000000000000> Assessing sampling errors in the analyzed data products</A></H1>
+<P>
+<A NAME=secfwb><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A>
+<P>
+In addition to instrument errors and uncertainty in the physical
+parameterizations, surface marine data sets are affected by the
+inhomogeneous, and in some areas inadequate, spatial and temporal
+data coverage over the oceans. As an example, Fig. <A HREF=section3_10.html#figdnobs>12</A>
+presents the density <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3829.xbm"> of wind observations for December 1949 and
+December 1989. The density of observations <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3829.xbm"> is defined as the mean
+number of observations per month per 1° <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2865.xbm"> 1°  box.  Ship
+observations are concentrated along well traveled ship lanes, with the
+maximum coverage at the coastal areas of the northern oceans.  In
+winter, very few observations are available over the ice-covered
+Arctic oceans. The data coverage for December/49 is characteristic of
+the early decades in which large areas of the tropics and southern
+oceans are completely void of data; even most of the North Pacific
+boxes have fewer than 2 observations per month.
+Although surface marine data coverage has improved in the last decades
+(Fig. <A HREF=section3_10.html#figdnobs>12</A>b), coverage in parts of the tropics and southern
+oceans is still sparse.
+<P>
+In addition to the limited extent of ship traffic, modern day merchant
+ships adapt
+their route depending on currents, wave, and weather conditions.
+Favorable waves and winds can add several knots to the speed of a
+large ship, conserving fuel and cutting transport time by hours or
+days (Chesneau 1994).  If ships of the Volunteer Observing Fleet
+regularly avoid stormy weather, the so-called <em>fair weather bias</em>
+(FWB) probably exists in COADS.  The purpose of this section is to
+document the effect of sampling errors and fair weather bias 
+in our analyzed data products.
+<P>
+<P><A NAME=figdnobs><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_figure*1075.gif"><P>
+<P>
+There have been a number of studies addressing the question of how
+many observations are necessary to define reliable monthly statistics.
+In a study comparing monthly means between Ocean Weather Station (OWS)
+data and merchant ship data in the North Atlantic and Pacific, Ramage
+(1986) computed correlations between OWS mean values and those found
+from ship data taken in 2° boxes surrounding the Ocean Weather
+Station.  Correlations were fairly high (83-97%) for both SST and
+air temperature when fewer than 10 ship observations per month were
+considered.  Merchant ship wind speed, however, did not show high
+correlations with OWS wind speed until more than 20 ship observations
+per month were used. Luther and Harrison (1984), analyzing tropical
+Pacific island data, suggest that at least 32 observations are
+necessary to accurately represent month-to-month fluctuations in zonal
+pseudo wind stress.  Fissel <em>et al.</em> (1977), analyzing OWS P surface
+reports, suggest that at least 15 observations per month are necessary
+to obtain reliable estimates of monthly mean wind stress.  While these
+results are relevant for determining sample criteria for the local
+marine climate, they cannot be directly applied to assess the
+reliability of objectively analyzed surface marine data sets, as we
+explain next.
+<P>
+The analyzed fields in UWM/COADS are produced in two steps. First,
+1-degree box means are formed.  These box means are then
+objectively analyzed. This objective analysis is produced by
+successively including data in the neighborhood of a grid point.  In
+addition to the obvious effect of smoothing, this averaging of nearby
+data serves to overcome some of the sampling problems, averaging
+out random errors present in the means of each individual 1-degree
+box.  The monthly averaging of data on 1-degree boxes is used
+primarily as a data reduction step prior to the objective analysis. In
+this sense, each 1-degree box mean acts as a <em>super-observation</em>,
+a concept frequently used in operational atmospheric data assimilation
+(e.g., Lorenc 1986).  Therefore, the statistical properties of the
+analyzed data on a 1-degree grid depends not only on the errors of the
+1-degree boxes, but equally on the radius of influence and weights
+used to produce the analysis.
+<P>
+Our goal is to assess the magnitude of sampling errors on our
+objectively analyzed data products. By ``sampling errors'' we mean the
+uncertainty in our monthly mean climatology and anomalies that are
+caused by the sparse data coverage characteristic of COADS.  Our
+approach consists of using analyzed ECMWF twice daily data as a
+surrogate for the marine atmosphere.  We simulate COADS data coverage
+by deleting observations in the ECMWF data set which have no
+counterpart in COADS.  By comparing the objectively analyzed monthly
+means based on this reduced, COADS-like data set with the monthly
+means based on the full ECMWF data set, we assess the effects of
+sampling on different parts of the world oceans. Please take note that we
+do not compare our COADS based analysis to ECMWF's analysis.
+Discrepancies found in such a comparison would be due to factors
+such as different raw data, quality control and method of analysis.
+Isolating the effects of sampling would not be possible. A
+comparison of our surface marine data set with those derived by
+other authors will be presented elsewhere.
+<P>
+We begin by describing our data source and method of analysis in
+section <A HREF=subsection3_10_1.html#secfwb_method>10.1</A>, followed by a discussion of sampling
+errors and fair weather bias in the 1980's. Sampling errors in
+previous decades are examined in section <A HREF=#secfwb_decades>10.3</A>.
+Results are summarized in section <A HREF=#secfwb_summary>10.4</A>.
+<P>
+<HR>
+<UL> 
+<LI> <A NAME=tex2html454 HREF=subsection3_10_1.html#SECTION00010100000000000000> Data source and method of analysis</A>
+</UL>
+<HR> <A NAME=tex2html452 HREF=subsection3_10_1.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html450 HREF=vol1.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html444 HREF=subsection3_9_6.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html453 HREF=subsection3_10_1.html> Data source and </A>
+<B>Up:</B> <A NAME=tex2html451 HREF=vol1.html> Atlas of Surface </A>
+<B> Previous:</B> <A NAME=tex2html445 HREF=subsection3_9_6.html> Producing your own </A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>
+Fri Oct 20 12:28:33 EDT 1995</I>
+</ADDRESS>

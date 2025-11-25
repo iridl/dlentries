@@ -1,0 +1,135 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Ethiopia_49_1) def
+/Zones
+/description ( Zones, Sub-Zones/Woderas) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select z4id,z4id as zid,region,zone_name,the_geom from ethiopia_new order by z4id) (z4id) openqueryby
+        zid
+            /long_name (Zone id) def
+        CopyStream
+        name exch def
+        z4id
+            /long_name (Zone id) def
+        CopyStream
+        name exch def
+        region 
+            /long_name (Region name) def
+        CopyStream
+        name exch def
+        zone_name
+            /long_name (Zone name) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Zone geometry) def
+        name exch def
+}defasvarcachesilent
+/Sub-Zones
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select int4(w6id) as w6id,int4(w6id) as wid,w_name,ease_w6id,ease_wored,ease_z4id,ease_zonen,region_r2i,the_geom from new_weredas_07 order by w6id) (w6id) openqueryby
+        wid
+            /long_name (Wodera id) def
+        CopyStream
+        name exch def
+        w6id
+            /long_name (Wodera id) def
+        CopyStream
+        name exch def
+        w_name 
+            /long_name (Wodera name) def
+        CopyStream
+        name exch def
+        ease_w6id
+            /long_name (Ease Wodera id) def
+        CopyStream
+        name exch def
+        ease_wored
+            /long_name (Ease Wodera name) def
+        CopyStream
+        name exch def
+        ease_z4id
+            /long_name (Ease Zone id) def
+        CopyStream
+        name exch def
+        ease_zonen
+            /long_name (Ease Zone name) def
+        CopyStream
+        name exch def
+        region_r2i
+            /long_name (Region id) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Wodera/Sub-District geometry) def
+        name exch def
+}defasvarcachesilent
+/Health_District
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select wid,zone_name,name as h_name,id,id as h_id,the_geom from snnp_wr_pop_region order by id) (id) openqueryby
+        wid
+            /long_name (W id) def
+        CopyStream
+        name exch def
+        zone_name 
+            /long_name (Zone name) def
+        CopyStream
+        name exch def
+        h_name
+            /long_name (Health District name) def
+        CopyStream
+        name exch def
+        id
+            /long_name (Health District id) def
+        CopyStream
+        name exch def
+        h_id
+            /long_name (Health District id) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Health District geometry) def
+        name exch def
+}defasvarcachesilent
+/Tigray_Wards
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select warname,short,w6id,w6id as w_id,transform(the_geom,4326) as the_geom from tigray order by w6id) (w6id) openqueryby
+        w_id
+            /long_name (Ward id) def
+        CopyStream
+        name exch def
+        warname
+            /long_name (Ward name) def
+        CopyStream
+        name exch def
+        short 
+            /long_name (Abbrev. Ward name) def
+        CopyStream
+        name exch def
+        w6id
+            /long_name (Ward id) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Ward geometry) def
+        name exch def
+/last_modified
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select max ( last_modified ) as last_modified from ethiopia_new) openquery .last_modified
+}def
+}defasvarcachesilent
+\end{ingrid}

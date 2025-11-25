@@ -1,0 +1,125 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9575
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 586
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAnov2008.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Revenus) def
+/Q26 {
+mytable
+myquestion 
+46 VALUE
+ myquestion removeGRID
+/long_name (Q26 COMBIEN DE SOURCE DE REVENU LE MENAGE DISPOSE T-IL) def 
+}defasvarsilent
+
+/Q26A1 {
+mytable
+myquestion 
+47 VALUE
+ myquestion removeGRID
+/long_name (Q26A1 PREMIERE SOURCE DE REVENU) def 
+/units /ids def
+/CLIST [(VENTE DE PRODUIT AGRICOLE)(VENTE DE BETAIL/EMBOUCHE/VENTE DE PRODUITS D'ELEVAGE)(PETIT COMMERCE)(TRAVAIL JOURNALIER)(VENTE DE BOIS/PAILLE)(ARTISANAT)(SALARIE)(COMMERCANT/ENTREPRENEUR)(TRANSFERT)(EMPRUNT)(MENDICITE)(EXTRACTION/CARIERE)(AUTRES)] def
+/scale_min 1 def
+/scale_max 13 def
+}defasvarsilent
+
+/Q26A2 {
+mytable
+myquestion 
+48 VALUE
+ myquestion removeGRID
+/long_name (Q26A2 CONTRIBUTION AU REVENU TOTAL 1) def 
+}defasvarsilent
+
+/Q26A3 {
+mytable
+myquestion 
+49 VALUE
+ myquestion removeGRID
+/long_name (Q26A3 MONTANT TIRE DE CETTE SOURCE 1) def 
+}defasvarsilent
+
+/Q26B1 {
+mytable
+myquestion 
+50 VALUE
+ myquestion removeGRID
+/long_name (Q26B1 DEUXIEME SOURCE DE REVENU) def 
+/units /ids def
+/CLIST [(VENTE DE PRODUIT AGRICOLE)(VENTE DE BETAIL/EMBOUCHE/VENTE DE PRODUITS D'ELEVAGE)(PETIT COMMERCE)(TRAVAIL JOURNALIER)(VENTE DE BOIS/PAILLE)(ARTISANAT)(SALARIE)(COMMERCANT/ENTREPRENEUR)(TRANSFERT)(EMPRUNT)(MENDICITE)(EXTRACTION/CARIERE)(AUTRES)] def
+/scale_min 1 def
+/scale_max 13 def
+}defasvarsilent
+
+/Q26B2 {
+mytable
+myquestion 
+51 VALUE
+ myquestion removeGRID
+/long_name (Q26B2 CONTRIBUTION AU REVENU TOTAL 2) def 
+}defasvarsilent
+
+/Q26B3 {
+mytable
+myquestion 
+52 VALUE
+ myquestion removeGRID
+/long_name (Q26B3 MONTANT TIRE DE CETTE SOURCE 2) def 
+}defasvarsilent
+
+/Q26C1 {
+mytable
+myquestion 
+53 VALUE
+ myquestion removeGRID
+/long_name (Q26C1 TROISIEME  SOURCE DE REVENU) def 
+/units /ids def
+/CLIST [(VENTE DE PRODUIT AGRICOLE)(VENTE DE BETAIL/EMBOUCHE/VENTE DE PRODUITS D'ELEVAGE)(PETIT COMMERCE)(TRAVAIL JOURNALIER)(VENTE DE BOIS/PAILLE)(ARTISANAT)(SALARIE)(COMMERCANT/ENTREPRENEUR)(TRANSFERT)(EMPRUNT)(MENDICITE)(EXTRACTION/CARIERE)(AUTRES)] def
+/scale_min 1 def
+/scale_max 13 def
+}defasvarsilent
+
+/Q26C2 {
+mytable
+myquestion 
+54 VALUE
+ myquestion removeGRID
+/long_name (Q26C2 CONTRIBUTION AU REVENU TOTAL 3) def 
+}defasvarsilent
+
+/Q26C3 {
+mytable
+myquestion 
+55 VALUE
+ myquestion removeGRID
+/long_name (Q26C3 MONTANT TIRE DE CETTE SOURCE 3) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

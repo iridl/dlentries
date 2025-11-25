@@ -1,0 +1,152 @@
+\begin{ingrid}
+continuedataset:
+/long_name (1971-2000) def
+/iridl:hasSemantics (iridl:climatology) def
+/prcp {
+  SOURCES .UEA .CRU .TS2p0 .monthly .prcp
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+  startcolormap
+  DATA 0 700 RANGE
+  white white
+  white 0 VALUE
+  137 255 131 RGB RGBdup 25 bandmax
+  128 242 122 RGB RGBdup 50 bandmax
+  119 228 114 RGB RGBdup 75 bandmax
+  110 215 105 RGB RGBdup 100 bandmax
+  101 202 97 RGB RGBdup 150 bandmax
+  92 189 88 RGB RGBdup 200 bandmax
+  83 175 79 RGB RGBdup 250 bandmax
+  74 162 71 RGB RGBdup 300 bandmax
+  66 149 62 RGB RGBdup 350 bandmax
+  57 136 54 RGB RGBdup 400 bandmax
+  48 122 45 RGB RGBdup 450 bandmax
+  39 109 36 RGB RGBdup 500 bandmax
+  30 96 28 RGB RGBdup 550 bandmax
+  21 83 19 RGB RGBdup 600 bandmax
+  12 69 11 RGB RGBdup 650 bandmax
+  3 56 2 RGB RGBdup 700 bandmax
+  3 56 2 RGB
+  endcolormap
+} defasvarcache
+
+dataset:
+/name /mean def
+/temp {
+  SOURCES .UEA .CRU .TS2p0 .monthly .mean .temp
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+} defasvarcache
+:dataset
+
+dataset:
+/name /minimum def
+/temp {
+  SOURCES .UEA .CRU .TS2p0 .monthly .minimum .temp
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+} defasvarcache
+:dataset
+
+dataset:
+/name /maximum def
+/temp {
+  SOURCES .UEA .CRU .TS2p0 .monthly .maximum .temp
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+} defasvarcache
+:dataset
+
+/cloud {
+  SOURCES .UEA .CRU .TS2p0 .monthly .cloud
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+} defasvarcache
+
+/dtr {
+  SOURCES .UEA .CRU .TS2p0 .monthly .dtr
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+} defasvarcache
+
+/frost {
+  SOURCES .UEA .CRU .TS2p0 .monthly .frost
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+  startcolormap
+  DATA 0 31 RANGE
+  white white
+  white 0 VALUE
+  212 245 255 RGB RGBdup 1 bandmax
+  202 239 252 RGB RGBdup 2 bandmax
+  188 222 244 RGB RGBdup 4 bandmax
+  173 205 237 RGB RGBdup 6 bandmax
+  159 188 229 RGB RGBdup 8 bandmax
+  145 171 221 RGB RGBdup 10 bandmax
+  131 154 214 RGB RGBdup 12 bandmax
+  116 137 206 RGB RGBdup 14 bandmax
+  102 121 198 RGB RGBdup 16 bandmax
+  88 104 191 RGB RGBdup 18 bandmax
+  73 87 183 RGB RGBdup 20 bandmax
+  59 70 176 RGB RGBdup 22 bandmax
+  45 53 168 RGB RGBdup 24 bandmax
+  31 36 160 RGB RGBdup 26 bandmax
+  16 19 153 RGB RGBdup 28 bandmax
+  0 0 138 RGB RGBdup 31 bandmax
+  0 0 138 RGB
+  endcolormap
+} defasvarcache
+
+/vap {
+  SOURCES .UEA .CRU .TS2p0 .monthly .vap
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+} defasvarcache
+
+/wet {
+  SOURCES .UEA .CRU .TS2p0 .monthly .wet
+  T (Jan 1971) (Dec 2000) RANGE
+  yearly-climatology
+  startcolormap
+  DATA 0 31 RANGE
+  white white
+  white 0 VALUE
+  137 255 131 RGB RGBdup 1 bandmax
+  128 242 122 RGB RGBdup 2 bandmax
+  119 228 114 RGB RGBdup 4 bandmax
+  110 215 105 RGB RGBdup 6 bandmax
+  101 202 97 RGB RGBdup 8 bandmax
+  92 189 88 RGB RGBdup 10 bandmax
+  83 175 79 RGB RGBdup 12 bandmax
+  74 162 71 RGB RGBdup 14 bandmax
+  66 149 62 RGB RGBdup 16 bandmax
+  57 136 54 RGB RGBdup 18 bandmax
+  48 122 45 RGB RGBdup 20 bandmax
+  39 109 36 RGB RGBdup 22 bandmax
+  30 96 28 RGB RGBdup 24 bandmax
+  21 83 19 RGB RGBdup 26 bandmax
+  12 69 11 RGB RGBdup 28 bandmax
+  3 56 2 RGB RGBdup 31 bandmax
+  3 56 2 RGB
+  endcolormap
+} defasvarcache
+
+grid:
+/name /X def
+degE
+periodic
+-179.75 .5 179.75
+:grid
+grid:
+/name /Y def
+degN
+-89.75 .5 89.75
+:grid
+grid:
+/name /T def
+/units monthclimoname def
+periodic
+Jan 1. Dec
+:grid
+:dataset
+\end{ingrid}

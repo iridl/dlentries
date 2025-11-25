@@ -1,0 +1,82 @@
+\begin{ingrid}
+datasetdefs:
+	/meningitis_class_colors {
+		startcolormap
+			DATA 0 2 RANGE
+			white white
+			ivory
+			black
+			grey
+			white
+		endcolormap
+	} def
+
+	/location {
+		db: 	/server (localhost) def
+			/dbname (iridb) def
+		:db
+	  	(select gid as gid,location[0] as lon,location[1] as lat from (select gid,point(centroid(the_geom)) as location from ch1 where gid is not null order by gid) as myquery) (gid) openqueryby /lon lon /units /degree_east def def /lat lat /units /degree_north def def
+
+
+	}defasvarsilent
+
+
+:datasetdefs
+/description (Meningitis Forecasting for Africa Project) def
+/iridl:hasSemantics (iridl:Meningitis) def
+/molesworth_etal_2003 {
+	db: 	/server (localhost) def
+		/dbname (iridb) def
+	:db
+  	(select country,district,gid,ep99_dis as obsmen,probmen,region,the_geom from ch1 order by gid) (gid) openqueryby 
+	/long_name (Molesworth etal 2003) def
+
+	location .lon 
+		/scale_min -25 def 
+		/scale_max 55 def	
+	name exch def
+	location .lat 
+		/scale_min -40 def 
+		/scale_max 40 def
+	name exch def
+
+	probmen
+		/long_name (Predicted Probability of Meningitis Epidemic Experience) def
+		DATA 0 1 RANGE
+		startcolormap
+	      		0 1 RANGE
+	      		white white
+			white 0 value
+	        	ivory ivory 0.4 bandmax
+	        	grey grey 0.6 bandmax
+	        	BrightMustard BrightMustard 0.8 bandmax
+	        	firebrick firebrick 1. bandmax
+	        	white
+		endcolormap
+		/missing_value -9999 def
+	name exch def
+
+	obsmen
+		/long_name (Observed Meningitis in Historical Record) def
+		/CLIST [
+			(None)
+			(District)
+			(Province)
+		] def
+		/missing_value -9999 def
+		meningitis_class_colors	
+	name exch def
+
+	the_geom
+		/long_name (Location Geometry) def
+	name exch def
+
+/references (Molesworth_etal2003) def
+} defasvarsilent
+
+
+
+
+\end{ingrid}
+	/reference (Molesworth, A. M., L. E. Cuevas, S. J. Connor, A. P. Morse and M. C. Thomson, 2003: Environmental Risk and Meningitis Epidemics in Africa. Emerging Infectious Diseases, 9(10): 1287-1293.) def
+

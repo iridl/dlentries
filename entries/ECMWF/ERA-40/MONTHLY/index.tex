@@ -1,0 +1,31 @@
+\begin{ingrid}
+(/beluga/data/datag/ERA40/monthly/prs/era40monprs.cuf) continuewithCUF
+/griblist.html {(griblist)htmlprint} def
+filepattern 1 index  {pop} { /filepattern 2 index def name dataset ! } foralldatasets2
+pop
+(/beluga/data/datag/ERA40/monthly/sfc/era40monsfc.cuf) continuewithCUF
+surface tauu /units (N m-2 s/(6 hours)) preferredunitname def name exch def
+        tauv /units (N m-2 s/(6 hours)) preferredunitname def name exch def
+        prc /units (m/(6 hours)) preferredunitname def name exch def
+        prl /units (m/(6 hours)) preferredunitname def name exch def
+        hfss /units (W/m2 s/(6 hours)) preferredunitname def name exch def
+        hfls /units (W/m2 s/(6 hours)) preferredunitname def name exch def
+        prw /units (kg/m2) preferredunitname def /long_name (precipitable water) def name exch def
+        prwa /units (kg/m2) preferredunitname def name exch def
+net
+        swflx /units (W/m2 s/(6 hours)) preferredunitname def name exch def
+        lwflx /units (W/m2 s/(6 hours)) preferredunitname def name exch def
+pop
+downward
+        swflx /units (W/m2 s/(6 hours)) preferredunitname def name exch def
+        lwflx /units (W/m2 s/(6 hours)) preferredunitname def name exch def
+pop
+pop
+top
+net
+        swflx /units (W/m2 s/(6 hours)) preferredunitname def name exch def
+        lwflx /units (W/m2 s/(6 hours)) preferredunitname def name exch def
+pop
+pop
+
+\end{ingrid}

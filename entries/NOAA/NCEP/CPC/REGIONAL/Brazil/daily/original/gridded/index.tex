@@ -1,0 +1,32 @@
+\begin{ingrid}
+continuedataset:
+/description (Brazil Daily Gridded Precipitation Analysis, Original Version) def
+grid:
+/name /X def
+degE
+-80 1 -30
+:grid
+grid:
+/name /Y def
+degN
+-40 1 10
+:grid
+grid:
+/name /T def
+/units (days since 1960-01-01 12:00:00) def
+0
+1
+31 Dec 1997 julian_day
+1 Jan 1960 julian_day sub
+:grid
+variable:
+/name /prcp def
+/units (mm/day) def
+grids: X Y | T :grids
+file:
+sequential
+/name (/Data/data7/noaa/ncep/regional/Brazil/brazil.daily.prcp.b600101.e971231) def
+:file
+:variable
+:dataset
+\end{ingrid}

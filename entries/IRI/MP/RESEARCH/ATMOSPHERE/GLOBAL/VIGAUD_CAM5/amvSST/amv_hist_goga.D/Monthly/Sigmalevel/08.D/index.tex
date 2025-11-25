@@ -1,0 +1,427 @@
+\begin{ingrid}
+%/references(Roeckner_etal2006) def
+continuedataset:
+datasetdefs:
+
+grid:
+/name /Time def
+/long_name (Time) def
+/units (months since 1931-01-01) def
+%/calendar /365 def
+monthtime
+/pointwidth 1 def
+16 Jan 1928 ensotime
+1.
+16 Dec 2014
+%systemtime
+%systemtime2ymd pop .5 sub exch
+ensotime
+/defaultvalue {last} def
+:grid
+
+
+
+grid:
+/name /P def
+/long_name (Sigma level) def
+/units (mb) def
+values:
+3.64346569404006 7.59481964632869 14.3566322512925 24.6122200042009 38.2682997733355 54.5954797416925 72.0124505460262 87.8212302923203 103.317126631737 121.547240763903 142.994038760662 168.225079774857 197.908086702228 232.828618958592 273.910816758871 322.241902351379 379.100903868675 445.992574095726 524.687174707651 609.778694808483 691.389430314302 763.404481112957 820.858368650079 859.53476652503 887.020248919725 912.644546944648 936.198398470879 957.485479535535 976.325407391414 992.556095123291
+%1000 925 850 775 700 600 500 450 400 350 300 250 200 150 100 50 25
+:values
+:grid
+
+grid:
+/name /X def
+/units (degree_east)def
+ periodic
+ 0 2.8125 360  2.8125 sub
+:grid
+
+grid:
+/name /Y def
+/units (degree_north)def
+values:
+-87.86 -85.10 -82.31 -79.53 -76.74 -73.95 -71.16 -68.37
+ -65.58 -62.79 -60.00 -57.21 -54.42 -51.63 -48.84 -46.04 -43.25 -40.46
+ -37.67 -34.88 -32.09 -29.30 -26.51 -23.72 -20.93 -18.14 -15.35 -12.56
+ -9.77  -6.98  -4.19  -1.40   1.40   4.19   6.98   9.77  12.56  15.35
+  18.14  20.93  23.72  26.51  29.30  32.09  34.88  37.67  40.46  43.25
+ 46.04  48.84  51.63  54.42  57.21  60.00  62.79  65.58  68.37  71.16
+ 73.95  76.74  79.53  82.31  85.10  87.86
+:values
+:grid
+
+%dataset: /name /PressureLevel def :dataset
+%dataset: /name /Surface def :dataset
+
+
+%DATASET 11 object %this causes extra field 'adataset  adataset[t ]' in ingrid
+%[ X Y Time ] { name exch def } forall
+%[ X Y |/NVZ 225  NewIntegerGRID Time ]
+%%(/Data/data1/iri/forecast/forecast/ECHAM5_T42.D/ECHAM5_EC3_SST_GHG/%b:lc[S]/%2.2d[M]/c4219EC%2.2d[M]_2N3d_monthly_echamcout.%Y%m[T]) [M L S T]
+%(/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/00001test_2N3d_monthly_echamcout.%Y%m[T]) [T]
+%readdatafile:
+%decsequential
+%:readdatafile
+
+%/ATMEINT{
+%[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/Daily2/ATMEINT.%Y[T].nc)  [T]
+%readdatafile:
+%%sequential
+%%:readdatafile
+%/name (FLNS) def
+% /MemoryOrder (XY ) def
+% /FieldType 104 def
+% /missing_value 9.96920997E36 def
+% /description (Vertically integrated total atmospheric energy) def
+% /units (J/m2)cvn def
+% /realarraytype netcdfrecords :readdatafile
+%}defasvarsilent
+
+/OMEGA{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/OMEGA.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (OMEGA) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Vertical velocity (pressure)) def
+ /units (Pa/s)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/CLOUD{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/CLOUD.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (CLOUD) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Cloud fraction) def
+ /units (cloud_fraction)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/CONCLD{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/CONCLOUD.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (CONCLD) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Convective cloud fraction) def
+ /units (cloud_fraction)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/OMEGAQ{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/OMEGAQ.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (OMEGAQ) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Vertical water transport) def
+ /units (kg Pa s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/OMEGAT{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/OMEGAT.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (OMEGAT) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Vertical heat flux) def
+ /units (K Pa s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/OMEGAU{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/OMEGAU.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (OMEGAU) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Vertical flux of zonal momentum) def
+ /units (m Pa s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/OMEGAV{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/OMEGAV.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (OMEGAV) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Vertical flux of meridional momentum) def
+ /units (m Pa s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/Q{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/Q.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (Q) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Specific humidity) def
+ /units (kg kg-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/QT{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/QT.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (QT) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Total water mixing ratio) def
+ /units (kg kg-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/RELHUM{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/RELHUM.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (RELHUM) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Relative humidity) def
+ /units (kg kg-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/SHDLFT{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/SHDLFT.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (SHDLFT) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (T-tendency due to shallow convective detrainment) def
+ /units (K s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/T{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/T.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (T) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Temperature) def
+ /units (K)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/U{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/U.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (U) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Zonal wind) def
+ /units (m/s)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/UU{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/UU.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (UU) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Zonal velocity squared) def
+ /units (m2/s2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/V{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/V.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (V) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Meridional wind) def
+ /units (m/s)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/VU{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/VU.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (VU) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Meridional flux of zonal momentum) def
+ /units (m2/s2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/VV{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/VV.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (VV) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Meridional velocity squared) def
+ /units (m2/s2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+
+/Z3{
+[ X Y P | Time ] (/Data/data24/CESM.D/postproc.D/amvSST/AMVhistgoga08/SLD/Z3.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (Z3) def
+% /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Geopotential) def
+ /units (m)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+
+%:dataset
+%
+%\end{ingrid}
+
+
+%definevariables:
+%Surface 0 Zvariable:/name (ATMEINT) def /long_name (Vertically integrated total atmospheric energy)  def /units (j m-2) def :Zvariable
+%Surface 0 Zvariable:/name (CLDHGH) def /long_name (Vertically-integrated high cloud) def /units (fraction) def :Zvariable
+%Surface 0 Zvariable:/name (CLDLOW) def /long_name (Vertically-integrated low cloud) def /units (fraction) def :Zvariable
+%Surface 0 Zvariable:/name (CLDMED) def /long_name (Vertically-integrated mid-level cloud) def /units (fraction) def :Zvariable
+%Surface 0 Zvariable:/name (CLDTOT) def /long_name (Vertically-integrated total cloud) def /units (fraction) def :Zvariable
+%PressureLevel 30 Pvariable:/name (CLOUD) def /long_name (Cloud fraction) def /standard_name (cloud_fraction) def /units (fraction) def :Pvariable
+%PressureLevel 30 Pvariable:/name (CONCLOUD) def /long_name (Convective cloud fraction) def /standard_name (cloud_fraction) def /units (fraction) def :Pvariable
+%Surface 0 Zvariable:/name (DSTODXC) def /long_name (Optical depth for diagnostics) def /units (tau) def :Zvariable
+%Surface 0 Zvariable:/name (FLDS) def /long_name (Downwelling longwave flux at surface) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FLNS) def /long_name (Net longwave flux at surface) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FLNT) def /long_name (Net longwave flux at top of model) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FLNTC) def /long_name (Clearsky net longwave flux at top of model) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FLUT) def /long_name (Upwelling longwave flux at top of model) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FLUTC) def /long_name (Clearsky upwelling longwave flux at top of model) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FREQSH) def /long_name (Fractional occurance of shallow convection) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FREQZM) def /long_name (Fractional occurance of ZM convection) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FSDS) def /long_name (Downwelling solar flux at surface) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FSDSC) def /long_name (Clearsky downwelling solar flux at surface) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FSNS) def /long_name (Net solar flux at surface) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FSNSC) def /long_name (Clearsky net solar flux at surface) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FSNT) def /long_name (Net solar flux at top of model) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FSNTC) def /long_name (Clearsky net solar flux at top of model) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FSNTOA) def /long_name (Net solar flux at top of atmosphere) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FSNTOAC) def /long_name (Clearsky net solar flux at top of atmosphere) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FSUTOA) def /long_name (Upwelling solar flux at top of atmosphere) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (ICEFRAC) def /long_name (Fraction of sfc area covered by sea-ice) def /units (fraction) def :Zvariable
+%Surface 0 Zvariable:/name (LANDFRAC) def /long_name (Fraction of sfc area covered by land) def /units (fraction) def :Zvariable
+%Surface 0 Zvariable:/name (LHFLX) def /long_name (Surface latent heat flux) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (LWCF) def /long_name (Longwave cloud forcing) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (OCNFRAC) def /long_name (Fraction of sfc area covered by ocean) def /units (fraction) def :Zvariable
+%PressureLevel 30 Pvariable:/name (OMEGA) def /long_name (Vertical velocity (pressure)) def /standard_name (vertical_velocity) def /units (Pa s-1) def :Pvariable
+%PressureLevel 30 Pvariable:/name (OMEGAQ) def /long_name (Vertical water transport) def /standard_name (vertical_water_transport) def /units (kg Pa s-1) def :Pvariable
+%PressureLevel 30 Pvariable:/name (OMEGAT) def /long_name (Vertical heat flux) def /standard_name (vertical_heat_flux) def /units (K Pa s-1) def :Pvariable
+%PressureLevel 30 Pvariable:/name (OMEGAU) def /long_name (Vertical flux of zonal momentum) def /standard_name (vertical_zonal_momentum) def /units (m Pa s-1) def :Pvariable
+%PressureLevel 30 Pvariable:/name (OMEGAV) def /long_name (Vertical flux of meridional momentum) def /standard_name (vertical_meridional_momentum) def /units (m Pa s-1) def :Pvariable
+%Surface 0 Zvariable:/name (ORO) def /long_name (Orography) def /units (fraction) def :Zvariable
+%Surface 0 Zvariable:/name (PBLH) def /long_name (Planetary boundary layer height) def /units (m) def :Zvariable
+%Surface 0 Zvariable:/name (PCONVB) def /long_name (convection base pressure) def /units (Pa) def :Zvariable
+%Surface 0 Zvariable:/name (PCONVT) def /long_name (convection top pressure) def /units (Pa) def :Zvariable
+%Surface 0 Zvariable:/name (PHIS) def /long_name (Surface geopotential) def /units (m2 s-2) def :Zvariable
+%Surface 0 Zvariable:/name (PRECC) def /long_name (Convective precipitation rate (liq + ice)) def /units (m s-1) def :Zvariable
+%Surface 0 Zvariable:/name (PRECCDZM) def /long_name (Convective precipitation rate from ZM deep) def /units (m s-1) def :Zvariable
+%Surface 0 Zvariable:/name (PRECL) def /long_name (Large-scale (stable) precipitation rate (liq + ice)) def /units (m s-1) def :Zvariable
+%Surface 0 Zvariable:/name (PRECSC) def /long_name (Convective snow rate (water equivalent)) def /units (m s-1) def :Zvariable
+%Surface 0 Zvariable:/name (PRECSH) def /long_name (Shallow Convection precipitation rate) def /units (m s-1) def :Zvariable
+%Surface 0 Zvariable:/name (PRECSL) def /long_name (Large-scale (stable) snow rate (water equivalent)) def /units (m s-1) def :Zvariable
+%Surface 0 Zvariable:/name (PRECT) def /long_name (Total (convective and large-scale) precipitation rate (liq + ice)) def /units (m s-1) def :Zvariable
+%Surface 0 Zvariable:/name (PS) def /long_name (Surface pressure) def /units (Pa) def :Zvariable
+%Surface 0 Zvariable:/name (PSL) def /long_name (Sea level pressure) def /units (Pa) def :Zvariable
+%PressureLevel 30 Pvariable:/name (Q) def /long_name (Specific humidity) def /standard_name (specific_humidity) def /units (kg kg-1) def :Pvariable
+%Surface 0 Zvariable:/name (QFLX) def /long_name (Surface water flux) def /units (kg m-2 s-1) def :Zvariable
+%Surface 0 Zvariable:/name (QREFHT) def /long_name (Reference height humidity) def /units (kg kg-1) def :Zvariable
+%PressureLevel 30 Pvariable:/name (QT) def /long_name (Total water mixing ratio) def /standard_name (mixing_ratio) def /units (kg kg-1) def :Pvariable
+%PressureLevel 30 Pvariable:/name (RELHUM) def /long_name (Relative humidity) def /standard_name (relative_humidity) def /units (percent) def :Pvariable
+%Surface 0 Zvariable:/name (RHREFHT) def /long_name (Reference height relative humidity) def /units (fraction) def :Zvariable
+%PressureLevel 30 Pvariable:/name (SHDLFT) def /long_name (T-tendency due to shallow convective detrainment) def /standard_name (t_tendency) def /units (K s-1) def :Pvariable
+%Surface 0 Zvariable:/name (SHFLX) def /long_name (Surface sensible heat flux) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (SNOWHICE) def /long_name (Water equivalent snow depth) def /units (m) def :Zvariable
+%Surface 0 Zvariable:/name (SNOWHLND) def /long_name (Water equivalent snow depth) def /units (m) def :Zvariable
+%Surface 0 Zvariable:/name (SOLIN) def /long_name (Solar insolation) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (SWCF) def /long_name (Shortwave cloud forcing) def /units (W m-2) def :Zvariable
+%PressureLevel 30 Pvariable:/name (T) def /long_name (Temperature) def /standard_name (temperature) def /units (K) def :Pvariable
+%Surface 0 Zvariable:/name (TAUX) def /long_name (Zonal surface stress) def /units (N m-2) def :Zvariable
+%Surface 0 Zvariable:/name (TAUY) def /long_name (Meridional surface stress) def /units (N m-2) def :Zvariable
+%Surface 0 Zvariable:/name (TFIX) def /long_name (T fixer (T equivalent of Energy correction)) def /units (K s-1) def :Zvariable
+%Surface 0 Zvariable:/name (TMQ) def /long_name (Total (vertically integrated) precipitatable water) def /units (kg m-2) def :Zvariable
+%Surface 0 Zvariable:/name (TREFHT) def /long_name (Reference height temperature) def /units (K) def :Zvariable
+%Surface 0 Zvariable:/name (TREFMNAV) def /long_name (Average of TREFHT daily minimum) def /units (K) def :Zvariable
+%Surface 0 Zvariable:/name (TREFMXAV) def /long_name (Average of TREFHT daily maximum) def /units (K) def :Zvariable
+%Surface 0 Zvariable:/name (TROP_P) def /long_name (Tropopause pressure) def /units (Pa) def :Zvariable
+%Surface 0 Zvariable:/name (TROP_T) def /long_name (Tropopause temperature) def /units (K) def :Zvariable
+%Surface 0 Zvariable:/name (TROP_Z) def /long_name (Tropopause height) def /units (m) def :Zvariable
+%Surface 0 Zvariable:/name (TS) def /long_name (Surface temperature) def /units (K) def :Zvariable
+%Surface 0 Zvariable:/name (TSMN) def /long_name (Minimum surface temperature over output period) def /units (K) def :Zvariable
+%PressureLevel 30 Pvariable:/name (U) def /long_name (Zonal wind) def /standard_name (zonal_wind) def /units (m s-1) def :Pvariable
+%PressureLevel 30 Pvariable:/name (UU) def /long_name (Zonal velocity squared) def /standard_name (zonal_velocity_squared) def /units (m2 s-2) def :Pvariable
+%PressureLevel 30 Pvariable:/name (V) def /long_name (Meridional wind) def /standard_name (meridional_wind) def /units (m s-1) def :Pvariable
+
+%:definevariables
+
+%:dataset
+%
+%\end{ingrid}

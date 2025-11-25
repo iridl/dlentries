@@ -1,0 +1,44 @@
+\begin{ingrid}
+/example insertdataset:
+grid:
+/name /T def
+%/units (hours since 01-JAN-96 00:00:00) def
+%0 .25 2977 1 sub .25 mul 
+/units (julian_day) def
+0. .5 sub % 0000 1 Jan 1996
+1. 24 div 4 div
+31 .5 sub % 1 Feb 1996
+/add_offset 2450084 def
+:grid
+variable:
+/name /co2 def
+/long_name (Carbon Dioxide) def
+/units (ppm) def
+/sensorid (co2#838) def
+/sensor (3K Priva) def
+/location ( Desert Biome of the Biosphere) def
+%/scale_min 650. def
+%/scale_max 1520. def
+grids: T :grids
+/missing_value -99999 def
+file:
+/name (/Data/data1/biosphere/co2.txt) def
+formatted
+:file
+:variable
+variable:
+/name /exlight def
+/long_name (External Light) def
+/units (micro einsteins/m2/s) def
+/sensorid (light#1985) def
+/sensor (LI-190SA Quantum which measures PAR (Photosynthetically Active Radiation)) def
+/location (outside the Biosphere 2 complex on the top of the Habitat ring) def
+grids: T :grids
+/missing_value -99999 def
+file:
+/name (/Data/data1/biosphere/extlgt.txt) def
+formatted
+:file
+:variable
+:insertdataset
+\end{ingrid}

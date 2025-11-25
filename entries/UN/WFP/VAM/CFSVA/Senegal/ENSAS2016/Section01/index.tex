@@ -1,0 +1,73 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+
+grid:
+/name /mycol def
+1 1 2
+:grid
+
+:datasetdefs
+
+/description (IDENTIFICATION) def
+
+/idmng { IRIDB (ensas2016) (idmng) [(hhid)] open_column_by
+/long_name (identifiant du ménage) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/region { IRIDB (ensas2016) (region) [(hhid)] open_column_by
+/long_name (regions) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/departement { IRIDB (ensas2016) (departement) [(hhid)] open_column_by
+/long_name (département) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/commune { IRIDB (ensas2016) (commune) [(hhid)] open_column_by
+/long_name (commune) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/dr { IRIDB (ensas2016) (dr) [(hhid)] open_column_by
+/long_name (District de recensement) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/milieu { IRIDB (ensas2016) (milieu) [(hhid)] open_column_by
+/long_name ( milieu de residence) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(urbain)
+(rural)
+] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilentnoreuse
+
+/Q10 { IRIDB (ensas2016) (q10) [(hhid)] open_column_by
+/long_name (Identifiant de l'enqêteur) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/id_2 {
+[ mycol Q10 .hhid | ]
+(/Data/data6/WFP/senegal/ENSAS/ENSAS2016id2.txt)
+readdatafile:
+[0 1] r*4astsv
+:readdatafile
+mycol first VALUE
+mycol removeGRID
+/long_name (ID Département) def
+}defasvarsilent
+
+/zdummy {c: 0 :c}defasvar 
+:dataset
+
+idmng .hhid name exch def
+\end{ingrid}
+

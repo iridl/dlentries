@@ -1,0 +1,50 @@
+\begin{ingrid}
+continuedataset:
+/references (Robinson_etal1993) def
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 -1 0.5
+:grid
+grid: 
+/name /T def
+/units (julian_day) def
+1 Jan 1987 julian_day
+7
+29 Dec 1988 julian_day
+:grid
+/iridl:hasSemantics (iriref:Robinson_DA) def
+variable:
+/name /snow_cover def
+grids: X Y | T :grids
+file:
+%formatted
+%/name (/Data/data3/nasa/islscp/gdslam/snowice/snow/nesdis/all.txt) def
+%random
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/snowice/snow/nesdis/snow.i2) def
+:file
+:variable
+:dataset
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

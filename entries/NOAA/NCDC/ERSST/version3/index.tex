@@ -1,0 +1,75 @@
+As of 8 Apr 2010, the dataset was restored at NCDC with string dates.
+
+The old date conversion was
+
+time
+dup monthlyedgesgrid
+   second last subgrid
+   partialgrid monthtimegrid replaceGRID
+
+
+the new one is
+
+ time
+   /units (ISO8601) def
+   (days since 1960-01-01) gridunitconvert
+  replacefirstofmonthGRID
+
+
+\begin{ingrid}
+continuedataset:
+ link:
+ /name (ERSST.v3 Description) def
+ /description (ERSST.v3 Web Page at NCDC) def
+ /href (http://www.ncdc.noaa.gov/oa/climate/research/sst/ersstv3.php) def
+ :link
+ link:
+ /name (ERSSTv3b) def
+ /href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCDC/.ERSST/.version3b/) def
+ /description (ERSST.v3b: Extended Reconstructed Sea Surface Temperature Dataset, Verson 3b) def
+ /semantics /dcterm:isReplacedBy def
+ :link
+/description (ERSST.v3:  Extended Reconstructed Sea Surface Temperature Dataset, Verson 3) def
+/references (Smith_etal2008 Xue_etal2003) def
+/note (feed from http://nomads.ncdc.noaa.gov/thredds/dodsC/ersstv3Agg restored 8 Apr 2010 -- is now labelled 3b, but is different from 3b so hopefully is really v3) def
+/anom {
+ (http://nomads.ncdc.noaa.gov/thredds/dodsC/ersstv3Agg) readdods .anom
+ time
+/units (ISO8601) def
+   (days since 1960-01-01) gridunitconvert
+  replacefirstofmonthGRID
+   time /T renameGRID
+   T /standard_name (time) def
+   /defaultvalue { last } def pop
+   /iridl:hasSemantics (iridl:SeaSurfaceTemperatureAnomaly) def
+   /units (degree_Celsius) def
+   sstacolorscale
+} defasvarsilent
+
+/err {
+ (http://nomads.ncdc.noaa.gov/thredds/dodsC/ersstv3Agg) readdods .err
+ time 
+/units (ISO8601) def
+   (days since 1960-01-01) gridunitconvert
+  replacefirstofmonthGRID
+   time /T renameGRID
+   T /standard_name (time) def
+   /defaultvalue { last } def pop
+ /units (degree_Celsius) def
+} defasvarsilent
+
+/sst {
+ (http://nomads.ncdc.noaa.gov/thredds/dodsC/ersstv3Agg) readdods .sst
+ time 
+/units (ISO8601) def
+   (days since 1960-01-01) gridunitconvert
+  replacefirstofmonthGRID
+   time /T renameGRID
+   T /standard_name (time) def
+   /defaultvalue { last } def pop
+   /iridl:hasSemantics (iridl:SeaSurfaceTemperature) def
+   /units (Celsius_scale) def
+   sstcolorscale
+} defasvarsilent
+:dataset
+\end{ingrid}

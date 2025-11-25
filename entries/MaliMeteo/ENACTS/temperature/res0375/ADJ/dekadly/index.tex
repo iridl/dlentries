@@ -1,0 +1,72 @@
+\begin{ingrid}
+% First statement for Ingrid
+
+% New dataset
+continuedataset:
+
+% Time Grid 
+%datasetdefs:
+/T
+1 Jan 1961 julian_day
+31 Dec 2014 julian_day
+dekadGRID
+/defaultvalue {last} def
+def
+%:datasetdefs
+
+grid:
+/name /X def
+/units /degree_east def
+ -12.375 0.0375 4.3875
+/long_name (Longitude) def
+:grid
+
+
+grid:
+/name /Y def
+/units /degree_north def
+ 10.0125 0.0375 25.2
+/long_name (Latitude) def
+:grid
+
+% tmax Temperatures Variable
+/tmax{
+[X Y | T]
+(/data/rijaf/data/Mali/Mali_TT_res0375/Tmax_Adjusted_data/tmax_adj_%Y%m[T]%d[dekad].nc)
+[T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+
+readdatafile:
+/realarraytype netcdfrecords
+/missing_value -99. def 
+/units /degreesC def
+/name (temp) def
+/long_name (Adjusted Maximum Temperature) def
+:readdatafile
+temp_colors
+/scale_symmetric false def
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+% tmin Temperatures Grid
+/tmin{
+[X Y | T]
+(/data/rijaf/data/Mali/Mali_TT_res0375/Tmin_Adjusted_data/tmin_adj_%Y%m[T]%d[dekad].nc)
+[T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+
+readdatafile:
+/realarraytype netcdfrecords
+/missing_value -99. def
+/units /degreesC def
+/name (temp) def
+/long_name (Adjusted Minimum Temperature) def
+:readdatafile
+temp_colors
+/scale_symmetric false def
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+
+:dataset
+\end{ingrid}
+
+

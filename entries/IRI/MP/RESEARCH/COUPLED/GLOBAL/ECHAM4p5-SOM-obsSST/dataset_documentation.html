@@ -1,0 +1,43 @@
+<html>
+<head>
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+<title>ECHAM4.5 T42 AGCM coupled to spatially varying but constant in
+time mixed layer model</title>
+</head>
+<INGRID>standardHeader</INGRID>
+<h4>ECHAM4.5 T42 AGCM with mixed layer model</h4>
+This model is ECHAM4.5 T42 AGCM coupled to a spatially varying but constant in
+time mixed layer model.
+This version of the model prescribes SST in the tropical and
+subtropical eastern and central Pacific but predicts it elsewere. <a href="SOMSSTMask.pdf">Here</a> is
+where the SST is predicted (purple  shading) and prescribed (red shading).<p>
+This is the same model as described at:
+<a href="http://iridl.ldeo.columbia.edu/SOURCES/.IRI/.FD/.ECHAM4p5/.History/>IRI FD ECHAM4p5</a>,
+
+and include the same SST data in the region for the figure that I had sent out 
+with my e-mail. In the rest of the oceans a simple mixed layer model is 
+used to solve for the SST. The mixed layer model uses a spatially variable but 
+constant in time mixed layer depth which was determined using the Levitus (1994) 
+criteria. A Q-Flux has been determined from a long run using the climatological SST 
+in order to have the mixed layer model be able to reproduce that part of the SST 
+tendency due to ocean dynamics. Also, implicitly included in this Q-Flux would be 
+a correction term to the model heat flux, i.e. this can not be separated from the 
+pure dynamics case.
+
+
+
+<p>
+  Currently,
+there are 3 integrations with monthly mean data.
+The integrations are the same except for the initial condition which was used.
+<p>
+If anyone would like to provide feedback on these integrations I would greatly appreciate it. In particular, the region where the SST is
+prescribed is always somewhat abritray as is how this is blended with the predicted SST  region. The region of prescribed SST was chosen to
+allow as complete a representation of the central and eastern Pacific interannual variability a possible while also allowing the
+western Pacific to evolve freely.
+<p>
+If you have questions or comments please let me know.
+<p>
+Dave D.
+</body>
+</html>

@@ -1,0 +1,81 @@
+\begin{ingrid}
+continuedataset:
+
+link:
+/name (NASA IDS) def
+/href (https://cad4nasa.gsfc.nasa.gov/) def
+:link
+
+grid:
+/name (X)def
+/long_name (Longitude) def
+/standard_name (longitude) def
+/units (degree_east)def
+ -179.875 0.25 179.875 
+:grid
+grid:
+/name (Y)def
+/long_name (Latitude) def
+/standard_name (latitude) def
+/units (degree_north)def
+79.875  0.25 -59.875
+:grid
+grid:
+/name (T) def
+/units (months since 1960-01-01) def
+%/pointwidth 0 def
+16 Jan 1982 ensotime
+1
+16 Dec 2015 ensotime
+:grid
+grid:
+/name (T2) def
+/units (months since 1960-01-01) def
+%/pointwidth 0 def
+16 Jan 2000 ensotime
+1
+16 Dec 2015 ensotime
+:grid
+
+ /ndvi_anom_gimms{ [ X Y | T ] (/Data/data23/nasa_ids/GIMMS_NDVI/Anomalies/average/MonthlyAnomalies/%b[T]/GIMMS_NDVI_%b[T]%Y[T]_Anomaly_ave.tif) [T] readdatafile:
+/name (NDVI) def
+/long_name (GIMMS NDVI Anomaly) def
+  /scale_factor 0.01 def
+  /add_offset -1.0 def
+  /valid_max 200 def
+/stringtype tiffimage :readdatafile
+prcp_anomaly
+}defasvarsilent
+
+ /ndvi_anom_modis{ [ X Y | T2 ] (/Data/data23/nasa_ids/MODIS_NDVI/Anomalies/average/MonthlyAnomalies/%b[T2]/MODIS_NDVI_%b[T2]%Y[T2]_Anomaly_ave.tif) [T2] readdatafile:
+/name (NDVI) def
+/long_name (MODIS NDVI Anomaly) def
+  /scale_factor 0.01 def
+  /add_offset -1.0 def
+  /valid_max 200 def
+/stringtype tiffimage :readdatafile
+prcp_anomaly
+}defasvarsilent
+
+ /evi_anom_modis{ [ X Y | T2 ] (/Data/data23/nasa_ids/MODIS_EVI/Anomalies/average/MonthlyAnomalies/%b[T2]/MODIS_EVI_%b[T2]%Y[T2]_Anomaly_ave.tif) [T2] readdatafile:
+/name (EVI) def
+/long_name (MODIS EVI Anomaly) def
+  /scale_factor 0.01 def
+  /add_offset -1.0 def
+  /valid_max 200 def
+/stringtype tiffimage :readdatafile
+prcp_anomaly
+}defasvarsilent
+
+ /precip_chirps{ [ X Y | T ] (/Data/data23/nasa_ids/CHIRPS/Anomalies/average/MonthlyAnomalies/%b[T]/CHIRPS_%b[T]%Y[T]_Anomaly_ave.tif) [T] readdatafile:
+/name (PRECIP) def
+/long_name (CHIRPS Precip Anomaly) def
+  /scale_factor 0.01 def
+  /add_offset -1.0 def
+  /valid_max 200 def
+/stringtype tiffimage :readdatafile
+prcp_anomaly
+}defasvarsilent
+
+:dataset
+\end{ingrid}

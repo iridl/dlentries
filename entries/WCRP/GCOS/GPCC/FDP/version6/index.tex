@@ -1,0 +1,107 @@
+\begin{ingrid}
+continuedataset:
+
+dataset:
+/name (0p5) def
+
+/prcp 
+{ 
+(/Data/data22/gpcc/FDPversion6/full_data_v6_precip_05.nc) readCDF .p
+time 0.5 shiftGRID
+  time name (months since 1960-01-01) ordered 16
+       Jan 1901 ensotime
+       1 16
+         Dec 2010 ensotime
+         NewEvenGRID
+    replaceGRID
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+/standard_name (lwe_precipitation_rate) def
+/long_name (Total Precipitation) def
+} defasvarsilent
+
+/cnts
+{
+ (/Data/data22/gpcc/FDPversion6/full_data_v6_statio_05.nc) readCDF .s
+  time 0.5 shiftGRID
+  time name (months since 1960-01-01) ordered 16
+       Jan 1901 ensotime
+       1 16
+         Dec 2010 ensotime
+         NewEvenGRID
+    replaceGRID
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+/long_name (Number of gauges per grid) def
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (1p0) def
+
+/prcp 
+{ 
+(/Data/data22/gpcc/FDPversion6/full_data_v6_precip_10.nc) readCDF .p
+time 0.5 shiftGRID
+  time name (months since 1960-01-01) ordered 16
+       Jan 1901 ensotime
+       1 16
+         Dec 2010 ensotime
+         NewEvenGRID
+    replaceGRID
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+/standard_name (lwe_precipitation_rate) def
+/long_name (Total Precipitation) def
+} defasvarsilent
+
+/cnts
+{
+ (/Data/data22/gpcc/FDPversion6/full_data_v6_statio_10.nc) readCDF .s
+  time 0.5 shiftGRID
+  time name (months since 1960-01-01) ordered 16
+       Jan 1901 ensotime
+       1 16
+         Dec 2010 ensotime
+         NewEvenGRID
+    replaceGRID
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+/long_name (Number of gauges per grid) def
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (2p5) def
+
+/prcp 
+{ 
+(/Data/data22/gpcc/FDPversion6/full_data_v6_precip_25.nc) readCDF .p
+time 0.5 shiftGRID
+  time name (months since 1960-01-01) ordered 16
+       Jan 1901 ensotime
+       1 16
+         Dec 2010 ensotime
+         NewEvenGRID
+    replaceGRID
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+/standard_name (lwe_precipitation_rate) def
+/long_name (Total Precipitation) def
+} defasvarsilent
+
+/cnts
+{
+ (/Data/data22/gpcc/FDPversion6/full_data_v6_statio_25.nc) readCDF .s
+  time 0.5 shiftGRID
+  time name (months since 1960-01-01) ordered 16
+       Jan 1901 ensotime
+       1 16
+         Dec 2010 ensotime
+         NewEvenGRID
+    replaceGRID
+lon /X renameGRID lat /Y renameGRID time /T renameGRID
+/long_name (Number of gauges per grid) def
+} defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}

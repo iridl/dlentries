@@ -1,0 +1,108 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+
+grid:
+   /name /Smod def
+   0 3.5 52
+% the end year here must be manually advanced at the start of each year to the following year (i.e. use 2020 once 2019 has arrived as the start year in the S grid)
+        7 mul
+         systemtime
+        (%d %b %Y) 12 strftime
+        interp nip nip 1 add
+        2015 sub mul
+
+
+:grid
+:datasetdefs
+
+
+\end{ingrid}
+%This definition is needed for making specific time steps, first, we create an S grid standard then modify it for the right time step
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+05 Nov 2018 julian_day 01 Jan 1960 julian_day sub
+1.0
+26 Jun 2023 julian_day
+01 Jan 1960 julian_day sub
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+\begin{ingrid}
+
+  /S Smod
+    0 add
+    7 mod
+    0 maskgt
+    Smod add
+    Smod
+     0.5 add
+     replaceNaN
+    /name /S def
+    Smod
+     0 add
+     /name /Smod2 def
+     exch use_as_grid
+    .S
+    /units (days since 2015-01-01) def
+    /pointwidth 0 def
+     dup
+     (days since 1960-01-01) streamgridunitconvert
+    /long_name (forecast start time) def
+    /standard_name (forecast_reference_time) def
+    /defaultvalue {last}def
+    def
+
+     S dup 05
+     Nov 2018 julian_day
+     01
+      Jan 1960 julian_day
+      sub
+      26 Jun 2023 julian_day
+      01 Jan 1960 julian_day sub
+     subgrid
+    replaceGRID
+
+
+
+grid:
+/name /L def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+1. 1. 46.
+/pointwidth 0. def
+:grid
+
+grid:
+/name /M def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+1 1 51
+:grid
+
+ /ensembles { [ L M | S ]
+ (/Data/data25/ECMWF/S2S/ECMF/REL/SSW/%Y[S]/%m[S]/SSW.ALL.ecmwf.%Y%m%d[S]) [ S ]
+readdatafile:
+((50(46(19X,F6.7,/)),(45(19X,F6.7,/),(19X,F6.7)))) formatted
+ [M L] REORDER
+:readdatafile
+/units (unitless) def
+} defasvarsilent
+
+
+ /ensemble_mean { [ L | S ]
+ (/Data/data25/ECMWF/S2S/ECMF/REL/SSW/%Y[S]/%m[S]/SSW.EM.ecmwf.%Y%m%d[S]) [ S ]
+readdatafile:
+ ((13X,F6.3), (13X,F6.3)  ) formatted
+:readdatafile
+/units (unitless) def
+} defasvarsilent
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,36 @@
+\begin{ingrid}
+continuedataset: 
+grid: /name /T def monthtime 16 Jan 1950 ensotime 1 16 Nov 2003 ensotime :grid
+/Y 96 namedgaussianlat high low subgrid name exch def
+grid: /name /X def degE periodic 0 1.875 358.125 :grid
+variable:
+/name /prcp def
+/long_name (precipitation rate) def
+/units (mm/day) def
+grids: X Y | T :grids
+file:
+decsequential
+/name (/beluga/data/forecast/DATA/cola/pcp/cola.pcp.5003.ano) def
+%/name (/pantano/rd14/DATA/cola_T63/pcp/cola.pcp.5098.ano) def
+%/name (/beluga/data/goddard/DATA/cola/pcp/cola.pcp.5098.ano) def
+%/name (/Data/data1/iri/forecast/lgoddard/COLA/T63/pcp/cola.pcp.5098.ano) def
+:file
+:variable
+variable:
+/name /t2m def
+/long_name (temperature at canopy air space) def
+/units (degree_Kelvin) def
+/missing_value -9999. def
+grids: X Y | T :grids
+file:
+decsequential
+/name (/beluga/data/forecast/DATA/cola/2mt/cola.2mt.5003.ano) def
+%/name (/pantano/rd14/DATA/cola_T63/2mt/cola.2mt.5098.ano) def
+%/name (/beluga/data/goddard/DATA/cola/2mt/cola.2mt.5098.ano) def
+%/name (/Data/data1/iri/forecast/lgoddard/COLA/T63/2mt/cola.2mt.5098.ano) def
+:file
+:variable
+:dataset
+\end{ingrid}
+
+

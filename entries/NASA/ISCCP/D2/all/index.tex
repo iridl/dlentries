@@ -1,0 +1,69 @@
+\begin{ingrid}
+continuedataset:
+/long_name (All Cloud Types) def
+% /description (All Cloud Types) def
+/T dataset .T def
+/boxnum dataset .boxnum def
+/lat dataset .lat def
+/lon dataset .lon def
+dataset:
+/name (mean_cloud) def
+/long_name (Mean Cloud) def
+variable:
+/name (amount) def
+/long_name (Amount) def
+/missing_value 255. def
+grids: boxnum T :grids
+file:
+random
+/name (/Data/data4/nasa/isccp/mean0ca) def
+:file
+:variable
+
+variable:
+/name (press) def
+/long_name (Top Pressure) def
+/missing_value 255. def
+grids: boxnum T :grids
+file:
+random
+/name (/Data/data4/nasa/isccp/mean0pc) def
+:file
+:variable
+
+variable:
+/name (temp) def
+/long_name (Top Temperature) def
+/missing_value 255. def
+grids: boxnum T :grids
+file:
+random
+/name (/Data/data4/nasa/isccp/mean0tc) def
+:file
+:variable
+
+variable:
+/name (optthick) def
+/long_name (Optical Thickness) def
+/missing_value 255. -1000. 2 realarray astore def
+grids: boxnum T :grids
+file:
+random
+/name (/Data/data4/nasa/isccp/mean0ta) def
+:file
+:variable
+
+variable:
+/name (waterpath) def
+/long_name (Water Path) def
+/missing_value 255. -1000. 2 realarray astore def
+grids: boxnum T :grids
+file:
+random
+/name (/Data/data4/nasa/isccp/mean0wp) def
+:file
+:variable
+:dataset
+:dataset
+\end{ingrid}
+

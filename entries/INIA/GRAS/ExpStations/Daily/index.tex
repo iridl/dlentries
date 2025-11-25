@@ -1,0 +1,197 @@
+\begin{ingrid}
+continuedataset:
+/description (Daily meteorological observations in Uruguay from INIA experimental stations) def
+link:
+/name (Data_Source) def
+/href (http://www.inia.org.uy/online/site/143782I1.php) def
+/description (INIA GRAS Data Source) def
+:link
+
+grid:
+	/name /T def
+	/units (julian_day) def
+	2438943
+%	2438943 ==> 1 Jul 1965
+	1
+%	(/beluga/data/datag/INIA/GRAS/Daily/enddate-jd) readfile
+	(/beluga/data/datag/INIA/GRAS/Daily/enddate) readfile
+	ymd2rjt
+:grid
+grid:
+	/name /ISTA def
+	/units (ids) def
+	values: /le /sa /tt /lb /tb :values
+:grid
+variable:
+	/name /tempavg def
+	/long_name (Average Temperature) def
+	/missing_value -99.9 def
+	/units (Celsius_scale) def
+	grids: T ISTA :grids
+	file:
+		formatted
+		/name (/beluga/data/datag/INIA/GRAS/Daily/data-tempavg) def
+%		/name (/home/grover/Data_Files/Walter/INIA/data-tempavg) def
+	:file
+:variable
+variable:
+	/name /tempmax def
+	/long_name (Maximum Temperature) def
+	/missing_value -99.9 def
+	/units (Celsius_scale) def
+	grids: T ISTA :grids
+	file:
+		formatted
+		/name (/beluga/data/datag/INIA/GRAS/Daily/data-tempmax) def
+%		/name (/home/grover/Data_Files/Walter/INIA/data-tempmax) def
+	:file
+:variable
+variable:
+	/name /tempmin def
+	/long_name (Minimum Temperature) def
+	/missing_value -99.9 def
+	/units (Celsius_scale) def
+	grids: T ISTA :grids
+	file:
+		formatted
+		/name (/beluga/data/datag/INIA/GRAS/Daily/data-tempmin) def
+%		/name (/home/grover/Data_Files/Walter/INIA/data-tempmin) def
+	:file
+:variable
+variable:
+	/name /rh def
+	/long_name (Relative Humidity) def
+	/missing_value -99.9 def
+	/units (Percent) def
+	grids: T ISTA :grids
+	file:
+		formatted
+		/name (/beluga/data/datag/INIA/GRAS/Daily/data-relhum) def
+%		/name (/home/grover/Data_Files/Walter/INIA/data-relhum) def
+	:file
+:variable
+variable:
+	/name /pcpn def
+	/long_name (Precipitation) def
+	/missing_value -99.9 def
+	/units (mm) def
+	grids: T ISTA :grids
+	file:
+		formatted
+		/name (/beluga/data/datag/INIA/GRAS/Daily/data-pcpn) def
+%		/name (/home/grover/Data_Files/Walter/INIA/data-pcpn) def
+	:file
+:variable
+variable:
+	/name /evap def
+	/long_name (Pan Evaporation) def
+	/missing_value -99.9 def
+	/units (mm) def
+	grids: T ISTA :grids
+	file:
+		formatted
+		/name (/beluga/data/datag/INIA/GRAS/Daily/data-evap) def
+%		/name (/home/grover/Data_Files/Walter/INIA/data-evap) def
+	:file
+:variable
+variable:
+	/name /wind def
+	/long_name (Wind) def
+	/missing_value -99.9 def
+	/units (km/day) def
+	grids: T ISTA :grids
+	file:
+		formatted
+%		/name (/home/grover/Data_Files/Walter/INIA/data-wind) def
+ 		/name (/beluga/data/datag/INIA/GRAS/Daily/data-wind) def
+	:file
+:variable
+variable:
+	/name /sun def
+	/long_name (Hours of Sun) def
+	/missing_value -99.9 def
+	/units (hrs) def
+	grids: T ISTA :grids
+	file:
+		formatted
+		/name (/beluga/data/datag/INIA/GRAS/Daily/data-sun) def
+%		/name (/home/grover/Data_Files/Walter/INIA/data-sun) def
+	:file
+:variable
+variable:
+	/name /pet def
+	/long_name (Potential Evapotranspiration) def
+	/missing_value -99.9 def
+	/units (mm) def
+	grids: T ISTA :grids
+	file:
+		formatted
+		/name (/beluga/data/datag/INIA/GRAS/Daily/data-pet) def
+%		/name (/home/grover/Data_Files/Walter/INIA/data-pet) def
+	:file
+:variable
+variable:
+	/name /lon def
+	/long_name (longitude) def
+	degE
+	grids: ISTA :grids
+	values:
+%		order dictated by concat.pl -->	La Estranzuela, Salto, Treinta y Tres, Las Brujas, Tacuarembo
+		-57.7
+		-57.9
+		-54.3
+		-56.3
+		-56.0
+	:values
+	/scale_min -65.0 def
+	/scale_max -45.0 def
+:variable
+variable:
+	/name /lat def
+	/long_name (latitude) def
+	degN
+	grids: ISTA :grids
+	values:
+%		order dictated by concat.pl -->	La Estranzuela, Salto, Treinta y Tres, Las Brujas, Tacuarembo
+		-34.3
+		-31.3
+		-33.2
+		-34.7
+		-31.7
+	:values
+	/scale_min -45.0 def
+	/scale_max -25.0 def
+:variable
+variable:
+	/name /Name def
+	grids: ISTA :grids
+	values:
+		(La Estranzuela)
+		(Salto)
+		(Treinta y Tres)
+		(Las Brujas)
+		(Tacuarembo)
+	:values
+:variable
+variable:
+	/name /elev def
+	/long_name (elevation) def
+	/units (m) def
+	grids: ISTA :grids
+	values:
+		81
+		50
+		100
+		32
+		140
+	:values
+:variable
+
+:dataset
+\end{ingrid}
+
+
+
+
+
+

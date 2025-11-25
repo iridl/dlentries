@@ -1,0 +1,416 @@
+\begin{ingrid}
+/description (Standardized Precipitation Index analyses of multiple global precipitation datasets) def
+/references (Guttman1999 McKee_etal1993 McKee_etal1995) def
+
+datasetdefs:
+
+/SPI_tercilethreshold_colors {
+startcolormap
+DATA -3.1 3.1 RANGE
+grey sienna sienna -3.1 VALUE
+sienna sienna -2.5 bandmax
+130 90  80  RGB RGBdup -2.0 bandmax
+155 115 105 RGB RGBdup -1.5 bandmax
+180 140 130 RGB RGBdup -1.0 bandmax
+205 165 155 RGB RGBdup -0.43073 bandmax
+white white 0.43073 bandmax
+210 245 215 RGB RGBdup 1.0 bandmax
+150 230 155 RGB RGBdup 1.5 bandmax
+45  180  50 RGB RGBdup 2.0 bandmax
+10 150 15 RGB RGBdup 2.5 bandmax
+0  130  5 RGB RGBdup 3.1 bandmax
+0  130  5 RGB
+endcolormap
+} def
+
+/drought_monitor_colors1
+{
+startcolormap
+DATA -3.5 3.5 RANGE
+white 115 0 0 RGB 115 0 0 RGB -2.05375 VALUE
+230 0 0 RGB RGBdup -1.64486 bandmax
+230 152 0 RGB RGBdup -1.28155 bandmax
+255 211 127 RGB RGBdup -0.84162 bandmax
+255 255 0 RGB RGBdup -0.5244 bandmax
+white white 0.5244  bandmax
+110 210 115 RGB RGBdup 0.84162 bandmax
+ 20 170  25 RGB RGBdup 1.28155 bandmax
+  0 130   5 RGB RGBdup 1.64486 bandmax
+  0 100   0 RGB RGBdup 2.05375 bandmax
+  0 70   0 RGB RGBdup 3.5 bandmax
+  0 70 0 RGB endcolormap
+} defcolorscale
+
+:datasetdefs
+
+/SPI-CAMSOPI_1-Month {
+	SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+	1 gamma3par
+	pcpn_accum gmean gsd gskew pzero 1 gammaprobs
+	1 gammastandardize
+	/long_name (SPI-CAMS_OPI_1-month) def
+SPI_tercilethreshold_colors
+} defasvarsilent
+/SPI-CAMSOPI_3-Month {
+	SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+	3 gamma3par
+	pcpn_accum gmean gsd gskew pzero 3 gammaprobs
+	3 gammastandardize
+	/long_name (SPI-CAMS_OPI_3-month) def
+	T /pointwidth 3 def
+	-1. shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarsilent
+/SPI-CAMSOPI_6-Month {
+	SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+	6 gamma3par
+	pcpn_accum gmean gsd gskew pzero 6 gammaprobs
+	6 gammastandardize
+	/long_name (SPI-CAMS_OPI_6-month) def
+	T /pointwidth 6 def
+	-2.5 shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarsilent
+/SPI-CAMSOPI_9-Month {
+	SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+	9 gamma3par
+	pcpn_accum gmean gsd gskew pzero 9 gammaprobs
+	9 gammastandardize
+	T /pointwidth 9 def
+	-4 shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+	/long_name (SPI-CAMS_OPI_9-month) def
+SPI_tercilethreshold_colors
+} defasvarsilent
+/SPI-CAMSOPI_12-Month {
+	SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+	12 gamma3par
+	pcpn_accum gmean gsd gskew pzero 12 gammaprobs
+	12 gammastandardize
+	/long_name (SPI-CAMS_OPI_12-month) def
+	T /pointwidth 12 def
+	-5.5 shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarsilent
+
+/SPI-GOBv0px1deg_1-Month {
+SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+  1 gamma3par
+  pcpn_accum gmean gsd gskew pzero 1 gammaprobs
+  1 gammastandardize
+  /long_name (1-Month Standardized Precipitation Index) def
+  T /defaultvalue {last} def pop drought_monitor_colors1
+} defasvarsilent
+
+/SPI-GOBv0px1deg_3-Month {
+SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+  3 gamma3par
+  pcpn_accum gmean gsd gskew pzero 3 gammaprobs
+  3 gammastandardize
+  /long_name (3-Month Standardized Precipitation Index) def
+  T /defaultvalue {last} def pop
+  drought_monitor_colors1
+} defasvarsilent
+
+/SPI-GOBv0px1deg_6-Month {
+SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+  6 gamma3par
+  pcpn_accum gmean gsd gskew pzero 6 gammaprobs
+  6 gammastandardize
+  /long_name (6-Month Standardized Precipitation Index) def
+  T /defaultvalue {last} def pop drought_monitor_colors1
+} defasvarsilent
+
+/SPI-GOBv0px1deg_9-Month {
+SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+  9 gamma3par
+  pcpn_accum gmean gsd gskew pzero 9 gammaprobs
+  9 gammastandardize
+  /long_name (9-Month Standardized Precipitation Index) def
+  T /defaultvalue {last} def pop drought_monitor_colors1
+} defasvarsilent
+
+/SPI-GOBv0px1deg_12-Month {
+SOURCES .IRI .Analyses .NOAA .NCEP .CPC .GOB .V0px .NMME_drought .monthly .NMME_deg1p0 .total .precipitation
+  12 gamma3par
+  pcpn_accum gmean gsd gskew pzero 12 gammaprobs
+  12 gammastandardize
+  /long_name (12-Month Standardized Precipitation Index) def
+  T /defaultvalue {last} def pop drought_monitor_colors1
+} defasvarsilent
+
+/SPI-PRECL0p5_1-Month {
+	SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg0p5 .rain
+	1 gamma3par
+	pcpn_accum gmean gsd gskew pzero 1 gammaprobs
+	1 gammastandardize
+	/long_name (SPI-PRECL0p5_1-month) def
+SPI_tercilethreshold_colors
+} defasvarsilent
+/SPI-PRECL0p5_3-Month {
+	SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg0p5 .rain
+	3 gamma3par
+	pcpn_accum gmean gsd gskew pzero 3 gammaprobs
+	3 gammastandardize
+	/long_name (SPI-PRECL0p5_3-month) def
+	T /pointwidth 3 def
+	-1. shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarsilent
+/SPI-PRECL0p5_6-Month {
+	SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg0p5 .rain
+	6 gamma3par
+	pcpn_accum gmean gsd gskew pzero 6 gammaprobs
+	6 gammastandardize
+	/long_name (SPI-PRECL0p5_6-month) def
+	T /pointwidth 6 def
+	-2.5 shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarsilent
+/SPI-PRECL0p5_9-Month {
+	SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg0p5 .rain
+	9 gamma3par
+	pcpn_accum gmean gsd gskew pzero 9 gammaprobs
+	9 gammastandardize
+	T /pointwidth 9 def
+	-4 shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+	/long_name (SPI-PRECL0p5_9-month) def
+SPI_tercilethreshold_colors
+} defasvarsilent
+/SPI-PRECL0p5_12-Month {
+	SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg0p5 .rain
+	12 gamma3par
+	pcpn_accum gmean gsd gskew pzero 12 gammaprobs
+	12 gammastandardize
+	/long_name (SPI-PRECL0p5_12-month) def
+	T /pointwidth 12 def
+	-5.5 shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarsilent
+
+/SPI-CMAP0407v1_1-Month {
+	SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .v0407 .ver1 .prcp_est
+	1 gamma3par
+	pcpn_accum gmean gsd gskew pzero 1 gammaprobs
+	1 gammastandardize
+	/long_name (SPI-CMAP0407v1_1-month) def
+SPI_tercilethreshold_colors
+} defasvarsilent
+/SPI-CMAP0407v1_3-Month {
+	SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .v0407 .ver1 .prcp_est
+	3 gamma3par
+	pcpn_accum gmean gsd gskew pzero 3 gammaprobs
+	3 gammastandardize
+	/long_name (SPI-CMAP0407v1_3-month) def
+	T /pointwidth 3 def
+	-1. shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarsilent
+/SPI-CMAP0407v1_6-Month {
+	SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .v0407 .ver1 .prcp_est
+	6 gamma3par
+	pcpn_accum gmean gsd gskew pzero 6 gammaprobs
+	6 gammastandardize
+	/long_name (SPI-CMAP0407v1_6-month) def
+	T /pointwidth 6 def
+	-2.5 shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarsilent
+/SPI-CMAP0407v1_9-Month {
+	SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .v0407 .ver1 .prcp_est
+	9 gamma3par
+	pcpn_accum gmean gsd gskew pzero 9 gammaprobs
+	9 gammastandardize
+	/long_name (SPI-CMAP0407v1_9-month) def
+	T /pointwidth 9 def
+	-4 shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarsilent
+/SPI-CMAP0407v1_12-Month {
+	SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .v0407 .ver1 .prcp_est
+	12 gamma3par
+	pcpn_accum gmean gsd gskew pzero 12 gammaprobs
+	12 gammastandardize
+	/long_name (SPI-CMAP0407v1_12-month) def
+	T /pointwidth 12 def
+	-5.5 shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarsilent
+
+/SPI-UEA_1-Month {
+	SOURCES .UEA .CRU .New .CRU05 .monthly .prcp
+	1 gamma3par
+	pcpn_accum gmean gsd gskew pzero 1 gammaprobs
+	1 gammastandardize
+	/long_name (SPI-UEA_1-month) def
+SPI_tercilethreshold_colors
+} defasvarcachesilent
+/SPI-UEA_3-Month {
+	SOURCES .UEA .CRU .New .CRU05 .monthly .prcp
+	3 gamma3par
+	pcpn_accum gmean gsd gskew pzero 3 gammaprobs
+	3 gammastandardize
+	/long_name (SPI-UEA_3-month) def
+	T /pointwidth 3 def
+	-1. shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarcachesilent
+/SPI-UEA_6-Month {
+	SOURCES .UEA .CRU .New .CRU05 .monthly .prcp
+	6 gamma3par
+	pcpn_accum gmean gsd gskew pzero 6 gammaprobs
+	6 gammastandardize
+	/long_name (SPI-UEA_6-month) def
+	T /pointwidth 6 def
+	-2.5 shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarcachesilent
+/SPI-UEA_9-Month {
+	SOURCES .UEA .CRU .New .CRU05 .monthly .prcp
+	9 gamma3par
+	pcpn_accum gmean gsd gskew pzero 9 gammaprobs
+	9 gammastandardize
+	/long_name (SPI-UEA_9-month) def
+	T /pointwidth 9 def
+	-4 shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarcachesilent
+/SPI-UEA_12-Month {
+	SOURCES .UEA .CRU .New .CRU05 .monthly .prcp
+	12 gamma3par
+	pcpn_accum gmean gsd gskew pzero 12 gammaprobs
+	12 gammastandardize
+	/long_name (SPI-UEA_12-month) def
+	T /pointwidth 12 def
+	-5.5 shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarcachesilent
+
+/SPI-TS2p1_1-Month {
+	SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+	1 gamma3par
+	pcpn_accum gmean gsd gskew pzero 1 gammaprobs
+	1 gammastandardize
+	/long_name (SPI-TS2p1_1-month) def
+SPI_tercilethreshold_colors
+} defasvarcachesilent
+/SPI-TS2p1_3-Month {
+	SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+	3 gamma3par
+	pcpn_accum gmean gsd gskew pzero 3 gammaprobs
+	3 gammastandardize
+	/long_name (SPI-TS2p1_3-month) def
+	T /pointwidth 3 def
+	-1. shiftGRID
+	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarcachesilent
+/SPI-TS2p1_6-Month {
+	SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+	6 gamma3par
+	pcpn_accum gmean gsd gskew pzero 6 gammaprobs
+	6 gammastandardize
+	/long_name (SPI-TS2p1_6-month) def
+	T /pointwidth 6 def
+	-2.5 shiftGRID
+	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarcachesilent
+/SPI-TS2p1_9-Month {
+	SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+	9 gamma3par
+	pcpn_accum gmean gsd gskew pzero 9 gammaprobs
+	9 gammastandardize
+	/long_name (SPI-TS2p1_9-month) def
+	T /pointwidth 9 def
+	-4 shiftGRID
+	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarcachesilent
+/SPI-TS2p1_12-Month {
+	SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+	12 gamma3par
+	pcpn_accum gmean gsd gskew pzero 12 gammaprobs
+	12 gammastandardize
+	/long_name (SPI-TS2p1_12-month) def
+	T /pointwidth 12 def
+	-5.5 shiftGRID
+	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarcachesilent
+
+/SPI-GPCPv2OPI_1-Month {
+	SOURCES .NASA .GPCP .V2 .OPI .prcp
+	1 gamma3par
+	pcpn_accum gmean gsd gskew pzero 1 gammaprobs
+	1 gammastandardize
+	/long_name (SPI-GPCPv2OPI_1-month) def
+SPI_tercilethreshold_colors
+} defasvarcachesilent
+/SPI-GPCPv2OPI_3-Month {
+	SOURCES .NASA .GPCP .V2 .OPI .prcp
+	3 gamma3par
+	pcpn_accum gmean gsd gskew pzero 3 gammaprobs
+	3 gammastandardize
+	/long_name (SPI-GPCPv2OPI_3-month) def
+	T /pointwidth 3 def
+	-1. shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarcachesilent
+/SPI-GPCPv2OPI_6-Month {
+	SOURCES .NASA .GPCP .V2 .OPI .prcp
+	6 gamma3par
+	pcpn_accum gmean gsd gskew pzero 6 gammaprobs
+	6 gammastandardize
+	/long_name (SPI-GPCPv2OPI_6-month) def
+	T /pointwidth 6 def
+	-2.5 shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarcachesilent
+/SPI-GPCPv2OPI_9-Month {
+	SOURCES .NASA .GPCP .V2 .OPI .prcp
+	9 gamma3par
+	pcpn_accum gmean gsd gskew pzero 9 gammaprobs
+	9 gammastandardize
+	/long_name (SPI-GPCPv2OPI_9-month) def
+	T /pointwidth 9 def
+	-4 shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarcachesilent
+/SPI-GPCPv2OPI_12-Month {
+	SOURCES .NASA .GPCP .V2 .OPI .prcp
+	12 gamma3par
+	pcpn_accum gmean gsd gskew pzero 12 gammaprobs
+	12 gammastandardize
+	/long_name (SPI-GPCPv2OPI_12-month) def
+	T /pointwidth 12 def
+	-5.5 shiftGRID
+ 	T first pointwidth 1 sub add last RANGE
+SPI_tercilethreshold_colors
+} defasvarcachesilent
+/last_modified
+last_modified
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+.last_modified 
+imax
+def
+\end{ingrid}
+

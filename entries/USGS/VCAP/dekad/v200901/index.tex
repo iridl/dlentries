@@ -1,0 +1,32 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+-20. .1 55.
+:grid
+grid:
+/name /Y def
+degN
+40. -.1 -40.
+:grid
+1 Jan 2006 julian_day
+31 Dec 2008 julian_day
+dekadGRID
+name exch def
+/temp {
+ [X
+    Y |
+    T] (/Data/data21/usgs/edc/vcap/version200901/tmpd%y%m[T]%d[dekad].flt) [T dup day2dom
+        5. add
+        10. div
+        toi4
+        /name /dekad def
+        ]readdatafile:
+      /missing_value -9999. def
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+/units (Celsius_scale) def
+      direct :readdatafile
+} defasvarsilent
+:dataset
+\end{ingrid}

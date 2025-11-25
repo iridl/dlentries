@@ -1,0 +1,47 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (CROP TOTALS, (EXCL HORTICULTURE) - PRODUCTION, MEASURED IN USD) def
+/iridl:hasSemantics (iridl:crop_production) def
+
+grid:
+/name /T def
+/units (monthtime) def
+/defaultvalue { last } def
+1 Jul 2007 ensotime
+12
+1 Jul 2017 ensotime
+/pointwidth 12. def
+:grid
+
+grid:
+/name /gid def
+1207 1 1257
+:grid
+
+/total {
+[gid 1207 1209 1210 1211 1212 1213 1214 1216 1217 1218 1219 1220 1221 1222 1223 1224 1225 1226 1227 1228 1229 1230 1231 1232 1233 1234 1235 1236 1237 1238 1239 1240 1241 1242 1243 1244 1245 1246 1247 1248 1249 1250 1251 1252 1253 1254 1255 1256 1257 subgrid
+ T | ]
+(/Data/PRISM/USDA/quickstats/SurveyCropProd.txt)
+readdatafile:
+[1 9] r*4astsv
+:readdatafile
+/long_name (Total) def
+/units /USD def
+/missing_value -9 def
+}defasvarsilent
+
+/the_geom {
+ SOURCES .Features .Political .UnitedStates .firstOrder_GAUL
+.the_geom
+}defasvar
+
+/label {
+ SOURCES .Features .Political .UnitedStates .firstOrder_GAUL
+.label
+}defasvar
+
+:dataset
+
+\end{ingrid}

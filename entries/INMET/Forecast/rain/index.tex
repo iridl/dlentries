@@ -1,0 +1,357 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+
+grid:
+/name /T def
+monthtime
+/pointwidth 3 def
+16 Oct 2012 ensotime
+      1
+16 Nov 2012 ensotime
+/long_name (Forecast Time) def
+:grid
+
+grid:
+/name /mycol def
+1 1 9
+:grid
+
+grid:
+/name /WMOID def
+/units /ids def
+values:
+82989
+83595
+83249
+82353
+83007
+82970
+82590
+83096
+83442
+83368
+83579
+82890
+83384
+83773
+82460
+83980
+82768
+83582
+82784
+82113
+83179
+82571
+83236
+82191
+83587
+82246
+82410
+82024
+83919
+83288
+82975
+83377
+82188
+82886
+83405
+83339
+82263
+82795
+83611
+83783
+83698
+83714
+83887
+82777
+83398
+83639
+83514
+82042
+83498
+83408
+82765
+83813
+83526
+83676
+82476
+83942
+82596
+82382
+83883
+83192
+82425
+82326
+82676
+82861
+83589
+83718
+83552
+82583
+83912
+82704
+82693
+83361
+83842
+83538
+83309
+83741
+83546
+82610
+83964
+83338
+82691
+82678
+83897
+82212
+83379
+83334
+82397
+83630
+83574
+82893
+83264
+83423
+83374
+83543
+82487
+83446
+82067
+83114
+83821
+82686
+82564
+83872
+83522
+83881
+83836
+83182
+83195
+83244
+82336
+82445
+83488
+83695
+83034
+83295
+83811
+83704
+83054
+83186
+83395
+83464
+82798
+83481
+83692
+82723
+83891
+83242
+83597
+83766
+82098
+83683
+82331
+82533
+82562
+83596
+83767
+83389
+82181
+82792
+82588
+83184
+82591
+83013
+82598
+82178
+82753
+83033
+82992
+83479
+83844
+83565
+82240
+82287
+83914
+82791
+83531
+82986
+83393
+82863
+83228
+82892
+82983
+82780
+83483
+83376
+83570
+83702
+83967
+82184
+82996
+83064
+82825
+83332
+83716
+83097
+82586
+82900
+82979
+83738
+82915
+83743
+83995
+83470
+83441
+83229
+83936
+83696
+83997
+83726
+82106
+82689
+83920
+83736
+82280
+83907
+83550
+83781
+83669
+83190
+83586
+82392
+82141
+83076
+82797
+83235
+82807
+82317
+83492
+82578
+83948
+82145
+82789
+82361
+82198
+83786
+83577
+83428
+83927
+83642
+83648
+83344
+83623
+82376
+:values
+:grid
+
+grid:
+ /name (Tcl) def
+ /units (months since 01-Jan) def
+ periodic
+ 0.5 1 11.5
+:grid
+
+variable:
+ /name /seasabbrev def
+ grids: Tcl :grids
+ values: (DJF) (JFM) (FMA) (MAM) (AMJ) (MJJ) (JJA) (JAS) (ASO) (SON) (OND) (NDJ) :values
+:variable
+
+/zevar {
+[mycol WMOID | T]
+(/data/remic/mydatafiles/inmet/forecast/%s[final_season]%Y[T]_RAIN.csv)
+[T dup seasabbrev exch [Tcl] sample-along
+          /name /final_season def]
+readdatafile:
+[1 0] r*4astsv
+:readdatafile
+/missing_value -999 def
+}defasvarsilent
+
+:datasetdefs
+
+/WMOID zevar .WMOID def
+/T zevar .T def
+
+/lat {
+zevar
+mycol 2 VALUE
+mycol removeGRID
+T first VALUE
+T removeGRID
+/long_name (Latitude) def
+/units (degree_north) def
+/scale_min -34 def
+/scale_max 6 def
+}defasvar
+
+/lon {
+zevar
+mycol 3 VALUE
+mycol removeGRID
+T first VALUE
+T removeGRID
+/long_name (Longitude) def
+/units (degree_east) def
+/scale_min -74 def
+/scale_max -34 def
+}defasvar
+
+/rain_ARIMA {
+zevar
+mycol 4 VALUE
+mycol removeGRID
+/long_name (rain forecast by ARIMA) def
+/units (mm) def
+}defasvar
+
+/rain_HW {
+zevar
+mycol 5 VALUE
+mycol removeGRID
+/long_name (rain forecast by HOLTWINTERS) def
+/units (mm) def
+}defasvar
+
+/rain_CPT {
+zevar
+mycol 6 VALUE
+mycol removeGRID
+/long_name (rain forecast by CPT) def
+/units (mm) def
+}defasvar
+
+/Cor_ARIMA {
+zevar
+mycol 7 VALUE
+mycol removeGRID
+/long_name (correlation hindcast for ARIMA) def
+correlationcolorscale
+DATA -1 1 RANGE
+}defasvar
+
+/Cor_HW {
+zevar
+mycol 8 VALUE
+mycol removeGRID
+/long_name (correlation hindcast for HOLTWINTERS) def
+correlationcolorscale 
+DATA -1 1 RANGE
+}defasvar
+
+/Cor_CPT {
+zevar
+mycol 9 VALUE
+mycol removeGRID
+/long_name (correlation hindcast for CPT) def
+correlationcolorscale
+DATA -1 1 RANGE
+}defasvar
+
+:dataset
+
+\end{ingrid}

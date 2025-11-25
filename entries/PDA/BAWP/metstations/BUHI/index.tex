@@ -1,0 +1,110 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Buhi meteorological stations) def
+
+datasetdefs:
+grid:
+/name /BARANGAYread def
+/units /ids def
+%values: (Monte Calvario) (Sagrada 1) (Sagrada 2) (Delafe 1) (Delafe 2) (Sta Cruz) (Iraya)
+%(tot) (avg)
+%:values
+1 1 9
+:grid
+:datasetdefs
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+7 Jun 2013 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+30 Jun 2016 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%systemtime systemtime2ymd 3 -2 roll exch julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+:grid
+
+grid:
+/name /FID def
+/units /ids def
+values:
+% (Monte Calvario) (Sagrada 1) (Sagrada 2) (Delafe 1) (Delafe 2) (Sta Cruz) (Iraya)
+(1-014)
+(1-015)
+(1-016)
+(1-017)
+(1-018)
+(1-019)
+(1-020)
+:values
+:grid
+
+/rainfall {
+[BARANGAYread | T]
+(/data/bicolda/HISTOSTATION/BUHI_%Y%m[T]/BUHI_%Y%m%d[T].txt) [T]
+readdatafile:
+[3 1] r*4astsv
+:readdatafile
+BARANGAYread 6 7 3 4 5 2 1 VALUES
+BARANGAYread FID replaceGRID
+/long_name (daily total rainfall) def
+/units /mm def
+/missing_value -222 def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+variable:
+/name /lat def
+/units /degree_north def
+/long_name (Latitude) def
+grids: FID  :grids
+values:
+13.43808333
+13.47171667
+13.42848333
+13.42851667
+13.42866667
+13.42326667
+13.4083
+:values
+/scale_min 11.2 def
+/scale_max 15. def
+:variable
+
+variable:
+/name /lon def
+/units /degree_east def
+/long_name (Longitude) def
+grids: FID  :grids
+values:
+123.5341
+123.5253667
+123.5253667
+123.4904833
+123.4904833
+123.51005
+123.5312167
+:values
+/scale_min 122. def
+/scale_max 125. def
+:variable
+
+/location {
+lon lat geopt}
+defasvar
+
+variable:
+/name /label def
+/long_name (Label) def
+grids: FID  :grids
+values:
+(Monte Calvario, Buhi, Camarines Sur) (Sagrada 1, Buhi, Camarines Sur) (Sagrada 2, Buhi, Camarines Sur) (Dela Fe 1, Buhi, Camarines Sur) (Dela Fe 2, Buhi, Camarines Sur) (Sta Cruz, Buhi, Camarines Sur) (Iraya, Buhi, Camarines Sur)
+:values
+:variable
+
+:dataset
+
+\end{ingrid}

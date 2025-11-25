@@ -1,0 +1,89 @@
+\begin{ingrid}
+/NotOpen dataareIRIonlyPassword
+link:
+/name (home_page) def
+/description (GLC2000 Home Page) def
+/href (http://www-gvm.jrc.it/glc2000/defaultGLC2000.htm) def
+:link
+continuedataset:
+/description (Gridded global land cover data set from the Global Vegetation Monitoring Unit of the Institute for Environment and Sustainability of the EC Joint Research Centre) def
+grid: /name /X def 
+/units /degreeE def
+periodic
+-180 to 179.991070 N= 40320 pts :grid 
+grid: /name /Y def 
+/units /degreeN def
+89.991071
+to
+-56.008928
+ N= 16353 pts :grid 
+/class {
+Y 1 onegridcounter
+(/Data/data6/eu/jrc/ies/gvm/glc2000_v1_1.bil)
+%(/beluga/data/mbell/dldata/glc2000.d/Bil/glc2000_v1_1.bil)
+[X] -32768 readui1direct
+/missing_value undef
+/long_name (land cover class) def
+/scale_min 1 def
+/scale_max 23 def
+/units /ids def
+/iridl:hasSemantics (iridl:LandCover) def
+/CLIST [
+(Tree Cover, broadleaved, evergreen)
+(Tree Cover, broadleaved, deciduous, closed)
+(Tree Cover, broadleaved, deciduous, open)
+(Tree Cover, needle-leaved, evergreen)
+(Tree Cover, needle-leaved, deciduous)
+(Tree Cover, mixed leaf type)
+(Tree Cover, regularly flooded, fresh water)
+(Tree Cover, regularly flooded, saline water)
+(Mosaic: Tree Cover / Other natural vegetation)
+(Tree Cover, burnt)
+(Shrub Cover, closed-open, evergreen)
+(Shrub Cover, closed-open, deciduous)
+(Herbaceous Cover, closed-open)
+(Sparse herbaceous or sparse shrub cover)
+(Regularly flooded shrub and/or herbaceous cover)
+(Cultivated and managed areas)
+(Mosaic: Cropland / Tree Cover / Other natural vegetation)
+(Mosaic: Cropland / Shrub and/or grass cover)
+(Bare Areas)
+(Water Bodies)
+(Snow and Ice)
+(Artificial surfaces and associated areas)
+(No data)
+] def
+startcolormap
+/maxncolor 26 def
+DATA 1 23 RANGE
+white white
+0 100 0 RGB 
+0 149 0 RGB
+174 254 98 RGB
+138 68 18 RGB
+204 126 95 RGB
+139 189 0 RGB
+119 149 254 RGB
+0 70 199 RGB
+0 299 0 RGB
+0 0 0 RGB
+254 118 0 RGB
+254 178 0 RGB
+254 233 157 RGB
+221 201 160 RGB
+0 149 149 RGB
+254 223 228 RGB
+254 116 231 RGB
+201 137 254 RGB
+179 179 179 RGB
+137 226 254 RGB
+239 239 239 RGB
+254 0 0 RGB
+254 254 254 RGB
+white
+endcolormap
+%:variable
+} defasvarsilent
+:dataset
+\end{ingrid}
+

@@ -1,0 +1,140 @@
+\begin{ingrid}
+continuedataset:
+
+[ L X Y P ] { name exch def } forall
+
+grid:
+/name (M)def
+/long_name (member) def
+/units (unitless)def
+1 1 62
+:grid
+
+grid:
+/name (S) def
+/long_name (Forecast Start Time) def
+/units (months since 1960-01-01) def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+1 Mar 2021 ensotime
+1
+1 Feb 2022 ensotime
+:grid
+
+/T { S L add
+/long_name (Time) def
+/standard_name (time) def 
+/pointwidth 3 def
+} defasvarsilent
+
+/sst { [ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System600/forecast/new_sst_C3S_UKMO_GloSea6_600_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (sst) def
+ /gribparam 34 def
+ /gribcenter 74 def
+ /grib_name /SSTK def
+ /scale_max 365.39999 def
+ /gribNumBits 16 def
+ /gribleveltype 1 def
+ /scale_min 180.0 def
+ /process 128 def
+ /missing_value 9.999000E+20 def
+ /units (Kelvin_scale)cvn def
+ /long_name (sea surface temperature) def
+ /standard_name (sea_surface_temperature) def
+ GRIB1record :readdatafile
+ decompress
+ 9.999000E+20 maskge
+}defasvarsilent
+
+/t2m { [ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System600/forecast/new_t2m_C3S_UKMO_GloSea6_600_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (t2m) def
+ /gribparam 167 def
+ /gribcenter 74 def
+ /grib_name /2T def
+ /scale_max 330.00000 def
+ /gribNumBits 24 def
+ /gribleveltype 1 def
+ /scale_min 180.0 def
+ /process 128 def
+ /units (Kelvin_scale)cvn def
+ /missing_value 9.999000E+20 def
+ /long_name (2-meter temperature) def
+ /standard_name (air_temperature) def
+ GRIB1record :readdatafile
+ decompress
+ 9.999000E+20 maskge
+}defasvarsilent
+
+/prcp {
+[ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System600/forecast/new_prcp_C3S_UKMO_GloSea6_600_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (prcp) def
+ /gribparam 228 def
+ /gribcenter 74 def
+ /gribNumBits 16 def
+ /scale_min 0.0 def
+ /units (m s-1)cvn def
+ /missing_value 9.999000E+20 def
+ /long_name (total precipitation) def
+ /standard_name (lwe_precipitation_rate) def
+ GRIB1record :readdatafile
+ decompress
+ 9.999000E+20 maskge
+}defasvarsilent
+
+/ua {
+[ X Y | P L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System600/forecast/new_u_C3S_UKMO_GloSea6_600_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (ua) def
+ /gribparam 131 def
+ /gribcenter 74 def
+ /process 128 def
+ /grib_name /UGRD def
+ /gribNumBits 24 def
+ /units (m s-1)cvn def
+ /missing_value 9.999000E+20 def
+ /long_name (U-component of wind) def
+ /standard_name (eastward_wind) def
+ GRIB1record :readdatafile
+ decompress
+ 9.999000E+20 maskge
+} defasvarsilent
+
+/va {
+[ X Y | P L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System600/forecast/new_v_C3S_UKMO_GloSea6_600_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (va) def
+ /gribparam 132 def
+ /gribcenter 74 def
+ /process 128 def
+ /grib_name /VGRD def
+ /gribNumBits 24 def
+ /units (m s-1)cvn def
+ /missing_value 9.999000E+20 def
+ /long_name (V-component of wind) def
+ /standard_name (northward_wind) def
+ GRIB1record :readdatafile
+ decompress
+ 9.999000E+20 maskge
+} defasvarsilent
+
+
+/slp { 
+[X Y | L M S] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System600/forecast/new_slp_C3S_UKMO_GloSea6_600_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (slp) def
+ /gribparam 132 def
+ /gribcenter 74 def
+ /process 128 def
+ /gribNumBits 24 def
+ /missing_value 9.999000E+20 def
+ /long_name (Sea Level Pressure) def
+ /standard_name (mean_sea_level_pressure) def
+ GRIB1record :readdatafile
+ decompress
+ 9.999000E+20 maskge
+} defasvarsilent
+:dataset
+\end{ingrid}

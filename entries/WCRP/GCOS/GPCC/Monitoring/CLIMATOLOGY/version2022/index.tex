@@ -1,0 +1,51 @@
+\begin{ingrid}
+continuedataset:
+
+dataset:
+   /name /1p0 def
+   /prcp_8222{
+      SOURCES .WCRP .GCOS .GPCC .Monitoring .MONTHLY .version2022 .1p0 .prcp
+      T (1982-2022) RANGE
+      yearly-climatology  
+      /long_name (climatology precipitation 1982-2022) def
+      /expires undef
+   }defasvar
+
+   /cnts_8222{
+      SOURCES .WCRP .GCOS .GPCC .Monitoring .MONTHLY .version2022 .1p0 .cnts
+      T (1982-2022) RANGE
+      yearly-climatology  
+      /long_name (climatology number of stations per grid 1982-2022) def
+      /expires undef
+   }defasvar
+:dataset
+dataset:
+   /name /2p5 def
+   /prcp_8222{
+      SOURCES .WCRP .GCOS .GPCC .Monitoring .MONTHLY .version2022 .2p5 .prcp
+      T (1982-2022) RANGE
+      yearly-climatology  
+      /long_name (climatology precipitation 1982-2022) def
+      /expires undef
+   }defasvar
+
+   /cnts_8222{
+      SOURCES .WCRP .GCOS .GPCC .Monitoring .MONTHLY .version2022 .2p5 .cnts
+      T (1982-2022) RANGE
+      yearly-climatology   
+      /long_name (climatology number of stations per grid 1982-2022) def
+      /expires undef
+   }defasvar
+:dataset
+
+:dataset
+%grids vars subdataset (2 in total) definition
+mark 
+   {counttomark interp 1 eq {.X name exch def}if pop}foralldatasets2 2 {pop}repeat
+   {counttomark interp 1 eq {.Y name exch def}if pop}foralldatasets2 2 {pop}repeat
+   {counttomark interp 1 eq {.T name exch def}if pop}foralldatasets2 2 {pop}repeat
+pop
+
+\end{ingrid}
+
+

@@ -1,0 +1,145 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9741
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 289
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_rapid_FSAdec_2009.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Ménages) def
+/enfants {
+mytable
+myquestion 
+173 VALUE
+ myquestion removeGRID
+/long_name (Enfant de 1 à 4 ans dans le ménage) def 
+}defasvarsilent
+
+/Q14A {
+mytable
+myquestion 
+176 VALUE
+ myquestion removeGRID
+/long_name (Numéro d'ordre dans le ménage) def 
+}defasvarsilent
+
+/Q14C {
+mytable
+myquestion 
+177 VALUE
+ myquestion removeGRID
+/long_name (Résidence) def 
+/units /ids def
+/CLIST [(Présent)(Absent)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q14D {
+mytable
+myquestion 
+178 VALUE
+ myquestion removeGRID
+/long_name (Sexe) def 
+/units /ids def
+/CLIST [(Masculin)(Féminin)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q14E {
+mytable
+myquestion 
+179 VALUE
+ myquestion removeGRID
+/long_name (Age) def 
+}defasvarsilent
+
+/Q14F {
+mytable
+myquestion 
+180 VALUE
+ myquestion removeGRID
+/long_name (Statut matrimonial) def 
+/units /ids def
+/CLIST [(Marié(e) monogame)(Marié(e) polygame)(Divorcé(e))(Veuf/veuve)(Célibataire)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q14G {
+mytable
+myquestion 
+181 VALUE
+ myquestion removeGRID
+/long_name (Le niveau d'instruction) def 
+/units /ids def
+/CLIST [(Primaire)(Secondaire)(Supérieur)(Coranique)(Alphabétisé)(Aucun)(Non applicable)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q14H {
+mytable
+myquestion 
+182 VALUE
+ myquestion removeGRID
+/long_name (Fréquentation actuelle) def 
+/units /ids def
+/CLIST [(Oui)(Non)(NA)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q14I {
+mytable
+myquestion 
+183 VALUE
+ myquestion removeGRID
+/long_name (Occupation principale) def 
+/units /ids def
+/CLIST [(Agriculture)(Elevage)(Petit commerce)(Artisanat)(Chasse/Pêche)(Bucheron)(Elève/étudiant)(Travaux ménagers et domestiques)(Soin des animaux au sein du ménage)(Administration publique/privée)(Commerçant/entrepreneur)(Travail journalier)(Autres)(Non applicable)] def
+/scale_min 1 def
+/scale_max 14 def
+}defasvarsilent
+
+/Q71 {
+mytable
+myquestion 
+184 VALUE
+ myquestion removeGRID
+/long_name (Q71) def 
+}defasvarsilent
+
+/PID {
+mytable
+myquestion 
+185 VALUE
+ myquestion removeGRID
+/long_name (IDENTIFIANT INDIVIDU) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

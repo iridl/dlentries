@@ -1,0 +1,122 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+ /obsorestcolors {
+startcolormap
+/maxncolor 5 def
+DATA 0 1 RANGE
+white blue
+  0   0 255 RGB 0 VALUE
+  0 255   0 RGB 1 VALUE
+green 
+endcolormap } def
+:datasetdefs
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 1 -89.5
+:grid
+grid:
+/name /T def
+monthtime
+/fullname (Month) def
+16 Jan 1987 ensotime
+1.
+16 Dec 1988 ensotime
+:grid
+grid:
+/name /F def
+/units (hr) def
+/fullname (Time of Day (Z)) def
+0
+3
+21
+:grid
+/references (Darnell_etal1992) def
+variable:
+obsorestcolors
+/name /fil_flag def
+/long_name (Flag: Observed or Estimated) def
+/missing_value -99 def
+/scale_min 0 def
+/scale_max 1 def
+/units /ids def
+/CLIST [ (Observed) (Estimated) ] def
+grids: X Y | F T :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/radiation/mth_3hr/flg87_88.i2) def
+:file
+:variable
+
+variable:
+/name /sur_padn def
+/long_name (Surface PAR Downward Flux) def
+/missing_value -9999.000 def
+/units (W m-2) def
+grids: X Y | F T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/radiation/mth_3hr/pad87_88.r4) def
+:file
+:variable
+
+variable:
+/name /sur_swdn def
+/long_name (Surface Shortwave Downward Radiation Flux) def
+/missing_value -9999.000 def
+/units (W m-2) def
+grids: X Y | F T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/radiation/mth_3hr/ssd87_88.r4) def
+:file
+:variable
+
+variable:
+/name /sur_swup def
+/long_name (Surface Shortwave Upward Radiation Flux) def
+/missing_value -9999.000 def
+/units (W m-2) def
+grids: X Y | F T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/radiation/mth_3hr/ssu87_88.r4) def
+:file
+:variable
+
+variable:
+/name /toa_swdn def
+/long_name (Top-of-Atmos. Shortwave Downward Radiation Flux) def
+/missing_value -9999.000 def
+/units (W m-2) def
+grids: X Y | F T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/radiation/mth_3hr/tsd87_88.r4) def
+:file
+:variable
+
+variable:
+/name /toa_swup def
+/long_name (Top-of-Atmos. Shortwave Upward Radiation Flux) def
+/missing_value -9999.000 def
+/units (W m-2) def
+grids: X Y | F T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/radiation/mth_3hr/tsu87_88.r4) def
+:file
+:variable
+:dataset
+\end{ingrid}
+
+
+
+

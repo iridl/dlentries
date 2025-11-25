@@ -1,0 +1,33 @@
+\begin{ingrid}
+
+/description (Global Extended Logistic Regression Forecast) def
+
+continuedataset:
+
+	grid:
+/name /X_lag def
+/long_name (Longitude) def
+/units /degree_east def
+-4 1 4
+:grid
+
+grid:
+/name /Y_lag def
+/long_name (Latitude) def
+/units /degree_north def
+-4 1 4
+:grid
+
+/smooth2a_Gaussian_9_9_75 {
+[X_lag Y_lag | ]
+(/data/remic/mydatafiles/IRI/ELR_coeffs/smooth2a_Gaussian_9_9_75.txt)
+readdatafile:
+[0 0] r*4astsv
+:readdatafile
+/long_name (Gaussian Weights) def
+/units /unitless def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

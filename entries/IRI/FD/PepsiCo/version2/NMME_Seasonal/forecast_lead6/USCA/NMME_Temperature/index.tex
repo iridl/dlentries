@@ -1,0 +1,174 @@
+\begin{ingrid}
+
+continuedataset:
+/long_name (Seasonal Temperature Forecast) def
+/description (NMME USCA long lead 6 seasonal forecasts for probabilities of below-normal, above-normal, and near-normal temperature, based on ELR method, with 5 NMME models) def
+
+datasetdefs:
+
+/togetherfn {
+ a:
+    C /Below_Normal VALUE
+    :a:
+     C /Normal VALUE
+     masklt
+    :a:
+     C /Above_Normal VALUE
+     masklt
+    -1 mul
+    0 replaceNaN
+    :a:
+     C /Normal VALUE
+     :a:
+      C /Below_Normal VALUE
+      masklt
+     :a:
+      C /Above_Normal VALUE
+      masklt
+     37.5 masklt
+     0 mul
+     0 replaceNaN           
+     add
+    :a:
+     C /Above_Normal VALUE
+     :a:
+      C /Normal VALUE
+      masklt
+     :a:
+      C /Below_Normal VALUE
+      masklt
+     0 replaceNaN
+     add
+ :a:
+     C /Below_Normal VALUE
+     0 mul
+     add
+    :a:
+     C /Normal VALUE
+     :a:
+      C /Below_Normal VALUE
+      masklt
+     :a:
+      C /Above_Normal VALUE        
+      masklt
+     37.5 maskgt
+     0 mul
+     1 add
+     0 replaceNaN
+     /missing_value 1 def
+     add
+    :a
+
+startcolormap
+DATA -100 100 RANGEEDGES
+null 85 85 200 RGB
+85 85 200 RGB RGBdup -67.5 bandmax
+129 124 250 RGB RGBdup -57.5 bandmax
+153 163 250 RGB RGBdup -47.5 bandmax
+177 202 250 RGB RGBdup -42.5 bandmax
+200 240 250 RGB RGBdup -37.5 bandmax
+white RGBdup -1 bandmax
+gray RGBdup 1 bandmax
+white RGBdup 37.4 bandmax
+255 210 210 RGB RGBdup 42.5 bandmax
+242 170 170 RGB RGBdup 47.5 bandmax
+250 120 120 RGB RGBdup 57.5 bandmax
+255 40 40 RGB RGBdup 67.5 bandmax
+150 19 19 RGB RGBdup 100 bandmax
+150 19 19 RGB
+endcolormap
+} def 
+
+/T {target_date} def
+
+grid:
+/name (T2) def
+/units (months since 01-Jan) def
+periodic
+0.5 1.0 11.5
+:grid
+
+variable:
+/name /seasabbrev def
+grids: T2 :grids
+values: (djf) (jfm) (fma) (mam) (amj) (mjj) (jja) (jas) (aso) (son) (ond) (ndj) :values
+:variable
+
+:datasetdefs
+
+grid:
+/name (X) def
+/units (degreeE) def
+/fullname (Longitude) def
+periodic
+215. 360 sub  1.0 315.0 360 sub
+:grid
+
+grid:
+/name (Y) def
+/units (degreeN) def
+/fullname (Latitude) def
+15.0 1.0 60.0
+:grid
+
+grid:
+/name (F) def
+monthtime
+/fullname (Month Forecast Issued) def
+/defaultvalue { last } def
+/pointwidth 1 def
+16 Oct 2021 ensotime
+1.0
+16 systemtime (%b %Y) 10 strftime interp ensotime
+/netcdfgrid true def
+:grid
+
+F {(/Data/data21/iri/FD/PepsiCo/NMME_seasonal_forecast_lead6/forecast_seasonal_tref_%b[F]%Y[F]_lead6_fcst_5models_USCA.nc) [ F ]} removeextrausing
+/expires
+last_modified systemtime2ymd ymd:nextmonth
+pop 14 ymd2systemtime
+def
+/defaultvalue last def
+name exch def
+/expires F .expires def
+/last_modified F .last_modified def
+
+grid:
+/name (L) def
+/units (months) def
+/fullname (Forecast Lead Time in Months) def
+1 1 6
+:grid
+
+grid:
+/name (C) def
+/units (ids) def
+/fullname (Tercile Classes) def
+values: /Below_Normal /Normal /Above_Normal :values
+:grid
+
+/target_date { F L add 1 add /long_name (forecast time) def /bounds undef /pointwidth 3 def /standard_name (time) def } defasvar
+
+/target_season { seasabbrev target_date T2 sample-along } defasvar
+
+/prob {
+
+[ X Y C | L F ] (/Data/data21/iri/FD/PepsiCo/NMME_seasonal_forecast_lead6/forecast_seasonal_tref_%b[F]%Y[F]_lead6_fcst_5models_USCA.nc) [ F ] readdatafile:
+/name (prob) def
+/units (percent) def
+/doublearraytype netcdfrecords :readdatafile
+/long_name (Tercile Probability) def
+/scale_min 0 def
+/scale_max 100 def
+tercileclassesscale
+} defasvarsilent
+
+/dominant {
+prob togetherfn
+/long_name (Dominant Tercile Probability) def
+C removeGRID
+DATA -100 100 RANGE
+} defasvarsilent
+
+:dataset
+\end{ingrid}

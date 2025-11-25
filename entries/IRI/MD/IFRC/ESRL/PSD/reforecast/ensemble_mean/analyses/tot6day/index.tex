@@ -1,0 +1,234 @@
+\begin{ingrid}
+%/S home .mbell .CDC .reforecast .historical .ensemble15 .S def
+/S SOURCES .NOAA .ESRL .PSD .reforecast .ensemble15 .S def
+continuedataset:
+S .last_modified /last_modified exch def
+
+grid:
+/name /X def
+degE
+periodic
+-180.0 2.5 177.5
+:grid
+
+grid:
+/name /Y def
+degN
+-65.0 2.5 75.0
+:grid
+
+grid:
+ /name (L) def
+ /long_name (Lead Time) def
+ /standard_name (forecast_period) def
+ /units (days) def
+ values: 3 :values 
+:grid
+
+/forecasttime {S L add /long_name (Forecast Time) def /standard_name (time) def /pointwidth 6 def /bounds undef } defasvarsilent
+
+/apcp {
+ %home .mbell .CDC .reforecast .historical .ensemble15 .apcp
+ SOURCES .NOAA .ESRL .PSD .reforecast .ensemble15 .apcp
+  lag 12 144 RANGE
+  [lag]sum
+  [members]average
+  /long_name (Six-Day Total Precipitation Forecast) def 
+  X -180 177.5 RANGE
+  Y -65 75 RANGEEDGES
+startcolormap
+0 300 RANGE
+transparent transparent transparent 0. VALUE
+224 255 255 RGB RGBdup 25. bandmax
+176 226 255 RGB RGBdup 50. bandmax
+  0 191 255 RGB RGBdup 75. bandmax
+   65 105 255 RGB RGBdup 100. bandmax
+    39 64 139 RGB RGBdup 150. bandmax
+     47 47 79 RGB RGBdup 200. bandmax
+      firebrick firebrick 250. bandmax
+       VioletRed VioletRed 300. bandmax
+	VioletRed endcolormap
+
+% startcolormap
+%   0 300 RANGE
+%   white white white
+%      0 VALUE
+%      LightCyan LightCyan
+%        25 bandmax
+%        SkyBlue SkyBlue
+%          50 bandmax
+%          DodgerBlue DodgerBlue
+%            65. bandmax
+%            MediumBlue MediumBlue
+%              80. bandmax
+%              DarkSeaGreen DarkSeaGreen
+%                100 bandmax
+%                MediumSeaGreen MediumSeaGreen
+%                  135 bandmax
+%                  LightSeaGreen LightSeaGreen 175.
+%                    bandmax
+%                    khaki khaki 220.
+%                    bandmax
+%                    SandyBrown SandyBrown 260.
+%                    bandmax
+%                    firebrick firebrick 300
+%                    bandmax
+%                    firebrick endcolormap
+} defasvarsilent
+
+/apcpanom { 
+  %home .mbell .CDC .reforecast .historical .ensemble15 .apcp
+  SOURCES .NOAA .ESRL .PSD .reforecast .ensemble15 .apcp
+  lag (12) (144) RANGE
+  [lag]sum
+  [members]average
+  %home .mbell .CDC .reforecast .historical .ens_mean_pent_climo .tot6daysfcst .apcp
+  SOURCES .IRI .MD .IFRC .ESRL .PSD .reforecast .ensemble_mean .pentad .climatology .c7904 .tot6daysfcst .apcp
+% home .mbell .CDC .reforecast .historical .ensemble_mean .apcp
+%  lag (12) (144) RANGE
+%  [lag]sum
+%  S pentadAverage
+%  S 73 splitstreamgrid
+%  [S2]average
+   [S]regridLinear
+   sub
+  /long_name (Six-Day Total Precipitation Anomaly from 1979-2004 Mean) def
+% prcp_anomaly_max500_colors2
+startcolormap
+DATA -500 500 RANGE
+transparent sienna sienna -500 VALUE
+sienna sienna -450 bandmax
+130 90 80 RGB RGBdup -400 bandmax
+130 90 80 RGB RGBdup -350 bandmax
+150 110 100 RGB RGBdup -300 bandmax
+170 130 120 RGB RGBdup -250 bandmax
+180 140 130 RGB RGBdup -200 bandmax
+190 150 140 RGB RGBdup -150 bandmax
+200 160 150 RGB RGBdup -100 bandmax
+220 185 175 RGB RGBdup -50 bandmax
+240 215 210 RGB RGBdup -25 bandmax
+250 235 230 RGB RGBdup -10 bandmax
+white white 10 bandmax
+224 255 255 RGB RGBdup 25 bandmax
+191 239 255 RGB RGBdup 50 bandmax
+176 226 255 RGB RGBdup 100 bandmax
+135 206 250 RGB RGBdup 150 bandmax
+  0 191 255 RGB RGBdup 200 bandmax
+   30 144 255 RGB RGBdup 250 bandmax
+    65 105 255 RGB RGBdup 300 bandmax
+      0 0 205 RGB RGBdup 350 bandmax
+       39 64 139 RGB RGBdup 400 bandmax
+	 0 0 128 RGB RGBdup 450 bandmax
+	  47 47 79 RGB RGBdup 500 bandmax
+	   47 47 79 RGB
+	   endcolormap
+  DATA -120 -100 -80 -60 -40 -20 20 40 60 80 100 120 VALUES
+  X -180 177.5 RANGE
+  Y -65 75 RANGEEDGES
+} defasvarsilent
+
+/apcppctmonthlyclim {
+ %home .mbell .CDC .reforecast .historical .ensemble15 .apcp
+ SOURCES .NOAA .ESRL .PSD .reforecast .ensemble15 .apcp
+  lag (12) (144) RANGE
+  [lag]sum
+  [members]average
+  %home .mbell .CDC .reforecast .historical .ens_mean_monthly_climo .tot6daysfcst .apcp
+  SOURCES .IRI .MD .IFRC .ESRL .PSD .reforecast .ensemble_mean .monthly .climatology .c7904 .tot6daysfcst .apcp
+   [S]regridLinear
+   div
+  100 mul
+  /units (percent) def
+  /long_name (Six-Day Total Precipitation as Percent of 1979-2004 Mean Monthly Total) def
+startcolormap
+0 300 RANGE
+transparent transparent transparent 0. VALUE
+transparent transparent 25. bandmax
+176 226 255 RGB RGBdup 50. bandmax
+  0 191 255 RGB RGBdup 75. bandmax
+   65 105 255 RGB RGBdup 100. bandmax
+    39 64 139 RGB RGBdup 150. bandmax
+     47 47 79 RGB RGBdup 200. bandmax
+      firebrick firebrick 250. bandmax
+       VioletRed VioletRed 300. bandmax
+	VioletRed endcolormap
+
+%startcolormap
+%DATA 0 300 RANGE
+%white white white 0. VALUE
+%white white 25. bandmax
+%210 255 215 RGB RGBdup 50. bandmax
+%130 220 125 RGB RGBdup 100. bandmax
+% 30 165 35 RGB RGBdup 150. bandmax
+%DarkSeaGreen DarkSeaGreen 200. bandmax
+%  0 90 0 RGB RGBdup 300. bandmax
+%  0 90 0 RGB
+%endcolormap
+  X -180 177.5 RANGE
+  Y -65 75 RANGEEDGES
+} defasvarsilent
+
+/apcppctle {
+ %home .mbell .CDC .reforecast .historical .ensemble15 .apcp
+ SOURCES .NOAA .ESRL .PSD .reforecast .ensemble15 .apcp
+  lag 12 144 RANGE
+  [lag]sum
+  [members]average
+  %home .mbell .CDC .reforecast .historical .ens_mean_pent_pctle .tot6daysfcst .apcp
+  SOURCES .IRI .MD .IFRC .ESRL .PSD .reforecast .ensemble_mean .pentad .percentile .c7904 .tot6daysfcst .apcp
+   [S]regridLinear
+   [percentile]CofA=B-bounded
+  /long_name (Six-Day Total Precipitation Percentile from 1979-2004 Base Period) def
+  startcolormap
+    DATA 0.85 1. RANGE
+      transparent transparent transparent 0.85 VALUE
+	transparent transparent 0.9 bandmax
+	  PaleTurquoise PaleTurquoise 0.95 bandmax
+	    DodgerBlue DodgerBlue 0.99 bandmax
+	      MediumBlue MediumBlue 1. bandmax
+		MediumBlue
+		  endcolormap
+% startcolormap 
+% DATA 0.0 1. RANGE
+%   white white white 0 VALUE
+%   white white 0.8 bandmax
+%   210 255 215 RGB RGBdup 0.85 bandmax
+%   130 220 125 RGB RGBdup 0.9 bandmax
+%   30 165 35 RGB RGBdup 0.95 bandmax
+%   0 90 0 RGB RGBdup 1. bandmax 
+%   0 90 0 RGB endcolormap
+  X -180 177.5 RANGE
+  Y -65 75 RANGEEDGES
+} defasvarsilent
+
+/apcppctlenoseasonal {
+ SOURCES .NOAA .ESRL .PSD .reforecast .ensemble15 .apcp
+  lag 12 144 RANGE
+  [lag]sum
+  [members]average
+  SOURCES .IRI .MD .IFRC .ESRL .PSD .reforecast .ensemble_mean .noseasonal .percentile .c7904 .tot6daysfcst .apcp
+% home .mbell .IRI .MD .IFRC .ESRL .PSD .refcst .ensemble_mean .noseasonal .percentile .c7904 .tot6daysfcst2 .apcp
+% SOURCES .NOAA .ESRL .PSD .reforecast .ensemble_mean .apcp
+% S (0000 1 Jan 1979) (0000 31 Dec 2004) RANGE
+% S 0.5 shiftGRID
+% lag (12) (144) RANGE
+% [lag]sum
+% [S]0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.95 0.99 1. 0.0 replacebypercentile
+  [percentile]CofA=B-bounded
+   /long_name (Six-Day Total Precipitation Percentile from 1979-2004 Base Period - No Seasonality) def
+  startcolormap
+    DATA 0.85 1. RANGE
+      transparent transparent transparent 0.85 VALUE
+	transparent transparent 0.9 bandmax
+	  PaleTurquoise PaleTurquoise 0.95 bandmax
+	    DodgerBlue DodgerBlue 0.99 bandmax
+	      MediumBlue MediumBlue 1. bandmax
+		MediumBlue
+		  endcolormap
+  X -180 177.5 RANGE
+  Y -65 75 RANGEEDGES
+} defasvarsilent
+
+
+:dataset
+\end{ingrid}

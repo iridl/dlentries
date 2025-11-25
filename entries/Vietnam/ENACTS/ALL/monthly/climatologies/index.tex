@@ -1,0 +1,92 @@
+\begin{ingrid}
+
+continuedataset:
+
+/rfe_merged {
+ SOURCES .Vietnam .ENACTS .ALL .monthly .rainfall .rfe_merged
+T (1981) (2021) RANGEEDGES
+yearly-climatology
+/long_name (Monthly Rainfall Climatology 1981-2021 average) def
+precip_colors
+DATA 0 360 RANGE
+}defasvarcache
+
+% /rfe_adj {
+%  SOURCES .Vietnam .ENACTS .dekadal .rainfall .rfe_adj
+% monthlyAverage 3. mul
+% yearly-climatology
+% /long_name (rfe 1981-2014 average) def
+% precip_colors
+% DATA 0 360 RANGE
+% }defasvarcache
+
+/tmin {
+ SOURCES .Vietnam .ENACTS .ALL .monthly .temperature .tmin
+ T (1961) (2021) RANGE
+yearly-climatology
+/long_name (Minimum Temperature climatology 1961-2021 average) def
+temp_colors
+/scale_symmetric false def
+ % DATA 0 32 RANGE
+}defasvar
+
+% /tmin_adj {
+%  SOURCES .Vietnam .ENACTS .dekadal .temperature_4km .tmin_adj
+% monthlyAverage
+% yearly-climatology
+% /long_name (tmin 1961-2014 average) def
+% temp_colors
+% /scale_symmetric false def
+%   DATA 0 32 RANGE
+% }defasvarcache
+
+/tmax {
+ SOURCES .Vietnam .ENACTS .ALL .monthly .temperature .tmax
+ T (1961) (2021) RANGE
+yearly-climatology
+/long_name (Maximum Temperature climatology 1961-2021 average) def
+temp_colors
+/scale_symmetric false def
+%  DATA 14 46 RANGE
+}defasvar
+
+% /tmax_adj {
+%  SOURCES .Vietnam .ENACTS .dekadal .temperature_4km .tmax_adj
+% monthlyAverage
+% yearly-climatology
+% /long_name (tmax 1961-2014 average) def
+% temp_colors
+% /scale_symmetric false def
+%   DATA 14 46 RANGE
+% }defasvarcache
+
+% /tmean {
+%   tmax
+%   tmin
+%   add
+%   2.0 div
+%   /long_name (Mean Temperature 1961-2014 Average) def
+% }defasvarcache
+
+% /tmean_adj {
+%   tmax_adj
+%   tmin_adj
+%   add
+%   2.0 div
+%   /long_name (Mean Adjusted Temperature 1961-2014 Average) def
+% }defasvarcache
+
+/tmean{
+SOURCES .Vietnam .ENACTS .ALL .monthly .temperature .tmean
+T (1961) (2021) RANGE
+yearly-climatology
+/long_name (Mean Temperature 1961-2021 average) def
+windspeed_colors
+%DATA 8 50 RANGE
+}defasvar
+
+
+:dataset
+
+\end{ingrid}
+

@@ -1,0 +1,199 @@
+\begin{ingrid}
+% First statement for Ingrid
+
+% New dataset
+continuedataset:
+
+% Time Grid
+datasetdefs:
+/T
+1 Jan 1983 julian_day
+30 Nov 2015 julian_day
+dekadGRID
+/defaultvalue {last} def
+def
+:datasetdefs
+
+
+% Latitude Grid
+grid:
+/name /Y def
+/units (degree_north) def
+/long_name (Latitude) def
+-25.9875 0.0375 dup 373.0 mul 2 index add
+%-25.9875 0.0375 -12.
+:grid
+
+% Longitude Grid
+grid:
+/name /X def
+/units (degree_east) def
+/long_name (Longitude) def
+42 0.0375 dup 266.0 mul 2 index add
+%42 0.0375 51.975
+:grid
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Rainfall Grid
+/rfe{
+[X Y | T]
+(/Data/data23/madagascar_v2/MON/dekadal/rainfall/rr_mrg_%Y[T]%m[T]%d[dekad]_MON.nc) 
+[T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+
+readdatafile:
+/name (precip) def
+/missing_value -99. def
+/units /mm def
+/long_name (Merged Station-Satellite Rainfall) def
+/realarraytype netcdfrecords
+:readdatafile
+%cmorph_dekad_colors
+startcolormap transparent  white LightYellow LemonChiffon  LightCyan cyan SteelBlue RoyalBlue MediumBlue NavyBlue DarkSlateBlue SlateBlue LightSlateBlue violet PaleVioletRed LightPink pink pink endcolormap
+}defasvarsilent
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Standard Precipitation Index for dekadal precipitation
+/SPI_1_dekad {
+rfe
+  1 36 gamma3par
+  pcpn_accum gmean gsd gskew pzero 1 gammaprobs
+  1 gammastandardize
+  /long_name (Standard Precipitation Index 1-dekad) def
+}defasvarcachesilent
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dekadal anomalies from dekadal climatologies
+/rfe_mergeddiff {
+  rfe
+   SOURCES .Madagascar_v2 .MON .dekadal .climatologies .rfe
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   sub
+
+% Colorscale for dekadal anomalies
+startcolormap -120 200 RANGE
+DimGray sienna
+sienna -120 VALUE
+sienna sienna -90 bandmax
+peru peru -50 bandmax
+burlywood burlywood -25 bandmax
+wheat wheat -5 bandmax
+LightYellow LightYellow 5 bandmax
+LightCyan LightCyan 25 bandmax
+PaleTurquoise PaleTurquoise 75 bandmax
+MediumAquamarine MediumAquamarine 150 bandmax
+CadetBlue CadetBlue 200 bandmax
+CadetBlue
+endcolormap
+
+/long_name (Merged Gauge-Satellite Rainfall Anomaly) def
+
+}defasvarcachesilent
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Difference between rfe data and its climatology
+/rfe_mergeddiff_percent {
+
+  rfe
+   SOURCES .Madagascar_v2 .MON .dekadal .climatologies .rfe
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   sub
+   SOURCES .Madagascar_v2 .MON .dekadal .climatologies .rfe
+   10 maskle
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   div
+  100 mul
+  -1000 replaceNaN
+
+% Colorscale for rfe differences
+startcolormap
+    -100 500 RANGE
+    LightSteelBlue ivory SaddleBrown
+       -100 VALUE
+       SaddleBrown SaddleBrown
+         -60 bandmax
+         peru peru
+           -40 bandmax
+           burlywood burlywood
+             -20 bandmax
+             wheat wheat
+               0 bandmax
+               LightCyan LightCyan
+                 40 bandmax
+                 aquamarine aquamarine
+                   90 bandmax
+                   MediumAquamarine MediumAquamarine 160
+                     bandmax
+                     MediumSeaGreen MediumSeaGreen 240
+                     bandmax
+                     SeaGreen SeaGreen 350
+                     bandmax
+                     DarkSeaGreen DarkSeaGreen 500
+                     bandmax
+                     DarkSeaGreen endcolormap
+  /long_name (Merged Gauge-Satellite Rainfall Difference Expressed as Percent of Long-Term Average (%)) def
+}defasvarcache
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+/rfe_merged_vs_meanrfe_merged {
+  rfe
+   SOURCES .Madagascar_v2 .MON .dekadal .climatologies .rfe
+   7 maskle
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   div
+  100 mul
+  -1000 replaceNaN
+
+% Colorscale for rfe percentages
+startcolormap
+    0 600 RANGE
+    LightSteelBlue ivory SaddleBrown
+       0 VALUE
+       SaddleBrown SaddleBrown
+         50 bandmax
+         peru peru
+           100 bandmax
+           burlywood burlywood
+             150 bandmax
+             wheat wheat
+               200 bandmax
+               LightCyan LightCyan
+                 300 bandmax
+                 aquamarine aquamarine
+                   350 bandmax
+                   MediumAquamarine MediumAquamarine 400
+                     bandmax
+                     MediumSeaGreen MediumSeaGreen 450
+                     bandmax
+                     SeaGreen SeaGreen 500
+                     bandmax
+                     DarkSeaGreen DarkSeaGreen 600
+                     bandmax
+                     DarkSeaGreen endcolormap
+  /long_name (Merged Gauge-Satellite Rainfall Expressed as Percentages of the Long-Term Average) def
+}defasvarcache
+
+
+:dataset
+
+\end{ingrid}
+
+

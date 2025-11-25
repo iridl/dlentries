@@ -1,0 +1,122 @@
+\begin{ingrid}
+
+continuedataset:
+
+/wat_cap_fine {
+  SOURCES .WORLDBATH .bath
+  X -23.21 56.90 RANGEEDGES
+  Y -35.0 38.0 RANGEEDGES
+  X -23.21 0.009 56.90 GRID
+  Y -35.0 0.009 38.0 GRID
+
+  SOURCES .SoilGrids .GYGA_Results_1km .Aggregated_over30cm .wat_cap_fine
+  projecttomatch
+  nip
+}defasvarsilent 
+
+
+/coarse_frag_cont {
+  SOURCES .WORLDBATH .bath
+  X -23.21 56.90 RANGEEDGES
+  Y -35.0 38.0 RANGEEDGES
+  X -23.21 0.009 56.90 GRID
+  Y -35.0 0.009 38.0 GRID
+
+  SOURCES .SoilGrids .GYGA_Results_1km .Aggregated_over30cm .coarse_frag_cont
+  projecttomatch
+  nip
+}defasvarsilent
+
+
+/moist_cont_wilt {
+  SOURCES .WORLDBATH .bath
+  X -23.21 56.90 RANGEEDGES
+  Y -35.0 38.0 RANGEEDGES
+  X -23.21 0.009 56.90 GRID
+  Y -35.0 0.009 38.0 GRID
+
+  SOURCES .SoilGrids .GYGA_Results_1km .Aggregated_over30cm .moist_cont_wilt
+  projecttomatch
+  nip
+}defasvarsilent
+
+
+/wat_cap_whole {
+SOURCES .WORLDBATH .bath
+  X -23.21 56.90 RANGEEDGES
+  Y -35.0 38.0 RANGEEDGES
+  X -23.21 0.009 56.90 GRID
+  Y -35.0 0.009 38.0 GRID
+
+  SOURCES .SoilGrids .GYGA_Results_1km .Aggregated_over30cm .wat_cap_whole
+  projecttomatch
+  nip
+}defasvarsilent
+
+
+/wat_cap_abs {
+SOURCES .WORLDBATH .bath
+  X -23.21 56.90 RANGEEDGES
+  Y -35.0 38.0 RANGEEDGES
+  X -23.21 0.009 56.90 GRID
+  Y -35.0 0.009 38.0 GRID
+
+  SOURCES .SoilGrids .GYGA_Results_1km .Aggregated_over30cm .wat_cap_abs
+  projecttomatch
+  nip
+}defasvarsilent
+
+
+/moist_cont_sat {
+  SOURCES .WORLDBATH .bath
+  X -23.21 56.90 RANGEEDGES
+  Y -35.0 38.0 RANGEEDGES
+  X -23.21 0.009 56.90 GRID
+  Y -35.0 0.009 38.0 GRID
+
+  SOURCES .SoilGrids .GYGA_Results_1km .Aggregated_over30cm .moist_cont_sat
+  projecttomatch
+  nip
+}defasvarsilent
+
+
+/text_class {
+  SOURCES .WORLDBATH .bath
+  X -23.21 56.90 RANGEEDGES
+  Y -35.0 38.0 RANGEEDGES
+  X -23.21 0.009 56.90 GRID
+  Y -35.0 0.009 38.0 GRID
+
+  SOURCES .SoilGrids .GYGA_Results_1km .Aggregated_over30cm .text_class
+  projecttomatch
+  nip
+%this should be done to make sure values are integers
+%however it breaks the missing value and I don't know how to fix it
+%0.5 add toi4
+/units /ids def
+/scale_min 1 def
+/scale_max 12 def
+/CLIST [
+(Cl)
+(SiCl)
+(SaCl)
+(ClLo)
+(SiClLo)
+(SaClLo)
+(Lo)
+(SiLo)
+(SaLo)
+(Si)
+(LoSa)
+(Sa)
+]def
+}defasvarsilent
+
+:dataset
+
+coarse_frag_cont .X name exch def
+coarse_frag_cont .Y name exch def
+
+\end{ingrid}
+
+

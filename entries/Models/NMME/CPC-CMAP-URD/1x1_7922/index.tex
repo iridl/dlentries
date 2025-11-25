@@ -1,0 +1,81 @@
+\begin{ingrid}
+continuedataset:
+
+link:
+/name (source) def
+/href (ftp://ftp.cpc.ncep.noaa.gov/NMME/obs/) def
+:link
+
+datasetdefs:
+
+grid:
+/name /Xorig def
+/long_name (longitude) def
+/standard_name (longitude) def
+periodic
+1.25 2.5 358.75
+/units (degree_east) def
+:grid
+
+grid:
+/name /Yorig def
+/long_name (latitude) def
+/standard_name (latitude) def
+-88.75 2.5 88.75
+/units (degree_north) def
+:grid
+
+:datasetdefs
+
+grid:
+/name /T def
+/long_name (time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/pointwidth 1 def
+16 Jan 1979 ensotime
+1.0
+16 Jul 2022 ensotime
+:grid
+
+/pr_std { [ Xorig Yorig last first subgrid | T ] (/Data/data23/NMME/Obs.D/precip.mon.mean.standard.20220818.nc) readdatafile:
+/name (precip) def
+/long_name (Total Precipitation (CMAP(ocean) + CPC-URD(land)) ) def
+/standard_name (lwe_precipitation_rate) def
+/missing_value -9.96921E36 def
+/realarraytype netcdfrecords  :readdatafile
+Xorig 0 1 359 GRID 
+Yorig -90 1 90 GRID
+Xorig /X renameGRID
+Yorig /Y renameGRID
+T (days since 1960-01-01) streamgridunitconvert T  differential_mul
+T (months since 1960-01-01) streamgridunitconvert
+T differential_div
+/description (Monthly global gridded precipitation totals) def
+DATA 0 AUTO RANGE
+} defasvarsilent 
+
+/prate { [ Xorig Yorig last first subgrid | T ] (/Data/data23/NMME/Obs.D/precip.mon.mean.enhanced.20220818.nc) readdatafile:
+/name (precip) def
+/long_name (Total Precipitation (CMAP(ocean) + CPC-URD(land)) ) def
+/standard_name (lwe_precipitation_rate) def
+/missing_value -9.96921E36 def
+/realarraytype netcdfrecords  :readdatafile
+Xorig 0 1 359 GRID 
+Yorig -90 1 90 GRID
+Xorig /X renameGRID
+Yorig /Y renameGRID
+T (days since 1960-01-01) streamgridunitconvert T  differential_mul
+T (months since 1960-01-01) streamgridunitconvert
+T differential_div
+/units (mm/month) def
+/description (Monthly global gridded precipitation totals) def
+DATA 0 AUTO RANGE
+} defasvarsilent
+
+:dataset
+
+pr_std .X name exch def
+pr_std .Y name exch def
+
+\end{ingrid}

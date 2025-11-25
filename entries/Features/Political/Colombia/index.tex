@@ -1,0 +1,105 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Colombia_33_1) def
+/description (Departamentos, Municipios and Areas Urbanas) def
+
+continuedataset:
+
+dataset:
+
+/name /Districts def
+/description (Municipios) def
+
+/codmu
+{ IRIDB (divipog_dist) (codmu) [(dane)]open_column_by
+/long_name (Municipio/District Code) def
+}defasvarsilentnoreuse
+
+/nom_muni
+{ IRIDB (divipog_dist) (nom_muni) [(dane)]open_column_by
+/long_name (Municipio/District name) def
+}defasvarsilentnoreuse
+
+/departamen
+{ IRIDB (divipog_dist) (departamen) [(dane)]open_column_by
+/long_name (Departamento/State name) def
+}defasvarsilentnoreuse
+
+/the_geom
+{ IRIDB (divipog_dist) (the_geom) [(dane)]open_column_by
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (divipog_dist) ((nom_muni || ', ' || departamen) as label) [(dane)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+dataset:
+
+/name /Departamentos def
+/description (Departamentos) def
+
+/departamen
+{ IRIDB (divipog_dept) (departamen) [(gid)]open_column_by
+/long_name (Departamento/State name) def
+}defasvarsilentnoreuse
+
+/the_geom
+{ IRIDB (divipog_dept) (the_geom) [(gid)]open_column_by
+}defasvarsilentnoreuse
+
+/label
+{ IRIDB (divipog_dept) (departamen) [(gid)]open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+dataset:
+/name /Areas_Urbanas def
+/description (Areas Urbanas) def
+
+/the_geom
+{IRIDB (colombia_urban_areas) (the_geom) [(gid)]open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+
+/clas_ccdgo
+{IRIDB (colombia_urban_areas) (clas_ccdgo) [(gid)]open_column_by
+}defasvarsilentnoreuse
+
+/dpto_ccdgo
+{IRIDB (colombia_urban_areas) (dpto_ccdgo) [(gid)]open_column_by
+}defasvarsilentnoreuse
+
+/mpio_ccdgo
+{IRIDB (colombia_urban_areas) (mpio_ccdgo) [(gid)]open_column_by
+}defasvarsilentnoreuse
+
+/cod_mun
+{IRIDB (colombia_urban_areas) (cod_mun) [(gid)]open_column_by
+}defasvarsilentnoreuse
+
+/lon {
+ IRIDB
+  (colombia_urban_areas) (x(centroid(the_geom)) as lon) [ (gid) ] open_column_by
+/units /degree_east def
+}defasvarsilent
+
+/lat {
+ IRIDB
+  (colombia_urban_areas) (y(centroid(the_geom)) as lat) [ (gid) ] open_column_by
+/units /degree_north def
+}defasvarsilent
+
+:dataset
+
+
+:dataset
+
+Districts codmu .dane name exch put
+Departamentos departamen .gid name exch put
+Areas_Urbanas mpio_ccdgo .gid name exch put
+
+\end{ingrid}

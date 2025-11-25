@@ -1,0 +1,51 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+degE
+periodic
+-179.5 1.0 179.5
+:grid
+
+grid:
+/name /Y def
+degN
+89.5 -1.0 -89.5
+:grid
+
+grid:
+/name /T def
+monthtime
+16 Jan 1901 ensotime
+1.
+16 Dec 2009 ensotime
+:grid
+
+ [ /NVZ 3 NewIntegerGRID X Y | T ] (/Data/data22/gpcc/FDPversion5/gpcc_full_data_v005_10_degree_%m%Y[T]) [T] readdatafile:
+  [622 1944622]r*4asascii
+  /missing_value -99999.99 def
+:readdatafile
+
+definevariables:
+0 Zvariable:
+/name /prcp def
+/units (mm/month) def
+/standard_name (precipitation_amount) def
+/long_name (Total Precipitation) def
+:Zvariable
+0 Zvariable:
+/name /anom def
+/units (mm/month) def
+/long_name (Precipitation Anomaly) def
+:Zvariable
+0 Zvariable:
+/name /cnts def
+/long_name (Number of gauges per grid) def
+:Zvariable
+:definevariables
+
+:dataset
+ dup {pop} {cachevar pop}foralldatasets2
+\end{ingrid}
+
+

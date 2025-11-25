@@ -1,0 +1,48 @@
+\begin{ingrid}
+
+/description (Slope and Deforestation) def
+
+continuedataset:
+
+grid:
+/name /X def
+/units /degree_east def
+116.522770 0.002083 2 copy 4958. 1. sub mul add 
+/long_name (Longitude) def
+:grid
+
+X partialgrid
+step 128 mul partitiongrid
+name 3 index !
+name 2 index !
+
+grid:
+/name /Y def
+/units /degree_north def
+21.041308 0.002083 2 copy 7898. 1. sub mul sub
+/long_name (Latitude) def
+:grid
+
+Y partialgrid
+step 128 mul partitiongrid
+name 3 index !
+name 2 index !
+
+/SlopeAndDef {
+[ X2 Y2 | X Y ]
+(/data/remic/mydatafiles/WFP/Philippines/ICA_PHL/Data/Rasters/phl_ica_slopeAndDefor.tif)
+readdatafile:
+/integerarraytype tiledtiffimage
+:readdatafile
+/missing_value -2147483648 def
+/long_name (Slope and Deforestation) def
+%  /scale_min 1 def
+%  /scale_max 11 def
+%  /CLIST [ (Moderate/high density, high increase) (Moderate/high density, low increase) (Moderate/high density, stable) (Low density, high increase) (Low density, low increase) (Low density, stable) (Moderate/high density, low decrease) (Moderate/high density, high decrease) (Low density, low decrease) (Low density, high decrease) (Water Body) ]def
+%  startcolormap transparent ForestGreen ForestGreen LimeGreen green GreenYellow LemonChiffon yellow orange salmon red brown aquamarine aquamarine endcolormap
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

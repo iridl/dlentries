@@ -1,0 +1,154 @@
+\begin{ingrid}
+/description (Version 2.0) def
+/references (Loveland_etal2000) def
+link:
+/name (Home Page: USGS Global Land Cover Characteristics Data Base, Version 2.0) def
+%/href (http://edcsns17.cr.usgs.gov/glcc/globe_int.html) def
+/href (http://edc2.usgs.gov/glcc/globe_int.php) def
+:link
+continuedataset:
+grid:
+/name /X def
+/units /degreeE def
+periodic
+-180 0.0083333337679505 2 div  add to 180  0.0083333337679505 2 div sub  N= 43200 pts 
+:grid 
+grid: /name /Y def
+/units /degreeN def
+90
+0.0083333337679505 2 div sub
+to
+-90
+0.0083333337679505 2 div add
+ N= 21600 pts 
+:grid 
+/class {
+Y 1 onegridcounter
+ (/Data/data6/usgs/eros/glccdb/V2p0/gusgs2_0ll.img)
+[X] -32768 readui1direct
+/missing_value [99 100] def
+/long_name (land cover class) def
+/scale_min 1 def
+/scale_max 24 def
+/units /ids def
+/iridl:hasSemantics (iridl:LandCover) def
+/CLIST [
+(Urban and Built-Up Land)
+(Dryland Cropland and Pasture)
+(Irrigated Cropland and Pasture)
+(Mixed Dryland/Irrigated Cropland and Pasture)
+(Cropland/Grassland Mosaic)
+(Cropland/Woodland Mosaic)
+(Grassland)
+(Shrubland)
+(Mixed Shrubland/Grassland)
+(Savanna)
+(Deciduous Broadleaf Forest)
+(Deciduous Needleleaf Forest)
+(Evergreen Broadleaf Forest)
+(Evergreen Needleleaf Forest)
+(Mixed Forest)
+(Water Bodies)
+(Herbaceous Wetland)
+(Wooded Wetland)
+(Barren or Sparsely Vegetated)
+(Herbaceous Tundra)
+(Wooded Tundra)
+(Mixed Tundra)
+(Bare Ground Tundra)
+(Snow or Ice)
+] def
+startcolormap
+/maxncolor 27 def
+DATA 1 24 RANGE
+white white
+200 50 0 RGB
+254 118 0 RGB
+138 68 18 RGB
+204 126 95 RGB
+139 189 0 RGB
+200 100 0 RGB
+0 299 0 RGB
+0 200 0 RGB
+0 100 0 RGB 
+174 254 98 RGB
+254 178 0 RGB
+254 233 157 RGB
+221 201 160 RGB
+0 149 149 RGB
+224 203 208 RGB
+0 70 199 RGB
+254 116 231 RGB
+201 137 254 RGB
+179 179 179 RGB
+137 226 254 RGB
+239 239 239 RGB
+254 254 254 RGB
+salmon
+254 0 0 RGB
+white
+endcolormap
+} defasvarsilent
+:dataset
+\end{ingrid}
+
+
+/CLIST [
+(Urban and Built-Up Land)
+(Dryland Cropland and Pasture)
+(Irrigated Cropland and Pasture)
+(Mixed Dryland/Irrigated Cropland and Pasture)
+(Cropland/Grassland Mosaic)
+(Cropland/Woodland Mosaic)
+(Grassland)
+(Shrubland)
+(Mixed Shrubland/Grassland)
+(Savanna)
+(Deciduous Broadleaf Forest)
+(Deciduous Needleleaf Forest)
+(Evergreen Broadleaf Forest)
+(Evergreen Needleleaf Forest)
+(Mixed Forest)
+(Water Bodies)
+(Herbaceous Wetland)
+(Wooded Wetland)
+(Barren or Sparsely Vegetated)
+(Herbaceous Tundra)
+(Wooded Tundra)
+(Mixed Tundra)
+(Bare Ground Tundra)
+(Snow or Ice)
+] def
+startcolormap
+/maxncolor 24 def
+DATA 1 24 RANGE
+white white
+200 50 0 RGB
+254 118 0 RGB
+138 68 18 RGB
+204 126 95 RGB
+139 189 0 RGB
+200 100 0 RGB
+0 299 0 RGB
+0 200 0 RGB
+0 100 0 RGB 
+174 254 98 RGB
+254 178 0 RGB
+254 233 157 RGB
+221 201 160 RGB
+0 149 149 RGB
+0 70 199 RGB
+224 203 208 RGB
+254 116 231 RGB
+201 137 254 RGB
+179 179 179 RGB
+137 226 254 RGB
+239 239 239 RGB
+254 254 254 RGB
+salmon
+254 0 0 RGB
+white
+endcolormap
+} defasvarsilent
+:dataset
+\end{ingrid}

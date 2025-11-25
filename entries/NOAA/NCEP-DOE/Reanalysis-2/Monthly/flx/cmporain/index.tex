@@ -1,0 +1,55 @@
+\begin{ingrid}
+link:
+/name (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2)) def
+/description (Reanalysis-2 Home Page) def
+/href (http://www.cpc.ncep.noaa.gov/products/wesley/reanalysis2/index.html) def
+:link
+link:
+/name (ftp server) def
+/description (NCEP ftp Server for Reanalysis-2) def
+/href (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/) def
+:link
+/references (Kanamitsu_etal2002b) def
+/description (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2)) def
+continuedataset:
+
+ grid:
+/name (X)def
+/units (degree_east)def
+periodic
+ 0.0 1.875 358.125
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 88.54195 86.65314 84.75323 82.85075 80.94735 79.04348 77.13935 75.23505 73.33065 71.42618 69.52166 67.6171 65.71251 63.80789 61.90326 59.9986 58.09394 56.18927 54.2846 52.37991 50.47522 48.57052 46.66581 44.7611 42.8564 40.95168 39.04697 37.14225 35.23753 33.3328 31.42808 29.52335 27.61863 25.7139 23.80917 21.90444 19.99971 18.09497 16.19024 14.28551 12.38078 10.47604 8.571307 6.666573 4.761838 2.857103 0.9523676 -0.9523676 -2.857103 -4.761838 -6.666573 -8.571307 -10.47604 -12.38078 -14.28551 -16.19024 -18.09497 -19.99971 -21.90444 -23.80917 -25.7139 -27.61863 -29.52335 -31.42808 -33.3328 -35.23753 -37.14225 -39.04697 -40.95168 -42.8564 -44.7611 -46.66581 -48.57052 -50.47522 -52.37991 -54.2846 -56.18927 -58.09394 -59.9986 -61.90326 -63.80789 -65.71251 -67.6171 -69.52166 -71.42618 -73.33065 -75.23505 -77.13935 -79.04348 -80.94735 -82.85075 -84.75323 -86.65314 -88.54195 :values
+:grid
+
+grid:
+/name (T) def
+/units (months since 1960-01-01) def
+/long_name (Time) def
+/standard_name (time) def
+16 Jan 1979 ensotime
+1
+16 Dec 1998 ensotime 
+:grid
+
+[ X Y T ] { name exch def } forall
+
+% parameters to GRIBvariable, in order, are: 1. GRIB variable parameter code, 2. GRIB level/layer type code, and
+% 3. field ID (generally 1).  So, for example, pressure-level absolute vorticity would be "41 100 1 GRIBvariable"
+
+/prate { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/flx/cmporain.sfc) 
+readdatafile:
+59 1 1 GRIBvariable
+:readdatafile
+/long_name (Precipitation rate at Surface) def
+/units (kg m-2 s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+:dataset
+\end{ingrid}
+

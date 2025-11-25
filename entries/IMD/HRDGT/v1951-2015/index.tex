@@ -1,0 +1,82 @@
+\begin{ingrid}
+continuedataset:
+/description (IMD High Resolution Daily Gridded Temperature Data Set) def
+%/IRIONLY datadownloadsareIRIonlyPassword
+%/IMDPrecipERFS dataareRestricted
+/IMDPrecipERFS datadownloadsareRestricted
+
+%link:
+%/name (dataset_documentation) def
+%/href (http://www.imdpune.gov.in/ncc_rept/RESEARCH%20%20REPORT%208.pdf) def
+%/description (NCC Research Report 8) def
+%:link
+
+/references (Srivastava_etal2008) def
+
+grid:
+/name (X)def
+/units (degree_east)def
+ 67.5 1. 97.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 7.5 1. 37.5
+:grid
+grid:
+/name (T)def
+/units (julian_day) def
+/standard_name (time) def
+01 Jan 1951 julian_day
+1
+31 Dec 2015 julian_day
+:grid
+/tmax{
+ [X
+    Y |
+    T] (/Data/data6/IMD/daily/gridded/temp/temp_data_1951-2015/MaxT/MaxT_%Y[T].GRD) [T yearlyedgesgrid
+       first secondtolast subgrid
+       ]readdatafile:
+      /pointwidth 1. def
+      /step 1. def
+      /calendar /standard def
+      /long_name (Maximum Temperature) def
+      /missing_value 99.9 def
+      /units (Celsius_scale) def
+      /standard_name (air_temperature) def
+      decdirect :readdatafile
+} defasvarsilent
+
+/tmin{
+ [X
+    Y |
+    T] (/Data/data6/IMD/daily/gridded/temp/temp_data_1951-2015/MinT/MinT_%Y[T].GRD) [T yearlyedgesgrid
+       first secondtolast subgrid
+       ]readdatafile:
+      /pointwidth 1. def
+      /step 1. def
+      /calendar /standard def
+      /long_name (Minimum Temperature) def
+      /missing_value 99.9 def
+      /units (Celsius_scale) def
+      /standard_name (air_temperature) def
+      decdirect :readdatafile
+} defasvarsilent
+
+/tmean{
+ [X
+    Y |
+    T] (/Data/data6/IMD/daily/gridded/temp/temp_data_1951-2015/MeanT/MeanT_%Y[T].GRD) [T yearlyedgesgrid
+       first secondtolast subgrid
+       ]readdatafile:
+      /pointwidth 1. def
+      /step 1. def
+      /calendar /standard def
+      /long_name (Mean Temperature) def
+      /missing_value 99.9 def
+      /units (Celsius_scale) def
+      /standard_name (air_temperature) def
+      decdirect :readdatafile
+} defasvarsilent
+:dataset
+\end{ingrid}

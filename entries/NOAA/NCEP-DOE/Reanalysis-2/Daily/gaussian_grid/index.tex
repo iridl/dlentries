@@ -1,0 +1,1178 @@
+\begin{ingrid}
+continuedataset:
+
+ /comments (Data is from NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) (4x/day).  Data interpolated from model (sigma) surfaces to gaussian grid.) def
+ /reference ( http://wesley.ncep.noaa.gov/reanalysis2/ ; http://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis2.html ) def 
+ /references (Kanamitsu_etal2002b) def
+ /source (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Model) def
+ /history (created 2002/03 by Hoop (netCDF2.3)) def
+ /Conventions (CF-1.0) def
+ /platform (Model) def
+ /institution (National Centers for Environmental Prediction) def
+ /title (Daily NCEP/DOE Reanalysis 2) def
+
+ /citation (Please note: If you acquire NCEP_Reanalysis 2 data products from PSD, we ask that you acknowledge us in your use of the data. This may be done by including text such as NCEP_Reanalysis 2 data provided by the NOAA/OAR/ESRL PSD, Boulder, Colorado, USA, from their Web site at http://www.esrl.noaa.gov/psd/ in any documents or publications using these data. We would also appreciate receiving a copy of the relevant publications. This will help PSD to justify keeping the NCEP_Reanalysis 2 data set freely available online in the future. Thank you!) def
+
+link:
+/name (source) def
+/description (ESRL OPeNDAP source for Reanalysis2 daily dataset) def
+/href (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/catalog.html) def
+:link
+
+link:
+/name (ESRL_documentation) def
+/description (NCEP-DOE Reanalysis 2: Summary at ESRL-PSD) def
+/href (http://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis2.html) def
+:link
+
+link:
+/name (CPC_documentation) def
+/description (NCEP/DOE AMIP-II Reanalysis) def
+/href (http://www.cpc.ncep.noaa.gov/products/wesley/reanalysis2/) def
+:link
+
+grid:
+/name (lon)def
+/units (degree_east)def
+/standard_name (longitude) def
+periodic
+ 0.0 1.875 358.125
+:grid
+
+grid:
+/name (lat)def
+/standard_name (latitude) def
+/units (degree_north)def
+values: 88.542 86.653099 84.753197 82.8508 80.947304 79.043503 77.139397 75.2351 73.330704 71.426201 69.521698 67.617104 65.712502 63.807899 61.903301 59.9986 58.093899 56.189301 54.284599 52.379902 50.475201 48.570499 46.665798 44.761101 42.8564 40.951698 39.047001 37.1422 35.237499 33.332802 31.428101 29.523399 27.618601 25.7139 23.8092 21.9044 19.999701 18.094999 16.190201 14.2855 12.3808 10.47604 8.57131 6.6665702 4.7618399 2.8571 0.952368 -0.952368 -2.8571 -4.7618399 -6.6665702 -8.57131 -10.47604 -12.3808 -14.2855 -16.190201 -18.094999 -19.999701 -21.9044 -23.8092 -25.7139 -27.618601 -29.523399 -31.428101 -33.332802 -35.237499 -37.1422 -39.047001 -40.951698 -42.8564 -44.761101 -46.665798 -48.570499 -50.475201 -52.379902 -54.284599 -56.189301 -58.093899 -59.9986 -61.903301 -63.807899 -65.712502 -67.617104 -69.521698 -71.426201 -73.330704 -75.2351 -77.139397 -79.043503 -80.947304 -82.8508 -84.753197 -86.653099 -88.542 :values
+:grid
+
+grid:
+/name (level)def
+/standard_name (height) def
+/units (m)def
+values: 2.0 :values
+:grid
+
+grid:
+/name (time)def
+/standard_name (time) def
+/units (days since 1979-01-01 12:00:0.0)def
+0.0
+1.0
+systemtime systemtime2ymd pop pop 1 sub 31 exch Dec exch julian_day
+01 Jan 1979 julian_day sub 
+:grid
+
+time { (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/air.2m.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ] } remoteremoveextrausing
+/expires
+ last 01
+     Jan 1979 julian_day
+     add
+    rjt2ymd pop
+     pop
+    2 add
+    1 1 ymd2systemtime
+def
+name exch def
+
+/expires time .expires def
+
+\end{ingrid}
+
+\begin{ingrid}
+
+dataset:
+/name (2-meters_agl) def
+
+lon name exch def
+lat name exch def
+level name exch def
+time name exch def
+
+ /air{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/air.2m.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (air) def
+ /valid_range [ -32765 -1765 ] def
+ /statistic (Mean) def
+%/actual_range [ 185.11 317.03 ] def
+ /scale_factor 0.01 def
+ /least_significant_digit 1 def
+ /GRIB_name (TMP) def
+ /unpacked_valid_range [ 120.0 430.0 ] def
+ /long_name (Daily Forecast of Air temperature at 2 m) def
+ /GRIB_id 11 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /var_desc (Air temperature) def
+ /missing_value 32766 def
+ /units /Kelvin_scale def
+ /parent_stat (Individual Obs) def
+ /standard_name (air_temperature) def
+ /precision 2 def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /level_desc (2 m) def
+ /add_offset 447.64999 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /shum{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/shum.2m.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (shum) def
+ /parent_stat (Individual Obs) def
+ /scale_factor 9.99999975E-06 def
+ /precision 5 def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /level_desc (2 m) def
+ /long_name (Daily Forecast of Specific Humidity at 2 m) def
+ /valid_range [ -32765 32765 ] def
+ /statistic (Mean) def
+%/actual_range [ 1.88629201E-08 0.02665002 ] def
+ /least_significant_digit 4 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /GRIB_name (SPF H) def
+ /missing_value 32766 def
+ /unpacked_valid_range [ 0.0 0.6553 ] def
+ /units /unitless def
+ /standard_name (specific_humidity) def
+ /GRIB_id 51 def
+ /var_desc (Specific Humidity) def
+ /add_offset 0.32765 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmax{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/tmax.2m.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (tmax) def
+ /unpacked_valid_range [ 120.0 430.0 ] def
+%/actual_range [ 186.11 328.48999 ] def
+ /scale_factor 0.01 def
+ /statistic (Daily Maximum) def
+ /GRIB_name (T MAX) def
+ /least_significant_digit 1 def
+ /long_name (Daily Forecast of Maximum Temperature at 2 m) def
+ /parent_stat (Individual Obs) def
+ /var_desc (Maximum Temperature) def
+ /level_desc (2 m) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Values) def
+ /missing_value 32766 def
+ /units /Kelvin_scale def
+ /GRIB_id 15 def
+ /cell_methods (time: maximum (of 4 6-hourly values in one day)) def
+ /valid_range [ -32765 -1765 ] def
+ /standard_name (temperature) def
+ /precision 2 def
+ /add_offset 447.64999 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmin{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/tmin.2m.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (tmin) def
+ /unpacked_valid_range [ 120.0 430.0 ] def
+%/actual_range [ 181.59 311.37 ] def
+ /scale_factor 0.01 def
+ /statistic (Daily Minimum) def
+ /GRIB_name (T MIN) def
+ /least_significant_digit 1 def
+ /long_name (Daily Forecast of Minimum Temperature at 2 m) def
+ /parent_stat (Individual Obs) def
+ /var_desc (Minimum Temperature) def
+ /level_desc (2 m) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Values) def
+ /missing_value 32766 def
+ /units /Kelvin_scale def
+ /GRIB_id 16 def
+ /cell_methods (time: minimum (of 4 6-hourly values in one day)) def
+ /valid_range [ -32765 -1765 ] def
+ /standard_name (temperature) def
+ /precision 2 def
+ /add_offset 447.64999 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+
+\begin{ingrid}
+
+dataset:
+/name (10-meters_agl) def
+
+lon name exch def
+lat name exch def
+time name exch def
+
+grid:
+/name (level)def
+/standard_name (height) def
+/units (m)def
+values: 10.0 :values
+:grid
+
+ /uwnd{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/uwnd.10m.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (uwnd) def
+ /units (m/s)cvn def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /missing_value -9.96920997E36 def
+ /var_desc (u-wind) def
+ /long_name (Daily Forecast of U-wind at 10 m) def
+ /actual_range [ -33.919998 30.440002 ] def
+ /parent_stat (Individual Obs) def
+ /valid_range [ -120.0 120.0 ] def
+ /GRIB_name (U GRD) def
+ /level_desc (10 m) def
+ /statistic (Mean) def
+ /precision 2 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /least_significant_digit 1 def
+ /standard_name (eastward_wind) def
+ /GRIB_id 33 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /vwnd{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/vwnd.10m.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (vwnd) def
+ /parent_stat (Individual Obs) def
+ /valid_range [ -120.0 120.0 ] def
+ /GRIB_name (V GRD) def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Forecast of V-wind at 10 m) def
+ /actual_range [ -37.470001 28.759995 ] def
+ /level_desc (10 m) def
+ /statistic (Mean) def
+ /precision 2 def
+ /least_significant_digit 1 def
+ /GRIB_id 34 def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /units (m/s)cvn def
+ /standard_name (northward_wind) def
+ /var_desc (v-wind) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+
+\begin{ingrid}
+
+dataset:
+/name (surface) def
+
+lon name exch def
+lat name exch def
+time name exch def
+
+ /cprat{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/cprat.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (cprat) def
+ /parent_stat (Individual Obs) def
+ /actual_range [ 9.98843461E-08 0.0015 ] def
+ /missing_value -9.96920997E36 def
+ /GRIB_name (CPRAT) def
+ /statistic (Mean) def
+ /long_name (Daily Mean of Convective Precipitation Rate at Surface) def
+ /level_desc (Surface) def
+ /precision 7 def
+ /least_significant_digit 6 def
+ /GRIB_id 214 def
+ /var_desc (Convective Precipitation Rate) def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /units (Kg/m^2/s)cvn def
+ /standard_name (convective_precipitation_rate) def
+ /valid_range [ 0.0 0.006553 ] def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /dlwrf{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/dlwrf.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (dlwrf) def
+ /standard_name (surface_downward_longwave_radiation_flux) def
+ /level_desc (Surface) def
+ /units (W/m2)cvn def
+ /valid_range [ -135.0 635.0 ] def
+ /least_significant_digit 0 def
+ /GRIB_id 205 def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Mean of Downward Longwave Radiation Flux at Surface) def
+ /parent_stat (Individual Obs) def
+ /var_desc (Downward Longwave Radiation Flux) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /actual_range [ 31.199951 492.19995 ] def
+ /GRIB_name (DLWRF) def
+ /statistic (Mean) def
+ /precision 1 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /dswrf{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/dswrf.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (dswrf) def
+ /units (W/m2)cvn def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /actual_range [ 0.0 471.19995 ] def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Mean of Downward Solar Radiation Flux at Surface) def
+ /parent_stat (Individual Obs) def
+ /GRIB_name (DSWRF) def
+ /statistic (Mean) def
+ /level_desc (Surface) def
+ /valid_range [ -190.0 1370.0 ] def
+ /precision 1 def
+ /least_significant_digit 0 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /GRIB_id 204 def
+ /var_desc (Downward Solar Radiation Flux) def
+ /standard_name (surface_downward_solar_radiation_flux) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /gflux{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/gflux.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (gflux) def
+ /parent_stat (Individual Obs) def
+ /precision 1 def
+ /valid_range [ -500.0 900.0 ] def
+ /least_significant_digit 0 def
+ /GRIB_id 155 def
+ /missing_value -9.96920997E36 def
+ /long_name (daily mean 6-Hourly Mean of Ground Heat Flux at Surface) def
+ /statistic (Mean) def
+ /cell_methods (time: mean) def
+ /var_desc (Ground Heat Flux) def
+ /actual_range [ -248.30005 356.6001 ] def
+ /level_desc (Surface) def
+ /GRIB_name (GFLUX) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /units (W/m2)cvn def
+ /standard_name (ground_heat_flux) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /icec{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/icec.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (icec) def
+ /statistic (Mean) def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /var_desc (Ice Concentration) def
+ /missing_value -9.96920997E36 def
+ /actual_range [ 0.09985352 0.8999023 ] def
+ /long_name (Daily Forecast of Ice Concentration at Surface) def
+ /least_significant_digit 0 def
+ /valid_range [ 0.0 1.0 ] def
+ /GRIB_id 91 def
+ /GRIB_name (ICE C) def
+ /level_desc (Surface) def
+ /parent_stat (Individual Obs) def
+ /precision 1 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /units /unitless def
+ /standard_name (sea_ice_area_fraction) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /land{
+[ lon lat | /NVZ 1 NewIntegerGRID ] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/land.sfc.gauss.nc)  readdatafile:
+/name (land) def
+ /standard_name (land_binary_mask) def
+ /units /unitless def
+ /least_significant_digit 0 def
+ /GRIB_id 81 def
+ /missing_value 32766 def
+ /long_name (Land-sea mask) def
+ /precision 0 def
+ /actual_range [ 0 1 ] def
+ /valid_range [ 0 1 ] def
+ /unpacked_valid_range [ 0 1 ] def
+ /statistic (Individual Obs) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /GRIB_name (LAND) def
+ /var_desc (Land-sea mask) def
+ /parent_stat (Other) def
+ /level_desc (Surface) def
+ /shortarraytype netcdfrecords :readdatafile
+NVZ removeGRID
+} defasvarsilent
+
+ /lhtfl{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/lhtfl.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (lhtfl) def
+ /least_significant_digit 0 def
+ /GRIB_id 121 def
+ /parent_stat (Individual Obs) def
+ /actual_range [ -699.09998 1404.9 ] def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Mean of Latent Heat Net Flux at Surface) def
+ /statistic (Mean) def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /var_desc (Latent Heat Net Flux) def
+ /precision 1 def
+ /valid_range [ -2420.0 2420.0 ] def
+ /GRIB_name (LHTFL) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /level_desc (Surface) def
+ /standard_name (surface_upward_latent_heat_flux) def
+ /units (W/m2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /pevpr{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/pevpr.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (pevpr) def
+ /valid_range [ -950.0 5500.0 ] def
+ /var_desc (Potential Evaporation Rate) def
+ /precision 1 def
+ /parent_stat (Individual Obs) def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Mean of Potential Evaporation Rate at Surface) def
+ /GRIB_name (PEVPR) def
+ /level_desc (Surface) def
+ /actual_range [ -186.1001 3505.0 ] def
+ /statistic (Mean) def
+ /least_significant_digit 0 def
+ /GRIB_id 145 def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /units (W/m2)cvn def
+ /standard_name (potential_evaportion_rate) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /prate{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/prate.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (prate) def
+ /parent_stat (Individual Obs) def
+ /valid_range [ 0.0 0.006553 ] def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Mean of Precipitation Rate at Surface) def
+ /actual_range [ 9.98843461E-08 0.004787 ] def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /GRIB_name (PRATE) def
+ /statistic (Mean) def
+ /precision 7 def
+ /least_significant_digit 6 def
+ /GRIB_id 59 def
+ /var_desc (Precipitation Rate) def
+ /level_desc (Surface) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /units (Kg/m^2/s)cvn def
+ /standard_name (precipitation_rate) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /pres{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/pres.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (pres) def
+ /GRIB_name (PRES) def
+ /var_desc (Pressure) def
+ /missing_value -9.96920997E36 def
+ /parent_stat (Individual Obs) def
+ /actual_range [ 49350.0 106170.0 ] def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /long_name (Daily Forecast of Surface Pressure) def
+ /level_desc (Surface) def
+ /statistic (Mean) def
+ /least_significant_digit -1 def
+ /GRIB_id 1 def
+ /precision -1 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /units /Pascals def
+ /standard_name (air_pressure) def
+ /valid_range [ 32250.0 122750.0 ] def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /runof{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/runof.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (runof) def
+ /standard_name (surface_runoff_amount) def
+ /least_significant_digit 1 def
+ /parent_stat (Individual Obs) def
+ /units (kg/m^2)cvn def
+ /level_desc (Surface) def
+ /statistic (Daily Accumulation) def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Accumulation of Water Runoff at Surface) def
+ /precision 2 def
+ /cell_methods (time: accumulation (for each 6-hourly interval) accumulation (of 4 6-hourly accumulations)) def
+ /var_desc (Water Runoff) def
+ /valid_range [ -25.0 630.29999 ] def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Values) def
+ /GRIB_id 90 def
+ /actual_range [ 0.0 220.0 ] def
+ /GRIB_name (RUNOF) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /shtfl{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/shtfl.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (shtfl) def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /level_desc (Surface) def
+ /statistic (Mean) def
+ /missing_value -9.96920997E36 def
+ /GRIB_id 122 def
+ /least_significant_digit 0 def
+ /long_name (Daily Mean of Sensible Heat Net Flux at Surface) def
+ /valid_range [ -1200.0 5750.0 ] def
+ /precision 1 def
+ /var_desc (Sensible Heat Net Flux) def
+ /actual_range [ -952.1001 2459.3 ] def
+ /parent_stat (Individual Obs) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /units (W/m2)cvn def
+ /standard_name (surface_upward_sensible_heat_flux) def
+ /GRIB_name (SHTFL) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /skt{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/skt.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (skt) def
+ /units /degree_Celsius def
+ /parent_stat (Individual Obs) def
+ /precision 2 def
+ /least_significant_digit 1 def
+ /missing_value -9.96920997E36 def
+ /GRIB_id 11 def
+ /long_name (Daily Forecast of SST/Land Skin Temperature at the Surface) def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /statistic (Mean) def
+ /var_desc (Skin Temperature) def
+ /level_desc (Surface) def
+ /actual_range [ 175.78 318.69 ] def
+ /valid_range [ 120.0 430.0 ] def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /GRIB_name (TMP) def
+ /standard_name (temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /uflx{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/uflx.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (uflx) def
+ /GRIB_name (U FLX) def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /level_desc (Surface) def
+ /statistic (Mean) def
+ /missing_value -9.96920997E36 def
+ /least_significant_digit 3 def
+ /GRIB_id 124 def
+ /long_name (Daily Mean of Momentum Flux, u-component at Surface) def
+ /valid_range [ -6.0 6.0 ] def
+ /precision 3 def
+ /var_desc (Momentum Flux, u-component) def
+ /actual_range [ -3.6520023 3.2979984 ] def
+ /parent_stat (Individual Obs) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /units (N/m^2)cvn def
+ /standard_name (downward_eastward_stress_in_air) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ugwd{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/ugwd.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (ugwd) def
+ /units (N/m^2)cvn def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Mean of Zonal Gravity Wave Stress at Surface) def
+ /valid_range [ -32.0 32.0 ] def
+ /var_desc (Zonal Gravity Wave Stress) def
+ /precision 3 def
+ /parent_stat (Individual Obs) def
+ /actual_range [ -4.3600006 4.3270001 ] def
+ /GRIB_name (U-GWD) def
+ /level_desc (Surface) def
+ /statistic (Mean) def
+ /least_significant_digit 3 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /GRIB_id 147 def
+ /standard_name (eastward_gravity_wave_stress) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ulwrf{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/ulwrf.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (ulwrf) def
+ /GRIB_name (ULWRF) def
+ /missing_value -9.96920997E36 def
+ /statistic (Mean) def
+ /long_name (Daily Mean of Upward Longwave Radiation Flux at Surface) def
+ /level_desc (Surface) def
+ /valid_range [ -75.0 945.0 ] def
+ /precision 1 def
+ /least_significant_digit 0 def
+ /GRIB_id 212 def
+ /var_desc (Upward Longwave Radiation Flux) def
+ /actual_range [ 53.899902 573.0 ] def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /units (W/m2)cvn def
+ /standard_name (surface_upward_longwave_radiation_flux) def
+ /parent_stat (Individual Obs) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /uswrf{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/uswrf.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (uswrf) def
+ /GRIB_name (USWRF) def
+ /valid_range [ -145.0 845.0 ] def
+ /missing_value -9.96920997E36 def
+ /precision 1 def
+ /least_significant_digit 0 def
+ /var_desc (Upward Solar Radiation Flux) def
+ /GRIB_id 211 def
+ /long_name (Daily Mean of Upward Solar Radiation Flux at Surface) def
+ /actual_range [ 0.0 389.80005 ] def
+ /parent_stat (Individual Obs) def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /level_desc (Surface) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /statistic (Mean) def
+ /standard_name (surface_upward_shortwave_radiation_flux) def
+ /units (W/m2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /vflx{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/vflx.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (vflx) def
+ /valid_range [ -5.0 6.0 ] def
+ /missing_value -9.96920997E36 def
+ /actual_range [ -3.5210018 3.6419983 ] def
+ /long_name (Daily Mean of Momentum Flux, v-component at Surface) def
+ /precision 3 def
+ /var_desc (Momentum Flux, v-component) def
+ /parent_stat (Individual Obs) def
+ /GRIB_name (V FLX) def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /level_desc (Surface) def
+ /statistic (Mean) def
+ /least_significant_digit 3 def
+ /GRIB_id 125 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /standard_name (downward_northward_stress_in_air) def
+ /units (N/m^2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /vgwd{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/vgwd.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (vgwd) def
+ /level_desc (Surface) def
+ /precision 3 def
+ /least_significant_digit 3 def
+ /GRIB_id 148 def
+ /var_desc (Meridional Gravity Wave Stress) def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Mean of Meridional Gravity Wave Stress at Surface) def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /actual_range [ -4.5370002 6.6430001 ] def
+ /valid_range [ -32.0 32.0 ] def
+ /parent_stat (Individual Obs) def
+ /GRIB_name (V-GWD) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /statistic (Mean) def
+ /standard_name (northward_gravity_wave_stress) def
+ /units (N/m^2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /weasd{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/weasd.sfc.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (weasd) def
+ /units (kg/m^2)cvn def
+ /level_desc (Surface) def
+ /statistic (Mean) def
+ /missing_value -9.96920997E36 def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /precision 0 def
+ /actual_range [ 0.0 55004.0 ] def
+ /valid_range [ 0.0 65530.0 ] def
+ /long_name (Daily Forecast of Water Equiv. of Accum. Snow Depth at Surface) def
+ /var_desc (Water Equiv. of Accum. Snow Depth) def
+ /GRIB_name (WEASD) def
+ /parent_stat (Individual Obs) def
+ /least_significant_digit 0 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /standard_name (surface_snow_amount) def
+ /GRIB_id 65 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+
+\begin{ingrid}
+
+dataset:
+/name (ntat) def
+
+lon name exch def
+lat name exch def
+time name exch def
+
+ /dswrf{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/dswrf.ntat.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (dswrf) def
+ /standard_name (TOA__downward_solar_radiation_flux) def
+ /least_significant_digit 0 def
+ /GRIB_id 204 def
+ /GRIB_name (DSWRF) def
+ /var_desc (Downward Solar Radiation Flux) def
+ /missing_value -9.96920997E36 def
+ /parent_stat (Individual Obs) def
+ /long_name (Daily Mean of Downward Solar Radiation Flux at the Nominal Top of Atmosphere) def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /actual_range [ 0.0 561.0 ] def
+ /statistic (Mean) def
+ /level_desc (Nominal top of atmosphere) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /units (W/m2)cvn def
+ /valid_range [ -185.0 1685.0 ] def
+ /precision 1 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ulwrf{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/ulwrf.ntat.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (ulwrf) def
+ /parent_stat (Individual Obs) def
+ /GRIB_name (ULWRF) def
+ /actual_range [ 66.399902 365.0 ] def
+ /valid_range [ -150.0 1050.0 ] def
+ /missing_value -9.96920997E36 def
+ /var_desc (Upward Longwave Radiation Flux) def
+ /long_name (Daily Mean of Upward Longwave Radiation Flux at the Nominal Top of Atmosphere) def
+ /statistic (Mean) def
+ /least_significant_digit 0 def
+ /GRIB_id 212 def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /precision 1 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /level_desc (Nominal top of atmosphere) def
+ /standard_name (TOA_upward_longwave_radiation_flux) def
+ /units (W/m2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /uswrf{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/uswrf.ntat.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (uswrf) def
+ /units (W/m2)cvn def
+ /statistic (Mean) def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /missing_value -9.96920997E36 def
+ /level_desc (Nominal top of atmosphere) def
+ /long_name (Daily Mean of Upward Solar Radiation Flux at the Nominal Top of Atmosphere) def
+ /precision 1 def
+ /GRIB_name (USWRF) def
+ /actual_range [ 0.0 408.69995 ] def
+ /parent_stat (Individual Obs) def
+ /valid_range [ -185.0 1685.0 ] def
+ /least_significant_digit 0 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /GRIB_id 211 def
+ /var_desc (Upward Solar Radiation Flux) def
+ /standard_name (TOA_surface_upward_shortwave_radiation_flux) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+
+\begin{ingrid}
+
+dataset:
+/name (high_cloud_bottom) def
+
+lon name exch def
+lat name exch def
+time name exch def
+
+ /pres{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/pres.hcb.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (pres) def
+ /parent_stat (Individual Obs) def
+ /valid_range [ 0.0 120000.0 ] def
+ /missing_value -9.96920997E36 def
+ /statistic (Mean) def
+ /GRIB_name (PRES) def
+ /long_name (Daily Mean of Pressure at the High Cloud Bottom) def
+ /level_desc (High cloud bottom) def
+ /var_desc (Pressure) def
+ /precision -1 def
+ /least_significant_digit -1 def
+ /GRIB_id 1 def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /actual_range [ 11380.0 52070.0 ] def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /standard_name (air_pressure) def
+ /units /Pascals def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+
+\begin{ingrid}
+
+dataset:
+/name (high_cloud_top) def
+
+lon name exch def
+lat name exch def
+time name exch def
+
+ /pres{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/pres.hct.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (pres) def
+ /precision -1 def
+ /least_significant_digit -1 def
+ /level_desc (High cloud top) def
+ /GRIB_id 1 def
+ /var_desc (Pressure) def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Mean of Pressure at the High Cloud Top) def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /actual_range [ 8730.0 47710.0 ] def
+ /parent_stat (Individual Obs) def
+ /GRIB_name (PRES) def
+ /valid_range [ 0.0 120000.0 ] def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /statistic (Mean) def
+ /standard_name (air_pressure) def
+ /units /Pascals def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+dataset:
+/name (low_cloud_bottom) def
+
+lon name exch def
+lat name exch def
+time name exch def
+
+ /pres{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/pres.lcb.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (pres) def
+ /units /Pascals def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Mean of Pressure at the Low Cloud Bottom) def
+ /actual_range [ 65370.0 100700.0 ] def
+ /parent_stat (Individual Obs) def
+ /valid_range [ 0.0 120000.0 ] def
+ /statistic (Mean) def
+ /GRIB_name (PRES) def
+ /level_desc (Low cloud bottom) def
+ /var_desc (Pressure) def
+ /precision -1 def
+ /least_significant_digit -1 def
+ /GRIB_id 1 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /standard_name (air_pressure) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+dataset:
+/name (low_cloud_top) def
+
+lon name exch def
+lat name exch def
+time name exch def
+
+ /pres{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/pres.lct.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (pres) def
+ /units /Pascals def
+ /statistic (Mean) def
+ /actual_range [ 61080.0 91410.0 ] def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Mean of Pressure at the Low Cloud Top) def
+ /valid_range [ 0.0 120000.0 ] def
+ /GRIB_name (PRES) def
+ /var_desc (Pressure) def
+ /parent_stat (Individual Obs) def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /least_significant_digit -1 def
+ /GRIB_id 1 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /precision -1 def
+ /standard_name (air_pressure) def
+ /level_desc (Low cloud top) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+dataset:
+/name (middle_cloud_bottom) def
+
+lon name exch def
+lat name exch def
+time name exch def
+
+ /pres{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/pres.mcb.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (pres) def
+ /parent_stat (Individual Obs) def
+ /valid_range [ 0.0 120000.0 ] def
+ /missing_value -9.96920997E36 def
+ /statistic (Mean) def
+ /GRIB_name (PRES) def
+ /long_name (Daily Mean of Pressure at the Middle Cloud Bottom) def
+ /level_desc (Middle cloud bottom) def
+ /var_desc (Pressure) def
+ /precision -1 def
+ /least_significant_digit -1 def
+ /GRIB_id 1 def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /actual_range [ 37440.0 77260.0 ] def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /standard_name (air_pressure) def
+ /units /Pascals def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+dataset:
+/name (middle_cloud_top) def
+
+lon name exch def
+lat name exch def
+time name exch def
+
+ /pres{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/pres.mct.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (pres) def
+ /units /Pascals def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Mean of Pressure at the Middle Cloud Top) def
+ /actual_range [ 32130.0 70690.0 ] def
+ /parent_stat (Individual Obs) def
+ /valid_range [ 0.0 120000.0 ] def
+ /statistic (Mean) def
+ /GRIB_name (PRES) def
+ /level_desc (Middle cloud top) def
+ /var_desc (Pressure) def
+ /precision -1 def
+ /least_significant_digit -1 def
+ /GRIB_id 1 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /standard_name (air_pressure) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+
+\begin{ingrid}
+
+dataset:
+/name (0-10_cm_down) def
+
+lon name exch def
+lat name exch def
+time name exch def
+
+grid:
+/name (level)def
+/standard_name (depth) def
+/units (cm)def
+values: 0.0 :values
+:grid
+
+\end{ingrid}
+
+grid:
+/name (nbnds)def
+/units (unitless)def
+ 1.0 1.0 2.0
+:grid
+
+ /level_bnds{
+[ nbnds | level] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/soilw.0-10cm.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (level_bnds) def
+ /units /unitless def
+ /long_name (Level Boundaries) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+\begin{ingrid}
+
+ /soilw{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/soilw.0-10cm.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (soilw) def
+ /standard_name (soil_moisture) def
+ /GRIB_id 144 def
+ /units /unitless def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Forecast of Volumetric Soil Moisture between 0-10 cm Below Ground Level) def
+ /var_desc (Volumetric Soil Moisture) def
+ /statistic (Mean) def
+ /valid_range [ 0.0 1.0 ] def
+ /GRIB_name (SOILW) def
+ /parent_stat (Individual Obs) def
+ /actual_range [ 0.0 0.4282 ] def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /precision 4 def
+ /level_desc (Between 0-10 cm BGL) def
+ /least_significant_digit 3 def
+/realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmp{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/tmp.0-10cm.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (tmp) def
+ /valid_range [ 120.0 430.0 ] def
+ /parent_stat (Individual Obs) def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /missing_value -9.96920997E36 def
+ /actual_range [ 199.99001 316.13 ] def
+ /long_name (Daily Forecast of Temperature between 0-10 cm Below Ground Level) def
+ /precision 2 def
+ /least_significant_digit 1 def
+ /level_desc (Between 0-10 cm BGL) def
+ /GRIB_name (TMP) def
+ /statistic (Mean) def
+ /var_desc (Temperature) def
+ /GRIB_id 11 def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /units /degree_Celsius def
+ /standard_name (temperature) def
+/realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+dataset:
+/name (10-200_cm_down) def
+
+lon name exch def
+lat name exch def
+time name exch def
+
+grid:
+/name (level)def
+/standard_name (depth) def
+/units (cm)def
+values: 10.0 :values
+:grid
+
+\end{ingrid}
+
+grid:
+/name (nbnds)def
+/units (unitless)def
+ 1.0 1.0 2.0
+:grid
+
+ /level_bnds{
+[ nbnds | level] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/soilw.10-200cm.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (level_bnds) def
+ /units /unitless def
+ /long_name (Level Boundaries) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+\begin{ingrid}
+
+ /soilw{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/soilw.10-200cm.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (soilw) def
+ /least_significant_digit 3 def
+ /units /unitless def
+ /GRIB_id 144 def
+ /valid_range [ 0.0 1.0 ] def
+ /missing_value -9.96920997E36 def
+ /long_name (Daily Forecast of Volumetric Soil Moisture between 10-200 cm Below Ground Level) def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /level_desc (Between 10-200 cm BGL) def
+ /actual_range [ 0.0 0.4287 ] def
+ /statistic (Mean) def
+ /GRIB_name (SOILW) def
+ /var_desc (Volumetric Soil Moisture) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /parent_stat (Individual Obs) def
+ /precision 4 def
+ /standard_name (soil_moisture) def
+/realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmp{
+[ lon lat level | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/tmp.10-200cm.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+/name (tmp) def
+ /valid_range [ 120.0 430.0 ] def
+ /var_desc (Temperature) def
+ /missing_value -9.96920997E36 def
+ /parent_stat (Individual Obs) def
+ /cell_methods (time: mean (of 4 6-hourly values in one day)) def
+ /actual_range [ 199.95 307.41998 ] def
+ /long_name (Daily Forecast of Temperature between 10-200 cm Below Ground Level) def
+ /precision 2 def
+ /statistic (Mean) def
+ /least_significant_digit 1 def
+ /GRIB_name (TMP) def
+ /level_desc (Between 10-200 cm BGL) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /GRIB_id 11 def
+ /standard_name (temperature) def
+ /units /degree_Celsius def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+dataset:
+/name (entire_depth_of_atmosphere) def
+
+lon name exch def
+lat name exch def
+time name exch def
+
+ /tcdc{
+[ lon lat | time] (https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis2.dailyavgs/gaussian_grid/tcdc.eatm.gauss.%Y[time].nc) [ time yearlyedgesgrid first secondtolast subgrid ]  readdatafile:
+/name (tcdc) def
+ /least_significant_digit 0 def
+ /GRIB_id 71 def
+ /missing_value -9.96920997E36 def
+ /statistic (Mean) def
+ /long_name (Daily Mean of Total Cloud Cover at Entire Atmosphere Considered as a Single Layer) def
+ /cell_methods (time: mean (of each 6-hourly interval) mean (of 4 6-hourly means)) def
+ /_FileValue -32767 def
+ /precision 1 def
+ /var_desc (Total cloud cover) def
+ /level_desc (Entire Atmosphere Considered As a Single Layer) def
+ /valid_range [ 0.0 100.0 ] def
+ /GRIB_name (TCDC) def
+ /parent_stat (Individual Obs) def
+ /Dataset (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages) def
+ /actual_range [ 0.0 100.0 ] def
+ /standard_name (cloud_area_fraction) def
+ /units /percent def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}

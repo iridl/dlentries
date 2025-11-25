@@ -1,0 +1,37 @@
+EASE-grid 1383x586 daily
+\begin{ingrid}
+continuedataset:
+grid:
+/name /x def
+/units /km def
+-17321.6597775 25.067525 17321.6597775
+:grid
+grid:
+/name /y def
+/units /km def
+7332.2510625 25.067525 -7332.2510625
+:grid
+
+grid:
+/name /T def
+/units (julian_day) def
+19 Jul 1999 julian_day
+1.
+29 Apr 2009 julian_day
+:grid
+/inundation {
+ [x y | T] (/Data/data3/nasa/wetlands/globaldailyinundation/fw_02_swe/v1_qscat/ml/%Y%m%d[T]_SSMI_V1_QSCAT_FW.DAT.gz)[T]readdatafile:
+decdirect
+/missing_value -9999. def
+/scale_min 0. def
+/scale_max 1. def
+/units (unitless) def
+(epsg:3410) crsid2srtext /SpatialReferenceSystemWKT exch def
+/SpatialReferenceSystemDims { x y } cvlit def
+ /grid_mapping (Cylindrical_Equal_Area) def
+:readdatafile
+} defasvarsilent
+
+:dataset
+\end{ingrid}
+

@@ -1,0 +1,50 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Weekly AVHRR) def
+
+/anom {
+ SOURCES .NOAA .NCDC .OISST .version2p1 .AVHRR
+.anom
+T 7 boxAverage
+T /defaultvalue {last} def pop
+ /long_name (Sea surface temperature anomalies) def
+}defasvar
+
+/ice {
+ SOURCES .NOAA .NCDC .OISST .version2p1 .AVHRR
+.ice
+T 7 boxAverage
+T /defaultvalue {last} def pop
+DATA 0 1 RANGE
+}defasvar
+
+/sst {
+ SOURCES .NOAA .NCDC .OISST .version2p1 .AVHRR
+.sst
+T 7 boxAverage
+T /defaultvalue {last} def pop
+ /long_name (Sea surface temperature) def
+}defasvar
+
+/anom_c9120 {
+    sst
+    home .remic .NOAA .NCDC .OISST .version2p1 .AVHRR_pentad .sst_c9120
+    [T]regridLinear
+    sub
+    sstacolorscale
+    /long_name (1991-2020 Sea Surface Temperature Anomaly) def
+    /PLOTCOAST 1 def
+  } defasvar
+    
+:dataset
+
+ice .lon name exch def
+ice .lat name exch def
+ice .T name exch
+/defaultvalue {last} def
+def
+ice .zlev name exch def
+
+\end{ingrid}

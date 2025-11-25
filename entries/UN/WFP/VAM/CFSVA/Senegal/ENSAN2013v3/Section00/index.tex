@@ -1,0 +1,94 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Questionnaire) def
+
+grid:
+/name /hhid def
+1. 1. 8519.
+:grid
+
+/formhubuuid { IRIDB (ensan2013v3) (formhubuuid) [(hhid)] open_column_by
+/long_name (formhubuuid) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/start { IRIDB (ensan2013v3) (start) [(hhid)] open_column_by
+/long_name (start time) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/endDate { IRIDB (ensan2013v3) (enddate) [(hhid)] open_column_by
+/long_name (Date of survey) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/deviceid { IRIDB (ensan2013v3) (deviceid) [(hhid)] open_column_by
+/long_name (deviceid) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/subscriberid { IRIDB (ensan2013v3) (subscriberid) [(hhid)] open_column_by
+/long_name (subscriberid) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/simserial { IRIDB (ensan2013v3) (simserial) [(hhid)] open_column_by
+/long_name (SIM serial) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/today { IRIDB (ensan2013v3) (today) [(hhid)] open_column_by
+/long_name (end time) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/phonenumber { IRIDB (ensan2013v3) (phonenumber) [(hhid)] open_column_by
+/long_name (phone number) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/ENSAN_senegal_2013 { IRIDB (ensan2013v3) (ensan_senegal_2013) [(hhid)] open_column_by
+/long_name (ENQUETE NATIONALE SUR LA SECURITE ALIMENTAIRE ET LA NUTRITION AU SENEGAL_2013) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+[/NVZ 2 NewIntegerGRID hhid |]
+(/Data/data6/WFP/senegal/CSFVA2014/ENSAN_2013_V3_Final_ll.txt)
+readdatafile:
+[1 1]r*4astsv
+:readdatafile
+%/missing_value -999 def
+
+definevariables:
+
+0 Zvariable:
+/name /lat def
+/long_name (Latitude) def
+/units /degree_north def
+/scale_min 12.2 def
+/scale_max 16.8 def
+:Zvariable
+
+0 Zvariable:
+/name /lon def
+/long_name (Longitude) def
+/units /degree_east def
+/scale_min -17.7 def
+/scale_max -11.2 def
+:Zvariable
+
+:definevariables
+
+/location {
+lon lat geopt
+/long_name (Location) def
+}defasvar
+
+
+:dataset
+
+%formhubuuid .hhid name exch def
+\end{ingrid}
+

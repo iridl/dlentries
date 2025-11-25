@@ -1,0 +1,604 @@
+\begin{ingrid}
+%PreferredUnits
+%(w/m^2) (W/m2) def
+%(pa/s) (Pa/s) def
+%(j/kg) (J/kg) def
+%(n/m^2) (N/m2) def
+%(k/s) (K/s) def
+%pop
+link:
+/name (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2)) def
+/description (Reanalysis-2 Home Page) def
+/href (http://www.cpc.ncep.noaa.gov/products/wesley/reanalysis2/index.html) def
+:link
+link:
+/name (ftp server) def
+/description (NCEP ftp Server for Reanalysis-2) def
+/href (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/) def
+:link
+/references (Kanamitsu_etal2002b) def
+/description (NCEP/DOE AMIP-II Reanalysis (Reanalysis-2)) def
+continuedataset:
+
+/long_name (sigma-level fields) def
+
+ grid:
+/name (X)def
+/units (degree_east)def
+/long_name (longitude) def
+/standard_name (longitude) def
+periodic
+ 0.0 1.875 358.125
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+/long_name (latitude) def
+/standard_name (latitude) def
+values: 88.54195 86.65314 84.75323 82.85075 80.94735 79.04348 77.13935 75.23505 73.33065 71.42618 69.52166 67.6171 65.71251 63.80789 61.90326 59.9986 58.09394 56.18927 54.2846 52.37991 50.47522 48.57052 46.66581 44.7611 42.8564 40.95168 39.04697 37.14225 35.23753 33.3328 31.42808 29.52335 27.61863 25.7139 23.80917 21.90444 19.99971 18.09497 16.19024 14.28551 12.38078 10.47604 8.571307 6.666573 4.761838 2.857103 0.9523676 -0.9523676 -2.857103 -4.761838 -6.666573 -8.571307 -10.47604 -12.38078 -14.28551 -16.19024 -18.09497 -19.99971 -21.90444 -23.80917 -25.7139 -27.61863 -29.52335 -31.42808 -33.3328 -35.23753 -37.14225 -39.04697 -40.95168 -42.8564 -44.7611 -46.66581 -48.57052 -50.47522 -52.37991 -54.2846 -56.18927 -58.09394 -59.9986 -61.90326 -63.80789 -65.71251 -67.6171 -69.52166 -71.42618 -73.33065 -75.23505 -77.13935 -79.04348 -80.94735 -82.85075 -84.75323 -86.65314 -88.54195 :values
+:grid
+
+grid:
+/name (Z) def
+/units (sigma) def
+/long_name (Height) def
+values: 0.9950 0.9820 0.9640 0.9420 0.9155 0.8835 0.8454 0.8009 0.7499 0.6934 0.6323 0.5678 0.5012 0.4352 0.3717 0.3122 0.2582 0.2102 0.1682 0.1323 0.1023 0.0778 0.0578 0.0413 0.0278 0.0174 0.0093 0.0025 :values
+:grid
+
+grid:
+/name (Z2) def
+/units (ids) def
+/long_name (Depth) def
+/standard_name (depth) def
+values: (10-200 cm down) (0-10 cm down) :values
+:grid
+
+grid:
+/name (T) def
+/units (months since 1960-01-01) def
+/long_name (Time) def
+/standard_name (time) def
+16 Jan 1979 ensotime
+1
+16 Aug 2014 ensotime 
+%16 systemtime systemtime2ymd ymd:lastmonth pop exch ensotime
+:grid
+
+%%T {(ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T] } remoteremoveextrausing
+%T {(/Data/ingridcache/ftp/nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T] } removeextrausing
+%/expires last
+%    rm19602ymd ymd:nextmonth ymd:nextmonth ymd2systemtime def
+%    name exch def
+%/expires T .expires def
+/last_modified last_modified T .last_modified imax def
+
+[ X Y Z Z2 T ] { name exch def } forall
+
+% parameters to GRIBvariable, in order, are: 1. GRIB variable parameter code, 2. GRIB level/layer type code, and
+% 3. field ID (generally 1).  So, for example, pressure-level absolute vorticity would be "41 100 1 GRIBvariable"
+
+
+
+/albdosfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+84 1 1 GRIBvariable
+:readdatafile
+/long_name (Albedo at Surface) def
+/standard_name (surface_albedo) def
+/units (percent) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/cdconsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+72 1 1 GRIBvariable
+:readdatafile
+/long_name (Convective cloud cover fraction at surface) def
+/standard_name (convective_cloud_area_fraction_in_atmospheric_layer) def
+/units (percent) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/cdconsig { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+72 107 1 GRIBvariable
+:readdatafile
+/long_name (Sigma-level convective cloud cover fraction) def
+/standard_name (convective_cloud_area_fraction_in_atmospheric_layer) def
+/units (percent) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/cfnlfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+165 1 1 GRIBvariable
+:readdatafile
+/long_name (Net longwave cloud forcing at surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/cfnlfclm { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+165 200 1 GRIBvariable
+:readdatafile
+/long_name (Net longwave cloud forcing in total atmospheric column) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/cfnlftoa { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+165 8 1 GRIBvariable
+:readdatafile
+/long_name (Net longwave cloud forcing at nominal top of atmosphere) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/cfnsfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+164 1 1 GRIBvariable
+:readdatafile
+/long_name (Net shortwave cloud forcing at surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/cfnsfclm { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+164 200 1 GRIBvariable
+:readdatafile
+/long_name (Net shortwave cloud forcing in total atmospheric column) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/cfnsftoa { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+164 8 1 GRIBvariable
+:readdatafile
+/long_name (Net shortwave cloud forcing at nominal top of atmosphere) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/cnvhrsig { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+242 107 1 GRIBvariable
+:readdatafile
+/long_name (Deep convective heating on sigma levels) def
+/units (K s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/cnvmrsig { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+243 107 1 GRIBvariable
+:readdatafile
+/long_name (Deep convective moistening on sigma levels) def
+/units (K s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/cpratsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+214 1 1 GRIBvariable
+:readdatafile
+/long_name (Convective precipitation rate at surface) def
+/units (kg m-2 s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/csdlfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+163 1 1 GRIBvariable
+:readdatafile
+/long_name (Clear-sky downward longwave flux at surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/csdsfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+161 1 1 GRIBvariable
+:readdatafile
+/long_name (Clear-sky downward solar flux at surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/csulftoa { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+162 8 1 GRIBvariable
+:readdatafile
+/long_name (Clear-sky upward longwave flux at nominal top of atmosphere) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/csusfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+160 1 1 GRIBvariable
+:readdatafile
+/long_name (Clear-sky upward solar flux at surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/csusftoa { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+160 8 1 GRIBvariable
+:readdatafile
+/long_name (Clear-sky upward solar flux at nominal top of atmosphere) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/dlwrfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+205 1 1 GRIBvariable
+:readdatafile
+/long_name (Downward longwave flux at surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/dswrfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+204 1 1 GRIBvariable
+:readdatafile
+/long_name (Downward solar flux at surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/dswrftoa { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+204 8 1 GRIBvariable
+:readdatafile
+/long_name (Downward solar flux at nominal top of atmosphere) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/lhtflsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+121 1 1 GRIBvariable
+:readdatafile
+/long_name (Latent heat flux at surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/lrghrsig { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+241 107 1 GRIBvariable
+:readdatafile
+/long_name (Large scale condensation heating on sigma levels) def
+/units (K s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/lwhrsig { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+251 107 1 GRIBvariable
+:readdatafile
+/long_name (Longwave radiative heating on sigma levels) def
+/units (K s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/nbdsfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+168 1 1 GRIBvariable
+:readdatafile
+/long_name (Near IR beam downward solar flux at surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/nddsfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+169 1 1 GRIBvariable
+:readdatafile
+/long_name (Near IR diffuse downward solar flux at surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/pratesfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+59 1 1 GRIBvariable
+:readdatafile
+/long_name (Precipitation at surface) def
+/units (kg m-2 s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/sfcrsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+83 1 1 GRIBvariable
+:readdatafile
+/long_name (Surface roughness) def
+/units (m) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/sglyrlcb { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+175 212 1 GRIBvariable
+:readdatafile
+/long_name (Low cloud bottom nearby model level) def
+/units (unitless) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/sglyrlct { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+175 213 1 GRIBvariable
+:readdatafile
+/long_name (Low cloud top nearby model level) def
+/units (unitless) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/sglyrmcb { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+175 222 1 GRIBvariable
+:readdatafile
+/long_name (Middle cloud bottom nearby model level) def
+/units (unitless) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/sglyrmct { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+175 223 1 GRIBvariable
+:readdatafile
+/long_name (Middle cloud top nearby model level) def
+/units (unitless) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/sglyrhcb { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+175 232 1 GRIBvariable
+:readdatafile
+/long_name (High cloud bottom nearby model level) def
+/units (unitless) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/sglyrhct { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+175 233 1 GRIBvariable
+:readdatafile
+/long_name (High cloud top nearby model level) def
+/units (unitless) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/shahrsig { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+244 107 1 GRIBvariable
+:readdatafile
+/long_name (Shallow convective heating on sigma levels) def
+/units (K s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/shamrsig { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+245 107 1 GRIBvariable
+:readdatafile
+/long_name (Shallow convective moistening on sigma levels) def
+/units (kg kg-1 s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/shtflsfc { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+122 1 1 GRIBvariable
+:readdatafile
+/long_name (Sensible heat flux at surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/soilwsoilm { [ X Y | Z2 T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+144 112 1 GRIBvariable
+:readdatafile
+/long_name (Soil moisture) def
+/units (unitless) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/swhrsig { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+250 107 1 GRIBvariable
+:readdatafile
+/long_name (Solar radiative heating on sigma levels) def
+/units (K s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/tcdcsig { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+71 107 1 GRIBvariable
+:readdatafile
+/long_name (Cloud cover on sigma levels) def
+/units (percent) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/tmpsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+11 1 1 GRIBvariable
+:readdatafile
+/long_name (Temperature at surface) def
+/units (Kelvin_scale) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/tmpsoilb { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+11 111 1 GRIBvariable
+:readdatafile
+/long_name (Soil temperature at 300 cm down) def
+/units (Kelvin_scale) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/tmpsoilm { [ X Y | Z2 T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+11 112 1 GRIBvariable
+:readdatafile
+Z2 (10-200 cm down) VALUE
+/long_name (Soil temperature at 10-200 cm down) def
+/units (Kelvin_scale) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/tmpsoilt { [ X Y | Z2 T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+11 112 1 GRIBvariable
+:readdatafile
+Z2 (0-10 cm down) VALUE
+/long_name (Soil temperature at 0-10 cm down) def
+/units (Kelvin_scale) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/uflxsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+124 1 1 GRIBvariable
+:readdatafile
+/long_name (Zonal momentum flux at surface) def
+/units (N m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/ulwrfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+212 1 1 GRIBvariable
+:readdatafile
+/long_name (Upward longwave flux at surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/ulwrftoa { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+212 8 1 GRIBvariable
+:readdatafile
+/long_name (Upward longwave flux at nominal top of atmosphere) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/uswrfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+211 1 1 GRIBvariable
+:readdatafile
+/long_name (Upward solar flux at surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/uswrftoa { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+211 8 1 GRIBvariable
+:readdatafile
+/long_name (Upward solar flux at nominal top of atmosphere) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/vbdsfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+166 1 1 GRIBvariable
+:readdatafile
+/long_name (Visible beam downward solar flux at surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/vddsfsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+167 1 1 GRIBvariable
+:readdatafile
+/long_name (Visible diffuse downward solar flux at surface) def
+/units (W m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/vdfhrsig { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+246 107 1 GRIBvariable
+:readdatafile
+/long_name (Vertical diffusion heating on sigma levels) def
+/units (K s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/vdfmrsig { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+249 107 1 GRIBvariable
+:readdatafile
+/long_name (Vertical diffusion moistening on sigma levels) def
+/units (kg kg-1 s-1) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/vdfuasig { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+247 107 1 GRIBvariable
+:readdatafile
+/long_name (Vertical diffusion zonal acceleration on sigma levels) def
+/units (m s-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/vdfuasig { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+247 107 1 GRIBvariable
+:readdatafile
+/long_name (Vertical diffusion zonal acceleration on sigma levels) def
+/units (m s-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/vdfvasig { [ X Y | Z T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+248 107 1 GRIBvariable
+:readdatafile
+/long_name (Vertical diffusion meridional acceleration on sigma levels) def
+/units (m s-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/vflxsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+125 1 1 GRIBvariable
+:readdatafile
+/long_name (Meridional momentum flux at surface) def
+/units (N m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+/weasdsfc { [ X Y | T ] (ftp://nomad3.ncep.noaa.gov/pub/reanalysis-2/month/dg3/dg3.ft06.%Y%m[T].avrg.grib) [T ]
+readdatafile:
+65 1 1 GRIBvariable
+:readdatafile
+/long_name (Accumulated snow at surface) def
+/units (kg m-2) def
+/missing_value 9.99900026E+20 def
+} defasvarsilent
+
+
+:dataset
+\end{ingrid}
+

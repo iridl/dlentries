@@ -1,0 +1,103 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description ( Regions, Zones, and Woredas provided by the Ethiopia Meteorological Institute, July 2024. ) def
+dataset:
+/name (Regions) def
+
+/adm1_name
+{IRIDB
+   (eth_regions_2024) (admin1name) [ (gid) ]open_column_by
+            /long_name (Admin Level1 Name) def
+}defasvarsilentnoreuse
+
+/adm1_code
+{IRIDB
+   (eth_regions_2024) (admin1pcod) [ (gid) ]open_column_by
+            /long_name (Admin Level1 id) def
+}defasvarsilentnoreuse
+
+/the_geom
+{IRIDB
+   (eth_regions_2024) (the_geom) [ (gid) ]open_column_by
+            /long_name (Admin1 geometry) def
+}defasvarsilentnoreuse
+
+/label
+{IRIDB
+   (eth_regions_2024) ((admin1name) as label) [ (gid) ]open_column_by
+            /long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+dataset:
+/name (Zones) def
+
+
+/adm2_name
+{IRIDB
+   (eth_zones_2024) (admin2name) [ (gid) ]open_column_by
+            /long_name (Admin Level2 Name) def
+}defasvarsilentnoreuse
+
+/adm2_code
+{IRIDB
+   (eth_zones_2024) (admin2pcod) [ (gid) ]open_column_by
+            /long_name (Admin Level2 id) def
+}defasvarsilentnoreuse
+
+/label
+{IRIDB
+   (eth_zones_2024) ((admin2name ||', '|| admin1name) as label) [ (gid) ]open_column_by
+            /long_name (Label) def
+}defasvarsilentnoreuse
+
+/the_geom
+{IRIDB
+   (eth_zones_2024) (the_geom) [ (gid) ]open_column_by
+            /long_name (Admin2 geometry) def
+}defasvarsilentnoreuse	
+	
+
+:dataset
+
+dataset:
+/name (Woredas) def
+
+
+/adm3_name
+{IRIDB
+   (eth_woredas_2024) (admin3name) [ (gid) ]open_column_by
+            /long_name (Admin Level3 Name) def
+}defasvarsilentnoreuse
+
+/adm3_code
+{IRIDB
+   (eth_woredas_2024) (admin3pcod) [ (gid) ]open_column_by
+            /long_name (Admin Level3 id) def
+}defasvarsilentnoreuse
+
+/label
+{IRIDB
+   (eth_woredas_2024) ((admin3name ||', '|| admin2name) as label) [ (gid) ]open_column_by
+            /long_name (Label) def
+}defasvarsilentnoreuse
+
+/the_geom
+{IRIDB
+   (eth_woredas_2024) (the_geom) [ (gid) ]open_column_by
+            /long_name (Admin3 geometry) def
+}defasvarsilentnoreuse
+
+
+:dataset
+
+:dataset
+% make the gid grid available to maprooms
+Woredas adm3_name .gid name exch put
+Zones adm2_name .gid name exch put
+Regions adm1_name .gid name exch put
+
+\end{ingrid}

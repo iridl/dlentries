@@ -1,0 +1,198 @@
+Regional climate model RegCM3 over South East Asia  with 25km-grid, 10-member ensemble (10-19) and a NCEP-reanalysis-driving (nr) simulation, 6-hourly output:
+/Data/data1/iri/modelling/jqian/SEAsia/phil
+The grads control files are in /data/dstore4/iri/modelling/jqian/SEAsia/phil/ctls
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+grid:
+/name /T def
+/units (days since  1971-01-01 00:00:00) def
+(0300 01 Jan 1971)
+3. 24. div
+(2400 31 Dec 2007)
+:grid
+T /pointwidth 0 def pop
+/T3 T def
+grid:
+/name /T def
+/units (days since  1971-01-01 00:00:00) def
+(0600 01 Jan 1971)
+6. 24. div
+(2400 31 Dec 2007)
+:grid
+T /pointwidth 0 def pop
+/T6 T def
+:datasetdefs
+/description (three-hourly and six-hourly data) def
+/T T3 def
+grid:
+/name /X def
+degE
+116.0926 0.2248 2 copy 59 1 sub mul add
+:grid
+grid:
+/name /Y def
+degN
+values:
+3.94   4.17   4.39   4.61   4.84   5.06   5.29   5.51   5.73   5.96
+   6.18   6.40   6.63   6.85   7.07   7.30   7.52   7.74   7.97   8.19
+   8.41   8.63   8.86   9.08   9.30   9.52   9.74   9.96  10.19  10.41
+  10.63  10.85  11.07  11.29  11.51  11.73  11.95  12.17  12.39  12.61
+  12.83  13.05  13.27  13.49  13.70  13.92  14.14  14.36  14.58  14.79
+  15.01  15.23  15.44  15.66  15.88  16.09  16.31  16.53  16.74  16.96
+  17.17  17.39  17.60  17.81  18.03  18.24  18.46  18.67  18.88  19.09
+  19.31  19.52  19.73  19.94  20.15  20.36  20.57  20.78  20.99
+:values
+:grid
+grid:
+/name /Z def
+values:
+0.995 0.985 0.97 0.945 0.91 0.865 0.81 0.745 0.67 0.59 0.51 0.43 0.35 0.27 0.195 0.135 0.075 0.025
+:values
+:grid
+/surface {
+DATASET 11 object
+[ X Y T3 ] {  name exch def } forall
+[X    Y | /NVZ 21 NewIntegerGRID
+    T3] (/data/dstore4/iri/modelling/jqian/SEAsia/phil/nr/SRF.%Y%m[T]0100) [T3 monthlyedgesgrid
+        first secondtolast subgrid
+        name units gridtype gridvalues
+            {0.125 add}forall npts realarray astore
+            NewGRID
+         /pointwidth 0.0 def
+         nip]readdatafile: 
+%sequential 
+myspecialsequential
+:readdatafile
+definevariables:
+0 Zvariable: /name (u10m) def /long_name (westerly  wind at 10m)  def /units (m/s) def
+:Zvariable
+0 Zvariable: /name (v10m) def /long_name (southerly wind at 10m)  def /units (m/s) def
+:Zvariable
+0 Zvariable: /name (uvdrag) def /long_name (surface drag stress)  def /units (kg/(s m2)) def
+:Zvariable
+0 Zvariable: /name (tgb) def /long_name (ground temperature)  def /units (Kelvin_scale) def
+/missing_value -1.e34 def
+:Zvariable
+0 Zvariable: /name (tlef) def /long_name (temperature of foliage)  def /units (Kelvin_scale) def
+/missing_value -1.e34 def
+:Zvariable
+0 Zvariable: /name (t2m) def /long_name (air temperature at 2m)  def /units (Kelvin_scale) def
+:Zvariable
+0 Zvariable: /name (q2m) def /long_name (humidity at 2m)  def /units (kg/kg) def
+:Zvariable
+0 Zvariable: /name (ssw) def /long_name (upper layer soil water)  def /units (mm) def
+/missing_value -1.e34 def
+:Zvariable
+0 Zvariable: /name (rsw) def /long_name (root zone soil water)  def /units (mm) def
+/missing_value -1.e34 def
+:Zvariable
+0 Zvariable: /name (tpr) def /long_name (total precipitation)  def /units (mm/day) def
+:Zvariable
+0 Zvariable: /name (evp) def /long_name (evapotranspiration)  def /units (mm/day) def
+:Zvariable
+0 Zvariable: /name (runoff) def /long_name (surface runoff)  def /units (mm/day) def
+/missing_value -1.e34 def
+:Zvariable
+0 Zvariable: /name (scv) def /long_name (total snow amount)  def /units (mm) def
+/missing_value -1.e34 def
+:Zvariable
+0 Zvariable: /name (sena) def /long_name (sensible heat flux)  def /units (W/m2) def
+:Zvariable
+0 Zvariable: /name (flw) def /long_name (net infrared energy flux)  def /units (W/m2) def
+:Zvariable
+0 Zvariable: /name (fsw) def /long_name (net absorbed solar energy flux)  def /units (W/m2) def
+:Zvariable
+0 Zvariable: /name (flwd) def /long_name (downward infrared energy flux)  def /units (W/m2) def
+:Zvariable
+0 Zvariable: /name (sina) def /long_name (incident solar energy flux)  def /units (W/m2) def
+:Zvariable
+0 Zvariable: /name (prcv) def /long_name (convective precipitation)  def /units (mm/day) def
+:Zvariable
+0 Zvariable: /name (psb) def /long_name (surface pressure)  def /units (hPa) def
+:Zvariable
+0 Zvariable: /name (zpbl) def /long_name (PBL layer height)  def /units (m) def
+:Zvariable
+:definevariables
+} defasvarsilent
+/atm
+{
+DATASET 11 object
+[ X Y Z T6 ] {  name exch def } forall
+[X
+    Y | 
+/NVZ 95 NewIntegerGRID
+    T] (/data/dstore4/iri/modelling/jqian/SEAsia/phil/nr/ATM.%Y%m[T]0100) [T monthlyedgesgrid
+        first secondtolast subgrid
+        name units gridtype gridvalues
+            {0.25 add}forall npts realarray astore
+            NewGRID
+         /pointwidth 0.0 def
+         nip]readdatafile: 
+%sequential 
+myspecialsequential
+:readdatafile
+definevariables:
+18 Zvariable: /name (u) def /long_name (zonal wind component) def /units (m/s) def
+:Zvariable
+18 Zvariable: /name (v) def /long_name (meridional wind component) def /units (m/s) def
+:Zvariable
+18 Zvariable: /name (temp) def /long_name (temperature) def /units (Kelvin_scale) def
+:Zvariable
+18 Zvariable: /name (q) def /long_name (specific humidity) def /units (kg/kg) def
+:Zvariable
+18 Zvariable: /name (qc) def /long_name (cloud water) def /units (kg/kg) def
+:Zvariable
+0 Zvariable: /name (psa) def /long_name (surface pressure)  def /units (hPa) def
+:Zvariable
+0 Zvariable: /name (tpr) def /long_name (total precipitation)  def /units (mm/day) def
+:Zvariable
+0 Zvariable: /name (tgb) def /long_name (temperature of lower soil layer) def /units (Kelvin_scale) def
+/missing_value -1.e34 def
+:Zvariable
+0 Zvariable: /name (swt) def /long_name (total soil water)  def /units (mm) def
+/missing_value -1.e34 def
+:Zvariable
+0 Zvariable: /name (rno) def /long_name (accumulated surface runoff)  def /units (mm/day) def
+/missing_value -1.e34 def
+:Zvariable
+:definevariables
+ /ptop c:
+    50 (hPa) :c
+    defasvarsilent
+  /P {psa ptop sub Z mul ptop add /long_name (Pressure) def}defasvar
+} defasvarsilent
+/rad {
+DATASET 11 object
+[ X Y Z T6 ] {  name exch def } forall
+[X
+    Y | 
+/NVZ 81 NewIntegerGRID
+    T] (/data/dstore4/iri/modelling/jqian/SEAsia/phil/nr/RAD.%Y%m[T]0100) [T monthlyedgesgrid
+        first secondtolast subgrid
+        name units gridtype gridvalues
+            {0.25 add}forall npts realarray astore
+            NewGRID
+         /pointwidth 0.0 def
+         nip]readdatafile: 
+%sequential 
+myspecialsequential
+:readdatafile
+definevariables:
+18 Zvariable: /name (cld) def /long_name (cloud fractional cover) def :Zvariable
+18 Zvariable: /name (clwp) def /long_name (cloud liquid water path) def :Zvariable
+18 Zvariable: /name (qrs) def /long_name (solar heating rate) def/units (W/m2)def  :Zvariable
+18 Zvariable: /name (qrl) def /long_name (longwave cooling rate) def/units (W/m2)def  :Zvariable
+0 Zvariable: /name (frsa) def /long_name (surface absorbed solar flux) def/units (W/m2)def  :Zvariable
+0 Zvariable: /name (frla) def /long_name (longwave cooling of surface) def/units (W/m2)def  :Zvariable
+0 Zvariable: /name (clrst) def /long_name (clearsky total column abs solar flux) def/units (W/m2)def  :Zvariable
+0 Zvariable: /name (clrss) def /long_name (clearsky surface absorbed solar flux) def/units (W/m2)def  :Zvariable
+0 Zvariable: /name (clrlt) def /long_name (clearsky net upward LW flux at TOA) def/units (W/m2)def  :Zvariable
+0 Zvariable: /name (clrls) def /long_name (clearsky LW cooling at surface) def /units (W/m2) def :Zvariable
+0 Zvariable: /name (solin) def /long_name (instantaneous incident solar) def /units (W/m2)def :Zvariable
+0 Zvariable: /name (sabtp) def /long_name (total column absorbed solar flux) def /units (W/m2)def :Zvariable
+0 Zvariable: /name (firtp) def /long_name (net upward LW flux at TOA) def /units (W/m2)def :Zvariable
+:definevariables
+}defasvarsilent
+:dataset
+\end{ingrid}

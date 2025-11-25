@@ -1,0 +1,47 @@
+\begin{ingrid}
+continuedataset: 
+grid: /name /T def monthtime 16 Jan 1965 ensotime 1 16 Dec 1999 ensotime :grid
+/Y 64 namedgaussianlat high low subgrid name exch def
+grid: /name /X def degE periodic 0 2.8125 357.1875 :grid
+grid: /name /M def
+1 1 10
+:grid
+variable:
+/name /prcp def
+/long_name (precipitation rate) def
+/units (mm/day) def
+grids: X Y | M T :grids
+file:
+decsequential
+/name (/beluga/data/goddard/DATA/ncep/pcp/ncep.pcp.6599.ano.%d2) def
+/filecnt0 11 def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /t2m def
+/long_name (temperature at 2m) def
+/units (degreeK) def
+grids: X Y | M T :grids
+file:
+decsequential
+/name (/beluga/data/goddard/DATA/ncep/2mt/ncep.2mt.6599.ano.%d2) def
+/filecnt0 11 def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /z500 def
+/long_name (500mb height) def
+/units (m) def
+grids: X Y | M T :grids
+file:
+decsequential
+/name (/beluga/data/goddard/DATA/ncep/500/ncep.500.6599.ano.%d2) def
+/filecnt0 11 def
+M setfilenamegrid
+:file
+:variable
+:dataset
+\end{ingrid}
+

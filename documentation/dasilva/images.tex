@@ -1,0 +1,2799 @@
+\batchmode
+
+
+
+
+
+
+
+
+
+
+
+
+\documentstyle[epsf]{article}
+\makeatletter
+
+  
+
+
+
+\textheight 9.25in
+\topmargin 0pt
+\textwidth 40pc
+\oddsidemargin 0in
+\evensidemargin 0in
+\marginparwidth 0in
+\columnsep 20pt 
+\headsep 0pt
+\headheight 0pt
+\footskip 0.37in
+
+\def\etall{{\em et al.}}
+\def\deg{°}
+\def\[{\left [}
+\def\]{\right ]}
+\def\({\left (}
+\def\){\right )}
+\def\<{\left \langle}
+\def\>{\right \rangle}
+\let\text\mbox
+\def\oW{{\overline{W}}}
+
+\def\one{$1^\circ \times 1^\circ$}
+\def\two{$2^\circ \times 2^\circ$}
+\def\half{$0.5^\circ \times 0.5^\circ$}
+\def\x{$\times$}
+\def\text#1{{\mbox{\small #1}}}
+\def\bQ{{\overline{Q_{net}}}}
+\def\der#1#2{{ \partial #1\over \partial #2}}
+\def\cH{{\cal H}}
+\def\cHy{{\cal H}_y}
+\def\cHd{ \hat{{\cal H}}_y}
+\def\cF{{\cal F}}
+\def\cFy{ {\cal F}_y}
+\def\cFd{ \hat{{\cal F}_y} }
+\def\cA{{\cal A}}
+\def\cB{{\cal B}}
+
+
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+\def\bi{\begin{itemize}}
+\def\ei{\end{itemize}}
+\def\bn{\begin{enumerate}}
+\def\en{\end{}}
+\def\bd{\begin{description}}
+\def\e{\end{description}}
+\def\bt{\begin{tabular}}
+\def\et{\end{tabular}}
+\let\mcol\multicolumn
+\def\diag{\mathop{\rm diag}}
+\def\vp{{\bf p}}
+\def\vq{{\bf q}}
+\def\req#1{\ref{eq:#1}}
+\def\reF#1{\ref{fig:#1}}
+\def\ret#1{\ref{tab:#1}}
+\def\bp{{\bf p}}
+\def\dbp{{\delta {\bf p}}}
+\def\Re{I\!\!R}
+\def\bE{{\bf E}}
+\def\bA{{\bf A}}
+\def\bR{{\bf R}}
+\def\bw{{\bf w}}
+\def\bd{{\bf d}}
+\def\ship{{\rm ship}}
+\def\rand{{\rm rand}}
+\def\fwb{{\rm fwb}}
+\let\eps\epsilon
+
+
+ 
+
+
+
+
+\def\titpage#1{\begin{titlepage}
+\title{ {\bf Atlas of Surface Marine Data 1994}\\ 
+ #1\\  \mbox{}}
+\author{{\sc Arlindo M. da Silva
+and Christine C. Young}\\  {\em Department of Geosciences, University of Wisconsin--Milwaukee}\\ 
+{\sc and}\\ 
+{\sc Sydney Levitus} \\ 
+{\em NOAA/National Oceanographic Data Center}}
+\date{\vspace{2in}}
+
+\end{titlepage}
+}
+
+
+
+
+
+\titpage{ {\bf Vol. 1: Algorithms and Procedures}}
+
+
+
+
+
+
+
+
+
+
+
+
+\def\etall{{\em et al.}}\def\deg{°}\def\left\[{ [}\def\]{\right ]}\def\left\({ (}\def\right\){ )}\def\left\{\sc and}\def\right\>{ \rangle}\def\oW{{\overline{W}}}\def\one{$1^\circ \times 1^\circ$}\def\two{$2^\circ \times 2^\circ$}\def\half{$0.5^\circ \times 0.5^\circ$}\def\x{$\times$}\def\text#1{{\mbox{\small #1}}}\def\bQ{{\overline{Q_{net}}}}\def\der#1#2{{ \partial #1\over \partial #2}}\def\cH{{\cal H}}\def\cHy{{\cal H}_y}\def\cHd{ \hat{{\cal H}}_y}\def\cF{{\cal F}}\def\cFy{ {\cal F}_y}\def\cFd{ \hat{{\cal F}_y} }\def\cA{{\cal A}}\def\cB{{\cal B}}\def\be{\begin{equation}}\def\ee{\end{equation}}\def\bea{\begin{eqnarray}}\def\eea{\end{eqnarray}}\def\bi{\begin{itemize}}\def\ei{\end{itemize}}\def\bn{\begin{enumerate}}\def\en{\end{}}\def\bd{\begin{description}}\def\e{\end{description}}\def\bt{\begin{tabular}}\def\et{\end{tabular}}\def\diag{\mathop{\rm diag}}\def\vp{{\bf p}}\def\vq{{\bf q}}\def\req#1{\ref{eq:#1}}\def\reF#1{\ref{fig:#1}}\def\ret#1{\ref{tab:#1}}\def\bp{{\bf p}}\def\dbp{{\delta {\bf p}}}\def\Re{I\!\!R}\def\bE{{\bf E}}\def\bA{{\bf A}}\def\bR{{\bf R}}\def\bw{{\bf w}}\def\bd{{\bf d}}\def\ship{{\rm ship}}\def\rand{{\rm rand}}\def\fwb{{\rm fwb}}\def\titpage#1{\begin{titlepage}
+\title{ {\bf Atlas of Surface Marine Data 1994}\\ 
+ #1\\  \mbox{}}
+\author{{\sc Arlindo M. da Silva
+and Christine C. Young}\\  {\em Department of Geosciences, University of Wisconsin--Milwaukee}\\ 
+\\ 
+{\sc Sydney Levitus} \\ 
+{\em NOAA/National Oceanographic Data Center}}
+\date{\vspace{2in}}
+
+\end{titlepage}
+}\def\xbar{\overline{x}}
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\setlength{\textheight}{10in}\begin{document}
+\pagestyle{empty}
+\newpage
+
+{\samepage \clearpage $\sigma $
+}
+
+
+\setcounter{page}{3}
+\setcounter{page}{1}
+\stepcounter{section}
+\stepcounter{section}
+\newpage
+
+{\samepage \clearpage $1^\circ \times 1^\circ$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{table*}% latex2html id marker 78
+[p] \caption[List of objectively analyzed
+quantities.]{List of objectively analyzed quantities in UWM/COADS,
+along with NetCDF file name and units.
+Each file contains 12 monthly climatological grids and 540 monthly mean
+anomaly grids from January/45 to December/89. The size of each file 
+(with the exception of {\tt icemask.nc} and {\tt salinity.nc})
+is approximately 46 Megabytes.}
+\label{tab:vars}
+\begin{center}
+\begin{tabular}{lll}
+\hline
+\multicolumn{3}{c}{Directly Observed Quantities} \\ 
+\hline
+File Name &     Units &         Description \\  
+\hline
+cloud.nc &      \%/100. &       fractional cloudiness \\ 
+qair.nc &       g/kg    &       specific humidity \\ 
+sat.nc  &       C       &       air temperature at measurement height\\ 
+slp.nc  &       hPa     &       sea level air pressure \\ 
+sst.nc  &       C       &       sea surface temperature \\ 
+u3.nc   &       m/s     &       zonal wind \\ 
+v3.nc   &       m/s     &       meridional wind \\ 
+w3.nc   &       m/s     &       wind speed \\ *[1ex]
+\multicolumn{3}{c}{Heat and Momentum Fluxes} \\ 
+\hline
+ac.nc   &       W/m$^2$ &       short wave cloudiness sensitivity parameter \\ 
+achi.nc &       W/m$^2$ &       long wave Chi sensitivity parameter \\ 
+ae.nc   &       hPa     &       long wave vapor pressure sensitivity parameter \\ 
+fvcubed.nc &    m$^3$/s$^3$ &   oceanic friction velocity cubed \\ 
+latent3.nc &    W/m$^2$ &       latent heat flux \\ 
+longrad.nc &    W/m$^2$ &       net long wave radiation \\ 
+netheat.nc &    W/m$^2$ &       constrained net heat flux \\ 
+sensib3.nc &    W/m$^2$ &       sensible heat flux \\ 
+shortrad.nc &   W/m$^2$ &       net short wave radiation \\ 
+taux3.nc &      N/m$^2$ &       zonal wind stress \\ 
+tauy3.nc &      N/m$^2$ &       meridional stress \\ *[1ex]
+\multicolumn{3}{c}{Fresh Water Fluxes} \\ 
+\hline
+buoyancy.nc &   kg/(ms$^3$) &   constrained buoyancy flux \\ 
+eminusp.nc &    mm/(3 hours) &  constrained evaporation minus
+precipitation \\ 
+evaprate.nc &   mm/(3 hours) &  evaporation rate \\ 
+precip.nc &     mm/(3 hours) &  precipitation rate \\ 
+uq.nc   &       m/s     &       surface zonal moisture flux\\ 
+vq.nc   &       m/s     &       surface moisture flux\\ *[1ex]
+\multicolumn{3}{c}{Miscellaneous Derived Quantities} \\ 
+\hline
+airdens.nc &    kg/m$^3$ &      sea level air density \\ 
+qs\_qa.nc &     g/kg    &       qsea minus qair \\ 
+qsea.nc &       g/kg    &       sea level specific humidity \\ 
+rh.nc &         \%      &       relative humidity \\ 
+sst\_sat.nc &   C       &       sea minus air temperature \\ 
+ua.nc   &       K\, m/s &       atmospheric zonal heat flux \\ 
+va.nc   &       K\, m/s &       atmospheric meridional heat flux \\ 
+vappress.nc &   hPa     &       vapor pressure \\ 
+virtemp.nc &    C       &       virtual temperature \\ 
+zdl.nc  &       ---     &       10m/(Monin Obukhov length) \\ *[1ex]
+\multicolumn{3}{c}{Other (about 1~Mb each)} \\ 
+\hline
+icemask.nc &    (none)  &       ice masks (Alexander and Mobley 1976)\\ 
+salinity.nc &   p.s.u.  &       monthly salinity (Levitus {\em et al.} \ 1994)\\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table*}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{table*}% latex2html id marker 103
+[p]
+\caption[List of raw (unanalyzed) quantities.]{List of raw
+(unanalyzed) quantities in UWM/COADS, along with NetCDF file names and
+units. For each quantity, there are 46 files consisting of 45 annual files
+from 1945 to 1989, and a climatological file with statistics computed,
+including all the data from 1945 to 1989 for each month. 
+Each annual/climatological file contains monthly means, standard
+deviations and number of observations for each calendar month.
+In the file names below, $yy$ stands for 2 digits denoting the year.
+For example, {\tt sst\_77.nc} is the file with sea surface temperature
+data for 1977. File sizes are variable and tend to increase with time.}
+\label{tab:raw}
+\begin{center}
+\begin{tabular}{lll}
+\hline
+\multicolumn{3}{c}{Directly Observed Quantities} \\ 
+\hline
+File Name &     Units &         Description \\  
+\hline
+cld\_$yy$.nc &  \%/100. &       fractional cloudiness \\ 
+q\_$yy$.nc &    g/kg    &       specific humidity \\ 
+sat\_$yy$.nc &  C       &       air temperature at measurement height\\ 
+slp\_$yy$.nc &  hPa     &       sea level pressure \\ 
+sst\_$yy$.nc &  C       &       sea surface temperature \\ 
+u3\_$yy$.nc &   m/s     &       zonal wind \\ 
+v3\_$yy$.nc &   m/s     &       meridional wind \\ 
+w3\_$yy$.nc &   m/s     &       scalar wind \\ *[1ex]
+\multicolumn{3}{c}{Heat and Momentum Fluxes} \\ 
+\hline
+achi\_$yy$.nc & W/m$^2$ &       long wave Chi sensitivity coefficient \\ 
+ae\_$yy$.nc &   W/m$^2$ &       long wave vapor pressure sensitivity coefficient \\ 
+fv3\_$yy$.nc &  m$^3$/$s^3$ &   oceanic friction velocity cubed \\ 
+latn\_$yy$.nc & W/m$^2$ &       latent heat flux \\ 
+long\_$yy$.nc & W/m$^2$ &       net long wave radiation \\ 
+sens\_$yy$.nc & W/m$^2$ &       sensible heat flux \\ 
+taux\_$yy$.nc & N/m$^2$ &       zonal wind stress \\ 
+tauy\_$yy$.nc & N/m$^2$ &       meridional wind stress \\ *[1ex]
+\multicolumn{3}{c}{Fresh Water Fluxes} \\ 
+\hline
+evap\_$yy$.nc & mm/(3 hours) &  evaporation rate \\ 
+prcp\_$yy$.nc & mm/(3 hours) &  precipitation rate \\ 
+uq\_$yy$.nc &   m/s     &       surface zonal moisture flux \\ 
+vq\_$yy$.nc &   m/s     &       surface meridional moisture flux \\ *[1ex]
+\multicolumn{3}{c}{Miscellaneous Derived Quantities} \\ 
+\hline
+rho\_$yy$.nc &  kg/m$^3$ &      sea level air density \\ 
+dq\_$yy$.nc &   g/kg    &       sea minus air specific humidity \\ 
+qs\_$yy$.nc &   g/kg    &       sea level specific humidity \\ 
+rh\_$yy$.nc &   \%      &       relative humidity \\ 
+dt\_$yy$.nc &   C       &       sst minus sat \\ 
+ua\_$yy$.nc &   K\, m/s &       atmospheric zonal heat flux \\ 
+va\_$yy$.nc &   K\, m/s &       atmospheric meridional heat flux \\ 
+e\_$yy$.nc &    hPa     &       vapor pressure \\ 
+tv\_$yy$.nc &   C       &       virtual temperature \\ 
+zdl\_$yy$.nc &  ---     &       10~m/Monin Obukhov length \\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table*}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{table*}% latex2html id marker 124
+[p]
+\caption[List of climatological statistics.]{List of climatological
+statistics available in UWM/COADS.  Each file contains 12 monthly
+grids of climatology, standard deviation ($\sigma$), or interannual standard
+deviation ($\sigma_i$).  Standard deviation is not available for quantities
+derived from analyzed fields (short wave radiation, net heat flux,
+buoyancy flux, and E minus P).  Standard deviation and interannual
+standard deviation are not available for the sensitivity parameters
+(ac, achi, and ae). }
+\label{tab:clm}
+\begin{center}
+\begin{tabular}{lllll}
+\hline
+\multicolumn{5}{c}{Directly Observed Quantities} \\ 
+\hline
+\multicolumn{3}{c}{File Name} & & \\ 
+Climatology & \multicolumn{1}{c}{$\sigma$} & \multicolumn{1}{c}{$\sigma_i$}
+& Units & Description \\ 
+\hline
+c\_clm.nc & c\_std.nc & c\_san.nc & \%/100. & fractional cloudiness \\ 
+q\_clm.nc & q\_std.nc & q\_san.nc & g/kg & specific humidity \\ 
+sat\_clm.nc & sat\_std.nc & sat\_san.nc & C & air temperature at
+                                              measurement height \\ 
+slp\_clm.nc & slp\_std.nc & slp\_san.nc & hPa & sea level air pressure \\ 
+sst\_clm.nc & sst\_std.nc & sst\_san.nc & C  & sea surface temperature \\ 
+u3\_clm.nc & u3\_std.nc & u3\_san.nc & m/s      & zonal wind \\ 
+v3\_clm.nc & v3\_std.nc & v3\_san.nc & m/s      & meridional wind \\ 
+w3\_clm.nc & w3\_std.nc & w3\_san.nc & m/s      & wind speed \\ *[1ex]
+\multicolumn{5}{c}{Heat and Momentum Fluxes} \\ 
+\hline
+ac\_clm.nc & & & W/m$^2$ & short wave cloudiness sensitivity parameter \\ 
+achi\_clm.nc & & & W/m$^2$ & long wave Chi sensitivity parameter \\ 
+ae\_clm.nc & & & hPa & long wave vapor pressure sensitivity parameter \\ 
+fv3\_clm.nc & fv3\_std.nc & fv3\_san.nc & m$^3$/s$^3$ & oceanic friction velocity cubed \\ 
+latn\_clm.nc & latn\_std.nc & latn\_san.nc & W/m$^2$ & latent heat flux \\ 
+long\_clm.nc & long\_std.nc & long\_san.nc & W/m$^2$ & net long wave radiation \\ 
+neth\_clm.nc & & neth\_san.nc & W/m$^2$ & constrained net heat flux \\ 
+sens\_clm.nc & sens\_std.nc & sens\_san.nc & W/m$^2$ & sensible heat flux \\ 
+shrt\_clm.nc & & shrt\_san.nc & W/m$^2$ & net short wave radiation \\ 
+taux\_clm.nc & taux\_std.nc & taux\_san.nc & N/m$^2$ & zonal wind stress \\ 
+tauy\_clm.nc & tauy\_std.nc & tauy\_san.nc & N/m$^2$ & meridional stress \\ *[1ex]
+\multicolumn{5}{c}{Fresh Water Fluxes} \\ 
+\hline
+buoy\_clm.nc & & buoy\_san.nc & kg/(ms$^3$) & constrained buoyancy flux \\ 
+emp\_clm.nc & & emp\_san.nc & mm/(3 hours) & constrained evaporation
+minus precipitation \\ 
+evap\_clm.nc & evap\_std.nc & evap\_san.nc & mm/(3 hours) & evaporation rate \\ 
+prcp\_clm.nc & prcp\_std.nc & prcp\_san.nc & mm/(3 hours) & precipitation rate \\ 
+uq\_clm.nc & uq\_std.nc & uq\_san.nc & m/s & surface zonal moisture flux \\ 
+vq\_clm.nc & vq\_std.nc & vq\_san.nc & m/s & surface meridional moisture flux \\ *[1ex]
+\multicolumn{5}{c}{Miscellaneous Derived Quantities} \\ 
+\hline
+rho\_clm.nc & rho\_std.nc & rho\_san.nc & kg/m$^3$ & sea level air density \\ 
+dq\_clm.nc & dq\_std.nc & dq\_san.nc & g/kg & qsea minus qair \\ 
+qsea\_clm.nc & qsea\_std.nc & qsea\_san.nc & g/kg & sea level specific humidity \\ 
+rh\_clm.nc & rh\_std.nc & rh\_san.nc & \% & relative humidity \\ 
+dt\_clm.nc & dt\_std.nc & dt\_san.nc & C & sea minus air temperature \\ 
+ua\_clm.nc & ua\_std.nc & ua\_san.nc & K\, m/s & atmospheric zonal heat flux \\ 
+va\_clm.nc & va\_std.nc & va\_san.nc & K\, m/s & atmospheric meridional
+                                           heat flux \\ 
+vapp\_clm.nc & vapp\_std.nc & vapp\_san.nc & hPa & vapor pressure \\ 
+virt\_clm.nc & virt\_std.nc & virt\_san.nc & C & virtual temperature \\ 
+zdl\_clm.nc & zdl\_std.nc & zdl\_san.nc & --- & 10m/(Monin Obukhov length) \\ 
+\hline
+\end{tabular}
+\end{center}
+
+\end{table*}
+}
+
+
+\stepcounter{section}
+\newpage
+
+{\samepage \clearpage $\times$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\sigma_1, \sigma_5$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\overline{x}$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{table}% latex2html id marker 176
+[htp]
+\caption[Quality control flags in COADS/CMR-5.]{Quality control flags
+in COADS/CMR-5, where $x$ is is an
+individual observation of the variable under scrutiny, $\xbar$ is the
+smoothed median and $\sigma_1$ and $\sigma_5$ are the smoothed lower
+and upper median deviation. See text for details.}
+\label{tab:qc}
+\begin{center}
+\begin{tabular}{ccc}\hline
+Flag  &  Trimming & Trim?\\ 
+Value &  Limits  \\  \hline \hline
+0     & $\overline{x} -2.8 \sigma_1 \le x \le \xbar+2.8 \sigma_5$ &no\\ 
+1     & $\overline{x}-3.5 \sigma_1 \le x < \overline{x} -2.8 \sigma_1$ & if obs. \\ 
+      & or $\xbar+2.8 \sigma_5 < x \le \xbar+3.5 \sigma_5$ & over ice\\ 
+2     & $x < \overline{x} -3.5 \sigma_1$ or $x > \xbar+3.5 \sigma_5$&yes\\  
+-999  & missing & yes\\  \hline
+\end{tabular}
+\end{center}
+\end{table}
+}
+
+
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage $^2$
+}
+
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage \begin{table*}% latex2html id marker 211
+[p]
+\caption[UWM Beaufort scale equivalents]{WMO Code 1100 and UWM Beaufort equivalent scales.}
+\label{tab:codes}
+\begin{center}
+\begin{tabular}{c|ccc|ccc}
+\hline
+\multicolumn{1}{c}{ } &
+ \multicolumn{3}{c}{WMO Code 1100} & \multicolumn{3}{c}{UWM} \\ 
+\multicolumn{1}{c}{Beaufort} &
+ \multicolumn{2}{c}{Interval of equivalent} &
+ \multicolumn{1}{c}{Mean equivalent } &
+ \multicolumn{2}{c}{Interval of equivalent} &
+ \multicolumn{1}{c}{Mean equivalent } \\ 
+\multicolumn{1}{c}{Number} &
+ \multicolumn{2}{c}{wind speed} &
+ \multicolumn{1}{c}{wind speed } &
+ \multicolumn{2}{c}{wind speed} &
+ \multicolumn{1}{c}{wind speed } \\ 
+\multicolumn{1}{c}{ } &
+ \multicolumn{1}{c}{knots} & \multicolumn{1}{c}{m/s} &
+\multicolumn{1}{c}{m/s} &
+ \multicolumn{1}{c}{knots} & \multicolumn{1}{c}{m/s} &
+\multicolumn{1}{c}{m/s} \\ 
+\hline
+0 & $<$ 1    & 0.0 -- 0.2   & 0.0  & 0 -- 2 & 0.0 --1.0 & 0.0 \\ 
+1 & 1 -- 3   & 0.3 -- 1.8   & 0.8  & 3 -- 5 & 1.1 --3.0 & 1.5 \\ 
+2 & 4 -- 6   & 1.9 -- 3.3   & 2.4  & 6 -- 8 & 3.1 --4.5 & 3.4 \\ 
+3 & 7 -- 10  & 3.4 -- 5.4   & 4.3  & 9 -- 13 & 4.6-- 6.7 & 5.4 \\ 
+4 & 11 -- 16 & 5.5 -- 8.5   & 6.7  & 14 -- 18 & 6.8-- 9.7 & 7.7 \\ 
+5 & 17 -- 21 & 8.6 -- 11.0  & 9.4  & 19 -- 23 & 9.8-- 12.0 & 10.4 \\ 
+6 & 22 -- 27 & 11.1 -- 14.1 & 12.3 & 24 -- 28 & 12.1-- 14.9 & 13.0 \\ 
+7 & 28 -- 33 & 14.2 -- 17.2 & 15.5 & 29 -- 34 & 15.0-- 17.7 & 16.0 \\ 
+8 & 34 -- 40 & 17.3 -- 20.8 & 18.9 & 35 -- 40 & 17.8-- 20.9 & 19.0 \\ 
+9 & 41 -- 47 & 20.9 -- 24.4 & 22.6 & 41 -- 46 & 21.0-- 24.1 & 22.4 \\ 
+10 & 44 -- 55 & 24.5 -- 28.6 & 26.4 & 47 -- 54 & 24.2-- 27.8 & 25.7 \\ 
+11 & 56 -- 63 & 28.7 -- 32.7 & 30.5 & 55 -- 60 & 27.9-- 31.4 & 29.3 \\ 
+12 & $\geq$ 64 & $\geq$ 32.8 & 34.9 & $\geq$ 61 & $\geq$ 31.5 & 33.1 \\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table*}
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage \begin{figure}% latex2html id marker 285
+[htp]
+\centerline{
+\epsfxsize=3.0in
+\epsfbox[20 25 550 555]{ps/bars.ps} }
+\caption[Five Beaufort equivalent scales]{The old WMO Beaufort scale 
+(Code 1100) and four alternative
+scientific Beaufort scales: CMM-IV (WMO 1970), Cardone (1969), Kaufeld
+(1981), and the UWM Beaufort climatological scale.}
+\label{fig:bars}
+\end{figure}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}\sigma &=& \[ {1\over N} \sum_i \( {\oW_e}_i - {\oW_m}_i \)
+^2\]^{1/2}\label{eq:std}\\ 
+{\mbox{\small bias}} &=& {1\over N} \sum_i \({\oW_e}_i - {\oW_m}_i\)\\ 
+{\mbox{\small scatter}} &=& \[ {1\over N} \sum_i \( {\oW_e}_i - {\oW_m}_i 
+- b \) ^2\]^{1/2} \label{eq:scatter}
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage ${\oW_e}_i/{\oW_m}_i$
+}
+
+
+\newpage
+
+{\samepage \clearpage $i$
+}
+
+
+\newpage
+
+{\samepage \clearpage $N$
+}
+
+
+\newpage
+
+{\samepage \clearpage $b$
+}
+
+
+\newpage
+
+{\samepage \clearpage $W_e$
+}
+
+
+\newpage
+
+{\samepage \clearpage $W_m$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{figure*}% latex2html id marker 313
+[tp]
+\centerline{
+\epsfxsize=6.5in
+\epsfbox[25 25 550 555]{ps/ws4.ps} }
+\caption[Performance of four Beaufort equivalent scales in the northern
+hemisphere]{Analyzed estimated versus measured winds (annual mean,
+northern hemisphere, 1970--89) with estimated winds based on several Beaufort
+equivalent scales: a) old WMO (Code 1100), b) CMM-IV (WMO 1970), c)
+Kaufeld (1981), d) Cardone (1969).  Each point in the diagram
+corresponds to measured/estimated winds on a grid point over the
+northern hemisphere oceans ($1^\circ \times 1^\circ$).  See text for scatter, standard
+deviation ($\sigma$) and bias definitions.}
+\label{fig:ws4}
+\end{figure*}
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage $ \overline{P} = \overline{W^2} = \overline{W}^2 + \overline{{W'}^2}
+$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}W_{new} = x_1 W_{old} + x_2 
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $W_{new}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $W_{old}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $x_1$
+}
+
+
+\newpage
+
+{\samepage \clearpage $x_2$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\overline{P}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\oW_e = \oW_m$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\overline{{W_e'}^2} = \overline{{W_m'}^2}$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}W_{new} = x_1 W_{old} + x_2 \sqrt{W_{old}} \, .
+\label{eq:corr}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{figure*}% latex2html id marker 346
+[tp]
+\centerline{
+\epsfxsize=6.5in
+\epsfbox[20 100 510 585]{ps/ws9.ps} }
+\caption[Performance of three COADS-based Beaufort equivalent scales
+on annual, January, and July data]{Analyzed estimated versus measured
+winds (northern
+hemisphere, 1970--89) with estimated winds based on several versions of our new
+Beaufort scale: a) the scale is developed based on annual mean data
+and used for annual mean estimated winds; b) as in a) but the scale is
+used on January mean data; c) as in a) but the scale is used on July
+mean data; d) the scale is developed based on January mean data
+and used for annual mean estimated winds; e) as in d) but the scale is
+used on January mean data; f) as in d) but the scale is used on July
+mean data; g) the scale is developed based on July mean data
+and used for annual mean estimated winds; h) as in g) but the scale is
+used on January mean data; and i) as in g) but the scale is used on July
+mean data.  See text for scatter, standard deviation ($\sigma$) and
+bias definitions.}
+\label{fig:ws9}
+\end{figure*}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}W_{new} = 0.7870 \, W_{old} + 0.9547 \sqrt{W_{old}} \, .
+\label{eq:jan}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $W^{1/2}_{old}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\overline{\sqrt{W}}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\sqrt{\overline{W}}$
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage \begin{table*}% latex2html id marker 373
+[htp]
+\caption[UWM Beaufort climatological scale performance]{Performance of the
+UWM Beaufort climatological scale (base
+month: January) applied to data from several months.  Standard deviation ($\sigma$), bias, and
+scatter are defined in section~\ref{sec:assess}, eqs. (\ref{eq:std})--(\ref{eq:scatter}). }
+\label{tab:wmonths}
+\begin{center}
+\begin{tabular}{lrrrrr}
+\hline
+month & slope & intercept & $\sigma$ & bias & scatter \\ 
+\hline
+January & 0.99 & 0.07 & 0.35 & -0.00 & 0.35 \\ 
+April & 1.03 & -0.21 & 0.34 & 0.01 & 0.34 \\ 
+July & 0.95 & 0.34 & 0.36 & -0.01 & 0.36 \\ 
+October & 1.02 & -0.20 & 0.40 & 0.04 & 0.40 \\ 
+Annual & 1.03 & -0.24 & 0.18 & 0.01 & 0.18 \\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table*}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{figure}% latex2html id marker 388
+[htp]
+\centerline{
+\epsfxsize=3.0in
+\epsfbox[20 25 370 370]{ps/owsp.ps} }
+\caption[Performance of UWM Beaufort climatological scale near OWS
+P]{Estimated vs.\ measured winds for a 5° \ box around
+Ocean Weather Station Papa. Each dot corresponds to a monthly mean in
+the period 1970-89 in which more than 30 observations of each type
+were made inside the box. Estimated winds were corrected with the UWM
+Beaufort climatological scale.}
+\label{fig:owsp}
+\end{figure}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{table*}% latex2html id marker 393
+[p]
+\caption[Interannual performance of the UWM scale.]{Interannual 
+performance of the UWM scale near Ocean Weather
+Stations. Data are unanalyzed monthly means for $5^\circ\times5^\circ$ boxes
+around Ocean Weather Stations.  Estimated/measured pairs are
+included only if more than 30 estimated and 30 measured wind
+observations occur during that month.  The 
+period covered is 1970--89 with the maximum number of pairs being
+240.  Standard deviation ($\sigma$), bias, and
+scatter are defined in section~\ref{sec:assess}, eqs. (\ref{eq:std})--(\ref{eq:scatter}).}
+\label{tab:OWS}
+\begin{center}
+\begin{tabular}{cccrrrrr}
+\hline
+Nearby OWS & $5^\circ\times5^\circ$ box center & No. pairs
+& slope & intercept & $\sigma$ & bias & scatter \\ 
+\hline
+A & 62.5° N 32.5° W  & 98  & 0.70 & 2.64 & 1.47 & 0.07 & 1.47 \\ 
+B & 56.5° N 50.5° W  & 36  & 1.09 & -1.20 & 1.48 & 0.34 & 1.44 \\ 
+C & 52.5° N 35.5° W  & 170 & 0.79 & 2.10 & 1.18 & 0.03 & 1.18 \\ 
+D & 44.5° N 40.5° W  & 199 & 0.92 & 0.84 & 0.96 & -0.04 & 0.96 \\ 
+E & 35.5° N 47.5° W  & 213 & 0.91 & 0.50 & 0.93 & 0.26 & 0.89 \\ 
+I & 59.5° N 18.5° W  & 133 & 0.92 & 0.82 & 1.32 & -0.06 & 1.32 \\ 
+J & 52.5° N 19.5° W  & 155 & 0.93 & 0.60 & 1.03 & 0.12 & 1.02 \\ 
+K & 45.5° N 15.5° W  & 215 & 0.94 & 0.57 & 0.73 & -0.02 & 0.73 \\ 
+L & 57.5° N 19.5° W  & 224 & 0.89 & 0.94 & 1.17 & 0.18 & 1.15 \\ 
+M & 66.5° N 2.5° E   & 95  & 0.93 & 0.62 & 1.26 & 0.05 & 1.26 \\ 
+N & 30.5° N 139.5° W & 235 & 0.98 & -0.14 & 0.83 & 0.29 & 0.78 \\ 
+P & 50.5° N 144.5° W & 227 & 0.83 & 1.72 & 0.88 & -0.03 & 0.88 \\ 
+R & 47.5° N 16.5° W  & 214 & 0.95 & 0.54 & 0.82 & -0.04 & 0.82 \\ 
+T & 29.5° N 135.5° E & 223 & 0.79 & 1.29 & 1.03 & 0.39 & 0.95 \\ 
+V & 34.5° N 164.5° E & 180 & 0.95 & 0.58 & 1.10 & -0.06 & 1.10 \\ 
+X & 39.5° N 153.5° E & 206 & 0.82 & 1.80 & 0.96 & -0.10 & 0.95 \\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table*}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{figure*}% latex2html id marker 405
+[tp]
+\centerline{
+\epsfxsize=6.5in
+\epsfbox[70 270 550 565]{ps/wemgloa.ps} }
+\centerline{
+\epsfxsize=6.5in
+\epsfbox[70 270 550 565]{ps/wemglob.ps} }
+\caption[Measured versus estimated global wind speeds]{Analyzed annual
+a) estimated and b) measured winds over the
+global oceans (1970--89).  Our new Beaufort equivalent scale has been used to
+produce the estimated winds in a).  Contour interval: 1~m/s.}
+\label{fig:wemglo}
+\end{figure*}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{figure}% latex2html id marker 412
+[tp]
+\centerline{
+\epsfxsize=3.0in
+\epsfbox[20 25 442 442]{ps/ptaua.ps} }
+\centerline{
+\epsfxsize=3.0in
+\epsfbox[20 25 442 442]{ps/ptaub.ps} }
+\caption[Performance of UWM Beaufort climatological scale on
+pseudo stress]{Analyzed estimated vs.\ measured pseudo stress climatology
+for a) January and b) July in the northern hemisphere (1970-89).
+Estimated winds used to calculate pseudo stress ($W^2$) were corrected
+using the UWM Beaufort climatological scale.  Each dot corresponds to
+measured/estimated pseudo stress on a grid point over the northern
+hemisphere oceans ($1^\circ \times 1^\circ$).  Points more than 3.5 standard deviations from
+the mean were trimmed from these figures.  Of these trimmed
+points (37 points in January, 67 points in July), the majority
+represent coastal locations where smoothing is not effected. See text for
+scatter, standard deviation ($\sigma$) and bias definitions.}
+\label{fig:ptau}
+\end{figure}
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage $\sim$
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage $$ 
+W_{new} = 0.7870 W_{old} + 0.9547 \sqrt{W_{old}} 
+$$
+}
+
+
+\newpage
+
+{\samepage \clearpage $W_{old}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $W_{new}$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{figure*}% latex2html id marker 434
+[tp]
+\centerline{
+\epsfysize2.0in
+\epsfbox[70 300 550 520]{ps/wstda.ps} }
+\centerline{
+\epsfysize2.0in
+\epsfbox[70 300 550 520]{ps/wstdb.ps} }
+\centerline{
+\epsfysize2.0in
+\epsfbox[70 300 550 520]{ps/wstdc.ps} }
+\centerline{
+\epsfysize2.0in
+\epsfbox[70 300 550 520]{ps/wstdd.ps} }
+\caption[Corrected wind speed and wind speed $\sigma$]{January mean
+wind speed and standard deviation (1945--89)
+over the ocean, including both measured and estimated winds: a)
+corrected wind speed (contour interval: 1~m/s), b) difference between
+corrected and reported wind speeds in COADS (contour interval:
+0.1~m/s), c) corrected standard deviation (contour interval: 0.5~m/s),
+and d) standard deviation difference (contour interval: 0.1~m/s).}
+\label{fig:wstd}
+\end{figure*}
+}
+
+
+\stepcounter{section}
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage \begin{equation}W_{\mbox{\small new}} = 0.7870\, W_{\mbox{\small old}} + 0.9547 \sqrt{W_{\mbox{\small old}}} \nonumber
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $W_{\mbox{\small old}}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $W_{\mbox{\small new}}$
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage \begin{equation}a_s \geq -8^\circ
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}P_m\, \sin a_m \geq 0.2
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $a_s$
+}
+
+
+\newpage
+
+{\samepage \clearpage $a_m$
+}
+
+
+\newpage
+
+{\samepage \clearpage $P_m$
+}
+
+
+\stepcounter{subsection}
+\stepcounter{section}
+\newpage
+
+{\samepage \clearpage \begin{tabular}{p{0.5in}p{2.6in}}
+$A_a$ & water vapor and $O_3$ coefficient (unitless)\\ 
+$B$ & buoyancy flux (kg m$^{-1}$s$^{-3}$)\\ 
+$c$ & fractional cloud cover (unitless)\\ 
+$c_{p}^{{\mbox{\small air}}}$ & specific heat of air constant (J K$^{-1}$kg$^{-1}$)\\ 
+$c_{p}^{w}$ & specific heat of water as a function of 
+              temperature and salinity (J K$^{-1}$kg$^{-1}$)\\ 
+$C_D$ & drag coefficient (unitless)\\ 
+$C_E$ & Dalton number (unitless)\\ 
+$C_T$ & Stanton number (unitless)
+\end{tabular}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{tabular}{p{0.5in}p{2.6in}}
+$e$ & atmospheric vapor pressure (mb or Pa)\\ 
+$E$ & evaporation rate (m s$^{-1}$ or mm/(3hr))\\ 
+$F_S$ & flux of salt at ocean's surface (p.s.u. m s$^{-1}$)\\ 
+$F_T$ & normalized net heat flux (K m s$^{-1}$)\\ 
+$g$ & acceleration due to gravity (m s$^{-2}$)
+
+\end{tabular}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{tabular}{p{0.5in}p{2.6in}}
+$L_E$ & latent heat of evaporation (J kg$^{-1}$), $L_E(T_a) = (
+2494- 2.2 * T_a ) * 1000$, $T_a$ in Celsius. \\ 
+$p$ & sea level pressure (mb or Pa)\\ 
+$P$ & precipitation rate (m s$^{-1}$ or mm/(3hr))\\ 
+$q$ & specific humidity (g kg$^{-1}$)\\ 
+$q_s$ & saturation specific humidity at the surface (g kg$^{-1}$),
+$q_s = 0.98q_{satur}(T_s)$ \\ 
+$Q_0$ & incident radiation at the top of the atmosphere (W m$^{-2}$)\\ 
+$Q_{{\mbox{\small net}}}$ & net heat flux (W m$^{-2}$)\\ 
+$Q_L$ & latent heat flux (W m$^{-2}$)\\ 
+$Q_S$ & sensible heat flux (W m$^{-2}$)
+\end{tabular}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{tabular}{p{0.5in}p{2.6in}}
+$R$ & gas constant for dry air (J K$^{-1}$kg$^{-1}$)\\ 
+$R_{{\mbox{\small clear}}}$ & incident short wave radiation under clear 
+skies (W m$^{-2}$)\\ 
+$R_{{\mbox{\small diff}}}$ & diffuse component of short wave radiation (W m$^{-2}$)\\ 
+$R_{{\mbox{\small dir}}}$ & direct component of short wave radiation (W m$^{-2}$)\\ 
+$R_L$ & long wave radiation (W m$^{-2}$)\\ 
+$R_S$ & short wave radiation (W m$^{-2}$)\\ 
+$S$ & salinity (p.s.u.$\equiv$parts per thousand)\\ 
+$T_a$ & surface air temperature (°~C or K)\\ 
+$T_s$ & sea surface temperature (°~C or K)
+\end{tabular}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{tabular}{p{0.5in}p{2.6in}}
+$u$ & zonal wind (m s$^{-1}$)\\ 
+$u_{*w}$ & oceanic friction velocity (m s$^{-1}$)\\ 
+$v$ & meridional wind (m s$^{-1}$)\\ 
+$W$ & wind speed, $W = \sqrt{u^2+v^2}$ (m s$^{-1}$)\\ 
+$z$ & zenith angle (degrees)
+\end{tabular}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{tabular}{p{0.5in}p{2.6in}}
+$\alpha$ & ocean surface albedo (unitless)\\ 
+$\alpha'$ & thermal expansion coefficient of sea water (K$^{-1}$)\\ 
+$\beta$ & solar noon altitude (degrees) \\ 
+$\beta'$ & haline coefficient of sea water (p.s.u.$^{-1}$)\\ 
+$\epsilon$ & emissivity of the ocean (0.97) (unitless)
+\end{tabular}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{tabular}% latex2html id marker 536
+{p{0.5in}p{2.6in}}
+$\theta$ & potential temperature ($\theta \approx T + \gamma z$,
+$\gamma = 0.01^\circ$K/m) (K)\\ 
+$\rho$ & air density (kg m$^{-3}$)\\ 
+$\rho_{0}$ & fresh water density as a function of temperature (kg m$^{-3}$)\\ 
+$\rho_w$ & water density as a function of temperature and salinity (kg m$^{-3}$)\\ 
+$\sigma$ & Stefan-Boltzmann constant (W m$^{-2}$K$^{-4}$)\\ 
+$\tau$ & wind stress (N m$^{-2}$)\\ 
+$\tau_a$ & atmospheric transmission coefficient (unitless)\\ 
+$\chi$ & cloud cover coefficient (unitless)
+\end{tabular}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\partial Q/ \partial T_s$
+}
+
+
+\newpage
+
+{\samepage \clearpage $T_s^{obs}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $T_s^{obs}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $T_s^{obs} + 0.01$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}{ \partial Q\over \partial T_s} \approx {\Delta Q \over \Delta T_s }=  \frac{Q(T_s+0.01) 
+                - Q(T_s)}{0.01}\\ 
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $Q$
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}\tau_x &=& \rho C_D W u \\ 
+        \tau_y &=& \rho C_D W v \, .
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}\rho = {p \over R T_a ( 1 + 0.61 q )} \, .
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $C_D = f(Z/L) C_{DN}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $C_{DN}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $f(Z/L)$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray*}C_{DN} &=& \left \{ \begin{array}{l}
+2.18 \times 10^{-3} \mbox{ for } W \leq 1 \mbox{m/s}\\ 
+( 0.62 + 1.56/W ) \times 10^{-3} \mbox{ for } 1 < W < 3
+\mbox{m/s}\\ 
+1.14 \times 10^{-3} \mbox{ for } 3 \leq W < 10 \mbox{m/s} \\ 
+(0.49 + 0.065 W ) \times 10^{-3} \mbox{ for } W \geq 10 \mbox{m/s.}
+\end{array} \right .
+\end{eqnarray*}
+}
+
+
+\newpage
+
+{\samepage \clearpage $C_D$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}C_D = C_D ( W, T_a, \Delta T, \Delta q ) 
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}\Delta T & = & T_s - T_a \\ 
+\Delta q & = & q_s - q \, .
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage $u$
+}
+
+
+\newpage
+
+{\samepage \clearpage $v$
+}
+
+
+\newpage
+
+{\samepage \clearpage $p$
+}
+
+
+\newpage
+
+{\samepage \clearpage $T_a$
+}
+
+
+\newpage
+
+{\samepage \clearpage $T_s$
+}
+
+
+\newpage
+
+{\samepage \clearpage $q$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\pm$
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage \begin{equation}(u_{*w})^3 = (\tau / \rho_w)^{3/2}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\tau$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\rho_w$
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}% latex2html id marker 593
+E & = & \frac{\rho}{\rho_0} C_E W \Delta q \\ 
+Q_S & = & \rho c^{{\mbox{\small air}}}_{p} C_T W \Delta \theta \\ 
+Q_L & = & \rho L_E C_E W \Delta q
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\Delta q$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}% latex2html id marker 599
+\Delta \theta & = & \theta_s - \theta_a \, .
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage $C_T$
+}
+
+
+\newpage
+
+{\samepage \clearpage $C_E$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}C_T & = & C_T ( W, T_a, \Delta T, \Delta q ) \\ 
+C_E & = & C_E ( W, T_a, \Delta T, \Delta q ) \, .
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}C_{TN} & = & \left \{ \begin{array}{ll}
+1.2  \times 10^{-3} & \quad \mbox{(stable)}\\ 
+0.75 \times 10^{-3} & \quad \mbox{(unstable)}\\  
+\end{array} 
+\right . \\ 
+C_{EN} & = & 1.2 \times 10^{-3} \, .
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage $W$
+}
+
+
+\newpage
+
+{\samepage \clearpage % latex2html id marker 3245
+$\Delta \theta$
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage $x$
+}
+
+
+\newpage
+
+{\samepage \clearpage $y$
+}
+
+
+\newpage
+
+{\samepage \clearpage $z$
+}
+
+
+\newpage
+
+{\samepage \clearpage $x = 1.85$
+}
+
+
+\newpage
+
+{\samepage \clearpage $y = 5.66$
+}
+
+
+\newpage
+
+{\samepage \clearpage $z = 8.13$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{table*}% latex2html id marker 619
+[tp]
+\caption[Tucker's (1961) precipitation rates]{Precipitation rate in
+terms of $x$, $y$, and $z$ for Present
+Weather codes 50 through 99 (from Tucker 1961): $x = 1.85$~mm/(3 hours), $y
+= 5.66$~mm/(3 hours), and $z = 8.13$~mm/(3 hours).}
+\label{tab:tucker}
+\begin{center}
+{\small
+\begin{tabular}{c|cccccccccc} 
+\hline
+PW & 0 & 1 & 2 & 3  & 4 & 5 & 6 & 7 & 8 & 9 \\  \hline
+50 & $0$ & $x/2$ & $x/2$ & $x$ & $y$ & $2y$ &
+$x/2$ & $y/2$ & $x/2$ & $y/2$ \\ 
+60 & $x/2$ & $x$ & $y/2$ & $y$ & $z/2$ & $z$ &
+$x$ & $(y+z)/2$ & $x$ & $(y+z)/2$ \\ 
+70 & $x/2$ & $x$ & $y/2$ & $y$ & $z/2$ & $z$ &
+$0$ & $0$ & $0$ & $0$ \\ 
+80 & $x/2$ & $y/2$ & $z/2$ & $x/2$ & $(y+z)/4$ & $x/2$
+& $(y+z)/4$ & $x/2$ & $(y+z)/2$ & $x/2$ \\ 
+90 & $(y+z)/2$ & $x$ & $(y+z)/2$ & $x$ &
+$(y+z)/2$ & $(x+y)/2$ & $(x+y)/2$ & $z$  & $0$
+& $z$ \\  \hline
+\end{tabular}
+}
+\end{center}
+\end{table*}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}P_{{\mbox{\small corrected}}} = P_{{\mbox{\small Tucker}}} ( a + bT_a + cT_a^2 ) \, .
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $a$
+}
+
+
+\newpage
+
+{\samepage \clearpage $c$
+}
+
+
+\newpage
+
+{\samepage \clearpage $P$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{table}% latex2html id marker 633
+[p]
+\caption[Correction coefficients for precipitation]{Monthly air
+temperature correction coefficients (from Dorman and
+Bourke 1978). Temperature should be given in Celsius.}
+\label{tab:dandb}
+\begin{center}
+\begin{tabular}{c|ccc} \hline
+    & $a$   & $b$     & $c$ \\  \hline
+Jan & 0.973 & 0.0469  & 0.00382 \\ 
+Feb & 0.941 & 0.0412  & 0.00207 \\ 
+Mar & 0.804 & 0.0404  & 0.000129 \\ 
+Apr & 0.720 & 0.0603  & 0.000042 \\ 
+May & 0.489 & 0.0678  & 0.000012 \\ 
+Jun & 0.726 & -0.1030 & 0.008885 \\ 
+Jul & 1.734 & -0.2362 & 0.011943 \\ 
+Aug & 1.115 & -0.1217 & 0.008146 \\ 
+Sep & 0.548 & 0.0060  & 0.005140 \\ 
+Oct & 0.671 & 0.0421  & 0.002934 \\ 
+Nov & 0.896 & 0.0701  & 0.001350 \\ 
+Dec & 0.985 & 0.0662  & 0.001148 \\  \hline
+\end{tabular}
+\end{center}
+\end{table}
+}
+
+
+\newpage
+
+{\samepage \clearpage $P_{{\mbox{\small Tucker}}}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $( a + bT_a + cT_a^2 )$
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage \begin{equation}R_S = R_{{\mbox{\small clear}}}\( 1 - 0.62c + 0.0019\beta \)\(1-\alpha\) \, .
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $R_{{\mbox{\small clear}}}$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}R_{{\mbox{\small clear}}} = R_{{\mbox{\small dir}}} + R_{{\mbox{\small diff}}} \, .
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}R_{{\mbox{\small dir}}} = Q_0 \tau_a^{\sec z}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\tau_a = 0.7$
+}
+
+
+\newpage
+
+{\samepage \clearpage $Q_0$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}R_{{\mbox{\small diff}}} = [(1-A_a) Q_0 - R_{{\mbox{\small dir}}}]/2
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $A_a = 0.09$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\beta$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\alpha$
+}
+
+
+\newpage
+
+{\samepage \clearpage $R_S$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}R_L & = & \epsilon \sigma T_s^4 \( 0.39 - 0.05 \sqrt{e} \) 
+\( 1 - \chi c^2 \)  \nonumber \\ 
+& & + 4 \epsilon \sigma T_s^3 \( T_s - T_a \) \, .
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\chi$
+}
+
+
+\newpage
+
+{\samepage \clearpage $T_s-T_a$
+}
+
+
+\newpage
+
+{\samepage \clearpage $T_s^3$
+}
+
+
+\newpage
+
+{\samepage \clearpage $T_a^3$
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage \begin{equation}\label{eq:buoy}
+B = g \rho_w \( \alpha' F_T + \beta' F_S \)
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\alpha'$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\beta'$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}\alpha' & = & - \frac{1}{\rho_w} \frac{\partial \rho_w}{\partial T_s}\\ 
+\beta' & = & \frac{1}{\rho_w} \frac{\partial\rho_w}{\partial S} \, .
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage $F_T = -Q_{{\mbox{\small net}}} / \rho_w c_p^w$
+}
+
+
+\newpage
+
+{\samepage \clearpage $Q_{{\mbox{\small net}}}$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}Q_{{\mbox{\small net}}} = R_S - Q_L - Q_S - R_L \, .
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}F_S = S \frac{E - P}{1 - \frac{S}{1000}} \, .
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $Q_{{\mbox{\small net}}}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $S$
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage $uT_a$
+}
+
+
+\newpage
+
+{\samepage \clearpage $vT_a$
+}
+
+
+\newpage
+
+{\samepage \clearpage $uq$
+}
+
+
+\newpage
+
+{\samepage \clearpage $vq$
+}
+
+
+\newpage
+
+{\samepage \clearpage $ua$
+}
+
+
+\newpage
+
+{\samepage \clearpage $va$
+}
+
+
+\stepcounter{section}
+\newpage
+
+{\samepage \clearpage \begin{table}% latex2html id marker 734
+[htp]
+\caption[Objective analysis response function]{Response function for
+objective analysis with and without
+linear Shapiro filter. }
+\label{tab:response}
+\begin{center}
+\begin{tabular}{cccc}\hline
+wavelength & no filter & \multicolumn{2}{c}{with filter} \\ 
+(km) & 4 passes & 4 passes & 2 passes \\ 
+\hline
+3300    & 1.00  & 1.01 & 0.90 \\ 
+2640    & 0.99  & 1.00 & 0.77 \\ 
+2200    & 0.97  & 0.98 & 0.65 \\ 
+1980    & 0.95  & 0.95 & 0.56 \\ 
+1650    & 0.87  & 0.88 & 0.36 \\ 
+1320    & 0.70  & 0.69 & 0.14 \\ 
+1100    & 0.49  & 0.49 & 0.07 \\ 
+ 990    & 0.37  & 0.36 & 0.04 \\ 
+ 880    & 0.23  & 0.22 & 0.01 \\ 
+ 660    & 0.05  & 0.05 & 0.01 \\ 
+ 550    & 0.02  & 0.02 & 0.01 \\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+}
+
+
+\newpage
+
+{\samepage \clearpage $F$
+}
+
+
+\newpage
+
+{\samepage \clearpage $O$
+}
+
+
+\newpage
+
+{\samepage \clearpage $$Q_{ij} = O_{ij} - F_{ij},$$
+}
+
+
+\newpage
+
+{\samepage \clearpage $i,j$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}C_{ij} = \frac{ \sum_{s=1}^n W_s Q_{i_s,j_s }}{ \sum_{s=1}^n W_s }
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $W_s$
+}
+
+
+\newpage
+
+{\samepage \clearpage $W_s = \exp (-4 r^2 R^{-2})$
+}
+
+
+\newpage
+
+{\samepage \clearpage $r \leq {\cal R}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $r$
+}
+
+
+\newpage
+
+{\samepage \clearpage $s$
+}
+
+
+\newpage
+
+{\samepage \clearpage $(i_s,j_s)$
+}
+
+
+\newpage
+
+{\samepage \clearpage $(i,j)$
+}
+
+
+\newpage
+
+{\samepage \clearpage ${\cal R}$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}F_{ij} := F_{ij} + C_{ij} \, .
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $F_{ij}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $R$
+}
+
+
+\newpage
+
+{\samepage \clearpage $S_{ij}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $G$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray*}S_{ij} &=& G_{ij} + \frac{\alpha}{4} ( G_{i-1,j} + G_{i+1,j} \\ 
+           &+& G_{i,j-1} + G_{i,j+1} - 4 G_{ij} )
+\end{eqnarray*}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\alpha = 0.5$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\alpha = -0.5$
+}
+
+
+\stepcounter{section}
+\newpage
+
+{\samepage \clearpage \begin{equation}{ \partial H\over \partial t} + \nabla \cdot {\cal H} = Q_{net}
+\label{eq:heat_balance}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}H & = & \mbox{oceanic heat content}\\ 
+    {\cal H} & = & \mbox{vertically integrated oceanic heat transport} 
+              \nonumber \\ 
+        & = & (\cH_x,\cH_y) \\ 
+Q_{net} & = & \mbox{net heat flux at the surface} \nonumber \\ 
+        & = & R_{S} - \( R_{L} + Q_{L} + Q_{S} \) \, .
+\label{eq:qnet}
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage ${\partial H / \partial t}$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}\nabla \cdot \overline{ {\cal H} } = {\overline{Q_{net}}}
+\label{eq:heat_bal}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}\int\!\int_{Globe} {\overline{Q_{net}}}\, \, dx\, dy = 0 \, .
+\label{eq:qnet_consist}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $Q_{net}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\times 10^{15}$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{figure*}% latex2html id marker 790
+[tp]
+\centerline{
+\epsfxsize=6.5in
+\epsfbox[60 260 565 565]{ps/unnhf.ps} }
+\caption[Unconstrained net heat flux]{Unconstrained annual mean 
+net heat flux over the global ocean (contour interval: 20.\ W/m$^2$).
+Shaded (negative) values denote outgoing heat flux.}
+\label{fig:unnhf}
+\end{figure*}
+}
+
+
+\newpage
+
+{\samepage \clearpage $Q_{net}$
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage \begin{equation}{\cal H}_y(y) = {\cal H}_y(y_N) + \int_y^{y_N} dy \int Q_{net} \, dx
+\label{eq:mht}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $y_N$
+}
+
+
+\newpage
+
+{\samepage \clearpage ${\cal H}_y(y_N)$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\cHy$
+}
+
+
+\newpage
+
+{\samepage \clearpage $m$
+}
+
+
+\newpage
+
+{\samepage \clearpage ${\bf p} = (p_1,...,p_m)$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}{\cal H}_y \equiv {\cal H}_y(y,{\bf p}) \, .
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\bp^*$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\delta \bp$
+}
+
+
+\newpage
+
+{\samepage \clearpage ${\cal H}_y(\bp^*+\delta {\bf p})$
+}
+
+
+\newpage
+
+{\samepage \clearpage $n$
+}
+
+
+\newpage
+
+{\samepage \clearpage $ \hat{{\cal H}}_y(y_j)$
+}
+
+
+\newpage
+
+{\samepage \clearpage $j=1,...,n$
+}
+
+
+\newpage
+
+{\samepage \clearpage $m>n$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\dbp$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}{\cal H}_y(y_j, \bp^* + {\delta {\bf p}}) \approx {\cal H}_y(y_j,\bp^*) + \sum_{i=1}^m
+A_{ji} \delta p_i, \quad j = 1,...,n
+\label{eq:linear_mht}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $A_{ji}$
+}
+
+
+\newpage
+
+{\samepage \clearpage ${\bf A}\in\Re^{n\times m}$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}A_{ji} = \left . { \partial {\cal H}_y\over \partial p^*_i} \right
+|_{y=y_j,{\bf p}=\bp^*} \, .
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}J({\bf p}) =  ({\bf p}-\bp^*)^T \bE^{-1} ({\bf p}-\bp^*) + \bd^T \bR^{-1} {\bf d}
+\label{eq:func1}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $(\ )^T$
+}
+
+
+\newpage
+
+{\samepage \clearpage ${\bf d}\in \Re^n$
+}
+
+
+\newpage
+
+{\samepage \clearpage ${\bf p}=\bp^*+\dbp$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}d_j=  \hat{{\cal H}}_y(y_j) - {\cal H}_y(y_j,{\bf p}), \qquad j=1,...,n \, .
+\label{eq:nl_imbalance}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\bp$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\cHd$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}J({\delta {\bf p}}) = \dbp^T \bE^{-1}{\delta {\bf p}} 
+        + \( {\bf A}\,{\delta {\bf p}} - \bd^*\)^T \bR^{-1} \({\bf A}\,{\delta {\bf p}} -\bd^*\)
+\label{eq:func}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $d_j^* =  \hat{{\cal H}}_y(y_j) - {\cal H}_y(y_j,\bp^*)$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\nabla_{{\delta {\bf p}}} J=0$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}\bE^{-1} \, {\delta {\bf p}} + \bA^T \bR^{-1} \({\bf A}\,{\delta {\bf p}} -\bd^*\) = 0
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}{\delta {\bf p}} = \( \bE^{-1} + \bA^T\bR^{-1}{\bf A}\)^{-1} \bA^T \bR^{-1} \bd^* \, .
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}\( \bE^{-1} + \bA^T\bR^{-1}{\bf A}\)^{-1} \bA^T \bR^{-1} \equiv
+{\bf E} \bA^T \( {\bf A} {\bf E} \bA^T + {\bf R} \)^{-1}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}\fbox{\ ${\delta {\bf p}} = {\bf E} \bA^T \( {\bf A} {\bf E} \bA^T + {\bf R} \)^{-1} \bd^*$\ } \, .
+\label{eq:multiple}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage ${\delta {\bf p}} = {\bf E} \bA^T
+\( {\bf A} {\bf E} \bA^T + \bR^{-1} \)^{-1} \bd^* $
+}
+
+
+\newpage
+
+{\samepage \clearpage $m=1$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}\delta p_i = {e_i^2 A_i \over \sigma_*^2 + r^2} \(  \hat{{\cal H}}_y(y) -
+{\cal H}_y(y,\bp^*) \) \label{eq:single}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\sigma_*^2 \equiv \sum_{i=1}^m e_i^2 A^2_i$
+}
+
+
+\newpage
+
+{\samepage \clearpage $j$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\delta p_i$
+}
+
+
+\newpage
+
+{\samepage \clearpage $e_i$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}|\delta p_i| < e_i \label{eq:error_cond} \, .
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\chi^2$
+}
+
+
+\newpage
+
+{\samepage \clearpage $e_i^2$
+}
+
+
+\newpage
+
+{\samepage \clearpage ${\bf E} =
+\mathop{\rm diag}(e_1^2,...,e^2_m)$
+}
+
+
+\newpage
+
+{\samepage \clearpage ${\bf R} = \mathop{\rm diag}
+(r_1^2,...,r^2_n)$
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage $p_{Tr}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $p_{c}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $p_e$
+}
+
+
+\newpage
+
+{\samepage \clearpage $p_\chi$
+}
+
+
+\newpage
+
+{\samepage \clearpage $p_L$
+}
+
+
+\newpage
+
+{\samepage \clearpage $p_S$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}% latex2html id marker 864
+R_{S} &=& p_{Tr} R_{\mbox{clear}}\nonumber \\ 
+& & \times\, \( 1 - p_c 0.62c + 0.0019\beta \)\(1-\alpha\)
+\label{eq:sw_tune}\\ 
+R_{L} &=& \epsilon \sigma T_s^4 p_e \( 0.39 - 0.05 \sqrt{e} \) 
+\( 1 - p_\chi \chi c^2 \) \nonumber \\ 
+& & +\, 4 \epsilon \sigma T_s^3 \( T_s - T_a \)
+\label{eq:lw_tune}\\ 
+Q_{L} & = & p_L \rho L_E C_E W ( q_s - q )
+\label{eq:lat_tune}\\ 
+Q_{S} & = & p_S \rho c_p C_T W ( \theta_s - \theta ) 
+\label{eq:sens_tune}\, .
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage $p_{Tr}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $p_c$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\bE$
+}
+
+
+\newpage
+
+{\samepage \clearpage $p^*_i=1 \, \forall \, i$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\delta p_i <
+1$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}e_{Tr} = e_{c} = e_e = e_\chi &=& 10\% \label{eq:hf_errors1}\\  
+e_L = e_S &=& 20\%  \, . \label{hf_errors2}
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{table*}% latex2html id marker 891
+[tp]
+\caption[Parameters from the single-constraint adjustment of 
+heat fluxes.]{Parameters from the single-constraint tuning of
+heat fluxes. The meridional heat transport at 65°~N has been
+specified as 0.1~PW in the North Atlantic and 0~PW in the North
+Pacific (Aagaard and Greismann 1975). See text for details.}
+\label{tab:chf}
+\begin{center}
+\begin{tabular}{l|rrrrrr|l}\hline
+\mcol{1}{c}{Imposed} & \mcol{6}{c}{Tuning Parameters} & \mcol{1}{c}{Resulting} \\ 
+\mcol{1}{c}{Constraint} & $p_{Tr}$ & $p_c$ & $p_e$ & $p_\chi$ & $p_L$
+& $p_S$ & \mcol{1}{c}{Transport}\\  \hline
+0.0 PW \@ 65° S Global & 0.93 & 1.04 & 1.02 & 0.99 & 1.15 & 1.02 &
+0.95 PW \@ 25° N Atlantic \\ 
+0.0$\pm$0.1 PW \@ 65° S Global & 0.93 & 1.04 & 1.02 & 0.99 & 1.15 &
+1.01 & 0.95 PW \@ 25° N Atlantic \\ 
+1.0 PW \@ 25° N Atlantic & 0.93 & 1.04 & 1.02 & 0.99 & 1.16 & 1.03 &
+0.43 PW \@ 65° S Global \\ 
+1.22$\pm$0.3 PW \@ 25° N Atlantic & 0.93 & 1.04 & 1.02 & 0.99 &
+1.17 & 1.04 & 0.81 PW \@ 65° S Global \\ 
+0.6 PW \@ 0° Atlantic & 0.93 & 1.04 & 1.02 & 0.99 & 1.16 & 1.03 &
+-0.75 PW \@ 65° S Global\\  \hline
+\end{tabular}
+\end{center}
+\end{table*}
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage \begin{equation}\nabla \cdot {\cal F} = P - E
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\overline{(\ )}$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}{\cal F}_y(y) =  {\cal F}_y(y_n) + \int_y^{y_n} R(y) \, dy \,
+        + \int_y^{y_n} dy \int \(P-E\) \, dx 
+\label{eq:mfw} 
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $ {\cal F}_y(y_n)$
+}
+
+
+\newpage
+
+{\samepage \clearpage $y=y_n$
+}
+
+
+\newpage
+
+{\samepage \clearpage $R(y)$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}E &=& p_E E^*\\ 
+P &=& p_P P^* \\ 
+R &=& p_R R^*
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage $E^*$
+}
+
+
+\newpage
+
+{\samepage \clearpage $P^*$
+}
+
+
+\newpage
+
+{\samepage \clearpage $R^*$
+}
+
+
+\newpage
+
+{\samepage \clearpage $-0.106$
+}
+
+
+\newpage
+
+{\samepage \clearpage $^3$
+}
+
+
+\newpage
+
+{\samepage \clearpage $-1678$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}e_E &=& 20       \label{eq:fw_errors1}\% \\ 
+e_P = e_R &=& 50 \label{eq:fw_errors2}\% \, .
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage $-0.03$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{table*}% latex2html id marker 925
+[tp]
+\caption[Parameters from the single-constraint adjustment of 
+fresh water fluxes.]{Parameters from the single-constraint tuning of
+fresh water fluxes. The meridional fresh water transport at 70°~N has been
+specified as $-0.1$~Sv in the North Atlantic and 0~Sv in the North
+Pacific (Aagaard and Greismann 1975). See text for details.}
+\label{tab:cfw}
+\begin{center}
+\begin{tabular}{l|rrr|l}\hline
+\mcol{1}{c}{Imposed} & \mcol{3}{c}{Tuning Parameters} & \mcol{1}{c}{Resulting} \\ 
+\mcol{1}{c}{Constraint} & $p_E$ & $p_P$ & $p_R$ & \mcol{1}{c}{Transport}\\ 
+\hline
+0.06 Sv \@ 65° S Global & 1.00 & 0.98 & 1.00
+& -0.12 Sv \@ 25° N Atlantic \\ 
+0.5 Sv \@ 65° S Global & 1.01 & 0.95 & 0.99 
+& -0.09 Sv \@ 25° N Atlantic \\ 
+0.8 Sv \@ 65° S Global & 1.01 & 0.92 & 0.99
+& -0.07 Sv \@ 25° N Atlantic \\ 
+1. Sv \@ 65° S Global & 1.02 & 0.91 & 0.99
+& -0.06 Sv \@ 25° N Atlantic \\ 
+-0.03 Sv \@ 25° N Atlantic & 1.02 & 0.88 & 0.98
+& 1.43 Sv \@ 65° S Global \\  \hline
+\end{tabular}
+\end{center}
+\end{table*}
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage $p_E$
+}
+
+
+\newpage
+
+{\samepage \clearpage $p_{L,E}$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{table*}% latex2html id marker 955
+[tp]
+\caption[Parameters from the simultaneous tuning of heat and 
+fresh water fluxes.]{Parameters from the simultaneous tuning 
+of heat and fresh water fluxes. Imposed constraints on the
+meridional heat transport (H) and meridional fresh
+water transport (F) listed in the first column, with 
+resulting transports at 25°~N in the
+Atlantic or 65°~S Global appearing in the last column. 
+See text for details.}
+\label{tab:multi}
+\begin{center}
+\begin{tabular}{l|rrrrrrrr|rr}\hline
+\mcol{1}{c}{Imposed} & \mcol{8}{c}{Tuning Parameters} & \mcol{2}{c}{Resulting Transport}\\ 
+\mcol{1}{c}{Constraints} & $p_{Tr}$ & $p_c$ & $p_e$ & $p_\chi$ & $p_{L,E}$ & $p_S$ &
+$p_P$ & $p_R$ & 25°~N & 65°~S \\  \hline
+(H) 0. PW \@ 65° S Global & 0.92 & 1.04 & 1.02 & 0.99 & 1.13 & 1.02
+& 1.12 & 1.01 & 0.95 PW & \\ 
+(F) 0.06 Sv \@ 65° S Global & & & & & & & & & -0.12 Sv & \\  \hline
+(H) 0. PW \@ 65° S Global & 0.92 & 1.04 & 1.02 & 0.99 & 1.14 & 1.01
+& 1.10 & 1.01 & 0.95 PW & \\ 
+(F) 0.27 Sv \@ 65° S Global & & & & & & & & & -0.10 Sv & \\  \hline
+(H) 0. PW \@ 65° S Global & 0.93 & 1.04 & 1.02 & 0.99 & 1.14 & 1.01
+& 1.04 & 1.01 & 0.95 PW & \\ 
+(F) -0.03 Sv \@ 25° N Atlantic & & & & & & & & & & 1.09 Sv\\  \hline
+(H) 0. PW \@ 65° S Global & 0.92 & 1.04 & 1.02 & 0.99 & 1.14 & 1.01
+& 1.09 & 1.01 & 0.95 PW & \\ 
+(F) 0.5 Sv \@ 65° S Global & & & & & & & & & -0.09 Sv & \\  \hline
+(H) 0. PW \@ 65° S Global & 0.93 & 1.04 & 1.02 & 0.99 & 1.14 & 1.01
+& 1.05 & 1.00 & 0.95 PW & \\ 
+(F) 1. Sv \@ 65° S Global & & & & & & & & & -0.06 Sv & \\  \hline
+(H) 0. PW \@ 65° S Global & 0.93 & 1.04 & 1.02 & 0.99 & 1.15 & 1.01
+& 1.01 & 1.00 & 0.95 PW & \\ 
+(F) 1.5 Sv \@ 65° S Global & & & & & & & & & -0.02 Sv & \\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table*}
+}
+
+
+\newpage
+
+{\samepage \clearpage $-0.14$
+}
+
+
+\newpage
+
+{\samepage \clearpage $p_P$
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage \begin{figure*}% latex2html id marker 987
+[tp]
+\centerline{
+\epsfxsize=6.5in
+\epsfbox[60 260 565 565]{ps/connhf.ps} }
+\caption[Constrained net heat flux]{Constrained annual mean net heat
+flux over the global ocean (contour interval: 20 W/m$^2$). Heat flux 
+is constrained so that the global meridional heat transport at the
+southern boundary is zero and the fresh water transport at the southern
+boundary is 0.06~Sv.}
+\label{fig:connhf}
+\end{figure*}
+}
+
+
+\newpage
+
+{\samepage \clearpage $-0.05$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{figure}% latex2html id marker 1004
+[htp]
+\vspace{0.075in}
+\centerline{
+\epsfxsize=3.0in
+\epsfbox[45 160 530 540]{ps/meridhf.ps} }
+\caption[Constrained meridional heat transport]{Meridional heat
+transport (1 PW = 10$^{15}$W)
+calculated from constrained net heat flux. Heat flux is
+constrained so that the global meridional heat transport at the
+southern boundary is zero and the fresh water transport at the southern
+boundary is 0.06~Sv. Three oceanographic ``measurements'' for
+Atlantic heat transport are shown with error bars: (R) Rago and
+Rossby [1987], (H) Hall and Bryden [1982], (W) Wunsch [1984].}
+\label{fig:meridhf}
+\end{figure}
+}
+
+
+\newpage
+
+{\samepage \clearpage $-0.12$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{figure}% latex2html id marker 1011
+[htp]
+\vspace{0.075in}
+\centerline{
+\epsfxsize=3.0in
+\epsfbox[45 160 530 540]{ps/meridfw.ps} }
+\caption[Constrained meridional fresh water transport]{Meridional
+fresh water flux (in Sv)
+calculated from constrained fresh water flux. Heat flux is
+constrained as in the previous figure.
+One oceanographic estimate for
+Atlantic fresh water transport is shown: (H) Hall and Bryden [1982].}
+\label{fig:meridfw}
+\end{figure}
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}\lefteqn{Q_{net}(p_{Tr}, p_c, p_e, p_\chi, p_L, p_S) = } \nonumber\\ 
+& R_S(p_{Tr}, p_c) - R_L(p_e, p_\chi) - Q_L(p_L) - Q_S(p_S) \, .
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}\cA_{Tr} &=& { \partial R_S\over \partial p_{Tr}} = { \partial Q_{net}\over \partial p_{Tr}} = R_S^*\\ 
+\cA_c &=& { \partial R_S\over \partial p_c} = { \partial Q_{net}\over \partial p_c} \nonumber \\ 
+      &=& R_{\rm clear}(1-\alpha)(-0.62c)\\ 
+\cA_e &=& { \partial R_L\over \partial p_e} = - { \partial Q_{net}\over \partial p_e}\nonumber \\ 
+      &=&  - \epsilon \sigma T_s^4 p_e\(0.39-0.05
+           \sqrt{e}\) \(1-\chi c^2\) \\ 
+\cA_\chi &=& { \partial R_L\over \partial p_\chi} = - { \partial Q_{net}\over \partial p_\chi} \nonumber\\ 
+         &=& \epsilon \sigma T_s^4 
+              p_e\(0.39-0.05\sqrt{e}\) \(-\chi c^2\) \\ 
+\cA_{L} &=& { \partial Q_L\over \partial p_{L,E}} = - { \partial Q_{net}\over \partial p_{L,E}} = Q_L^*\\ 
+\cA_S &=& { \partial Q_S\over \partial p_S} = - { \partial Q_{net}\over \partial p_S} = Q_S^* \, .
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\cA_{Tr}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\cA_L$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\cA_S$
+}
+
+
+\newpage
+
+{\samepage \clearpage $R_S^*$
+}
+
+
+\newpage
+
+{\samepage \clearpage $Q_L^*$
+}
+
+
+\newpage
+
+{\samepage \clearpage $Q_S^*$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\cA_e$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\cA_\chi$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\cA_{c}$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}R_S &=& R_S^* + (p_{Tr} - 1 ) \cA_{Tr} + (p_c-1) \cA_c \nonumber \\ 
+    &=& p_{Tr} R_S^* + (p_c-1) \cA_c \\ 
+R_L &=& R_L^* + (p_e-1) \cA_e + (p_\chi-1) \cA_\chi \\ 
+Q_L &=& p_{L,E} Q_L^* \\ 
+Q_S &=& p_S Q_L^*
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage $(\quad)^*$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}E &=& p_{L,E} E^* \\ 
+P &=& p_P P^* \, .
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\bA$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\cA$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}A_{ji} &=& \int_{y_j}^{y_n} dy \int { \partial Q_{net}\over \partial p_\chi} \, dx\\  
+       &=& - \int_{y_j}^{y_n} dy \int \cA_\chi \, dx
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage $E$
+}
+
+
+\newpage
+
+{\samepage \clearpage $ \hat{{\cal H}}_y(y_j)$
+}
+
+
+\stepcounter{section}
+\newpage
+
+{\samepage \clearpage $\eta$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{figure*}% latex2html id marker 1075
+[tp]
+\centerline{
+\epsfxsize=6.5in
+\epsfbox[85 190 422 612]{ps/dnobs.ps} }
+\caption[Density of wind speed observations for a) December/49 and b)
+December/89.]{Density of wind speed observations for a) December 1949 and
+b) December 1989.  The density of observations $\eta$ is defined as the
+mean number of observations per month per 1° $\times$ 1° \ box.
+The size of each black square is related to the average value of $\eta$ in
+each 5°~box (see scale on top of panels).}
+\label{fig:dnobs}
+\end{figure*}
+}
+
+
+\stepcounter{subsection}
+\newpage
+
+{\samepage \clearpage $W_E\in\Re^n$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{eqnarray}W_{\rm ship} = {\cal B}(\overline{W_E}^{\rm ship})\\ 
+W_{\rm rand} = {\cal B}(\overline{W_E}^{\rm rand})
+\end{eqnarray}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\overline{(\ )}^\ship$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\overline{(\ )}^\rand$
+}
+
+
+\newpage
+
+{\samepage \clearpage $\cB$
+}
+
+
+\newpage
+
+{\samepage \clearpage $W_\ship$
+}
+
+
+\newpage
+
+{\samepage \clearpage $W_\rand$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}W_t = {\cal B}(\overline{W_E}) \label{eq:gt}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $\overline{(\,)}$
+}
+
+
+\newpage
+
+{\samepage \clearpage $W_t$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}\eps_\ship^2 = \( W_{\rm ship} - W_t \)^2, \qquad 
+\eps_\rand^2 = \( W_{\rm rand} - W_t \)^2
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage $RMSE_{\rm ship} = \sqrt{\langle
+\eps_\ship^2\rangle}$
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}\< \eps_\ship^2 \> = { \int\int_{\rm ocean} \eps_\ship^2 \cos\phi 
+\, d\lambda\,d\phi \over \int\int_{\rm ocean} \cos\phi \, d\lambda\,d\phi}
+\end{equation}
+}
+
+
+\newpage
+
+{\samepage \clearpage \begin{equation}\< \eps_\fwb^2 \> \equiv \< \eps_\ship^2 \> - \< \eps_\rand^2 \> \, .
+\label{eq:fwb}
+\end{equation}
+}
+
+
+\stepcounter{section}
+
+\end{document}

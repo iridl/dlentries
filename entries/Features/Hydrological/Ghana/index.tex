@@ -1,0 +1,47 @@
+\begin{ingrid}
+
+/description (Water Sheds of Ghana) def
+
+continuedataset:
+
+
+ dataset:
+ /name (Water_Sheds) def
+
+ /the_geom
+  {IRIDB (water_sheds) (the_geom) [(gid)]open_column_by
+  /long_name (Geometry) def
+  }defasvarsilentnoreuse
+
+ /area
+  {IRIDB (water_sheds) (area) [(gid)]open_column_by
+  }defasvarsilentnoreuse
+
+ /perimeter
+  {IRIDB (water_sheds) (perimeter) [(gid)]open_column_by
+  }defasvarsilentnoreuse
+
+ /water_basi
+  {IRIDB (water_sheds) (water_basi) [(gid)]open_column_by
+  }defasvarsilentnoreuse
+
+ /basinl2_id
+  {IRIDB (water_sheds) (basinl2_id) [(gid)]open_column_by
+  }defasvarsilentnoreuse
+
+ /basinl2
+  {IRIDB (water_sheds) (basinl2_) [(gid)]open_column_by
+  }defasvarsilentnoreuse
+
+ /label 
+ {
+  IRIDB (water_sheds) (('basin ' || basinl2_id || ', ' || water_basi) as label) [(gid)] open_column_by
+ }defasvarsilentnoreuse
+
+ :dataset
+:dataset
+% make the gid grid available to maprooms
+Water_Sheds area .gid name exch put
+
+\end{ingrid}
+

@@ -1,0 +1,108 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Nabua meteorological stations) def
+
+datasetdefs:
+grid:
+/name /BARANGAYread def
+/units /ids def
+1 1 8
+:grid
+:datasetdefs
+
+grid:
+/name /FID def
+/units /ids def
+values:
+(1-008)
+(1-009)
+(1-010)
+(1-011)
+(1-012)
+(1-013)
+:values
+:grid
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+17 Jun 2013 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+30 Jun 2016 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%systemtime systemtime2ymd 3 -2 roll exch julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+:grid
+
+/rainfall {
+[BARANGAYread | T]
+(/data/bicolda/HISTOSTATION/NABUA_%Y%m[T]/NABUA_%Y%m%d[T].txt) [T]
+readdatafile:
+[3 1] r*4astsv
+:readdatafile
+BARANGAYread 1 2 3 5 6 4 VALUES
+BARANGAYread FID replaceGRID
+/long_name (daily total rainfall) def
+/units /mm def
+/missing_value -222 def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+variable:
+/name /lat def
+/units /degree_north def
+/long_name (Latitude) def
+grids: FID  :grids
+values:
+13.40653333
+13.395
+13.39853333
+13.38403333
+13.39173333
+13.3922
+:values
+/scale_min 11.2 def
+/scale_max 15. def
+:variable
+
+variable:
+/name /lon def
+/units /degree_east def
+/long_name (Longitude) def
+grids: FID  :grids
+values:
+123.3690167
+123.3464
+123.3456333
+123.3521667
+123.3457667
+123.3357167
+:values
+/scale_min 122. def
+/scale_max 125. def
+:variable
+
+/location {
+lon lat geopt}
+defasvar
+
+variable:
+/name /label def
+/long_name (Label) def
+grids: FID  :grids
+values:
+(San Esteban, Nabua, Camarines Sur)
+(San Antonio I, Nabua, Camarines Sur)
+(San Antonio II, Nabua, Camarines Sur)
+(San Vicente I, Nabua, Camarines Sur)
+(San Vicente II, Nabua, Camarines Sur)
+(San Roque, Nabua, Camarines Sur)
+:values
+:variable
+
+:dataset
+
+\end{ingrid}

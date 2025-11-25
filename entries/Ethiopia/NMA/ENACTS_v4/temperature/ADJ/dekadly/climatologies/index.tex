@@ -1,0 +1,71 @@
+\begin{ingrid}
+
+/tmax {
+  SOURCES .Ethiopia .NMA .ENACTS_v4 .temperature .ADJ .dekadly .tmax
+     T (1 Jan 1981) (31 Dec 1981) RANGE
+  SOURCES .Ethiopia .NMA .ENACTS_v4 .temperature .ADJ .dekadly .tmax
+     T (1 Jan 1981) (31 Dec 2010) RANGE
+    T name
+      npts NewIntegerGRID
+      replaceGRID
+    T 36 splitstreamgrid
+    [T2]average
+    T 2 index
+      T dekadaledgesgrid partialgrid
+       2 1 roll
+       pop
+      replaceGRID
+    T (days since 1981-01-01) streamgridunitconvert
+    T T dekadaledgesgrid
+      first secondtolast subgrid
+      /calendar /365 def
+      gridS
+       365 store modulus
+       pop
+      periodic setgridtype
+      partialgrid replaceGRID
+        [X Y]REORDER
+        2 1 roll pop
+/fullname (maximum temperature 1981-2010 average) def
+/long_name (maximum temperature 1981-2010 average) def
+temp_colors
+/scale_symmetric false def
+%  DATA 20 43 RANGE
+DATA AUTO AUTO RANGE
+}defasvar
+
+/tmin {
+  SOURCES .Ethiopia .NMA .ENACTS_v4 .temperature .ADJ .dekadly .tmin
+     T (1 Jan 1981) (31 Dec 1981) RANGE
+  SOURCES .Ethiopia .NMA .ENACTS_v4 .temperature .ADJ .dekadly .tmin
+     T (1 Jan 1981) (31 Dec 2010) RANGE
+    T name
+      npts NewIntegerGRID
+      replaceGRID
+    T 36 splitstreamgrid
+    [T2]average
+    T 2 index
+      T dekadaledgesgrid partialgrid
+       2 1 roll
+       pop
+      replaceGRID
+    T (days since 1981-01-01) streamgridunitconvert
+    T T dekadaledgesgrid
+      first secondtolast subgrid
+      /calendar /365 def
+      gridS
+       365 store modulus
+       pop
+      periodic setgridtype
+      partialgrid replaceGRID
+        [X Y]REORDER
+        2 1 roll pop
+/fullname (minimum temperature 1981-2010 average) def
+/long_name (minimum temperature 1981-2010 average) def
+temp_colors
+/scale_symmetric false def
+%DATA 5 27 RANGE
+DATA AUTO AUTO RANGE
+}defasvar
+
+\end{ingrid}

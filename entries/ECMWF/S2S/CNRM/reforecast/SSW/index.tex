@@ -1,0 +1,109 @@
+\begin{ingrid}
+continuedataset:
+
+
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+01 Jan 2014 julian_day 01 Jan 1960 julian_day sub
+1.0
+22 Dec 2014 julian_day
+01 Jan 1960 julian_day sub
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+  S monthlyedgesgrid
+   name units gridtype mark gridvalues {dup 7 add dup 7 add dup 7 add}forall
+                     pop pop pop  
+                     counttomark realarray astore
+        nip NewGRID
+    nip /pointwidth 0. def
+  first secondtolast subgrid
+/defaultvalue { last } def
+   name exch def
+
+
+
+grid:
+/name /hdate def
+/units (months since 1960-01-01) def
+01 Jul 1993 ensotime
+12.0
+01 Jul 2014 ensotime
+/defaultvalue { last } def
+:grid
+
+
+dataset:
+/name (RETRO) def
+/description (15 Member & 32 Leads) def
+
+grid:
+/name /L def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+1. 1. 32.
+/pointwidth 0. def
+:grid
+
+grid:
+/name /M def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+0 1 14
+:grid
+
+[ S hdate ] {name exch def } forall
+
+ /ensembles { 
+ [ M L | S first first 285 add  subgrid hdate ]
+ (/Data/data25/ECMWF/S2S/CNRM/REF/SSW/%Y[S]/%m[S]/SSW.cnrm.%Y[hdate]%m%d[S].20141201) [ S hdate ]
+readdatafile:
+((31(15(25X,F6.7,/)),(14(25X,F6.7,/),(25X,F6.7)))) formatted
+:readdatafile
+/units (unitless) def
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (REALTIME) def
+/description (10 Member & 47 Leads) def
+
+grid:
+/name /L def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+1. 1. 47.
+/pointwidth 0. def
+:grid
+
+grid:
+/name /M def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+0 1 9
+:grid
+
+[ S hdate ] {name exch def } forall
+
+ /ensembles { 
+ [ M L | S first 295 add  last subgrid hdate ]
+ (/Data/data25/ECMWF/S2S/CNRM/REF/SSW/%Y[S]/%m[S]/SSW.cnrm.%Y[hdate]%m%d[S].20141201) [ S hdate ]
+readdatafile:
+((46(10(25X,F6.7,/)),(9(25X,F6.7,/),(25X,F6.7)))) formatted
+:readdatafile
+/units (unitless) def
+} defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}

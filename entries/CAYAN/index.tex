@@ -1,0 +1,97 @@
+\begin{ingrid}
+continuedataset:
+/description (Heat flux and irradiance data analysis of COADS from Cayan of Scripps) def
+/references (Cayan1992) def
+/iridl:hasSemantics (iridl:SIO) def
+grid:
+/name /T def
+/long_name /month def
+monthtime
+16 Jan 1946 ensotime 1 16 Mar 1998 ensotime
+:grid
+grid:
+/name /X def
+/units /degreeE def
+periodic
+5.
+5.
+360.
+:grid
+grid:
+/name /Y def
+/units /degreeN def
+70.
+-5.
+-40.
+:grid
+variable:
+/name (Qlh) def
+/long_name (latent heat flux) def
+/units (Watts/meter2) def
+/history (Cayan Latent Heat Derived from COADS) def
+/missing_value -99999. def
+grids: X Y | T :grids
+file:
+decsequential
+/nskp 2 def
+/name (/Data/data6/cayan/danlh0146-0398vl5.bin) def
+:file
+:variable
+variable:
+/name (Qsh) def
+/long_name (sensible heat flux) def
+/units (Watts/meter2) def
+/history (Cayan Sensible Heat Flux Derived from COADS) def
+/missing_value -99999. def
+grids: X Y | T :grids
+file:    
+decsequential
+/nskp 2 def
+/name (/Data/data6/cayan/dansh0146-0398vl5.bin) def
+:file
+:variable
+variable:
+/name (Qnet) def
+/long_name (net heat flux) def
+/units (Watts/meter2) def
+/history (Cayan Net Heat Flux Derived from COADS) def
+/missing_value -99999. def
+grids: X Y | T :grids
+file: 
+decsequential
+/nskp 2 def
+/name (/Data/data6/cayan/qnet0146-0398vl5.bin) def
+:file
+:variable
+variable:
+/name (Si) def
+/long_name (solar irradiance) def
+/units (Watts/meter2) def
+/history (Cayan Solar Irradiance Derived from COADS) def
+/missing_value -99999. def
+grids: X Y | T :grids
+file:
+decsequential
+/nskp 2 def
+/name (/Data/data6/cayan/sfcsivl0146-0398.bin) def
+:file
+:variable
+variable:
+/name (Ti) def
+/long_name (terrestrial irradiance) def
+/units (Watts/meter2) def
+/history (Cayan Terrestrial Irradiance Derived from COADS) def
+/missing_value -99999. def
+grids: X Y | T :grids
+file:
+decsequential
+/nskp 2 def
+/name (/Data/data6/cayan/sfctivl0146-0398.bin) def
+:file
+:variable
+:dataset
+\end{ingrid}
+
+
+
+

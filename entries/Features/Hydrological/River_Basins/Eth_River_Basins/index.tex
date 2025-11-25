@@ -1,0 +1,30 @@
+\begin{ingrid}
+continuedataset:
+/description (River Basins in Ethiopia) def
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Basins def
+/basin_name
+{ IRIDB (eth_river_basins) (basin_name) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/short_name
+{ IRIDB (eth_river_basins) (basinname) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/area_km2
+{ IRIDB (eth_river_basins) (area_km2) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/label
+{ IRIDB (eth_river_basins) ((basin_name) as label) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (eth_river_basins) (the_geom) [(gid)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+Basins basin_name .gid name exch put
+\end{ingrid}
+
+

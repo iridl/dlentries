@@ -1,0 +1,794 @@
+
+
+\begin{ingrid}
+continuedataset:
+/description (CAM3 ensemble monthly simulations forced by Constructed-analogue SST) def
+/references (Collins_Wetal2006) def
+datasetdefs:
+/putasvarsilent { defasvarsilent pop } def
+:datasetdefs
+/Conventions (CF-1.0) def
+/lsm currentobject 1 index get def
+grid:
+/name /L def
+/long_name (Lead time) def
+/units (months) def
+0.5 1 7.5
+:grid
+grid:
+/name /M def
+1 1 12
+:grid
+grid:
+/name /S def
+/long_name (Start time) def
+/standard_name (forecast_reference_time) def
+/units (months since 1960-01-01 00:00:00) def
+/pointwidth 0 def 
+/netcdfgrid true def
+01 Jan 1957 ensotime
+1.
+01 Jun 2013 ensotime
+%1 systemtime systemtime2ymd pop .5 sub exch ensotime
+/defaultvalue {last} def
+:grid
+
+%S
+%{(/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/12/camrun.cam2.h0.%Y-%m[TE].nc)
+%[S dup 1.5 add /name /TE def]
+%} 
+%removeextrausing
+%/expires last rm19602ymd
+%       1 {ymd:nextmonth}repeat
+%       pop
+%      25 ymd2systemtime
+%     def
+%/expires S .expires def
+%name exch def
+%/expires S .expires def
+%/last_modified S .last_modified def
+
+/T { 
+S L add
+/long_name (Forecast time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/pointwidth 1 def
+/calendar /360 def
+ }defasvar
+
+
+
+grid:
+/name (lon)def
+/units (degree_east)def
+ 0.0 2.8125 357.1875
+:grid
+grid:
+/name (lat)def
+/units (degree_north)def
+values: -87.8638 -85.096527 -82.312912 -79.525604 -76.7369 -73.947517 -71.157753 -68.36776 -65.577606 -62.787354 -59.997021 -57.206631 -54.416199 -51.625732 -48.835239 -46.044727 -43.254196 -40.46365 -37.673088 -34.882523 -32.091946 -29.301359 -26.510769 -23.720175 -20.929575 -18.138971 -15.348365 -12.557756 -9.7671452 -6.9765334 -4.1859207 -1.3953069 1.3953069 4.1859207 6.9765334 9.7671452 12.557756 15.348365 18.138971 20.929575 23.720175 26.510769 29.301359 32.091946 34.882523 37.673088 40.46365 43.254196 46.044727 48.835239 51.625732 54.416199 57.206631 59.997021 62.787354 65.577606 68.36776 71.157753 73.947517 76.7369 79.525604 82.312912 85.096527 87.8638 :values
+:grid
+
+
+dataset: /name /ModelParameters def :dataset
+
+ModelParameters  [ lon lat M S L T ] { name exch def } forall pop
+
+dataset: /name /TotalAirColumn def
+
+ { lon lat M S L T } { name exch def } forall 
+ /CLDHGH {
+dataset
+[ lon lat | M L S] 
+%(/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_CFS_SST_GHG/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T]
+(/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T]
+readdatafile:
+/name (CLDHGH) def
+/units /unitless def
+/long_name (Vertically-integrated high cloud) def
+/cell_method (time: mean) def
+/Sampling_Sequence (rad_lwsw) def
+/realarraytype 
+
+netcdfrecords 
+:readdatafile
+nip
+}defasvarcachesilent
+
+ /CLDLOW{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (CLDLOW) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units /unitless def
+ /long_name (Vertically-integrated low cloud) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+ /CLDMED{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (CLDMED) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units /unitless def
+ /long_name (Vertically-integrated mid-level cloud) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+ /CLDTOT{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (CLDTOT) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units /unitless def
+ /long_name (Vertically-integrated total cloud) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+ /co2vmr{
+dataset
+[ | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (co2vmr) def
+ /long_name (co2 volume mixing ratio) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+:dataset 
+
+
+dataset:
+/name (Surface) def
+{ lon lat M L S T } {name exch def} forall
+ /FLNS{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (FLNS) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units (W/m2)cvn def
+ /long_name (Net longwave flux at surface) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+
+ /FLNSC{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (FLNSC) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units (W/m2)cvn def
+ /long_name (Clearsky net longwave flux at surface) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+
+ /FSDS{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (FSDS) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units (W/m2)cvn def
+ /long_name (Downwelling solar flux at surface) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+ /FSDSC{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (FSDSC) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units (W/m2)cvn def
+ /long_name (Clearsky downwelling solar flux at surface) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+ /FSNS{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (FSNS) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units (W/m2)cvn def
+ /long_name (Net solar flux at surface) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+ /FSNSC{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (FSNSC) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units (W/m2)cvn def
+ /long_name (Clearsky net solar flux at surface) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+:dataset
+
+dataset:
+/name (tom) def
+/long_name (TopOfModel) def
+{ lon lat M S L T } { name exch def} forall
+ /FLNT{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (FLNT) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units (W/m2)cvn def
+ /long_name (Net longwave flux at top of model) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+ /FLNTC{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (FLNTC) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units (W/m2)cvn def
+ /long_name (Clearsky net longwave flux at top of model) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+ /FLUT{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (FLUT) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units (W/m2)cvn def
+ /long_name (Upwelling longwave flux at top of model) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+ /FLUTC{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (FLUTC) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units (W/m2)cvn def
+ /long_name (Clearsky upwelling longwave flux at top of model) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+
+
+ /FSNT{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (FSNT) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units (W/m2)cvn def
+ /long_name (Net solar flux at top of model) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+:dataset
+
+ModelParameters /gw{
+dataset
+[ lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (gw) def
+ /long_name (gauss weights) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+grid:
+/name (ilev)def
+/units (level)def
+values: 2.194067 4.8952088 9.8824177 18.05201 29.83724 44.623341 61.605869 78.512428 92.365799 108.66359 127.83708 150.39371 176.93044 208.14944 244.87709 288.08521 338.9173 398.71866 469.07181 551.83868 649.20972 744.38287 831.02124 903.30029 955.99744 985.11218 1000. :values
+:grid
+
+ModelParameters  /hyai{
+dataset
+[ ilev | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (hyai) def
+ /long_name (hybrid A coefficient at layer interfaces) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+
+grid:
+/name (lev)def
+/units (level)def
+values: 3.5446379 7.3888135 13.967214 23.944626 37.230289 53.114605 70.059151 85.439117 100.51469 118.25034 139.1154 163.66206 192.53993 226.51326 266.48114 313.50125 368.81799 433.89523 510.45526 600.52417 696.79626 787.70209 867.16077 929.64886 970.55481 992.55609 :values
+:grid
+
+ModelParameters /hyam{
+dataset
+[ lev | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (hyam) def
+ /long_name (hybrid A coefficient at layer midpoints) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+ModelParameters /hybi{
+dataset
+[ ilev | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (hybi) def
+ /long_name (hybrid B coefficient at layer interfaces) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+ModelParameters /hybm{
+dataset
+[ lev | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (hybm) def
+ /long_name (hybrid B coefficient at layer midpoints) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+
+dataset: /name /Landuse def
+{ lon lat M L S T } { name exch def } forall
+ /ICEFRAC{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (ICEFRAC) def
+ /cell_method (time: mean) def
+ /units /unitless def
+ /long_name (Fraction of sfc area covered by sea-ice) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+ /LANDFRAC{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (LANDFRAC) def
+ /cell_method (time: mean) def
+ /units /unitless def
+ /long_name (Fraction of sfc area covered by land) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+ /LANDMCOS{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (LANDMCOS) def
+ /cell_method (time: mean) def
+ /units /unitless def
+ /long_name (Land ocean transition mask: ocean (0), continent (1), transition (0-1)) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+:dataset
+
+Surface { lon lat M L S T } { name exch def } forall pop
+Surface /LHFLX{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (LHFLX) def
+ /cell_method (time: mean) def
+ /units (W/m2)cvn def
+ /long_name (Surface latent heat flux) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+
+Surface /LWCF{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (LWCF) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units (W/m2)cvn def
+ /long_name (Longwave cloud forcing) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+
+
+
+Landuse /OCNFRAC{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (OCNFRAC) def
+ /cell_method (time: mean) def
+ /units /unitless def
+ /long_name (Fraction of sfc area covered by ocean) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+dataset: /name (HybridLev) def :dataset
+HybridLev { lon lat ilev lev M L S T} {name exch def} forall pop
+HybridLev /OMEGA{
+dataset
+[ lon lat lev | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (OMEGA) def
+ /cell_method (time: mean) def
+ /units (Pa/s)cvn def
+ /long_name (Vertical velocity (pressure)) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+ModelParameters /P0{
+dataset
+[ | ] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/jan/01/camrun.cam2.h0.1982-01.nc) readdatafile:
+/name (P0) def
+ /long_name (reference pressure) def
+ /units /Pa def
+ /doublearraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+grid:
+/name (time)def
+/units (days since 1944-09-01 00:00:00)def
+/calendar /365 def
+values: 4533. :values
+:grid
+
+
+HybridLev  /PBLH{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (PBLH) def
+ /cell_method (time: mean) def
+ /units /m def
+ /long_name (PBL height) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+Surface /PHIS{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (PHIS) def
+ /cell_method (time: mean) def
+ /units (m2/s2)cvn def
+ /long_name (Surface geopotential) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+dataset: /name /Precip def
+ { lon lat  M L S } {name exch def} forall
+ /PRECC{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (PRECC) def
+ /cell_method (time: mean) def
+ /units (m/s)cvn def
+ /long_name (Convective precipitation rate) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+
+ /PRECL{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (PRECL) def
+ /cell_method (time: mean) def
+ /units (m/s)cvn def
+ /long_name (Large-scale (stable) precipitation rate) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+
+/PRECSC{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (PRECSC) def
+ /cell_method (time: mean) def
+ /units (m/s)cvn def
+ /long_name (Convective snow rate (water equivalent)) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+
+/PRECSH{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (PRECSH) def
+ /cell_method (time: mean) def
+ /units (m/s)cvn def
+ /long_name (Shallow Convection precipitation rate) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+
+/PRECSL{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (PRECSL) def
+ /cell_method (time: mean) def
+ /units (m/s)cvn def
+ /long_name (Large-scale (stable) snow rate (water equivalent)) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+
+/PRECT{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (PRECT) def
+ /cell_method (time: mean) def
+ /units (m/s)cvn def
+ /long_name (Total (convective and large-scale) precipitation rate) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}defasvarsilent
+:dataset
+
+
+Surface /PS{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (PS) def
+ /cell_method (time: mean) def
+ /units /Pa def
+ /long_name (Surface pressure) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+Surface /PSL{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (PSL) def
+ /cell_method (time: mean) def
+ /units /Pa def
+ /long_name (Sea level pressure) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+
+HybridLev /Q{
+dataset
+[ lon lat lev | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (Q) def
+ /cell_method (time: mean) def
+ /units /unitless def
+ /long_name (Specific humidity) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+HybridLev /RELHUM{
+dataset
+[ lon lat lev | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (RELHUM) def
+ /cell_method (time: mean) def
+ /units /percent def
+ /long_name (Relative humidity) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+
+Surface /SHFLX{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (SHFLX) def
+ /cell_method (time: mean) def
+ /units (W/m2)cvn def
+ /long_name (Surface sensible heat flux) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+Surface /SNOWHICE{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (SNOWHICE) def
+ /cell_method (time: mean) def
+ /units /m def
+ /long_name (Water equivalent snow depth) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+Surface /SNOWHLND{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (SNOWHLND) def
+ /cell_method (time: mean) def
+ /units /m def
+ /long_name (Water equivalent snow depth) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+
+Surface /SWCF{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (SWCF) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units (W/m2)cvn def
+ /long_name (Shortwave cloud forcing) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+Surface /TREFHT{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (TREFHT) def
+ /cell_method (time: mean) def
+ /Sampling_Sequence (rad_lwsw) def
+ /units (Kelvin_scale)cvn def
+ /long_name (Reference height temperature) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+HybridLev /T{
+dataset
+[ lon lat lev | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (T) def
+ /cell_method (time: mean) def
+ /units /Kelvin_scale def
+ /long_name (Temperature) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+Surface /TAUX{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (TAUX) def
+ /cell_method (time: mean) def
+ /units /Pa def
+ /long_name (Zonal surface stress) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+Surface /TAUY{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (TAUY) def
+ /cell_method (time: mean) def
+ /units /Pa def
+ /long_name (Meridional surface stress) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+:dataset
+\end{ingrid}
+
+grid:
+/name (tbnd)def
+/units (unitless)def
+ 1. 1. 2.
+:grid
+ /time_bnds{
+dataset
+[ tbnd | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (time_bnds) def
+ /long_name (time interval endpoints) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+ /time_written{
+dataset
+[ | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (time_written) def
+ /units /unitless def
+ /stringtype 8 netcdfrecords :readdatafile
+nip
+}defasvarcachesilent
+
+\begin{ingrid}
+
+Surface /TMQ{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (TMQ) def
+ /cell_method (time: mean) def
+ /units (kg/m2)cvn def
+ /long_name (Total (vertically integrated) precipitatable water) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+
+
+ModelParameters /TREFHT{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (TREFHT) def
+ /cell_method (time: mean) def
+ /units /Kelvin_scale def
+ /long_name (Reference height temperature) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+Surface /TS{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (TS) def
+ /cell_method (time: mean) def
+ /units /Kelvin_scale def
+ /long_name (Surface temperature (radiative)) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+Surface /TSMN{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (TSMN) def
+ /cell_method (time: mean) def
+ /units /Kelvin_scale def
+ /long_name (Minimum surface temperature over output period) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+Surface /TSMX{
+dataset
+[ lon lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (TSMX) def
+ /cell_method (time: mean) def
+ /units /Kelvin_scale def
+ /long_name (Maximum surface temperature over output period) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+HybridLev /U{
+dataset
+[ lon lat lev | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (U) def
+ /cell_method (time: mean) def
+ /units (m/s)cvn def
+ /long_name (Zonal wind) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+HybridLev /V{
+dataset
+[ lon lat lev | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (V) def
+ /cell_method (time: mean) def
+ /units (m/s)cvn def
+ /long_name (Meridional wind) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+ModelParameters /wnummax{
+dataset
+[ lat | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (wnummax) def
+ /long_name (cutoff Fourier wavenumber) def
+ /units /unitless def
+ /integerarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+HybridLev /Z3{
+dataset
+[ lon lat lev | M L S] (/data/dstore3/iri/forecast/forecast/CAM3_T42.D/CAM3_T42_CASSTGH/%b:lc[S]/%2.2d[M]/camrun.cam2.h0.%Y[T]-%m[T].nc)[M L S T] readdatafile:
+/name (Z3) def
+ /cell_method (time: mean) def
+ /units /m def
+ /long_name (Geopotential Height (above sea level)) def
+ /realarraytype netcdfrecords :readdatafile
+nip
+}putasvarsilent
+
+
+\end{ingrid}

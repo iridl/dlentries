@@ -1,0 +1,413 @@
+\begin{ingrid}
+
+continuedataset:
+
+(iri.columbia.edu/terms/forecast/1) cvn datadownloadsareRestricted
+/Cookie varies_on
+
+/description (Predictions in Context) def
+/long_name (Predictions in Context) def
+/iridl:hasSemantics (iridl:verification) def
+/pic12mo_same {
+ SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+  Y -89.0 1.0 89.0 evengridAverage
+  X 0.0 1.0 359.0 evengridAverage
+  T 12 runningAverage
+  T (Jan 1979) SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant .F
+     last
+      1 sub
+      cvsunits nip RANGE
+  SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+   Y -89.0 1.0 89.0 evengridAverage
+   X 0.0 1.0 359.0 evengridAverage
+   T (Jan 1971) (Dec 2000) RANGE
+   T 12 runningAverage
+   T 12 splitstreamgrid
+   [T2]0.0 0.33 0.67 1.0 0.5 replacebypercentile
+   [percentile]CofA=B-bounded
+  T
+   /pointwidth 1 def
+   pop
+  T 6.5 shiftGRID
+  T (Feb 2017) (last) RANGE
+  T /F renameGRID
+  0.667 masklt
+  dataflag
+  SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant
+   F (Feb 2017) (last) RANGE
+   L 1 VALUE
+   /L removeGRID
+   a:
+     40 50 flagrange
+     2 mul
+     :a:
+      55 flagge
+      4 mul
+      :a
+    add
+   add
+  3 masklt
+  4 4 maskrange
+  5 maskgt
+  0 replaceNaN
+  SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+   Y -89.0 1.0 89.0 evengridAverage
+   X 0.0 1.0 359.0 evengridAverage
+   T 12 runningAverage
+   T (Jan 1979) SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant .F
+      last
+       1 sub
+       cvsunits nip RANGE
+   SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+    Y -89.0 1.0 89.0 evengridAverage
+    X 0.0 1.0 359.0 evengridAverage
+    T (Jan 1971) (Dec 2000) RANGE
+    T 12 runningAverage
+    T 12 splitstreamgrid
+    [T2]0.0 0.33 0.67 1.0 0.5 replacebypercentile
+    [percentile]CofA=B-bounded
+   T
+    /pointwidth 1 def
+    pop
+   T 6.5 shiftGRID
+   T (Feb 2017) (last) RANGE
+   T /F renameGRID
+   0.333 maskgt
+   dataflag
+   -1 mul
+   SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant
+    F (Feb 2017) (last) RANGE
+    L 1 VALUE
+    /L removeGRID
+    a:
+      -50 -40 flagrange
+      -2 mul
+      :a:
+       -55 flagle
+       -4 mul
+       :a
+     add
+    add
+   -3 maskgt
+   -4 -4 maskrange
+   -5 masklt
+   0 replaceNaN
+   add
+  -5 -5 maskrange
+  1 replaceNaN
+  -3 -3 maskrange
+  2 replaceNaN
+  5 5 maskrange
+  4 replaceNaN
+  /long_name (Same Tendency in Forecast and 12-Month Precipitation Observation) def
+  /scale_min 1 def
+  /scale_max 4 def
+  /plotfirst 1 def
+  /plotlast 4 def
+  /missing_value 0 def
+  /units /ids def
+  /CLIST[ (Past Dry/Possible Future Dry, Greatly Enhanced) (Past Dry/Possible Future Dry, Enhanced) (Past Wet/Possible Future Wet, Enhanced) (Past Wet/Possible Future Wet, Greatly Enhanced) ]def
+  startcolormap
+    /maxncolor 8 def
+    DATA
+    1 4 RANGE
+    transparent white 232
+       184 51 RGB
+       yellow 144
+         224 144 RGB
+         50
+          150 50 RGB
+          white endcolormap
+X -180. 180. RANGEEDGES
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+/pic12mo_reversed {
+  SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+  Y -89.0 1.0 89.0 evengridAverage
+  X 0.0 1.0 359.0 evengridAverage
+  T 12 runningAverage
+  T (Jan 1979) SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant .F last 1 sub cvsunits nip RANGE
+SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+   Y -89.0 1.0 89.0 evengridAverage
+   X 0.0 1.0 359.0 evengridAverage
+   T (Jan 1971) (Dec 2000) RANGE
+   T 12 runningAverage
+   T 12 splitstreamgrid
+   [T2]0.0 0.33 0.67 1. 0.5 replacebypercentile
+   [percentile]CofA=B-bounded
+  T
+   /pointwidth 1 def
+   pop
+  T 6.5 shiftGRID
+  T (Feb 2017) (last) RANGE 
+  T /F renameGRID
+  0.333 maskgt
+  dataflag
+  SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant
+   F (Feb 2017) (last) RANGE
+   L 1 VALUE
+   /L removeGRID
+   40 flagge
+   add
+  2 div
+  1 masklt
+  dataflag
+  SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+   Y -89.0 1.0 89.0 evengridAverage
+   X 0.0 1.0 359.0 evengridAverage
+   T 12 runningAverage
+   T (Jan 1979) SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant .F last 1 sub cvsunits nip RANGE
+   SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+    Y -89.0 1.0 89.0 evengridAverage
+    X 0.0 1.0 359.0 evengridAverage
+    T (Jan 1971) (Dec 2000) RANGE
+    T 12 runningAverage
+    T 12 splitstreamgrid
+    [T2]0.0 0.33 0.67 1. 0.5 replacebypercentile
+    [percentile]CofA=B-bounded
+   T
+    /pointwidth 1 def
+    pop
+   T 6.5 shiftGRID
+   T (Feb 2017) (last) RANGE
+   T /F renameGRID
+   0.667 masklt
+   dataflag
+   SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant
+    F (Feb 2017) (last) RANGE
+    L 1 VALUE
+    /L removeGRID
+    -40 flagle
+    add
+   2 div
+   1 masklt
+   dataflag
+   -1 mul
+   add
+  1 1 maskrange
+  2 replaceNaN
+  -1 -1 maskrange
+  1 replaceNaN
+  /long_name (Reversed Tendency in Forecast and 12-Month Precipitation Observation) def
+  /scale_min 1 def
+  /scale_max 2 def
+  /plotfirst 1 def
+  /plotlast 2 def
+  /missing_value 0 def
+  /units /ids def
+  /CLIST[ (Past Wet/Possible Future Dry) (Past Dry/Possible Future Wet) ]def
+  startcolormap
+    /maxncolor 6 def
+    DATA
+    1 2 RANGE
+    transparent white yellow 144
+         224 144 RGB
+         white endcolormap
+X -180. 180. RANGEEDGES
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+/pic3mo_same {
+ SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+  Y -89.0 1.0 89.0 evengridAverage
+  X 0.0 1.0 359.0 evengridAverage
+  T 3 runningAverage
+  T (Jan 1979) SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant .F
+     last
+      1 sub
+      cvsunits nip RANGE
+  SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+   Y -89.0 1.0 89.0 evengridAverage
+   X 0.0 1.0 359.0 evengridAverage
+   T (Jan 1971) (Dec 2000) RANGE
+   T 3 runningAverage
+   T 12 splitstreamgrid
+   [T2]0.0 0.33 0.67 1.0 0.5 replacebypercentile
+   [percentile]CofA=B-bounded
+  T
+   /pointwidth 1 def
+   pop
+  T 2 shiftGRID
+  T (Feb 2017) (last) RANGE
+  T /F renameGRID
+  0.667 masklt
+  dataflag
+  SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant
+   F (Feb 2017) (last) RANGE
+   L 1 VALUE
+   /L removeGRID
+   a:
+     40 50 flagrange
+     2 mul
+     :a:
+      55 flagge
+      4 mul
+      :a
+    add
+   add
+  3 masklt
+  4 4 maskrange
+  5 maskgt
+  0 replaceNaN
+  SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+   Y -89.0 1.0 89.0 evengridAverage
+   X 0.0 1.0 359.0 evengridAverage
+   T 3 runningAverage
+   T (Jan 1979) SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant .F
+      last
+       1 sub
+       cvsunits nip RANGE
+   SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+    Y -89.0 1.0 89.0 evengridAverage
+    X 0.0 1.0 359.0 evengridAverage
+    T (Jan 1971) (Dec 2000) RANGE
+    T 3 runningAverage
+    T 12 splitstreamgrid
+    [T2]0.0 0.33 0.67 1.0 0.5 replacebypercentile
+    [percentile]CofA=B-bounded
+   T
+    /pointwidth 1 def
+    pop
+   T 2 shiftGRID
+   T (Feb 2017) (last) RANGE
+   T /F renameGRID
+   0.333 maskgt
+   dataflag
+   -1 mul
+   SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant
+    F (Feb 2017) (last) RANGE
+    L 1 VALUE
+    /L removeGRID
+    a:
+      -50 -40 flagrange
+      -2 mul
+      :a:
+       -55 flagle
+       -4 mul
+       :a
+     add
+    add
+   -3 maskgt
+   -4 -4 maskrange
+   -5 masklt
+   0 replaceNaN
+   add
+  -5 -5 maskrange
+  1 replaceNaN
+  -3 -3 maskrange
+  2 replaceNaN
+  5 5 maskrange
+  4 replaceNaN
+  /long_name (Same Tendency in Forecast and 3-Month Precipitation Observation) def
+  /scale_min 1 def
+  /scale_max 4 def
+  /plotfirst 1 def
+  /plotlast 4 def
+  /missing_value 0 def
+  /units /ids def
+  /CLIST[ (Past Dry/Possible Future Dry, Greatly Enhanced) (Past Dry/Possible Future Dry, Enhanced) (Past Wet/Possible Future Wet, Enhanced) (Past Wet/Possible Future Wet, Greatly Enhanced) ]def
+  startcolormap
+    /maxncolor 8 def
+    DATA
+    1 4 RANGE
+    transparent white 232
+       184 51 RGB
+       yellow 144
+         224 144 RGB
+         50
+          150 50 RGB
+          white endcolormap
+  X -180.0 180.0 RANGEEDGES
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+/pic3mo_reversed {
+ SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+  Y -89.0 1.0 89.0 evengridAverage
+  X 0.0 1.0 359.0 evengridAverage
+  T 3 runningAverage
+  T (Jan 1979) SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant .F last 1 sub cvsunits nip RANGE
+  SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+   Y -89.0 1.0 89.0 evengridAverage
+   X 0.0 1.0 359.0 evengridAverage
+   T (Jan 1971) (Dec 2000) RANGE
+   T 3 runningAverage
+   T 12 splitstreamgrid
+   [T2]0.0 0.33 0.67 1. 0.5 replacebypercentile
+   [percentile]CofA=B-bounded
+  T
+   /pointwidth 1 def
+   pop
+  T 2 shiftGRID
+  T (Feb 2017) (last) RANGE
+  T /F renameGRID
+  0.333 maskgt
+  dataflag
+  SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant
+   F (Feb 2017) (last) RANGE
+   L 1 VALUE
+   /L removeGRID
+   40 flagge
+   add
+  2 div
+  1 masklt
+  dataflag
+  SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+   Y -89.0 1.0 89.0 evengridAverage
+   X 0.0 1.0 359.0 evengridAverage
+   T 3 runningAverage
+   T (Jan 1979) SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant .F last 1 sub cvsunits nip RANGE
+  SOURCES .NOAA .NCEP .CPC .PRECL .v1p0 .deg1p0 .rain
+    Y -89.0 1.0 89.0 evengridAverage
+    X 0.0 1.0 359.0 evengridAverage
+    T (Jan 1971) (Dec 2000) RANGE  
+    T 3 runningAverage
+    T 12 splitstreamgrid
+    [T2]0.0 0.33 0.67 1. 0.5 replacebypercentile
+    [percentile]CofA=B-bounded
+   T
+    /pointwidth 1 def
+    pop
+   T 2 shiftGRID
+   T (Feb 2017) (last) RANGE
+   T /F renameGRID
+   0.667 masklt
+   dataflag
+   SOURCES .IRI .FD .NMME_Seasonal_Forecast .Precipitation_ELR .dominant
+    F (Feb 2017) (last) RANGE 
+    L 1 VALUE
+    /L removeGRID
+    -40 flagle
+    add
+   2 div
+   1 masklt
+   dataflag
+   -1 mul
+   add
+  1 1 maskrange
+  2 replaceNaN
+  -1 -1 maskrange
+  1 replaceNaN
+  /long_name (Reversed Tendency in Forecast and 3-Month Precipitation Observation) def
+  /scale_min 1 def
+  /scale_max 2 def
+  /plotfirst 1 def
+  /plotlast 2 def
+  /missing_value 0 def
+  /units /ids def
+  /CLIST[ (Past Wet/Possible Future Dry) (Past Dry/Possible Future Wet) ]def
+  startcolormap
+    /maxncolor 6 def
+    DATA
+    1 2 RANGE
+    transparent white yellow 144
+         224 144 RGB
+         white endcolormap
+ X -180. 180. RANGEEDGES
+} defasvarsilent
+
+:dataset
+/last_modified pic3mo_same .last_modified def
+/expires pic3mo_same .expires def
+\end{ingrid}

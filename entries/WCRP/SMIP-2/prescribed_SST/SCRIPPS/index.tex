@@ -1,0 +1,589 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/scrippsfilename % ( varname -- filepattern [ filevars] )
+{
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/SCRIPPS_New.D/)
+exch cvntos
+(.%s[S1]_%s[E1].mem%2.2d[M].nc) 
+3array astore concat
+[M S
+        S         (%b%y) strftimes
+         tolower
+         /name /S1 def
+         S L last
+            first sub
+            nip add
+          (%b%y) strftimes
+          tolower
+          /name /E1 def
+          ]
+} def
+grid:
+/name (longitude)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (latitude)def
+/units (degree_north)def
+ -90. 2.5 90.
+:grid
+/longitude_01 longitude def
+/latitude_01 latitude def
+:datasetdefs
+/iridl:hasSemantics (iridl:SIO) def
+/references (Kanamitsu_etal2002) def
+/description (Scripps Institute of Oceanography) def
+grid:
+/name /M def
+/long_name (members) def
+1 1 10
+:grid
+grid:
+/name /S def
+/standard_name (forecast_reference_time) def
+monthtime
+/pointwidth 0 def
+periodic
+1 Mar 1979 ensotime
+3.
+1 Dec 1979 ensotime
+:grid
+variable:
+/name /season def
+grids: S :grids
+values:
+(mamjja)
+(jjason)
+(sondjf)
+(djfmam)
+:values
+:variable
+grid:
+/name /S def
+/standard_name (forecast_reference_time) def
+/long_name (start time) def
+monthtime
+/pointwidth 0 def
+1 Mar 1979 ensotime
+3.
+1 Dec 1999 ensotime
+:grid
+grid:
+/name /L def
+/long_name (lead time) def
+/standard_name (forecast_period) def
+/units (months) def
+0.5 1. 5.5
+:grid
+/T { S L add /long_name (Forecast Time) def /pointwidth 1 def
+/standard_name (time) def
+} defasvar
+\end{ingrid}
+dataset:
+/name (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/SCRIPPS.D/1979/jjason/01)def
+dataset:
+/name (pr_scripps_1979.jjason.01_mm.nc)def
+\begin{ingrid}
+ /model (sfm2000) def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+ /calendar (standard) def
+grid:
+/name (longitude)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (latitude)def
+/units (degree_north)def
+values: -88.542 -86.653 -84.752998 -82.851006 -80.947006 -79.042999 -77.139 -75.234993 -73.331001 -71.425995 -69.521996 -67.617004 -65.712997 -63.807999 -61.903 -59.999001 -58.094002 -56.188999 -54.285004 -52.380001 -50.475002 -48.570999 -46.666 -44.761002 -42.855999 -40.952 -39.047001 -37.141998 -35.237999 -33.332996 -31.427999 -29.523001 -27.619001 -25.714001 -23.809 -21.903999 -20. -18.094999 -16.190001 -14.285999 -12.381001 -10.475999
+ -8.5710001 -6.6669998 -4.7619996 -2.8569999 -0.952 0.952 2.8569999 4.7619996 6.6669998 8.5710001 10.475999 12.381001 14.285999 16.190001 18.094999 20. 21.903999 23.809 25.714001 27.619001 29.523001 31.427999 33.332996 35.237999 37.141998 39.047001 40.952 42.855999 44.761002 46.666 48.570999 50.475002 52.380001 54.285004 56.188999 58.094002 59.999001 61.903 63.807999 65.712997 67.617004 69.521996 71.425995 73.331001 75.234993 77.139 79.042999 80.947006 82.851006 84.752998 86.653 88.542 :values
+:grid
+grid:
+/name (levels)def
+/units (hPa)def
+values: 1000. 850. 700. 500. 300. 200. 100. 70. 50. 20. :values
+:grid
+\end{ingrid}
+grid:
+/name (time)def
+/units (days since 1979-6-1 0)def
+values: 0.0 30. 61. 92. 122. 153. :values
+:grid
+\begin{ingrid}
+ /pr{
+[ longitude latitude | M L S]
+/pr scrippsfilename
+ readdatafile:
+/name (pr) def
+% /comments (Unknown1 variable comment) def
+ /level_description (Earth surface) def
+ /grid_name (grid-1) def
+% /time_statistic (instantaneous) def
+ /units (kg/(m^2*s))cvn def
+ /grid_type (generic) def
+ /long_name (Total precipitation rate) def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (psl_scripps_1979.jjason.01_mm.nc)def
+ /model (sfm2000) def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+ /calendar (standard) def
+grid:
+/name (longitude)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (latitude)def
+/units (degree_north)def
+ -90. 2.5 90.
+:grid
+\begin{ingrid}
+ /psl{
+[ longitude_01 latitude_01 | M L S]
+/psl scrippsfilename
+ readdatafile:
+/name (psl) def
+% /comments (Unknown1 variable comment) def
+ /level_description (Mean Sea Level) def
+ /grid_name (grid-1) def
+% /time_statistic (instantaneous) def
+ /units /Pa def
+ /grid_type (linear) def
+ /long_name (Mean sea-level pressure) def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (ta_scripps_1979.jjason.01_mm.nc)def
+ /model (sfm2000) def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+ /calendar (standard) def
+\begin{ingrid}
+ /ta{
+[ longitude_01 latitude_01
+levels | M L S]
+/ta scrippsfilename
+ readdatafile:
+/name (ta) def
+% /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+% /time_statistic (instantaneous) def
+ /units /Kelvin_scale def
+ /grid_type (linear) def
+ /long_name (Air Temperature) def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (tas_scripps_1979.jjason.01_mm.nc)def
+ /model (sfm2000) def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+ /calendar (standard) def
+grid:
+/name (longitude)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (latitude)def
+/units (degree_north)def
+values: -88.542 -86.653 -84.752998 -82.851006 -80.947006 -79.042999 -77.139 -75.234993 -73.331001 -71.425995 -69.521996 -67.617004 -65.712997 -63.807999 -61.903 -59.999001 -58.094002 -56.188999 -54.285004 -52.380001 -50.475002 -48.570999 -46.666 -44.761002 -42.855999 -40.952 -39.047001 -37.141998 -35.237999 -33.332996 -31.427999 -29.523001 -27.619001 -25.714001 -23.809 -21.903999 -20. -18.094999 -16.190001 -14.285999 -12.381001 -10.475999
+ -8.5710001 -6.6669998 -4.7619996 -2.8569999 -0.952 0.952 2.8569999 4.7619996 6.6669998 8.5710001 10.475999 12.381001 14.285999 16.190001 18.094999 20. 21.903999 23.809 25.714001 27.619001 29.523001 31.427999 33.332996 35.237999 37.141998 39.047001 40.952 42.855999 44.761002 46.666 48.570999 50.475002 52.380001 54.285004 56.188999 58.094002 59.999001 61.903 63.807999 65.712997 67.617004 69.521996 71.425995 73.331001 75.234993 77.139 79.042999 80.947006 82.851006 84.752998 86.653 88.542 :values
+:grid
+\begin{ingrid}
+ /tas{
+[ longitude latitude | M L S]
+/tas scrippsfilename
+readdatafile:
+/name (tas) def
+% /comments (Unknown1 variable comment) def
+ /level_description (2 meters above earth surface) def
+ /grid_name (grid-1) def
+% /time_statistic (instantaneous) def
+ /units /Kelvin_scale def
+ /grid_type (generic) def
+ /long_name (Surface (2m) air temperature) def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (ts_scripps_1979.jjason.01_mm.nc)def
+ /model (sfm2000) def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+ /calendar (standard) def
+\begin{ingrid}
+ /ts{
+[ longitude latitude | M L S]
+/ts scrippsfilename
+readdatafile:
+/name (ts) def
+% /comments (Unknown1 variable comment) def
+ /level_description (Earth surface) def
+ /grid_name (grid-1) def
+% /time_statistic (instantaneous) def
+ /units /Kelvin_scale def
+ /grid_type (generic) def
+ /long_name (Ground Surface Temperature) def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (ua_scripps_1979.jjason.01_mm.nc)def
+ /model (sfm2000) def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+ /calendar (standard) def
+grid:
+/name (longitude)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (latitude)def
+/units (degree_north)def
+ -90. 2.5 90.
+:grid
+\begin{ingrid}
+ /ua{
+[ longitude_01 latitude_01 levels
+| M L S]
+/ua scrippsfilename
+ readdatafile:
+/name (ua) def
+% /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+% /time_statistic (instantaneous) def
+ /units (m/s)cvn def
+ /grid_type (linear) def
+ /long_name (Eastward wind) def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (va_scripps_1979.jjason.01_mm.nc)def
+ /model (sfm2000) def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+ /calendar (standard) def
+\begin{ingrid}
+ /va{
+[ longitude_01 latitude_01
+levels
+| M L S]
+/va scrippsfilename
+ readdatafile:
+/name (va) def
+% /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+% /time_statistic (instantaneous) def
+ /units (m/s)cvn def
+ /grid_type (linear) def
+ /long_name (Northward wind) def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+dataset:
+/name (zg_scripps_1979.jjason.01_mm.nc)def
+ /model (sfm2000) def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+ /calendar (standard) def
+\begin{ingrid}
+ /zg{
+[longitude_01 latitude_01
+levels
+| M L S]
+/zg scrippsfilename
+ readdatafile:
+/name (zg) def
+% /comments (Unknown1 variable comment) def
+ /grid_name (grid-1) def
+% /time_statistic (instantaneous) def
+ /units /m def
+ /grid_type (linear) def
+ /long_name (Geopotential height) def
+ /missing_value 9.99899960E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+:dataset
+:dataset
+dataset:
+/name (/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/SCRIPPS_EXTRA_VAR.D/1979/jjason/01)def
+dataset:
+/name (clt_scripps_1979.jjason.01_mm.nc)def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /model (sfm2000) def
+ /calendar (standard) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+grid:
+/name (longitude)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (latitude)def
+/units (degree_north)def
+values: -88.542 -86.653 -84.752998 -82.851006 -80.947006 -79.042999 -77.139 -75.234993 -73.331001 -71.425995 -69.521996 -67.617004 -65.712997 -63.807999 -61.903 -59.999001 -58.094002 -56.188999 -54.285004 -52.380001 -50.475002 -48.570999 -46.666 -44.761002 -42.855999 -40.952 -39.047001 -37.141998 -35.237999 -33.332996 -31.427999 -29.523001 -27.619001 -25.714001 -23.809 -21.903999 -20. -18.094999 -16.190001 -14.285999 -12.381001 -10.475999 -8.5710001 -6.6669998 -4.7619996 -2.8569999 -0.952 0.952 2.8569999 4.7619996 6.6669998 8.5710001 10.475999 12.381001 14.285999 16.190001 18.094999 20. 21.903999 23.809 25.714001 27.619001 29.523001 31.427999 33.332996 35.237999 37.141998 39.047001 40.952 42.855999 44.761002 46.666 48.570999 50.475002 52.380001 54.285004 56.188999 58.094002 59.999001 61.903 63.807999 65.712997 67.617004 69.521996 71.425995 73.331001 75.234993 77.139 79.042999 80.947006 82.851006 84.752998 86.653 88.542 :values
+:grid
+grid:
+/name (time)def
+/units (days since 1979-6-1 0)def
+values: 0.0 30. 61. 92. 122. 153. :values
+:grid
+\begin{ingrid*}
+ /clt{
+[ longitude latitude | M L S]
+/clt scrippsfilename
+ readdatafile:
+/name (clt) def
+ /grid_type (generic) def
+ /level_description (Total Cloud layer) def
+ /units /percent def
+ /long_name (Total cloud amount) def
+% /time_statistic (instantaneous) def
+ /missing_value 9.99899960E20 def
+ /grid_name (grid-1) def
+% /comments (Unknown1 variable comment) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid*}
+:dataset
+dataset:
+/name (hfls_scripps_1979.jjason.01_mm.nc)def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /model (sfm2000) def
+ /calendar (standard) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+\begin{ingrid*}
+ /hfls{
+[ longitude latitude | M L S]
+/hfls scrippsfilename
+ readdatafile:
+/name (hfls) def
+ /grid_type (generic) def
+ /level_description (Earth surface) def
+ /units (W/m2)cvn def
+ /long_name (Heat flux latent surface) def
+% /time_statistic (instantaneous) def
+ /missing_value 9.99899960E20 def
+ /grid_name (grid-1) def
+% /comments (Unknown1 variable comment) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid*}
+:dataset
+dataset:
+/name (hfss_scripps_1979.jjason.01_mm.nc)def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /model (sfm2000) def
+ /calendar (standard) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+\begin{ingrid*}
+ /hfss{
+[ longitude latitude | M L S]
+/hfss scrippsfilename
+ readdatafile:
+/name (hfss) def
+ /grid_type (generic) def
+ /level_description (Earth surface) def
+ /units (W/m2)cvn def
+ /long_name (Heat flux sensible surface) def
+% /time_statistic (instantaneous) def
+ /missing_value 9.99899960E20 def
+ /grid_name (grid-1) def
+% /comments (Unknown1 variable comment) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid*}
+:dataset
+dataset:
+/name (hus_scripps_1979.jjason.01_mm.nc)def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /model (sfm2000) def
+ /calendar (standard) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+grid:
+/name (longitude)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (latitude)def
+/units (degree_north)def
+ -90. 2.5 90.
+:grid
+grid:
+/name (levels)def
+/units (hPa)def
+values: 1000. 850. 700. 500. 300. 200. 100. 70. 50. 20. :values
+:grid
+\begin{ingrid*}
+/hus{
+[ longitude_01 latitude_01 levels | M L S]
+/hus scrippsfilename
+ readdatafile:
+/name (hus) def
+ /grid_type (linear) def
+ /units /unitless def
+ /long_name (Specific humidity) def
+% /time_statistic (instantaneous) def
+ /missing_value 9.99899960E20 def
+ /grid_name (grid-1) def
+% /comments (Unknown1 variable comment) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid*}
+:dataset
+dataset:
+/name (rlut_scripps_1979.jjason.01_mm.nc)def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /model (sfm2000) def
+ /calendar (standard) def
+ /comments (file created by grads using lats4d (-func -rlut) available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+grid:
+/name (longitude)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (latitude)def
+/units (degree_north)def
+values: -88.542 -86.653 -84.752998 -82.851006 -80.947006 -79.042999 -77.139 -75.234993 -73.331001 -71.425995 -69.521996 -67.617004 -65.712997 -63.807999 -61.903 -59.999001 -58.094002 -56.188999 -54.285004 -52.380001 -50.475002 -48.570999 -46.666 -44.761002 -42.855999 -40.952 -39.047001 -37.141998 -35.237999 -33.332996 -31.427999 -29.523001 -27.619001 -25.714001 -23.809 -21.903999 -20. -18.094999 -16.190001 -14.285999 -12.381001 -10.475999 -8.5710001 -6.6669998 -4.7619996 -2.8569999 -0.952 0.952 2.8569999 4.7619996 6.6669998 8.5710001 10.475999 12.381001 14.285999 16.190001 18.094999 20. 21.903999 23.809 25.714001 27.619001 29.523001 31.427999 33.332996 35.237999 37.141998 39.047001 40.952 42.855999 44.761002 46.666 48.570999 50.475002 52.380001 54.285004 56.188999 58.094002 59.999001 61.903 63.807999 65.712997 67.617004 69.521996 71.425995 73.331001 75.234993 77.139 79.042999 80.947006 82.851006 84.752998 86.653 88.542 :values
+:grid
+\begin{ingrid*}
+ /rlut{
+[ longitude latitude | M L S]
+/rlut scrippsfilename
+ readdatafile:
+/name (rlut) def
+ /grid_type (generic) def
+ /level_description (Top of atmosphere) def
+ /units (W/m2)cvn def
+ /long_name (LW radiation TOA (OLR)) def
+% /time_statistic (instantaneous) def
+ /missing_value 9.99899960E20 def
+ /grid_name (grid-1) def
+% /comments (Unknown1 variable comment) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid*}
+:dataset
+dataset:
+/name (snw_scripps_1979.jjason.01_mm.nc)def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /model (sfm2000) def
+ /calendar (standard) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+\begin{ingrid*}
+ /snw{
+[ longitude latitude | M L S]
+/snw scrippsfilename
+ readdatafile:
+/name (snw) def
+ /grid_type (generic) def
+ /level_description (Earth surface) def
+ /units (kg/m^2)cvn def
+ /long_name (Snow depth (water equivalent)) def
+% /time_statistic (instantaneous) def
+ /missing_value 9.99899960E20 def
+ /grid_name (grid-1) def
+% /comments (Unknown1 variable comment) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid*}
+:dataset
+dataset:
+/name (tauu_scripps_1979.jjason.01_mm.nc)def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /model (sfm2000) def
+ /calendar (standard) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+\begin{ingrid*}
+ /tauu{
+[ longitude latitude | M L S]
+/tauu scrippsfilename
+ readdatafile:
+/name (tauu) def
+ /grid_type (generic) def
+ /level_description (Earth surface) def
+ /units (N/m^2)cvn def
+ /long_name (Eastward surface wind stress (positive for eastward wind)) def
+% /time_statistic (instantaneous) def
+ /missing_value 9.99899960E20 def
+ /grid_name (grid-1) def
+% /comments (Unknown1 variable comment) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid*}
+:dataset
+dataset:
+/name (tauv_scripps_1979.jjason.01_mm.nc)def
+ /center (ncep) def
+ /Conventions (COARDS) def
+ /model (sfm2000) def
+ /calendar (standard) def
+ /comments (file created by grads using lats4d available from http://dao.gsfc.nasa.gov/software/grads/lats4d/) def
+\begin{ingrid*}
+/tauv{
+[ longitude latitude | M L S]
+/tauv scrippsfilename
+ readdatafile:
+/name (tauv) def
+ /grid_type (generic) def
+ /level_description (Earth surface) def
+ /units (N/m^2)cvn def
+ /long_name (Northward surface wind stress (positive for northward wind)) def
+% /time_statistic (instantaneous) def
+ /missing_value 9.99899960E20 def
+ /grid_name (grid-1) def
+% /comments (Unknown1 variable comment) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid*}
+:dataset
+:dataset
+\begin{ingrid}
+:dataset
+T pop
+\end{ingrid}

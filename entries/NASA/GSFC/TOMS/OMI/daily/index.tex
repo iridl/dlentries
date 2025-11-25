@@ -1,0 +1,119 @@
+\begin{ingrid}
+/description (Daily Data from the Ozone Monitoring Instrument) def
+continuedataset:
+
+datasetdefs:
+/toms_ai_colors2 {
+startcolormap DATA
+1.0 4.5 RANGE
+white DeepSkyBlue
+200 200 200 RGB
+1.0 VALUE
+200 200 200 RGB RGBdup
+1.5 bandmax
+160 160 160 RGB RGBdup
+2.0 bandmax
+yellow yellow
+2.5 bandmax
+200 200 0 RGB RGBdup
+3.0 bandmax
+255 0 50 RGB RGBdup
+3.5 bandmax
+165 0 50 RGB RGBdup
+4.0 bandmax
+70 0 0 RGB RGBdup
+4.5 bandmax
+70 0 0 RGB endcolormap } def
+
+/toms_ozone_colors {
+startcolormap DATA 0 600 RANGE
+white gray gray 0 VALUE
+gray gray 100 bandmax
+10 0 10 RGB RGBdup 125 bandmax
+90 0 90 RGB RGBdup 150 bandmax
+140 0 140 RGB RGBdup 175 bandmax
+94 30 214 RGB RGBdup 200 bandmax
+15 35 255 RGB RGBdup 225 bandmax
+0 120 235 RGB RGBdup 250 bandmax
+0 191 194 RGB RGBdup 275 bandmax
+0 255 255 RGB RGBdup 300 bandmax
+114 255 53 RGB RGBdup 325 bandmax
+0 255 0 RGB RGBdup 350 bandmax
+195 234 12 RGB RGBdup 375 bandmax
+255 255 0 RGB RGBdup 400 bandmax
+255 165 0 RGB RGBdup 425 bandmax
+206 43 0 RGB RGBdup 450 bandmax
+125 20 22 RGB RGBdup 475 bandmax
+55 10 10 RGB RGBdup 500 bandmax
+gray gray 600 bandmax
+gray
+endcolormap } def
+
+:datasetdefs
+
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+-179.5 1.0 179.5
+:grid
+
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+-89.5 1.0 89.5 
+:grid
+
+grid:
+/name /T def
+/units (julian_day) def
+%/units (days since 1960-01-01 12:00:00) def
+/defaultvalue { last } def
+ 01 Oct 2004 julian_day 
+1 
+systemtime
+ (%d %b %Y) 12 strftime interp julian_day
+%01 Jan 1960 julian_day sub
+:grid
+
+%T {T /unixtime unitconvertbyattribute exch scale_factor mul add_offset add (/Data/data6/nasa/gsfc/toms/version8/omi/aerosol/L3_aersl_omi_%Y%m%d.txt) 100 strftime nip}
+%removeextrausing name exch def  
+
+T {T /unixtime unitconvertbyattribute exch scale_factor mul add_offset add (/Data/data6/nasa/gsfc/toms/version8/omi/aerosol/L3_aersl_omi_%Y%m%d.txt) 100 strftime nip}
+removeextrausing name exch def  
+
+/X X def
+/Y Y def
+/T T def
+
+/ai {
+[T]
+T
+%(/beluga/data/mbell/dldata/nasa.d/GSFC.d/toms.d/version8/OMI/ai%Y/L3_aersl_omi_%Y%m%d.txt) strftimes
+(/Data/data6/nasa/gsfc/toms/version8/omi/aerosol/L3_aersl_omi_%Y%m%d.txt) strftimes
+recordsandfilenames nip[X Y] 999 
+((1X//180(1X/14(1X,25I3/),(1X,10I3)))) readi2formatted
+/long_name (Aerosol Index) def
+/scale_factor 0.1 def
+/scale_min 0 def
+/units /unitless def
+/missing_value [999 888] def
+toms_ai_colors2
+/description (OMI Aerosol Index values) def
+}defasvarsilent
+
+%/ozone { [T] T (/beluga/data/mbell/dldata/nasa.d/GSFC.d/toms.d/version8/OMI/daily/ozone/Y%Y/L3_ozone_omi_%Y%m%d.txt) strftimes
+%recordsandfilenames nip[X Y] 999
+%((1X//180(1X/11(1X,25I3/),(1X,13I3)))) readi2formatted
+%/long_name (Ozone Concentration) def
+%/missing_value 999 def
+%%/scale_min 100 def
+%%/scale_max 500 def
+%/units (Dobson Units) def
+%toms_ozone_colors
+%/description (OMI Ozone Concentration values) def
+%} defasvarsilent
+
+:dataset
+\end{ingrid}

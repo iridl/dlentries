@@ -1,0 +1,79 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+ /soiltexturecolors {
+startcolormap
+/maxncolor 11 def
+DATA 0 7 RANGE
+white blue
+  0   0 255 RGB 
+173 216 230 RGB 
+221 160 221 RGB 
+  0 255   0 RGB 
+255 255   0 RGB 
+233 150 122 RGB 
+192 192 192 RGB 
+255  20 147 RGB 
+DeepPink
+endcolormap} def
+:datasetdefs
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 -1 -89.5
+:grid
+/references (Zobler_1986 Webb_etal1993) def
+variable:
+/name /avgslope def
+/long_name /Average_Slope def 
+/units /percent def
+/missing_value -999 def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/soils/avgslope.i2) def
+%formatted
+%/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/soils/avgslope.sol) def
+:file
+/scale_min 0 def
+/scale_max 40 def
+:variable
+variable:
+soiltexturecolors
+/name /texture def
+/long_name /Dominant_Soil_Texture def
+/units /ids def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/soils/domtex.i2) def
+%formatted
+%/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/soils/domtex.sol) def
+:file
+/scale_min 0 def
+/scale_max 7 def
+/CLIST [ (Ocean) (Coarse) (Medium/Coarse) (Medium) (Fine/Medium)
+ (Fine) (Ice) (Organic) ] def
+:variable
+variable:
+/name /prof_depth def
+/long_name /Soil_Profile_Depth def
+/units /cm def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/soils/profdep.i2) def
+%formatted
+%/name (/Data/data3/nasa/islscp/gdslam/hydro_soils/soils/profdep.sol) def
+:file
+/scale_min 0 def
+/scale_max 800 def
+:variable
+:dataset
+\end{ingrid}

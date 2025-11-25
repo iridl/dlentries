@@ -1,0 +1,58 @@
+\begin{ingrid}
+continuedataset:
+
+link:
+/name (source) def
+/href (ftp://ftp.cpc.ncep.noaa.gov/NMME/obs/) def
+:link
+
+datasetdefs:
+
+grid:
+/name /X def
+/long_name (longitude) def
+/standard_name (longitude) def
+periodic
+0.25 0.5 359.75
+/units (degree_east) def
+:grid
+
+grid:
+/name /Y def
+/long_name (latitude) def
+/standard_name (latitude) def
+89.75 0.5 -89.75
+/units (degree_north) def
+:grid
+
+:datasetdefs
+
+grid:
+/name /T def
+/long_name (time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/pointwidth 1 def 
+16 Jan 1948 ensotime
+1.0
+16 Aug 2021 ensotime
+:grid
+
+/t2m { [ X Y | T ] (/Data/data23/NMME/Obs.D/air.mon.mean.nc) readdatafile:
+/name (air) def
+/units (Kelvin_scale) def
+/long_name (GHCN_CAMS Monthly Mean Air Temp) def
+/standard_name (air_temperature) def
+/missing_value -9.9692100E+36 def
+/realarraytype netcdfrecords :readdatafile
+X 0 1 359 GRID 
+Y -90 1 90 GRID
+273.15 sub (degree_Celsius) unitconvert
+} defasvarsilent 
+
+:dataset
+
+t2m .X name exch def
+t2m .Y name exch def
+
+\end{ingrid}

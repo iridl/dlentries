@@ -1,0 +1,26 @@
+\begin{ingrid}
+
+continuedataset:
+
+/rfe_merged {
+ SOURCES .Vietnam .ENACTS .MON .dekadal .rainfall .rfe_merged
+  T
+   0.0 mul
+   1 add
+   /units /unitless def
+   T differential_mul
+   exch
+   1 index mul
+   monthlyAverage exch
+   /name /totday def
+   monthlyAverage div
+  3.0 mul
+  
+/long_name (Monthly Rainfall) def
+precip_colors
+DATA 0 800 RANGE
+T /defaultvalue { last } def pop
+}defasvar
+
+:dataset
+\end{ingrid}

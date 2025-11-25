@@ -1,0 +1,193 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9575
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 586
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAnov2008.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Ménages) def
+/Q21 {
+mytable
+myquestion 
+32 VALUE
+ myquestion removeGRID
+/long_name (Q21 QUELLE EST LE STATUT D'OCCUPATION DU LOGEMENT) def 
+/units /ids def
+/CLIST [(PROPRIETAIRE)(LOCATAIRE)(OCCUPE SANS PAYER)(AUTRE A PRECISER)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q14 {
+mytable
+myquestion 
+33 VALUE
+ myquestion removeGRID
+/long_name (Q14 SEXE CM) def 
+/units /ids def
+/CLIST [(MASCULIN)(FEMININ)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q15 {
+mytable
+myquestion 
+34 VALUE
+ myquestion removeGRID
+/long_name (Q15 AGE DU CM) def 
+}defasvarsilent
+
+/Q16 {
+mytable
+myquestion 
+35 VALUE
+ myquestion removeGRID
+/long_name (Q16 STATUT MATRIMONIAL CM) def 
+/units /ids def
+/CLIST [(MARIE MONOGAME)(MARIE POLYGAME)(DIVORCE (E))(VEUF/VEUVE)(CELIBATAIRE)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q17 {
+mytable
+myquestion 
+36 VALUE
+ myquestion removeGRID
+/long_name (Q17 PRINCIPALE  ACTIVITE  CM) def 
+/units /ids def
+/CLIST [(AGRICULTURE)(ELEVAGE)(COMMERCE)(ARTISANAT)(SECTEUR PUBLIC)(SECTEUR PRIVE)(TRAVAIL JOURNALIER)(AUTRES)] def
+/scale_min 1 def
+/scale_max 8 def
+}defasvarsilent
+
+/Q18 {
+mytable
+myquestion 
+37 VALUE
+ myquestion removeGRID
+/long_name (Q18 QUELLE EST LA PRINCIPALE SOURCE D'EAU DE BOISSON) def 
+/units /ids def
+/CLIST [(ROBINET D'EAU COURANTE)(FORAGE)(MINI AEP)(PUITS PROTEGE)(PUITS OUVERT)(EAU SURFACE)(CAMION CITERNE)(AUTRE A PRECISER)] def
+/scale_min 1 def
+/scale_max 8 def
+}defasvarsilent
+
+/Q19 {
+mytable
+myquestion 
+38 VALUE
+ myquestion removeGRID
+/long_name (Q19 QUELLE EST LE PRINCIPAL TYPE DE TOILETTE) def 
+/units /ids def
+/CLIST [(LATRINE TRADITIONNELLE)(LATRINE AMELIOREE)(BROUSSE)(W.C AVEC CHASSE D'EAU)(AUTRE A PRECISER)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q20 {
+mytable
+myquestion 
+39 VALUE
+ myquestion removeGRID
+/long_name (Q20 QUELLE EST LA PRINCIPALE SOURCE D'ENERGIE POUR LA CUISSO) def 
+/units /ids def
+/CLIST [(BOIS DE CHAUFFE)(CHARBON)(GAZ)(ELECTRICITE)(RECHAUD A PETROLE)(BOUSES DE VACHE)(TIGES DE CEREALES)(AUTRE)] def
+/scale_min 1 def
+/scale_max 8 def
+}defasvarsilent
+
+/Q22 {
+mytable
+myquestion 
+40 VALUE
+ myquestion removeGRID
+/long_name (Q22 QUELE EST LA NATURE DU PRINCIPAL TOIT DE LOGEMENT) def 
+/units /ids def
+/CLIST [(TERRE)(PAILLE)(BOIS)(TOLE OU METAL)(CIMENT/BETON)(TUILES)(PEAU)(NATTES)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 9 def
+}defasvarsilent
+
+/Q23 {
+mytable
+myquestion 
+41 VALUE
+ myquestion removeGRID
+/long_name (Q23 QUELLE EST LA NATURE PRINCIPALE DU MUR DU LOGEMENT) def 
+/units /ids def
+/CLIST [(TERRE/BRIQUE DE TERRE)(PIERRE)(BRIQUES CUITES)(CIMENT/BETON)(BOIS/BAMBOU)(TOLES EN METAL)(PAILLE)(AUTRES A PRECISER)] def
+/scale_min 1 def
+/scale_max 8 def
+}defasvarsilent
+
+/Q25A {
+mytable
+myquestion 
+42 VALUE
+ myquestion removeGRID
+/long_name (Q25A NOMBRE TOTAL DES MEMBRES DU MENAGE) def 
+}defasvarsilent
+
+/Q25C {
+mytable
+myquestion 
+43 VALUE
+ myquestion removeGRID
+/long_name (Q25C NOMBRE D'ENFANTS DE 6 à 24 MOIS) def 
+}defasvarsilent
+
+/Q25B {
+mytable
+myquestion 
+44 VALUE
+ myquestion removeGRID
+/long_name (Q25B NOMBRE D'ENFANTS DE MOINS DE 5ANS) def 
+}defasvarsilent
+
+/Q25D {
+mytable
+myquestion 
+45 VALUE
+ myquestion removeGRID
+/long_name (Q25D NOMBRE TOTAL DES MEMBRES ACTIFS DU MENAGE) def 
+}defasvarsilent
+
+/Milieu {
+mytable
+myquestion 
+127 VALUE
+ myquestion removeGRID
+/long_name (Milieu de residence) def 
+/units /ids def
+/CLIST [(Urbain)(Rural)] def
+/scale_min 1.00 def
+/scale_max 2.00 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

@@ -1,0 +1,28 @@
+#! /bin/sh -x
+cd /Data/data1/igoss/leetma
+DataCat=/Data/data1/DataCatalog/entries
+echo Getting Data Update for UPDATELEETMA
+ftp -n nic.fb4.noaa.gov << eoftp
+user SECRET_USER SECRET_PASSWORD
+binary
+hash
+cd pub/ocean/clim1/igoss
+get currents.dat
+get d20.dat
+get d20.dates.txt
+eoftp
+#zsize=`ls -o $filename`
+#mons = expr zsize / 129648
+#
+mv d20.dat depth20.dat
+mv d20.dates.txt depth20.dates.txt
+date=`head -1 currents.dat`
+echo Updating currents for $date
+/Data/data1/igoss/leetma/readcurrents < /Data/data1/igoss/leetma/currents.dat
+#echo Updating d20
+#/Data/data1/igoss/leetma/readd20
+echo Updating catalog entry
+sed -e "/currentenddate/s/^ *16 *[^ ]* *[0-9]*/16 $date/" $DataCat/IGOSS/leetma/index.tex >tmp
+mv $DataCat/IGOSS/leetma/index.tex leetma.old
+mv tmp $DataCat/IGOSS/leetma/index.tex
+# eof

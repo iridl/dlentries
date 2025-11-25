@@ -1,0 +1,92 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+periodic
+0.5 1. 359.5
+:grid
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+-89.5 1. 89.5
+:grid
+grid:
+/name /T def
+/fullname (Central Date of Week) def
+/defaultvalue { last } def
+/units /julian_day def
+values:
+08 Nov 1981 julian_day
+7
+31 Dec 1989 julian_day
+{} for
+03 Jan 1990 julian_day
+7
+03 Mar 2004 julian_day %enddate
+{} for
+:values
+:grid
+variable:
+/name /sst def
+/long_name (Sea Surface Temperature) def
+/units /Celsius def
+/missing_value -999.9 def
+sstcolorscale
+grids: X Y | T :grids
+file:
+direct
+/name (/Data/data3/ocean/nmc/RSOIver2/weekly/oiv2weekly.r4) def
+:file
+:variable
+
+variable:
+/name /err def
+/long_name (SST Normalized Error Variance) def
+/missing_value -999.9 def
+/scale_min 0 def
+/scale_max 1 def
+grids: X Y | T :grids
+file:
+direct
+/name (/Data/data3/ocean/nmc/RSOIver2/weekly/errweekly.r4) def
+:file
+:variable
+
+variable:
+/name /sea_ice def
+/long_name (Sea Ice Concentration) def
+/units /percent def
+/scale_min 0 def
+/scale_max 100 def
+grids: X Y | T :grids
+file:
+i*1
+/name (/Data/data3/ocean/nmc/RSOIver2/weekly/ciceweekly.i1) def
+:file
+:variable
+
+variable:
+/name /mask def
+/long_name (Land-Sea Mask) def
+grids: X Y :grids
+file:
+direct
+/name (/Data/data3/ocean/nmc/RSOIver2/lstags.onedeg.dat) def
+:file
+:variable
+/ssta
+{
+  SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .Reyn_SmithOIv2
+  a: .weekly .sst
+  :a: .pentad-climatology .sst :a
+  [T]regridLinear
+  sub
+  sstacolorscale
+  /long_name (Sea Surface Temperature Anomaly) def
+  /PLOTCOAST 1 def
+  } defasvar
+:dataset
+\end{ingrid}

@@ -1,0 +1,76 @@
+\begin{ingrid} 
+continuedataset: 
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+ 0.5 1.0 34.5
+/pointwidth 0.0 def
+:grid
+
+grid:
+/name (Y) def
+/units (degree_north) def
+90.0 1.0 -90.0
+:grid
+
+grid:
+/name (X) def
+/units (degree_east) def
+periodic
+ 0.0 1.0 359.0
+:grid
+
+grid:
+/name /S def
+/long_name (Day-of-Year) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+0
+1
+365
+/pointwidth 0.0 def
+:grid
+
+
+/pr { [ X Y L | S ] (/Data/SubX/EMC/GEFSv12/hindcast/dc0018/pr_EMC-GEFSv12_%m[S]%d[S].climo.p.nc) [ S ] readdatafile:
+/name (pr) def
+/long_name (Total Precipitation) def
+/standard_name (precipitation_flux) def
+/level_type (surface) def
+/units (kg m-2) cvn def
+/missing_value 9.96921E+36 def
+/realarraytype
+ netcdfrecords
+:readdatafile
+} defasvarsilent
+
+
+/tas { [ X Y L | S ] (/Data/SubX/EMC/GEFSv12/hindcast/dc0018/tas_EMC-GEFSv12_%m[S]%d[S].climo.p.nc) [ S ] readdatafile:
+/name (tas) def
+/long_name (2-meter Mean Air Temperature) def
+/standard_name (air_temperature) def
+/level_type (2 meters above ground) def
+/units (K) cvn def
+/missing_value 9.96921E+36 def
+/realarraytype netcdfrecords
+:readdatafile
+} defasvarsilent
+	
+
+/zg { [ X Y L | S ] (/Data/SubX/EMC/GEFSv12/hindcast/dc0018/zg_EMC-GEFSv12_%m[S]%d[S].climo.p.nc) [ S ] readdatafile:
+/name (zg) def
+/long_name (Geopotential Height (500)) def
+/standard_name (geopotential_height) def
+/level_type (pressure level) def
+/units (gpm) cvn def
+/missing_value 9.96921E+36 def
+/realarraytype netcdfrecords
+:readdatafile
+} defasvarsilent
+
+:dataset
+\end{ingrid}

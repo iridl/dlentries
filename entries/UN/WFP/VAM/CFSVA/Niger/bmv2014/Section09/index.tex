@@ -1,0 +1,273 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 21668
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 345
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Base_menage_vulnerabilite_2014.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Chocs) def
+/Q541 {
+mytable
+myquestion 
+231 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 1 = Perte d'emploi) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q542 {
+mytable
+myquestion 
+232 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 2 = Baisse de revenu) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q543 {
+mytable
+myquestion 
+233 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 3 = Maladie/dépenses de santé exceptionne) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q544 {
+mytable
+myquestion 
+234 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 4 = Décès d'un membre de la famille) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q545 {
+mytable
+myquestion 
+235 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 5 = augmentation des prix des denrées ali) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q546 {
+mytable
+myquestion 
+236 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 6 = Augmentation des prix du carburant/ t) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q547 {
+mytable
+myquestion 
+237 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 7 = Augmentation des prix du loyer) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q548 {
+mytable
+myquestion 
+238 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 8 = Augmentation des prix des intrants ag) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q549 {
+mytable
+myquestion 
+239 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 9 = Coupure d'électricité) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5410 {
+mytable
+myquestion 
+240 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 10 = Insécurité/ vols) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5411 {
+mytable
+myquestion 
+241 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 11 = Remboursement de dettes) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5412 {
+mytable
+myquestion 
+242 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 12 = Chômage de longue durée) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5413 {
+mytable
+myquestion 
+243 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 13 = Catastrophes naturelles (Incendie Ve)) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5414 {
+mytable
+myquestion 
+244 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 14 = Irrégularité des pluies) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5415 {
+mytable
+myquestion 
+245 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 15 = Baisse des récoltes) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5416 {
+mytable
+myquestion 
+246 VALUE
+ myquestion removeGRID
+/long_name (Q54: Principales difficultés ou chocs: 16 = Innondations) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5417 {
+mytable
+myquestion 
+247 VALUE
+ myquestion removeGRID
+/long_name (Q54 : Principales difficultés ou chocs: 17 = Autres à préciser...) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q541A {
+mytable
+myquestion 
+248 VALUE
+ myquestion removeGRID
+/long_name (Q54.1 : Principales difficultés ou chocs: 1ère difficulté) def 
+/units /ids def
+/CLIST [(Perte d'emplois)(Baisse de revenu)(Maladie/dépenses de santé exceptionnelles)(Décès d'un membre de famille)(Augmentation des prix des denrées alimentaires)(Augmentation des prix du carburant / du transport)(Augmentation des prix du loyer)(Augmentation des prix des intrants agricoles)(Coupure d'électricité)(Insécurité / vols)(Remboursement de dettes)(Chômage de longue durée)("Catastrophes naturelles (inondation, incendie, vents)")(Irrégularité des pluies)(Baisse des récoltes)(Inondations)(Autres)] def
+/scale_min 1 def
+/scale_max 17 def
+}defasvarsilent
+
+/Q541B {
+mytable
+myquestion 
+249 VALUE
+ myquestion removeGRID
+/long_name (Q54.2 : Principales difficultés ou chocs: 2ème difficulté) def 
+/units /ids def
+/CLIST [(Perte d'emplois)(Baisse de revenu)(Maladie/dépenses de santé exceptionnelles)(Décès d'un membre de famille)(Augmentation des prix des denrées alimentaires)(Augmentation des prix du carburant / du transport)(Augmentation des prix du loyer)(Augmentation des prix des intrants agricoles)(Coupure d'électricité)(Insécurité / vols)(Remboursement de dettes)(Chômage de longue durée)("Catastrophes naturelles (inondation, incendie, vents)")(Irrégularité des pluies)(Baisse des récoltes)(Inondations)(Autres)] def
+/scale_min 1 def
+/scale_max 17 def
+}defasvarsilent
+
+/Q541C {
+mytable
+myquestion 
+250 VALUE
+ myquestion removeGRID
+/long_name (Q54.3 : Principales difficultés ou chocs: 3ème difficulté) def 
+/units /ids def
+/CLIST [(Perte d'emplois)(Baisse de revenu)(Maladie/dépenses de santé exceptionnelles)(Décès d'un membre de famille)(Augmentation des prix des denrées alimentaires)(Augmentation des prix du carburant / du transport)(Augmentation des prix du loyer)(Augmentation des prix des intrants agricoles)(Coupure d'électricité)(Insécurité / vols)(Remboursement de dettes)(Chômage de longue durée)("Catastrophes naturelles (inondation, incendie, vents)")(Irrégularité des pluies)(Baisse des récoltes)(Inondations)(Autres)] def
+/scale_min 1 def
+/scale_max 17 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

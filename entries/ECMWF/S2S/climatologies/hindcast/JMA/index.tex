@@ -1,0 +1,140 @@
+\begin{ingrid}
+
+continuedataset:
+
+        grid:
+         /name (X)def
+         /long_name (longitude) def
+         /units (degree_east)def
+%         periodic
+	 0.0 1.5 358.5
+        :grid
+
+        grid:
+         /name (Y)def
+	 /long_name (latitude) def
+         /units (degree_north)def
+	 90.0 1.5 -90.0
+        :grid
+
+% a grid for instantaneous values, starting at 1
+      grid:
+	/name /L def
+	/long_name (Lead) def
+	/standard_name (forecast_period) def
+	/units (days) def
+	0.5 1. 32.5
+	/pointwidth 0. def
+	:grid
+
+% a lead grid for daily averages
+       grid:
+	/name /LA def
+	/long_name (Lead) def
+	/standard_name (forecast_period) def
+	/units (days) def
+	1.0 1. 33.0
+	/pointwidth 1.0 def
+	:grid
+
+	grid:
+	 /name /S def
+	 /long_name (Day-of-Year) def
+	%/standard_name (realization) def
+	/units (days since 1960-01-01) def
+	/long_name (forecast start time) def
+	/standard_name (forecast_reference_time) def
+	01 Jan 2000 julian_day 01 Jan 1960 julian_day sub
+	1.0
+	31 Dec 2000 julian_day 01 Jan 1960 julian_day sub
+	/pointwidth 0. def
+	:grid
+
+
+%Precipitation 
+        /tpSmooth{
+                [ X Y | L S ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/JMA/1981-01-10.2010-12-31.smooth_day_clim.nc) 
+%               (/data/xchourio/data/S2SDB/clim/JMA/1981-01-10.2010-12-31.smooth_day_clim.nc) 
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /units (kg m-2) def
+                /long_name (Accumulated Total Precipitation - triangular smoothing climatology ) def
+		/missing_value NaN def
+                /doublearraytype netcdfrecords :readdatafile
+        }defasvarsilent
+
+        /tpClim{
+                [ X Y | L S ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/JMA/1981-01-10.2010-12-31.day_clim.nc)
+%               (/data/xchourio/data/S2SDB/clim/JMA/1981-01-10.2010-12-31.day_clim.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /units (kg m-2) def
+                /long_name (Accumulated Total Precipitation - climatology ) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+                DATA 0 20 RANGE
+        }defasvarsilent
+
+        /tpharm{
+                [ X Y | L S ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/JMA/JMA_tp_Harmonics_L%d[L].nc) [L 0.5 sub] 
+%               (/data/xchourio/data/S2SDB/clim/JMA/JMA_tp_Harmonics_L%d[L].nc) [L 0.5 sub] 
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /units (kg m-2) def
+                /long_name (Accumulated Total Precipitation - Harmonic climatology ) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+        }defasvarsilent
+
+%Temperature 2m
+
+	/2tClim {
+		[ X Y | LA S ] 
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/JMA/1981-01-10.2010-12-31.day_clim_2t.nc)
+%               (/data/xchourio/data/S2SDB/clim/JMA/1981-01-10.2010-12-31.day_clim_2t.nc)
+                readdatafile:
+		/name (__xarray_dataarray_variable__) def
+		/long_name (2-meter Temperature - climatology ) def
+		/standard_name (air_temperature) def
+		/units (K) def
+		/missing_value NaN def
+		/doublearraytype netcdfrecords :readdatafile
+		DATA 200 350 RANGE
+	} defasvarsilent
+
+       /2tSmooth {
+                [ X Y | LA S ]
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/JMA/1981-01-10.2010-12-31.smooth_day_clim_2t.nc)
+%               (/data/xchourio/data/S2SDB/clim/JMA/1981-01-10.2010-12-31.smooth_day_clim_2t.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /long_name (2-meter Temperature - triangular smoothing climatology ) def
+                /standard_name (air_temperature) def
+                /units (K) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords :readdatafile
+        } defasvarsilent
+
+       /2tharm {
+                [ X Y | LA S ]
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/JMA/JMA_2t_Harmonics_L%d[LA].nc) [LA 0.5 add] 
+%                (/data/xchourio/data/S2SDB/clim/JMA/JMA_2t_Harmonics_L%d[LA].nc) [LA 0.5 add] 
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                %/name (__xarray_dataarray_variable__) def
+                /long_name (2-meter Temperature - Harmonic climatology ) def
+                /standard_name (air_temperature) def
+                /units (K) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords :readdatafile
+        } defasvarsilent
+
+
+
+
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,50 @@
+\begin{ingrid}
+continuedataset:
+
+/long_name (1981-2010 Monthly Climatology) def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units (degree_east) def
+periodic
+0. 1.0 359.0
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units (degree_north) def
+-90. 1.0 90.
+:grid
+
+grid:
+/name /S def
+/long_name (Forecast Start Time) def
+/units (months since 01-Jan) def
+periodic
+0.0 1.0 11.0
+/pointwidth 0 def
+:grid
+
+grid:
+/name /L def
+/long_name (Lead) def
+/units (months) def
+0.5 1.0 11.5
+:grid
+
+/prec {(/Data/data23/NMME/GFDL_CM2.5_FLOR_A06.D/mc8110.d/prec_mon_clim_8110.nc) readCDF .prec } defasvarsilent
+
+/sst {(/Data/data23/NMME/GFDL_CM2.5_FLOR_A06.D/mc8110.d/sst_mon_clim_8110.nc) readCDF .sst } defasvarsilent
+
+/tref {(/Data/data23/NMME/GFDL_CM2.5_FLOR_A06.D/mc8110.d/tref_mon_clim_8110.nc) readCDF .tref Z removeGRID /long_name (Near-Surface Temperature) def } defasvarsilent
+
+/T { S L add
+/long_name (Time) def
+/standard_name (time) def
+/pointwidth 1 def
+ } defasvarsilent
+
+:dataset
+\end{ingrid}

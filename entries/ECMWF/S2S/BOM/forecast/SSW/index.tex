@@ -1,0 +1,89 @@
+\begin{ingrid}
+continuedataset:
+
+
+datasetdefs:
+
+grid:
+   /name /Smod def
+   0 3.5 52
+% the end year here must be manually advanced at the start of each year to the following year (i.e. use 2020 once 2019 has arrived as the start year in the S grid)
+        7 mul
+         2021
+        2015 sub mul
+
+
+:grid
+:datasetdefs
+
+  /S Smod
+    0 add
+    7 mod
+    0 maskgt
+    Smod add
+    Smod
+     0.5 sub %Start on Sunday
+     replaceNaN
+    /name /S def
+    Smod
+     0 add
+     /name /Smod2 def
+     exch use_as_grid
+    .S
+    /units (days since 2015-01-01) def
+    /pointwidth 0 def
+     dup
+     (days since 1960-01-01) streamgridunitconvert
+    /long_name (forecast start time) def
+    /standard_name (forecast_reference_time) def
+    /defaultvalue {last}def
+    def
+
+     S dup 08
+     Nov 2018 julian_day
+     01
+      Jan 1960 julian_day
+      sub
+     24 Sep 2020 julian_day
+     01
+      Jan 1960 julian_day
+      sub subgrid
+    replaceGRID
+
+grid:
+/name /L def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+1. 1. 62.
+/pointwidth 0. def
+:grid
+
+grid:
+/name /M def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+1 1 33
+:grid
+
+ /ensembles { [ L M | S ]
+ (/Data/data25/ECMWF/S2S/BOM/REL/SSW/%Y[S]/%m[S]/SSW.ALL.bom.%Y%m%d[S]) [ S ]
+readdatafile:
+((32(62(19X,F6.7,/)),(61(19X,F6.7,/),(19X,F6.7)))) formatted
+ [M L] REORDER
+:readdatafile
+/units (unitless) def
+} defasvarsilent
+
+
+ /ensemble_mean { [ L | S ]
+ (/Data/data25/ECMWF/S2S/BOM/REL/SSW/%Y[S]/%m[S]/SSW.EM.bom.%Y%m%d[S]) [ S ]
+readdatafile:
+ ((13X,F6.3), (13X,F6.3)  ) formatted
+:readdatafile
+/units (unitless) def
+} defasvarsilent
+
+:dataset
+\end{ingrid}

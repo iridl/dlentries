@@ -1,0 +1,200 @@
+Extreme Prcp/Temp fixed 2012-11-14
+\begin{ingrid}
+%/IRIAccess datadownloadsareRestricted
+continuedataset:
+/long_name (Seasonal Forecast) def
+/description (Seasonal forecasts for probabilities of below-normal, above-normal, and extreme precipitation and temperature) def
+link:
+/name (Barnston_etal2003) def
+/description (Multimodel Ensembling in Seasonal Climate Forecasting at IRI)def
+/href (http://ams.allenpress.com/perlserv/?request=get-abstract&doi=10.1175%2FBAMS-84-12-1783) def
+:link
+/references (Barnston_etal2003) def
+/iridl:hasSemantics (iridl:forecast) def
+
+dataset:
+/name /prec_fcst def
+
+datasetdefs:
+
+/T {target_date} def
+
+grid:
+ /name (T2) def
+ /units (months since 01-Jan) def
+ periodic
+ 0.5 1 11.5
+:grid
+
+variable:
+ /name /seasabbrev def
+ grids: T2 :grids
+ values: (djf) (jfm) (fma) (mam) (amj) (mjj) (jja) (jas) (aso) (son) (ond) (ndj) :values
+:variable
+
+ grid:
+ /name (L) def
+ /units (months) def
+ /fullname (Forecast Lead Time in Months) def
+ 1 1 4
+ :grid
+
+/final_season
+{
+F L .last 1 add add
+seasabbrev exch [T2] sample-along
+} defasvarsilent
+
+:datasetdefs
+
+ grid:
+ /name (F) def
+ monthtime
+ /fullname (Month Forecast Issued) def
+ /defaultvalue { last } def
+ /pointwidth 1 def
+values:
+ 16 Sep 1997 ensotime 
+3
+16 Jun 2001 ensotime 
+{} for
+16 Jul 2001 ensotime
+1 
+systemtime systemtime2ymd pop 16 ymd2rm1960
+{} for
+:values
+:grid
+F
+ {(/Data/data1/iriforecasts/P4y%Ys%m[T]%s[final_season]) [
+       F dup L .last
+         1 add add
+         /name /T def
+ dup seasabbrev exch [T2] sample-along
+          /name /final_season def
+         ]} removeextrausing0
+/file_last_modified last_modified def
+/expires
+systemtime
+   file_last_modified sub
+    86400 7 mul 
+    lt
+   {file_last_modified}
+   {last rm19602ymd pop dup 12 lt {1 add}{pop 1 add 1}ifelse 9 ymd2systemtime
+      /last_modified file_last_modified 600 add def
+   }ifelse
+def  
+name exch def
+/expires F .expires def
+/last_modified F .last_modified def
+
+ grid:
+ /name (L) def
+ /units (months) def
+ /fullname (Forecast Lead Time in Months) def
+ 1 1 4
+ :grid
+
+/target_date { F L add 1 add /long_name (forecast time) def /bounds undef /pointwidth 3 def /standard_name (time) def } defasvar 
+
+:dataset
+
+
+dataset:
+/name /temp_fcst def
+
+datasetdefs:
+ 
+/T {target_date} def
+
+grid:
+ /name (T2) def
+ /units (months since 01-Jan) def
+ periodic
+ 0.5 1 11.5
+:grid
+
+variable:
+ /name /seasabbrev def
+ grids: T2 :grids
+ values: (djf) (jfm) (fma) (mam) (amj) (mjj) (jja) (jas) (aso) (son) (ond) (ndj) :values
+:variable
+
+ grid:
+ /name (L) def
+ /units (months) def
+ /fullname (Forecast Lead Time in Months) def
+ 1 1 4
+ :grid
+
+/final_season
+{
+F L .last 1 add add
+seasabbrev exch [T2] sample-along
+} defasvarsilent
+
+:datasetdefs
+
+ grid:
+ /name (F) def
+ monthtime
+ /fullname (Month Forecast Issued) def
+ /defaultvalue { last } def
+ /pointwidth 1 def
+values:
+ 16 Dec 1997 ensotime 
+3
+16 Jun 2001 ensotime
+{} for
+16 Jul 2001 ensotime
+1 
+systemtime systemtime2ymd pop 16 ymd2rm1960
+{} for
+:values
+:grid
+F
+ {(/Data/data1/iriforecasts/T4y%Ys%m[T]%s[final_season]) [
+       F dup L .last
+         1 add add
+         /name /T def
+dup seasabbrev exch [T2] sample-along
+          /name /final_season def
+          ]} removeextrausing0
+/file_last_modified last_modified def
+/expires
+systemtime
+   file_last_modified sub
+    86400 7 mul 
+    lt
+   {file_last_modified}
+   {last rm19602ymd pop dup 12 lt {1 add}{pop 1 add 1}ifelse 9 ymd2systemtime
+     /last_modified file_last_modified 600 add def
+   }ifelse
+def  
+name exch def
+/expires F .expires def
+/last_modified F .last_modified def
+
+ grid:
+ /name (L) def
+ /units (months) def
+ /fullname (Forecast Lead Time in Months) def
+ 1 1 4
+ :grid
+
+ /target_date {F L add 1 add /long_name (forecast time) def /bounds undef /pointwidth 3 def /standard_name (time) def} defasvar
+
+:dataset
+
+datasetdefs:
+:datasetdefs
+
+/Climatologies currentobject /Climatologies get def
+/Extreme_Precipitation currentobject /Extreme_Precipitation get def
+/Extreme_Temperature currentobject /Extreme_Temperature get def
+/Observations currentobject /Observations get def
+/PiC currentobject /PiC get def
+/Precipitation currentobject /Precipitation get def
+/Temperature currentobject /Temperature get def
+
+:dataset
+\end{ingrid}

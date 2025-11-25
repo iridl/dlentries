@@ -1,0 +1,29 @@
+\begin{ingrid}
+
+continuedataset:
+
+/tmin {
+  SOURCES .MaliMeteo .ENACTS .temperature .res0375 .MRG .dekadly .tmin
+monthlyAverage
+/long_name (Merged Minimum Temperature) def
+temp_colors
+/scale_symmetric false def
+%  DATA 14 26 RANGE
+DATA AUTO AUTO RANGE
+}defasvar
+
+/tmax {
+  SOURCES .MaliMeteo .ENACTS .temperature .res0375 .MRG .dekadly .tmax
+monthlyAverage
+/long_name (Merged Maximum Temperature) def
+temp_colors
+/scale_symmetric false def
+%  DATA 30 43 RANGE
+DATA AUTO AUTO RANGE
+}defasvar
+
+:dataset
+
+\end{ingrid}
+
+

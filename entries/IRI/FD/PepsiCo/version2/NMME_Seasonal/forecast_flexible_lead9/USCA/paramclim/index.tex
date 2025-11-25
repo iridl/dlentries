@@ -1,0 +1,122 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (ELR climatological coefficients for NMME USCA long lead 9 seasonal forecasts) def
+
+datasetdefs:
+
+        grid:
+        /name /ind def
+        0 2 2
+        :grid
+
+:datasetdefs
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+%215.0 1 315.0
+   215.0 360.0 sub 1.0 315.0 360.0 sub
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+15.0 1 60.0
+:grid
+
+grid:
+/name /L def
+/long_name (Lead Time) def
+/units /months def
+1 1 9
+:grid
+
+grid:
+/name (S) def
+monthtime
+/fullname (Month Forecast Issued) def
+/defaultvalue { last } def
+/pointwidth 1 def
+16 Oct 2021 ensotime
+1.0
+16 systemtime (%b %Y) 10 strftime interp ensotime
+/netcdfgrid true def
+:grid
+
+S { (/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_year/forecast_clim_coeff_tref_%b%Y[S]_lead9_3models_USCA.nc) [S] } removeextrausing
+
+/expires
+last_modified systemtime2ymd ymd:nextmonth
+pop 14 ymd2systemtime
+def
+/defaultvalue last def
+name exch def
+/expires S .expires def
+/last_modified S .last_modified def
+
+/target_date {S L
+        add 1 add /long_name (forecast time) def /bounds undef /pointwidth 3 def /standard_name (time) def } defasvar
+
+/precip_B0 {
+[ X Y ind L | S ]
+(/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_year/forecast_clim_coeff_precip_%b%Y[S]_lead9_3models_USCA.nc) [S]
+readdatafile:
+/name (clim) def
+/doublearraytype netcdfrecords
+:readdatafile
+ind 0 VALUE
+ind removeGRID
+/missing_value NaN def
+/long_name (Precipitation Climatological B0) def
+}defasvarsilent
+
+/precip_B2 {
+[ X Y ind L | S ]
+(/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_year/forecast_clim_coeff_precip_%b%Y[S]_lead9_3models_USCA.nc) [S]
+readdatafile:
+/name (clim) def
+/doublearraytype netcdfrecords
+:readdatafile
+ind 2 VALUE
+ind removeGRID
+/missing_value NaN def
+/units (month/mm) def
+/long_name (Precipitation Climatological B2) def
+}defasvarsilent
+
+/tref_B0 {
+[ X Y ind L | S (0000 1 Oct 2021) last subgrid ]
+(/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_year/forecast_clim_coeff_tref_%b%Y[S]_lead9_3models_USCA.nc) [S]
+readdatafile:
+/name (clim) def
+/doublearraytype netcdfrecords
+:readdatafile
+ind 0 VALUE
+ind removeGRID
+S  (0000 1 Oct 2021) last RANGE
+/missing_value NaN def
+/long_name (Temperature Climatological B0) def
+}defasvarsilent
+
+/tref_B2 {
+[ X Y ind L | S (0000 1 Oct 2021) last subgrid ]
+(/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_year/forecast_clim_coeff_tref_%b%Y[S]_lead9_3models_USCA.nc) [S]
+readdatafile:
+/name (clim) def
+/doublearraytype netcdfrecords
+:readdatafile
+ind 2 VALUE
+ind removeGRID
+S  (0000 1 Oct 2021) last RANGE
+/missing_value NaN def
+/units /degree_Celsius-1 def
+/long_name (Temperature Climatological B2) def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

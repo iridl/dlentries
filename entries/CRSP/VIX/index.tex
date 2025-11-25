@@ -1,0 +1,38 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Chicago Board Options Exchange Volatility Index) def
+
+datasetdefs:
+grid:
+/name /volatility_index def
+1 1 1
+:grid
+:datasetdefs
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+2 Jan 1990 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+30 Aug 2019 julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+:grid
+
+/VI {
+[volatility_index T | ]
+(/Data/PRISM/Finance/CRSP/vix/vix_gridded.tsv)
+readdatafile:
+[1 2] r*4astsv
+:readdatafile
+volatility_index 1 VALUE
+/iridl:hasSemantics (iridl:vix) def
+volatility_index removeGRID
+}defasvarsilent
+
+
+:dataset
+
+\end{ingrid}

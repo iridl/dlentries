@@ -1,0 +1,77 @@
+\begin{ingrid}
+  continuedataset:
+
+link:
+  /name (website) def
+  /description (https://www.chc.ucsb.edu/data/chirtsdaily)def
+  /href (https://www.chc.ucsb.edu/data/chirtsdaily)def
+:link
+link:
+  /name (ftp_url) def
+  /description (ftp://ftp.chc.ucsb.edu/pub/org/chg/products/CHIRTSdaily/v1.0/global_tifs_p05/) def
+  /href (ftp://ftp.chc.ucsb.edu/pub/org/chg/products/CHIRTSdaily/v1.0/global_tifs_p05/) def
+:link
+/title (CHIRTSdaily Version 1.0) def
+/history (created by Climate Hazards Group) def
+ /institution (Climate Hazards Group.  University of California at Santa Barbara) def
+/reference (Funk, C. et al. A high-resolution 1983–2016 Tmax climate data record based on infrared temperatures and stations by the Climate Hazard Center. J. Clim. 32, 5639-5658 (2019)) def
+
+grid:
+ /name /X def
+ /long_name (Longitude) def
+ /units (degree_east) def
+ periodic
+-179.975 0.05 179.975
+:grid
+ 
+grid:
+ /name /Y def
+ /long_name (Latitude) def
+ /units (degree_north) def
+-59.975 0.05 69.975
+:grid
+
+
+grid:
+ /name /T def
+ /standard_name (time) def
+ /units (julian_day) def
+ /defaultvalue {last} def
+ 1 Jan 1983 julian_day
+ 1.0
+ 31 Dec 2016 julian_day
+:grid
+
+
+
+\end{ingrid}
+\begin{ingrid}
+
+/tmax {
+[X Y last first subgrid | T  ]
+ (/Data/data23/UCSB/CHIRTS/CHIRTSdaily/v1.0/global_tifs_p05/Tmax/%Y[T]/Tmax.%Y.%m[T].%d[T].tif) [T]
+ readdatafile:
+	tiffimage
+	/realarraytype tiffimage
+	/units (Celsius)def
+	/missing_value -9999 def
+	/long_name (Maximum Temperature ) def
+ :readdatafile
+ Y last first RANGE
+}defasvarsilent
+
+/tmin {
+[X Y last first subgrid | T  ]
+ (/Data/data23/UCSB/CHIRTS/CHIRTSdaily/v1.0/global_tifs_p05/Tmin/%Y[T]/Tmin.%Y.%m[T].%d[T].tif) [T]
+ readdatafile:
+	tiffimage
+	/realarraytype tiffimage
+	/units (Celsius)def
+	/missing_value -9999 def
+	/long_name (Minimum Temperature ) def
+ :readdatafile
+ Y last first RANGE
+}defasvarsilent
+
+:dataset
+\end{ingrid}

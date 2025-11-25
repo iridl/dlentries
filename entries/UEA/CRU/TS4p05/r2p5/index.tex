@@ -1,0 +1,55 @@
+\begin{ingrid}
+
+continuedataset:
+
+/CRU-TS datadownloadsareRestricted
+/Cookie varies_on
+
+/long_name (coarser resolution) def
+/max-age 86400 7 imul def
+/pre {
+SOURCES .UEA .CRU .TS4p05 .monthly
+.pre
+    X 2.5 splitstreamgrid
+    Y 2.5 splitstreamgrid
+    {Y cosd}[X Y]weighted-average
+    X2 (X) renameGRID
+    Y2 (Y) renameGRID
+/max-age 2 index .max-age def
+} defasvar
+/tmp {
+SOURCES .UEA .CRU .TS4p05 .monthly
+.tmp
+    X 2.5 splitstreamgrid
+    Y 2.5 splitstreamgrid
+    {Y cosd}[X Y]weighted-average
+    X2 (X) renameGRID
+    Y2 (Y) renameGRID
+/max-age 2 index .max-age def
+} defasvar
+dataset:
+/name /stn def
+/pre {
+SOURCES .UEA .CRU .TS4p05 .monthly
+.stn .pre
+    X 2.5 splitstreamgrid
+    Y 2.5 splitstreamgrid
+    {Y cosd}[X Y]weighted-average
+    X2 (X) renameGRID
+    Y2 (Y) renameGRID
+/max-age 3 index .dataset .max-age def
+} defasvar
+/tmp {
+SOURCES .UEA .CRU .TS4p05 .monthly
+.stn .tmp
+    X 2.5 splitstreamgrid
+    Y 2.5 splitstreamgrid
+    {Y cosd}[X Y]weighted-average
+    X2 (X) renameGRID
+    Y2 (Y) renameGRID
+/max-age 3 index .dataset .max-age def
+} defasvar
+:dataset
+:dataset
+\end{ingrid}
+

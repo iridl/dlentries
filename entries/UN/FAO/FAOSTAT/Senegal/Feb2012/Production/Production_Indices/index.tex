@@ -1,0 +1,93 @@
+\begin{ingrid}
+
+  continuedataset:
+
+  datasetdefs:
+
+    grid:
+      /name (XYZ) def
+      1 1 24
+    :grid
+
+    grid:
+      /name (T) def
+      monthtime
+      /pointwidth 12 def
+      1 Jul 1961 ensotime
+      12
+      1 Jul 2009 ensotime
+    :grid
+
+
+    /selectParam {
+      [T XYZ | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/SenegalProdInd2.csv)
+      readdatafile:
+        [1 6] r*4astsv
+      :readdatafile
+    }defasvarsilent
+
+  :datasetdefs
+
+    /source (<a href="http://faostat.fao.org/default.aspx">FAOSTAT</a>) def
+
+    grid:
+      /name (code) def
+      /units (ids) def
+      /fullname (item code) def
+      values:
+2051
+1717
+2041
+2054
+2044
+2057
+      :values
+    :grid
+
+    variable:
+      /name /Name def
+      grids: code :grids
+      /long_name (item name) def
+      values:
+(Agriculture (PIN) + (Total))
+(Cereals,Total + (Total))
+(Crops (PIN) + (Total))
+(Food (PIN) + (Total))
+(Livestock (PIN) + (Total))
+(Non Food (PIN) + (Total))
+  :values
+    :variable
+
+/GPIN {
+  selectParam
+  XYZ 1 6 RANGEEDGES
+  XYZ code replaceGRID
+  /long_name (Gross Production Index Number (2004-2006 = 100)) def
+}defasvar
+
+/GpcPIN {
+  selectParam
+  XYZ 7 12 RANGEEDGES
+  XYZ code replaceGRID
+  /long_name (Gross per capita Production Index Number (2004-2006 = 100)) def
+}defasvar
+
+/NPIN {
+  selectParam
+  XYZ 13 18 RANGEEDGES
+  XYZ code replaceGRID
+  /long_name (Net Production Index Number (2004-2006 = 100)) def
+}defasvar
+
+/NpcPIN {
+  selectParam
+  XYZ 19 24 RANGEEDGES
+  XYZ code replaceGRID
+  /long_name (Net per capita Production Index Number (2004-2006 = 100)) def
+}defasvar
+
+/history (FAOSTAT | © FAO Statistics Division 2012 | 09 February 2012 Updated: 21 July 2011) def
+
+  :dataset
+\end{ingrid}

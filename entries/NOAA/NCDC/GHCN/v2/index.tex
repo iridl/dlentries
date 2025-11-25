@@ -1,0 +1,26 @@
+\begin{ingrid}
+%        dataareLDGOonly
+%dataareWMOrestricted
+/WMO currentobject /agreement.html get addagreement
+(/Data/data5/ghcn/v2.cuf)continuewithCUF
+/references (Vose_etal1992 Easterling_Peterson1995a Easterling_Peterson1995b Easterling_etal1996 Peterson_Easterling1994 Peterson_Vose1997 Peterson_etal1997) def
+/description (Monthly weather station temperature data from the Global Historical Climate Network) def
+popnl
+ /CLIST /Rural
+    /Suburban /Urban 3 namearray astore
+    def
+name exch def
+continuedataset:
+/location { lon -180 180 masknotrange /scale_min undef /scale_max undef lat geopt }
+defasvarsilent
+/label {Name} defasvarsilent
+
+%T /expires last_modified
+% systemtime2ymd ymd:nextmonth ymd2systemtime 24 6 mul 3600 mul add def
+% dataset is being rewritten to avoid CUF
+%/expires 2014 05 15 ymd2systemtime def
+%name exch def
+%/expires T .expires def
+
+:dataset
+\end{ingrid}

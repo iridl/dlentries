@@ -1,0 +1,31 @@
+
+\begin{ingrid}
+
+/description (Niger District Boundaries) def
+
+continuedataset: 
+
+/dist_na {
+	IRIDB (ngadmin2_42) (Name as district_name) [(idr_id)] open_column_by
+	/long_name (District Name) def		
+}defasvarsilentnoreuse
+
+
+/the_geom {
+	IRIDB (ngadmin2_42) (the_geom) [(idr_id)] open_column_by
+	/long_name (Geometry) def	
+}defasvarsilentnoreuse
+
+
+/label {
+	IRIDB (ngadmin2_42) (Name as label) [(idr_id)] open_column_by
+	/long_name (Label) def
+}defasvarsilentnoreuse
+
+
+:dataset
+
+dist_na .idr_id name exch def 
+
+\end{ingrid}
+

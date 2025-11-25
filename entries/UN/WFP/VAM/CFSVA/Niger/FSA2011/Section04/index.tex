@@ -1,0 +1,109 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9354
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 475
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAJanv2011.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Agriculture) def
+/Q29 {
+mytable
+myquestion 
+91 VALUE
+ myquestion removeGRID
+/long_name (Q29 : Exploitation des champs/jardins campagne agricole pass) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q29A {
+mytable
+myquestion 
+92 VALUE
+ myquestion removeGRID
+/long_name (Q29.a : Si oui, combien de champs/jardins exploités) def 
+}defasvarsilent
+
+/Q29B {
+mytable
+myquestion 
+93 VALUE
+ myquestion removeGRID
+/long_name (Q29.b : La superficie total des champs/jardins en hectares) def 
+}defasvarsilent
+
+/Q30 {
+mytable
+myquestion 
+94 VALUE
+ myquestion removeGRID
+/long_name (Q30 : Comment ont évolué les superficies cultivées.....) def 
+/units /ids def
+/CLIST [(Supérieure)(Même niveau)(Inférieure)(Non applicable)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q31 {
+mytable
+myquestion 
+95 VALUE
+ myquestion removeGRID
+/long_name (Q31 : Comment jugez-vous la campagne agricole 2010/2011) def 
+/units /ids def
+/CLIST [(Bonne)(Moyenne)(Mauvaise)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q32 {
+mytable
+myquestion 
+96 VALUE
+ myquestion removeGRID
+/long_name (Q32 : Par rapport à la campagne agricole pluviale de 2009/20) def 
+/units /ids def
+/CLIST [(Supérieure)(Même niveau)(Inférieure)(Non applicable)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q32A {
+mytable
+myquestion 
+97 VALUE
+ myquestion removeGRID
+/long_name (Q32 : Par rapport à la campagne agricole pluviale de 2009/20) def 
+/units /ids def
+/CLIST [(Faible pluviométrie)(Insectes et/ou maladies)(Manque d'intrant)(Arrêt précoce des pluies)(Manque de terres)(Inondations)(Autres)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

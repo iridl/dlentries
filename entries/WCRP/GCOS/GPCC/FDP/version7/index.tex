@@ -1,0 +1,208 @@
+\begin{ingrid}
+continuedataset:
+
+ /creator_email (gpcc@dwd.de) def
+ /creator_name (GPCC/DWD) def
+ /history (Mon Jun 01 07:35:23 2015: cdo -settunits,days /media/x18913/NETCDF/full_data_v7_25.nc /media/x18913/NETCDF/full_25.nc Mon Jun 01 07:34:25 2015: cdo -setgatts,gattfile_25 /media/x18913/NETCDF/full_data_v7_25.nc /media/x18913/NETCDF/full_25.nc Mon Jun 01 07:33:27 2015: cdo -merge /media/x18913/NETCDF/full_data_v7_precip_25.nc /media/x18913/NETCDF/full_data_v7_statio_25.nc /media/x18913/NETCDF/full_data_v7_25.nc Mon Jun 01 05:06:18 2015: cdo cat full_statio_25.nc /media/x18913/NETCDF/full_data_v7_statio_25.nc Mon Jun 01 05:06:18 2015: cdo -b 32 -a -f nc -setgrid,full25desc.asc -setmissval,-99999.99 -setname,s -setpartab,codetable.txt -setcode,19 -setdate,1901-01-01 -input,r144x72 full_statio_25.nc) def
+ /geospatial_lon_max (180.) def
+ /CDO (Climate Data Operators version 1.5.9 (http://code.zmaw.de/projects/cdo)) def
+ /date_created (Mo 1. Jun 07:33:28 UTC 2015) def
+ /geospatial_lon_min (-180.) def
+ /time_coverage_end (2013-12-01) def
+ /summary (The Full Data Reanalysis Product is of much higher accuracy compared to the GPCC near real-time products mentioned above. Therefore, its application is recommended for hydrometeorological model verification and water cycle studies, e.g. in context of UNESCO, GEWEX, and GTN-H (Global Terrestrial Network for Hydrology). This analysis product is based on all stations, near real-time and non real-time, in the GPCC data base supplying data for the individual month. The GPCC Full Data Reanalysis Product Version 7 covers the period from 1901 to 2013 ; this new extended product version using the new GPCC climatology as analysis background was generated in Apr. 2015. The data coverage per month varies from less than 10,000 to more than 48,000 stations. The full data re-analyses will be updated at irregular time intervals subsequent to significant data base improvements.) def
+ /keywords (precipitation climatology,gpcc,global,gpcp,) def
+ /institution (Deutscher Wetterdienst) def
+ /geospatial_lat_max (90.) def
+ /creator_url (http://gpcc.dwd.de) def
+ /Conventions (CF-1.4) def
+ /time_coverage_start (1901-01-01) def
+ /geospatial_lat_min (-90.) def
+ /CDI (Climate Data Interface version 1.5.9 (http://code.zmaw.de/projects/cdi)) def
+ /time_coverage_resolution (month) def
+
+/references (Becker_etal2013) def
+
+link:
+/name (data source) def
+/description (GPCC Full Data Reanalysis ftp site) def
+/href (ftp://ftp.dwd.de/pub/data/gpcc/full_data/) def
+:link
+
+link:
+/name (data description) def
+/description (GPCC Full Data Reanalysis Version 7.0) def
+/href (ftp://ftp.dwd.de/pub/data/gpcc/html/fulldata_v7_doi_download.html) def
+:link
+
+link:
+/name (dataset reference) def
+/description (A description of the global land-surface precipitation data products of the Global Precipitation Climatology Centre with sample applications including centennial (trend) analysis from 1901–present) def
+/href (http://www.earth-syst-sci-data.net/5/71/2013/essd-5-71-2013.html) def
+:link
+
+grid:
+/name (T) def
+/units (months since 1960-01-01) def
+16 Jan 1901 ensotime
+1.0
+16 Dec 2013 ensotime
+:grid
+
+dataset:
+/name (0p5) def
+/id (full_data_precipitation_05) def
+/title (GPCC Full Data Product version 7, precipitation in mm/month, 0.5 degree) def
+/citation (Schneider, Udo; Becker, Andreas; Finger, Peter; Meyer-Christoffer, Anja; Rudolf, Bruno; Ziese, Markus (2015): GPCC Full Data Reanalysis Version 7.0 at 0.5°: Monthly Land-Surface Precipitation from Rain-Gauges built on GTS-based and Historic Data. DOI: 10.5676/DWD_GPCC/FD_M_V7_050) def
+
+link:
+/name (data description) def
+/description (GPCC Full Data Reanalysis Version 7.0 at 0.5 deg.) def
+/href (ftp://ftp.dwd.de/pub/data/gpcc/html/fulldata_v7_doi_download.html) def
+:link
+
+grid:
+/name (X)def
+/units (degree_east)def
+periodic
+ -179.75 0.5 179.75
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ 89.75 0.5 -89.75
+:grid
+
+T name exch def
+
+/prcp 
+{ [ X Y | T]  
+(/Data/data22/gpcc/FDPversion7/full_data_v7_05.nc) readdatafile:
+/name (p) def
+/missing_value -99999.992 def
+/code 18 def
+/units (mm/month) cvn def
+/standard_name (lwe_precipitation_rate) def
+/long_name (Total Precipitation) def
+/realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/cnts
+{ [ X Y | T]
+ (/Data/data22/gpcc/FDPversion7/full_data_v7_05.nc) readdatafile:
+/name (s) def
+ /missing_value -99999.992 def
+ /code 19 def
+ /units (gauges per grid)cvn def
+/long_name (Number of gauges per grid) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (1p0) def
+/id (full_data_precipitation_10) def
+/title (GPCC Full Data Product version 7, precipitation in mm/month, 1.0 degree) def
+/citation (Schneider, Udo; Becker, Andreas; Finger, Peter; Meyer-Christoffer, Anja; Rudolf, Bruno; Ziese, Markus (2015): GPCC Full Data Reanalysis Version 7.0 at 1.0°: Monthly Land-Surface Precipitation from Rain-Gauges built on GTS-based and Historic Data. DOI: 10.5676/DWD_GPCC/FD_M_V7_100) def
+
+link:
+/name (data description) def
+/description (GPCC Full Data Reanalysis Version 7.0 at 1.0 deg.) def
+/href (ftp://ftp.dwd.de/pub/data/gpcc/html/fulldata_v7_doi_download.html) def
+:link
+
+grid:
+/name (X)def
+/units (degree_east)def
+periodic
+ -179.5 1.0 179.5
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ 89.5 1.0 -89.5
+:grid
+
+T name exch def
+
+/prcp 
+{ [ X Y | T]
+(/Data/data22/gpcc/FDPversion7/full_data_v7_10.nc) readdatafile:
+/name (p) def
+ /missing_value -99999.992 def
+ /code 18 def
+ /units (mm/month)cvn def
+/standard_name (lwe_precipitation_rate) def
+/long_name (Total Precipitation) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/cnts
+{ [ X Y | T]
+ (/Data/data22/gpcc/FDPversion7/full_data_v7_10.nc) readdatafile: 
+/name (s) def
+ /missing_value -99999.992 def
+ /code 19 def
+ /units (gauges per grid)cvn def
+/long_name (Number of gauges per grid) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (2p5) def
+/id (full_data_precipitation_25) def
+/title (GPCC Full Data Product version 7, precipitation in mm/month, 2.5 degree) def
+/citation (Schneider, Udo; Becker, Andreas; Finger, Peter; Meyer-Christoffer, Anja; Rudolf, Bruno; Ziese, Markus (2015): GPCC Full Data Reanalysis Version 7.0 at 2.5°: Monthly Land-Surface Precipitation from Rain-Gauges built on GTS-based and Historic Data. DOI: 10.5676/DWD_GPCC/FD_M_V7_250) def
+
+link:
+/name (data description) def
+/description (GPCC Full Data Reanalysis Version 7.0 at 2.5 deg.) def
+/href (ftp://ftp.dwd.de/pub/data/gpcc/html/fulldata_v7_doi_download.html) def
+:link
+
+grid:
+/name (X)def
+/units (degree_east)def
+periodic
+ -178.75 2.5 178.75
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ 88.75 2.5 -88.75
+:grid
+
+T name exch def
+
+/prcp 
+{ [ X Y | T] 
+(/Data/data22/gpcc/FDPversion7/full_data_v7_25.nc) readdatafile: 
+/name (p) def
+ /missing_value -99999.992 def
+ /code 18 def
+ /units (mm/month)cvn def
+/standard_name (lwe_precipitation_rate) def
+/long_name (Total Precipitation) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/cnts
+{ [ X Y | T]
+ (/Data/data22/gpcc/FDPversion7/full_data_v7_25.nc) readdatafile:
+/name (s) def
+ /missing_value -99999.992 def
+ /code 19 def
+ /units (gauges per grid)cvn def
+/long_name (Number of gauges per grid) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}

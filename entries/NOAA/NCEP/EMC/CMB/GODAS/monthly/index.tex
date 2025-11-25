@@ -1,0 +1,326 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+grid:
+/name (Z)def
+/units (m)def
+/positive (down) def
+values: 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 210 220 231 250 282 334 412 521 665 848 1071 1336 1643 1990 2376 2797 3249 3727 4225 4736 :values
+:grid
+/Z-DZDT Z def
+grid:
+/name (Z)def
+/units (m)def
+/positive (down) def
+values: 5 15 25 35 45 55 65 75 85 95 105 115 125 135 145 155 165 175 185 195 205 215 225 238 262 303 366 459 584 747 949 1193 1479 1807 2174 2579 3016 3483 3972 4478 :values
+:grid
+/Z-POT Z def
+grid:
+/name (X)def
+/units (degree_east)def
+ 1. 1. 360.
+:grid
+/X-U X def
+grid:
+/name (Y)def
+/units (degree_north)def
+ -74. 0.3333309 64.999001
+:grid
+/Y-U Y def
+:datasetdefs
+/Z Z-POT def
+/griblist.html {(griblist) htmlprint} def
+dataset:
+/name (BelowSeaLevel)def
+:dataset
+dataset:
+/name (ocean_isothermal_layer_bot)def
+:dataset
+dataset:
+/name (ocean_mixed_layer_bot)def
+:dataset
+dataset:
+/name (surface)def
+:dataset
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.5 1. 359.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ -74.5 0.3333309 64.499001
+:grid
+grid:
+/name (T) def
+monthtime
+16 Jan 1980 ensotime 
+1.
+systemtime
+systemtime2ymd
+pop 16.
+ymd2rm1960
+:grid
+T {(/Data/data5/noaa/nmc/leetma/godas/monthly/godas.M.%Y%m[T].grb) [T]}
+removeextrausing
+name exch def
+/expires T .last
+   rm19602ymd ymd:nextmonth ymd:nextmonth
+     11 add
+     ymd2systemtime
+def
+/last_modified last_modified T .last_modified imax def
+  [X
+    Y |
+    /NVZ 40
+      5 mul
+      7 add
+      NewIntegerGRID
+     T] (/Data/data5/noaa/nmc/leetma/godas/monthly/godas.M.%Y%m[T].grb) [T]readdatafile: GRIB1record :readdatafile
+definevariables:
+BelowSeaLevel 40 Zvariable:
+/Z Z-POT def
+/name (POT) def
+ /subcenter (Environmental Modeling Center) def
+ /process 129 def
+ /long_name (Potential temperature) def
+ /units /Kelvin_scale def
+ /scale_min 267.55801 def
+ /missing_value 9.99900026E20 def
+ /calendar /standard def
+ /gribparam 13 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 7 def
+ /grib_name /POT def
+ /gribleveltype 160 def
+ /gribNumBits 16 def
+ /scale_max 306.16 def
+ /PTVersion 2 def
+ /gribcenter 7 def
+:Zvariable
+BelowSeaLevel 40 Zvariable:
+/Z Z-POT def
+/name (SALTY) def
+ /subcenter (Environmental Modeling Center) def
+ /process 129 def
+ /long_name (Salinity) def
+ /units /unitless def
+ /scale_min 0.015498 def
+ /missing_value 9.99900026E20 def
+ /calendar /standard def
+ /gribparam 88 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 7 def
+ /grib_name /SALTY def
+ /gribleveltype 160 def
+ /gribNumBits 15 def
+ /scale_max 0.044372 def
+ /PTVersion 2 def
+ /gribcenter 7 def
+ /iridl:hasSemantics (iridl:Salinity) def
+:Zvariable
+BelowSeaLevel 40 Zvariable:
+/X X-U def
+/Y Y-U def
+/name (UOGRD) def
+ /subcenter (Environmental Modeling Center) def
+ /process 129 def
+ /long_name (u of current) def
+ /units (m/s)cvn def
+ /scale_min -1.3182 def
+ /missing_value 9.99900026E20 def
+ /calendar /standard def
+ /gribparam 49 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 7 def
+ /grib_name /UOGRD def
+ /gribleveltype 160 def
+ /gribNumBits 15 def
+ /scale_max 1.4153 def
+ /PTVersion 2 def
+ /gribcenter 7 def
+:Zvariable
+BelowSeaLevel 40 Zvariable:
+/X X-U def
+/Y Y-U def
+/name (VOGRD) def
+ /subcenter (Environmental Modeling Center) def
+ /process 129 def
+ /long_name (v of current) def
+ /units (m/s)cvn def
+ /scale_min -1.3663 def
+ /missing_value 9.99900026E20 def
+ /calendar /standard def
+ /gribparam 50 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 7 def
+ /grib_name /VOGRD def
+ /gribleveltype 160 def
+ /gribNumBits 15 def
+ /scale_max 1.4098001 def
+ /PTVersion 2 def
+ /gribcenter 7 def
+:Zvariable
+BelowSeaLevel 40 Zvariable:
+/Z Z-DZDT def
+/name (DZDT) def
+ /subcenter (Environmental Modeling Center) def
+ /process 129 def
+ /long_name (Geometric vertical velocity) def
+ /units (m/s)cvn def
+ /scale_min -7.24080019E-04 def
+ /missing_value 9.99900026E20 def
+ /calendar /standard def
+ /gribparam 40 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 7 def
+ /grib_name /DZDT def
+ /gribleveltype 160 def
+ /gribNumBits 14 def
+ /scale_max 6.23759988E-04 def
+ /PTVersion 2 def
+ /gribcenter 7 def
+:Zvariable
+ocean_isothermal_layer_bot 0 Zvariable:
+/name (DBSS) def
+ /subcenter (Environmental Modeling Center) def
+ /process 129 def
+ /long_name (Geometric Depth Below Sea Surface) def
+ /units /m def
+ /missing_value 9.99900026E20 def
+ /scale_min 5.6090002 def
+ /calendar /standard def
+ /gribparam 195 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 7 def
+ /grib_name /DBSS def
+ /gribleveltype 238 def
+ /gribNumBits 16 def
+ /PTVersion 129 def
+ /scale_max 4478.499 def
+ /gribcenter 7 def
+:Zvariable
+ocean_mixed_layer_bot 0 Zvariable:
+/name (DBSS) def
+ /subcenter (Environmental Modeling Center) def
+ /process 129 def
+ /long_name (Geometric Depth Below Sea Surface) def
+ /units /m def
+ /missing_value 9.99900026E20 def
+ /scale_min 5. def
+ /calendar /standard def
+ /gribparam 195 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 7 def
+ /grib_name /DBSS def
+ /gribleveltype 237 def
+ /gribNumBits 16 def
+ /PTVersion 129 def
+ /scale_max 2847.811 def
+ /gribcenter 7 def
+:Zvariable
+surface 0 Zvariable:
+/name (SSHG) def
+ /subcenter (Environmental Modeling Center) def
+ /process 129 def
+ /long_name (Sea Surface Height Relative to Geoid) def
+ /units /m def
+ /missing_value 9.99900026E20 def
+ /scale_min -1.9813 def
+ /calendar /standard def
+ /gribparam 198 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 7 def
+ /grib_name /SSHG def
+ /gribleveltype 1 def
+ /gribNumBits 15 def
+ /PTVersion 129 def
+ /scale_max 1.3818001 def
+ /gribcenter 7 def
+:Zvariable
+surface 0 Zvariable:
+/X X-U def
+/Y Y-U def
+/name (taux) def
+ /subcenter (Environmental Modeling Center) def
+ /process 129 def
+ /long_name (Zonal momentum flux) def
+ /units (N/m^2)cvn def
+ /missing_value 9.99900026E20 def
+ /scale_min -0.5229 def
+ /calendar /standard def
+ /gribparam 124 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 7 def
+ /grib_name /UFLX def
+ /gribleveltype 1 def
+ /gribNumBits 13 def
+ /PTVersion 2 def
+ /scale_max 0.4717 def
+ /gribcenter 7 def
+:Zvariable
+surface 0 Zvariable:
+/X X-U def
+/Y Y-U def
+/name (tauy) def
+ /subcenter (Environmental Modeling Center) def
+ /process 129 def
+ /long_name (Meridional momentum flux) def
+ /units (N/m^2)cvn def
+ /missing_value 9.99900026E20 def
+ /scale_min -0.3883 def
+ /calendar /standard def
+ /gribparam 125 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 7 def
+ /grib_name /VFLX def
+ /gribleveltype 1 def
+ /gribNumBits 13 def
+ /PTVersion 2 def
+ /scale_max 0.3894 def
+ /gribcenter 7 def
+:Zvariable
+surface 0 Zvariable:
+/name (THFLX) def
+ /subcenter (Environmental Modeling Center) def
+ /process 129 def
+ /long_name (Total downward heat flux at surface) def
+ /units (W/m2)cvn def
+ /missing_value 9.99900026E20 def
+ /scale_min -1257.8179 def
+ /calendar /standard def
+ /gribparam 202 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 7 def
+ /grib_name /THFLX def
+ /gribleveltype 1 def
+ /gribNumBits 16 def
+ /PTVersion 129 def
+ /scale_max 939.72052 def
+ /gribcenter 7 def
+:Zvariable
+surface 0 Zvariable:
+/name (SLTFL) def
+ /subcenter (Environmental Modeling Center) def
+ /process 129 def
+ /long_name (Salt flux) def
+ /units (g/cm^2/s)cvn def
+ /missing_value 9.99900026E20 def
+ /scale_min -1.67799999E-06 def
+ /calendar /standard def
+ /gribparam 199 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 7 def
+ /grib_name /SLTFL def
+ /gribleveltype 1 def
+ /gribNumBits 11 def
+ /PTVersion 129 def
+ /scale_max 5.49999982E-07 def
+ /gribcenter 7 def
+:Zvariable
+\end{ingrid}
+\begin{ingrid}
+:definevariables
+:dataset
+\end{ingrid}

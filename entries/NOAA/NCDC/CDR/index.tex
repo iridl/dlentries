@@ -1,0 +1,24 @@
+\begin{ingrid}
+
+/description (Climate Data Record) def
+% Data providers requested that dataset name be changed from "PERSIANN" to "PERSIANN-CDR" to more clearly distinguish it from another dataset named only "PERSIANN"
+% This redirection should allow the old link to continue to work by pointing to location of new subdirectory 
+
+datasetdefs:
+/PERSIANN { PERSIANN-CDR } def
+:datasetdefs
+
+/PERSIANN-CDR currentobject /PERSIANN-CDR get def
+
+link:
+/name (Climate Data Record Program) def
+ /description (CDR Program Welcome) def
+ /href (http://www.ncdc.noaa.gov/cdr/index.html) def
+:link
+link:
+/name (Climate Data Record Datasets) def
+ /description (CDR Datasets) def
+/href (http://www.ncdc.noaa.gov/cdr/operationalcdrs.html) def
+:link
+
+\end{ingrid}

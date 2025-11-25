@@ -1,0 +1,60 @@
+\begin{ingrid}
+continuedataset:
+%(gfdl/ssst) IRIforecastdir deflastmod
+grid: /name /Y def degN -89 2 89 :grid
+grid: /name /X def degE periodic 1.25 2.5 358.75 :grid
+grid:
+/name /M def
+/long_name (member) def
+/units (ids) def
+1 1 30
+:grid
+grid:
+/name /L def
+/units (months) def
+/standard_name (forecast_period) def
+0.5 1 6.5
+:grid
+grid:
+/name /S def
+monthtime
+/long_name (Forecast Started) def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+1 Oct 2004 ensotime
+1.
+1 IRImaxstarttime interp ensotime
+:grid
+setrunoffset
+S 
+(260) (gfdl/ssst) IRIlastforecastfilenameREU
+removeextrausing
+IRIforecastexpires
+name exch def
+/last_modified S .last_modified def
+/expires S .expires def
+/T { L S add [L S] REORDER /long_name (Forecast Time) def
+ /standard_name (time) def
+/pointwidth 1 def } defasvar
+/t2m { (167) (gfdl/ssst) IRIforecastfilenameCS readdatafile:
+/missing_value NaN def
+r*4asascii :readdatafile
+/long_name (Temperature at 2m)def
+/units (Kelvin_scale) preferredunitname def
+/last_modified 3 index .last_modified def
+} defasvarcachesilent
+/prcp { (260) (gfdl/ssst) IRIforecastfilenameCS readdatafile:
+/missing_value NaN def
+r*4asascii :readdatafile
+/long_name (precipitation rate) def
+/units (mm/s) preferredunitname def
+%/scale_factor 4000. def
+/last_modified 3 index .last_modified def
+} defasvarcachesilent
+  :dataset
+\end{ingrid}
+
+
+
+
+

@@ -1,0 +1,74 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+grid:
+/name /micol def
+1 1 1
+:grid
+:datasetdefs
+
+%DEFINE MONTHLY DATA
+    grid:
+      /name /T def
+      monthtime
+      /defaultvalue { last } def
+      /pointwidth 1 def
+        /standard_name (time) def
+      values:
+        16 Jan 1854 ensotime
+        1
+        systemtime
+        systemtime2ymd
+        ymd:lastmonth
+        ymd:nextmonth 15 add
+        ymd2rm1960
+        {} for
+      :values
+
+    :grid
+
+T { (/Data/data1/noaa/indices/pdo/pdo/pdo_%Y[T]-%m[T].txt) [T]  } removeextrausing
+/expires
+  T last cvsunits
+    interp exch
+     0.5 add
+     6 ymd:nextmonth
+      5 add
+      ymd2systemtime
+      nip
+def
+name exch def
+/expires T .expires  def
+
+
+/description (Pacific Decadal Oscillation (PDO)) def
+
+
+/pdo {
+ [ micol | T  ]
+  (/Data/data1/noaa/indices/pdo/pdo/pdo_%Y[T]-%m[T].txt) [T] 
+ readdatafile:
+  [ 3 1 ]r*8astsv
+ :readdatafile
+   micol 1. VALUE
+   /missing_value -99.99 def 
+   /long_name (Pacific Decadal Oscillation (PDO)) def
+   temp_anomaly_colors
+   DATA AUTO AUTO RANGE
+   micol removeGRID
+ /title (Pacific Decadal Oscillation (PDO) ) def
+ /institution (National Centers for Environmental Information |  NOAA) def
+ link:
+  /name (ftp_url) def
+  /description (https://www.ncei.noaa.gov/pub/data/cmb/ersst/v5/index/ersst.v5.pdo.dat) def
+  /href (https://www.ncei.noaa.gov/pub/data/cmb/ersst/v5/index/ersst.v5.pdo.dat) def
+ :link
+}defasvarsilent
+
+
+
+:dataset
+\end{ingrid}
+

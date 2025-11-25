@@ -1,0 +1,317 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9575
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 586
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAnov2008.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Stratégies) def
+/Q91A {
+mytable
+myquestion 
+102 VALUE
+ myquestion removeGRID
+/long_name (Q91A NBRE REPAS COLLECTIFS PRIS ACTUELLEMENT DANS LE MENAGE) def 
+}defasvarsilent
+
+/Q91B {
+mytable
+myquestion 
+103 VALUE
+ myquestion removeGRID
+/long_name (Q91B NBRE REPAS COLLECTIFS PRIS HABITUELLEMENT DANS LE MENAG) def 
+}defasvarsilent
+
+/Q92A {
+mytable
+myquestion 
+104 VALUE
+ myquestion removeGRID
+/long_name (Q92A NBRE REPAS COLLECTIFS MOINS 5 ANS ACTUELLEMENT) def 
+}defasvarsilent
+
+/Q92B {
+mytable
+myquestion 
+105 VALUE
+ myquestion removeGRID
+/long_name (Q92B NBRE REPAS COLLECTIFS MOINS 5 ANS HABITUELLEMENT) def 
+}defasvarsilent
+
+/Q931 {
+mytable
+myquestion 
+106 VALUE
+ myquestion removeGRID
+/long_name (Q931 NOMBRE DE JOUR MANQUE ASSEZ DE VIVRE OU D'ARGENT) def 
+/units /ids def
+/CLIST [(Non)] def
+/scale_min 0 def
+/scale_max 0 def
+}defasvarsilent
+
+/Q932 {
+mytable
+myquestion 
+107 VALUE
+ myquestion removeGRID
+/long_name (Q932 NOMBRE DE JOUR ALIMENTS MOINS PREFERES) def 
+/units /ids def
+/CLIST [(Non)] def
+/scale_min 0 def
+/scale_max 0 def
+}defasvarsilent
+
+/Q933 {
+mytable
+myquestion 
+108 VALUE
+ myquestion removeGRID
+/long_name (Q933 NOMBRE DE JOUR EMPRUNT DES VIVRES) def 
+/units /ids def
+/CLIST [(Non)] def
+/scale_min 0 def
+/scale_max 0 def
+}defasvarsilent
+
+/Q934 {
+mytable
+myquestion 
+109 VALUE
+ myquestion removeGRID
+/long_name (Q934 NOMBRE DE JOUR ACHAT DES VIVRES A CREDIT) def 
+/units /ids def
+/CLIST [(Non)] def
+/scale_min 0 def
+/scale_max 0 def
+}defasvarsilent
+
+/Q935 {
+mytable
+myquestion 
+110 VALUE
+ myquestion removeGRID
+/long_name (Q935 NOMBRE DE JOUR DEPENDANCE DE L'EXTERIEURE) def 
+/units /ids def
+/CLIST [(Non)] def
+/scale_min 0 def
+/scale_max 0 def
+}defasvarsilent
+
+/Q936 {
+mytable
+myquestion 
+111 VALUE
+ myquestion removeGRID
+/long_name (Q936 NOMBRE DE JOUR RENONCER AU PAIEMENT DES DETTES CONTRACT) def 
+/units /ids def
+/CLIST [(Non)] def
+/scale_min 0 def
+/scale_max 0 def
+}defasvarsilent
+
+/Q937 {
+mytable
+myquestion 
+112 VALUE
+ myquestion removeGRID
+/long_name (Q937 NOMBRE DE JOUR RECOURS INHABITUEL ALIMENT DE PENURIE) def 
+/units /ids def
+/CLIST [(Non)] def
+/scale_min 0 def
+/scale_max 0 def
+}defasvarsilent
+
+/Q938 {
+mytable
+myquestion 
+113 VALUE
+ myquestion removeGRID
+/long_name (Q938 NOMBRE DE JOUR CONSOMMATION DES SEMENCES) def 
+/units /ids def
+/CLIST [(Non)] def
+/scale_min 0 def
+/scale_max 0 def
+}defasvarsilent
+
+/Q939 {
+mytable
+myquestion 
+114 VALUE
+ myquestion removeGRID
+/long_name (Q939 NOMBRE DE JOUR DEMANDE DE NOURRITURE POUR LES ENFANTS) def 
+/units /ids def
+/CLIST [(Non)] def
+/scale_min 0 def
+/scale_max 0 def
+}defasvarsilent
+
+/Q9310 {
+mytable
+myquestion 
+115 VALUE
+ myquestion removeGRID
+/long_name (Q9310 NOMBRE DE JOUR RECOURS A LA MENDICTE) def 
+/units /ids def
+/CLIST [(Non)] def
+/scale_min 0 def
+/scale_max 0 def
+}defasvarsilent
+
+/Q9311 {
+mytable
+myquestion 
+116 VALUE
+ myquestion removeGRID
+/long_name (Q9311 NOMBRE DE JOUR DIMINUTION DE LA RATION JOURNALIERE) def 
+/units /ids def
+/CLIST [(Non)] def
+/scale_min 0 def
+/scale_max 0 def
+}defasvarsilent
+
+/Q9312 {
+mytable
+myquestion 
+117 VALUE
+ myquestion removeGRID
+/long_name (Q9312 NOMBRE DE JOUR DIMINUTION DE LA QUANTITE RATION JOURNA) def 
+/units /ids def
+/CLIST [(Non)] def
+/scale_min 0 def
+/scale_max 0 def
+}defasvarsilent
+
+/Q9313 {
+mytable
+myquestion 
+118 VALUE
+ myquestion removeGRID
+/long_name (Q9313 NOMBRE DE JOUR ACHAT DES REPAS POUR DES RAISONS ECONOM) def 
+/units /ids def
+/CLIST [(Non)] def
+/scale_min 0 def
+/scale_max 0 def
+}defasvarsilent
+
+/Q9314 {
+mytable
+myquestion 
+119 VALUE
+ myquestion removeGRID
+/long_name (Q9314 NOMBRE DE JOUR DIMINUTION DE NOMBRE DE REPAS) def 
+/units /ids def
+/CLIST [(Non)] def
+/scale_min 0 def
+/scale_max 0 def
+}defasvarsilent
+
+/Q9315 {
+mytable
+myquestion 
+120 VALUE
+ myquestion removeGRID
+/long_name (Q9315 NOMBRE DE JOUR PASSER TOUTE UNE JOURNEE SANS MANGER) def 
+/units /ids def
+/CLIST [(Non)] def
+/scale_min 0 def
+/scale_max 0 def
+}defasvarsilent
+
+/Q941 {
+mytable
+myquestion 
+121 VALUE
+ myquestion removeGRID
+/long_name (Q941 DEPART INHABITUEL D'ACTIFS AU COURS  DES 30 DERNIERS JO) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q942 {
+mytable
+myquestion 
+122 VALUE
+ myquestion removeGRID
+/long_name (Q942 VENTE ANIMAUX REPRODUCTEURS POUR RAISON ALIMENTAIRE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q943 {
+mytable
+myquestion 
+123 VALUE
+ myquestion removeGRID
+/long_name (Q943 VENTE BIENS NON PRODUCTIFS POUR RAISON ALIMENTAIRE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q944 {
+mytable
+myquestion 
+124 VALUE
+ myquestion removeGRID
+/long_name (Q944 VENTE BIENS PRODUCTIFS POUR RAISON ALIMENTAIRE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q945 {
+mytable
+myquestion 
+125 VALUE
+ myquestion removeGRID
+/long_name (Q945 VENTE TERRE POUR RAISONS ALIMENTAIRES) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q946 {
+mytable
+myquestion 
+126 VALUE
+ myquestion removeGRID
+/long_name (Q946 RETIRER LES ENFANTS DE L'ECOLE POUR DES RAISONS ALIMENT) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

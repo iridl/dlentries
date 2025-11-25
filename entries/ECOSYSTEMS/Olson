@@ -1,0 +1,92 @@
+\begin{ingrid}
+/Olson
+insertdataset:
+/long_name (Olson Ecosystem Complexes) def
+/description (Global vegetation and ecosystems data) def
+/iridl:hasSemantics (iridl:ORNL) def
+/references (Olson_etal1983) def
+grid:
+/name /X def
+degE
+periodic
+-179.75 .5 179.75
+:grid
+grid:
+/name /Y def
+degN
+89.75 -.5 -89.75
+:grid
+/dataset_documentation.html descriptions  /olson.html get def
+variable:
+/name /class def
+/long_name (land ecosystem class) def
+/units (ids) def
+/scale_min 17 def
+/scale_max 70 def
+/iridl:hasSemantics (iridl:LandCover) def
+/CLIST
+[
+(antarctica)
+( )
+( )
+(main taiga)
+(main taiga)
+(cool conifer)
+(cool mixed)
+(warm deciduous)
+(warm mixed)
+(warm mixed)
+(warm conifer)
+(trop. montane)
+(trop. seasonal)
+(cool crops)
+(warm crops)
+(tropical dry for)
+(eq. evergreen)
+( )
+( )
+(paddylands)
+(warm irrigated)
+(cool irrigated)
+(cold irrigated)
+(cool grass/shrub)
+(warm grass/shrub)
+(siberian parks)
+(trop. savanna)
+(bogs, bog woods)
+(marsh, swamp)
+(med. grazing)
+(highland shrub)
+(semiarid woods)
+(low scrub)
+(sand desert)
+(hot desert)
+(cool desert)
+(tundra)
+(tundra)
+(cool field/woods)
+(warm for./field)
+(cool for./field)
+(warm field woods)
+(succulent thorns)
+(south. taiga)
+(e. south. taiga)
+(north. taiga)
+(wooded tundra)
+(heaths, moors)
+(coastal edges)
+(coastal edges)
+(coastal edges)
+(coastal edges)
+(polar desert)
+(ice)
+] def
+grids: X Y :grids
+file:
+/name (/Data/data1/cdiac/ndb017/olson.ecosystem) def
+i*1
+:file
+:variable
+:insertdataset
+\end{ingrid}
+

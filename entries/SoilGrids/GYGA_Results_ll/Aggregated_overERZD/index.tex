@@ -1,0 +1,159 @@
+\begin{ingrid}
+
+continuedataset:
+
+/soil_qual {
+  SOURCES .WORLDBATH .bath
+  X -23.21 56.90 RANGEEDGES
+  Y -35.0 38.0 RANGEEDGES
+  X -23.21 0.009 56.90 GRID
+  Y -35.0 0.009 38.0 GRID
+
+  SOURCES .SoilGrids .GYGA_Results_1km .Aggregated_overERZD .soil_qual
+  projecttomatch
+  nip
+%0.5 add toi4
+/units /ids def
+/scale_min 1 def
+/scale_max 18 def
+/CLIST [
+(CRFVOL)
+(tetaS)
+(BLD.f)
+(SNDPPT)
+(CLY.d)
+(SND.d)
+(PHIHOX.L)
+(PHIHOX.H)
+(ECN)
+(ENA.f)
+(ENA)
+(EACKCL.f)
+(EACKCL)
+(CRB)
+(GYP)
+(DRAINFAO)
+(BDRICM)
+(ERMAIZE)
+] def
+/CLISTdesc [
+(Foothold (Coarse Fragments))
+(Porosity (TetaS))
+(Porosity (bulk density))
+(Excessive sand content)
+(Abrupt change of clay content)
+(Abrupt change of sand content)
+(Acidity (pH low))
+(Alkalinity (pH high))
+(Electric conductivity)
+(Sodicity (ESP; exch Na+ / CEC))
+(Sodicity (exchangeable Na+))
+(Toxicity (exch. acidity saturation; Al3+&H+/eCEC))
+(Toxicity (exchangeable acidity; Al3+&H+))
+(Not included)
+(Not included)
+(Drainage)
+(Depth to bedrock)
+(Maximum root depth maize)
+] def
+}defasvarsilent 
+
+
+/root_zone {
+  SOURCES .WORLDBATH .bath
+  X -23.21 56.90 RANGEEDGES
+  Y -35.0 38.0 RANGEEDGES
+  X -23.21 0.009 56.90 GRID
+  Y -35.0 0.009 38.0 GRID
+
+  SOURCES .SoilGrids .GYGA_Results_1km .Aggregated_overERZD .root_zone
+  projecttomatch
+  nip
+}defasvarsilent
+
+
+/wat_cap_fine {
+  SOURCES .WORLDBATH .bath
+  X -23.21 56.90 RANGEEDGES
+  Y -35.0 38.0 RANGEEDGES
+  X -23.21 0.009 56.90 GRID
+  Y -35.0 0.009 38.0 GRID
+
+  SOURCES .SoilGrids .GYGA_Results_1km .Aggregated_overERZD .wat_cap_fine
+  projecttomatch
+  nip
+}defasvarsilent
+
+
+/coarse_frag_cont {
+  SOURCES .WORLDBATH .bath
+  X -23.21 56.90 RANGEEDGES
+  Y -35.0 38.0 RANGEEDGES
+  X -23.21 0.009 56.90 GRID
+  Y -35.0 0.009 38.0 GRID
+
+  SOURCES .SoilGrids .GYGA_Results_1km .Aggregated_overERZD .coarse_frag_cont
+  projecttomatch
+  nip
+}defasvarsilent
+
+
+/moist_cont_wilt {
+  SOURCES .WORLDBATH .bath
+  X -23.21 56.90 RANGEEDGES
+  Y -35.0 38.0 RANGEEDGES
+  X -23.21 0.009 56.90 GRID
+  Y -35.0 0.009 38.0 GRID
+
+  SOURCES .SoilGrids .GYGA_Results_1km .Aggregated_overERZD .moist_cont_wilt
+  projecttomatch
+  nip
+}defasvarsilent
+
+
+/wat_cap_whole {
+  SOURCES .WORLDBATH .bath
+  X -23.21 56.90 RANGEEDGES
+  Y -35.0 38.0 RANGEEDGES
+  X -23.21 0.009 56.90 GRID
+  Y -35.0 0.009 38.0 GRID
+
+  SOURCES .SoilGrids .GYGA_Results_1km .Aggregated_overERZD .wat_cap_whole
+  projecttomatch
+  nip
+}defasvarsilent
+
+
+/wat_cap_abs {
+  SOURCES .WORLDBATH .bath
+  X -23.21 56.90 RANGEEDGES
+  Y -35.0 38.0 RANGEEDGES
+  X -23.21 0.009 56.90 GRID
+  Y -35.0 0.009 38.0 GRID
+
+  SOURCES .SoilGrids .GYGA_Results_1km .Aggregated_overERZD .wat_cap_abs
+  projecttomatch
+  nip
+}defasvarsilent
+
+
+/moist_cont_sat {
+  SOURCES .WORLDBATH .bath
+  X -23.21 56.90 RANGEEDGES
+  Y -35.0 38.0 RANGEEDGES
+  X -23.21 0.009 56.90 GRID
+  Y -35.0 0.009 38.0 GRID
+
+  SOURCES .SoilGrids .GYGA_Results_1km .Aggregated_overERZD .moist_cont_sat
+  projecttomatch
+  nip
+}defasvarsilent
+
+:dataset
+
+coarse_frag_cont .X name exch def
+coarse_frag_cont .Y name exch def
+
+\end{ingrid}
+
+

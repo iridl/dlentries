@@ -1,0 +1,29 @@
+\begin{ingrid}
+continuedataset:
+
+/NDVI {
+SOURCES .USGS .ADDS .NDVI .NDVIg .dekadal .maximum .lon
+SOURCES .USGS .ADDS .NDVI .NDVIg .dekadal .maximum .lat
+SOURCES .USGS .ADDS .NDVI .NDVIg .dekadal .maximum .NDVI
+  [x y]weaver:
+        X -20 55 0.1 RANGEEDGESTEP
+        Y -40 40 0.1 RANGEEDGESTEP
+        false setweave
+        :weaver
+   T (1-10 Jul 1981) (21-31 Dec 2004) RANGEEDGES
+   T name
+     npts NewIntegerGRID
+     replaceGRID
+   T 3 splitstreamgrid
+   [T]maxover
+   T2 name
+     /monthtime ordered 258.5 1 539.5 NewEvenGRID
+     replaceGRID
+   T2 (Jul 1981) (Dec 2004) RANGE
+   T2 /T renameGRID
+   T /defaultvalue last def pop
+   /long_name (Monthly Maximum NDVIg) def
+} defasvarsilent
+
+:dataset
+\end{ingrid}

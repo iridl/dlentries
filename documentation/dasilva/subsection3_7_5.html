@@ -1,0 +1,75 @@
+<HEAD>
+<TITLE> Precipitation</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html330 HREF=subsection3_7_6.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html328 HREF=section3_7.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html322 HREF=subsection3_7_4.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html331 HREF=subsection3_7_6.html> Net short wave </A>
+<B>Up:</B> <A NAME=tex2html329 HREF=section3_7.html> Parameterizations</A>
+<B> Previous:</B> <A NAME=tex2html323 HREF=subsection3_7_4.html> Evaporationsensible and </A>
+<HR> <P>
+<H2><A NAME=SECTION0007500000000000000> Precipitation</A></H2>
+<P>
+Accurate measurements of precipitation at sea are extremely difficult to take.
+As a result, precipitation rate 
+is not included in ship reports.  However, the type of weather the ship
+encounters is recorded and can be used as a precipitation proxy.
+<P>
+Precipitation rate is estimated using the method developed by Tucker (1961).
+The method uses the Present Weather (PW) information of
+standard ship reports and relates it to precipitation rate according to a
+regression formula.
+<P>
+The PW is reported at 3 hour intervals (usually less
+frequently) with the results being coded
+from 00 to 99.  Tucker considers that weather associated with codes 50 to 99
+contribute significantly
+to precipitation.  Based on data for 12 stations around the British Isles,
+Tucker derived a regression formula which relates precipitation during the
+3 hour sampling interval to the amount of light, moderate, or heavy
+precipitation (<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3255.xbm">, <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3251.xbm">, and <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3253.xbm"> respectively).  Each PW code is then expressed
+as a linear combination of <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3255.xbm">, <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3251.xbm">, and <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3253.xbm"> as shown in 
+Table <A HREF=subsection3_7_5.html#tabtucker>8</A>.  Tucker's estimates for these
+coefficients are <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3261.xbm"> mm, <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3263.xbm"> mm, and <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3265.xbm"> mm per 3
+hour period.
+<P>
+<P><A NAME=tabtucker><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_table*619.gif"><P>
+<P>
+Because the PW does not have an adequate range to accommodate the tropics,
+Dorman and Bourke (1978) derived an additional correction which takes into
+consideration the local air temperature:
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation628.xbm"><P>
+Dorman and Bourke (1978) give correction coefficients <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3379.xbm">, <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3381.xbm">, and <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3427.xbm">
+for each month of the year.  The coefficients are shown in 
+Table <A HREF=subsection3_7_5.html#tabdandb>9</A>.  The corrected values for <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3385.xbm"> are used to
+calculate monthly mean precipitation rate.
+<P>
+<P><A NAME=tabdandb><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_table633.gif"><P>
+<P>
+ The precipitation fields obtained with the formula above showed an
+unrealistic minimum in Spring when compared to estimates from NMC and
+NASA/Goddard (Schubert <em>et al.</em> 1993) reanalyses, as well as
+Arkin and Meisner's (1987) GOES Precipitation Index. This abrupt
+decrease of precipitation in spring is not present in the
+uncorrected <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3393.xbm">, but is introduced, rather, by
+the correction factor <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3395.xbm">.  In order to remove
+this spurious seasonal cycle in precipitation, we have used the annual
+mean of Dorman and Bourke's (1978) correction factor in our
+precipitation calculations: the monthly mean correction was calculated
+from the 12 monthly climatologies of air temperature and averaged to
+form the annual mean correction.  This modification has little effect
+on the annual mean precipitation and fresh water fluxes into the
+ocean.  The precipitation fields computed with Dorman and Bourke's
+(1978) original approach will be made available upon request.
+<P>
+<HR> <A NAME=tex2html330 HREF=subsection3_7_6.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html328 HREF=section3_7.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html322 HREF=subsection3_7_4.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html331 HREF=subsection3_7_6.html> Net short wave </A>
+<B>Up:</B> <A NAME=tex2html329 HREF=section3_7.html> Parameterizations</A>
+<B> Previous:</B> <A NAME=tex2html323 HREF=subsection3_7_4.html> Evaporationsensible and </A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>
+Fri Oct 20 12:28:33 EDT 1995</I>
+</ADDRESS>

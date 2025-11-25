@@ -1,0 +1,130 @@
+\begin{ingrid}
+continuedataset:
+   grid:
+   /name (X)def
+   /units (degree_east)def
+   -179.5 1.0 179.5
+   :grid
+
+   grid:
+   /name (Y)def
+   /units (degree_north)def
+   -89.5 1.0 89.5
+   :grid
+
+
+   grid:
+   /name /T def
+   monthtime
+   /defaultvalue {last} def
+   /long_name (Time) def
+   /standard_name (time) def
+   /netcdfgrid true def
+   16 Jan 1982 ensotime
+   1
+   16 systemtime systemtime2ymd ymd:lastmonth pop .5 sub exch ensotime
+   :grid
+   
+   T {(/Data/data21/gpcc/v2022/%Y[T]/monitoring_v2022_10_%Y[T]_%m[T].nc) [T] } removeextrausing
+   name exch def
+   
+   T
+   /expires last
+      rm19602ymd ymd:nextmonth ymd:nextmonth ymd:nextmonth pop 10 ymd2systemtime def
+      name exch def
+   /last_modified last_modified T .last_modified imax def
+   /expires T .expires def
+
+   /eprcp{
+      [ X Y last first subgrid | T ] (/Data/data21/gpcc/v2022/%Y[T]/monitoring_v2022_10_%Y[T]_%m[T].nc) [T] readdatafile:
+      /name (abs_gauge_err) def
+      /missing_value -99999.992 def
+      /long_name (absolute systematic gauge error) def
+      /units (mm/month)cvn def
+      /code 24 def
+      /realarraytype netcdfrecords :readdatafile
+      Y last first RANGE
+   }defasvarsilent
+
+   /gec{
+      [ X Y last first subgrid | T ] (/Data/data21/gpcc/v2022/%Y[T]/monitoring_v2022_10_%Y[T]_%m[T].nc) [T] readdatafile:
+      /name (corr_fac) def
+       /missing_value -99999.992 def
+       /long_name (systematic gauge error correction factor	) def
+       /code 26 def
+       /units /unitless def
+       /realarraytype netcdfrecords :readdatafile
+       Y last first RANGE
+   }defasvarsilent
+
+   /ieg{
+      [ X Y last first subgrid | T ] (/Data/data21/gpcc/v2022/%Y[T]/monitoring_v2022_10_%Y[T]_%m[T].nc) [T] readdatafile:
+      /name (interpolation_error) def
+       /missing_value -99999.992 def
+       /long_name (interpolation error (YAMAMOTO) per grid) def
+       /units (mm/month)cvn def
+       /code 27 def
+       /realarraytype netcdfrecords :readdatafile
+       Y last first RANGE
+   }defasvarsilent
+
+   /lprcp{
+      [ X Y last first subgrid | T ] (/Data/data21/gpcc/v2022/%Y[T]/monitoring_v2022_10_%Y[T]_%m[T].nc) [T] readdatafile:
+      /name (liquid_p) def
+       /missing_value -99999.992 def
+       /long_name (proportion of liquid precip) def
+       /units /percent def
+       /code 23 def
+       /realarraytype netcdfrecords :readdatafile
+       Y last first RANGE
+   }defasvarsilent
+
+   /prcp{
+      [ X Y last first subgrid | T ] (/Data/data21/gpcc/v2022/%Y[T]/monitoring_v2022_10_%Y[T]_%m[T].nc) [T] readdatafile:
+      /name (p) def
+       /missing_value -99999.992 def
+       /long_name (precipitation) def
+       /units (mm/month)cvn def
+       /code 20 def
+       /realarraytype netcdfrecords :readdatafile
+       Y last first RANGE
+   }defasvarsilent
+
+   /reprcp{
+      [ X Y last first subgrid | T ] (/Data/data21/gpcc/v2022/%Y[T]/monitoring_v2022_10_%Y[T]_%m[T].nc) [T] readdatafile:
+      /name (rel_gauge_err) def
+       /missing_value -99999.992 def
+       /long_name (relative systematic gauge error) def
+       /units /percent def
+       /code 25 def
+       /realarraytype netcdfrecords :readdatafile
+       Y last first RANGE
+   }defasvarsilent
+
+   /cnts{
+      [ X Y last first subgrid | T ] (/Data/data21/gpcc/v2022/%Y[T]/monitoring_v2022_10_%Y[T]_%m[T].nc) [T] readdatafile:
+      /name (s) def
+       /missing_value -99999.992 def
+       /long_name (number of stations per grid) def
+       /units (gauges per grid)cvn def
+       /code 21 def
+       /realarraytype netcdfrecords :readdatafile
+       Y last first RANGE
+   }defasvarsilent
+
+   /sprcp{
+      [ X Y last first subgrid | T ] (/Data/data21/gpcc/v2022/%Y[T]/monitoring_v2022_10_%Y[T]_%m[T].nc) [T] readdatafile:
+      /name (solid_p) def
+       /missing_value -99999.992 def
+       /long_name (proportion of solid precip) def
+       /units /percent def
+       /code 22 def
+       /realarraytype netcdfrecords :readdatafile
+       Y last first RANGE
+   }defasvarsilent
+
+
+:dataset
+\end{ingrid}
+
+

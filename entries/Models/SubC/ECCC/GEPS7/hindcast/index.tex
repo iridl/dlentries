@@ -1,0 +1,476 @@
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name (X) def
+/units (degree_east) def
+periodic
+ 0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/units (degree_north) def
+-90.0 1.0 90.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+ 0.5 1.0 31.5
+/pointwidth 0.0 def
+:grid
+
+grid:
+/name (M) def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+1 1 4
+:grid
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 850 500 200 100 50 30 10 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (P1) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 850 500 200 50 30 10 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (P2) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 850 200 100 50 30 10 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (P3) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 100 50 30 10 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (P4) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 850 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (P5) def
+/long_name (Pressure Level) def
+/units (hPa) def
+values: 500 :values
+/standard_name (air_pressure) def
+:grid
+
+grid:
+/name (S) def
+/long_name (Start Time) def
+/standard_name (forecast_reference_time) def
+01 Jan 2001 julian_day 01 Jan 1960 julian_day sub
+1.0
+31 Dec 2020 julian_day 01 Jan 1960 julian_day sub
+/units (days since 1960-01-01) def
+%/defaultvalue { last } def
+/pointwidth 0. def
+:grid
+
+ /pr{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/pr_sfc_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (pr) def
+ /long_name (Total Precipitation) def
+ /missing_value 9.99900026E20 def
+ /standard_name (precipitation_flux) def
+ /units (kg m-2 s-1)cvn def
+ /level_type (surface) def
+ /level (surface) def
+ /short_name (TPRATE_surface) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /rlut{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/rlut_toa_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile: 
+/name (rlut) def
+ /short_name (NLWRF_topofatmosphere) def
+ /long_name (Outgoing Longwave Radiation at Top of Atmosphere) def 
+ /missing_value 9.99900026E20 def
+ /level_type (top of atmosphere) def
+ /standard_name (toa_outgoing_longwave_flux) def
+ /level (top of atmosphere) def
+ /units (W/m2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tas{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/tas_2m_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (tas) def
+ /long_name (2-meter Air Temperature) def
+ /units /Kelvin_scale def
+ /level_type (2 meters above ground) def
+ /standard_name (air_temperature) def
+ /level (2 m above ground) def
+ /missing_value 9.99900026E20 def
+ /short_name (TMP_2maboveground) def
+ /units /Kelvin_scale def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ts{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/ts_sfc_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile: 
+/name (ts) def
+ /long_name (Surface Temperature) def
+ /level_type (surface) def
+ /short_name (SKINT_surface) def
+ /missing_value 9.99900026E20 def
+ /units /Kelvin_scale def
+ /level (surface) def
+ /standard_name (surface_temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ua{
+[ X Y | L M S P ] (/Data/SubX/ECCC/GEPS7/hindcast/ua_%d[P]_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ P S M ] readdatafile: 
+/name (ua) def
+ /long_name (Zonal Velocity) def 
+ /level_type (pressure level) def
+ /standard_name (eastward_wind) def
+ /missing_value 9.99900026E20 def
+ /units (m/s)cvn def
+ /realarraytype netcdfrecords :readdatafile
+  P 850 200 100 VALUES
+}defasvarsilent
+
+ /va{
+[ X Y | L M S P ] (/Data/SubX/ECCC/GEPS7/hindcast/va_%d[P]_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ P S M ] readdatafile: 
+/name (va) def
+ /long_name (Meridional Velocity) def 
+ /level_type (pressure level) def
+ /standard_name (northward_wind) def
+ /missing_value 9.99900026E20 def
+ /units (m/s)cvn def
+ /realarraytype netcdfrecords :readdatafile
+  P 850 200 100 VALUES
+}defasvarsilent
+
+ /zg{
+[ X Y | L M S P ] (/Data/SubX/ECCC/GEPS7/hindcast/zg_%d[P]_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ P S M ] readdatafile: 
+/name (zg) def
+ /level_type (pressure level) def
+ /standard_name (geopotential_height) def
+ /long_name (Geopotential Height) def
+ /missing_value 9.99900026E20 def
+ /units /m def
+ /realarraytype netcdfrecords :readdatafile
+  P 500 200 VALUES
+}defasvarsilent
+
+ /hfls{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/hfls_sfc_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (hfls) def
+ /short_name (LHTFL_surface) def
+ /long_name (Surface Latent Heat Flux) def
+ /standard_name (surface_upward_latent_heat_flux) def
+ /level_type (surface) def
+ /missing_value 9.99900026E20 def
+ /units (W/m2)cvn def
+ /level (surface) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /hfss{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/hfss_sfc_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (hfss) def
+ /short_name (SHTFL_surface) def
+ /long_name (Surface Sensible Heat Flux) def
+ /standard_name (surface_upward_sensible_heat_flux) def
+ /level_type (surface) def
+ /missing_value 9.99900026E20 def
+ /units (W/m2)cvn def
+ /level (surface) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /huss{
+[ X Y | L M S P ] (/Data/SubX/ECCC/GEPS7/hindcast/huss_%d[P]_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ P S M ] readdatafile:
+/name (huss) def
+ /long_name (Specific Humidity) def
+ /missing_value 9.99900026E20 def
+ /units /unitless def
+ /short_name (SPFH_850mb) def
+ /standard_name (specific_humidity) def
+ /level_type (pressure level) def
+ /realarraytype netcdfrecords :readdatafile
+ P 850 VALUE
+}defasvarsilent
+
+ /mrro{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/mrro_sfc_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (mrro) def
+ /short_name (SFCWRO_surface) def
+ /long_name (Surface Water Runoff) def
+ /standard_name (surface_runoff_amount) def
+ /level (surface) def
+ /level_type (surface) def
+ /missing_value 9.99900026E20 def
+ /units (kg/m^2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /psl{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/psl_msl_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (psl) def
+ /long_name (Mean Sea Level Pressure) def
+ /standard_name (air_pressure_at_sea_level) def
+ /units /Pa def
+ /level_type (surface) def
+ /level (mean sea level) def
+ /missing_value 9.99900026E20 def
+ /short_name (PRES_meansealevel) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /rad{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/rad_sfc_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (rad) def
+ /long_name (Net Surface Radiation) def
+ /level (surface) def
+ /level_type (surface) def
+ /short_name (Net_rad) def
+ /missing_value 9.99900026E20 def
+ /units (W/m2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /sic{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/sic_sfc_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (sic) def
+ /long_name (Sea Ice Concentration) def
+ /standard_name (sea_ice_area_fraction) def
+ /level_type (surface) def
+ /missing_value 9.99900026E20 def
+ /short_name (ICEC_surface) def
+ /level (surface) def
+ /units /Proportion def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /snwd{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/snwd_sfc_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (snwd) def
+ /long_name (Snow Density) def
+ /standard_name (snow_density) def
+ /short_name (SDEN_surface) def
+ /missing_value 9.99900026E20 def
+ /level_type (surface) def
+ /level (surface) def
+ /units (kg/m^3)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /swe{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/swe_sfc_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (swe) def
+ /long_name (Snow Depth Water Equivalent) def
+ /standard_name (surface_snow_melt_amount) def
+ /short_name (SDWE_surface) def
+ /level (surface) def
+ /level_type (surface) def
+ /missing_value 9.99900026E20 def
+ /units (kg/m^2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tasmax{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/tasmax_2m_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (tasmax) def
+ /short_name (Tmax_2m) def
+ /long_name (2-meter Maximum Air Temperature) def
+ /standard_name (air_temperature) def
+ /level_type (2 meters above ground) def
+ /missing_value 9.99900026E20 def
+ /units /Kelvin_scale def
+ /level (2 m above ground) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tasmin{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/tasmin_2m_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (tasmin) def
+ /short_name (Tmin_2m) def
+ /long_name (2-meter Minimum Air Temperature) def
+ /standard_name (air_temperature) def
+ /level_type (2 meters above ground) def
+ /missing_value 9.99900026E20 def
+ /units /Kelvin_scale def
+ /level (2 m above ground) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tdps{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/tdps_2m_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (tdps) def
+ /long_name (2-meter Dew Point Temperature) def
+ /standard_name (dew_point_temperature) def
+ /level_type (2 meters above ground) def
+ /level (2 m above ground) def
+ /missing_value 9.99900026E20 def
+ /units /Kelvin_scale def
+ /short_name (DPT_2maboveground) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /uas{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/uas_10m_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (uas) def
+ /long_name (10-meter Eastward Wind) def
+ /standard_name (eastward_wind) def
+ /level_type (10 meters above ground) def
+ /missing_value 9.99900026E20 def
+ /level (10 m above ground) def
+ /short_name (UGRD_10maboveground) def
+ /units (m/s)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /vas{
+[ X Y | L M S ] (/Data/SubX/ECCC/GEPS7/hindcast/vas_10m_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ M S ] readdatafile:
+/name (vas) def
+ /long_name (10-meter Northward Wind) def
+ /standard_name (northward_wind) def
+ /level_type (10 meters above ground) def
+ /missing_value 9.99900026E20 def
+ /level (10 m above ground) def
+ /short_name (VGRD_10maboveground) def
+ /units (m/s)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /wap {
+[ X Y | L M S P ] (/Data/SubX/ECCC/GEPS7/hindcast/wap_%d[P]_ECCC_%d[S]%b:lc[S]%Y[S]_00z_d01_d32_m0%1.1d[M].nc) [ P S M ] readdatafile:
+/name (wap) def
+ /long_name (Pressure Vertical Velocity) def
+ /missing_value 9.999000E20 def
+ /units (Pa/s) def
+ /short_name (VVEL_500mb) def
+ /standard_name (lagrangian_tendency_of_air_pressure) def
+ /level_type (pressure level) def
+ /realarraytype netcdfrecords :readdatafile
+ P 500 VALUE
+}defasvarsilent
+
+  dataset:
+  [X Y L ] {name exch def } forall
+  /name /dc0120 def  %Triangular Daily climatology pr, tas 
+
+        link:
+                /name (original_dataset) def
+                /description (SubX ECCC-GEPS7 (2001-2020) ) def
+                /href (https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.ECCC/.GEPS7/.hindcast/) def
+        :link
+
+        grid:
+         /name /S def
+         /long_name (Day-of-Year) def
+        /units (days since 1960-01-01) def
+        %/long_name (forecast start time) def
+        /standard_name (climatology_reference_time) def
+        01 Jan 2000 julian_day 01 Jan 1960 julian_day sub
+        1.0
+        31 Dec 2000 julian_day 01 Jan 1960 julian_day sub
+        /pointwidth 0. def
+        :grid
+
+
+%Precipitation 
+        /prSmooth{
+                [ X Y | L S ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/ECCC-GEPS7/2001-01-04.2020-12-30.smooth_day_clim_pr.nc)
+%               (/data/xchourio/data/S2SDB/clim/ECCC-GEPS7/2001-01-04.2020-12-30.smooth_day_clim_pr.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /standard_name (precipitation_flux) def
+                /units (kg m-2 s-1)cvn def
+                /level_type (surface) def
+                /level (surface) def
+                /short_name (TPRATE_surface) def
+                 /long_name (Total Precipitation - triangular smoothing climatology) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+        }defasvarsilent
+
+        /prClim{
+                [ X Y | L S ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/ECCC-GEPS7/2001-01-04.2020-12-30.day_clim_pr.nc)
+%               (/data/xchourio/data/S2SDB/clim/ECCC-GEPS7/2001-01-04.2020-12-30.day_clim_pr.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /standard_name (precipitation_flux) def
+                /units (kg m-2 s-1)cvn def
+                /level_type (surface) def
+                /level (surface) def
+                /short_name (TPRATE_surface) def
+                 /long_name (Total Precipitation) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+                DATA 0 4.0E-04 RANGE
+        }defasvarsilent
+
+
+%Temperature 2m
+        /tasClim {
+                [ X Y | L S ]
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/ECCC-GEPS7/2001-01-04.2020-12-30.day_clim_tas.nc)
+%               (/data/xchourio/data/S2SDB/clim/ECCC-GEPS7/2001-01-04.2020-12-30.day_clim_tas.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /units (K) def
+                /missing_value NaN def
+                 /long_name (2-meter Air Temperature) def
+                /units /Kelvin_scale def
+                /level_type (2 meters above ground) def
+                /standard_name (air_temperature) def
+                /level (2 m above ground) def
+                /short_name (TMP_2maboveground) def
+                /units /Kelvin_scale def
+                /doublearraytype netcdfrecords :readdatafile
+                DATA 200 350 RANGE
+        } defasvarsilent
+
+       /tasSmooth {
+                [ X Y | L S ]
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/ECCC-GEPS7/2001-01-04.2020-12-30.smooth_day_clim_tas.nc)
+%               (/data/xchourio/data/S2SDB/clim/ECCC-GEPS7/2001-01-04.2020-12-30.smooth_day_clim_tas.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /long_name (2-meter Temperature - triangular smoothing climatology ) def
+                /missing_value NaN def
+                /units (K) def
+                /units /Kelvin_scale def
+                /level_type (2 meters above ground) def
+                /standard_name (air_temperature) def
+                /level (2 m above ground) def
+                /short_name (TMP_2maboveground) def
+                /units /Kelvin_scale def
+                /doublearraytype netcdfrecords :readdatafile
+
+        } defasvarsilent
+    :dataset
+
+:dataset
+\end{ingrid}

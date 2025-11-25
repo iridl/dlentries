@@ -1,0 +1,140 @@
+\begin{ingrid}
+/ndp043a insertdataset:
+/iridl:hasSemantics [(iriref:Gornitz_VM) (iriref:White_TW)] def
+/description (Coastal hazards data base for United States East Coast) def
+grid:
+/name /X def
+degE
+%-85 .25 -65
+-84.875 .25 -65.125
+:grid
+grid:
+/name /Y def
+degN
+24.125 .25 45.875 %24 .25 46
+:grid
+file:
+/name (/Data/data1/cdiac/ndp043a/ecgrid.asc) def
+grids: {  ID WHAVG WHMAX  WHSD ERAVG                      
+      ERMAX  ERMIN  ERNUM  ELAVG                           
+      ELMAX ELMIN  ELNUM 
+ GM  GL  TRMAX  TRAVG                                    
+      TRLVL  TRNUM  SLR                                         
+      SLG  SLC  SLS SLYR
+ } cvlit | X Y  :grids
+formatted
+%/format
+%((F5.0,6F8.2,F4.0,3F8.2,F4.0,2F5.0,3F8.2,F4.0,4F8.2,F4.0))
+%def
+variable:
+/name /WHAVG def
+/long_name (20-year mean wave height)def
+/units (m) def
+/missing_value 9999.99 def
+:variable
+variable: /name /WHMAX def
+/long_name (maximum significant wave height)def
+/units (m) def
+/missing_value 9999.99 def
+:variable
+variable: /name /WHSD def
+/long_name (standard deviation of the 20-year mean wave height)def
+/units (m) def
+/missing_value 9999.99 def
+:variable
+variable: /name /ERAVG def
+/long_name (mean long-term erosion trend)def
+/units (m) def
+/missing_value 9999.99 def
+:variable
+variable: /name /ERMAX def
+/long_name (maximum long-term erosion trend)def
+/units (m) def
+/missing_value 9999.99 def
+:variable
+variable: /name /ERMIN def
+/long_name (minimum long-term erosion trend)def
+/units (m) def
+/missing_value 9999.99 def
+:variable
+variable: /name /ERNUM def
+/long_name (number of 3', 7.5', or 15' grid cells used in calculating erosion) def
+/units /integer def
+:variable
+variable: /name /ELAVG def
+/long_name (mean non-negative elevation) def
+/units (m) def
+/missing_value 9999.99 def
+:variable
+variable: /name /ELMAX def
+/long_name (maximum non-negative elevation) def
+/units (m) def
+/missing_value 9999.99 def
+:variable
+variable: /name /ELMIN def
+/long_name (minimum non-negative elevation) def
+/units (m) def
+/missing_value 9999.99 def
+:variable
+variable: /name /ELNUM  def
+/long_name (number of cells used in elevation) def
+/units /integer def
+:variable
+variable: /name /GM def
+/long_name (landform inundation-and-erosion susceptibility index) def
+%/units /ids def
+/units /integer def
+/missing_value 9999 def
+:variable
+variable: /name /GL def
+/long_name (rock erosion resistance index) def
+%/units /ids def
+/units /integer def
+/missing_value 9999 def
+:variable
+variable: /name /TRMAX def
+/long_name (maximum tide range) def
+/units (m) def
+/missing_value 9999.99 def
+:variable
+variable: /name /TRAVG def
+/long_name (mean tide range) def
+/units (m) def
+/missing_value 9999.99 def
+:variable
+variable: /name /TRLVL def
+/long_name (mean tide level) def
+/units (m) def
+/missing_value 9999.99 def
+:variable
+variable: /name /TRNUM def
+/long_name (number of tide gauge stations used in tide calculations) def
+/units /integer def
+:variable
+variable: /name /SLR def
+/long_name (relative sea level trend) def
+/units (mm/year) def
+/missing_value 9999.99 def
+:variable
+variable: /name /SLG def
+/long_name (long-term geologic-trend  derived from 14C data) def
+/units (mm/year) def
+/missing_value 9999.99 def
+:variable
+variable: /name /SLC def
+/units (mm/year) def
+/long_name (corrected sea level trend) def
+/missing_value 9999.99 def
+:variable
+variable: /name /SLS def
+/long_name (local subsidence trend) def
+/units (mm/year) def
+/missing_value 9999.99 def
+:variable
+variable: /name /SLYR def
+/long_name (years of record used in sea level trend) def
+/units /integer def
+:variable
+:file
+:insertdataset
+\end{ingrid}

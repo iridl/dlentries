@@ -1,0 +1,47 @@
+\begin{ingrid}
+continuedataset:
+link:
+/name /dataset_documentation def
+/href (http://podaac.jpl.nasa.gov/dataset/SeaWiFS_L3_CHLA_Daily_9km_R?ids=Measurement&values=Ocean%20Optics) def
+:link
+grid: /name /X def
+degE
+periodic
+-180 180. 4321 pts 1 index sub 
+:grid
+X partialgrid name exch def
+grid:
+/name /Y def
+degN
+90. -90. 2160 pts
+:grid
+Y partialgrid
+name exch def
+grid:
+/name /T def
+/units (days since 1997-01-01 00:00:00) def
+4 Sep 1997 julian_day .5 add
+1 Jan 1997 julian_day sub
+1
+11 Dec 2010 julian_day .5 add
+1 Jan 1997 julian_day sub
+:grid
+\end{ingrid}
+\begin{ingrid}
+/l3m_data {
+[X
+    Y |
+    T] 
+(http://oceandata.sci.gsfc.nasa.gov/cgi/getfile/S%Y%j[T].L3m_DAY_CHL_chlor_a_9km.bz2) 
+[T]readdatafile:
+/name (l3m_data) def
+/long_name (chlorophyll a) def
+/missing_value -32767. def
+/units (mg/m3) def
+/iridl:hasSemantics [(iridl:Chlorophyll) (iridl:DissolvedConcentration)] def
+/realarraytype netcdfrecords
+:readdatafile
+/I_bounds undef
+} defasvarsilent
+:dataset
+\end{ingrid}

@@ -1,0 +1,115 @@
+\begin{ingrid}
+continuedataset:
+%datasetdefs:
+
+grid:
+/name /L def
+/long_name (Lead time) def
+/standard_time (forecast_period) def
+/units (months) def
+0.5 1 7.5
+:grid
+
+grid:
+/name /Mon def
+/long_name (Start Month) def
+monthtime
+/pointwidth 1 def
+periodic 
+16 Jan 2001 ensotime
+1.
+16 Dec 2001 ensotime
+:grid
+
+grid:
+/name /S def
+/long_name (Start time) def
+/units (months since 1960-01-01) def
+/calendar /360 def
+monthtime
+/pointwidth 0 def 
+1 Jul 1998 ensotime
+1.
+1 Apr 2007 ensotime
+:grid
+
+grid:
+/name /Year def
+/long_name (Reference year) def
+/units (months since 1960-01-01) def 
+/pointwindth 0 def
+(0000 01 Jul 2001) 
+12.
+(0000 01 Jul 2007)
+:grid
+
+
+grid:
+/name /X def
+/units (degree_east)def
+ periodic
+% 1.40625 2.8125 360 1.40625 sub
+0 2.8125 360 2.8125 sub
+:grid
+grid:
+/name /Y def
+/units (degree_north)def
+% -87.86379 2.78933 2. div add  2.78933 87.86379 2.78933 2. div sub
+-87.86379 2.78933 87.86379
+:grid
+grid:
+/name /slot def
+1 1 28
+:grid 
+
+%:datasetdefs
+/LeadtoSlot{
+   /pointwidth 0 def
+S 12 mod
+   L add
+   1 sub
+   /units /unitless def
+/long_name (LeadtoSlot) def
+   2 add
+dup
+    15 flagge
+   2 mul
+    add }defasvar
+:datasetdefs
+/T { 
+S L add
+/long_name (Forecast time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/pointwidth 1 def
+/calendar /360 def
+ }defasvar
+
+/sst 
+{
+
+[ X Y | slot  S]
+(/Data/data21/iri/forecast/data/ssta_fcst/asst/%Y[S]/blanom%Y[S]%m.t42.%Y[alt].nc) [slot
+       1 15 subgridvalues
+       S S 12 14. div
+slot
+1 sub
+mul 
+          add
+         /units monthtimename def
+         /name /alt def]
+
+
+readdatafile:
+/name (sst) def
+/long_name (sea surface temperature anomaly) def
+/units (degree C) cvn def
+/doublearraytype netcdfrecords
+:readdatafile
+LeadtoSlot 
+[L S]REORDER
+slot sample-along
+}defasvarsilent
+
+:dataset
+\end{ingrid}

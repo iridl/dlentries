@@ -1,0 +1,632 @@
+\begin{ingrid}
+
+/description (Palay and Corn: Yield anomalies estimate by Year, Period) def
+
+continuedataset:
+
+dataset:
+/name /AH_Cat def
+/description (Palay and Corn: Categories of Areas by Province and Quarter) def
+
+/AH_IP_Cat {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops .O80LUAHC .AH_IP
+  T 12 splitstreamgrid
+  dup dup
+    T2 12 shiftGRID
+    replaceNaN
+   exch
+   T2 first VALUE
+   exch appendstream
+  dup T2 2 1.0
+      10 div
+      butt_filter: :butt_filter
+   .butt exch
+   1 index sub
+   exch div
+  [T2]rmsaover
+  grid:
+    /name /Tt def
+    values:
+     0.25 0.3 0.45 0.25 :values
+     :grid
+   0. add
+   /name /RMSt def
+   Tt T replaceGRID
+   flaglt
+  {highVar 0.5 lowVar} classify
+  [flag ]dominant_class
+  /long_name (Type of Variance of Area for Irrigated Palay) def
+  startcolormap transparent red red blue blue endcolormap
+}defasvar
+
+/AH_P_Cat {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops .O80LUAHC .AH_P
+  T 12 splitstreamgrid
+  dup dup
+    T2 12 shiftGRID
+    replaceNaN
+   exch
+   T2 first VALUE
+   exch appendstream
+  dup T2 2 1.0
+      10 div
+      butt_filter: :butt_filter
+   .butt exch
+   1 index sub
+   exch div
+  [T2]rmsaover
+  grid:
+    /name /Tt def
+    values:
+     0.25 0.4 0.45 0.2 :values
+     :grid
+   0. add
+   /name /RMSt def
+   Tt T replaceGRID
+   flaglt
+  {highVar 0.5 lowVar} classify
+  [flag ]dominant_class
+  /long_name (Type of Variance of Area for Palay) def
+  startcolormap transparent red red blue blue endcolormap
+}defasvar
+
+/AH_RP_Cat {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops .O80LUAHC .AH_RP
+  T 12 splitstreamgrid
+  dup dup
+    T2 12 shiftGRID
+    replaceNaN
+   exch
+   T2 first VALUE
+   exch appendstream
+  dup T2 2 1.0
+      10 div
+      butt_filter: :butt_filter
+   .butt exch
+   1 index sub
+   exch div
+  [T2]rmsaover
+  grid:
+    /name /Tt def
+    values:
+     0.05 0.05 0.05 0.45 :values
+     :grid
+   0. add
+   /name /RMSt def
+   Tt T replaceGRID
+   flaglt
+  {highVar 0.5 lowVar} classify
+  [flag ]dominant_class
+  /long_name (Type of Variance of Area for Rainfed Palay) def
+  startcolormap transparent red red blue blue endcolormap
+}defasvar
+
+/AH_C_Cat {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops .O80LUAHC .AH_C
+  T 12 splitstreamgrid
+  dup dup
+    T2 12 shiftGRID
+    replaceNaN
+   exch
+   T2 first VALUE
+   exch appendstream
+  dup T2 2 1.0
+      10 div
+      butt_filter: :butt_filter
+   .butt exch
+   1 index sub
+   exch div
+  [T2]rmsaover
+  grid:
+    /name /Tt def
+    values:
+     0.30 0.45 0.30 0.20 :values
+     :grid
+   0. add
+   /name /RMSt def
+   Tt T replaceGRID
+   flaglt
+  {highVar 0.5 lowVar} classify
+  [flag ]dominant_class
+  /long_name (Type of Variance of Area for Corn) def
+  startcolormap transparent red red blue blue endcolormap
+}defasvar
+
+/AH_WC_Cat {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops .O80LUAHC .AH_WC
+  T 12 splitstreamgrid
+  dup dup
+    T2 12 shiftGRID
+    replaceNaN
+   exch
+   T2 first VALUE
+   exch appendstream
+  dup T2 2 1.0
+      10 div
+      butt_filter: :butt_filter
+   .butt exch
+   1 index sub
+   exch div
+  [T2]rmsaover
+  grid:
+    /name /Tt def
+    values:
+     0.30 0.40 0.35 0.20 :values
+     :grid
+   0. add
+   /name /RMSt def
+   Tt T replaceGRID
+   flaglt
+  {highVar 0.5 lowVar} classify
+  [flag ]dominant_class
+  /long_name (Type of Variance of Area for White Corn) def
+  startcolormap transparent red red blue blue endcolormap
+}defasvar
+
+/AH_YC_Cat {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops .O80LUAHC .AH_YC
+  T 12 splitstreamgrid
+  dup dup
+    T2 12 shiftGRID
+    replaceNaN
+   exch
+   T2 first VALUE
+   exch appendstream
+  dup T2 2 1.0
+      10 div
+      butt_filter: :butt_filter
+   .butt exch
+   1 index sub
+   exch div
+  [T2]rmsaover
+  grid:
+    /name /Tt def
+    values:
+     0.05 0.05 0.05 0.05 :values
+     :grid
+   0. add
+   /name /RMSt def
+   Tt T replaceGRID
+   flaglt
+  {highVar 0.5 lowVar} classify
+  [flag ]dominant_class
+  /long_name (Type of Variance of Area for Yellow Corn) def
+  startcolormap transparent red red blue blue endcolormap
+}defasvar
+
+/the_geom {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops .A10PNCVP .the_geom
+}defasvar
+
+/label {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops .A10PNCVP .label
+}defasvar
+
+/provname {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops .A10PNCVP .provname
+}defasvar
+
+/regcode {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops .A10PNCVP .regcode
+}defasvar
+
+:dataset
+
+/Yano_IP {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops
+  a: .O80LUAHC .AH_IP
+    T 12 splitstreamgrid
+    dup dup
+      T2 12 shiftGRID
+      replaceNaN
+     exch
+     T2 first VALUE
+     exch appendstream
+    dup T2 2 1.0
+        10 div
+        butt_filter: :butt_filter
+     .butt exch
+     1 index sub
+     exch div
+    [T2]rmsaover
+    grid:
+      /name /Tt def
+      values:
+       0.25 0.3 0.45 0.25 :values
+       :grid
+     0. add
+     /name /RMSt def
+     Tt T replaceGRID
+     flaglt
+    :a: .A10PNCVP .VoP_IP
+     T 12 splitstreamgrid
+     dup dup
+       T2 12 shiftGRID
+       replaceNaN
+      exch
+      T2 first VALUE
+      exch appendstream
+     :a: .O80LUAHC .AH_IP :a
+    T 12 splitstreamgrid
+    dup dup
+      T2 12 shiftGRID
+      replaceNaN
+     exch
+     T2 first VALUE
+     exch appendstream
+    div
+   dup
+    3 -1 roll
+    1 masklt
+    mul
+   T2 2 1.0
+      10 div
+      butt_filter: :butt_filter
+   .butt
+   1 index
+    dup
+     T2 12 shiftGRID
+     exch
+     T2 first VALUE
+     exch appendstream
+    replaceNaN
+   sub
+  T unsplitstreamgrid
+/long_name (Yield Anomalies estimate of Irrigated Palay) def
+  correlationcolorscale
+  DATA AUTO AUTO RANGE
+}defasvar
+
+/Yano_RP {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops
+  a: .O80LUAHC .AH_RP
+    T 12 splitstreamgrid
+    dup dup
+      T2 12 shiftGRID
+      replaceNaN
+     exch
+     T2 first VALUE
+     exch appendstream
+    dup T2 2 1.0
+        10 div
+        butt_filter: :butt_filter
+     .butt exch
+     1 index sub
+     exch div
+    [T2]rmsaover
+    grid:
+      /name /Tt def
+      values:
+       0.05 0.05 0.05 0.45 :values
+       :grid
+     0. add
+     /name /RMSt def
+     Tt T replaceGRID
+     flaglt
+    :a: .A10PNCVP .VoP_RP
+     T 12 splitstreamgrid
+     dup dup
+       T2 12 shiftGRID
+       replaceNaN
+      exch
+      T2 first VALUE
+      exch appendstream
+     :a: .O80LUAHC .AH_RP :a
+    T 12 splitstreamgrid
+    dup dup
+      T2 12 shiftGRID
+      replaceNaN
+     exch
+     T2 first VALUE
+     exch appendstream
+    div
+   dup
+    3 -1 roll
+    1 masklt
+    mul
+   T2 2 1.0
+      10 div
+      butt_filter: :butt_filter
+   .butt
+   1 index
+    dup
+     T2 12 shiftGRID
+     exch
+     T2 first VALUE
+     exch appendstream
+    replaceNaN
+   sub
+  T unsplitstreamgrid
+  /long_name (Yield Anomalies estimate of Rainfed Palay) def
+  correlationcolorscale
+  DATA AUTO AUTO RANGE
+}defasvar
+
+/Yano_P {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops
+  a: .O80LUAHC .AH_P
+    T 12 splitstreamgrid
+    dup dup
+      T2 12 shiftGRID
+      replaceNaN
+     exch
+     T2 first VALUE
+     exch appendstream
+    dup T2 2 1.0
+        10 div
+        butt_filter: :butt_filter
+     .butt exch
+     1 index sub
+     exch div
+    [T2]rmsaover
+    grid:
+      /name /Tt def
+      values:
+       0.25 0.4 0.45 0.2 :values
+       :grid
+     0. add
+     /name /RMSt def
+     Tt T replaceGRID
+     flaglt
+    :a: .A10PNCVP .VoP_P
+     T 12 splitstreamgrid
+     dup dup
+       T2 12 shiftGRID
+       replaceNaN
+      exch
+      T2 first VALUE
+      exch appendstream
+     :a: .O80LUAHC .AH_P :a
+    T 12 splitstreamgrid
+    dup dup
+      T2 12 shiftGRID
+      replaceNaN
+     exch
+     T2 first VALUE
+     exch appendstream
+    div
+   dup
+    3 -1 roll
+    1 masklt
+    mul
+   T2 2 1.0
+      10 div
+      butt_filter: :butt_filter
+   .butt
+   1 index
+    dup
+     T2 12 shiftGRID
+     exch
+     T2 first VALUE
+     exch appendstream
+    replaceNaN
+   sub
+  T unsplitstreamgrid
+  /long_name (Yield Anomalies estimate of Palay) def
+  correlationcolorscale
+  DATA AUTO AUTO RANGE
+}defasvar
+
+/Yano_C {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops
+  a: .O80LUAHC .AH_C
+    T 12 splitstreamgrid
+    dup dup
+      T2 12 shiftGRID
+      replaceNaN
+     exch
+     T2 first VALUE
+     exch appendstream
+    dup T2 2 1.0
+        10 div
+        butt_filter: :butt_filter
+     .butt exch
+     1 index sub
+     exch div
+    [T2]rmsaover
+    grid:
+      /name /Tt def
+      values:
+       0.30 0.45 0.30 0.20 :values
+       :grid
+     0. add
+     /name /RMSt def
+     Tt T replaceGRID
+     flaglt
+    :a: .A10PNCVP .VoP_C
+     T 12 splitstreamgrid
+     dup dup
+       T2 12 shiftGRID
+       replaceNaN
+      exch
+      T2 first VALUE
+      exch appendstream
+     :a: .O80LUAHC .AH_C :a
+    T 12 splitstreamgrid
+    dup dup
+      T2 12 shiftGRID
+      replaceNaN
+     exch
+     T2 first VALUE
+     exch appendstream
+    div
+   dup
+    3 -1 roll
+    1 masklt
+    mul
+   T2 2 1.0
+      10 div
+      butt_filter: :butt_filter
+.butt
+   1 index
+    dup
+     T2 12 shiftGRID
+     exch
+     T2 first VALUE
+     exch appendstream
+    replaceNaN
+   sub
+  T unsplitstreamgrid
+/long_name (Yield Anomalies estimate of Corn) def
+  correlationcolorscale
+  DATA AUTO AUTO RANGE
+}defasvar
+
+/Yano_WC {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops
+  a: .O80LUAHC .AH_WC
+    T 12 splitstreamgrid
+    dup dup
+      T2 12 shiftGRID
+      replaceNaN
+     exch
+     T2 first VALUE
+     exch appendstream
+    dup T2 2 1.0
+        10 div
+        butt_filter: :butt_filter
+     .butt exch
+     1 index sub
+     exch div
+    [T2]rmsaover
+    grid:
+      /name /Tt def
+      values:
+       0.30 0.40 0.35 0.20 :values
+       :grid
+     0. add
+     /name /RMSt def
+     Tt T replaceGRID
+     flaglt
+    :a: .A10PNCVP .VoP_WC
+     T 12 splitstreamgrid
+     dup dup
+       T2 12 shiftGRID
+       replaceNaN
+      exch
+      T2 first VALUE
+      exch appendstream
+     :a: .O80LUAHC .AH_WC :a
+    T 12 splitstreamgrid
+    dup dup
+      T2 12 shiftGRID
+      replaceNaN
+     exch
+     T2 first VALUE
+     exch appendstream
+    div
+   dup
+    3 -1 roll
+    1 masklt
+    mul
+   T2 2 1.0
+      10 div
+      butt_filter: :butt_filter
+.butt
+   1 index
+    dup
+     T2 12 shiftGRID
+     exch
+     T2 first VALUE
+     exch appendstream
+    replaceNaN
+   sub
+  T unsplitstreamgrid
+/long_name (Yield Anomalies estimate of White Corn) def
+  correlationcolorscale
+  DATA AUTO AUTO RANGE
+}defasvar
+
+/Yano_YC {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops
+  a: .O80LUAHC .AH_YC
+    T 12 splitstreamgrid
+    dup dup
+      T2 12 shiftGRID
+      replaceNaN
+     exch
+     T2 first VALUE
+     exch appendstream
+    dup T2 2 1.0
+        10 div
+        butt_filter: :butt_filter
+     .butt exch
+     1 index sub
+     exch div
+    [T2]rmsaover
+    grid:
+      /name /Tt def
+      values:
+       0.05 0.05 0.05 0.05 :values
+       :grid
+     0. add
+     /name /RMSt def
+     Tt T replaceGRID
+     flaglt
+    :a: .A10PNCVP .VoP_YC
+     T 12 splitstreamgrid
+     dup dup
+       T2 12 shiftGRID
+       replaceNaN
+      exch
+      T2 first VALUE
+      exch appendstream
+     :a: .O80LUAHC .AH_YC :a
+    T 12 splitstreamgrid
+    dup dup
+      T2 12 shiftGRID
+      replaceNaN
+     exch
+     T2 first VALUE
+     exch appendstream
+    div
+   dup
+    3 -1 roll
+    1 masklt
+    mul
+   T2 2 1.0
+      10 div
+      butt_filter: :butt_filter
+.butt
+   1 index
+    dup
+     T2 12 shiftGRID
+     exch
+     T2 first VALUE
+     exch appendstream
+    replaceNaN
+   sub
+  T unsplitstreamgrid
+/long_name (Yield Anomalies estimate of Yellow Corn) def
+  correlationcolorscale
+  DATA AUTO AUTO RANGE
+}defasvar
+
+/the_geom {
+ home .remic .CountrySTAT .Philippines .Sub-national .Production .Crops .A10PNCVP .the_geom
+}defasvarsilentnoreuse
+
+/label {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops .A10PNCVP .label
+}defasvar
+
+/provname {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops .A10PNCVP .provname
+}defasvar
+
+/regcode {
+ SOURCES .CountrySTAT .Philippines .Sub-national .Production .Crops .A10PNCVP .regcode
+}defasvar
+
+:dataset
+
+Yano_IP .T name exch def
+Yano_IP .gid name exch def
+
+AH_Cat AH_IP_Cat .T name exch put
+AH_Cat AH_IP_Cat .gid name exch put
+
+\end{ingrid}
+
+
+

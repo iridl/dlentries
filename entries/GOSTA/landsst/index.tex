@@ -1,0 +1,45 @@
+\begin{ingrid}
+continuedataset:
+/references (Jones1994) def
+/description (Blended Land and SST Data) def
+  grid:
+  /name (X) def
+	degE
+  periodic
+  -177.5 5 177.5
+  :grid
+  grid:
+  /name (Y) def
+	degN
+  87.5 5 -87.5
+  :grid
+  grid:
+  /name (T) def
+  /units monthtimename def
+16 Jan 1851 ensotime
+1.
+16 Dec 1995 ensotime
+  :grid
+/temp
+{
+ [X
+    Y |
+    T] (/Data/data6/GOSTA/data/landsst/LSST%Y[T].RAW) [grid:
+        /name /T def
+        /units monthtimename def
+        16
+         Jan 1851 ensotime
+         600. 16
+           Jan 1951 ensotime
+           :grid
+       /pointwidth 0 def
+        ]readdatafile:
+   i*2 
+/units (Celsius_scale) def
+512 set:file_byteoffset
+/scale_factor .01 def
+/missing_value -32768 def
+:readdatafile
+} defasvarsilent
+:dataset
+\end{ingrid}

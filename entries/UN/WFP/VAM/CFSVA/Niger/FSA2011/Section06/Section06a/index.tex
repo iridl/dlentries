@@ -1,0 +1,240 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9354
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 475
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAJanv2011.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/Q34 {
+mytable
+myquestion 
+101 VALUE
+ myquestion removeGRID
+/long_name (Q34 : Depuis les récoltes de l'année passée 2009, aviez-vous) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q35A1A {
+mytable
+myquestion 
+102 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Mil , quantité en UML) def 
+}defasvarsilent
+
+/Q35A1B {
+mytable
+myquestion 
+103 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Mil , Code UML) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q35A1C {
+mytable
+myquestion 
+104 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Mil , Nombre d'UML pour un sac) def 
+}defasvarsilent
+
+/Q35A2A {
+mytable
+myquestion 
+105 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Sorgho , quantité en UML) def 
+}defasvarsilent
+
+/Q35A2B {
+mytable
+myquestion 
+106 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Sorgho , Code UML) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q35A2C {
+mytable
+myquestion 
+107 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Sorgho , Nombre d'UML pour un) def 
+}defasvarsilent
+
+/Q35A3A {
+mytable
+myquestion 
+108 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Maïs , quantité en UML) def 
+}defasvarsilent
+
+/Q35A3B {
+mytable
+myquestion 
+109 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Maïs , Code UML) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q35A3C {
+mytable
+myquestion 
+110 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Maïs , Nombre d'UML pour un sa) def 
+}defasvarsilent
+
+/Q35A4A {
+mytable
+myquestion 
+111 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Riz paddy , quantité en UML) def 
+}defasvarsilent
+
+/Q35A4B {
+mytable
+myquestion 
+112 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Riz paddy , Code UML) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q35A4C {
+mytable
+myquestion 
+113 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Riz , Nombre d'UML pour un sac) def 
+}defasvarsilent
+
+/Q35A5A {
+mytable
+myquestion 
+114 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Riz décortiqué, quantité en UM) def 
+}defasvarsilent
+
+/Q35A5B {
+mytable
+myquestion 
+115 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Riz décortiqué, Code UML) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q35A5C {
+mytable
+myquestion 
+116 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Riz décortiqué , Nombre d'UML) def 
+}defasvarsilent
+
+/Q35A6A {
+mytable
+myquestion 
+117 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Blé , quantité en UML) def 
+}defasvarsilent
+
+/Q35A6B {
+mytable
+myquestion 
+118 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Blé , Code UML) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q35A6C {
+mytable
+myquestion 
+119 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Blé, Nombre d'UML pour un sac) def 
+}defasvarsilent
+
+/Q35A7A {
+mytable
+myquestion 
+120 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Fonio , quantité en UML) def 
+}defasvarsilent
+
+/Q35A7B {
+mytable
+myquestion 
+121 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Fonio , Code UML) def 
+/units /ids def
+/CLIST [(Botte)(Tia)(Panier)(Sac de 100 kg)(Sac de 50 kg)(Kg)(Tongolo)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q35A7C {
+mytable
+myquestion 
+122 VALUE
+ myquestion removeGRID
+/long_name (Q35.a En vivres (en nature) : Fonio , Nombre d'UML pour un s) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

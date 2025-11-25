@@ -1,0 +1,106 @@
+\begin{ingrid}
+continuedataset:
+/description (TRMM Version 7 Daily Precipitation Estimates) def
+%datasetdefs:
+%grid: 
+%/name /T def
+%/units (days since 1998-01-01 00:00:00) def
+%values:
+%0
+%2007 5 1 ymd2rjt
+%1998 1 1 ymd2rjt sub
+%:values
+%/defaultvalue {last} def
+%:grid
+%variable:
+%/name /satsub def
+%grids: T :grids
+%values: /6 /6A :values
+%:variable
+%:datasetdefs
+link:
+/name (source) def
+/description (original OpenDAP Server) def
+/href (http://disc2.nascom.nasa.gov/opendap/TRMM_3B42/TRMM_3B42_daily/) def
+:link
+link:
+/name (readme) def
+/description (Readme for TRMM Product 3B42 (V7)) def
+/href (http://disc.sci.gsfc.nasa.gov/precipitation/documentation/TRMM_README/TRMM_3B42_readme.shtml) def
+:link
+link:
+/name (dataset_documentation) def
+/description (TRMM and Other Data Precipitation Data Set Documentation) def
+/href (ftp://precip.gsfc.nasa.gov/pub/trmmdocs/3B42_3B43_doc.pdf) def
+:link
+%link:
+%/name (suspended) def
+%/description (TRMM 3B42 suspended 2011-06) def
+%/href (http://disc.sci.gsfc.nasa.gov/mirador-news-items/status-of-trmm-3b42-3b43) def
+%:link
+grid: 
+/name /Y def
+/long_name (Latitude) def
+/standard_name (latitude) def
+/units /degree_north def
+-50.
+100. 
+ 400 div
+50.
+:grid
+Y partialgrid
+name exch def
+grid: 
+/name /X def
+/long_name (Longitude) def
+/standard_name (longitude) def
+/units /degree_east def
+periodic
+0
+360. 
+1440 div
+360.
+1 index sub
+:grid
+X partialgrid
+name exch def
+grid: 
+/name /T def
+/standard_name (time) def
+/units (days since 1998-01-01 00:00:00) def
+/pointwidth 1. def
+.5
+1.
+%systemtime systemtime2ymd ymd2rjt 20 sub
+2015 06 01 ymd2rjt
+1998 1 1 ymd2rjt sub
+.5 sub
+:grid
+%T
+%   { (http://disc2.nascom.nasa.gov/opendap/TRMM_3B42/TRMM_3B42_daily/%Y/%j[Tle]/3B42_daily.%Y.%m.%d[T].7.bin) [T dup 1 sub /name /Tle def]}remoteremoveextrausing
+%/expires last 1998
+%     1 1 ymd2rjt
+%     add
+%    rjt2ymd ymd:nextmonth ymd:nextmonth ymd:nextmonth ymd:nextmonth
+%      -3 add
+%      ymd2systemtime def
+%name exch def
+ /precipitation{
+[ X Y | T ]
+(http://disc2.nascom.nasa.gov/opendap/TRMM_3B42/TRMM_3B42_daily/%Y/%j[Tle]/3B42_daily.%Y.%m.%d[T].7.bin) [T dup
+        1 sub
+        /name /Tle def
+        ]
+readdatafile:
+/name (data) def
+/long_name (Surface Rain from all Satellite and Surface) def
+/standard_name (lwe_precipitation_rate) def
+ /missing_value -9999.9 def
+ /units (mm/day) def
+/note (data has been shift 1.5 hours to line up with days) def
+ /iridl:hasSemantics (iridl:precipitation) def
+ /realarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+/references (Huffman_etal2007 Huffman_etal2010) def
+:dataset
+\end{ingrid}

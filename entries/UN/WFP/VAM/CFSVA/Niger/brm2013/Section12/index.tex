@@ -1,0 +1,617 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 5648
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 507
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Baseruralmenagenov2013.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Calculs) def
+/RCSI_OLD {
+mytable
+myquestion 
+436 VALUE
+ myquestion removeGRID
+/long_name (Reduced Coping Strategy Index) def 
+}defasvarsilent
+
+/NRCSI_OLD {
+mytable
+myquestion 
+437 VALUE
+ myquestion removeGRID
+/long_name (Percentile Group of RCSI) def 
+}defasvarsilent
+
+/CSI_OLD {
+mytable
+myquestion 
+438 VALUE
+ myquestion removeGRID
+/long_name (Coping Strategy Index) def 
+}defasvarsilent
+
+/NCSI_OLD {
+mytable
+myquestion 
+439 VALUE
+ myquestion removeGRID
+/long_name (Percentile Group of CSI) def 
+}defasvarsilent
+
+/DurSto {
+mytable
+myquestion 
+440 VALUE
+ myquestion removeGRID
+/long_name (Durée des stocks) def 
+}defasvarsilent
+
+/NDurSto {
+mytable
+myquestion 
+441 VALUE
+ myquestion removeGRID
+/long_name (Percentile Group of DurSto) def 
+}defasvarsilent
+
+/UBT {
+mytable
+myquestion 
+442 VALUE
+ myquestion removeGRID
+/long_name (UBT) def 
+}defasvarsilent
+
+/NUBT {
+mytable
+myquestion 
+443 VALUE
+ myquestion removeGRID
+/long_name (Percentile Group of UBT) def 
+}defasvarsilent
+
+/DEPAL {
+mytable
+myquestion 
+444 VALUE
+ myquestion removeGRID
+/long_name (DEPENSES ALIMENTAIRES MENSUELLES) def 
+}defasvarsilent
+
+/DEPNAL {
+mytable
+myquestion 
+445 VALUE
+ myquestion removeGRID
+/long_name (DEPENSES NON ALIMENTAIRES MENSUELLES) def 
+}defasvarsilent
+
+/DEPTOTM {
+mytable
+myquestion 
+446 VALUE
+ myquestion removeGRID
+/long_name (DEPENSES TOTALES MENSUELLES) def 
+}defasvarsilent
+
+/PDEPAL {
+mytable
+myquestion 
+447 VALUE
+ myquestion removeGRID
+/long_name (PART DES DEPENSES ALIMENTAIRES DANS LES DEPENSES TOTALES Y COMPRIS AUTOCONSOMMATION) def 
+}defasvarsilent
+
+/DEPALC {
+mytable
+myquestion 
+448 VALUE
+ myquestion removeGRID
+/long_name (DEPENSES ALIMENTAIRES MENSUELLES EN CASH) def 
+}defasvarsilent
+
+/DEPTOTMC {
+mytable
+myquestion 
+449 VALUE
+ myquestion removeGRID
+/long_name (DEPENSES TOTALES MENSUELLES EN CASH) def 
+}defasvarsilent
+
+/PDEPALC {
+mytable
+myquestion 
+450 VALUE
+ myquestion removeGRID
+/long_name (PART DES DEPENSES ALIMENTAIRES DANS LES DEPENSES TOTALES EN CASH) def 
+}defasvarsilent
+
+/DEPTET {
+mytable
+myquestion 
+451 VALUE
+ myquestion removeGRID
+/long_name (Depenses totales par tete par mois) def 
+}defasvarsilent
+
+/NDEPTET {
+mytable
+myquestion 
+452 VALUE
+ myquestion removeGRID
+/long_name (Percentile Group of DEPTET) def 
+}defasvarsilent
+
+/Revenu {
+mytable
+myquestion 
+453 VALUE
+ myquestion removeGRID
+/long_name (Revenu moyen mensuel du menage) def 
+}defasvarsilent
+
+/Revenutet {
+mytable
+myquestion 
+454 VALUE
+ myquestion removeGRID
+/long_name (Revenu mensuel moyen par tete) def 
+}defasvarsilent
+
+/CEREALES {
+mytable
+myquestion 
+455 VALUE
+ myquestion removeGRID
+/long_name (CEREALES) def 
+}defasvarsilent
+
+/TUBER {
+mytable
+myquestion 
+456 VALUE
+ myquestion removeGRID
+/long_name (TUBERCULES) def 
+}defasvarsilent
+
+/CERTUBER {
+mytable
+myquestion 
+457 VALUE
+ myquestion removeGRID
+/long_name (CEREALES ET TUBERCULE) def 
+}defasvarsilent
+
+/LEGMSES {
+mytable
+myquestion 
+458 VALUE
+ myquestion removeGRID
+/long_name (LEGUMINEUSES) def 
+}defasvarsilent
+
+/FEUILEG {
+mytable
+myquestion 
+459 VALUE
+ myquestion removeGRID
+/long_name (FEUILLES ET LEGUMES) def 
+}defasvarsilent
+
+/FRUIT {
+mytable
+myquestion 
+460 VALUE
+ myquestion removeGRID
+/long_name (FRUITS) def 
+}defasvarsilent
+
+/PROTANI {
+mytable
+myquestion 
+461 VALUE
+ myquestion removeGRID
+/long_name (PROTEINE ANIMALE) def 
+}defasvarsilent
+
+/LAITPDLAIT {
+mytable
+myquestion 
+462 VALUE
+ myquestion removeGRID
+/long_name (LAIT ET PRODUITS LAITIERS) def 
+}defasvarsilent
+
+/SUCRE {
+mytable
+myquestion 
+463 VALUE
+ myquestion removeGRID
+/long_name (SUCRE) def 
+}defasvarsilent
+
+/HUILE {
+mytable
+myquestion 
+464 VALUE
+ myquestion removeGRID
+/long_name (HUILE) def 
+}defasvarsilent
+
+/FCS_OLD {
+mytable
+myquestion 
+465 VALUE
+ myquestion removeGRID
+/long_name (Food consumption score) def 
+}defasvarsilent
+
+/CFCS_OLD {
+mytable
+myquestion 
+466 VALUE
+ myquestion removeGRID
+/long_name (Classes food consumption score) def 
+/units /ids def
+/CLIST [(Consommation alimentaire pauvre)(Consommation alimentaire intermédiaire)(Consommation alimentaire acceptable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Nalpprod {
+mytable
+myquestion 
+467 VALUE
+ myquestion removeGRID
+/long_name (Nombre aliments consommes provenant de la propre production) def 
+}defasvarsilent
+
+/nbalcs {
+mytable
+myquestion 
+468 VALUE
+ myquestion removeGRID
+/long_name (Nombre aliments consommes provenant de la contre saison) def 
+}defasvarsilent
+
+/Nalppan {
+mytable
+myquestion 
+469 VALUE
+ myquestion removeGRID
+/long_name (Nombre aliments consommes provenant de la propre production animale) def 
+}defasvarsilent
+
+/Nalach7 {
+mytable
+myquestion 
+470 VALUE
+ myquestion removeGRID
+/long_name (Nombre aliments consommes provenant des achats au cours des 7 derniers jours) def 
+}defasvarsilent
+
+/Nalassist {
+mytable
+myquestion 
+471 VALUE
+ myquestion removeGRID
+/long_name (Nombre aliments consommes provenant des assistances alimentaires) def 
+}defasvarsilent
+
+/Naltrav {
+mytable
+myquestion 
+472 VALUE
+ myquestion removeGRID
+/long_name (Nombre aliments consommes provenant de nourriture contre travail) def 
+}defasvarsilent
+
+/Naldons {
+mytable
+myquestion 
+473 VALUE
+ myquestion removeGRID
+/long_name (Nombre aliments consommes provenant des dons/zakat) def 
+}defasvarsilent
+
+/Nalemp {
+mytable
+myquestion 
+474 VALUE
+ myquestion removeGRID
+/long_name (Nombre aliments consommes provenant des emprunts) def 
+}defasvarsilent
+
+/Nalchass {
+mytable
+myquestion 
+475 VALUE
+ myquestion removeGRID
+/long_name (Nombre aliments consommes de chasse/cueillette/peche) def 
+}defasvarsilent
+
+/Naltravn {
+mytable
+myquestion 
+476 VALUE
+ myquestion removeGRID
+/long_name (Nombre aliments consommes provenant de travail contre nourriture10) def 
+}defasvarsilent
+
+/Nalaut {
+mytable
+myquestion 
+477 VALUE
+ myquestion removeGRID
+/long_name (Nombre aliments consommes provenant de autre) def 
+}defasvarsilent
+
+/Naltot {
+mytable
+myquestion 
+478 VALUE
+ myquestion removeGRID
+/long_name (Nombre total d'aliments consomes) def 
+}defasvarsilent
+
+/Pcppp {
+mytable
+myquestion 
+479 VALUE
+ myquestion removeGRID
+/long_name (pourcent propre production pluviale) def 
+}defasvarsilent
+
+/Pcppcs {
+mytable
+myquestion 
+480 VALUE
+ myquestion removeGRID
+/long_name (pourcent propre production contre saison) def 
+}defasvarsilent
+
+/Pcppa {
+mytable
+myquestion 
+481 VALUE
+ myquestion removeGRID
+/long_name (pourcent propre production animale) def 
+}defasvarsilent
+
+/Pcacha7 {
+mytable
+myquestion 
+482 VALUE
+ myquestion removeGRID
+/long_name (pourcent achat effectue au cours des 7 derniers jours) def 
+}defasvarsilent
+
+/Pcdons {
+mytable
+myquestion 
+483 VALUE
+ myquestion removeGRID
+/long_name (pourcent Dons/Zakat) def 
+}defasvarsilent
+
+/Pcemp {
+mytable
+myquestion 
+484 VALUE
+ myquestion removeGRID
+/long_name (pourcent emprunt) def 
+}defasvarsilent
+
+/FCS8_G11 {
+mytable
+myquestion 
+485 VALUE
+ myquestion removeGRID
+/long_name (Céréales) def 
+}defasvarsilent
+
+/FCS8_G12 {
+mytable
+myquestion 
+486 VALUE
+ myquestion removeGRID
+/long_name (Racines et tubercules) def 
+}defasvarsilent
+
+/FCS8_G1 {
+mytable
+myquestion 
+487 VALUE
+ myquestion removeGRID
+/long_name (Cereales et tubercules) def 
+}defasvarsilent
+
+/FCS8_G2 {
+mytable
+myquestion 
+488 VALUE
+ myquestion removeGRID
+/long_name (Légumineuse) def 
+}defasvarsilent
+
+/FCS8_G31 {
+mytable
+myquestion 
+489 VALUE
+ myquestion removeGRID
+/long_name (Légumes riches en vitamine A) def 
+}defasvarsilent
+
+/FCS8_G32 {
+mytable
+myquestion 
+490 VALUE
+ myquestion removeGRID
+/long_name (Légumes à feuilles vertes) def 
+}defasvarsilent
+
+/FCS8_G33 {
+mytable
+myquestion 
+491 VALUE
+ myquestion removeGRID
+/long_name (Autres légumes) def 
+}defasvarsilent
+
+/FCS8_G3 {
+mytable
+myquestion 
+492 VALUE
+ myquestion removeGRID
+/long_name (Feuilles et legumes) def 
+}defasvarsilent
+
+/FCS8_G41 {
+mytable
+myquestion 
+493 VALUE
+ myquestion removeGRID
+/long_name (Fruit riches en vitamine A) def 
+}defasvarsilent
+
+/FCS8_G42 {
+mytable
+myquestion 
+494 VALUE
+ myquestion removeGRID
+/long_name (Autres fruits) def 
+}defasvarsilent
+
+/FCS8_G4 {
+mytable
+myquestion 
+495 VALUE
+ myquestion removeGRID
+/long_name (Fruits) def 
+}defasvarsilent
+
+/FCS8_G51 {
+mytable
+myquestion 
+496 VALUE
+ myquestion removeGRID
+/long_name (Viande) def 
+}defasvarsilent
+
+/FCS8_G52 {
+mytable
+myquestion 
+497 VALUE
+ myquestion removeGRID
+/long_name (Abats) def 
+}defasvarsilent
+
+/FCS8_G53 {
+mytable
+myquestion 
+498 VALUE
+ myquestion removeGRID
+/long_name (Poisson) def 
+}defasvarsilent
+
+/FCS8_G54 {
+mytable
+myquestion 
+499 VALUE
+ myquestion removeGRID
+/long_name (Oeufs) def 
+}defasvarsilent
+
+/FCS8_G5 {
+mytable
+myquestion 
+500 VALUE
+ myquestion removeGRID
+/long_name (Protéïne d'orgine animale) def 
+}defasvarsilent
+
+/FCS8_G6 {
+mytable
+myquestion 
+501 VALUE
+ myquestion removeGRID
+/long_name (Lait) def 
+}defasvarsilent
+
+/FCS8_G7 {
+mytable
+myquestion 
+502 VALUE
+ myquestion removeGRID
+/long_name (Sucre) def 
+}defasvarsilent
+
+/FCS8_G8 {
+mytable
+myquestion 
+503 VALUE
+ myquestion removeGRID
+/long_name (Huile) def 
+}defasvarsilent
+
+/FCS {
+mytable
+myquestion 
+504 VALUE
+ myquestion removeGRID
+/long_name (Score de consommation alimentaire) def 
+}defasvarsilent
+
+/FCSG {
+mytable
+myquestion 
+505 VALUE
+ myquestion removeGRID
+/long_name (Classes du score de consommation alimentaire) def 
+/units /ids def
+/CLIST [(Pauvre)(Limite)(Acceptable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/CSI {
+mytable
+myquestion 
+506 VALUE
+ myquestion removeGRID
+/long_name (Indice des stratégies d'adaptation) def 
+}defasvarsilent
+
+/RCSI {
+mytable
+myquestion 
+507 VALUE
+ myquestion removeGRID
+/long_name (Indice reduit des stratégies d'adaptation) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

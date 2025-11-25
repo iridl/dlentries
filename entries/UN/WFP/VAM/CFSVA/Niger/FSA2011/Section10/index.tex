@@ -1,0 +1,329 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9354
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 475
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAJanv2011.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Stratégies) def
+/Q91A {
+mytable
+myquestion 
+366 VALUE
+ myquestion removeGRID
+/long_name (Q91. : Combien de repas collectifs sont pris par jour dans l) def 
+}defasvarsilent
+
+/Q91B {
+mytable
+myquestion 
+367 VALUE
+ myquestion removeGRID
+/long_name (Q91. : Combien de repas collectifs sont pris par jour dans l) def 
+}defasvarsilent
+
+/Q92A {
+mytable
+myquestion 
+368 VALUE
+ myquestion removeGRID
+/long_name (Q92. : Combien de repas sont pris dans le ménage par les enf) def 
+}defasvarsilent
+
+/Q92B {
+mytable
+myquestion 
+369 VALUE
+ myquestion removeGRID
+/long_name (Q92. : Combien de repas sont pris dans le ménage par les enf) def 
+}defasvarsilent
+
+/Q931 {
+mytable
+myquestion 
+370 VALUE
+ myquestion removeGRID
+/long_name (Q93.1 : Y a-t-il eu des moments où vous n'avez pas assez de) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q932 {
+mytable
+myquestion 
+371 VALUE
+ myquestion removeGRID
+/long_name (Q93.2 : Est-ce que votre ménage a consommé des aliments moin) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q933 {
+mytable
+myquestion 
+372 VALUE
+ myquestion removeGRID
+/long_name (Q93.3 : Est-ce que votre ménage a emprunté des vivres chez d) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q934 {
+mytable
+myquestion 
+373 VALUE
+ myquestion removeGRID
+/long_name (Q93.4 : Est-ce que votre ménage a acheté des vivres à crédit) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q935 {
+mytable
+myquestion 
+374 VALUE
+ myquestion removeGRID
+/long_name (Q93.5 : Est-ce que votre ménage a dû dépendre de l'aide alim) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q936 {
+mytable
+myquestion 
+375 VALUE
+ myquestion removeGRID
+/long_name (Q93.6 : Est-ce que votre ménage a du renoncer au paiement de) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q937 {
+mytable
+myquestion 
+376 VALUE
+ myquestion removeGRID
+/long_name (Q93.7 : Est-ce que votre ménage a eu recours inhabituel à la) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q938 {
+mytable
+myquestion 
+377 VALUE
+ myquestion removeGRID
+/long_name (Q93.8 : Est-ce que votre ménage a consommé des semences pour) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q939 {
+mytable
+myquestion 
+378 VALUE
+ myquestion removeGRID
+/long_name (Q93.9 : Est-ce que votre ménage a dû demander à d'autres mén) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q9310 {
+mytable
+myquestion 
+379 VALUE
+ myquestion removeGRID
+/long_name (Q93.10 : Est-ce que au moins un membre de votre ménage a eu) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q9311 {
+mytable
+myquestion 
+380 VALUE
+ myquestion removeGRID
+/long_name (Q93.11 : Est-ce que votre ménage a diminué la ration journal) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q9312 {
+mytable
+myquestion 
+381 VALUE
+ myquestion removeGRID
+/long_name (Q93.12 : Est-ce que votre ménage a dû diminuer la ration jou) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q9313 {
+mytable
+myquestion 
+382 VALUE
+ myquestion removeGRID
+/long_name (Q93.13 : Est-ce que votre ménage a dû acheter des repas pour) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q9314 {
+mytable
+myquestion 
+383 VALUE
+ myquestion removeGRID
+/long_name (Q93.14 : Est-ce que votre ménage a diminué le nombre de repa) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q9315 {
+mytable
+myquestion 
+384 VALUE
+ myquestion removeGRID
+/long_name (Q93.15 : Est-ce que votre ménage a dû passer toute une journ) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q9316 {
+mytable
+myquestion 
+385 VALUE
+ myquestion removeGRID
+/long_name (Q93.16 : Est-ce que vous-même ou un membre de votre ménage e) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q941 {
+mytable
+myquestion 
+386 VALUE
+ myquestion removeGRID
+/long_name (Q94.1 : Est-ce que votre ménage a enregistré des départs d'a) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q942 {
+mytable
+myquestion 
+387 VALUE
+ myquestion removeGRID
+/long_name (Q94.2 : Est-ce que votre ménage a vendu des animaux reproduc) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q943 {
+mytable
+myquestion 
+388 VALUE
+ myquestion removeGRID
+/long_name (Q94.3 : Est-ce que votre ménage a vendu des biens non produc) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q944 {
+mytable
+myquestion 
+389 VALUE
+ myquestion removeGRID
+/long_name (Q94.4 : Est-ce que votre ménage a vendu des biens productifs) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q945 {
+mytable
+myquestion 
+390 VALUE
+ myquestion removeGRID
+/long_name (Q94.5 : Est-ce que votre ménage a vendu des terres pour des) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q946 {
+mytable
+myquestion 
+391 VALUE
+ myquestion removeGRID
+/long_name (Q94.6 : Est-ce que votre ménage a retiré les enfants de l'éc) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

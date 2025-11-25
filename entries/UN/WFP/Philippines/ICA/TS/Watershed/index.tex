@@ -1,0 +1,85 @@
+\begin{ingrid}
+
+/description (Tropical Storms, 20km buffers, wind speed >= 63) def
+
+continuedataset:
+
+/ave_treeco {
+IRIDB (phlts200212wind63_watershed_buf51020thr3463output_20140205) (ave_treeco) [(gid)] open_column_by
+/long_name (average tree cover) def
+}defasvarsilentnoreuse
+
+/count {
+IRIDB (phlts200212wind63_watershed_buf51020thr3463output_20140205) (count_wfp_) [(gid)] open_column_by
+/long_name (Number of Tropical Storms) def
+startcolormap
+DATA 0 10 RANGE
+transparent grey grey 0 VALUE
+LightYellow 1 VALUE
+yellow 2 VALUE
+gold 3 VALUE
+orange 4 VALUE
+DarkOrange 5 VALUE
+red 6 VALUE
+firebrick 7 VALUE
+brown 8 VALUE
+DarkRed 9 VALUE
+DarkFirebrick 10 VALUE
+DarkFirebrick endcolormap
+}defasvarsilentnoreuse
+
+/first_leve {
+IRIDB (phlts200212wind63_watershed_buf51020thr3463output_20140205) (first_leve) [(gid)] open_column_by
+/long_name (First Level) def
+}defasvarsilentnoreuse
+
+/frequency {
+IRIDB (phlts200212wind63_watershed_buf51020thr3463output_20140205) (frequency) [(gid)] open_column_by
+/long_name (Frequency of Tropical Storms) def
+}defasvarsilentnoreuse
+
+/objectid {
+IRIDB (phlts200212wind63_watershed_buf51020thr3463output_20140205) (objectid) [(gid)] open_column_by
+/long_name (Object ID) def
+}defasvarsilentnoreuse
+
+/objectid_1 {
+IRIDB (phlts200212wind63_watershed_buf51020thr3463output_20140205) (objectid_1) [(gid)] open_column_by
+/long_name (Object ID) def
+}defasvarsilentnoreuse
+
+/shap_area {
+IRIDB (phlts200212wind63_watershed_buf51020thr3463output_20140205) (shape_area) [(gid)] open_column_by
+/long_name (Area) def
+}defasvarsilentnoreuse
+
+/shape_leng {
+IRIDB (phlts200212wind63_watershed_buf51020thr3463output_20140205) (shape_leng) [(gid)] open_column_by
+/long_name (Length) def
+}defasvarsilentnoreuse
+
+/wfp_wate_1 {
+IRIDB (phlts200212wind63_watershed_buf51020thr3463output_20140205) (wfp_wate_1) [(gid)] open_column_by
+/long_name (WFP Waters) def
+}defasvarsilentnoreuse
+
+/wfp_waters {
+IRIDB (phlts200212wind63_watershed_buf51020thr3463output_20140205) (wfp_waters) [(gid)] open_column_by
+/long_name (WFP Waters) def
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (phlts200212wind63_watershed_buf51020thr3463output_20140205) (geom) [(gid)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (phlts200212wind63_watershed_buf51020thr3463output_20140205) (('WFP waters ' || wfp_waters) as label) [(gid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+shape_leng .gid name exch def
+
+\end{ingrid}

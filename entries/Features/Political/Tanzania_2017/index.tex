@@ -1,0 +1,43 @@
+\begin{ingrid}
+continuedataset:
+/description (Tanzania 1st and 2nd Order Administrative Boundaries updated in 2017) def
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Regions def
+/region_cod
+{ IRIDB (tz_regions) (region_cod) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/region_nam
+{ IRIDB (tz_regions) (region_nam) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/label
+{ IRIDB (tz_regions) ((region_nam) as label) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (tz_regions) (the_geom) [(gid)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+dataset:
+/name /Districts def
+/district_c
+{ IRIDB (tz_districts_modified) (district_c) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/district_n
+{ IRIDB (tz_districts_modified) (district_n) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/label
+{ IRIDB (tz_districts_modified) ((district_n) as label) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/the_geom
+{ IRIDB (tz_districts_modified) (the_geom) [(gid)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+Districts district_n .gid name exch put
+Regions region_nam .gid name exch put
+\end{ingrid}
+
+

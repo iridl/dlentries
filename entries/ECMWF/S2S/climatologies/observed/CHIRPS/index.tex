@@ -1,0 +1,105 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+
+/prcp_dailyrate_max100_smooth {
+  startcolormap
+    0.0 100.0 RANGE
+    LightGrey white white
+       0.0 VALUE
+       LightCyan
+        2.0 VALUE
+        SkyBlue
+         4.0 VALUE
+         DodgerBlue
+          9.0 VALUE
+          MediumBlue
+           16.0 VALUE
+           DarkSeaGreen
+            25.0 VALUE
+            MediumSeaGreen
+             33.0 VALUE
+             LightSeaGreen
+              50.0 VALUE
+              khaki
+               67.0 VALUE
+               SandyBrown
+                83.0 VALUE
+                firebrick 100.0 VALUE
+                firebrick endcolormap
+} defcolorscale
+
+:datasetdefs
+
+link:
+/name (original_dataset) def
+/description (Full CHIRPS Version 2.0, 0.05 deg. lat/lon daily precipitation entry in the IRI Data Library used to produce the daily climatology) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.UCSB/.CHIRPS/.v2p0/.daily-improved/.global/.0p05/) def
+:link
+
+        grid:
+         /name (X)def
+         /long_name (longitude) def
+         /units (degree_east)def
+	 -179.975 0.050 179.975
+        :grid
+
+        grid:
+         /name (Y)def
+	 /long_name (latitude) def
+         /units (degree_north)def
+	 49.975 0.050 -49.975
+        :grid
+
+
+	grid:
+	 /name /T def
+	/netcdfgrid true def
+	 /long_name (Day-of-Year) def
+	/units (days since 1960-01-01) def
+	/long_name (forecast start time) def
+	/standard_name (forecast_reference_time) def
+	01 Jan 2000 julian_day 01 Jan 1960 julian_day sub
+	1.0
+	31 Dec 2000 julian_day 01 Jan 1960 julian_day sub
+	/pointwidth 0. def
+	:grid
+
+
+%Precipitation 
+
+        /prcpClim{
+                [ X Y | T ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Observed/CHIRPS/1992-01-01.2019-12-31.day_clim_prcp.nc)
+%               (/data/xchourio/data/S2SDB/clim/CHIRPS/1992-01-01.2019-12-31.day_clim_prcp.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+		/units (mm/day) def
+                /long_name (Precipitation - climatology ) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+		prcp_dailyrate_max100_smooth
+        }defasvarsilent
+
+        /prcpSmooth{
+                [ X Y | T ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Observed/CHIRPS/CHIRPS-smooth_%b[T]-%d[T]-2000.nc) [T]
+%               (/data/xchourio/data/S2SDB/clim/CHIRPS/CHIRPS-smooth_%b[T]-%d[T]-2000.nc) [T]
+		%(/data/xchourio/data/S2SDB/clim/CHIRPS/CHIRPS-smooth_Mar-01-2000.nc)
+                readdatafile:
+                /name (prcpsmooth) def
+                /units (mm/day) def
+                /long_name (Precipitation - triangular smoothing climatology ) def
+                /missing_value NaN def
+		 /doublearraytype netcdfrecords :readdatafile
+		prcp_dailyrate_max100_smooth
+        }defasvarsilent
+
+
+
+
+:dataset
+
+\end{ingrid}

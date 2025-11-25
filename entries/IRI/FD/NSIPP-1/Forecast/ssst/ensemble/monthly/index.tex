@@ -1,0 +1,80 @@
+Dataset no longer updates  2012-08
+\begin{ingrid}
+continuedataset:
+%(gsfc/ssst) IRIforecastdir deflastmod
+grid: /name /Y def degN -89 2 89 :grid
+grid: /name /X def degE periodic -180 2.5 177.5 :grid
+grid:
+/name /M def
+/long_name (member) def
+/units (ids) def
+1 1 12
+:grid
+grid:
+/name /L def
+/standard_name (forecast_period) def
+/units (months) def
+0.5 1 6.5
+:grid
+grid:
+/name /S def
+monthtime
+/long_name (Forecast Started) def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+1 Jun 2004 ensotime
+1.
+1 
+Jul 2012 % IRImaxstarttime interp
+ensotime
+:grid
+grid:
+/name /P def
+/units (mb) def
+values: 500 :values
+:grid
+setrunoffset
+S 
+(260) (gsfc/ssst) IRIlastforecastfilenameREU
+removeextrausing
+%IRIforecastexpires
+name exch def
+/last_modified S .last_modified def
+%/expires S .expires def
+/T { L S add [L S] REORDER /long_name (Forecast Time) def
+ /standard_name (time) def
+/pointwidth 1 def } defasvar
+/t2m { (167) (gsfc/ssst) IRIforecastfilenameCS readdatafile:
+r*4asascii :readdatafile
+/long_name (Temperature at 2m)def
+/units (Kelvin_scale) preferredunitname def
+/missing_value -999000. def
+/last_modified 3 index .last_modified def
+} defasvarcachesilent
+/prcp { (260) (gsfc/ssst) IRIforecastfilenameCS readdatafile:
+r*4asascii :readdatafile
+/long_name (precipitation rate) def
+/units (mm/day) preferredunitname def
+/last_modified 3 index .last_modified def
+} defasvarcachesilent
+/slp { (slp) (gsfc/ssst) IRIforecastfilenameCS readdatafile:
+r*4asascii :readdatafile
+/long_name (sea level pressure) def
+/last_modified 3 index .last_modified def
+/missing_value -999. def
+} defasvarcachesilent
+/zg { (156) (gsfc/ssst) IRIforecastfilenameCS_P readdatafile:
+r*4asascii :readdatafile
+/long_name (geopotential height) def
+/units (m) preferredunitname def
+/last_modified 3 index .last_modified def
+/missing_value -102.095 def
+} defasvarcachesilent
+
+:dataset
+\end{ingrid}
+
+
+
+
+

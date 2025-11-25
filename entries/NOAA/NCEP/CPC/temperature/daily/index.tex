@@ -1,0 +1,80 @@
+\begin{ingrid}
+continuedataset:
+
+link:
+/name (Data Source) def
+/href (ftp://ftp.cpc.ncep.noaa.gov/precip/PEOPLE/wd52ws/global_temp/) def
+:link
+
+link:
+/name (Documentation) def
+/description (CPC Global Daily Temperature) def
+/href (https://www.esrl.noaa.gov/psd/data/gridded/data.cpc.globaltemp.html) def
+:link
+
+grid:
+/name /X def
+periodic
+/units (degree_east) def
+0.25 0.5 359.75
+:grid
+
+grid:
+/name /Y def
+/units (degree_north) def
+-89.75 0.5 89.75
+:grid
+
+grid:
+/name /T def
+/standard_name (time) def
+/units (julian_day) def
+/pointwidth 1 def
+/defaultvalue { last } def
+01 Jan 1979 julian_day 
+1.0
+%31 Dec 2017 julian_day 01 Jan 1960 julian_day sub 0.5 add
+systemtime (%d %b %Y) 12 strftime interp julian_day 1 sub
+:grid
+
+T { (/Data/data21/noaa/ncep/cpc/global/daily/CPC_GLOBAL_T_V0.x_0.5deg.lnx.%Y[T]) [ T ]} removeextrausing
+name exch def
+
+ [ X Y | /NVZ 4 NewIntegerGRID T ] (/Data/data21/noaa/ncep/cpc/global/daily/CPC_GLOBAL_T_V0.x_0.5deg.lnx.%Y[T]) [T yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+decdirect
+/missing_value -999.0 def
+:readdatafile
+
+definevariables:
+0 Zvariable:
+/name /tmax def
+/long_name (Daily Maximum Temperature) def
+/standard_name (air_temperature) def
+%/scale_factor 0.1 def
+/units (Celsius_scale) def
+:Zvariable
+0 Zvariable:
+/name /nmax def
+/long_name (Number of Reports for Maximum Temperature) def
+/units (count) def
+:Zvariable
+0 Zvariable:
+/name /tmin def
+/long_name (Daily Minimum Temperature) def
+/standard_name (air_temperature) def
+%/scale_factor 0.1 def
+/units (Celsius_scale) def
+:Zvariable
+0 Zvariable:
+/name /nmin def
+/long_name (Number of Reports for Minimum Temperature) def
+/units (count) def
+:Zvariable
+:definevariables
+
+
+%/iridl:hasSemantics (gcmdi:RAIN_GAUGES) def
+%/references (Xie_etal2007 Chen_etal2008a Chen_etal2008b) def
+
+:dataset
+\end{ingrid}

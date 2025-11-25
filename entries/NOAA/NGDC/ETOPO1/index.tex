@@ -1,0 +1,41 @@
+\begin{ingrid}
+continuedataset:
+ link:
+ /name (ETOPO1 Database) def
+ /description (ETOPO1 1 arc-minute Global Relief Model at NGDC) def
+ /href (http://www.ngdc.noaa.gov/mgg/global/global.html) def
+ :link
+ link:
+ /name (More Information) def
+ /description (Data Sources and More Information) def
+ /href (http://www.ngdc.noaa.gov/mgg/global/etopo1sources.html) def
+ :link
+ link:
+ /name (dataset_documentation) def
+ /description (Procedures, Data Sources and Analysis (Draft)) def
+ /href (http://www.ngdc.noaa.gov/mgg/global/relief/ETOPO1/docs/ETOPO1.pdf) def
+ :link
+
+/description (ETOPO1 Grid Registered 1 Arc-Minute Global Relief Model) def
+/iridl:hasSemantics (iridl:PlanetarySurface) def
+/references (Amante_Eakins2008) def
+
+/z_ice { (/Data/data7/noaa/ngdc/ETOPO1/ETOPO1_Ice_g.grd) readCDF .z
+  /units (m) def
+  /long_name (ice surface elevation/bathymetry) def
+  /iridl:hasSemantics (iridl:Elevation) def
+lon /lon
+    (degree_east) periodic -180.0 0.01666667 180.0 NewEvenGRID
+    replaceGRID
+} defasvarsilent
+
+/z_bedrock { (/Data/data7/noaa/ngdc/ETOPO1/ETOPO1_Bed_g.grd) readCDF .z
+  /units (m) def
+  /long_name (bedrock elevation/bathymetry) def
+  /iridl:hasSemantics (iridl:Elevation) def
+lon /lon
+    (degree_east) periodic -180.0 0.01666667 180.0 NewEvenGRID
+    replaceGRID
+} defasvarsilent
+:dataset
+\end{ingrid}

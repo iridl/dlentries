@@ -1,0 +1,72 @@
+\begin{ingrid}
+continuedataset:
+/description (Global vegetation and ecosystems data) def
+/iridl:hasSemantics (iridl:GISS) def
+/source (<a href="http://www.giss.nasa.gov/Data/LandUse/vegeem.html">Matthews Global Vegetation Index</a>) def
+/references (Matthews1983 Matthews1984) def
+/long_name (Matthews Vegetation Index) def
+grid:
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+-89.5 1 89.5
+:grid
+variable:
+/name /vegetation def
+/long_name (vegetation index) def
+/source (<a href="http://www.giss.nasa.gov/Data/LandUse/vegeem.html">Matthews Global Vegetation Index</a>) def
+%GLOBAL VEGETATION TYPES                 DIMENSION = 360 X 180   SCALE = 1
+%OCEAN =   -9999     UNDEF =   99999     MIN =       1 MAX =      31
+%NUMREC = 6483 (NUMBER OF RECORDS IN DATA FILE)
+/missing_values [ -9999 99999 ] def
+/scale_min 1 def
+/scale_max 32 def
+/units /ids cvntos def
+/iridl:hasSemantics (iridl:LandCover) def
+/CLIST [
+(tropical evergreen rainforest)
+(trop/subtropical evergreen seasonal broad-leaved forest)
+(subtropical evergreen rainforest)
+(temperate/subpolar evergreen rainforest)
+(temperate evergreen seasonal broadleaved forest, summer rain)
+(evergreen broadleaved sclerophyllous forest, winter rain)
+(tropical/subtropical evergreen needle-leaved forest)
+(tempierate/subpolar evergreen needle-leaved forest)
+(tropical/subtropical drought-deciduous forest)
+(cold-deciduous forest, with evergreens)
+(cold-deciduous forest, without evergreens)
+(xeromorphic forest/woodland)
+(evergreen broadleaved sclerophyllous woodland)
+(evergreen needleleaved woodland)
+(tropical/subtropical drought-deciduous woodland)
+(cold-deciduous woodland)
+(evergreen broadleaved shrubland/thick, evergreen dwarf-shrubland)
+(evergreen needleleaved or microphyllous shrubland/thicket)
+(drought-deciduous shrubland/thicket)
+(cold-deciduous subalpine/subpolar shrubland/dwarf shrub)
+(xeromorphic shrubland/dwarf shrubland)
+(arctic/alpine tundra, mossy bog)
+(tall/medium/short grassland, 10-40% woody cover)
+(tall/medium/short grassland, < 10% woody cover)
+(tall/medium/short grassland, shrub cover)
+(tall grassland, no woody cover)
+(medium grassland, no woody cover)
+(meadow, short grassland, no woody cover)
+(forb formations)
+(desert)
+(ice)
+(cultivation)
+] def
+grids: X Y :grids
+file:
+/name (/Data/data1/ecosys/matthews.txt) def
+formatted
+:file
+:variable
+:dataset
+\end{ingrid}

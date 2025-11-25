@@ -1,0 +1,588 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (CALCULS) def
+
+/interview__id { IRIDB (BF_VAMU_2018) (interview__id) [(hhid)] open_column_by
+/long_name (interview__id) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Date { IRIDB (BF_VAMU_2018) (date) [(hhid)] open_column_by
+/long_name (Date de l'entretien) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/interview__key { IRIDB (BF_VAMU_2018) (interview__key) [(hhid)] open_column_by
+/long_name (interview__key) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/poids_def { IRIDB (BF_VAMU_2018) (poids_def) [(hhid)] open_column_by
+/long_name (poids_def) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/dep_demo_ratio { IRIDB (BF_VAMU_2018) (dep_demo_ratio) [(hhid)] open_column_by
+/long_name (Ratio de dépendance démographique) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Class_ratio_dep_demo { IRIDB (BF_VAMU_2018) (class_ratio_dep_demo) [(hhid)] open_column_by
+/long_name (Ratio de dépendance démographique (Binned)) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Faible)
+(Moyenne)
+(Elevé)
+] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilentnoreuse
+
+/Total_Pris_charge { IRIDB (BF_VAMU_2018) (total_pris_charge) [(hhid)] open_column_by
+/long_name (Total_Pris_charge) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Total_Pers_Revenu { IRIDB (BF_VAMU_2018) (total_pers_revenu) [(hhid)] open_column_by
+/long_name (Total_Pers_Revenu) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/dep_eco_ratio { IRIDB (BF_VAMU_2018) (dep_eco_ratio) [(hhid)] open_column_by
+/long_name (Ratio de dépendance économique) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Class_Ratio_dep_eco { IRIDB (BF_VAMU_2018) (class_ratio_dep_eco) [(hhid)] open_column_by
+/long_name (Ratio de dépendance économique (Binned)) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Faible)
+(Moyenne)
+(Elevée)
+] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilentnoreuse
+
+/Promiscuite { IRIDB (BF_VAMU_2018) (promiscuite) [(hhid)] open_column_by
+/long_name (Nombre de personne par pièce d'habitation) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Scor_hfias { IRIDB (BF_VAMU_2018) (scor_hfias) [(hhid)] open_column_by
+/long_name (Score globale HFIAS) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Cat_AIAM { IRIDB (BF_VAMU_2018) (cat_aiam) [(hhid)] open_column_by
+/long_name (Catégotrie de l'Accès  pour l'insécurité Alimentaire des ménages) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Sécurité alimentaire)
+(Légère insécurité alimentaire)
+(Insécurité alimentaire modérée)
+(Insécurité alimentaire sévère)
+] def
+/scale_min 1.00 def
+/scale_max 4.00 def
+}defasvarsilentnoreuse
+
+/Sour_eau_boi { IRIDB (BF_VAMU_2018) (sour_eau_boi) [(hhid)] open_column_by
+/long_name (Source eau de boisson) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Non)
+(Oui)
+] def
+/scale_min .00 def
+/scale_max 1.00 def
+}defasvarsilentnoreuse
+
+/type_latri { IRIDB (BF_VAMU_2018) (type_latri) [(hhid)] open_column_by
+/long_name (Type douche) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Non)
+(Oui)
+] def
+/scale_min .00 def
+/scale_max 1.00 def
+}defasvarsilentnoreuse
+
+/type_douche { IRIDB (BF_VAMU_2018) (type_douche) [(hhid)] open_column_by
+/long_name (type_douche) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Non)
+(Oui)
+] def
+/scale_min .00 def
+/scale_max 1.00 def
+}defasvarsilentnoreuse
+
+/type_toit { IRIDB (BF_VAMU_2018) (type_toit) [(hhid)] open_column_by
+/long_name (Catégorie toiture) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Non)
+(Oui)
+] def
+/scale_min .00 def
+/scale_max 1.00 def
+}defasvarsilentnoreuse
+
+/type_mur { IRIDB (BF_VAMU_2018) (type_mur) [(hhid)] open_column_by
+/long_name (Nature des murs) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Non)
+(Oui)
+] def
+/scale_min .00 def
+/scale_max 1.00 def
+}defasvarsilentnoreuse
+
+/Type_sol { IRIDB (BF_VAMU_2018) (type_sol) [(hhid)] open_column_by
+/long_name (Nature du sol) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Non)
+(Oui)
+] def
+/scale_min .00 def
+/scale_max 1.00 def
+}defasvarsilentnoreuse
+
+/Cuisine { IRIDB (BF_VAMU_2018) (cuisine) [(hhid)] open_column_by
+/long_name (Energie Cuisine) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Non)
+(Oui)
+] def
+/scale_min .00 def
+/scale_max 1.00 def
+}defasvarsilentnoreuse
+
+/Eclairage { IRIDB (BF_VAMU_2018) (eclairage) [(hhid)] open_column_by
+/long_name (Energie Eclairage) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Non)
+(Oui)
+] def
+/scale_min .00 def
+/scale_max 1.00 def
+}defasvarsilentnoreuse
+
+/Evacuation { IRIDB (BF_VAMU_2018) (evacuation) [(hhid)] open_column_by
+/long_name (Evacuation eaux usées) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Non)
+(Oui)
+] def
+/scale_min .00 def
+/scale_max 1.00 def
+}defasvarsilentnoreuse
+
+/Dep_tot_na { IRIDB (BF_VAMU_2018) (dep_tot_na) [(hhid)] open_column_by
+/long_name (Dépense mensuelle totale non alimentaire) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/QV11_MOIS { IRIDB (BF_VAMU_2018) (qv11_mois) [(hhid)] open_column_by
+/long_name (Dépenses alimentaires mensuelles du ménage) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/DEP_ALIM { IRIDB (BF_VAMU_2018) (dep_alim) [(hhid)] open_column_by
+/long_name (Dépenses alimentaires mensuelles du ménage) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Dep_tot { IRIDB (BF_VAMU_2018) (dep_tot) [(hhid)] open_column_by
+/long_name (Dépense mensuelle totale du menage) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Part_dep_alim { IRIDB (BF_VAMU_2018) (part_dep_alim) [(hhid)] open_column_by
+/long_name (Part des dépense alimentaire) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Dep_ali_percap { IRIDB (BF_VAMU_2018) (dep_ali_percap) [(hhid)] open_column_by
+/long_name (Dépenses alimentaires per capita) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Legumin_oleaJ1 { IRIDB (BF_VAMU_2018) (legumin_oleaj1) [(hhid)] open_column_by
+/long_name (Légumineuse oléagineux J1) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Legumin_oleaJ2 { IRIDB (BF_VAMU_2018) (legumin_oleaj2) [(hhid)] open_column_by
+/long_name (Légumineuse oléagineux J2) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Legumin_oleaJ3 { IRIDB (BF_VAMU_2018) (legumin_oleaj3) [(hhid)] open_column_by
+/long_name (Légumineuse oléagineux J3) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Legumin_oleaJ4 { IRIDB (BF_VAMU_2018) (legumin_oleaj4) [(hhid)] open_column_by
+/long_name (Légumineuse oléagineux J4) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Legumin_oleaJ5 { IRIDB (BF_VAMU_2018) (legumin_oleaj5) [(hhid)] open_column_by
+/long_name (Légumineuse oléagineux J5) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Legumin_oleaJ6 { IRIDB (BF_VAMU_2018) (legumin_oleaj6) [(hhid)] open_column_by
+/long_name (Légumineuse oléagineux J6) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Legumin_oleaJ7 { IRIDB (BF_VAMU_2018) (legumin_oleaj7) [(hhid)] open_column_by
+/long_name (Légumineuse oléagineux J7) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/nbr_legumi_olea { IRIDB (BF_VAMU_2018) (nbr_legumi_olea) [(hhid)] open_column_by
+/long_name (Nombre de jours légumineuse oléagineux) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/legumes1 { IRIDB (BF_VAMU_2018) (legumes1) [(hhid)] open_column_by
+/long_name (Légume Jour1) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/legumes2 { IRIDB (BF_VAMU_2018) (legumes2) [(hhid)] open_column_by
+/long_name (Légume Jour2) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/legumes3 { IRIDB (BF_VAMU_2018) (legumes3) [(hhid)] open_column_by
+/long_name (Légume Jour3) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/legumes4 { IRIDB (BF_VAMU_2018) (legumes4) [(hhid)] open_column_by
+/long_name (Légume Jour4) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/legumes5 { IRIDB (BF_VAMU_2018) (legumes5) [(hhid)] open_column_by
+/long_name (Légume Jour5) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/legumes6 { IRIDB (BF_VAMU_2018) (legumes6) [(hhid)] open_column_by
+/long_name (Légume Jour6) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/legumes7 { IRIDB (BF_VAMU_2018) (legumes7) [(hhid)] open_column_by
+/long_name (Légume Jour7) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/nbr_legume { IRIDB (BF_VAMU_2018) (nbr_legume) [(hhid)] open_column_by
+/long_name (Nombre de jours légumes) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/FruitJ1 { IRIDB (BF_VAMU_2018) (fruitj1) [(hhid)] open_column_by
+/long_name (Fruits et autres fruits J1) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/FruitJ2 { IRIDB (BF_VAMU_2018) (fruitj2) [(hhid)] open_column_by
+/long_name (Fruits et autres fruits J2) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/FruitJ3 { IRIDB (BF_VAMU_2018) (fruitj3) [(hhid)] open_column_by
+/long_name (Fruits et autres fruits J3) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/FruitJ4 { IRIDB (BF_VAMU_2018) (fruitj4) [(hhid)] open_column_by
+/long_name (Fruits et autres fruits J4) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/FruitJ5 { IRIDB (BF_VAMU_2018) (fruitj5) [(hhid)] open_column_by
+/long_name (Fruits et autres fruits J5) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/FruitJ6 { IRIDB (BF_VAMU_2018) (fruitj6) [(hhid)] open_column_by
+/long_name (Fruits et autres fruits J6) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/FruitJ7 { IRIDB (BF_VAMU_2018) (fruitj7) [(hhid)] open_column_by
+/long_name (Fruits et autres fruits J7) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/nbr_fruit { IRIDB (BF_VAMU_2018) (nbr_fruit) [(hhid)] open_column_by
+/long_name (Nombre de jours Fruits et autres fruits) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/HuileJ1 { IRIDB (BF_VAMU_2018) (huilej1) [(hhid)] open_column_by
+/long_name (Huiles et autres Huiles J1) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/HuileJ2 { IRIDB (BF_VAMU_2018) (huilej2) [(hhid)] open_column_by
+/long_name (Huiles et autres Huiles J2) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/HuileJ3 { IRIDB (BF_VAMU_2018) (huilej3) [(hhid)] open_column_by
+/long_name (Huiles et autres Huiles J3) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/HuileJ4 { IRIDB (BF_VAMU_2018) (huilej4) [(hhid)] open_column_by
+/long_name (Huiles et autres Huiles J4) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/HuileJ5 { IRIDB (BF_VAMU_2018) (huilej5) [(hhid)] open_column_by
+/long_name (Huiles et autres Huiles J5) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/HuileJ6 { IRIDB (BF_VAMU_2018) (huilej6) [(hhid)] open_column_by
+/long_name (Huiles et autres Huiles J6) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/HuileJ7 { IRIDB (BF_VAMU_2018) (huilej7) [(hhid)] open_column_by
+/long_name (Huiles et autres Huiles J7) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/nbr_Huile { IRIDB (BF_VAMU_2018) (nbr_huile) [(hhid)] open_column_by
+/long_name (Nombre de jours Huiles et autres Huiles) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/FOIEJ1 { IRIDB (BF_VAMU_2018) (foiej1) [(hhid)] open_column_by
+/long_name (FOIEs et autres FOIEs J1) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/FOIEJ2 { IRIDB (BF_VAMU_2018) (foiej2) [(hhid)] open_column_by
+/long_name (FOIEs et autres FOIEs J2) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/FOIEJ3 { IRIDB (BF_VAMU_2018) (foiej3) [(hhid)] open_column_by
+/long_name (FOIEs et autres FOIEs J3) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/FOIEJ4 { IRIDB (BF_VAMU_2018) (foiej4) [(hhid)] open_column_by
+/long_name (FOIEs et autres FOIEs J4) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/FOIEJ5 { IRIDB (BF_VAMU_2018) (foiej5) [(hhid)] open_column_by
+/long_name (FOIEs et autres FOIEs J5) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/FOIEJ6 { IRIDB (BF_VAMU_2018) (foiej6) [(hhid)] open_column_by
+/long_name (FOIEs et autres FOIEs J6) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/FOIEJ7 { IRIDB (BF_VAMU_2018) (foiej7) [(hhid)] open_column_by
+/long_name (FOIEs et autres FOIEs J7) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/nbr_FOIE { IRIDB (BF_VAMU_2018) (nbr_foie) [(hhid)] open_column_by
+/long_name (Nombre de jours Foie et autres foie) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/ViandesJ1 { IRIDB (BF_VAMU_2018) (viandesj1) [(hhid)] open_column_by
+/long_name (Viandes oeuf et poisson J1) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/ViandesJ2 { IRIDB (BF_VAMU_2018) (viandesj2) [(hhid)] open_column_by
+/long_name (Viandes oeuf et poisson J2) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/ViandesJ3 { IRIDB (BF_VAMU_2018) (viandesj3) [(hhid)] open_column_by
+/long_name (Viandes oeuf et poisson J3) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/ViandesJ4 { IRIDB (BF_VAMU_2018) (viandesj4) [(hhid)] open_column_by
+/long_name (Viandes oeuf et poisson J4) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/ViandesJ5 { IRIDB (BF_VAMU_2018) (viandesj5) [(hhid)] open_column_by
+/long_name (Viandes oeuf et poisson J5) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/ViandesJ6 { IRIDB (BF_VAMU_2018) (viandesj6) [(hhid)] open_column_by
+/long_name (Viandes oeuf et poisson J6) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/ViandesJ7 { IRIDB (BF_VAMU_2018) (viandesj7) [(hhid)] open_column_by
+/long_name (Viandes oeuf et poisson J7) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/nbr_viande { IRIDB (BF_VAMU_2018) (nbr_viande) [(hhid)] open_column_by
+/long_name (Nombre de jours Viandes oeuf et poissons) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Nbre_lait { IRIDB (BF_VAMU_2018) (nbre_lait) [(hhid)] open_column_by
+/long_name (Nombre de jours consommation lait) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Nbre_sucre { IRIDB (BF_VAMU_2018) (nbre_sucre) [(hhid)] open_column_by
+/long_name (Nombre de jours consommation sucre) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/cer_tuberJ1 { IRIDB (BF_VAMU_2018) (cer_tuberj1) [(hhid)] open_column_by
+/long_name (Céréales tubercules jour1) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/cer_tuberJ2 { IRIDB (BF_VAMU_2018) (cer_tuberj2) [(hhid)] open_column_by
+/long_name (Céréales tubercules jour2) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/cer_tuberJ3 { IRIDB (BF_VAMU_2018) (cer_tuberj3) [(hhid)] open_column_by
+/long_name (Céréales tubercules jour1) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/cer_tuberJ4 { IRIDB (BF_VAMU_2018) (cer_tuberj4) [(hhid)] open_column_by
+/long_name (Céréales tubercules jour4) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/cer_tuberJ5 { IRIDB (BF_VAMU_2018) (cer_tuberj5) [(hhid)] open_column_by
+/long_name (Céréales tubercules jour5) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/cer_tuberJ6 { IRIDB (BF_VAMU_2018) (cer_tuberj6) [(hhid)] open_column_by
+/long_name (Céréales tubercules jour6) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/cer_tuberJ7 { IRIDB (BF_VAMU_2018) (cer_tuberj7) [(hhid)] open_column_by
+/long_name (Céréales tubercules jour7) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Nbre_cer_tub { IRIDB (BF_VAMU_2018) (nbre_cer_tub) [(hhid)] open_column_by
+/long_name (Céréales tubercules jour1) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/SCA { IRIDB (BF_VAMU_2018) (sca) [(hhid)] open_column_by
+/long_name (Score de consommation alimentaire(SCA)) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Groupe_SCA1 { IRIDB (BF_VAMU_2018) (groupe_sca1) [(hhid)] open_column_by
+/long_name (Classe de consommation alimentaire(SCA)) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Pauvre)
+(Limite)
+(Acceptable)
+] def
+/scale_min .00 def
+/scale_max 2.00 def
+}defasvarsilentnoreuse
+
+/score { IRIDB (BF_VAMU_2018) (score) [(hhid)] open_column_by
+/long_name (Score de diversité alimentaire du ménage) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Class_Div_Alim_Men { IRIDB (BF_VAMU_2018) (class_div_alim_men) [(hhid)] open_column_by
+/long_name (Classe de diversité alimentaire du ménage (Binned)) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Faible)
+(Moyenne)
+(Elevé)
+] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilentnoreuse
+
+/class_men { IRIDB (BF_VAMU_2018) (class_men) [(hhid)] open_column_by
+/long_name (Réparttition des ménages en groupe de taile) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Dur_KDG { IRIDB (BF_VAMU_2018) (dur_kdg) [(hhid)] open_column_by
+/long_name (Catégorie de la durée à Koudougou) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Dur_conc { IRIDB (BF_VAMU_2018) (dur_conc) [(hhid)] open_column_by
+/long_name (Nombre d'année de durée dans la concession) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Nombr_epouse { IRIDB (BF_VAMU_2018) (nombr_epouse) [(hhid)] open_column_by
+/long_name (Catégorie de nombre d'épouses du CM) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Dur_conce { IRIDB (BF_VAMU_2018) (dur_conce) [(hhid)] open_column_by
+/long_name (Catégorie de durée dans la concession) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/filter_$ { IRIDB (BF_VAMU_2018) (filter_$) [(hhid)] open_column_by
+/long_name (QG08 > 0 (FILTER)) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Not Selected)
+(Selected)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/zdummy {c: 0 :c}defasvar
+:dataset
+
+interview__id .hhid name exch def
+\end{ingrid}
+

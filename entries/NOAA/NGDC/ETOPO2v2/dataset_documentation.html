@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <title>ETOPO2v2 2006, Version ETOPO2v2c 2-minute Elevation and Bathymetry from NGDC</title>
+</head>
+<INGRID>standardHeader</INGRID>
+<body>
+<h2>ETOPO2v2 2006, Version ETOPO2v2c 2-minute Elevation and Bathymetry from NGDC</h2>
+<pre>
+ETOPO2v2 2006 (version: ETOPO2v2c - Cell-centered registration)
+
+Data set credit:
+
+U.S. Department of Commerce
+National Oceanic and Atmospheric Administration
+National Environmental Satellite, Data, and Information Service
+National Geophysical Data Center
+http://www.ngdc.noaa.gov/mgg/fliers/06mgg01.html
+
+ETOPO2v2c Data structure and provenance:
+
+ETOPO2 grids are in meters.
+
+Complete ETOPO2v2c grids are under folder
+http://www.ngdc.noaa.gov/mgg/global/relief/ETOPO2/ETOPO2v2-2006/ETOPO2v2c/
+as follows:
+
+netCDF/
+ETOPO2v2c_f4_netCDF.zip - 4-byte floating pt grid in COARDS-compliant netCDF Format
+
+GRD98/
+ETOPO2v2c_i2_LSB_GRD98.zip - 2-byte integer Most Significant Byte First (bigendian) grid in GRD98 Format
+ETOPO2v2c_i2_MSB_GRD98.zip - 2-byte integer Least Significant Byte First (littleendian) grid in GRD98 Format
+
+raw-binary/
+ETOPO2v2c_i2_LSB.zip - 2-byte integer grid with Least Significant Byte First (littleendian)
+ETOPO2v2c_i2_MSB.zip - 2-byte integer grid with Most Significant Byte First (bigendian)
+ETOPO2v2c_f4_LSB.zip - 4-byte floating pt grid with Least Significant Byte First (littleendian)
+ETOPO2v2c_f4_MSB.zip - 4-byte floating pt grid with Most Significant Byte First (bigendian)
+
+HDF/
+ETOPO2v2c_HDF.zip - HDF Format
+
+First and foremost, ETOPO2v2c eliminates a 1-cell westward bias that was present 
+in ETOPO2 as a result of alignment adjustments to match the choice of grid
+registration used in sampling GLOBE data.
+
+ETOPO2v2c is in a cell-centered registration (pixel registered); the cell
+boundaries are lines of even minutes of latitude and longitude, and they are 
+centered on intersections of lines of odd minutes of latitude and longitude. 
+This is a change from the original ETOPO2, which was grid-registered, meaning 
+that cells were centered on the integer multiples of 2 minutes (even minutes) of 
+latitude and longitude and the cell boundaries were consequently defined by 
+lines of odd minutes of latitude and longitude. The first row of 10,800 (360 x 
+30) cells in ETOPO2 redundantly repeated the same data value, centered on the 
+north pole. A data row, centered on the South Pole, was not included in the 
+original ETOPO2.
+
+Coverage of ETOPO2v2c is -90deg to +90deg in Latitude, and -180deg to +180deg in 
+Longitude, whereas ETOPO2 covered +90deg to -89deg58' in Latitude and -180Wdeg 
+to +189deg58' in Longitude. The new ETOPO2v2c, with cell centered-registration, 
+eliminates the ETOPO2 North Pole redundancies but has the same number of cells: 
+5,400 rows of data (180 x 30), each with 10,800 columns of data(360x30).
+
+Program names in the following text, such as "xyz2grd", "surface", and 
+"grdsample", refer to programs in the free set of Generic Mapping Tools (GMT), 
+available at
+     http://gmt.soest.hawaii.edu/
+
+The GMT manual is available online at
+     http://gmt.soest.hawaii.edu/gmt/gmt_man.html, in which usage and parameters 
+are defined.
+
+Smith-Sandwell (SandS) data were processed from a 1-minute grid-registered data 
+file provided by Walter H. F. Smith (NOAA-NESDIS) and verified by Karen Marks 
+(NOAA/NOS), available at
+     ftp://falcon.grdl.noaa.gov/pub/walter/Gebco_SandS_blend.bi2
+This is a binary integer grid of edited elevation data derived from the original 
+interpretations of satellite altimetry available at
+     http://topex.ucsd.edu/marine_topo/mar_topo.html
+
+The downloaded file is converted to a GMT grid-registered grid by the GMT 
+program xyz2grd, which processes the input file Gebco_SandS_blend.bi2 into the 
+output file Gebco_SandS_blend_1m.grd:
+
+xyz2grd Gebco_SandS_blend.bi2 -GGebco_SandS_blend_1m.grd=2 -R-180/179:59/-90/90 
+-fig -I1m -ZTLh -V
+where:
+     the -G prefix identifies the output file name and the =2 suffix directs the 
+program to create a 2-byte integer output file
+     the -R prefix identifies the geographic region for the data by its W/E/S/N 
+limits in degrees[:minutes[:seconds]]
+     the -fig group identifies the (i)nput file as being in (g)eographic 
+coordinates
+     the -I1m group sets the (I)nterval between data points as 1 (m)inute
+     the -ZTLh group specifies the input data as Z (elevation) only, arranged in 
+rows (T)op-down and (L)eft-to-right in (h)alf-word (short) binary integers
+     the -V requests (V)erbose output from the program directed to the Unix 
+channel stderr.
+
+(Repeated parameter identifiers, such as -R, -G, and -V may not be specifically 
+explained again when they appear below.)
+
+The 1' file was then sampled down to 2' pixels by the command
+ grdsample Gebco_SandS_blend_1m.grd=2 -GGebco_SandS_blend_2m.grd=2 -N10800/5400 
+-F -Rd -Lx -V
+where:
+     the output file is Gebco_SandS_blend_2m.grd, with 2-byte binary integer 
+pixels
+     the -N group specifies 10800 horizontal pixels (specified by the -F option) 
+and 5400 vertical pixels
+     the -F parameter specifies a pixel, or cell-centered grid
+     the -Rd region specification is a shorthand for longitudes +/- 180 degrees 
+and latitudes +/- 90 degrees
+     the -Lx specifies that the input grid is periodic in the x-direction, so 
+there will be no discontinuity at the left or right edge of the output grid.
+
+This basic 2' grid was copied to a file "Gebco_SandS_blend_2mi.raw" to begin the 
+assembly process for the whole data base as the bottom layer in the layered 16-
+bit grayscale Photoshop file, "ETOPO2v2c<beta>5.psd".
+
+Use of Photoshop as a data assembly tool:
+
+Why Photoshop? The program provides a simple method of masking and overlaying 
+binary raster data in an environment of image processing technology. As long as 
+the content of individual pixels is not altered other than by replacement, the 
+data can be treated the same as pictures with one 16-bit image channel. For 
+topographic data, Photoshop's treatment of all binary data as unsigned integers 
+can be exploited through the effect of the sign bit, which places all negative 
+numbers toward the high end of the brightness scale, and positive values toward 
+the bottom. Viewed as an image, topographic data appear with dark land masses 
+(values >= zero) and bright oceans. Picking one end of the brightness spectrum 
+thus creates an instant land/sea mask which can be handled as a separate layer 
+and can be edited to preserve below-sea-level land areas, such as the Dead Sea 
+or Death Valley by simply painting their pixels in the mask layer with the 
+appropriate mask value. Areas of data with a particular value, such as -500 (the 
+no-data flag in GLOBE) can be selected and deleted within a layer leaving a 
+transparent void. Overlays of data sets that encompass very large quantities of 
+data can be quickly and accurately accomplished without the necessity of 
+processing data into the huge ASCII xyz files required by GMT's "grdedit" for 
+point-by-point insertion. (Note: Photoshop treats any file with the extension 
+".grd" as a specific format for a Photoshop gradient and will not allow the GMT 
+data to be read. To avoid this problem, choose file suffixes like ".raw" which 
+have no internal special meaning to the application.) Warning: any manipulation 
+of signed data in Photoshop other than placing or moving the image elements can 
+result in severe data corruption! Smoothing adjacent positive and negative 
+numbers in Photoshop will propagate the presence/absence of the sign bit in the 
+resulting altered data into unexpected locations. Re-sizing an image of this 
+type will have dire consequences. Simple masking or cut-and-paste operations, 
+such as performed here, do not change the content of individual pixels in any 
+way until layers are flattened. Flattening the image simply leaves the data 
+value of each pixel as the value of the topmost visible pixel; transparent 
+portions of upper layers allow lower layers' data to be copied through.
+
+IBCAO and GLOBE data were similarly converted to Photoshop 16-bit grayscale 
+layers and inserted as layers into the file "ETOPO2v2cbeta5.psd". Each of these 
+data layers was downsampled by GMT "grdsample" as follows:
+
+GLOBE:
+
+GLOBE data were read from the CD-ROM data set produced by NGDC as 16 area files 
+of 30" pixel data. The raw data files named [A-P]10G were converted to GMT 30" 
+grid files by
+
+xyz2grd A10G -GA10G.grd=bs -R-180/-90/50/90 -I30c -F -ZTLhw -N-500 -V
+where:
+     Region bounds (-R groups) for each grid were defined from the corresponding 
+header file information on the CD.    
+     the -I30c -F parameters define the output grid as 30 se(c)ond, pixel (-F) 
+centered
+     the -N-500 parameter sets all data equalling -500 to NaN (Not a Number 
+code) in the GMT grid.
+     the -ZTLhw group describes the input data as a (h)alf-word (16-bit) binary 
+integer raster starting at the (T)op(L)eft corner; the w argument byte-swaps the 
+input data to match the requirements of the host (Macintosh G5) computer
+
+and so on, for each source file of 16-bit integer data.
+
+The 16 GMT 30" integer grids were concatenated into increasingly larger areas by 
+commands of the type
+
+grdpaste GLOBE_NW2m.grd=2 GLOBE_NE2m.grd=2 -GGLOBE_N2m.grd=2 -V
+
+where:
+     the subgrids GLOBE_NW2m.grd and GLOBE_NE2m.grd were in turn constructed by 
+grdpaste from smaller [A-P]10g.grd files pasted together into larger 30" grid 
+units that covered a quadrant of the globe each. "grdpaste" can join only two 
+files at a time into a larger entity, so a repetitive process is required.
+
+To ensure alignment of the output data grid, where appropriate, input data grids 
+were first processed into higher-resolution grids at 30" or 1' spacing so that 
+the sampling to 2' outputs would not mis-locate the results. This methodology is 
+used for the GLOBE, IBCAO, Caspian Sea, Coastal relief Model, and Great Lakes 
+data sets.
+
+Each of these large grids was then sampled down to 2-minutes for assembly into 
+North and South halves of the final world grid by
+
+grdpaste GLOBE_N2.grd=2 GLOBE_S2.grd=2 -GGLOBE_2.grd=2 -V
+
+Each of the GLOBE_[N-S]2 grids covered a hemisphere. The GMT software could not 
+deal with the entire global grid at 30" resolution array size (may have been a 
+Mac OS-X or gcc4 compiler implementation restriction on addressing), so the 
+split was necessary.
+
+IBCAO:
+
+The IBCAO grid data from NGDC 
+(http://www.ngdc.noaa.gov/mgg/bathymetry/arctic/geodata/grd/netcdf/), which is a 
+1' grid-registered GMT grid, was resampled by bicubic sampling to 2' pixels by 
+the GMT command lines:
+
+grdsample ver1_netcdf_geo.grd -GIBCAOv1_2mI.pix=2 -F -N10800/780 -R-
+180/180/64/90 -Lx -V
+where:
+     the ver1_netcdf_geo.grd is the 1' floating point gridline file was 
+downloaded from 
+http://www.ngdc.noaa.gov/mgg/bathymetry/arctic/geodata/grd/netcdf/
+     the file IBCAOv1_2mI.pix=2 is the output grid of 2-byte integer 2' pixels 
+extracted
+     the region and pixel count parameters -R and -N are as defined above.
+     Sampling by bicubic spline is the default method for this program; nearest-
+neighbor sampling can also be selected by the -Q parameter (not used here)
+
+This made a grid of 2' pixels in a standard GMT format that can be imported as 
+16-bit "raw" format by Photoshop with a 892-byte header that can be specified to 
+be ignored on the "Open" dialog in Photoshop. Photoshop "raw" files are assumed 
+to be uncompressed binary pixel rasters with no compression or encoding. This 
+layer was copied to the clipboard and pasted in at the top of the 
+"ETOPO2v2cbeta5.psd" image.
+
+The 10800x5400-pixel Photoshop file was then flattened, with the top-to-bottom 
+layer order being IBCAO-GLOBE-SandS. This made the precedence of data favor 
+IBCAO for all data at 64 degrees and farther north; GLOBE topography overlays 
+the rest of the (GTOPO30) land data from SandS. Ocean bathymetry from 80 South 
+to 64 North came through from the SandS layer. The result was output, with the 
+header size set to zero in the "Save" dialog in Photoshop, to form the basic 
+grid file "ETOPO2v2cbeta5.raw"
+
+The "ETOPO2v2cbeta5.raw" file was then input to a GMT 2-byte integer cell-
+centered grid by the GMT command: 
+
+xyz2grd ETOPO2v2cbeta5.raw -Rd -I2m -ZTLh -GETOPO2v2c.5.grd=2 -F -V
+
+Subsequent data sets were inserted into ETOPO2v2c.5.grd via GMT software as 
+follows:
+
+Bathymetry data for the Caspian Sea were obtained as digitized contours from the 
+Caspian Environment Programme website at 
+http://www.caspianenvironment.org/dim/menu5.htm. The file "isobat_ascii.zip" was 
+downloaded and unpacked into multiple text files. Each of these was converted in 
+an Excel spread sheet from 2-column latitude-longitude data streams for each 
+contour to xyz data with the third (z) column containing the contour value, that 
+could be read by GMT's "surface" program. All of the xyz contour files were 
+concatenated into a single file (Caspian.blm) and converted to a 30" grid 
+through GMT "surface" and resampled to the needed 2' spacing with GMT 
+"grdsample":
+
+surface Caspian.blm -GCaspian30s.grd -R45.5/56/36.5/47.5 -I30c -V
+
+Output from "surface" is always grid-registered, rather than cell-centered.
+
+The resulting 30" grid was resampled to a 2' floating-point grid by:
+
+grdsample Caspian30s.grd -GCaspian2mF.grd -F -N315/330 -R45.5/56/36.5/47.5 -V
+
+The sampling to 2' used a bicubic spline to fill the cells, using the default 
+parameter that requires all 4 nearest source nodes to have data for the result 
+to be included in the output grid. Resulting depth values start at zero for the 
+shoreline. relative to the local Caspian Sea surface datum, to be adjusted 
+below. The grid was then masked to the sea boundary according to the GMT 
+maximum-resolution coastline file:
+
+grdlandmask -GCaspian_maskF.grd -R45.5/56/36.5/47.5 -I2m -Df -N1/NaN/1/NaN/NaN -
+V -F
+where:
+     the -N group defines data not included within a "sea" or "lake" boundary to 
+be excluded as Not-a-Number (NaN) in the resulting grid (only first and third 
+arguments set to 1).
+     the -Df parameter specifies the "full-resolution" GMT coastline file, in 
+which the Caspian Sea is flagged as a "lake".
+
+The resulting data were biased by the Caspian Sea datum of -29m so they fit the 
+below-sea-level elevations of the surrounding basin. After this conversion to a 
+new grid, these data were converted to xyz ASCII data:
+
+grd2xyz Caspian_2mFmaskedI.grd=2 -S -R45.5/56/36.5/47.5 -V > CaspianBathy.xyz
+where
+     the -S parameter sets output to actual data only, without NaN points.
+and edited into the intermediate ETOPO2v2c grid:
+
+grdedit ETOPO2v2c.5.grd=2 -NCaspianBathy.xyz -V
+where:
+     the -N specifies the input (N)ew data file
+
+Insertion of these data superseded existing grid points closest to each xyz data 
+point location.
+
+For coastal USA waters, the NGDC Coastal Relief Model (CRM) 3" grids for water 
+only were downloaded from CRM Volumes 1-10 via GEODAS as 15" subsamples and 
+resampled with "grdsample", converted to 2' xyz data and inserted over their 
+corresponding positions in the 2' data, e.g.:
+
+grdsample Vol10.grd -GVol10-2m.grd=2 -R-161/-153/18/23 -N240/150 -F -V
+
+grd2xyz -S Vol10-2m.grd=2 -V  > Vol10-2m.xyz
+
+grdedit ETOPO2v2c.5.grd=2 -NVol10-2m.xyz -V
+
+and so on for data from CRM Volumes 1-9 as well.
+
+Great Lakes bathymetry data were added by conversion from 3" NGDC source grids 
+for Lakes Erie, Ontario, Huron, and Michigan; preliminary 30" source data were 
+used for Lake Superior. Each lake's water data were isolated and adjusted to its 
+mean level datum, obtained from GLERL (NOAA Great Lakes Environmental Research 
+Laboratory). Resulting xyz grids were generated and inserted as above. 
+
+
+The current (30 May 2006) version of the data base is ETOPO2v2c, available on the
+CD-ROM as floating-point GMT (.grd=bf) and MSB-first, or Big-Endian (.raw) 
+raster grids, and ArcMap (.flt and .hdr) files. A Miller-Projection, color, 
+shaded-relief image of the data is also included as an Acrobat (.pdf) file. The
+GMT parameters describing the grid are "-R-180/80/-90/90 -I2m -F".
+
+
+Peter W. Sloss, 25 July 2006
+ngdc.info@noaa.gov
+
+Other Forms:
+
+  ETOPO2v2g is in a grid-centered registration (pixel registered); the cell
+  boundaries are lines of odd minutes of latitude and longitude, and they are
+  centered on intersections of lines of even minutes of latitude and longitude.
+
+Availability:
+
+ETOPO2v2 is available in its entirety on DVD:
+http://www.ngdc.noaa.gov/mgg/fliers/06mgg01.html
+</pre>
+</body>
+</html>

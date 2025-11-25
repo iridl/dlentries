@@ -1,0 +1,95 @@
+\begin{ingrid}
+dataset:
+/name /ISCCP def
+/description (Cloudiness and solar radiation data from the International Satellite Cloud Climatology Project) def
+/dataset_documentation.html descriptions  /isccp.html get def
+/iridl:hasSemantics (iridl:WCRP) def
+/references (Seager_Blumenthal1994 Bishop_Rossow1991) def
+link:
+/name (ISCCP D2) def
+/description (superceeded by ISCCP D2) def
+/href (/SOURCES/.NASA/.ISCCP/.D2/) def
+:link
+link:
+/name (see also) def
+/href (/SOURCES/.GEDEX/.isccp_c2.cdf/) def
+/description (GEDEX ISCCP datafiles) def
+:link
+grid: /name /X def
+degE 
+periodic -178.75 to 178.75 N= 144 pts :grid 
+grid: 
+/name /Y def
+degN  -88.75 to 88.75 N= 72 pts :grid 
+grid: 
+/name /T def
+monthtime 16 Jul 1983 ensotime to 16 Jun 1991 ensotime N= 96 pts :grid
+dataset:
+/name /MONTHLY def
+link:
+/name (see also) def
+/href (/SOURCES/.GEDEX/.isccp_c2/) def
+/description (GEDEX ISCCP datafiles) def
+:link
+variable:
+/name /solr def
+/long_name (solar radiation) def
+Wpm2
+grids: Y X | T :grids
+file:
+/name (/Data/data1/atm/isccp/solsf2.isccp) def
+random
+:file
+/history (ISCCP Solar Radation Data (corrected)) def
+:variable
+variable:
+/name /cld def
+/long_name (cloudiness) def
+grids: Y X | T :grids
+file:
+/name (/Data/data1/atm/isccp/cloud.isccp) def
+random
+:file
+:variable
+/lowcloud 
+{ SOURCES .GEDEX .isccp_c2 .FQ_LCLD } defasvar
+:dataset
+dataset:
+/name /MEAN def
+grid: 
+/name /T def
+month Jan to Dec N= 12 pts :grid
+variable:
+/name /cld def
+/long_name (cloudiness) def
+grids: Y X | T :grids
+file:
+/name (/Data/data1/atm/isccp/cldmean.isccp) def
+random
+:file
+:variable
+
+:dataset
+/derivederbegrid { /derivederbegrid (/beluga/data/benno/Models/LinearEquator/CKruns/isccpsrb.cdf) nameCDF} def
+/derived { /derived (/Data/data1/atm/isccp/isccpsrb.cdf) nameCDF} def
+dataset:
+/name /OLD def
+grid: 
+/name /T def
+monthtime 16 Jul 1983 ensotime 1. 16 Jun 1990 ensotime :grid
+variable:
+/name /solr def
+/long_name (solar radiation) def
+Wpm2
+grids: Y X | T :grids
+file:
+/name (/Data/data1/atm/isccp/solsfc.isccp) def
+random
+:file
+:variable
+/derived { /derived (/beluga/data/benno/Models/LinearEquator/CKruns/PacTuning/isccp.cdf) nameCDF} def
+:dataset
+/Fitted {/Fitted (/Data/data1/atm/isccp/fittedisccp.cdf) nameCDF} def
+:dataset
+\end{ingrid}
+

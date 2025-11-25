@@ -1,0 +1,94 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+/datadb 0 0 object
+   /dbfilepath (/Data/data23/CIMH/Meteorology/Stations/Daily/caricom5.db) def
+   /dbinfo 0 0 object /rdsDriver (sqlite3) def /tupleType 1 def /connectString dbfilepath def def
+   /selectall {1 index exch dsquery {0 get} dsforall} def
+   /selectone {selectall} def
+   /conn dbinfo dsopen def
+   /nstations conn (select count(*) from stations) selectone def
+   /minlat conn (select min(lat)-1.0 from stations) selectone def
+   /maxlat conn (select max(lat)+1.0 from stations) selectone def
+   /minlon conn (select min(lon)-1.0 from stations) selectone def
+   /maxlon conn (select max(lon)+1.0 from stations) selectone def
+   /mindate conn (select min(jd) from jds) selectone def
+   /maxdate conn (select max(jd) from jds) selectone def
+   /mintmax conn (select min(tmax) from data) selectone def
+   /maxtmax conn (select max(tmax) from data) selectone def
+   /mintmin conn (select min(tmin) from data) selectone def
+   /maxtmin conn (select max(tmin) from data) selectone def
+   /minprec conn (select min(prec) from data) selectone def
+   /maxprec conn (select max(prec) from data) selectone def
+def
+:datasetdefs
+
+/long_name (caricom) def
+/description (caricom) def
+datadb .dbfilepath defcombinedlastmod
+
+grid:
+   /name /st_id def
+   /units (ids) def
+   datadb conn (select st_id from stations order by st_id) selectall nstations integerarray astore nip
+:grid
+
+grid: 
+   /name /T def
+   /units /julian_day def
+   /defaultvalue {last} def
+   datadb .mindate 1.0 datadb .maxdate
+:grid
+
+/lon {
+   datadb .dbinfo (select ifnull(lon,-999.0) from stations order by st_id) rdsopenquery st_id rdsgetresults 0 -999.0 rdsgetfield
+   /units (degree_east) def
+   /scale_min datadb .minlon def
+   /scale_max datadb .maxlon def
+   /long_name (longitude) def
+   /missing_value -999.0 def
+} defasvarsilent
+
+/lat {
+   datadb .dbinfo (select ifnull(lat,-999.0) from stations order by st_id) rdsopenquery st_id rdsgetresults 0 -999.0 rdsgetfield
+   /units (degree_north) def
+   /scale_min datadb .minlat def
+   /scale_max datadb .maxlat def
+   /long_name (latitude) def
+   /missing_value -999.0 def
+} defasvarsilent
+
+/tmax {
+   datadb .dbinfo (select ifnull(d.tmax,-999.0) from (select * from stations join jds) sj left join data d on sj.st_id=d.st_id and sj.jd=d.jd order by sj.st_id,
+sj.jd) rdsopenquery [T st_id] rdsgetresults 0 -999.0 rdsgetfield
+   /units (Celsius_scale) def
+   /scale_min datadb .mintmax def
+   /scale_max datadb .maxtmax def
+   /long_name (max temperature) def
+   /missing_value -999.0 def
+} defasvarsilent
+
+/tmin {
+   datadb .dbinfo (select ifnull(d.tmin,-999.0) from (select * from stations join jds) sj left join data d on sj.st_id=d.st_id and sj.jd=d.jd order by sj.st_id,sj.jd) rdsopenquery [T st_id] rdsgetresults 0 -999.0 rdsgetfield
+   /units (Celsius_scale) def
+   /scale_min datadb .mintmin def
+   /scale_max datadb .maxtmin def
+   /long_name (min temperature) def
+   /missing_value -999.0 def
+} defasvarsilent
+
+/prec {
+   datadb .dbinfo (select ifnull(d.prec,-999.0) from (select * from stations join jds) sj left join data d on sj.st_id=d.st_id and sj.jd=d.jd order by sj.st_id,sj.jd) rdsopenquery [T st_id] rdsgetresults 0 -999.0 rdsgetfield
+   /units (mm) def
+   /scale_min datadb .minprec def
+   /scale_max datadb .maxprec def
+   /long_name (precipitation) def
+   /missing_value -999.0 def
+} defasvarsilent
+
+
+datadb .conn dsclose
+:dataset
+\end{ingrid}
+

@@ -1,0 +1,195 @@
+\begin{ingrid}
+
+continuedataset:
+		/LongName (GPCP Precipitation Level 3 Monthly 0.5-Degree V3.2) def
+		/VersionID (3.2) def
+		/Conventions (CF-1.5) def
+		/Entry_ID (GPCPMON_3.2) def
+		/Entry_Title (GPCP Precipitation Level 3 Monthly 0.5-Degree V3.2 (GPCPMON) at GES DISC) def
+		/Title (GPCP Precipitation Level 3 Monthly 0.5-Degree V3.2) def
+		/Science_Keywords (EARTH SCIENCE > ATMOSPHERE > PRECIPITATION > PRECIPITATION RATE) def
+		/ISO_Topic_Category (Climatology/Meteorology/Atmosphere) def
+		/Data_Center_ShortName (NASA/GSFC/SED/ESD/GCDC/GESDISC) def
+		/Data_Center_LongName (Goddard Earth Sciences Data and Information Services Center (formerly Goddard DAAC),Global Change Data Center, Earth Sciences Division, Science and Exploration Directorate, Goddard Space Flight Center, NASA) def
+		/Data_Center_URL (https://disc.gsfc.nasa.gov/) def
+		/Data_Center_Role (DATA CENTER CONTACT) def
+		/Data_Center_Last_Name (GES DISC help Desk Support Group) def
+		/Data_Center_Email (gsfc-dl-help-disc@mail.nasa.gov) def
+		/Data_Center_Address (Goddard Earth Sciences Data and Information Services Center, Code 610.2, NASA Goddard Space Flight Center, Greenbelt, MD, 20771, USA) def
+		/Data_Set_Progress (Stable Version) def
+		/DataSetQuality (A rudimentary estimate of the quality of the precipitation estimates is provided in the combined satellite-gauge precipitation random error field.  The method used to estimate the random error is based on the technique described in Huffman (1997).  In general, estimating meaningful error is a difficult prospect and is currently the subject of  intensive research.  Since inception, the GPCP has strived to maintain CDR standards in all its data sets, despite not officially being a CDR.  Homogeneity in the record takes precedence over instantaneous accuracy.  Over the long-term, GPCP represents the current state of the art.  GPCP estimates are most accurate in the tropics, and less so in the subtropics and mid-latitudes.  Above 58N and below 58S, the estimates are more approximate.  High-quality gauge analyses are incorporated to vastly improve the estimates over land.  Note that the land estimates are of lesser quality in the more challenging regions such as complex terrain and snow and ice covered surfaces.  The GPCP estimates are most appropriate for studies where a long record is necessary, but less useful for short-interval studies and the examination of extremes.) def
+		/Summary (The Global Precipitation Climatology Project (GPCP) is the precipitation component of an internationally coordinated set of (mainly) satellite-based global products dealing with the Earth\'s water and energy cycles, under the auspices of the Global Water and Energy Experiment (GEWEX) Data and Assessment Panel (GDAP) of the World Climate Research Program.  As the follow on to the GPCP Version 2.X products, GPCP Version 3 (GPCP V3.2) seeks to continue the long, homogeneous precipitation record using modern merging techniques and input data sets.  The GPCPV3 suite currently consists the 0.5-degree monthly and daily products.  A follow-on 0.1-degree 3-hourly is expected.  All GPCPV3 products will be internally consistent. The monthly product spans 1983 - 2020. Inputs consist of the GPROF SSMI/SSMIS orbit files that are used to calibrate the PERSIANN-CDR IR-based precipitation in the span 60NS, which are in turn calibrated to the monthly 2.5-degree METH product.  The METH-GPROF-adjusted PERSIANN-CDR IR estimates are then climatologically adjusted to the blended TCC/MCTG.  Outside of 58NS, TOVS/AIRS estimates, adjusted climatologically to the MCTG, are used.  The PERSIANN-CDR / TOVS/AIRS estimates are then merged in the region 35NS-58NS, which are then merged with GPCC gauge analyses over land to obtain the final product. In addition to the final precipitation field, ancillary precipitation and error estimates are provided.) def
+		/Validation_Data (Validation of the GPCPV3 data sets is currently in process.  Previous validation efforts for GPCPV2.2 included comparisons with high-density rain gauge data sets (not part of the GPCC gauge analysis) and PACRAIN atoll gauges.) def
+		/Source (The input satellite data sources can be found in the satellite source index field.  Note that gauge analyses are always included over land.) def
+		/MapProjection (Cylindrical Equidistant) def
+		/RelatedURL (https://earthdata.nasa.gov/esds/competitive-programs/measures/long-term-gpcp-precipitation) def
+		/Dataset_Creator (George J. Huffman and David T. Bolvin) def
+		/Dataset_Title (GPCP Precipitation Level 3 Monthly 0.5-Degree V3.2) def
+		/Dataset_Series_Name (GPCPMON) def
+		/Dataset_Release_Place (Greenbelt, MD, USA) def
+		/Dataset_Publisher (Goddard Earth Sciences Data and Information Services Center (GES DISC)) def
+		/IdentifierProductDOI (10.5067/MEASURES/GPCP/DATA304) def
+		/Data_Presentation_Form (Digital Science Data) def
+		/Use_Constraints (This data set continues to be validated. Please contact George Huffman, email: george.j.huffman@nasa.gov, for current known problems and updates.) def
+		/Distribution_Media (Online Archive) def
+		/Distribution_Format (NetCDF-4) def
+		/ProcessingLevel (Level 3) def
+		/Institution (Mesoscale Atmospheric Processes Laboratory, NASA GSFC) def
+
+link:
+/name (webpage) def
+/description (GPCP Version 3.2 Satellite-Gauge (SG) Combined Precipitation Data Set (GPCPMON)) def
+/href (https://disc.gsfc.nasa.gov/datasets/GPCPMON_3.2/summary?keywords=GPCPMON_3.2) def
+:link
+
+grid:
+/name /X def
+/units /degree_east def
+/long_name (Longitude) def
+periodic
+-179.75 0.5 179.75
+:grid
+
+grid:
+/name /Y def
+/units /degree_north def
+/long_name (Latitude) def
+-89.75 0.5 89.75
+:grid
+
+grid:
+/name /T def
+/units (months since 1960-01-01) def
+/defaultvalue {last} def
+/long_name (Time) def
+/standard_name (time) def
+16 Jan 1983 ensotime
+1.
+16 Dec 2023 ensotime
+/netcdfgrid true def
+:grid
+
+/sat_gauge_precip {
+ [X Y last first subgrid | T]
+ (/Data/data7/nasa/gpcp/v3p2/monthly/GPCPMON_L3_%Y%m[T]_V3.2.nc4) [T] readdatafile:
+ /name (sat_gauge_precip) def
+ /missing_value -99999. def
+ /valid_min 0.0 def
+ /valid_max 100.0 def
+ /long_name (combined satellite-gauge precipitation) def
+ /units (mm/day)cvn def
+ /realarraytype netcdfrecords
+ :readdatafile
+ Y last first RANGE
+ DATA 0 AUTO RANGE
+} defasvarsilent
+
+/sat_gauge_error {
+    [X Y last first subgrid | T]
+    (/Data/data7/nasa/gpcp/v3p2/monthly/GPCPMON_L3_%Y%m[T]_V3.2.nc4) [T] readdatafile:
+    /name (sat_gauge_error) def
+    /missing_value -99999. def
+    /valid_min 0.0 def
+    /valid_max 100.0 def
+    /long_name (combined satellite-gauge precipitation random error) def
+    /units (mm/day)cvn def
+    /realarraytype netcdfrecords
+    :readdatafile
+    Y last first RANGE
+    DATA 0 AUTO RANGE
+} defasvarsilent
+
+/satellite_precip {
+    [X Y last first subgrid | T]
+    (/Data/data7/nasa/gpcp/v3p2/monthly/GPCPMON_L3_%Y%m[T]_V3.2.nc4) [T] readdatafile:
+    /name (satellite_precip) def
+    /missing_value -99999. def
+    /valid_min 0.0 def
+    /valid_max 100.0 def
+    /long_name (multisatellite precipitation) def
+    /units (mm/day)cvn def
+    /realarraytype netcdfrecords
+    :readdatafile
+    Y last first RANGE
+    DATA 0 AUTO RANGE
+} defasvarsilent
+
+/satellite_source {
+    [X Y last first subgrid | T]
+    (/Data/data7/nasa/gpcp/v3p2/monthly/GPCPMON_L3_%Y%m[T]_V3.2.nc4) [T] readdatafile:
+    /name (satellite_source) def
+    /missing_value -9999 def
+    /long_name (satellite source index) def
+    /shortarraytype netcdfrecords
+    :readdatafile
+    Y last first RANGE
+    2 div 1 add
+    /units /ids def
+    /scale_min 1 def
+    /scale_max 3 def
+    /CLIST [(IR) (IR_AIRS_blend) (AIRS)] def
+    startcolormap
+    DATA 1 3 RANGE
+    transparent blue blue red yellow yellow
+    endcolormap
+} defasvarsilent
+
+/gauge_precip {
+    [X Y last first subgrid | T]
+    (/Data/data7/nasa/gpcp/v3p2/monthly/GPCPMON_L3_%Y%m[T]_V3.2.nc4) [T] readdatafile:
+    /name (gauge_precip) def
+    /missing_value -99999. def
+    /valid_min 0.0 def
+    /valid_max 100.0 def
+    /long_name (wind-loss adjusted gauge precipitation) def
+    /units (mm/day)cvn def
+    /realarraytype netcdfrecords
+    :readdatafile
+    Y last first RANGE
+    DATA 0 AUTO RANGE
+} defasvarsilent
+
+/probability_liquid_phase {
+    [X Y last first subgrid | T]
+    (/Data/data7/nasa/gpcp/v3p2/monthly/GPCPMON_L3_%Y%m[T]_V3.2.nc4) [T] readdatafile:
+    /name (probability_liquid_phase) def
+    /missing_value -9999 def
+    /valid_min 0.0 def
+    /valid_max 100.0 def
+    /long_name (probability of liquid phase) def
+    /units /percent def
+    /shortarraytype netcdfrecords
+    :readdatafile
+    Y last first RANGE
+} defasvarsilent
+
+/gauge_relative_weight {
+    [X Y last first subgrid | T]
+    (/Data/data7/nasa/gpcp/v3p2/monthly/GPCPMON_L3_%Y%m[T]_V3.2.nc4) [T] readdatafile:
+    /name (gauge_relative_weight) def
+    /missing_value -9999 def
+    /valid_min 0.0 def
+    /valid_max 100.0 def
+    /long_name (gauge relative weighting) def
+    /units /percent def
+    /shortarraytype netcdfrecords
+    :readdatafile
+    Y last first RANGE
+    DATA 0 100 RANGE
+} defasvarsilent
+
+/quality_index {
+    [X Y last first subgrid | T]
+    (/Data/data7/nasa/gpcp/v3p2/monthly/GPCPMON_L3_%Y%m[T]_V3.2.nc4) [T] readdatafile:
+    /name (quality_index) def
+    /missing_value -99999. def
+    /valid_min 0.0 def
+    /valid_max 700.0 def
+    /long_name (quality index) def
+    /realarraytype netcdfrecords
+    :readdatafile
+    Y last first RANGE
+} defasvarsilent
+
+:dataset
+\end{ingrid}

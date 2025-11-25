@@ -1,0 +1,69 @@
+\begin{ingrid}
+continuedataset:
+/long_name (Stratocumulus, ice) def
+% /description (Stratocumulus, ice) def
+/T dataset .T def
+/boxnum dataset .boxnum def
+/lat dataset .lat def
+/lon dataset .lon def
+dataset:
+/name (mean_cloud) def
+/long_name (Mean Cloud) def
+variable:
+/name (amount) def
+/long_name (Amount) def
+/missing_value 255. -1000. 2 realarray astore def
+grids: boxnum T :grids
+file:
+random
+/name (/Data/data4/nasa/isccp/mean05ca) def
+:file
+:variable
+
+variable:
+/name (press) def
+/long_name (Top Pressure) def
+/missing_value 255. -1000. 2 realarray astore def
+grids: boxnum T :grids
+file:
+random
+/name (/Data/data4/nasa/isccp/mean05pc) def
+:file
+:variable
+
+variable:
+/name (temp) def
+/long_name (Top Temperature) def
+/missing_value 255. -1000. 2 realarray astore def
+grids: boxnum T :grids
+file:
+random
+/name (/Data/data4/nasa/isccp/mean05tc) def
+:file
+:variable
+
+variable:
+/name (optthick) def
+/long_name (Optical Thickness) def
+/missing_value 255. -1000. 2 realarray astore def
+grids: boxnum T :grids
+file:
+random
+/name (/Data/data4/nasa/isccp/mean05ta) def
+:file
+:variable
+
+variable:
+/name (waterpath) def
+/long_name (Water Path) def
+/missing_value 255. -1000. 2 realarray astore def
+grids: boxnum T :grids
+file:
+random
+/name (/Data/data4/nasa/isccp/mean05wp) def
+:file
+:variable
+:dataset
+:dataset
+\end{ingrid}
+

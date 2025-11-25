@@ -1,0 +1,56 @@
+\begin{ingrid}
+continuedataset: 
+/long_name (1969-1998) def
+/iridl:hasSemantics (iridl:climatology) def
+grid: /name /T def monthtime
+periodic
+16 Jan 1960 ensotime 1 16 Dec 1960 ensotime :grid
+grid: /name /Y def degN 89 2 -89 :grid
+grid: /name /X def degE periodic 0 2.5 357.5 :grid
+grid:
+  /name /P def
+  /unts (mb) def
+  values: (500) :values
+:grid
+variable:
+/name /prcp def
+/long_name (precipitation rate) def
+/units (mm/day) def
+grids: X Y | T :grids
+file:
+decsequential
+/name (/beluga/data/forecast/DATA/gsfc/pcp/gsfc.pcp.6998.clm) def
+:file
+:variable
+variable:
+/name /t2m def
+/long_name (temperature at 2m) def
+/units (degreeC) def
+/missing_value -9999. def
+grids: X Y | T :grids
+file:
+decsequential
+/name (/beluga/data/forecast/DATA/gsfc/2mt/gsfc.2mt.6998.clm) def
+:file
+:variable
+variable:
+/name /zg def
+/long_name (geopotential height) def
+/units (m) def
+/missing_value [-9999. -3620.603 -662.3157] def
+grids: X Y | P T :grids
+file:
+decsequential
+/name (/beluga/data/forecast/DATA/gsfc/500/gsfc.500.6998.clm) def
+:file
+:variable
+:dataset
+\end{ingrid}
+
+
+
+
+
+
+
+

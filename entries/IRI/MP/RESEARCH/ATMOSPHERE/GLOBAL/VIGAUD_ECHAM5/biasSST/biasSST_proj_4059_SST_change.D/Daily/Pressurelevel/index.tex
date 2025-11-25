@@ -1,0 +1,141 @@
+\begin{ingrid}
+/references(Roeckner_etal2006) def
+continuedataset:
+datasetdefs:
+
+grid:
+/name /M def
+/long_name (Ensemble member) def
+1 1 16
+:grid
+
+
+grid:
+/name /X def
+/units (degree_east)def
+ periodic
+ 0 2.8125 360  2.8125 sub
+:grid
+
+grid:
+/name /Y def
+/units (degree_north)def
+values:
+87.86 85.10 82.31 79.53 76.74 73.95 71.16 68.37
+ 65.58 62.79 60.00 57.21 54.42 51.63 48.84 46.04 43.25 40.46
+ 37.67 34.88 32.09 29.30 26.51 23.72 20.93 18.14 15.35 12.56
+ 9.77  6.98  4.19  1.40   -1.40   -4.19   -6.98   -9.77  -12.56  -15.35
+ -18.14  -20.93  -23.72  -26.51  -29.30  -32.09  -34.88  -37.67  -40.46  -43.25
+ -46.04  -48.84  -51.63  -54.42  -57.21  -60.00  -62.79  -65.58  -68.37  -71.16
+ -73.95  -76.74  -79.53  -82.31  -85.10  -87.86
+:values
+:grid
+
+grid:
+/name /T def
+/long_name (Time) def
+/units (days since 1949-01-01) def
+%/calendar /360 def
+%0.5
+(1200 01 Jan 1977)
+1.
+(1200 31 Dec 2005)
+%22319.5
+:grid
+T /pointwidth 1 def pop
+%:grid
+
+%dataset: /name /Surface def :dataset
+
+[ X Y M T ] { name exch def } forall
+[ X Y |/NVZ 28 NewIntegerGRID M T]
+(/Data/data24/ECHAM5_3.23.D/EXP.D/biasSST_proj_2040-2059_SSTchange.D/%2.2d[M].D/Output/00001test_3d_daily_echamdoutm.%Y[T]%m[T]) [M T  monthlyedgesgrid first secondtolast subgrid]
+readdatafile:
+decsequential
+:readdatafile
+
+
+definevariables:
+Pressurelevel 0 Zvariable:/name (t850) def /long_name (temperature at 850 mb) def /standard_name (air_temperature) def /units (kelvin_scale) def :Zvariable
+Pressurelevel 0 Zvariable:/name (t700) def /long_name (temperature at 700 mb)  def /standard_name (air_temperature) def /units (kelvin_scale) def :Zvariable
+Pressurelevel 0 Zvariable:/name (t500) def /long_name (temperature at 500 mb)  def /standard_name (air_temperature) def /units (kelvin_scale) def :Zvariable
+Pressurelevel 0 Zvariable:/name (t300) def /long_name (temperature at 300 mb)  def /standard_name (air_temperature) def /units (kelvin_scale) def :Zvariable
+Pressurelevel 0 Zvariable:/name (u1000) def /long_name (zonal wind at 1000 mb) def /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (u925) def /long_name (zonal wind at 925 mb) def /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (u850) def /long_name (zonal wind at 850 mb) def /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (u700) def /long_name (zonal wind at 700 mb) def /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (u500) def /long_name (zonal wind at 500 mb) def /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (u300) def /long_name (zonal wind at 300 mb) def  /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (u200) def /long_name (zonal wind at 200 mb) def  /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (v1000) def /long_name (meridional wind at 1000 mb) def /standard_name (northward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (v925) def /long_name (meridional wind at 925 mb) def /standard_name (northward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (v850) def /long_name (meridional wind at 850 mb) def /standard_name (northward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (v700) def /long_name (meridional wind at 700 mb) def /standard_name (northward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (v500) def /long_name (meridional wind at 500 mb) def /standard_name (northward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (v300) def /long_name (meridional wind at 300 mb) def  /standard_name (northward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (v200) def /long_name (meridional wind at 200 mb) def  /standard_name (northward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (q925) def /long_name (specific humidity at 925 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+Pressurelevel 0 Zvariable:/name (q850) def /long_name (specific humidity at 850 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+Pressurelevel 0 Zvariable:/name (q700) def /long_name (specific humidity at 700 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+Pressurelevel 0 Zvariable:/name (omg500) def /long_name (vertical pressure velocity) def /units (pascal/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (vrt850) def /long_name (vorticity at 850 mb) def /standard_name (vorticity) def /units (s-2) def :Zvariable
+Pressurelevel 0 Zvariable:/name (gz850) def /long_name (geopotential height at 850 mb) def /standard_name (geopotential) def /units (m2 s-2) def :Zvariable
+Pressurelevel 0 Zvariable:/name (gz700) def /long_name (geopotential height at 700 mb) def /standard_name (geopotential) def /units (m2 s-2) def :Zvariable
+Pressurelevel 0 Zvariable:/name (gz500) def /long_name (geopotential height at 500 mb) def /standard_name (geopotential) def /units (m2 s-2) def :Zvariable
+Pressurelevel 0 Zvariable:/name (gz300) def /long_name (geopotential height at 300 mb) def /standard_name (geopotential) def /units (m2 s-2) def :Zvariable
+Pressurelevel 0 Zvariable:/name (gz200) def /long_name (geopotential height at 200 mb) def /standard_name (geopotential) def /units (m2 s-2) def :Zvariable
+%
+Pressurelevel 0 Zvariable:/name (q300) def /long_name (specific humidity at 300 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+Pressurelevel 0 Zvariable:/name (q500) def /long_name (specific humidity at 500 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+Pressurelevel 0 Zvariable:/name (q200) def /long_name (specific humidity at 200 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+Pressurelevel 0 Zvariable:/name (u400) def /long_name (zonal wind at 400 mb) def  /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (u600) def /long_name (zonal wind at 600 mb) def /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (v400) def /long_name (meridional wind at 400 mb) def  /standard_name (northward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (v600) def /long_name (meridional wind at 600 mb) def /standard_name (northward_wind) def /units (m/s) def :Zvariable
+Pressurelevel 0 Zvariable:/name (q400) def /long_name (specific humidity at 400 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+Pressurelevel 0 Zvariable:/name (q600) def /long_name (specific humidity at 600 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+%
+%%%OLDS STYLE
+%Pressurelevel 0 Zvariable:/name (t850) def /long_name (temperature at 850 mb) def /standard_name (air_temperature) def /units (kelvin_scale) def :Zvariable
+%%Pressurelevel 0 Zvariable:/name (t700) def /long_name (temperature at 700 mb)  def /standard_name (air_temperature) def /units (kelvin_scale) def :Zvariable
+%%Pressurelevel 0 Zvariable:/name (t500) def /long_name (temperature at 500 mb)  def /standard_name (air_temperature) def /units (kelvin_scale) def :Zvariable
+%%Pressurelevel 0 Zvariable:/name (t300) def /long_name (temperature at 300 mb)  def /standard_name (air_temperature) def /units (kelvin_scale) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (u1000) def /long_name (zonal wind at 1000 mb) def /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (u925) def /long_name (zonal wind at 925 mb) def /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (u850) def /long_name (zonal wind at 850 mb) def /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (u700) def /long_name (zonal wind at 700 mb) def /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (u600) def /long_name (zonal wind at 600 mb) def /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (u500) def /long_name (zonal wind at 500 mb) def /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (u400) def /long_name (zonal wind at 400 mb) def  /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (u300) def /long_name (zonal wind at 300 mb) def  /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (u200) def /long_name (zonal wind at 200 mb) def  /standard_name (eastward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (v1000) def /long_name (meridional wind at 1000 mb) def /standard_name (northward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (v925) def /long_name (meridional wind at 925 mb) def /standard_name (northward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (v850) def /long_name (meridional wind at 850 mb) def /standard_name (northward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (v700) def /long_name (meridional wind at 700 mb) def /standard_name (northward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (v600) def /long_name (meridional wind at 600 mb) def /standard_name (northward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (v500) def /long_name (meridional wind at 500 mb) def /standard_name (northward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (v400) def /long_name (meridional wind at 400 mb) def  /standard_name (northward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (v300) def /long_name (meridional wind at 300 mb) def  /standard_name (northward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (v200) def /long_name (meridional wind at 200 mb) def  /standard_name (northward_wind) def /units (m/s) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (q1000) def /long_name (specific humidity at 1000 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (q925) def /long_name (specific humidity at 925 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (q850) def /long_name (specific humidity at 850 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (q700) def /long_name (specific humidity at 700 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (q600) def /long_name (specific humidity at 600 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (q500) def /long_name (specific humidity at 500 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (q400) def /long_name (specific humidity at 400 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (q300) def /long_name (specific humidity at 300 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (q200) def /long_name (specific humidity at 200 mb) def /standard_name (specific_humidity) def /units (kg/kg) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (omg500) def /long_name (vertical pressure velocity) def /units (pascal/s) def :Zvariable
+%%Pressurelevel 0 Zvariable:/name (vrt850) def /long_name (vorticity at 850 mb) def /standard_name (vorticity) def /units (s-2) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (gz850) def /long_name (geopotential height at 850 mb) def /standard_name (geopotential) def /units (m2 s-2) def :Zvariable
+%%Pressurelevel 0 Zvariable:/name (gz700) def /long_name (geopotential height at 700 mb) def /standard_name (geopotential) def /units (m2 s-2) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (gz500) def /long_name (geopotential height at 500 mb) def /standard_name (geopotential) def /units (m2 s-2) def :Zvariable
+%%Pressurelevel 0 Zvariable:/name (gz300) def /long_name (geopotential height at 300 mb) def /standard_name (geopotential) def /units (m2 s-2) def :Zvariable
+%Pressurelevel 0 Zvariable:/name (gz200) def /long_name (geopotential height at 200 mb) def /standard_name (geopotential) def /units (m2 s-2) def :Zvariable
+:definevariables
+
+:dataset
+
+\end{ingrid}

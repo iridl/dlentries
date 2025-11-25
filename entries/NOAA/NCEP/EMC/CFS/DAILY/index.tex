@@ -1,0 +1,3431 @@
+Description file for CFS DAILY
+
+OK  drwxr-xr-x  14 datag datag 2048 Dec 13 06:20 dlwsfc
+OK  drwxr-xr-x  14 datag datag 2048 Dec 13 22:25 dswsfc
+OK  drwxr-xr-x  14 datag datag 2048 Dec 14 12:52 lhtfl
+OK  drwxr-xr-x  14 datag datag 2048 Dec 15 05:11 mslp
+OK  drwxr-xr-x  14 datag datag 2048 Dec 15 21:04 prate
+OK  drwxr-xr-x  14 datag datag 2048 Dec 16 13:53 ps
+OK  drwxr-xr-x  14 datag datag 2048 Dec 17 05:27 pwat
+OK  drwxr-xr-x  14 datag datag 2048 Dec 18 00:12 sfvp200
+OK  drwxr-xr-x  14 datag datag 2048 Dec 18 18:50 sfvp850
+OK  drwxr-xr-x  14 datag datag 2048 Dec 19 10:37 shtfl
+OK  drwxr-xr-x  14 datag datag 2048 Dec 19 14:22 tmp2m
+OK  drwxr-xr-x  14 datag datag 2048 Dec 19 14:22 ulwsfc
+OK  drwxr-xr-x  14 datag datag 2048 Dec 19 14:22 ulwtop
+OK  drwxr-xr-x  14 datag datag 2048 Dec 19 14:22 uswsfc
+OK  drwxr-xr-x  14 datag datag 2048 Dec 19 14:22 uswtop
+OK  drwxr-xr-x  14 datag datag 2048 Dec 19 14:22 wnd10m
+OK  drwxr-xr-x  14 datag datag 2048 Dec 19 14:22 wnd200
+OK  drwxr-xr-x  14 datag datag 2048 Dec 19 14:22 wnd850
+OK  drwxr-xr-x  14 datag datag 2048 Dec 19 14:22 wndstr
+OK  drwxr-xr-x  14 datag datag 2048 Dec 19 14:22 z1000
+OK  drwxr-xr-x  14 datag datag 2048 Dec 19 14:22 z200
+OK  drwxr-xr-x  14 datag datag 2048 Dec 19 14:22 z500
+OK  drwxr-xr-x  14 datag datag 2048 Dec 19 14:22 z700
+OK  drwxr-xr-x  14 datag datag 2048 Dec 19 14:22 z850
+
+OK drwxr-xr-x  14 datag datag 2048 Feb 16 02:17 oceantchp/
+OK drwxr-xr-x  14 datag datag 2048 Feb 15 23:12 oceansst/
+drwxr-xr-x  14 datag datag 2048 Feb 15 20:13 oceanslh/
+drwxr-xr-x  14 datag datag 2048 Feb 15 17:39 oceansild/  fetching....
+OK drwxr-xr-x  14 datag datag 2048 Feb 15 17:25 oceanmld/
+OK drwxr-xr-x  14 datag datag 2048 Feb 15 14:30 oceanheat/
+OK drwxr-xr-x  14 datag datag 2048 Feb 15 11:28 dt28c/
+OK drwxr-xr-x  14 datag datag 2048 Feb 15 08:47 dt25c/
+OK drwxr-xr-x  14 datag datag 2048 Feb 15 06:03 dt20c/
+OK drwxr-xr-x  14 datag datag 2048 Feb 15 03:16 dt15c/
+OK drwxr-xr-x  14 datag datag 2048 Feb 15 00:29 dt10c/
+OK drwxr-xr-x  14 datag datag 2048 Feb 14 21:40 dt5c/
+OK drwxr-xr-x  14 datag datag 2048 Feb 14 18:47 dt2.5c/
+
+
+
+
+\begin{ingrid}
+continuedataset:
+/griblist.html {(griblist)htmlprint} def
+datasetdefs:
+grid:
+/name (X)def
+/units (degree_east)def
+ 1. 2. 359.
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 64. 1. -74.
+:grid
+grid:
+/name /L0 def
+/long_name (Integration Time) def
+/units (days) def
+-1 1. 296.0
+:grid
+/Xocean X def
+/Yocean Y def
+/Locean L0 def
+grid:
+/name (S) def
+/units (days since 1981-01-01) def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+0
+1
+2008 12 31  ymd2rjt
+1981 1 1 ymd2rjt
+sub
+:grid
+S monthlyedgesgrid first secondtolast subgrid 
+/long_name (Forecast Issue Time) def
+/standard_name (forecast_reference_time) def
+name exch def
+grid:
+/name /L0 def
+/long_name (Integration Time) def
+/units (days) def
+0 .5 296.5
+:grid
+grid:
+/name /M def
+/long_name (Member) def
+1 1 15
+:grid
+/T0105 {
+ S dup
+    dup -20 shiftGRID
+    monthlyedgesgrid
+    first secondtolast subgrid
+    9 add
+    getrealization constantdata
+   /name /intstart def
+   L0 add
+   M
+    1 5 subgrid
+    0 onegridcounter
+    /units 2 index .units def
+    add
+   /pointwidth 0 def
+   /long_name (Forecast Time) def
+   /standard_name (time) def
+ } defasvarsilent
+/T0610 {
+ S dup
+    dup -20 shiftGRID
+    monthlyedgesgrid
+    first secondtolast subgrid
+    9 add
+    getrealization constantdata
+   /name /intstart def
+   L0 add
+   M
+    6 10 subgrid
+    10 onegridcounter
+    /units 2 index .units def
+    add
+   /pointwidth 0 def
+   /long_name (Forecast Time) def
+   /standard_name (time) def
+ } defasvarsilent
+/T1115 {
+S
+   dup getrealization constantdata
+   /name /intstart def
+   L0 add
+   M
+    11 15 subgrid
+    -1 onegridcounter
+    /units 2 index .units def
+    add
+   /pointwidth 0 def
+   /long_name (Forecast Time) def
+   /standard_name (time) def
+} defasvarsilent
+:datasetdefs
+/S S def
+/L0 L0 def
+/M M def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 2.5 -90.
+:grid
+/T {
+[T0105
+   T0610 
+   T1115] concatstreams
+} defasvarcachesilent
+/L { T S sub
+/long_name (Lead Time) def
+/standard_name (forecast_period) def
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+dataset:
+datasetdefs:
+:datasetdefs
+/name (BelowSeaLevel)def
+grid:
+/name (Z)def
+/units (m_down)def
+values: 5 :values
+:grid
+{S M } { dataset 1 index get def } forall
+/X dataset .Xocean def
+/Y dataset .Yocean def
+/L0 dataset .Locean def
+\end{ingrid}
+oceantchp
+oceantchp/oceantchp.m01.jan.cfs.data
+
+Undefined parameter table (center 7-4 table 129), using NCEP-2
+
+\begin{ingrid}
+ /tchp{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/oceantchp/%s[lcmon]/%Y[S]/oceantchp.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (tchp) def
+ /subcenter (Environmental Modeling Center) def
+ /calendar /standard def
+ /PTVersion 129 def
+ /gribparam 194 def
+ /GRIBgridcode 10 def
+ /gribcenter 7 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 3 def
+ /gribNumBits 16 def
+ /gribleveltype 239 def
+ /process 98 def
+ /units /unitless def
+ /long_name (Tropical Cyclone Heat Potential) def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+\end{ingrid}
+:dataset
+:dataset
+\end{ingrid*}
+reads from my download instead (shows same problems by the way)
+sst
+sst/sst.m01.jan.cfs.data
+
+\begin{ingrid}
+ /temp{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/oceansst/%s[lcmon]/%Y[S]/oceansst.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (temp) def
+ /calendar /standard def
+ /GRIBgridcode 10 def
+ /gribparam 11 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /TMP def
+ /gribNumBits 12 def
+ /gribleveltype 160 def
+ /gribcenter 7 def
+ /units /Kelvin_scale def
+ /long_name (Temperature) def
+ /PTVersion 3 def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+\end{ingrid}
+end of BelowSeaLevel
+\begin{ingrid}
+:dataset
+\end{ingrid}
+bcld
+bcld/bcld.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/fileseg dataset 1 index get def
+datasetdefs: :datasetdefs
+{ L0 S S1 S2 M } { dataset 1 index get def } forall
+/name (bndary-layer_cld_layer)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 88.541954 86.653145 84.753227 82.850754 80.94735 79.04348 77.139351 75.235054 73.33065 71.426178 69.52166 67.617104 65.712509 63.807892 61.903259 59.998604 58.093945 56.189274 54.284599 52.379913 50.475216 48.570518 46.665813 44.761105 42.856396 40.951683 39.046967 37.142246
+ 35.23753 33.332802 31.428082 29.523354 27.618626 25.713898 23.80917 21.904438 19.999706 18.094975 16.190243 14.28551 12.380775 10.476042 8.5713072 6.6665726 4.761838 2.8571029 0.9523676 -0.9523676 -2.8571029 -4.761838 -6.6665726 -8.5713072 -10.476042 -12.380775 -14.28551 -16.190243
+ -18.094975 -19.999706 -21.904438 -23.80917 -25.713898 -27.618626 -29.523354 -31.428082 -33.332802 -35.23753 -37.142246 -39.046967 -40.951683 -42.856396 -44.761105 -46.665813 -48.570518 -50.475216
+ -52.379913 -54.284599 -56.189274 -58.093945 -59.998604 -61.903259 -63.807892 -65.712509 -67.617104 -69.52166 -71.426178
+ -73.33065 -75.235054 -77.139351 -79.04348 -80.94735 -82.850754 -84.753227 -86.653145 -88.541954 :values
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+ /cld{
+[ | M L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/bcld/bcld.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[ M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (cld) def
+ /calendar /standard def
+ /gribparam 71 def
+ /GRIBgridcode 98 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /TCDC def
+ /PTVersion 2 def
+ /gribNumBits 10 def
+ /scale_max 99.599998 def
+ /gribleveltype 211 def
+ /scale_min 0.0 def
+ /gribcenter 7 def
+ /units /percent def
+ /long_name (cloud cover) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+\end{ingrid*}
+hpbl
+hpbl/hpbl.m01.jan.cfs.data
+
+dataset:
+/name (hpbl/hpbl.m01.jan.cfs.data)def
+ /filepattern (hpbl/hpbl.m01.jan.cfs.data) def
+ /year0 0 def
+\begin{ingrid}
+dataset:
+datasetdefs:
+ /tau{
+[ | /NVZ 2 NewIntegerGRID
+M L0 S](/Data/data21/noaa/ncep/cfs/daily/wndstr/%s[lcmon]/%Y[S]/wndstr.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [
+ M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+/Xocean Xocean def
+/Yocean Yocean def
+/Locean Locean def
+:datasetdefs
+{ X Y L0 S M } { dataset 1 index get def } forall
+/name (surface)def
+\end{ingrid}
+\begin{ingrid*}
+ /HPBL{
+[ | M L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/hpbl/hpbl.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[ M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (HPBL) def
+ /calendar /standard def
+ /gribparam 221 def
+ /GRIBgridcode 98 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /gribNumBits 15 def
+ /PTVersion 2 def
+ /grib_name /HPBL def
+ /scale_max 3028.6001 def
+ /PDS_TimeRange 3 def
+ /gribcenter 7 def
+ /scale_min 47.299999 def
+ /units /m def
+ /long_name (Planetary boundary layer height) def
+ /gribleveltype 1 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+\end{ingrid*}
+prate
+prate/prate.m01.jan.cfs.data
+
+dataset:
+/name (prate/prate.m01.jan.cfs.data)def
+ /filepattern (prate/prate.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/fileseg dataset 1 index get def
+datasetdefs: :datasetdefs
+{X Y L0 S M } { dataset 1 index get def } forall
+/name (surface)def
+\begin{ingrid}
+ /prate{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/prate/%s[lcmon]/%Y[S]/prate.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (prate) def
+ /GRIBgridcode 2 def
+ /PTVersion 2 def
+ /gribparam 59 def
+% /scale_max 0.004572 def
+ /scale_min 0.0 def
+ /long_name (Precipitation rate) def
+ /units (kg/m^2/s)cvn def
+ /PDS_TimeRange 10 def
+ /grib_name /PRATE def
+ /calendar /standard def
+ /gribNumBits 12 def
+ /gribleveltype 1 def
+ /gribcenter 7 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /calendar /standard def
+ /long_name (Precipitation rate) def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /taux{
+tau NVZ 1 VALUE NVZ removeGRID
+/name (taux) def
+ /gribleveltype 1 def
+ /center (US Weather Service - National Met. Center) def
+ /gribNumBits 12 def
+ /gribcenter 7 def
+ /process 98 def
+ /gribparam 124 def
+ /long_name (Zonal momentum flux) def
+ /units (N/m^2)cvn def
+ /PTVersion 2 def
+ /GRIBgridcode 2 def
+ /calendar /standard def
+ /grib_name /UFLX def
+ /PDS_TimeRange 10 def
+}defasvarsilent
+ /tauy{
+tau NVZ 2 VALUE NVZ removeGRID
+/name (tauy) def
+ /gribleveltype 1 def
+ /center (US Weather Service - National Met. Center) def
+ /gribNumBits 12 def
+ /gribcenter 7 def
+ /process 98 def
+ /gribparam 125 def
+ /long_name (Meridional momentum flux) def
+ /units (N/m^2)cvn def
+ /PTVersion 2 def
+ /GRIBgridcode 2 def
+ /calendar /standard def
+ /grib_name /VFLX def
+ /PDS_TimeRange 10 def
+}defasvarsilent
+\end{ingrid}
+:dataset
+ps
+ps/ps.m01.jan.cfs.data
+
+\begin{ingrid}
+ /pressure{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/ps/%s[lcmon]/%Y[S]/ps.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (pressure) def
+ /subcenter (Environmental Modeling Center) def
+ /gribleveltype 1 def
+ /gribcenter 7 def
+ /units /Pa def
+ /long_name (Pressure) def
+/name (pressure) def
+ /gribleveltype 1 def
+ /PTVersion 2 def
+ /center (US Weather Service - National Met. Center) def
+ /scale_max 109449. def
+ /gribcenter 7 def
+ /PDS_TimeRange 10 def
+ /process 98 def
+ /scale_min 49181. def
+ /gribparam 1 def
+ /long_name (Pressure) def
+ /units /Pa def
+ /calendar /standard def
+ /GRIBgridcode 2 def
+ /grib_name /PRES def
+ /gribNumBits 16 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+\end{ingrid}
+:dataset
+:dataset
+slh
+slh/slh.m01.jan.cfs.data
+
+\begin{ingrid*}
+ /DIST{
+[ | M L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/slh/slh.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/X Xdist def
+/Y Ydist def
+/name (DIST) def
+ /calendar /standard def
+ /gribparam 8 def
+ /GRIBgridcode 10 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /grib_name /DIST def
+ /gribNumBits 5 def
+ /PTVersion 3 def
+ /scale_max 1.3 def
+ /gribleveltype 1 def
+ /gribcenter 7 def
+ /scale_min -2.0999999 def
+ /units /m def
+ /PDS_TimeRange 3 def
+ /long_name (Geometric height) def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+\end{ingrid*}
+tmpsfc
+tmpsfc/tmpsfc.m01.jan.cfs.data
+
+\begin{ingrid*}
+ /temp{
+[ | M L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/tmpsfc/tmpsfc.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (temp) def
+ /subcenter (Environmental Modeling Center) def
+ /calendar /standard def
+ /gribparam 11 def
+ /GRIBgridcode 98 def
+ /gribcenter 7 def
+ /center (US Weather Service - National Met. Center) def
+ /PTVersion 2 def
+ /PDS_TimeRange 3 def
+ /grib_name /TMP def
+ /gribNumBits 13 def
+ /scale_max 316.20999 def
+ /gribleveltype 1 def
+ /scale_min 200.60001 def
+ /process 98 def
+ /units /Kelvin_scale def
+ /long_name (Temperature) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+\end{ingrid*}
+:dataset
+:dataset
+
+cprat
+cprat/cprat.m01.jan.cfs.data
+
+\begin{ingrid*}
+ /cprate{
+[ | M L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/cprat/cprat.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (cprate) def
+ /calendar /standard def
+ /gribparam 214 def
+ /GRIBgridcode 98 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /PTVersion 2 def
+ /grib_name /CPRAT def
+ /gribNumBits 12 def
+ /PDS_TimeRange 3 def
+ /scale_max 7.12600013E-04 def
+ /gribleveltype 1 def
+ /gribcenter 7 def
+ /scale_min 0.0 def
+ /units (kg/m^2/s)cvn def
+ /long_name (Convective precip. rate) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+\end{ingrid*}
+:dataset
+:dataset
+:dataset
+
+dlwsfc
+dlwsfc/dlwsfc.m01.jan.cfs.data
+
+\begin{ingrid}
+dataset:
+datasetdefs: 
+:datasetdefs
+{ X Y L0 S M } { dataset 1 index get def } forall
+/name (downward)def
+\end{ingrid}
+\begin{ingrid}
+/lwflx{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/dlwsfc/%s[lcmon]/%Y[S]/dlwsfc.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (lwflx) def
+ /process 98 def
+ /gribleveltype 1 def
+ /GRIBgridcode 2 def
+ /center (US Weather Service - National Met. Center) def
+ /PTVersion 2 def
+ /long_name (longwave flux) def
+ /units (W/m2)cvn def
+ /gribparam 205 def
+ /calendar /standard def
+ /grib_name /DLWRF def
+ /gribNumBits 9 def
+ /PDS_TimeRange 10 def
+ /gribcenter 7 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+/solr{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/dswsfc/%s[lcmon]/%Y[S]/dswsfc.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (solr) def
+ /gribleveltype 1 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 10 def
+ /gribNumBits 10 def
+ /gribcenter 7 def
+ /process 98 def
+ /gribparam 204 def
+ /long_name (solar flux) def
+ /units (W/m2)cvn def
+ /GRIBgridcode 2 def
+ /calendar /standard def
+ /grib_name /DSWRF def
+ /PTVersion 2 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+:dataset
+\end{ingrid}
+ulwsfc
+ulwsfc/ulwsfc.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (ulwsfc/ulwsfc.m01.jan.cfs.data)def
+ /filepattern (ulwsfc/ulwsfc.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (surface)def
+\begin{ingrid}
+dataset:
+{ X Y L0 S M } { dataset 1 index get def } forall
+/name (upward)def
+\end{ingrid}
+\begin{ingrid}
+ /lwflx{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/ulwsfc/%s[lcmon]/%Y[S]/ulwsfc.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (lwflx) def
+ /subcenter (Environmental Modeling Center) def
+ /calendar /standard def
+ /PTVersion 2 def
+ /gribparam 212 def
+ /GRIBgridcode 98 def
+ /gribcenter 7 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /ULWRF def
+ /scale_max 574.29999 def
+ /gribNumBits 12 def
+ /gribleveltype 1 def
+ /scale_min 93.199997 def
+ /process 98 def
+ /units (W/m2)cvn def
+ /long_name (longwave flux) def
+/name (lwflx) def
+ /gribleveltype 1 def
+ /PTVersion 2 def
+ /center (US Weather Service - National Met. Center) def
+ /scale_max 601. def
+ /gribcenter 7 def
+ /PDS_TimeRange 10 def
+ /process 98 def
+ /scale_min 65. def
+ /gribparam 212 def
+ /long_name (longwave flux) def
+ /units (W/m2)cvn def
+ /calendar /standard def
+ /GRIBgridcode 2 def
+ /grib_name /ULWRF def
+ /gribNumBits 9 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /solr{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/uswsfc/%s[lcmon]/%Y[S]/uswsfc.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (solr) def
+ /subcenter (Environmental Modeling Center) def
+ /calendar /standard def
+ /PTVersion 2 def
+ /gribparam 211 def
+ /GRIBgridcode 98 def
+ /gribcenter 7 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /USWRF def
+ /scale_max 365.39999 def
+ /gribNumBits 12 def
+ /gribleveltype 1 def
+ /scale_min 0.0 def
+ /process 98 def
+ /units (W/m2)cvn def
+ /long_name (solar flux) def
+/name (solr) def
+ /gribleveltype 1 def
+ /PTVersion 2 def
+ /center (US Weather Service - National Met. Center) def
+ /scale_max 620. def
+ /gribcenter 7 def
+ /PDS_TimeRange 10 def
+ /process 98 def
+ /scale_min 0.0 def
+ /gribparam 211 def
+ /long_name (solar flux) def
+ /units (W/m2)cvn def
+ /calendar /standard def
+ /GRIBgridcode 2 def
+ /grib_name /USWRF def
+ /gribNumBits 9 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+:dataset
+\end{ingrid}
+:dataset
+:dataset
+\end{ingrid*}
+gflux
+gflux/gflux.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (gflux/gflux.m01.jan.cfs.data)def
+ /filepattern (gflux/gflux.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (surface)def
+\begin{ingrid*}
+dataset:
+/fileseg dataset 1 index get def
+datasetdefs: 
+:datasetdefs
+{ X Y L0 S S1 S2 M } { dataset 1 index get def } forall
+/name (ground)def
+\end{ingrid*}
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 88.541954 86.653145 84.753227 82.850754 80.94735 79.04348 77.139351 75.235054 73.33065 71.426178 69.52166 67.617104 65.712509 63.807892 61.903259 59.998604 58.093945 56.189274 54.284599 52.379913 50.475216 48.570518 46.665813 44.761105 42.856396 40.951683 39.046967 37.142246 35.23753 33.332802 31.428082 29.523354 27.618626 25.713898 23.80917 21.904438 19.999706 18.094975 16.190243 14.28551 12.380775 10.476042 8.5713072 6.6665726 4.761838 2.8571029 0.9523676 -0.9523676 -2.8571029 -4.761838 -6.6665726 -8.5713072 -10.476042 -12.380775 -14.28551 -16.190243 -18.094975 -19.999706 -21.904438 -23.80917 -25.713898 -27.618626 -29.523354 -31.428082 -33.332802 -35.23753 -37.142246 -39.046967 -40.951683 -42.856396 -44.761105 -46.665813 -48.570518 -50.475216 -52.379913 -54.284599 -56.189274 -58.093945 -59.998604 -61.903259 -63.807892 -65.712509 -67.617104 -69.52166 -71.426178 -73.33065 -75.235054 -77.139351 -79.04348 -80.94735 -82.850754 -84.753227 -86.653145 -88.541954 :values
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+\begin{ingrid*}
+ /heat_flux{
+[ | M L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/gflux/gflux.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (heat_flux) def
+ /calendar /standard def
+ /PTVersion 2 def
+ /gribparam 155 def
+ /GRIBgridcode 98 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /grib_name /GFLUX def
+ /gribNumBits 11 def
+ /scale_max 275.79999 def
+ /PDS_TimeRange 3 def
+ /gribleveltype 1 def
+ /gribcenter 7 def
+ /scale_min -103.6 def
+ /units (W/m2)cvn def
+ /long_name (Ground heat flux) def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+\end{ingrid*}
+:dataset
+:dataset
+\end{ingrid*}
+lhtfl
+lhtfl/lhtfl.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (lhtfl/lhtfl.m01.jan.cfs.data)def
+ /filepattern (lhtfl/lhtfl.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (surface)def
+\begin{ingrid*}
+dataset:
+/fileseg dataset 1 index get def
+datasetdefs: 
+:datasetdefs
+{ X Y L0 S S1 S2 M } { dataset 1 index get def } forall
+/name (latent)def
+\end{ingrid*}
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 88.541954 86.653145 84.753227 82.850754 80.94735 79.04348 77.139351 75.235054 73.33065 71.426178 69.52166 67.617104 65.712509 63.807892 61.903259 59.998604 58.093945 56.189274 54.284599 52.379913 50.475216 48.570518 46.665813 44.761105 42.856396 40.951683 39.046967 37.142246 35.23753 33.332802 31.428082 29.523354 27.618626 25.713898 23.80917 21.904438 19.999706 18.094975 16.190243 14.28551 12.380775 10.476042 8.5713072 6.6665726 4.761838 2.8571029 0.9523676 -0.9523676 -2.8571029 -4.761838 -6.6665726 -8.5713072 -10.476042 -12.380775 -14.28551 -16.190243 -18.094975 -19.999706 -21.904438 -23.80917 -25.713898 -27.618626 -29.523354 -31.428082 -33.332802 -35.23753 -37.142246 -39.046967 -40.951683 -42.856396 -44.761105 -46.665813 -48.570518 -50.475216 -52.379913 -54.284599 -56.189274 -58.093945 -59.998604 -61.903259 -63.807892 -65.712509 -67.617104 -69.52166 -71.426178 -73.33065 -75.235054 -77.139351 -79.04348 -80.94735 -82.850754 -84.753227 -86.653145 -88.541954 :values
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+\begin{ingrid}
+ /latent_heat_flux{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/lhtfl/%s[lcmon]/%Y[S]/lhtfl.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (latent_heat_flux) def
+/gribleveltype 1 def
+ /PTVersion 2 def
+ /center (US Weather Service - National Met. Center) def
+ /gribcenter 7 def
+ /PDS_TimeRange 10 def
+ /process 98 def
+ /gribparam 121 def
+ /long_name (Latent heat flux) def
+ /units (W/m2)cvn def
+ /calendar /standard def
+ /GRIBgridcode 2 def
+ /grib_name /LHTFL def
+ /gribNumBits 10 def
+ /subcenter (Environmental Modeling Center) def
+ /gribleveltype 1 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+\end{ingrid}
+:dataset
+:dataset
+:dataset
+\end{ingrid*}
+pevpr
+pevpr/pevpr.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (pevpr/pevpr.m01.jan.cfs.data)def
+ /filepattern (pevpr/pevpr.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (surface)def
+dataset:
+/fileseg dataset 1 index get def
+datasetdefs: 
+:datasetdefs
+{ X Y L0 S S1 S2 M } { dataset 1 index get def } forall
+/name (potential)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 88.541954 86.653145 84.753227 82.850754 80.94735 79.04348 77.139351 75.235054 73.33065 71.426178 69.52166 67.617104 65.712509 63.807892 61.903259 59.998604 58.093945 56.189274 54.284599 52.379913 50.475216 48.570518 46.665813 44.761105 42.856396 40.951683 39.046967 37.142246 35.23753 33.332802 31.428082 29.523354 27.618626 25.713898 23.80917 21.904438 19.999706 18.094975 16.190243 14.28551 12.380775 10.476042 8.5713072 6.6665726 4.761838 2.8571029 0.9523676 -0.9523676 -2.8571029 -4.761838 -6.6665726 -8.5713072 -10.476042 -12.380775 -14.28551 -16.190243 -18.094975 -19.999706 -21.904438 -23.80917 -25.713898 -27.618626 -29.523354 -31.428082 -33.332802 -35.23753 -37.142246 -39.046967 -40.951683 -42.856396 -44.761105 -46.665813 -48.570518 -50.475216 -52.379913 -54.284599 -56.189274 -58.093945 -59.998604 -61.903259 -63.807892 -65.712509 -67.617104 -69.52166 -71.426178 -73.33065 -75.235054 -77.139351 -79.04348 -80.94735 -82.850754 -84.753227 -86.653145 -88.541954 :values
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+\begin{ingrid*}
+ /potential_evap{
+[ | M L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/pevpr/pevpr.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (evap) def
+ /calendar /standard def
+ /gribparam 145 def
+ /GRIBgridcode 98 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /PTVersion 2 def
+ /grib_name /PEVPR def
+ /gribNumBits 15 def
+ /scale_max 2923.7 def
+ /PDS_TimeRange 3 def
+ /gribleveltype 1 def
+ /gribcenter 7 def
+ /scale_min -8.8000002 def
+ /units (W/m2)cvn def
+ /long_name (potential evaporation) def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+\end{ingrid*}
+:dataset
+:dataset
+:dataset
+\end{ingrid*}
+oceanheat
+oceanheat/oceanheat.m01.jan.cfs.data
+
+Undefined parameter table (center 7-4 table 129), using NCEP-2
+
+shtfl
+shtfl/shtfl.m01.jan.cfs.data
+
+\begin{ingrid}
+ /sensible_heat_flux{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/shtfl/%s[lcmon]/%Y[S]/shtfl.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (heat_flux) def
+ /subcenter (Environmental Modeling Center) def
+ /gribleveltype 1 def
+ /PTVersion 2 def
+ /process 98 def
+ /gribNumBits 10 def
+ /center (US Weather Service - National Met. Center) def
+ /gribparam 122 def
+ /long_name (Sensible heat flux) def
+ /units (W/m2)cvn def
+ /gribcenter 7 def
+ /calendar /standard def
+ /PDS_TimeRange 10 def
+ /grib_name /SHTFL def
+ /GRIBgridcode 2 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+\end{ingrid}
+
+watr
+watr/watr.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (watr/watr.m01.jan.cfs.data)def
+ /filepattern (watr/watr.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (surface)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 88.541954 86.653145 84.753227 82.850754 80.94735 79.04348 77.139351 75.235054 73.33065 71.426178 69.52166 67.617104 65.712509 63.807892 61.903259 59.998604 58.093945 56.189274 54.284599 52.379913 50.475216 48.570518 46.665813 44.761105 42.856396 40.951683 39.046967 37.142246 35.23753 33.332802 31.428082 29.523354 27.618626 25.713898 23.80917 21.904438 19.999706 18.094975 16.190243 14.28551 12.380775 10.476042 8.5713072 6.6665726 4.761838 2.8571029 0.9523676 -0.9523676 -2.8571029 -4.761838 -6.6665726 -8.5713072 -10.476042 -12.380775 -14.28551 -16.190243 -18.094975 -19.999706 -21.904438 -23.80917 -25.713898 -27.618626 -29.523354 -31.428082 -33.332802 -35.23753 -37.142246 -39.046967 -40.951683 -42.856396 -44.761105 -46.665813 -48.570518 -50.475216 -52.379913 -54.284599 -56.189274 -58.093945 -59.998604 -61.903259 -63.807892 -65.712509 -67.617104 -69.52166 -71.426178 -73.33065 -75.235054 -77.139351 -79.04348 -80.94735 -82.850754 -84.753227 -86.653145 -88.541954 :values
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+\begin{ingrid*}
+ /WATR{
+[ | M L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/watr/watr.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (WATR) def
+ /calendar /standard def
+ /gribparam 90 def
+ /GRIBgridcode 98 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /gribNumBits 11 def
+ /grib_name /WATR def
+ /PTVersion 2 def
+ /scale_max 23.98 def
+ /gribleveltype 1 def
+ /gribcenter 7 def
+ /scale_min 0.0 def
+ /units (kg/m^2)cvn def
+ /long_name (Water runoff) def
+ /PDS_TimeRange 3 def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+\end{ingrid*}
+:dataset
+:dataset
+\end{ingrid*}
+weasd
+weasd/weasd.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (weasd/weasd.m01.jan.cfs.data)def
+ /filepattern (weasd/weasd.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (surface)def
+dataset:
+/name (snow)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 88.541954 86.653145 84.753227 82.850754 80.94735 79.04348 77.139351 75.235054 73.33065 71.426178 69.52166 67.617104 65.712509 63.807892 61.903259 59.998604 58.093945 56.189274 54.284599 52.379913 50.475216 48.570518 46.665813 44.761105 42.856396 40.951683 39.046967 37.142246 35.23753 33.332802 31.428082 29.523354 27.618626 25.713898 23.80917 21.904438 19.999706 18.094975 16.190243 14.28551 12.380775 10.476042 8.5713072 6.6665726 4.761838 2.8571029 0.9523676 -0.9523676 -2.8571029 -4.761838 -6.6665726 -8.5713072 -10.476042 -12.380775 -14.28551 -16.190243 -18.094975 -19.999706 -21.904438 -23.80917 -25.713898 -27.618626 -29.523354 -31.428082 -33.332802 -35.23753 -37.142246 -39.046967 -40.951683 -42.856396 -44.761105 -46.665813 -48.570518 -50.475216 -52.379913 -54.284599 -56.189274 -58.093945 -59.998604 -61.903259 -63.807892 -65.712509 -67.617104 -69.52166 -71.426178 -73.33065 -75.235054 -77.139351 -79.04348 -80.94735 -82.850754 -84.753227 -86.653145 -88.541954 :values
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+\begin{ingrid*}
+ /snow_depth{
+[ | M L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/weasd/weasd.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (depth) def
+ /calendar /standard def
+ /gribparam 65 def
+ /GRIBgridcode 98 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 3 def
+ /subcenter (Environmental Modeling Center) def
+ /PTVersion 2 def
+ /grib_name /WEASD def
+ /gribNumBits 16 def
+ /scale_max 55002.879 def
+ /gribleveltype 1 def
+ /gribcenter 7 def
+ /scale_min 0.0 def
+ /units (kg/m^2)cvn def
+ /long_name (Accum. snow) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+\end{ingrid*}
+:dataset
+\end{ingrid*}
+
+\begin{ingrid}
+ /DIST{
+[| M Locean S] (/Data/data21/noaa/ncep/cfs/daily/oceanslh/%s[lcmon]/%Y[S]/oceanslh.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+name (DIST) def
+/X Xocean def
+/Y Yocean def
+ /gribleveltype 1 def
+ /PDS_TimeRange 10 def
+ /GRIBgridcode 10 def
+ /center (US Weather Service - National Met. Center) def
+ /PTVersion 2 def
+ /process 98 def
+ /scale_max 1.3 def
+ /gribparam 8 def
+ /scale_min -1.9 def
+ /long_name (Geometric height) def
+ /units /m def
+ /missing_value 9.99900026E20 def
+ /gribcenter 7 def
+ /calendar /standard def
+ /grib_name /DIST def
+ /gribNumBits 6 def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+
+\end{ingrid}
+
+end of surface
+\begin{ingrid}
+:dataset
+\end{ingrid}
+soilw
+soilw/soilw.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/fileseg dataset 1 index get def
+datasetdefs: 
+:datasetdefs
+{ L0 S S1 S2 M } { dataset 1 index get def } forall
+/name (soil) def
+\end{ingrid*}
+\begin{ingrid*}
+dataset:
+/name (soilw/soilw.m01.jan.cfs.data)def
+ /year0 0 def
+ /filepattern (soilw/soilw.m01.jan.cfs.data) def
+dataset:
+/name (0-10_cm_down)def
+dataset:
+/name (soil)def
+\begin{ingrid*}
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 88.541954 86.653145 84.753227 82.850754 80.94735 79.04348 77.139351 75.235054 73.33065 71.426178 69.52166 67.617104 65.712509 63.807892 61.903259 59.998604 58.093945 56.189274 54.284599
+ 52.379913 50.475216 48.570518 46.665813 44.761105 42.856396 40.951683 39.046967 37.142246 35.23753 33.332802 31.428082 29.523354 27.618626 25.713898 23.80917 21.904438 19.999706 18.094975 16.190243 14.28551 12.380775 10.476042 8.5713072 6.6665726 4.761838 2.8571029 0.9523676 
+-0.9523676 -2.8571029 -4.761838 -6.6665726 -8.5713072 -10.476042 -12.380775 -14.28551 -16.190243 -18.094975 -19.999706 -21.904438 -23.80917 -25.713898 -27.618626 -29.523354 -31.428082 -33.332802 -35.23753 -37.142246 -39.046967 -40.951683 -42.856396 -44.761105 -46.665813 
+-48.570518 -50.475216 -52.379913 -54.284599 -56.189274 -58.093945 -59.998604 -61.903259 -63.807892 -65.712509 -67.617104 -69.52166 -71.426178 -73.33065 -75.235054 -77.139351 -79.04348 -80.94735 -82.850754 -84.753227 -86.653145 -88.541954 :values
+:grid
+grid:
+/name (Z) def
+/units (cm down) def
+values: 0 10 200 :values
+:grid
+Z partialgrid name exch def
+ /moisture{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/soilw/soilw.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (moisture) def
+ /calendar /standard def
+ /GRIBgridcode 98 def
+ /gribparam 144 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /PTVersion 2 def
+ /PDS_TimeRange 3 def
+ /grib_name /SOILW def
+ /gribNumBits 13 def
+ /scale_max 0.468 def
+ /gribleveltype 112 def
+ /gribcenter 7 def
+ /scale_min 0.0 def
+ /units /unitless def
+ /long_name (moisture) def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+\end{ingrid*}
+/name (10-200_cm_down)def incorporated in above
+
+\end{ingrid*}
+soilt
+soilt/soilt.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (soilt/soilt.m01.jan.cfs.data)def
+ /year0 0 def
+ /filepattern (soilt/soilt.m01.jan.cfs.data) def
+dataset:
+/name (0-10_cm_down)def
+/name (10-200_cm_down)def
+\begin{ingrid*}
+ /temp{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/soilt/soilt.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (temp) def
+ /calendar /standard def
+ /gribparam 11 def
+ /GRIBgridcode 98 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /TMP def
+ /gribNumBits 14 def
+ /scale_max 310.59 def
+ /gribleveltype 112 def
+ /scale_min 199.8 def
+ /gribcenter 7 def
+ /units /Kelvin_scale def
+ /long_name (Temperature) def
+ /PTVersion 2 def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+\end{ingrid*}
+End of soil
+\begin{ingrid*}
+:dataset
+\end{ingrid*}
+\end{ingrid*}
+
+hcld
+hcld/hcld.m01.jan.cfs.data
+
+dataset:
+/name (hcld/hcld.m01.jan.cfs.data)def
+ /filepattern (hcld/hcld.m01.jan.cfs.data) def
+ /year0 0 def
+\begin{ingrid*}
+dataset:
+/fileseg dataset 1 index get def
+datasetdefs: 
+:datasetdefs
+{ L0 S S1 S2 M } { dataset 1 index get def } forall
+/name (high-cloud)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 88.541954 86.653145 84.753227 82.850754 80.94735 79.04348 77.139351 75.235054 73.33065 71.426178 69.52166 67.617104 65.712509 63.807892 61.903259 59.998604 58.093945 56.189274 54.284599 52.379913 50.475216 48.570518 46.665813 44.761105 42.856396 40.951683 39.046967 37.142246 35.23753 33.332802 31.428082 29.523354 27.618626 25.713898 23.80917 21.904438
+19.999706 18.094975 16.190243 14.28551 12.380775 10.476042 8.5713072 6.6665726 4.761838 2.8571029 0.9523676 -0.9523676 -2.8571029 -4.761838 -6.6665726 -8.5713072 -10.476042 -12.380775 -14.28551 -16.190243 -18.094975 -19.999706 -21.904438 -23.80917 -25.713898 -27.618626 -29.523354
+-31.428082 -33.332802 -35.23753 -37.142246 -39.046967 -40.951683 -42.856396 -44.761105 -46.665813 -48.570518 -50.475216 -52.379913 -54.284599 -56.189274 -58.093945 -59.998604 -61.903259 -63.807892
+-65.712509 -67.617104 -69.52166 -71.426178 -73.33065 -75.235054 -77.139351 -79.04348 -80.94735 -82.850754 -84.753227 -86.653145 -88.541954 :values
+:grid
+ /cld{
+[ | M L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/hcld/hcld.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (cld) def
+ /calendar /standard def
+ /PTVersion 2 def
+ /gribparam 71 def
+ /GRIBgridcode 98 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /TCDC def
+ /gribNumBits 10 def
+ /scale_max 98.199997 def
+ /gribleveltype 234 def
+ /gribcenter 7 def
+ /scale_min 0.3 def
+ /units /percent def
+ /long_name (cloud cover) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+\end{ingrid*}
+:dataset
+\end{ingrid*}
+lcld
+lcld/lcld.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (lcld/lcld.m01.jan.cfs.data)def
+ /filepattern (lcld/lcld.m01.jan.cfs.data) def
+ /year0 0 def
+\begin{ingrid*}
+dataset:
+/fileseg dataset 1 index get def
+datasetdefs: 
+:datasetdefs
+{ L0 S S1 S2 M } { dataset 1 index get def } forall
+/name (low-cloud)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 88.541954 86.653145 84.753227 82.850754 80.94735 79.04348 77.139351 75.235054 73.33065 71.426178 69.52166 67.617104 65.712509 63.807892 61.903259 59.998604 58.093945 56.189274 54.284599 52.379913 50.475216 48.570518 46.665813 44.761105 42.856396 40.951683 39.046967 
+37.142246 35.23753 33.332802 31.428082 29.523354 27.618626 25.713898 23.80917 21.904438 19.999706 18.094975 16.190243 14.28551 12.380775 10.476042 8.5713072 6.6665726 4.761838 2.8571029 0.9523676 -0.9523676 -2.8571029 -4.761838 -6.6665726 -8.5713072 -10.476042 -12.380775 
+-14.28551 -16.190243 -18.094975 -19.999706 -21.904438 -23.80917 -25.713898 -27.618626 -29.523354 -31.428082 -33.332802 -35.23753 -37.142246 -39.046967 -40.951683 -42.856396 -44.761105 -46.665813 
+-48.570518 -50.475216 -52.379913 -54.284599 -56.189274 -58.093945 -59.998604 -61.903259 -63.807892 -65.712509 
+-67.617104 -69.52166 -71.426178 -73.33065 -75.235054 -77.139351 -79.04348 -80.94735 -82.850754 -84.753227 -86.653145 -88.541954 :values
+:grid
+ /cld{
+[ | M L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/lcld/lcld.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (cld) def
+ /calendar /standard def
+ /PTVersion 2 def
+ /gribparam 71 def
+ /GRIBgridcode 98 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /TCDC def
+ /gribNumBits 10 def
+ /scale_max 98.300003 def
+ /gribleveltype 214 def
+ /gribcenter 7 def
+ /scale_min 0.0 def
+ /units /percent def
+ /long_name (cloud cover) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+\end{ingrid*}
+:dataset
+\end{ingrid*}
+mcld
+mcld/mcld.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (mcld/mcld.m01.jan.cfs.data)def
+ /filepattern (mcld/mcld.m01.jan.cfs.data) def
+ /year0 0 def
+\begin{ingrid*}
+dataset:
+/fileseg dataset 1 index get def
+datasetdefs: 
+:datasetdefs
+{ L0 S S1 S2 M } { dataset 1 index get def } forall
+/name (middle-cloud)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 88.541954 86.653145 84.753227 82.850754 80.94735 79.04348 77.139351 75.235054 73.33065 71.426178 69.52166 67.617104 65.712509 63.807892 61.903259 59.998604 58.093945 56.189274 54.284599 52.379913 50.475216 48.570518 46.665813 44.761105 42.856396 40.951683 39.046967
+ 37.142246 35.23753 33.332802 31.428082 29.523354 27.618626 25.713898 23.80917 21.904438 19.999706 18.094975 16.190243 14.28551 12.380775 10.476042 8.5713072 6.6665726 4.761838 2.8571029 0.9523676 -0.9523676 -2.8571029 -4.761838 -6.6665726 -8.5713072 -10.476042 -12.380775
+ -14.28551 -16.190243 -18.094975 -19.999706 -21.904438 -23.80917 -25.713898 -27.618626 -29.523354 -31.428082 -33.332802 -35.23753 -37.142246 -39.046967 -40.951683 -42.856396 -44.761105 -46.665813 
+-48.570518 -50.475216 -52.379913 -54.284599 -56.189274 -58.093945 -59.998604 -61.903259 -63.807892 -65.712509 -67.617104 -69.52166 -71.426178 -73.33065 -75.235054 -77.139351 -79.04348 -80.94735 -82.850754 -84.753227 -86.653145 -88.541954 :values
+:grid
+ /cld{
+[ | M L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/mcld/mcld.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (cld) def
+ /calendar /standard def
+ /PTVersion 2 def
+ /gribparam 71 def
+ /GRIBgridcode 98 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /TCDC def
+ /gribNumBits 10 def
+ /scale_max 96.099998 def
+ /gribleveltype 224 def
+ /gribcenter 7 def
+ /scale_min 0.4 def
+ /units /percent def
+ /long_name (cloud cover) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+\end{ingrid*}
+:dataset
+\end{ingrid*}
+ulwtop
+ulwtop/ulwtop.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (ulwtop/ulwtop.m01.jan.cfs.data)def
+ /filepattern (ulwtop/ulwtop.m01.jan.cfs.data) def
+ /year0 0 def
+
+\begin{ingrid}
+dataset:
+{ X Y L0 S M } { dataset 1 index get def } forall
+
+/name (top)def
+dataset:
+{ X Y L0 S M } { dataset 1 index get def } forall
+
+/name (upward)def
+ /lwflx{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/ulwtop/%s[lcmon]/%Y[S]/ulwtop.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (lwflx) def
+ /subcenter (Environmental Modeling Center) def
+ /gribleveltype 8 def
+ /PTVersion 2 def
+ /process 98 def
+ /gribNumBits 8 def
+ /center (US Weather Service - National Met. Center) def
+ /gribparam 212 def
+ /long_name (longwave flux) def
+ /units (W/m2)cvn def
+ /gribcenter 7 def
+ /calendar /standard def
+ /PDS_TimeRange 10 def
+ /grib_name /ULWRF def
+ /GRIBgridcode 2 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /solr{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/uswtop/%s[lcmon]/%Y[S]/uswtop.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (solr) def
+ /subcenter (Environmental Modeling Center) def
+ /gribleveltype 8 def
+ /PTVersion 2 def
+ /center (US Weather Service - National Met. Center) def
+ /gribcenter 7 def
+ /PDS_TimeRange 10 def
+ /process 98 def
+ /gribparam 211 def
+ /long_name (solar flux) def
+ /units (W/m2)cvn def
+ /calendar /standard def
+ /GRIBgridcode 2 def
+ /grib_name /USWRF def
+ /gribNumBits 10 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+:dataset
+\end{ingrid}
+end of top
+\begin{ingrid}
+:dataset
+\end{ingrid}
+
+wndstr
+*** file (wndstr/wndstr.m01.jan.cfs.data) not found ***
+
+tmin
+*** file (tmin/tmin.m01.jan.cfs.data) not found ***
+
+tmp2m
+tmp2m/tmp2m.m01.jan.cfs.data
+
+dataset:
+/name (tmp2m/tmp2m.m01.jan.cfs.data)def
+ /filepattern (tmp2m/tmp2m.m01.jan.cfs.data) def
+ /year0 0 def
+\begin{ingrid}
+dataset:
+datasetdefs: 
+ /uv10m{
+[| /NVZ
+     2 NewIntegerGRID
+     grid:
+       /name (Z) def
+       /units (m) def
+       values:
+        10 :values
+        :grid
+      M L0 S] (/Data/data21/noaa/ncep/cfs/daily/wnd10m/%s[lcmon]/%Y[S]/wnd10m.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [grid:
+        /name (Z) def
+        /units (m) def
+        values:
+         10 :values
+         :grid
+       M S dup
+          (%b) strftimes
+          tolower
+          /name /lcmon def
+          ]readdatafile:
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+
+:datasetdefs
+{X Y L0 S M } { dataset 1 index get def } forall
+/name (above_ground)def
+/u{
+uv10m NVZ 1 VALUE NVZ removeGRID
+/name (u) def
+ /process 98 def
+ /gribleveltype 105 def
+ /GRIBgridcode 2 def
+ /PDS_TimeRange 10 def
+ /center (US Weather Service - National Met. Center) def
+ /gribparam 33 def
+ /long_name (zonal wind) def
+ /units (m/s)cvn def
+ /calendar /standard def
+ /grib_name /UGRD def
+ /gribNumBits 9 def
+ /gribcenter 7 def
+ /PTVersion 2 def
+}defasvarsilent
+ /v{
+uv10m NVZ 2 VALUE NVZ removeGRID
+/name (v) def
+ /process 98 def
+ /gribleveltype 105 def
+ /GRIBgridcode 2 def
+ /PDS_TimeRange 10 def
+ /center (US Weather Service - National Met. Center) def
+ /gribparam 34 def
+ /long_name (meridional wind) def
+ /units (m/s)cvn def
+ /calendar /standard def
+ /grib_name /VGRD def
+ /gribNumBits 9 def
+ /gribcenter 7 def
+ /PTVersion 2 def
+}defasvarsilent
+/temp{
+[|      grid:
+       /name (Z) def
+       /units (m) def
+       values:
+        2 :values
+        :grid
+M L0 S] (/Data/data21/noaa/ncep/cfs/daily/tmp2m/%s[lcmon]/%Y[S]/tmp2m.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [     grid:
+       /name (Z) def
+       /units (m) def
+       values:
+        2 :values
+        :grid
+M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (temp) def
+ /gribleveltype 105 def
+ /PTVersion 2 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /gribNumBits 10 def
+ /gribcenter 7 def
+ /process 98 def
+ /gribparam 11 def
+ /long_name (Temperature) def
+ /PDS_TimeRange 10 def
+ /units /Kelvin_scale def
+ /GRIBgridcode 2 def
+ /grib_name /TMP def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+\end{ingrid}
+tmax
+tmax/tmax.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (tmax/tmax.m01.jan.cfs.data)def
+ /filepattern (tmax/tmax.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (above_ground)def
+\begin{ingrid*}
+dataset:
+/fileseg dataset 1 index get def
+datasetdefs: :datasetdefs
+{ X Y Z L0 S S1 S2 M } { dataset 1 index get def } forall
+/name (maximum)def
+\end{ingrid*}
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 88.541954 86.653145 84.753227 82.850754 80.94735 79.04348 77.139351 75.235054 73.33065 71.426178 69.52166 67.617104 65.712509 63.807892 61.903259 59.998604 58.093945 56.189274 54.284599 52.379913 50.475216 48.570518 46.665813 44.761105 42.856396 40.951683 39.046967 37.142246 35.23753 33.332802 31.428082 29.523354 27.618626 25.713898 23.80917 21.904438 19.999706 18.094975 16.190243 14.28551 12.380775 10.476042 8.5713072 6.6665726 4.761838 2.8571029 0.9523676 -0.9523676 -2.8571029 -4.761838 -6.6665726 -8.5713072 -10.476042 -12.380775 -14.28551 -16.190243 -18.094975 -19.999706 -21.904438 -23.80917 -25.713898 -27.618626 -29.523354 -31.428082 -33.332802 -35.23753 -37.142246 -39.046967 -40.951683 -42.856396 -44.761105 -46.665813 -48.570518 -50.475216 -52.379913 -54.284599 -56.189274 -58.093945 -59.998604 -61.903259 -63.807892 -65.712509 -67.617104 -69.52166 -71.426178 -73.33065 -75.235054 -77.139351 -79.04348 -80.94735 -82.850754 -84.753227 -86.653145 -88.541954 :values
+:grid
+:grid
+grid:
+/name (Z)def
+/units (m_above_gnd)def
+values: 2 :values
+:grid
+\begin{ingrid*}
+ /temp{
+[ | Z M L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/tmax/tmax.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (temp) def
+ /calendar /standard def
+ /gribparam 15 def
+ /GRIBgridcode 98 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /TMAX def
+ /gribNumBits 13 def
+ /scale_max 322.91 def
+ /gribleveltype 105 def
+ /scale_min 208.7 def
+ /gribcenter 7 def
+ /units /Kelvin_scale def
+ /long_name (Temperature) def
+ /PTVersion 2 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+\end{ingrid*}
+:dataset
+:dataset
+\end{ingrid*}
+
+\begin{ingrid*}
+dataset:
+/fileseg dataset 1 index get def
+datasetdefs: :datasetdefs
+{ X Y Z L0 S S1 S2 M } { dataset 1 index get def } forall
+/name (minimum)def
+\end{ingrid*}
+grid:
+/name (Z)def
+/units (m_above_gnd)def
+values: 2 :values
+:grid
+\begin{ingrid*}
+/temp{
+[ | Z M L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/tmin/tmin.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (temp) def
+ /long_name (Temperature) def
+ /units /Kelvin_scale def
+ /gribcenter 7 def
+ /PDS_TimeRange 3 def
+ /gribNumBits 13 def
+ /calendar /standard def
+ /grib_name /TMIN def
+ /gribleveltype 105 def
+ /process 98 def
+ /GRIBgridcode 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /PTVersion 2 def
+ /gribparam 16 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+\end{ingrid*}
+
+wnd10m
+*** file (wnd10m/wnd10m.m01.jan.cfs.data) not found ***
+
+spfh2m
+spfh2m/spfh2m.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (spfh2m/spfh2m.m01.jan.cfs.data)def
+ /filepattern (spfh2m/spfh2m.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (above_ground)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.875 358.125
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 88.541954 86.653145 84.753227 82.850754 80.94735 79.04348 77.139351 75.235054 73.33065 71.426178 69.52166 67.617104 65.712509 63.807892 61.903259 59.998604 58.093945 56.189274 54.284599 52.379913 50.475216 48.570518 46.665813 44.761105 42.856396 40.951683 39.046967 37.142246 35.23753 33.332802 31.428082 29.523354 27.618626 25.713898 23.80917 21.904438 19.999706 18.094975 16.190243 14.28551 12.380775 10.476042 8.5713072 6.6665726 4.761838 2.8571029 0.9523676 -0.9523676 -2.8571029 -4.761838 -6.6665726 -8.5713072 -10.476042 -12.380775 -14.28551 -16.190243 -18.094975 -19.999706 -21.904438 -23.80917 -25.713898 -27.618626 -29.523354 -31.428082 -33.332802 -35.23753 -37.142246 -39.046967 -40.951683 -42.856396 -44.761105 -46.665813 -48.570518 -50.475216 -52.379913 -54.284599 -56.189274 -58.093945 -59.998604 -61.903259 -63.807892 -65.712509 -67.617104 -69.52166 -71.426178 -73.33065 -75.235054 -77.139351 -79.04348 -80.94735 -82.850754 -84.753227 -86.653145 -88.541954 :values
+:grid
+grid:
+/name (Z)def
+/units (m_above_gnd)def
+values: 2 :values
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+\begin{ingrid*}
+ /qa{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/spfh2m/spfh2m.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (qa) def
+ /subcenter (Environmental Modeling Center) def
+ /calendar /standard def
+ /gribparam 51 def
+ /GRIBgridcode 98 def
+ /gribcenter 7 def
+ /center (US Weather Service - National Met. Center) def
+ /PTVersion 2 def
+ /grib_name /SPFH def
+ /scale_max 0.02202 def
+ /gribNumBits 11 def
+ /gribleveltype 105 def
+ /PDS_TimeRange 3 def
+ /scale_min -9.00000014E-05 def
+ /units /unitless def
+ /process 98 def
+ /long_name (Specific humidity) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+\end{ingrid*}
+end of above-ground
+\begin{ingrid}
+:dataset
+\end{ingrid}
+
+dt2.5c
+dt2.5c/dt2.5c.m01.jan.cfs.data
+
+Undefined parameter table (center 7-4 table 129), using NCEP-2
+
+\begin{ingrid*}
+dataset:
+/name (dt2.5c/dt2.5c.m01.jan.cfs.data)def
+ /filepattern (dt2.5c/dt2.5c.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (2)def
+dataset:
+/name (5C_ocean_isotherm level)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 1. 2. 359.
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 64. 1. -74.
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. 8400. 8766. :values
+:grid
+ /CBQW{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/spfh2m/spfh2m.m%2.2d[M].%s[lcmon].cfs.data) [M S1 dup
+        (%b) strftimes
+        tolower
+        /name /lcmon def
+        ]
+ readdatafile:
+/name (CBQW) def
+ /subcenter (Environmental Modeling Center) def
+ /calendar /standard def
+ /long_name (Covar. spec. hum and omega) def
+ /gribparam 195 def
+ /GRIBgridcode 10 def
+ /gribcenter 7 def
+ /center (US Weather Service - National Met. Center) def
+ /gribNumBits 12 def
+ /grib_name /CBQW def
+ /PTVersion 129 def
+ /scale_max 3625. def
+ /gribleveltype 235 def
+ /scale_min 5. def
+ /process 98 def
+ /units (g/g Pa/s)cvn def
+ /PDS_TimeRange 3 def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+:dataset
+:dataset
+\end{ingrid*}
+dt5c
+dt5c/dt5c.m01.jan.cfs.data
+
+Undefined parameter table (center 7-4 table 129), using NCEP-2
+
+\begin{ingrid*}
+dataset:
+/name (dt5c/dt5c.m01.jan.cfs.data)def
+ /filepattern (dt5c/dt5c.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (5C_ocean_isotherm level)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 1. 2. 359.
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 64. 1. -74.
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. 8400. 8766. :values
+:grid
+ /CBQW{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/spfh2m/spfh2m.m%2.2d[M].%s[lcmon].cfs.data) [M S1 dup
+        (%b) strftimes
+        tolower
+        /name /lcmon def
+        ]
+ readdatafile:
+/name (CBQW) def
+ /PDS_TimeRange 3 def
+ /calendar /standard def
+ /gribparam 195 def
+ /GRIBgridcode 10 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /grib_name /CBQW def
+ /PTVersion 129 def
+ /scale_max 1815. def
+ /gribleveltype 235 def
+ /gribcenter 7 def
+ /scale_min 5. def
+ /units (g/g Pa/s)cvn def
+ /long_name (Covar. spec. hum and omega) def
+ /gribNumBits 11 def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+:dataset
+\end{ingrid*}
+dt10c
+dt10c/dt10c.m01.jan.cfs.data
+
+Undefined parameter table (center 7-4 table 129), using NCEP-2
+
+\begin{ingrid*}
+dataset:
+/name (dt10c/dt10c.m01.jan.cfs.data)def
+ /filepattern (dt10c/dt10c.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (10C_ocean_isotherm level)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 1. 2. 359.
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 64. 1. -74.
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. 8400. 8766. :values
+:grid
+ /CBQW{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/spfh2m/spfh2m.m%2.2d[M].%s[lcmon].cfs.data) [M S1 dup
+        (%b) strftimes
+        tolower
+        /name /lcmon def
+        ]
+ readdatafile:
+/name (CBQW) def
+ /PDS_TimeRange 3 def
+ /calendar /standard def
+ /gribparam 195 def
+ /GRIBgridcode 10 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /grib_name /CBQW def
+ /PTVersion 129 def
+ /scale_max 924. def
+ /gribleveltype 235 def
+ /gribcenter 7 def
+ /scale_min 5. def
+ /units (g/g Pa/s)cvn def
+ /long_name (Covar. spec. hum and omega) def
+ /gribNumBits 10 def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+:dataset
+\end{ingrid*}
+dt15c
+dt15c/dt15c.m01.jan.cfs.data
+
+Undefined parameter table (center 7-4 table 129), using NCEP-2
+
+\begin{ingrid*}
+dataset:
+/name (dt15c/dt15c.m01.jan.cfs.data)def
+ /filepattern (dt15c/dt15c.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (15C_ocean_isotherm level)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 1. 2. 359.
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 64. 1. -74.
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. 8400. 8766. :values
+:grid
+ /CBQW{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/spfh2m/spfh2m.m%2.2d[M].%s[lcmon].cfs.data) [M S1 dup
+        (%b) strftimes
+        tolower
+        /name /lcmon def
+        ]
+ readdatafile:
+/name (CBQW) def
+ /PDS_TimeRange 3 def
+ /calendar /standard def
+ /gribparam 195 def
+ /GRIBgridcode 10 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /grib_name /CBQW def
+ /PTVersion 129 def
+ /scale_max 707. def
+ /gribleveltype 235 def
+ /gribcenter 7 def
+ /scale_min 5. def
+ /units (g/g Pa/s)cvn def
+ /long_name (Covar. spec. hum and omega) def
+ /gribNumBits 10 def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+:dataset
+\end{ingrid*}
+dt20c
+dt20c/dt20c.m01.jan.cfs.data
+
+Undefined parameter table (center 7-4 table 129), using NCEP-2
+
+\begin{ingrid*}
+dataset:
+/name (dt20c/dt20c.m01.jan.cfs.data)def
+ /filepattern (dt20c/dt20c.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (20C_ocean_isotherm level)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 1. 2. 359.
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 64. 1. -74.
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. 8400. 8766. :values
+:grid
+ /CBQW{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/spfh2m/spfh2m.m%2.2d[M].%s[lcmon].cfs.data) [M S1 dup
+        (%b) strftimes
+        tolower
+        /name /lcmon def
+        ]
+ readdatafile:
+/name (CBQW) def
+ /PDS_TimeRange 3 def
+ /calendar /standard def
+ /gribparam 195 def
+ /GRIBgridcode 10 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /grib_name /CBQW def
+ /PTVersion 129 def
+ /scale_max 346. def
+ /gribleveltype 235 def
+ /gribcenter 7 def
+ /scale_min 5. def
+ /units (g/g Pa/s)cvn def
+ /long_name (Covar. spec. hum and omega) def
+ /gribNumBits 9 def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+:dataset
+\end{ingrid*}
+dt25c
+dt25c/dt25c.m01.jan.cfs.data
+
+Undefined parameter table (center 7-4 table 129), using NCEP-2
+
+\begin{ingrid*}
+dataset:
+/name (dt25c/dt25c.m01.jan.cfs.data)def
+ /filepattern (dt25c/dt25c.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (25C_ocean_isotherm level)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 1. 2. 359.
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 64. 1. -74.
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. 8400. 8766. :values
+:grid
+ /CBQW{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/spfh2m/spfh2m.m%2.2d[M].%s[lcmon].cfs.data) [M S1 dup
+        (%b) strftimes
+        tolower
+        /name /lcmon def
+        ]
+ readdatafile:
+/name (CBQW) def
+ /PDS_TimeRange 3 def
+ /calendar /standard def
+ /gribparam 195 def
+ /GRIBgridcode 10 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /grib_name /CBQW def
+ /PTVersion 129 def
+ /scale_max 738. def
+ /gribleveltype 235 def
+ /gribcenter 7 def
+ /scale_min 5. def
+ /units (g/g Pa/s)cvn def
+ /long_name (Covar. spec. hum and omega) def
+ /gribNumBits 9 def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+:dataset
+\end{ingrid*}
+dt28c
+dt28c/dt28c.m01.jan.cfs.data
+
+Undefined parameter table (center 7-4 table 129), using NCEP-2
+
+\begin{ingrid*}
+dataset:
+/name (dt28c/dt28c.m01.jan.cfs.data)def
+ /filepattern (dt28c/dt28c.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (28C_ocean_isotherm level)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 1. 2. 359.
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 64. 1. -74.
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. 8400. 8766. :values
+:grid
+ /CBQW{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/spfh2m/spfh2m.m%2.2d[M].%s[lcmon].cfs.data) [M S1 dup
+        (%b) strftimes
+        tolower
+        /name /lcmon def
+        ]
+ readdatafile:
+/name (CBQW) def
+ /PDS_TimeRange 3 def
+ /calendar /standard def
+ /gribparam 195 def
+ /GRIBgridcode 10 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /grib_name /CBQW def
+ /PTVersion 129 def
+ /scale_max 169. def
+ /gribleveltype 235 def
+ /gribcenter 7 def
+ /scale_min 5. def
+ /units (g/g Pa/s)cvn def
+ /long_name (Covar. spec. hum and omega) def
+ /gribNumBits 8 def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+:dataset
+\end{ingrid*}
+t50
+t50/t50.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (t50/t50.m01.jan.cfs.data)def
+ /filepattern (t50/t50.m01.jan.cfs.data) def
+ /year0 0 def
+\begin{ingrid}
+dataset:
+{ L0 S M } { dataset 1 index get def } forall
+datasetdefs: 
+/psivpot {
+[| /NVZ
+     2 NewIntegerGRID
+ grid:
+       /name (P) def
+       /units (mb) def
+       values:
+        850 200 :values
+        :grid
+       M L0 S] 
+(/Data/data21/noaa/ncep/cfs/daily/sfvp%d[P]/%s[lcmon]/%Y[S]/sfvp%d[P].m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [
+ grid:
+       /name (P) def
+       /units (mb) def
+       values:
+        850 200 :values
+        :grid M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+ /uv{
+[ | /NVZ 2 NewIntegerGRID
+ grid:
+       /name (P) def
+       /units (mb) def
+       values:
+        850 200 :values
+        :grid
+M L0 S](/Data/data21/noaa/ncep/cfs/daily/wnd%d[P]/%s[lcmon]/%Y[S]/wnd%d[P].m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [
+ grid:
+       /name (P) def
+       /units (mb) def
+       values:
+        850 200 :values
+        :grid
+ M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+:datasetdefs
+{ L0 S M } { dataset 1 index get def } forall
+/name (PressureLevel)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 2.5 -90.
+:grid
+ grid:
+       /name (P) def
+       /units (mb) def
+       values:
+        1000 850 700 500 200 :values
+        :grid
+\end{ingrid}
+\begin{ingrid*}
+ /temp{
+[ | 
+grid:
+/name (P)def
+/units (mb)def
+values: 50 :values
+:grid
+M L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/spfh2m/spfh2m.m%2.2d[M].%s[lcmon].cfs.data) [M S1 dup
+        (%b) strftimes
+        tolower
+        /name /lcmon def
+        ]
+ readdatafile:
+/name (temp) def
+ /calendar /standard def
+ /gribparam 11 def
+ /GRIBgridcode 2 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /TMP def
+ /gribNumBits 12 def
+ /scale_max 227.25999 def
+ /gribleveltype 100 def
+ /gribcenter 7 def
+ /scale_min 165.81 def
+ /units /Kelvin_scale def
+ /long_name (Temperature) def
+ /PTVersion 2 def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+\end{ingrid*}
+vw500
+vw500/vw500.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (vw500/vw500.m01.jan.cfs.data)def
+ /filepattern (vw500/vw500.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (PressureLevel)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 2.5 -90.
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+\begin{ingrid*}
+ /vvel{
+[ | M 
+grid:
+/name (P)def
+/units (mb)def
+values: 500 :values
+:grid
+ L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/vw500/vw500.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (vvel) def
+ /calendar /standard def
+ /gribparam 39 def
+ /GRIBgridcode 2 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /subcenter (Environmental Modeling Center) def
+ /PTVersion 2 def
+ /grib_name /VVEL def
+ /gribNumBits 13 def
+ /PDS_TimeRange 3 def
+ /scale_max 0.3047 def
+ /gribleveltype 100 def
+ /gribcenter 7 def
+ /scale_min -0.4376 def
+ /units (Pa/s)cvn def
+ /long_name (Pressure vertical velocity) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+\end{ingrid*}
+:dataset
+:dataset
+\end{ingrid*}
+sfvp200
+sfvp200/sfvp200.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (sfvp200/sfvp200.m01.jan.cfs.data)def
+ /year0 0 def
+ /filepattern (sfvp200/sfvp200.m01.jan.cfs.data) def
+dataset:
+/name (PressureLevel)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 2.5 -90.
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+\begin{ingrid}
+/psi
+{
+psivpot
+NVZ 1 VALUE /NVZ removeGRID
+/name (psi) def
+ /gribcenter 7 def
+ /gribleveltype 100 def
+ /process 98 def
+ /GRIBgridcode 2 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 10 def
+ /PTVersion 2 def
+ /gribparam 35 def
+ /scale_min -43560000. def
+ /long_name (Stream function) def
+ /units (m^2/s)cvn def
+ /grib_name /STRM def
+ /gribNumBits 13 def
+
+ /subcenter (Environmental Modeling Center) def
+ /units (m^2/s)cvn def
+} defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /vpot{
+psivpot
+NVZ 2 VALUE NVZ removeGRID
+/name (vpot) def
+ /subcenter (Environmental Modeling Center) def
+ /calendar /standard def
+ /gribparam 36 def
+ /GRIBgridcode 2 def
+ /gribcenter 7 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /VPOT def
+ /gribNumBits 12 def
+ /gribleveltype 100 def
+ /process 98 def
+ /units (m^2/s)cvn def
+ /PTVersion 2 def
+ /long_name (Velocity potential) def
+}defasvarsilent
+\end{ingrid}
+sfvp850
+sfvp850/sfvp850.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (sfvp850/sfvp850.m01.jan.cfs.data)def
+ /year0 0 def
+ /filepattern (sfvp850/sfvp850.m01.jan.cfs.data) def
+dataset:
+/name (PressureLevel)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 2.5 -90.
+:grid
+grid:
+/name (P)def
+/units (mb)def
+values: 850 :values
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+ /psi{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/sfvp850/sfvp850.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (psi) def
+ /subcenter (Environmental Modeling Center) def
+ /calendar /standard def
+ /gribparam 35 def
+ /GRIBgridcode 2 def
+ /gribcenter 7 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /STRM def
+ /scale_max 36890000. def
+ /gribNumBits 13 def
+ /gribleveltype 100 def
+ /scale_min -27100000. def
+ /process 98 def
+ /units (m^2/s)cvn def
+ /PTVersion 2 def
+ /long_name (Stream function) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+ /vpot{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/sfvp850/sfvp850.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (vpot) def
+ /subcenter (Environmental Modeling Center) def
+ /calendar /standard def
+ /gribparam 36 def
+ /GRIBgridcode 2 def
+ /gribcenter 7 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /VPOT def
+ /scale_max 15460000. def
+ /gribNumBits 11 def
+ /gribleveltype 100 def
+ /scale_min -12770000. def
+ /process 98 def
+ /units (m^2/s)cvn def
+ /PTVersion 2 def
+ /long_name (Velocity potential) def
+ /realarraytype netcdfrecords :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+:dataset
+\end{ingrid*}
+tmp200
+tmp200/tmp200.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (tmp200/tmp200.m01.jan.cfs.data)def
+ /filepattern (tmp200/tmp200.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (PressureLevel)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 2.5 -90.
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+\begin{ingrid*}
+ /temp{
+[ | grid:
+/name (P)def
+/units (mb)def
+values: 850 500 200 :values
+:grid
+M  L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/tmp%d[P]/tmp%d[P].m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+[ 2 index 0 get M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (temp) def
+ /subcenter (Environmental Modeling Center) def
+ /calendar /standard def
+ /gribparam 11 def
+ /GRIBgridcode 2 def
+ /gribcenter 7 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /TMP def
+ /PTVersion 2 def
+% /scale_max 227.14 def
+ /gribNumBits 12 def
+ /gribleveltype 100 def
+% /scale_min 190.31 def
+ /process 98 def
+ /units /Kelvin_scale def
+ /long_name (Temperature) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+\end{ingrid*}
+:dataset
+:dataset
+\end{ingrid*}
+tmp500
+tmp500/tmp500.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (tmp500/tmp500.m01.jan.cfs.data)def
+ /filepattern (tmp500/tmp500.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (PressureLevel)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 2.5 -90.
+:grid
+grid:
+/name (P)def
+/units (mb)def
+values: 500 :values
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+ /temp{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/tmp500/tmp500.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (temp) def
+ /subcenter (Environmental Modeling Center) def
+ /calendar /standard def
+ /gribparam 11 def
+ /GRIBgridcode 2 def
+ /gribcenter 7 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /TMP def
+ /PTVersion 2 def
+ /scale_max 275.81 def
+ /gribNumBits 13 def
+ /gribleveltype 100 def
+ /scale_min 220.88 def
+ /process 98 def
+ /units /Kelvin_scale def
+ /long_name (Temperature) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+:dataset
+\end{ingrid*}
+tmp850
+tmp850/tmp850.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (tmp850/tmp850.m01.jan.cfs.data)def
+ /filepattern (tmp850/tmp850.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (PressureLevel)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 2.5 -90.
+:grid
+grid:
+/name (P)def
+/units (mb)def
+values: 850 :values
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+ /temp{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/tmp850/tmp850.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (temp) def
+ /subcenter (Environmental Modeling Center) def
+ /calendar /standard def
+ /gribparam 11 def
+ /GRIBgridcode 2 def
+ /gribcenter 7 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 3 def
+ /grib_name /TMP def
+ /PTVersion 2 def
+ /scale_max 306.29001 def
+ /gribNumBits 13 def
+ /gribleveltype 100 def
+ /scale_min 226.35001 def
+ /process 98 def
+ /units /Kelvin_scale def
+ /long_name (Temperature) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+:dataset
+\end{ingrid*}
+wnd200
+wnd200/wnd200.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (wnd200/wnd200.m01.jan.cfs.data)def
+ /year0 0 def
+ /filepattern (wnd200/wnd200.m01.jan.cfs.data) def
+dataset:
+/name (PressureLevel)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 2.5 -90.
+:grid
+grid:
+/name (P)def
+/units (mb)def
+values: 200 :values
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+\begin{ingrid}
+/u {
+uv NVZ 1 VALUE NVZ removeGRID
+/name (u) def
+/gribleveltype 100 def
+ /center (US Weather Service - National Met. Center) def
+ /gribNumBits 10 def
+ /scale_max 44. def
+ /gribcenter 7 def
+ /PTVersion 2 def
+ /process 98 def
+ /gribparam 33 def
+ /long_name (zonal wind) def
+ /PDS_TimeRange 10 def
+ /units (m/s)cvn def
+ /GRIBgridcode 2 def
+ /subcenter (Environmental Modeling Center) def
+ /gribleveltype 100 def
+/grib_name /UGRD def
+ /units (m/s)cvn def
+} defasvarsilent
+ /v{
+uv NVZ 2 VALUE NVZ removeGRID
+/name (v) def
+ /subcenter (Environmental Modeling Center) def
+/gribleveltype 100 def
+ /center (US Weather Service - National Met. Center) def
+ /gribNumBits 9 def
+ /scale_max 45.700001 def
+ /gribcenter 7 def
+ /PTVersion 2 def
+ /process 98 def
+ /gribparam 34 def
+ /long_name (meridional wind) def
+ /PDS_TimeRange 10 def
+ /units (m/s)cvn def
+ /GRIBgridcode 2 def
+ /calendar /standard def
+ /scale_min -42.400002 def
+ /grib_name /VGRD def
+ /gribleveltype 100 def
+ /units (m/s)cvn def
+ /PDS_TimeRange 3 def
+ /long_name (meridional wind) def
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /phi{
+[ | 
+grid:
+/name (P)def
+/units (mb)def
+values: 1000 850 700 500 200 :values
+:grid
+M L0 S](/Data/data21/noaa/ncep/cfs/daily/z%d[P]/%s[lcmon]/%Y[S]/z%d[P].m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [grid:
+/name (P)def
+/units (mb)def
+values: 1000 850 700 500 200 :values :grid
+ M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/process 98 def
+ /gribleveltype 100 def
+ /GRIBgridcode 2 def
+ /PTVersion 2 def
+ /PDS_TimeRange 10 def
+ /center (US Weather Service - National Met. Center) def
+ /gribparam 7 def
+ /units /gpm def
+ /grib_name /HGT def
+ /gribNumBits 13 def
+ /gribcenter 7 def
+/name (phi) def
+ /subcenter (Environmental Modeling Center) def
+ /long_name (Geopotential height) def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+\end{ingrid}
+:dataset
+:dataset
+\end{ingrid*}
+z500
+z500/z500.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (z500/z500.m01.jan.cfs.data)def
+ /filepattern (z500/z500.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (PressureLevel)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 2.5 -90.
+:grid
+grid:
+/name (P)def
+/units (mb)def
+values: 500 :values
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+ /phi{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/z500/z500.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (phi) def
+ /calendar /standard def
+ /gribparam 7 def
+ /GRIBgridcode 2 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 3 def
+ /subcenter (Environmental Modeling Center) def
+ /PTVersion 2 def
+ /grib_name /HGT def
+ /gribNumBits 16 def
+ /scale_max 5940.6299 def
+ /gribleveltype 100 def
+ /gribcenter 7 def
+ /scale_min 4639.5898 def
+ /units /gpm def
+ /long_name (Geopotential height) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+:dataset
+\end{ingrid*}
+z700
+z700/z700.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (z700/z700.m01.jan.cfs.data)def
+ /filepattern (z700/z700.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (PressureLevel)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 2.5 -90.
+:grid
+grid:
+/name (P)def
+/units (mb)def
+values: 700 :values
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+ /phi{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/z700/z700.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (phi) def
+ /calendar /standard def
+ /gribparam 7 def
+ /GRIBgridcode 2 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 3 def
+ /subcenter (Environmental Modeling Center) def
+ /PTVersion 2 def
+ /grib_name /HGT def
+ /gribNumBits 16 def
+ /scale_max 3239.8201 def
+ /gribleveltype 100 def
+ /gribcenter 7 def
+ /scale_min 2321.6399 def
+ /units /gpm def
+ /long_name (Geopotential height) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+:dataset
+\end{ingrid*}
+z850
+z850/z850.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (z850/z850.m01.jan.cfs.data)def
+ /filepattern (z850/z850.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (PressureLevel)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 2.5 -90.
+:grid
+grid:
+/name (P)def
+/units (mb)def
+values: 850 :values
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+ /phi{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/z850/z850.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (phi) def
+ /calendar /standard def
+ /gribparam 7 def
+ /GRIBgridcode 2 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 3 def
+ /subcenter (Environmental Modeling Center) def
+ /PTVersion 2 def
+ /grib_name /HGT def
+ /gribNumBits 16 def
+ /scale_max 1729.1899 def
+ /gribleveltype 100 def
+ /gribcenter 7 def
+ /scale_min 928.32001 def
+ /units /gpm def
+ /long_name (Geopotential height) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+:dataset
+\end{ingrid*}
+z1000
+z1000/z1000.m01.jan.cfs.data
+
+\begin{ingrid*}
+dataset:
+/name (z1000/z1000.m01.jan.cfs.data)def
+ /filepattern (z1000/z1000.m01.jan.cfs.data) def
+ /year0 0 def
+dataset:
+/name (PressureLevel)def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90. 2.5 -90.
+:grid
+grid:
+/name (P)def
+/units (mb)def
+values: 1000 :values
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. :values
+:grid
+ /phi{
+[ | M Z L0 S1 S2] (/Data/data21/noaa/ncep/cfs/monthly/z1000/z1000.m%2.2d[M].%s[lcmon].%s[fileseg].data) 
+M S1 fileseg S2 exch
+          2 index
+           (%b) strftimes
+           tolower
+           /name /lcmon def
+           ]
+ readdatafile:
+/name (phi) def
+ /calendar /standard def
+ /gribparam 7 def
+ /GRIBgridcode 2 def
+ /process 98 def
+ /center (US Weather Service - National Met. Center) def
+ /PDS_TimeRange 3 def
+ /subcenter (Environmental Modeling Center) def
+ /PTVersion 2 def
+ /grib_name /HGT def
+ /gribNumBits 16 def
+ /scale_max 445.03 def
+ /gribleveltype 100 def
+ /gribcenter 7 def
+ /scale_min -258.53 def
+ /units /gpm def
+ /long_name (Geopotential height) def
+ GRIB1record :readdatafile
+decompress
+   [S S2]3 index .S replaceGRIDstream
+}defasvarsilent
+:dataset
+:dataset
+\end{ingrid*}
+
+End of PressureLevel
+\begin{ingrid}
+:dataset
+\end{ingrid}
+
+\begin{ingrid*}
+dataset:
+/name (oceanheat/oceanheat.m01.jan.cfs.data)def
+ /filepattern (oceanheat/oceanheat.m01.jan.cfs.data) def
+ /year0 0 def
+\begin{ingrid}
+dataset:
+/name (0-300m_ocean_layer)def
+{S M } { dataset 1 index get def } forall
+/X dataset .Xocean def
+/Y dataset .Yocean def
+/L0 dataset .Locean def
+\end{ingrid}
+grid:
+/name (X)def
+/units (degree_east)def
+ 1. 2. 359.
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ 64. 1. -74.
+:grid
+grid:
+/name (T)def
+/units (days since 1981-01-01 00:00:00)def
+values: 0.0 365. 730. 1095. 1461. 1826. 2191. 2556. 2922. 3287. 3652. 4017. 4383. 4748. 5113. 5478. 5844. 6209. 6574. 6939. 7305. 7670. 8035. 8400. 8766. :values
+:grid
+\begin{ingrid}
+ /oceanheat{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/oceanheat/%s[lcmon]/%Y[S]/oceanheat.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (oceanheat) def
+ /subcenter (Environmental Modeling Center) def
+ /calendar /standard def
+ /long_name (heat content) def
+ /PTVersion 129 def
+ /gribparam 197 def
+ /GRIBgridcode 10 def
+ /center (US Weather Service - National Met. Center) def
+ /gribcenter 7 def
+ /PDS_TimeRange 3 def
+ /gribleveltype 236 def
+ /gribNumBits 16 def
+ /process 98 def
+ /units (J/m2) def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+:dataset
+\end{ingrid}
+:dataset
+\end{ingrid*}
+oceanmld
+oceanmld/oceanmld.m01.jan.cfs.data
+
+\begin{ingrid}
+dataset:
+/name (ocean_mixed_layer_bot)def
+{S M } { dataset 1 index get def } forall
+/X dataset .Xocean def
+/Y dataset .Yocean def
+/L0 dataset .Locean def
+ /depth{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/oceanmld/%s[lcmon]/%Y[S]/oceanmld.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (depth) def
+ /subcenter (Environmental Modeling Center) def
+ /calendar /standard def
+ /long_name (ocean mixed layer depth) def
+ /gribparam 195 def
+ /GRIBgridcode 10 def
+ /gribcenter 7 def
+ /center (US Weather Service - National Met. Center) def
+ /gribNumBits 11 def
+ /PTVersion 129 def
+ /gribleveltype 237 def
+ /process 98 def
+ /units /unitless def
+ /PDS_TimeRange 3 def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+:dataset
+\end{ingrid}
+oceansild
+oceansild/oceansild.m01.jan.cfs.data
+
+Undefined parameter table (center 7-4 table 129), using NCEP-2
+
+\begin{ingrid*}
+dataset:
+/name (oceansild/oceansild.m01.jan.cfs.data)def
+ /filepattern (oceansild/oceansild.m01.jan.cfs.data) def
+ /year0 0 def
+\begin{ingrid}
+dataset:
+/name (ocean_isothermal_layer_bot)def
+{S M } { dataset 1 index get def } forall
+/X dataset .Xocean def
+/Y dataset .Yocean def
+/L0 dataset .Locean def
+ /depth{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/oceansild/%s[lcmon]/%Y[S]/oceansild.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (depth) def
+ /subcenter (Environmental Modeling Center) def
+ /calendar /standard def
+ /long_name (isothermal depth) def
+ /gribparam 195 def
+ /GRIBgridcode 10 def
+ /PDS_TimeRange 3 def
+ /center (US Weather Service - National Met. Center) def
+ /gribcenter 7 def
+ /gribNumBits 11 def
+ /gribleveltype 238 def
+ /process 98 def
+ /units /unitless def
+ /PTVersion 129 def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset:
+grid: 
+/name /Level def
+/units (Celsius_scale) def
+values:
+28 
+25 20 15 10 5 2.5
+:values
+:grid
+datasetdefs:
+variable:
+/name /LS def
+grids: Level :grids
+values:
+(28) 
+(25) (20) (15) (10) (5) (2.5)
+:values
+:variable
+:datasetdefs
+/Level Level def
+/name (ocean_isotherm_level)def
+{ S M } { dataset 1 index get def } forall
+/X dataset .Xocean def
+/Y dataset .Yocean def
+/L0 dataset .Locean def
+ /depth{
+[| Level M L0 S] (/Data/data21/noaa/ncep/cfs/daily/dt%s[LS]c/%s[lcmon]/%Y[S]/dt%s[LS]c.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [Level M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+	 LS
+         ]readdatafile:
+/name (depth) def
+ /subcenter (Environmental Modeling Center) def
+ /long_name (isothermal depth) def
+ /units /unitless def
+
+/gribleveltype 235 def
+ /PTVersion 129 def
+ /center (US Weather Service - National Met. Center) def
+ /gribcenter 7 def
+ /PDS_TimeRange 10 def
+ /process 98 def
+ /gribparam 195 def
+ /missing_value 9.99900026E20 def
+ /calendar /standard def
+ /GRIBgridcode 10 def
+ /grib_name /var195 def
+ /gribNumBits 8 def
+ /missing_value 9.99900026E20 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset:
+{ X Y L0 S M } { dataset 1 index get def } forall
+/name (MSL)def
+ /long_name (Mean Sea Level) def
+ /PRMSL{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/mslp/%s[lcmon]/%Y[S]/mslp.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (PRMSL) def
+ /gribleveltype 102 def
+ /PTVersion 2 def
+ /center (US Weather Service - National Met. Center) def
+ /scale_max 109003. def
+ /gribcenter 7 def
+ /PDS_TimeRange 10 def
+ /process 98 def
+ /scale_min 92755. def
+ /gribparam 2 def
+ /long_name (Pressure reduced to MSL) def
+ /units /Pa def
+ /calendar /standard def
+ /GRIBgridcode 2 def
+ /grib_name /PRMSL def
+ /gribNumBits 14 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset:
+{ X Y L0 S M } { dataset 1 index get def } forall
+/name (total_air_column)def
+ /PWAT{
+[| M L0 S] (/Data/data21/noaa/ncep/cfs/daily/pwat/%s[lcmon]/%Y[S]/pwat.m%2.2d[M].%s[lcmon].%Y[S].cfs.data) [M S dup
+         (%b) strftimes
+         tolower
+         /name /lcmon def
+         ]readdatafile:
+/name (PWAT) def
+ /gribleveltype 200 def
+ /PTVersion 2 def
+ /process 98 def
+ /gribNumBits 10 def
+ /center (US Weather Service - National Met. Center) def
+ /scale_max 78.599998 def
+ /gribparam 54 def
+ /scale_min 0.0 def
+ /long_name (Precipitable water) def
+ /units (kg/m^2)cvn def
+ /gribcenter 7 def
+ /calendar /standard def
+ /PDS_TimeRange 10 def
+ /grib_name /PWAT def
+ /GRIBgridcode 2 def
+ GRIB1record :readdatafile
+decompress
+}defasvarsilent
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+T pop
+\end{ingrid}

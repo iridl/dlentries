@@ -1,0 +1,228 @@
+\begin{ingrid}
+
+continuedataset:
+
+        grid:
+         /name (X)def
+         /long_name (longitude) def
+         /units (degree_east)def
+%         periodic
+	 0.0 2.5 353.5
+        :grid
+	/X1 X def
+
+        grid:
+         /name (Y)def
+	 /long_name (latitude) def
+         /units (degree_north)def
+	 90.0 2.5 -90.0
+        :grid
+	/Y1 Y def
+
+        grid:
+         /name (X)def
+         /long_name (longitude) def
+         /units (degree_east)def
+%         periodic
+         0.0 1.5 358.5
+        :grid
+	/X2 X def
+
+        grid:
+         /name (Y)def
+         /long_name (latitude) def
+         /units (degree_north)def
+         90.0 1.5 -90.0
+        :grid
+	/Y2 Y def
+
+% a grid for instantaneous values, starting at 1
+      grid:
+	/name /L1 def
+	/long_name (Lead) def
+	/standard_name (forecast_period) def
+	/units (days) def
+	1. 1. 60.
+	/pointwidth 0. def
+	:grid
+
+% a lead grid for daily averages
+      grid:
+	/name /LA def
+	/long_name (Lead) def
+	/standard_name (forecast_period) def
+	/units (days) def
+	0.5 1. 59.5
+	/pointwidth 1.0 def
+	:grid
+
+	grid:
+	 /name /S def
+	 /long_name (Day-of-Year) def
+	%/standard_name (realization) def
+	/units (days since 1960-01-01) def
+	/long_name (forecast start time) def
+	/standard_name (forecast_reference_time) def
+	01 Jan 2000 julian_day 01 Jan 1960 julian_day sub
+	1.0
+	31 Dec 2000 julian_day 01 Jan 1960 julian_day sub
+	/pointwidth 0. def
+	:grid
+
+
+%Precipitation 
+        /S2Sv1_tpSmooth{
+                /X X1 def
+                /Y Y1 def
+                [ X Y | L1 S ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/CMA/S2Sv1/1994-01-10.2014-12-31.smooth_day_clim_tp.nc) 
+%               (/data/xchourio/data/S2SDB/clim/CMA/S2Sv1/1994-01-10.2014-12-31.smooth_day_clim_tp.nc) 
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /units (kg m-2) def
+                /long_name (Accumulated Total Precipitation - triangular smoothing climatology ) def
+		/missing_value NaN def
+                /doublearraytype netcdfrecords :readdatafile
+        }defasvarsilent
+
+        /S2Sv1_tpClim{
+                /X X1 def
+                /Y Y1 def
+                [ X Y | L1 S ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/CMA/S2Sv1/1994-01-10.2014-12-31.day_clim_tp.nc)
+%               (/data/xchourio/data/S2SDB/clim/CMA/S2Sv1/1994-01-10.2014-12-31.day_clim_tp.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /units (kg m-2) def
+                /long_name (Accumulated Total Precipitation - climatology ) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+  		DATA 0 30 RANGE
+        }defasvarsilent
+
+        /S2Sv1_tpharm{
+                /X X1 def
+                /Y Y1 def
+                [ X Y | L1 S ] %filenames
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/CMA/S2Sv1/CMA_S2Sv1_tp_Harmonics_L%d[L1].nc) [L1] 
+%               (/data/xchourio/data/S2SDB/clim/CMA/S2Sv1/CMA_S2Sv1_tp_Harmonics_L%d[L1].nc) [L1] 
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /units (kg m-2) def
+                /long_name (Accumulated Total Precipitation - Harmonic climatology ) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords  :readdatafile
+        }defasvarsilent
+
+%        /S2Sv2_tpSmooth{
+%                /X X2 def
+%                /Y Y2 def
+%                [ X Y | L1 S ] %filenames
+%                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/CMA/S2Sv2/2004-11-11.2019-06-22.smooth_day_clim_tp.nc)
+%%               (/data/xchourio/data/S2SDB/clim/CMA/S2Sv2/2004-11-11.2019-06-22.smooth_day_clim_tp.nc)
+%                readdatafile:
+%                /name (__xarray_dataarray_variable__) def
+%                /units (kg m-2) def
+%                /long_name (Accumulated Total Precipitation - triangular smoothing climatology ) def
+%                /missing_value NaN def
+%                /doublearraytype netcdfrecords :readdatafile
+%        }defasvarsilent
+
+%        /S2Sv2_tpClim{
+%                /X X2 def
+%                /Y Y2 def
+%                [ X Y | L1 S ] %filenames
+%                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/CMA/S2Sv2/2004-11-11.2019-06-22.day_clim_tp.nc)
+%%               (/data/xchourio/data/S2SDB/clim/CMA/S2Sv2/2004-11-11.2019-06-22.day_clim_tp.nc)
+%                readdatafile:
+%                /name (__xarray_dataarray_variable__) def
+%                /units (kg m-2) def
+%                /long_name (Accumulated Total Precipitation - climatology ) def
+%                /missing_value NaN def
+%                /doublearraytype netcdfrecords  :readdatafile
+%                DATA 0 30 RANGE
+%        }defasvarsilent
+
+%Temperature 2m
+
+        /S2Sv1_2tClim {
+                /X X1 def
+                /Y Y1 def
+                [ X Y | LA S ]
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/CMA/S2Sv1/1994-01-10.2014-12-31.day_clim_2t.nc)
+%               (/data/xchourio/data/S2SDB/clim/CMA/S2Sv1/1994-01-10.2014-12-31.day_clim_2t.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /long_name (2-meter Temperature - climatology ) def
+                /standard_name (air_temperature) def
+                /units (K) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords :readdatafile
+                DATA 200 350 RANGE
+        } defasvarsilent
+
+       /S2Sv1_2tSmooth {
+                /X X1 def
+                /Y Y1 def
+                [ X Y | LA S ]
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/CMA/S2Sv1/1994-01-10.2014-12-31.smooth_day_clim_2t.nc)
+%               (/data/xchourio/data/S2SDB/clim/CMA/S2Sv1/1994-01-10.2014-12-31.smooth_day_clim_2t.nc)
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                /long_name (2-meter Temperature - triangular smoothing climatology ) def
+                /standard_name (air_temperature) def
+                /units (K) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords :readdatafile
+        } defasvarsilent
+
+       /S2Sv1_2tharm {
+                /X X1 def
+                /Y Y1 def
+                [ X Y | LA S ]
+                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/CMA/S2Sv1/CMA_S2Sv1_2t_Harmonics_L%d[LA].nc) [LA 0.5 add] 
+%                (/data/xchourio/data/S2SDB/clim/CMA/S2Sv1/CMA_S2Sv1_2t_Harmonics_L%d[LA].nc) [LA 0.5 add] 
+                readdatafile:
+                /name (__xarray_dataarray_variable__) def
+                %/name (__xarray_dataarray_variable__) def
+                /long_name (2-meter Temperature - Harmonic climatology ) def
+                /standard_name (air_temperature) def
+                /units (K) def
+                /missing_value NaN def
+                /doublearraytype netcdfrecords :readdatafile
+        } defasvarsilent
+
+%        /S2Sv2_2tClim {
+%                /X X2 def
+%                /Y Y2 def
+%                [ X Y | LA S ]
+%                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/CMA/S2Sv2/2004-11-11.2019-06-22.day_clim_2t.nc)
+%%               (/data/xchourio/data/S2SDB/clim/CMA/S2Sv2/2004-11-11.2019-06-22.day_clim_2t.nc)
+%                readdatafile:
+%                /name (__xarray_dataarray_variable__) def
+%                /long_name (2-meter Temperature - climatology ) def
+%                /standard_name (air_temperature) def
+%                /units (K) def
+%                /missing_value NaN def
+%                /doublearraytype netcdfrecords :readdatafile
+%                DATA 200 350 RANGE
+%        } defasvarsilent
+
+%       /S2Sv2_2tSmooth {
+%                /X X2 def
+%                /Y Y2 def
+%                [ X Y | LA S ]
+%                (/Data/data25/ECMWF/S2S/Climatologies/Hindcast/CMA/S2Sv2/2004-11-11.2019-06-22.smooth_day_clim_2t.nc)
+%%               (/data/xchourio/data/S2SDB/clim/CMA/S2Sv2/2004-11-11.2019-06-22.smooth_day_clim_2t.nc)
+%                readdatafile:
+%                /name (__xarray_dataarray_variable__) def
+%                /long_name (2-meter Temperature - triangular smoothing climatology ) def
+%                /standard_name (air_temperature) def
+%                /units (K) def
+%                /missing_value NaN def
+%                /doublearraytype netcdfrecords :readdatafile
+%        } defasvarsilent
+
+:dataset
+
+\end{ingrid}

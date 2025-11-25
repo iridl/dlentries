@@ -1,0 +1,60 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name (X)def
+/units (degree_east)def
+/standard_name (longitude) def
+0 360 384. div dup 360 exch  sub  
+
+:grid
+
+190 gaussianlat high low subgrid
+name exch def
+
+grid:
+/name (M) def
+%/long_name (Initial time) def
+values:
+%00 06 12 18
+1 2 3 4
+:values
+:grid
+grid:
+/name /L def
+/units (months) def
+/standard_name (forecast_period) def
+/pointwidth 1 def
+.5 1 119.5
+:grid
+grid:
+/name (S) def
+/standard_name (forecast_reference_time) def
+monthtime
+/pointwidth 0. def
+1 Nov 1960 ensotime
+60
+1 Nov 2000 ensotime
+:grid
+/T { L S add 
+/long_name (Forecast Time) def
+/standard_name (time) def
+/pointwidth 1. def
+} defasvarsilent
+dataset: /name /surface def :dataset
+dataset: /name /2m_above_ground def :dataset
+\end{ingrid}
+\begin{ingrid}
+[X
+    Y | /NVZ 2 NewIntegerGRID
+    M L S] (/Data/data22/cola/cfsv2/01.%Y%m[S]%2.2d[M]00/flxf.01.%Y%m[S]%2.2d[M]00.%Y%m[T].avrg.grib) [M L S T]readdatafile:
+/missing_value 9.9990003E+20 def
+GRIB1record
+:readdatafile
+definevariables:
+surface 0 Zvariable: /name (PRATE) def /long_name (Precipitation Rate) def /units (kg m-2 s-1) def /standard_name (precipitation flux) def :Zvariable
+2m_above_ground 0 Zvariable: /name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def /standard_name(air_temperature) def :Zvariable
+:definevariables
+\end{ingrid}
+\begin{ingrid}
+:dataset
+\end{ingrid}

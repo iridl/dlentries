@@ -1,0 +1,217 @@
+<html><head>
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+<title>NOAA TOPEX/POSEIDON Gridded Sea Level Anomalies and Deviations</title>
+</head><body>
+<h1 align=center>
+           	   TOPEX/POSEIDON Altimeter 
+	      Gridded Sea Level Anomalies and Deviations
+</h1>
+<p align=center>Bob Cheney<br>
+                           Russ Agreen<br>
+			John Lillibridge<br>
+			   Nancy Doyle<br>
+                          Laury Miller<br>
+</p>
+
+<p align=center>             National Ocean Service, NOAA (N/OES11)<br>
+                       Silver Spring, MD 20910
+</p>
+
+The data are <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.IGOSS/.TOPEX/.NOAA/">here</a>.
+
+<hr>
+This new "read_me" file documents some changes to our T/P
+analysis.
+
+<h2>As of April 1996:</h2>
+<ul>
+        <li> the original JGM-2 orbit was replaced with JGM-3, reducing
+          radial orbit error from about 3.5 to 2.5 cm rms.
+
+        <li> data gaps of up to 10 seconds were filled by interpolation,
+          resulting in a more complete global data set.
+
+        <li> the local inverted barometer correction was augmented by a
+          non-local correction (usually less than 1 cm).
+
+        <li> sea level time series were expressed as deviations relative 
+          to the 3-year mean, Jan 1993-96, rather than differences
+          relative to the first observation.
+</ul>
+<h2>As of July 1996:</h2>
+<ul>
+        <li> Topex oscillator error (12-15 cm) was corrected.
+
+        <li> Topex internal calibration (less than 1 cm) was applied.
+
+        <li> CSR 3.0 ocean tide (Univ. Texas) was incorporated (instead
+          of Cartwright/Ray with Wagner upgrade).
+
+        <li> each Poseidon cycle was adjusted for an offset relative
+          to adjacent Topex cycles (usually less than 1 cm).
+</ul>
+
+The net effect of most of these changes is to reduce the noise in
+the altimeter sea level time series.  
+<p>
+In contrast, the Topex oscillator and internal corrections alter the 
+large-scale, low-frequency sea level signal, having the combined effect 
+of reducing sea level at any given location by about 8 mm per year
+(relative to the earlier, uncorrected Topex data).
+<p>
+It is recommended that previous versions of the T/P data be discarded.
+<p>
+
+                                                Bob Cheney
+
+
+<h3>1.  SUMMARY</h3>
+
+    The compressed file, global_2_136.lo_res.Z, is a collinear 
+difference analysis of Topex/Poseidon altimeter data for 
+cycles 2-136 (Oct. 3, 1992 - June 2, 1996).  Results are
+expressed as time series of sea level deviations, with respect
+to a long-term mean, averaged along 1-degree latitude intervals of 
+the satellite track.
+     
+Upon request, similar analyses can be made available on a
+regional basis for 0.2-degree latitude averages.
+
+
+<h3>(a)  Headers</h3>
+
+Each header gives N latitude and E longitude in degrees
+for a particular 1-degree latitude segment of the satellite track.
+The flag gives several pieces of information:
+
+        - value indicates a descending track (NW to SE)
+
+        + value indicates an ascending track (SW to NE) 
+
+        8 in the thousands column indicates that this is a header
+
+        remaining digits give the equator crossing longitude in degrees
+
+For example, the first header above gives a location of 7.00 N, 198.10 E
+and the 1-degree segment is part of a descending track that crosses
+the equator at 200.60 E.
+
+
+<h3>(b)  Data Records</h3>
+        
+Following the header is the sea height time series at this location,
+where the three columns are time (1985 day), H (cm), and n (the number 
+of 1-sec altimeter records averaged to obtain H).  For a 1-degree latitude
+segment, the maximum number of 1-sec records varies from about 21 at the 
+equator to 32 at 60 N.
+
+In the example above, the first data record is at time 2833.28, has a height 
+of -7.15 cm, and is an average of 12 1-sec records.  The time represents the 
+equator crossing of the pass, rounded to the nearest hundredth of a day.  By 
+our definition, 0 = January 1, 1985, 00 hrs, so that 2833.28 corresponds 
+approximately to October 4, 1992, 0700 hrs UTC.  The subsequent data records, 
+arranged in chronological order, give the sea level at ~10-day intervals,
+where each height is the deviation relative to the long-term mean 
+(see next section).
+
+<h3>(c)  Reference Period</h3>
+
+In the present file, each time series is expressed relative to the 3-year mean 
+(Jan 1993-96) at that particular location.  As the data set becomes longer, this
+reference period will be extended, but will always be an integer number of
+years.  In computing the long-term mean, there is no requirement for a 
+minimum number of observations.  It is left to the user to check for data
+gaps which could impact the significance of the mean.     
+
+<h3>(d)  Organization</h3>
+
+Latitude/longitude positions of the time series are located along the 
+satellite track, but in the file they are organized into latitude bands 
+scanning from west to east between 0 and 360 E and from south to north
+between -60 and +60.  Ascending passes can be found in the first half 
+of the file, followed by descending passes for the remainder of the global 
+set.
+
+
+
+<h2>3.  PROCESSING METHOD</h2>
+
+The analysis includes both Topex and Poseidon data.  The geophysical 
+data records (GDRs) are used for most of the mission while the interim 
+GDRs (IGDRs) are used for the most recent cycles to make the data set 
+useful for near real-time applications.
+<p>
+The present file contains:
+<p>
+        GDRs for cycles 2-132
+<p>
+        IGDRs for cycles 133-136
+<p>
+Orbit precision is about 2.5 cm for the GDRs and 5-10 cm for the IGDRs.
+JGM-3 orbits are used throughout.  The Topex data are those distributed 
+by JPL.  The Poseidon data are distributed by CNES, with a small (< 1 cm)
+offset applied to each cycle based on collinear differences with the
+adjacent Topex cycles.
+<p>
+The data were processed in the following way using collinear differences:
+<ol>
+<li>  Standard corrections:
+<ul>
+        <li> wet and dry troposphere
+        <li> ionosphere
+        <li> tides, using the CSR 3.0 model of the University of Texas.
+                Solid earth tide includes pole tide corrections.
+        <li> local inverse barometer, based on the instantaneous atmospheric 
+                surface pressure
+        <li> non-local inverse barometer, based on the global average surface
+                pressure for that particular 10-day cycle
+        <li> sea state bias:  either Callahan's algorithm for Topex data or
+                Gaspar's 4-parameter correction for Poseidon data.
+        <li> OSU91A geoid to reduce errors resulting from slight cross-track 
+                gradients within the 2-km collinear band.
+</ul>
+<li>  Editing
+
+Data were excluded if the satellite attitude was greater than 0.3 degrees 
+in cycles 1-8.  GDRs have flags that allow exclusion of bad data.  
+Shallow as well as deep water data are allowed.  If there are problems with the
+altimeter sensor corrections, ionospere, sea surface height, or if sea
+state conditions are invalid, data are rejected.  In addition, land or other
+geophysical conditions cause data to be rejected.  Sigma_h, the root mean
+square of 10/second sea surface heights, is limited to 110 for Topex data
+and 170 for Poseidon data.
+
+<li>  Interpolation
+
+Data gaps in the GDRs of up to 10 seconds long are filled by linear 
+interpolation.  The ionosphere correction is smoothed over 25 seconds 
+before being applied.
+
+<li>  Orbit adjustment
+
+No adjustment was made for orbit error.
+
+<li>  Altimeter drift
+
+The internal calibration correction supplied by NASA Wallops was applied.
+
+<li>  Oscillator (clock) drift
+</ol>
+The error discovered in July 1996 was corrected using the table provided
+by NASA Wallops.
+
+
+<table border>
+<tr>
+<th><a
+href="http://www.grdl.noaa.gov/SAT/products/topex.html">TOPEX/POSEIDON</a></th>
+<td><a href="http://rainbow.ldeo.columbia.edu/">LDEO Climate Group</a></td>
+<td><a href="http://www.ldeo.columbia.edu/">LDEO</a></td>
+</tr></table>
+<p>
+<address>        <a hef="mailto:bob@bigbird.grdl.noaa.gov">bob@bigbird.grdl.noaa.gov</a> </address>
+
+</body></html>
+
+
+

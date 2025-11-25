@@ -1,0 +1,56 @@
+\begin{ingrid}
+continuedataset:
+/description (Florida State University wind analysis) def
+grid:
+/name /X def
+degE
+31.
+2.
+375.
+:grid
+grid:
+/name /Y def
+degN
+-29
+2.
+29
+:grid
+grid:
+/name /T def
+monthtime
+/defaultvalue {last} def
+16 Jan 1994 ensotime
+1
+16 mar 1998 ensotime % enddate
+:grid
+variable:
+/name /absuu def
+/long_name (zonal pseudo-stress) def
+/units ((m/s)2) def
+grids: X Y | T :grids
+/missing_value 999 def
+/CSCALE 1. def
+/arrowsperinch 5 def
+/history (Monthly mean surface pseudo-stress using variational, subjective, and objective-subjective techniques in the Indian, Pacific, and Atlantic oceans.<B>USA-FRANCE</B>) def
+file:
+/name (/Data/data1/surface/fsu/fsuu) def
+random
+:file
+:variable
+variable:
+/name /absuv def
+/long_name (meridional pseudo-stress) def
+/units ((m/s)2) def
+grids: X Y | T :grids
+/missing_value 999 def
+/CSCALE 1. def
+/arrowsperinch 5 def
+/history (Monthly mean surface pseudo-stress using variational, subjective, and objective-subjective techniques in the Indian, Pacific, and Atlantic oceans.<B><a href="http://rainbow.ldeo.columbia.edu/igoss/productsbulletin/descriptions/fsu.html">USA-FRANCE</a></B>) def
+file:
+/name (/Data/data1/surface/fsu/fsuv) def
+random
+:file
+:variable
+:dataset
+\end{ingrid}
+

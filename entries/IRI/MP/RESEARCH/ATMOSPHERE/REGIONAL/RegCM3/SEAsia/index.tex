@@ -1,0 +1,62 @@
+Custom filetype for the regional model
+\begin{ingrid}
+continuedataset:
+/references(Qian2008) def
+:dataset
+Ingrid: /myspecialsequential {
+true /useopenfile myreadfileargs !
+myreadfileargs /readdatafile 
+{ 
+	useopenfile
+	{ readr4specialdirect-of
+	}
+	{
+	  notgoingtowork
+	} ifelse
+} def
+/readr4specialdirect-of
+{
+	4 specialrecordinputstobyteoffsetinputs
+        0
+	readfilestream0
+	TaskStreams 2 get TaskStreams 1 get 4 idiv NewRealBuffer
+	/bufferwordsize 4 def
+	1 index length SetStreamIndex*
+	5 -1 roll aload pop TaskStreams 0 get .achunk pop
+	* defivars
+} def
+/specialrecordinputstobyteoffsetinputs
+{
+1 index dup type /arraytype eq {{.npts imul} forall} {imul}ifelse
+8 add 
+	4 -1 roll
+exch
+1 index NVZ .npts div toi4 1 add 12 mul 4 add toi4
+exch
+recordinputstobyteoffset0
+TaskStreams 0 get 1 NewIntegerBuffer
+/name /bytecounts def
+TaskParameterBlock
+4 -1 roll
+} def
+pop
+myreadfileargs /datatransform /sgibytesrdf cvx put
+} put
+\end{ingrid}
+
+/specialrecordinputstobyteoffsetinputs
+{
+1 index dup type /arraytype eq {{.npts imul} forall} {imul}ifelse
+8 add 
+	4 -1 roll
+	1 sub 
+dup
+2 index
+	mul
+todouble
+exch NVZ .npts  div floor toi4 1 add 12 mul 4 add 
+todouble add
+	toi4
+	exch
+	4 -1 roll 
+} def

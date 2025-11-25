@@ -1,0 +1,130 @@
+\begin{ingrid}
+continuedataset:
+grid: /name /X def degE periodic 1.25 2.5 358.75 :grid
+grid:
+/name (Y)def
+/units (degree_north)def
+values: -89.494385 -87.977531 -85.955055 -83.932587 -81.91011 -79.887642 -77.865166
+ -75.842697 -73.820221 -71.797752 -69.775284 -67.752808 -65.730339 -63.707867
+ -61.685394 -59.662922 -57.64045 -55.617977 -53.595505 -51.573032 -49.55056 
+-47.528091 -45.505619 -43.483147 -41.460674 -39.438202 -37.41573 -35.393257 
+-33.370785 -31.348314 -29.325842 -27.303371 -25.280899 -23.258427 -21.235954 -19.213484 -17.191011 -15.168539 -13.146068 -11.123595 -9.1011238 -7.0786519 -5.05618 -3.0337079 -1.011236 1.011236 3.0337079 
+5.05618 7.0786519 9.1011238 11.123595 13.146068 15.168539 17.191011 19.213484 
+21.235954 23.258427 25.280899 27.303371 29.325842 31.348314 33.370785 35.393257 37.41573 39.438202 41.460674 43.483147 45.505619 47.528091 49.55056 51.573032 53.595505 55.617977 57.64045 59.662922 61.685394 
+63.707867 65.730339 67.752808 69.775284 71.797752 73.820221 75.842697 77.865166 79.887642 81.91011 
+83.932587 85.955055 87.977531 89.494385 :values
+:grid
+grid:
+/name (T)def
+/units (months since 1960-01-01)def
+/calendar /360 def
+ -119.5 1. 479.5
+:grid
+grid:
+/name /M def
+/long_name (member) def
+/units (ids) def
+1 1 10
+:grid
+/prcp
+{
+ [ X Y | M T ]
+(/Data/data1/iri/fd/gfdl/gfdl_am2/atmos.195001-199912.precip_m%2.2d[M].nc)[M]
+%(/beluga/data/forecast/tmp/gfdl_am2/atmos.195001-199912.precip_m%2.2d[M].nc)[M]
+readdatafile:
+/name (precip) def
+ /long_name (total precipitation rate) def
+ /units (kg/m2/s)cvn def
+/standard_name (precipitation flux) def
+ /realarraytype netcdfrecords :readdatafile
+/author (Shuhua Li) def
+ /created (Wed May  2 17:28:08 2007) def
+ /title (AM2.1_1870-2004-HGlob-SST-ICE-AllForc_B1) def
+} defasvarsilent
+grid:
+/name (P)def
+/units (hPa)def
+values: 1000. 925. 850. 700. 600. 500. 400. 300. 250. 200. 150. 100. 70. 50. 30. 20. 10. :values
+:grid
+ /hght{
+[ X Y | P M T]
+(/Data/data1/iri/fd/gfdl/gfdl_am2/atmos.195001-199912.hght_m%2.2d[M].nc)[M]
+%(/beluga/data/forecast/tmp/gfdl_am2/atmos.195001-199912.hght_m%2.2d[M].nc)[M]
+readdatafile:
+/name (hght) def
+ /long_name (height) def
+ /units /m def
+ /created (Wed May  2 17:36:11 2007) def
+ /author (Shuhua Li) def
+ /title (AM2.1_1870-2004-HGlob-SST-ICE-AllForc_B1) def
+/missing_value -1000. def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+/slp{
+[ X Y | M T]
+(/beluga/data/forecast/tmp/gfdl_am2/atmos.195001-199912.slp_m%2.2d[M].nc)[M]
+readdatafile:
+/name (slp) def
+ /long_name (sea level pressure) def
+ /units /hPa def
+/created (Wed May  2 17:29:31 2007) def
+ /author (Shuhua Li) def
+ /title (AM2.1_1870-2004-HGlob-SST-ICE-AllForc_B1) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+/t_ref{
+[ X Y | M T]
+(/Data/data1/iri/fd/gfdl/gfdl_am2/atmos.195001-199912.t_ref_m%2.2d[M].nc)[M]
+%(/beluga/data/forecast/tmp/gfdl_am2/atmos.195001-199912.t_ref_m%2.2d[M].nc)[M]
+readdatafile:
+/name (t_ref) def
+ /long_name (temperature at 2m) def
+ /units /degree_Celsius def
+/created (Wed May  2 17:26:29 2007) def
+ /author (Shuhua Li) def
+ /title (AM2.1_1870-2004-HGlob-SST-ICE-AllForc_B1) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+/t_surf{
+[ X Y | M T]
+(/Data/data1/iri/fd/gfdl/gfdl_am2/atmos.195001-199912.t_surf_m%2.2d[M].nc)[M]
+%(/beluga/data/forecast/tmp/gfdl_am2/atmos.195001-199912.t_surf_m%2.2d[M].nc)[M]
+readdatafile:
+/name (t_surf) def
+ /long_name (surface temperature) def
+ /units /degree_Celsius def
+ /created (Wed May  2 17:30:54 2007) def
+ /author (Shuhua Li) def
+ /title (AM2.1_1870-2004-HGlob-SST-ICE-AllForc_B1) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+/ucomp{
+[ X Y | P M T]
+(/Data/data1/iri/fd/gfdl/gfdl_am2/atmos.195001-199912.ucomp_m%2.2d[M].nc)[M]
+%(/beluga/data/forecast/tmp/gfdl_am2/atmos.195001-199912.ucomp_m%2.2d[M].nc)[M]
+readdatafile:
+/name (ucomp) def
+ /long_name (zonal wind) def
+ /units (m/s)cvn def
+/created (Wed May  2 18:33:02 2007) def
+ /author (Shuhua Li) def
+ /title (AM2.1_1870-2004-HGlob-SST-ICE-AllForc_B1) def
+/missing_value -1e10 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+:dataset
+/vcomp{
+[ X Y | P M T]
+(/Data/data1/iri/fd/gfdl/gfdl_am2/atmos.195001-199912.vcomp_m%2.2d[M].nc)[M]
+%(/beluga/data/forecast/tmp/gfdl_am2/atmos.195001-199912.vcomp_m%2.2d[M].nc)[M]
+readdatafile:
+/name (vcomp) def
+ /long_name (meridional wind) def
+ /units (m/s)cvn def
+/created (Wed May  2 19:19:46 2007) def
+ /author (Shuhua Li) def
+ /title (AM2.1_1870-2004-HGlob-SST-ICE-AllForc_B1) def
+/missing_value -1e10 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+\end{ingrid}

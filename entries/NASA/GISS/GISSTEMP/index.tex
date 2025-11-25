@@ -1,0 +1,109 @@
+\begin{ingrid}
+continuedataset:
+dataset:
+/name /climatology def
+dataset:
+/name /c1901-2009 def
+dataset:
+/name /Land-Ocean def
+/tempanomaly {
+SOURCES .NASA .GISS .GISSTEMP .d2x2 .Land-Ocean .tempanomaly
+T (Jan 1901) (Dec 2009) RANGE
+yearly-climatology
+2 RECHUNK
+} defasvarcachesilent
+:dataset
+dataset:
+/name /LandOnly def
+/tempanomaly {
+SOURCES .NASA .GISS .GISSTEMP .d2x2 .LandOnly .tempanomaly
+T (Jan 1901) (Dec 2009) RANGE
+yearly-climatology
+2 RECHUNK
+} defasvarcachesilent
+:dataset
+:dataset
+:dataset
+datasetdefs:
+:datasetdefs
+/d2x2 currentobject 1 index get def
+link:
+/name /dataset_documentation  def
+/href (http://data.giss.nasa.gov/gistemp/) def
+:link
+/iridl:hasSemantics (iridl:GISS) def
+grid:
+/name /T def
+monthtime
+16 Jan 1880 ensotime
+1.
+16 Dec 2013 ensotime
+:grid
+dataset:
+/name /Global def
+/description (Global Average) def
+/T T def
+/Ts {
+ [T |]
+    (/Data/data3/nasa/giss/gisstemp/GLB.Ts.txt) readdatafile:
+      ((1x////////21(5X12F5.2/)/(/20(5X12F5.2/)))) formatted
+      :readdatafile
+ /units (degree_Kelvin) def
+/long_name (air temperature anomaly) def
+/standard_name (air_temperature) def
+} defasvarsilent
+/LOTI {
+ [T |]
+    (/Data/data3/nasa/giss/gisstemp/GLB.Ts+dSST.txt) readdatafile:
+      ((1x////////21(5X12F5.2/)/(/20(5X12F5.2/)))) formatted
+      :readdatafile
+ /units (degree_Kelvin) def
+/long_name (air and sea surface temperature anomaly) def
+} defasvarsilent
+:dataset
+dataset:
+/name /NH def
+/description (Northern Hemisphere Average) def
+/T T def
+/Ts {
+ [T |]
+    (/Data/data3/nasa/giss/gisstemp/NH.Ts.txt) readdatafile:
+      ((1x////////21(5X12F5.2/)/(/20(5X12F5.2/)))) formatted
+      :readdatafile
+ /units (degree_Kelvin) def
+/long_name (air temperature anomaly) def
+/standard_name (air_temperature) def
+} defasvarsilent
+/LOTI {
+ [T |]
+    (/Data/data3/nasa/giss/gisstemp/NH.Ts+dSST.txt) readdatafile:
+      ((1x////////21(5X12F5.2/)/(/20(5X12F5.2/)))) formatted
+      :readdatafile
+ /units (degree_Kelvin) def
+/long_name (air and sea surface temperature anomaly) def
+} defasvarsilent
+:dataset
+dataset:
+/name /SH def
+/description (Southern Hemisphere Average) def
+/T T def
+/Ts {
+ [T |]
+    (/Data/data3/nasa/giss/gisstemp/SH.Ts.txt) readdatafile:
+      ((1x////////21(5X12F5.2/)/(/20(5X12F5.2/)))) formatted
+      :readdatafile
+ /units (degree_Kelvin) def
+/long_name (air temperature anomaly) def
+/standard_name (air_temperature) def
+} defasvarsilent
+/LOTI {
+ [T |]
+    (/Data/data3/nasa/giss/gisstemp/SH.Ts+dSST.txt) readdatafile:
+      ((1x////////21(5X12F5.2/)/(/20(5X12F5.2/)))) formatted
+      :readdatafile
+ /units (degree_Kelvin) def
+/long_name (air and sea surface temperature anomaly) def
+} defasvarsilent
+:dataset
+:dataset
+\end{ingrid}

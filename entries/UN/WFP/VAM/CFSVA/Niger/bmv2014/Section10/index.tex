@@ -1,0 +1,557 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 21668
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 345
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Base_menage_vulnerabilite_2014.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Stratégies) def
+/Q55A {
+mytable
+myquestion 
+251 VALUE
+ myquestion removeGRID
+/long_name (Q55: Combien de repas collectifs sont pris par jour dans le ménage: Actuellement) def 
+}defasvarsilent
+
+/Q55B {
+mytable
+myquestion 
+252 VALUE
+ myquestion removeGRID
+/long_name (Q55: Combien de repas collectifs sont pris par jour dans le ménage: Habituelleme) def 
+}defasvarsilent
+
+/Q56A {
+mytable
+myquestion 
+253 VALUE
+ myquestion removeGRID
+/long_name (Q56: Combien de repas sont pris dans le ménage par les enfants: Actuellement) def 
+}defasvarsilent
+
+/Q56B {
+mytable
+myquestion 
+254 VALUE
+ myquestion removeGRID
+/long_name (Q56: Combien de repas sont pris dans le ménage par les enfants: Habituellement à) def 
+}defasvarsilent
+
+/Q571 {
+mytable
+myquestion 
+255 VALUE
+ myquestion removeGRID
+/long_name (Q57.1: Au cours des 7 derniers jours...consommer des aliments moins préférés) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q572 {
+mytable
+myquestion 
+256 VALUE
+ myquestion removeGRID
+/long_name (Q57.2: Au cours des 7 derniers jours...emprunté de la  nourriture chez des paren) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q573 {
+mytable
+myquestion 
+257 VALUE
+ myquestion removeGRID
+/long_name (Q57.3: Au cours des 7 derniers jours...diminuer la quantité consommée pdt les re) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q574 {
+mytable
+myquestion 
+258 VALUE
+ myquestion removeGRID
+/long_name (Q57.4: Au cours des 7 derniers jours...restreindre la consommation des adultes) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q575 {
+mytable
+myquestion 
+259 VALUE
+ myquestion removeGRID
+/long_name (Q57.5: Au cours des 7 derniers jours...diminuer le nombre de repas par jour) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q576 {
+mytable
+myquestion 
+260 VALUE
+ myquestion removeGRID
+/long_name (Q57.6: Au cours des 7 derniers jours...acheter des vivres à crédit) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q577 {
+mytable
+myquestion 
+261 VALUE
+ myquestion removeGRID
+/long_name (Q57.7: Au cours des 7 derniers jours...passer une journée entière sans manger) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q578 {
+mytable
+myquestion 
+262 VALUE
+ myquestion removeGRID
+/long_name (Q57.8: Au cours des 7 derniers jours...envoyer un membre de ménage manger chez l) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q579 {
+mytable
+myquestion 
+263 VALUE
+ myquestion removeGRID
+/long_name (Q57.9: Au cours des 7 derniers jours...dépendre de l'aide) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q5710 {
+mytable
+myquestion 
+264 VALUE
+ myquestion removeGRID
+/long_name (Q57.10: Au cours des 7 derniers jours...renoncer au paiement des dettes contract) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q5711 {
+mytable
+myquestion 
+265 VALUE
+ myquestion removeGRID
+/long_name (Q57.11: Au cours des 7 derniers jours...recours inhabituel à la consommation d'a) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q5712 {
+mytable
+myquestion 
+266 VALUE
+ myquestion removeGRID
+/long_name (Q57.12: Au cours des 7 derniers jours...consommation des semences reservées) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q5713 {
+mytable
+myquestion 
+267 VALUE
+ myquestion removeGRID
+/long_name (Q57.13: Au cours des 7 derniers jours...demander de la nourriture pour enfants) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q5714 {
+mytable
+myquestion 
+268 VALUE
+ myquestion removeGRID
+/long_name (Q57.14: Au cours des 7 derniers jours...recours à la mendicité) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q5715 {
+mytable
+myquestion 
+269 VALUE
+ myquestion removeGRID
+/long_name (Q57.15: Au cours des 7 derniers jours...achat des repas pour des raisons d'écono) def 
+/units /ids def
+/CLIST [(Non)(1 jour)(2 jours)(3 jours)(4 jours)(5 jours)(6 jours)(7 jours)] def
+/scale_min 0 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q581A {
+mytable
+myquestion 
+270 VALUE
+ myquestion removeGRID
+/long_name (Q58.1: Au cours des 30 derniers jours...departs d'actifs plus que d'habitude) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q581B {
+mytable
+myquestion 
+271 VALUE
+ myquestion removeGRID
+/long_name (Q58.1: Departs d'actifs plus que d'habitude Si non) def 
+/units /ids def
+/CLIST [(Cela n'était pas nécessaire)(J'ai déjà vendu les avoirs)(Non applicable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q582A {
+mytable
+myquestion 
+272 VALUE
+ myquestion removeGRID
+/long_name (Q58.2: Au cours des 30 derniers jours vente des animaux reproducteurs pour des b) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q582B {
+mytable
+myquestion 
+273 VALUE
+ myquestion removeGRID
+/long_name (Q58.2: vente des animaux reproducteurs pour des besoins alimentaires Si Non) def 
+/units /ids def
+/CLIST [(Cela n'était pas nécessaire)(J'ai déjà vendu les avoirs)(Non applicable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q583A {
+mytable
+myquestion 
+274 VALUE
+ myquestion removeGRID
+/long_name (Q58.3: Au cours des 30 derniers jours vente des actifs domestiques pour les beso) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q583B {
+mytable
+myquestion 
+275 VALUE
+ myquestion removeGRID
+/long_name (Q58.3: vente des actifs domestiques pour des besoins alimentaires Si Non) def 
+/units /ids def
+/CLIST [(Cela n'était pas nécessaire)(J'ai déjà vendu les avoirs)(Non applicable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q584A {
+mytable
+myquestion 
+276 VALUE
+ myquestion removeGRID
+/long_name (Q58.4: Au cours des 30 derniers jours vente des biens productifs pour des raison) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q584B {
+mytable
+myquestion 
+277 VALUE
+ myquestion removeGRID
+/long_name (Q58.4: vente des biens productifs pour des raisons d'insecurité alimentaire Si N) def 
+/units /ids def
+/CLIST [(Cela n'était pas nécessaire)(J'ai déjà vendu les avoirs)(Non applicable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q585A {
+mytable
+myquestion 
+278 VALUE
+ myquestion removeGRID
+/long_name (Q58.5: Au cours des 30 derniers jours vente des terres pour des raisons d'insecu) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q585B {
+mytable
+myquestion 
+279 VALUE
+ myquestion removeGRID
+/long_name (Q58.5: vente des terres pour des raisons d'insecurité alimentaire Si Non) def 
+/units /ids def
+/CLIST [(Cela n'était pas nécessaire)(J'ai déjà vendu les avoirs)(Non applicable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q586A {
+mytable
+myquestion 
+280 VALUE
+ myquestion removeGRID
+/long_name (Q58.6: Au cours des 30 derniers jours retirer les enfants de l'école pour des ra) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q586B {
+mytable
+myquestion 
+281 VALUE
+ myquestion removeGRID
+/long_name (Q58.6: retirer les enfants pour des raisons alimentaires Si Non) def 
+/units /ids def
+/CLIST [(Cela n'était pas nécessaire)(J'ai déjà vendu les avoirs)(Non applicable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q587A {
+mytable
+myquestion 
+282 VALUE
+ myquestion removeGRID
+/long_name (Q58.7: Au cours des 30 derniers jours réduire les dépenses liées à la santé/Educ) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q587B {
+mytable
+myquestion 
+283 VALUE
+ myquestion removeGRID
+/long_name (Q58.7: réduire les dépenses liées à la santé/Education pour achat des vivres Si) def 
+/units /ids def
+/CLIST [(Cela n'était pas nécessaire)(J'ai déjà vendu les avoirs)(Non applicable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q588A {
+mytable
+myquestion 
+284 VALUE
+ myquestion removeGRID
+/long_name (Q58.8: Au cours des 30 derniers jours emprunter de l'argent/Nourriture à un comm) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q588B {
+mytable
+myquestion 
+285 VALUE
+ myquestion removeGRID
+/long_name (Q58.8: Emprunter de l'argent/Nourriture à un commercant usurier du village  Si N) def 
+/units /ids def
+/CLIST [(Cela n'était pas nécessaire)(J'ai déjà vendu les avoirs)(Non applicable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q589A {
+mytable
+myquestion 
+286 VALUE
+ myquestion removeGRID
+/long_name (Q58.9: Au cours des 30 derniers jours contraint de dépenser son épargne pour des) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q589B {
+mytable
+myquestion 
+287 VALUE
+ myquestion removeGRID
+/long_name (Q58.9: contraint de dépenser pour des raisons d'insecurité alimentaire Si Non) def 
+/units /ids def
+/CLIST [(Cela n'était pas nécessaire)(J'ai déjà vendu les avoirs)(Non applicable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q5810A {
+mytable
+myquestion 
+288 VALUE
+ myquestion removeGRID
+/long_name (Q58.10: Au cours des 30 derniers jours reduire les dépenses prévues pour les int) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5810B {
+mytable
+myquestion 
+289 VALUE
+ myquestion removeGRID
+/long_name (Q58.10: Reduire les dépenses prévues pour les intrants agricoles pour acheter de) def 
+/units /ids def
+/CLIST [(Cela n'était pas nécessaire)(J'ai déjà vendu les avoirs)(Non applicable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q5811A {
+mytable
+myquestion 
+290 VALUE
+ myquestion removeGRID
+/long_name (Q58.11: Au cours des 30 derniers jours récolte précoce pour consommer) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5811B {
+mytable
+myquestion 
+291 VALUE
+ myquestion removeGRID
+/long_name (Q58.11: récolte précoce pour consommer Si Non) def 
+/units /ids def
+/CLIST [(Cela n'était pas nécessaire)(J'ai déjà vendu les avoirs)(Non applicable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q5812A {
+mytable
+myquestion 
+292 VALUE
+ myquestion removeGRID
+/long_name (Q58.12: Au cours des 30 derniers jours vente récolte sur pied) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5812B {
+mytable
+myquestion 
+293 VALUE
+ myquestion removeGRID
+/long_name (Q58.12: Vente récolte sur pied Si Non) def 
+/units /ids def
+/CLIST [(Cela n'était pas nécessaire)(J'ai déjà vendu les avoirs)(Non applicable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q5813A {
+mytable
+myquestion 
+294 VALUE
+ myquestion removeGRID
+/long_name (Q58.13: Au cours des 30 derniers jours Hypothèque des terres) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q5813B {
+mytable
+myquestion 
+295 VALUE
+ myquestion removeGRID
+/long_name (Q58.13: Hypothèque des terres Si Non) def 
+/units /ids def
+/CLIST [(Cela n'était pas nécessaire)(J'ai déjà vendu les avoirs)(Non applicable)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

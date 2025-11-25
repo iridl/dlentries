@@ -1,0 +1,79 @@
+\begin{ingrid}
+continuedataset:
+
+dataset:
+/name /prec_fcst def
+
+/target_date {
+ home .tippett .scratch .na .realtime .MM .prcp
+  S SOURCES .IRI .FD .NOAA .NCEP .CPC .Forecast .Unites-States .mean .S
+    a: .first
+      :a: .last :a
+     RANGE
+  sqrt
+  /scale_min 0. def
+% /long_name (IRI forecast mean) def
+  S /expires last rm19602ymd pop
+      dup
+       12 lt
+       {1 add}{pop 1 add 1}ifelse
+      9 ymd2systemtime
+     def
+   name exch def
+  /expires S .expires def
+a: .S :a: .L :a add /long_name (forecast time) def /pointwidth 3 def
+/bounds undef
+} defasvar
+
+:dataset
+
+
+dataset:
+/name /temp_fcst def
+
+(1981)
+     /climStart parameter
+pop
+(2010)
+     /climEnd parameter
+pop
+
+/target_date {
+home .tippett .scratch .na .realtime .MM .t2m
+S SOURCES .IRI .FD .NOAA .NCEP .CPC .Forecast .Unites-States .mean .S
+a: .first :a: .last :a RANGE
+SOURCES .IRI .FD .Flexible_Forecast .temp_obs
+a: .temp :a: .anomaly :a sub
+T2 /climStart get_parameter
+/climEnd get_parameter RANGEEDGES
+[T2]average
+L
+ S add
+ T sample-along
+add
+% /long_name (IRI forecast mean) def
+S /expires
+last rm19602ymd pop dup 12 lt {1 add}{pop 1 add 1}ifelse 9 ymd2systemtime
+def
+name exch def
+/expires S .expires def
+a: .S :a: .L :a add
+/long_name (forecast time) def
+/pointwidth 3 def
+/bounds undef
+} defasvar
+
+:dataset
+
+datasetdefs:
+:datasetdefs
+
+/precip_CPC currentobject /precip_CPC get def
+/precip_obs currentobject /precip_obs get def
+/precipitation currentobject /precipitation get def
+/temp_CPC currentobject /temp_CPC get def
+/temp_obs currentobject /temp_obs get def
+/temperature currentobject /temperature get def
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,47 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (IDENTIFICATION) def
+
+/ZD { IRIDB (BF_VAMU_2018) (zd) [(hhid)] open_column_by
+/long_name (Zone de dénombrement) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/SECTEUR { IRIDB (BF_VAMU_2018) (secteur) [(hhid)] open_column_by
+/long_name (Secteur) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Conc { IRIDB (BF_VAMU_2018) (conc) [(hhid)] open_column_by
+/long_name (Numéro de concession) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Menage { IRIDB (BF_VAMU_2018) (menage) [(hhid)] open_column_by
+/long_name (Numéro de ménage) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/Nom_CM { IRIDB (BF_VAMU_2018) (nom_cm) [(hhid)] open_column_by
+/long_name (Nom et prénoms du CM) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/lat { IRIDB (BF_VAMU_2018) (gps__latitude) [(hhid)] open_column_by
+/long_name (Coordonnées GPS du ménage: Latitude) def 
+/missing_value -999999999 def
+/units /degree_north def/scale_min 9. def/scale_max 15.5 def}defasvarsilentnoreuse
+
+/lon { IRIDB (BF_VAMU_2018) (gps__longitude) [(hhid)] open_column_by
+/long_name (Coordonnées GPS du ménage: Longitude) def 
+/missing_value -999999999 def
+/units /degree_east def/scale_min -6. def/scale_max 2.5 def}defasvarsilentnoreuse
+
+/zdummy {c: 0 :c}defasvar
+:dataset
+
+ZD .hhid name exch def
+\end{ingrid}
+

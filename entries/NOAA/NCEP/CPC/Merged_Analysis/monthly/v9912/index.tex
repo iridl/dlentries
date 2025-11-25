@@ -1,0 +1,84 @@
+\begin{ingrid}
+/long_name (December 1999 Release) def
+continuedataset:
+link:
+/name (v0107) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCEP/.CPC/.Merged_Analysis/.monthly/.v0107/) def
+/description (Merged Analysis July 2001 release) def
+/semantics /dcterm:isReplacedBy def
+:link
+grid: 
+/name /X def
+degE
+periodic
+1.25 2.5 358.75
+:grid
+grid:
+/name /Y def
+degN
+-88.75 2.5 88.75
+:grid
+grid:
+/name /T def
+/units (monthtime) def
+/standard_name (time) def
+16 Jan 1979 ensotime
+1.
+16  Dec        1999 ensotime % enddate
+:grid
+dataset:
+/name /ver1 def
+/long_name (Version 1) def
+/description (using rain gauge , satellite, and  Numerical Model Predictions) def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/iridl:hasSemantics (iridl:precipitation) def
+/units (mm/day) def
+/missing_value -999. def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cac/cmap/monthly/v9912/xie.rain1.r4) def
+:file
+:variable
+variable:
+/name /error def
+/units (percent) def
+/missing_value -999. def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cac/cmap/monthly/v9912/xie.err1.r4) def
+:file
+:variable
+:dataset
+dataset:
+/name /ver2 def
+/long_name (Version 2)def
+/description (using rain gauge and satellite estimates) def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/iridl:hasSemantics (iridl:precipitation) def
+/units (mm/day) def
+/missing_value -999. def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cac/cmap/monthly/v9912/xie.rain2.r4) def
+:file
+:variable
+variable:
+/name /error def
+/units (percent) def
+/missing_value -999. def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cac/cmap/monthly/v9912/xie.err2.r4) def
+:file
+:variable
+:dataset
+:dataset
+\end{ingrid}

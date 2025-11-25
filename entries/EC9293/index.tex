@@ -1,0 +1,28 @@
+\begin{ingrid}
+continuedataset:
+/description (Zonal and meridional wind stress data) def
+/name /EC9293 def
+grid: /name /X def degE periodic 1.125 to 358.875 N= 320 pts :grid 
+grid: /name /Y def degN  -88.8785 to 88.8785 N= 160 pts :grid 
+grid: /name /T def /units /month def 
+16 Jan 1992 ensotime
+1
+16 Dec 1993 ensotime
+:grid
+file: 
+/name (/Data/data3/rainbow/ecmwf.9293) def
+random
+grids: X Y [ /taux /tauy ] | T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+:file
+:dataset
+\end{ingrid}

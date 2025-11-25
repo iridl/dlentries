@@ -1,0 +1,411 @@
+\begin{ingrid}
+%/references(Roeckner_etal2006) def
+continuedataset:
+%/long_name (CAM5 daily BIASproj809911)def
+datasetdefs:
+
+grid:
+/name /Time def
+/long_name (Time) def
+/units (days since 1930-01-01 12:00:00)def
+%/calendar /365 def
+%monthtime
+%/pointwidth 1 def
+%16 Jan 1930 ensotime
+%1.
+%16 Dec 1960
+%systemtime
+%systemtime2ymd pop .5 sub exch
+%ensotime
+%/defaultvalue {last} def
+%(1200 01 Jan 1931)
+%1.
+%(1200 31 Dec 1990)
+%%
+1 Jan 1979 julian_day
+1 Jan 1930 julian_day sub
+1
+31 Dec 2005 julian_day
+1 Jan 1930 julian_day sub
+:grid
+Time /pointwidth 1 def pop
+
+grid:
+/name /X def
+/units (degree_east)def
+ periodic
+ 0 2.8125 360  2.8125 sub
+:grid
+
+grid:
+/name /Y def
+/units (degree_north)def
+values:
+-87.86 -85.10 -82.31 -79.53 -76.74 -73.95 -71.16 -68.37
+ -65.58 -62.79 -60.00 -57.21 -54.42 -51.63 -48.84 -46.04 -43.25 -40.46
+ -37.67 -34.88 -32.09 -29.30 -26.51 -23.72 -20.93 -18.14 -15.35 -12.56
+ -9.77  -6.98  -4.19  -1.40   1.40   4.19   6.98   9.77  12.56  15.35
+  18.14  20.93  23.72  26.51  29.30  32.09  34.88  37.67  40.46  43.25
+ 46.04  48.84  51.63  54.42  57.21  60.00  62.79  65.58  68.37  71.16
+ 73.95  76.74  79.53  82.31  85.10  87.86
+:values
+:grid
+
+%DATASET 11 object %this causes extra field 'adataset  adataset[T ]' in ingrid
+%[ X Y Time ] { name exch def } forall
+%[ X Y |/NVZ 23  NewIntegerGRID Time ]
+%%(/Data/data1/iri/forecast/forecast/ECHAM5_T42.D/ECHAM5_EC3_SST_GHG/%b:lc[S]/%2.2d[M]/c4219EC%2.2d[M]_2N3d_monthly_echamcout.%Y%m[T]) [M L S T]
+%(/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/IRIDL/Daily/CESM.daily.%Y[T].ALL.nc) [Time yearlyedgesgrid first secondtolast subgrid]
+%readdatafile:
+%decsequential
+%:readdatafile
+
+/FLNS{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/FLNS.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (FLNS) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Net longwave flux at surface) def
+ /units (W/m2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/FLNT{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/FLNT.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%%sequential
+%%:readdatafile
+/name (FLNT) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Net longwave flux at top of model) def
+ /units (W/m2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+
+
+/FSNS{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/FSNS.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (FSNS) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Net solar flux at surface) def
+ /units (W/m2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/LHFLX{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/LHFLX.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (LHFLX) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Surface latent heat flux) def
+ /units (W/m2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/PRECC{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/PRECC.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (PRECC) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Convective precipitation rate (liq + ice)) def
+ /units (m s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/PRECL{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/PRECL.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (PRECL) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Large-scale (stable) precipitation rate (liq + ice)) def
+ /units (m s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/PSL{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/PSL.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (PSL) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Sea level pressure) def
+ /units (Pa)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/Q200{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/Q200.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (Q200) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (200 mb specific humidity) def
+ /units (kg kg-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/Q850{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/Q850.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (Q850) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (850 mb specific humidity) def
+ /units (kg kg-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/QBOT{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/QBOT.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (QBOT) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Lowest model level water vapor mixing ratio) def
+ /units (kg kg-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/SHFLX{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/SHFLX.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (SHFLX) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Surface sensible heat flux) def
+ /units (kg kg-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/T200{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/T200.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (T200) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (200 mb temperature) def
+ /units (K)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/T850{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/T850.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (T850) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (850 mb temperature) def
+ /units (K)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/TBOT{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/TBOT.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (TBOT) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Lowest model level temperature) def
+ /units (K)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/U200{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/U200.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (U200) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (200 mb zonal wind) def
+ /units (m s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/U850{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/U850.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (U850) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (850 mb zonal wind) def
+ /units (m s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/UBOT{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/UBOT.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (UBOT) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Lowest model level zonal wind) def
+ /units (m s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/V200{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/V200.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (V200) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (200 mb zonal wind) def
+ /units (m s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/V850{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/V850.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (V850) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (850 mb zonal wind) def
+ /units (m s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/VBOT{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/VBOT.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (VBOT) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Lowest model level zonal wind) def
+ /units (m s-1)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/Z850{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/Z850.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (Z850) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Geopotential Z at 850 mbar pressure surface) def
+ /units (m)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/Z500{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/Z500.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (Z500) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Geopotential Z at 500 mbar pressure surface) def
+ /units (m)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/Z200{
+[ X Y | Time ] (/Data/data24/CESM.D/postproc.D/biasSST/BIASproj809911/Daily2/Z200.daily.%Y[Time].nc)  [Time yearlyedgesgrid first secondtolast subgrid]
+readdatafile:
+%sequential
+%:readdatafile
+/name (Z200) def
+ /MemoryOrder (XY ) def
+ /FieldType 104 def
+ /missing_value 9.96920997E36 def
+ /description (Geopotential Z at 200 mbar pressure surface) def
+ /units (m)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+%definevariables:
+%Surface 0 Zvariable:/name (FLNS) def /long_name (Net longwave flux at surface) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (FSNS) def /long_name (Net solar flux at surface) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (LHFLX) def /long_name (Surface latent heat flux) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (PRECC) def /long_name (Convective precipitation rate (liq + ice)) def /units (m s-1) def :Zvariable
+%Surface 0 Zvariable:/name (PRECL) def /long_name (Large-scale (stable) precipitation rate (liq + ice)) def /units (m s-1) def :Zvariable
+%Surface 0 Zvariable:/name (PSL) def /long_name (Sea level pressure) def /units (Pa) def :Zvariable
+%Surface 0 Zvariable:/name (Q200) def /long_name (200mb specific humidity) def /units (kg kg-1) def :Pvariable
+%Surface 0 Zvariable:/name (Q850) def /long_name (850mb specific humidity) def /units (kg kg-1) def :Pvariable
+%Surface 0 Zvariable:/name (QBOT) def /long_name (Lowest model level water vapor mixing ratio) def /units (kg kg-1) def :Pvariable
+%Surface 0 Zvariable:/name (SHFLX) def /long_name (Surface sensible heat flux) def /units (W m-2) def :Zvariable
+%Surface 0 Zvariable:/name (T200) def /long_name (200mb temperature) def /units (K) def :Pvariable
+%Surface 0 Zvariable:/name (T850) def /long_name (850mb temperature) def /units (K) def :Pvariable
+%Surface 0 Zvariable:/name (TBOT) def /long_name (Lowest model level temperature) def /units (K) def :Pvariable
+%Surface 0 Zvariable:/name (U200) def /long_name (200mb zonal wind) def /units (m s-1) def :Pvariable
+%Surface 0 Zvariable:/name (U850) def /long_name (850mb zonal wind) def /units (m s-1) def :Pvariable
+%Surface 0 Zvariable:/name (UBOT) def /long_name (Lowest model level zonal wind) def /units (m s-1) def :Pvariable
+%Surface 0 Zvariable:/name (V200) def /long_name (200mb meridional wind) def /units (m s-1) def :Pvariable
+%Surface 0 Zvariable:/name (V850) def /long_name (850mb meridional wind) def /units (m s-1) def :Pvariable
+%Surface 0 Zvariable:/name (VBOT) def /long_name (Lowest model level meridional wind) def /units (m s-1) def :Pvariable
+%:definevariables
+
+:dataset
+
+\end{ingrid}

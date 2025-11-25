@@ -1,0 +1,344 @@
+\begin{ingrid}
+continuedataset:
+/references (Chen_etal2002) def
+dataset:
+/name (deg0p5) def
+/description (PRECL Monthly Mean Rainfall and Number of Gauges in 0.5x0.5 boxes (Version 1.0)) def
+/references (Chen_etal2002) def
+
+link:
+/name (source) def
+/description (original ftp server) def
+/href (ftp://ftp.cpc.ncep.noaa.gov/precip/50yr/gauge/0.5deg/format_bin_lnx/) def
+:link
+link:
+/name (dataset_documentation) def
+/description (Global Land Precipitation: A 50-yr Monthly Analysis Based on Gauge Observations) def
+/href (http://journals.ametsoc.org/doi/abs/10.1175/1525-7541%282002%29003%3C0249%3AGLPAYM%3E2.0.CO%3B2) def
+:link
+link:
+/name (summary) def
+/description (CPC:  50-Year Reconstruction of Precipitation) def
+/href (http://www.cpc.ncep.noaa.gov/products/global_precip/html/wpage.50yrrec.html) def
+:link
+
+grid:
+ /name (X) def
+ /long_name (Longitude) def
+ /standard_name (longitude) def
+ /units (degree_east) def
+ 0.25 0.5 359.75
+ periodic
+:grid
+
+grid:
+ /name (Y) def
+ /long_name (Latitude) def
+ /standard_name (latitude) def
+ /units (degree_north) def
+ -89.75 0.5 89.75
+:grid
+
+grid:
+ /name (T) def
+ /long_name (Time) def
+ monthtime 
+ /standard_name (time) def
+ /defaultvalue { last } def
+ 16 Jan 1948 ensotime 
+ 1.
+%16 Apr 2014 ensotime
+ systemtime systemtime2ymd ymd:lastmonth ymd2rm1960 0.5 add
+:grid
+
+  T
+   { (/Data/data6/noaa/cpc/precl/v1p0/deg0p5/precl_mon_v1.0.lnx.%Y[T].gri0.5m) [T]}removeextrausing
+   first last[X
+       Y |
+       /NVZ
+        2 NewIntegerGRID
+        T last
+          12 sub
+          12 div
+          round
+          12 mul
+          0.5 add
+          last subgrid
+         ] (/Data/data6/noaa/cpc/precl/v1p0/deg0p5/precl_mon_v1.0.lnx.%Y[T].gri0.5m) [T last
+           12 sub
+           12 div
+           round
+           12 mul
+           0.5 add
+           last subgrid
+          yearlyedgesgrid
+          first secondtolast subgrid
+          ]readdatafile: decdirect :readdatafile
+      NVZ 2 VALUE
+      [X Y]average
+      0 flagle
+      [T]sum
+      getrealization
+      0 get
+      sub
+     subgrid
+   last
+    rm19602ymd ymd:nextmonth ymd:nextmonth ymd2systemtime
+    /expires exch def
+   name exch def
+
+[ X Y | /NVZ 2 NewIntegerGRID  T ] (/Data/data6/noaa/cpc/precl/v1p0/deg0p5/precl_mon_v1.0.lnx.%Y[T].gri0.5m) [ T yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+% true /useopenfile myreadfileargs !
+ decdirect 
+ /missing_value -999.0 def
+ :readdatafile
+
+definevariables:
+0 Zvariable:
+/name /rain def
+/long_name (monthly mean of daily rainfall) def
+/standard_name (lwe_precipitation_rate) def
+/scale_factor 0.1 def
+/units (mm/day) def
+:Zvariable
+
+0 Zvariable:
+/name /gnum def
+/long_name (number of gauges in each 0.5 deg lat/lon grid box) def
+/units (count) def
+:Zvariable
+
+:definevariables
+/last_modified T .last_modified def
+/iridl:hasSemantics (gcmdi:RAIN_GAUGES) def
+
+:dataset
+
+
+dataset:
+/name (deg1p0) def
+/description (PRECL Monthly Mean Rainfall and Number of Gauges in 1.0x1.0 boxes (Version 1.0)) def
+/references (Chen_etal2002) def
+
+link:
+/name (source) def
+/description (original ftp server) def
+/href (ftp://ftp.cpc.ncep.noaa.gov/precip/50yr/gauge/1.0deg/format_lnx/) def
+:link
+link:
+/name (dataset_documentation) def
+/description (Global Land Precipitation: A 50-yr Monthly Analysis Based on Gauge Observations) def
+/href (http://journals.ametsoc.org/doi/abs/10.1175/1525-7541%282002%29003%3C0249%3AGLPAYM%3E2.0.CO%3B2) def
+:link
+link:
+/name (summary) def
+/description (CPC:  50-Year Reconstruction of Precipitation) def
+/href (http://www.cpc.ncep.noaa.gov/products/global_precip/html/wpage.50yrrec.html) def
+:link
+
+grid:
+ /name (X) def
+ /long_name (Longitude) def
+ /standard_name (longitude) def
+ /units (degree_east) def
+ 0.5 1.0 359.5
+ periodic
+:grid
+
+grid:
+ /name (Y) def
+ /long_name (Latitude) def
+ /standard_name (latitude) def
+ /units (degree_north) def
+ -89.5 1.0 89.5
+:grid
+
+grid:
+ /name (T) def
+ /long_name (Time) def
+ monthtime 
+ /standard_name (time) def
+ /defaultvalue { last } def
+ 16 Jan 1948 ensotime 
+ 1.
+%16 Apr 2014 ensotime
+ systemtime systemtime2ymd ymd:lastmonth ymd2rm1960 0.5 add
+:grid
+
+  T
+   { (/Data/data6/noaa/cpc/precl/v1p0/deg1p0/precl_mon_v1.0.lnx.%Y[T].gri1.0m) [T]}removeextrausing
+   first last[X
+       Y |
+       /NVZ
+        2 NewIntegerGRID
+        T last
+          12 sub
+          12 div
+          round
+          12 mul
+          0.5 add
+          last subgrid
+         ] (/Data/data6/noaa/cpc/precl/v1p0/deg1p0/precl_mon_v1.0.lnx.%Y[T].gri1.0m) [T last
+           12 sub
+           12 div
+           round
+           12 mul
+           0.5 add
+           last subgrid
+          yearlyedgesgrid
+          first secondtolast subgrid
+          ]readdatafile: decdirect :readdatafile
+      NVZ 2 VALUE
+      [X Y]average
+      0 flagle
+      [T]sum
+      getrealization
+      0 get
+      sub
+     subgrid
+   last
+    rm19602ymd ymd:nextmonth ymd:nextmonth ymd2systemtime
+    /expires exch def
+   name exch def
+
+[ X Y | /NVZ 2 NewIntegerGRID  T ] (/Data/data6/noaa/cpc/precl/v1p0/deg1p0/precl_mon_v1.0.lnx.%Y[T].gri1.0m) [ T yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+% true /useopenfile myreadfileargs !
+ decdirect 
+ /missing_value -999.0 def
+ :readdatafile
+
+definevariables:
+0 Zvariable:
+/name /rain def
+/long_name (monthly mean of daily rainfall) def
+/standard_name (lwe_precipitation_rate) def
+/scale_factor 0.1 def
+/units (mm/day) def
+:Zvariable
+
+0 Zvariable:
+/name /gnum def
+/long_name (number of gauges in each 1.0 deg lat/lon grid box) def
+/units (count) def
+:Zvariable
+
+:definevariables
+/last_modified T .last_modified def
+/iridl:hasSemantics (gcmdi:RAIN_GAUGES) def
+
+:dataset
+
+dataset:
+/name (deg2p5) def
+/description (PRECL Monthly Mean Rainfall and Number of Gauges in 2.5x2.5 boxes (Version 1.0)) def
+/references (Chen_etal2002) def
+
+link:
+/name (source) def
+/description (original ftp server) def
+/href (ftp://ftp.cpc.ncep.noaa.gov/precip/50yr/gauge/2.5deg/format_bin/) def
+:link
+link:
+/name (dataset_documentation) def
+/description (Global Land Precipitation: A 50-yr Monthly Analysis Based on Gauge Observations) def
+/href (http://journals.ametsoc.org/doi/abs/10.1175/1525-7541%282002%29003%3C0249%3AGLPAYM%3E2.0.CO%3B2) def
+:link
+link:
+/name (summary) def
+/description (CPC:  50-Year Reconstruction of Precipitation) def
+/href (http://www.cpc.ncep.noaa.gov/products/global_precip/html/wpage.50yrrec.html) def
+:link
+
+grid:
+ /name (X) def
+ /long_name (Longitude) def
+ /standard_name (longitude) def
+ /units (degree_east) def
+ 1.25 2.5 358.75
+ periodic
+:grid
+
+grid:
+ /name (Y) def
+ /long_name (Latitude) def
+ /standard_name (latitude) def
+ /units (degree_north) def
+ -88.75 2.5 88.75
+:grid
+
+grid:
+ /name (T) def
+ /long_name (Time) def
+ monthtime 
+ /standard_name (time) def
+ /defaultvalue { last } def
+ 16 Jan 1948 ensotime 
+ 1.
+%16 Apr 2014 ensotime
+ systemtime systemtime2ymd ymd:lastmonth ymd2rm1960 0.5 add
+:grid
+
+  T
+   { (/Data/data6/noaa/cpc/precl/v1p0/deg2p5/precl_mon_v1.0.sgi.%Y[T]) [T]}removeextrausing
+   first last[X
+       Y |
+       /NVZ
+        2 NewIntegerGRID
+        T last
+          12 sub
+          12 div
+          round
+          12 mul
+          0.5 add
+          last subgrid
+         ] (/Data/data6/noaa/cpc/precl/v1p0/deg2p5/precl_mon_v1.0.sgi.%Y[T]) [T last
+           12 sub
+           12 div
+           round
+           12 mul
+           0.5 add
+           last subgrid
+          yearlyedgesgrid
+          first secondtolast subgrid
+          ]readdatafile: direct :readdatafile
+      NVZ 2 VALUE
+      [X Y]average
+      0 flagle
+      [T]sum
+      getrealization
+      0 get
+      sub
+     subgrid
+   last
+    rm19602ymd ymd:nextmonth ymd:nextmonth ymd2systemtime
+    /expires exch def
+   name exch def
+
+[ X Y | /NVZ 2 NewIntegerGRID  T ] (/Data/data6/noaa/cpc/precl/v1p0/deg2p5/precl_mon_v1.0.sgi.%Y[T]) [ T yearlyedgesgrid first secondtolast subgrid ] readdatafile:
+% true /useopenfile myreadfileargs !
+ direct 
+ /missing_value -999.0 def
+ :readdatafile
+
+definevariables:
+0 Zvariable:
+/name /prcp def
+/long_name (monthly mean of daily rainfall) def
+/standard_name (lwe_precipitation_rate) def
+/scale_factor 0.1 def
+/units (mm/day) def
+:Zvariable
+
+0 Zvariable:
+/name /gauge def
+/long_name (number of gauges in each 2.5 deg lat/lon grid box) def
+/units (count) def
+:Zvariable
+
+:definevariables
+/last_modified T .last_modified def
+/iridl:hasSemantics (gcmdi:RAIN_GAUGES) def
+:dataset
+
+:dataset
+\end{ingrid}

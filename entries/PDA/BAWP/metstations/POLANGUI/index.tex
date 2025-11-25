@@ -1,0 +1,96 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Polangui meteorological stations) def
+
+datasetdefs:
+grid:
+/name /BARANGAYread def
+/units /ids def
+1 1 9
+:grid
+:datasetdefs
+
+grid:
+/name /T def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+7 Jun 2013 julian_day 01 Jan 1960 julian_day sub 0.5 add
+1.0
+28 Feb 2017 julian_day 01 Jan 1960 julian_day sub 0.5 add
+%systemtime systemtime2ymd 3 -2 roll exch julian_day 01 Jan 1960 julian_day sub 0.5 add
+/pointwidth 1. def
+:grid
+
+grid:
+/name /FID def
+/units /ids def
+values:
+(1-001)
+(1-002)
+(1-003)
+(1-004)
+(1-005)
+(1-006)
+(1-007)
+:values
+:grid
+
+/rainfall {
+[BARANGAYread | T]
+(/data/bicolda/HISTOSTATION/POLANGUI_%Y%m[T]/POLANGUI_%Y%m%d[T].txt) [T]
+readdatafile:
+[3 1] r*4astsv
+:readdatafile
+BARANGAYread 7 6 5 2 4 3 1 VALUES
+BARANGAYread FID replaceGRID
+/long_name (daily total rainfall) def
+/units /mm def
+/missing_value -222 def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+variable:
+/name /lat def
+/units /degree_north def
+/long_name (Latitude) def
+grids: FID  :grids
+values: 13.31025 13.325 13.32347 13.34677 13.33685 13.3406 13.311 :values
+/scale_min 11.2 def
+/scale_max 15. def
+:variable
+
+variable:
+/name /lon def
+/units /degree_east def
+/long_name (Longitude) def
+grids: FID  :grids
+values: 123.50108 123.51048 123.49557 123.47198 123.49142 123.48525 123.45128 :values
+/scale_min 122. def
+/scale_max 125. def
+:variable
+
+/location {
+lon lat geopt}
+defasvar
+
+variable:
+/name /label def
+/long_name (Label) def
+grids: FID  :grids
+values:
+  (Pintor, Polangui, Albay)
+  (Gamot II, Polangui, Albay)
+  (Gamot I, Polangui, Albay)
+  (La Medalla, Polangui, Albay)
+  (Kinuartelan II, Polangui, Albay)
+  (Kinuartelan I, Polangui, Albay)
+  (Balangibang, Polangui, Albay)
+:values
+:variable
+
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,180 @@
+\begin{ingrid}
+
+continuedataset:
+
+/PepsiCo datadownloadsareRestricted
+/Cookie varies_on
+
+
+/long_name (SubX MME USCA bi-weekly Precipitation Probability Forecast) def
+/description (SubX MME USCA bi-weekly probability forecasts of below-normal, above-normal, and near-normal precipitation for Saturday-Friday. SubX MME forecast, including GEFSv12, CFSv2 and ESRL) def
+
+datasetdefs:
+
+/togetherfn {
+ a:
+    C /Below_Normal VALUE
+    :a:
+     C /Normal VALUE
+     masklt
+    :a:
+     C /Above_Normal VALUE
+     masklt
+    -1 mul
+    0 replaceNaN
+    :a:
+     C /Normal VALUE
+     :a:
+      C /Below_Normal VALUE
+      masklt
+     :a:
+      C /Above_Normal VALUE
+      masklt
+     37.5 masklt
+     0 mul
+     0 replaceNaN
+     add
+    :a:
+     C /Above_Normal VALUE
+     :a:
+      C /Normal VALUE
+      masklt
+     :a:
+      C /Below_Normal VALUE
+      masklt
+     0 replaceNaN
+     add
+ :a:
+     C /Below_Normal VALUE
+     0 mul
+     add
+    :a:
+     C /Normal VALUE
+     :a:
+      C /Below_Normal VALUE
+      masklt
+     :a:
+      C /Above_Normal VALUE
+      masklt
+     37.5 maskgt
+     0 mul
+     1 add
+     0 replaceNaN
+     /missing_value 1 def
+     add
+    :a
+
+startcolormap
+DATA -100.0 100.0 RANGEEDGES
+null 120 50 0 RGB
+120 50 0 RGB -100.0 VALUE
+120 50 0 RGB RGBdup -67.5 bandmax
+170 70 30 RGB RGBdup -57.5 bandmax
+208 128 51 RGB RGBdup -47.5 bandmax
+232 184 51 RGB RGBdup -42.5 bandmax
+250 250 0 RGB RGBdup -37.5 bandmax
+white RGBdup -1.0 bandmax
+gray RGBdup 1.0 bandmax
+white RGBdup 37.5 bandmax
+200 250 200 RGB RGBdup 42.5 bandmax
+150 250 150 RGB RGBdup 47.5 bandmax
+90 190 100 RGB RGBdup 57.5 bandmax
+0 150 210 RGB RGBdup 67.5 bandmax
+0 51 255 RGB RGBdup 100.0 bandmax
+0 51 255 RGB 100.0 VALUE
+0 51 255 RGB
+endcolormap
+} def
+
+:datasetdefs
+
+
+grid:
+/name (X) def
+/units (degreeE) def
+/fullname (Longitude) def
+periodic
+   215.5 360.0 sub 1.0 314.5 360.0 sub
+:grid
+
+grid:
+/name (Y) def
+/units (degreeN) def
+/fullname (Latitude) def
+59.5 1.0 15.5
+:grid
+
+
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+values:
+06 Jan 2023 julian_day 01 Jan 1960 julian_day sub
+7
+systemtime
+(%d %b %Y) 12 strftime interp julian_day 3 add
+01 Jan 1960 julian_day sub
+{} for
+:values
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+S {(/Data/data21/iri/FD/PepsiCo/Subx_forecast/forecast_biweekly/biweekly_precip/MME_Subx_USCA_pr_issue_Fri_%d[S]_%b[S]_%Y[S]_week234_forecast.nc) [ S ]} removeextrausing
+name exch def
+
+S
+/expires
+S last 6 add cvsunits nip interp exch 0.5 add 4 -2 roll exch pop ymd2systemtime
+def
+name exch def
+
+/expires S .expires def
+
+
+grid:
+/name (L) def
+/units (days) def
+/fullname (Forecast_period) def
+15. 7. 22.
+/pointwidth 14. def
+:grid
+
+grid:
+/name (C) def
+/units (ids) def
+/fullname (Tercile Classes) def
+values: /Below_Normal /Normal /Above_Normal :values
+:grid
+
+/target_date { S L add /long_name (forecast time) def /standard_name (time) def } defasvar
+
+/prob {
+
+[ X Y C | L S ] (/Data/data21/iri/FD/PepsiCo/Subx_forecast/forecast_biweekly/biweekly_precip/MME_Subx_USCA_pr_issue_Fri_%d[S]_%b[S]_%Y[S]_week234_forecast.nc) [ S ] readdatafile:
+
+/name (prob) def
+/units (percent) def
+/doublearraytype netcdfrecords :readdatafile
+/missing_value NaN def
+/long_name (Tercile Probability) def
+/scale_min 0 def
+/scale_max 100 def
+tercileclassesscale
+Y last first RANGE
+} defasvarsilent
+
+
+/dominant {
+prob togetherfn
+/long_name (Dominant Tercile Probability) def
+C removeGRID
+} defasvarsilent
+
+
+
+
+:dataset
+\end{ingrid}

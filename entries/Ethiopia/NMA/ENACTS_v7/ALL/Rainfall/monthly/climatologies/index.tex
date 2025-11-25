@@ -1,0 +1,19 @@
+\begin{ingrid}
+
+continuedataset:
+
+/precip {
+ SOURCES .Ethiopia .NMA .ENACTS_v7 .ALL .Rainfall .monthly .precip
+ T (1981) (2010) RANGE
+yearly-climatology
+/long_name (Merged Station-Satellite Rainfall Climatology 1981-2010) def
+DATA 0 300 RANGE
+}defasvar
+
+:dataset
+
+precip .X name exch def
+precip .Y name exch def
+precip .T name exch def
+
+\end{ingrid}

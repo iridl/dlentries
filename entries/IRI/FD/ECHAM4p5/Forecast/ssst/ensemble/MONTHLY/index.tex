@@ -1,0 +1,38 @@
+\begin{ingrid}
+SOURCES .IRI .FD .ECHAM4p5 .Forecast .ssst .ensemble
+  .SIX-HOURLY
+exch 
+1 index
+T .125 shiftGRID monthlyAverage .T name exch def
+continuedataset:
+datasetdefs:
+/restrictsets
+null 5 object
+T systemtime
+    (%b %Y) 60 strftime
+    readunits array? { 0 get } if
+    dup
+     6 sub
+     exch subgrid
+   (%b%Y) strftimes
+   tolower toname
+   [T]REORDER
+   getrealization
+{dup def} forall
+def
+:datasetdefs
+/ifvar? false def
+/T currentobject 1 index get def
+:dataset
+1 index 
+DATASETbot ==noprintdataset 
+{totype datasettypes exch known not {pop}
+{ 2 index 1 index cvpops {T .125 shiftGRID monthlyAverage} aload length 2 add array astore cvx 
+restrictsets 2 index known {defasvarcacheKeepRestrictions}{defasvarcache}ifelse } 
+ifelse}forsome
+1 index .X name exch def
+1 index .Y name exch def
+1 index .last_modified /last_modified exch def
+1 index .expires /expires exch def
+nip
+\end{ingrid}

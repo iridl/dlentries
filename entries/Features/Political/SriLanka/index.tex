@@ -1,0 +1,173 @@
+\begin{ingrid}
+/Villages
+/description ( Provinces, Districts, Sub-districts, Villages, and Ministry of Health Districts) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,province_n,district_n,dsd_n,gnd_n,gnd_c,area,the_geom from sl_gndmrg order by gid) (gid) openqueryby
+        province_n
+            /long_name (Province Name) def
+        CopyStream
+        name exch def
+        district_n
+           /long_name (District Name) def
+        CopyStream
+        name exch def
+        dsd_n
+           /long_name (Sub-District Name) def
+        CopyStream
+        name exch def
+        gnd_n
+           /long_name (Village Name) def
+        CopyStream
+        name exch def
+        gnd_c
+           /long_name (Village Code) def
+        CopyStream
+        name exch def
+        area
+           /long_name (Area) def
+           /units (m2) def
+        CopyStream
+        name exch def
+        the_geom
+             /long_name (Geometry) def
+        CopyStream
+        name exch def
+}defasvarcachesilent
+/SubDistricts
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,gid as geom_id,province_n,district_n,dsd_n,the_geom from sl_gndmrg3 order by gid) (gid) openqueryby
+        geom_id
+            /long_name (Geometry id) def
+        CopyStream
+        name exch def
+        province_n
+            /long_name (Province Name) def
+        CopyStream
+        name exch def
+        district_n
+           /long_name (District Name) def
+        CopyStream
+        name exch def
+        dsd_n
+           /long_name (Sub-District Name) def
+        CopyStream
+        name exch def
+        the_geom
+             /long_name (Geometry) def
+        CopyStream
+        name exch def
+}defasvarcachesilent
+/Districts
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select new_distid,sum_area,name as name1,the_geom from sl_districts order by new_distid) (new_distid) openqueryby
+        sum_area
+            /long_name (Area) def
+            /units (m2) def
+        CopyStream
+        name exch def
+        name1
+           /long_name (District Name) def
+        CopyStream
+        name exch def
+        the_geom
+             /long_name (Geometry) def
+        CopyStream
+        name exch def
+}defasvarcachesilent
+/Provinces
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,sum_area,name as name1,the_geom from provinces_merged order by gid) (gid) openqueryby
+        sum_area
+            /long_name (Area) def
+            /units (m2) def
+        CopyStream
+        name exch def
+        name1
+            /long_name (Province Name) def
+        CopyStream
+        name exch def
+        the_geom
+             /long_name (Geometry) def
+        CopyStream
+        name exch def
+}defasvarcachesilent
+/MinistryOfHealth_Districts
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,gid as geom_id,province,district,moh_area,czone_gid,cezone_gid,cezone_name,iri_id,the_geom from finalmohmap_dd order by gid) (gid) openqueryby
+        geom_id
+            /long_name (Geometry id) def
+        CopyStream
+        name exch def
+        province
+            /long_name (Province Name) def
+        CopyStream
+        name exch def
+        district
+           /long_name (District Name) def
+        CopyStream
+        name exch def
+        moh_area
+           /long_name (Ministry of Health District Name) def
+        CopyStream
+        name exch def
+        czone_gid
+           /long_name (Climate zone gid) def
+        CopyStream
+        name exch def
+        cezone_gid
+           /long_name (Elevation zone gid) def
+        CopyStream
+        name exch def
+        cezone_name
+           /long_name (Elevation zone name) def
+        CopyStream
+        name exch def
+        iri_id
+           /long_name (MOH id for 115 districts) def
+        CopyStream
+        name exch def
+        the_geom
+             /long_name (Geometry) def
+        name exch def
+}defasvarcachesilent
+/MOH_115
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select iri_id, iri_id as moh_id,moh115_name,the_geom from moh_115 order by iri_id) (iri_id) openqueryby
+        moh_id
+            /long_name (MOH id) def
+        CopyStream
+        name exch def
+        moh115_name
+            /long_name (MOH District Name) def
+        CopyStream
+        name exch def
+        the_geom
+             /long_name (Geometry) def
+        name exch def
+}defasvarcachesilent
+/last_modified
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select max ( last_modified ) as last_modified from finalmohmap_dd) openquery .last_modified
+}def
+\end{ingrid}

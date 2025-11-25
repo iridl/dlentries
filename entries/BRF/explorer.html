@@ -1,0 +1,111 @@
+<html>
+<INGRID>
+/var1 FORMknown not
+{ 
+WWWinfo
+/FORMinfo
+null 20 object
+store
+pop
+} if
+Ingrid:
+/imagesrcsel
+{
+    /var1 FORMgetknownnotnull
+    {
+	urlprint
+	(+) print
+	/var2 FORMgetknown pop urlprint
+	(+) print
+	/var3 FORMgetknown
+	{ dup (null) eq { pop null } if
+	}
+	{ null } ifelse
+	dup null eq
+	{ pop  false} 
+	{  urlprint 
+	    (+) print
+	    true} ifelse
+    } {false}ifelse
+} def
+pop
+</INGRID>
+  <head>
+    <title>Scatterplots from <INGRID>longname print</INGRID></title>
+  </head>
+  <body>
+    <h1>Scatterplots from <INGRID>longname print</INGRID></h1>
+<form action=explorer.html>
+<table border=4>
+<tr><th><input type=submit value=Redraw></th>
+<th>horizontal</th><th>vertical</th><th>colors</th></tr>
+<tr><th>Variable</th><INGRID>
+[ /var1 /var2 /var3 ]
+{
+(<th>) print
+dup FORMgetknownnotnull
+{ dup (null) eq { pop null } {cvn}ifelse } 
+{ null } ifelse
+startselect
+selectname /var3 eq 
+{ null (none) valueoption } if
+1 index {pop}{relativename exch 
+dup /long_name known
+{ relativename type /namearraytype eq
+{ relativename 0 1 index length 1 sub getinterval
+ cvnatos ( ) long_name 3 array astore concat 
+} 
+{long_name}ifelse
+}
+{relativename cvnatos} ifelse
+nip
+ valueoption}foralldatasets2
+endselect
+(</th>\n)print
+} forall
+</INGRID>
+</tr>
+<tr>
+<INGRID>
+dup /Z known
+{
+Z
+(<tr><th>) print
+long_name print
+( ) print
+units cvntos print
+(</th>) print
+[ 1 2 3 ]
+{
+(<td>)print
+name cvntos exch s== append cvn 
+dup FORMgetknown
+{ interp }
+{plotfirst} ifelse
+startselect
+gridvalues { option } forall
+endselect
+(</td>)print
+} forall
+pop
+(/tr) print
+} if
+</INGRID>
+<INGRID>
+/var1 FORMknown
+{
+(<tr><th colspan=4 align=center><img src=") print
+imagesrcsel
+{(fig-+scattercolor+-fig+.gif"><br><img src=") print
+imagesrcsel pop
+(fig-+scattercolor+-fig+.auxfig+.gif) print} 
+{(fig-+scatter+-fig+.gif) print} ifelse
+(">\n</th></tr>) print
+(<tr><th colspan=4><a href=") print
+imagesrcsel (/) print { 3 } { 2 } ifelse ==ns
+(+ncoltable.html">Data in current view</a></th></tr>) print
+} if</INGRID>
+</table>
+</form>
+<INGRID>standardTrailer</INGRID>
+</body></html>

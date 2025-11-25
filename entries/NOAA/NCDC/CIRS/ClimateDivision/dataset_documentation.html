@@ -1,0 +1,196 @@
+<INGRID>datasetdocumentationheader</INGRID>
+<h1>CIRS: TD-9640 Climate Division Data</h1>
+<center>
+TIME BIAS CORRECTED DIVISIONAL<br>
+TEMPERATURE-PRECIPITATION-DROUGHT<br>
+INDEX<br>
+</p>
+<p></p>
+ (TD-9640)<br>
+ MARCH 1994<br>
+</center>
+<br>
+<p>The major parameters in this file are sequential "Time Biased Corrected" state
+climatic division monthly Average Temperatures (Deg.F. to 10ths), Precipitation
+(Inches to 100ths), and Palmer Drought Indices (PDSI, PHDI, PMDI, and ZNDX). 
+Period of record is 1895 through latest month available, updated monthly.</p>
+<br>
+<p>Monthly averages within a climatic division have been calculated by giving
+equal weight to stations reporting both temperature and precipitation within a
+division. In the U.S., observers at cooperative stations often take one
+observation per day, and the ending time of the climatological day at any
+station can vary from station-to-station as well as year-to-year.  Differences
+of the 24-hour period over which each observer reports his or her maximum and 
+minimum temperature as well as the average temperature [(max + min)/2] affects 
+the calculated monthly mean temperature.  Karl, et al. (1986), describe the 
+biases that this introduces. These potential biases were rectified by 
+adjusting for these varying observation times.  The model described by Karl, 
+et al. (1986), was used to adjust the climate division averages such that all 
+stations end their climatological day at midnight; i.e., climatological day 
+coincides with calendar day.  The time of observation was determined at each 
+station within a climate division during January of the years 1931, 1941, 1951,
+1965, 1975, and 1984 for the states of California, Colorado, Illinois, Indiana,
+New York, North Carolina, and Washington.  The fraction of observers recording 
+at various hours of the day was calculated and interpolated for intervening
+years (extrapolated for subsequent years).  For these seven states, the ending 
+time of observation was grouped into three categories:  AM, PM, and MD.
+The AM category included observers who ended their climatological day between
+3 AM and 11AM; the PM category between noon and 9 PM; and the MD category
+between 10 PM and 2 AM; all local standard time.  The fraction of observers in
+these categories was calculated, and it was assumed the 7 AM observation time 
+best represented the AM category; the 5 PM observation time, the PM category; 
+and midnight for the MD category.  The reason for the simplification was to 
+test if a faster method, requiring significantly less bookkeeping and 
+keypunching, could not provide nearly as good results as calculating the 
+fraction of observers at each of the 24 hours of the day.</p>
+<br>
+<p>The time of observation bias model was run by using the latitude and longitude 
+of each of the centroids of the climate divisions.  The output from the model 
+was the time of observation bias, with respect to a midnight-to-midnight 
+climatological day, for each of the possible ending hours of the climatological
+day.  Each climate division's monthly average was then adjusted by weighting 
+the bias at any given hour by the fraction of stations within the climate 
+division observing at that hour, and subtracting the result for the reported 
+monthly mean temperature.</p>
+<br>
+<p>Differences of the biases were small (< 0.3 Deg. F.) for those calculated by
+categorizing the ending time of observation into three categories compared to
+those obtained from calculating the fraction of stations with observation times
+at each of the 24 hours of the day.  This is attributed to the preponderance of
+AM observation times falling between 6 AM and 9 AM, and PM observation times
+falling between 4 PM and 7 PM.  As a result, by assuming 7 AM observation for 
+all AM stations and 5 PM for all PM stations, a good estimate of the median 
+bias is obtained for all AM or PM observations.  Furthermore, nearly all the MD
+stations observed at midnight.</p>
+<br>
+<p>It should also be noted that the borders of the climate divisions in 1951 were 
+not consistent with those defined in 1965.  Due to the substantial additional 
+effort it would have required locating each station within three or four 
+climate divisions, as defined today, the change in the statewide percentage of 
+AM, PM, and MD observation times was applied in equal proportions to all 
+climate divisions prior to and including 1951.</p>
+<br>
+<p>Based on small differences between the two methods of estimating the time of
+observation bias, the simpler categorical procedure was used for all climate
+divisions.  This should effectively eliminate most of the biases (over 2 Deg.F)
+in some climate divisions that have become part of the divisional averages.  
+These biases affect both trends and actual estimates of divisional averages.  
+Reference Karl, et al. (1986):  "A model to estimate the time of observation 
+bias associated with monthly mean maximum, minimum, and mean temperatures for 
+the Unites States" (Thomas R. Karl, Claude N. Williams, Jr., and Pamela J.
+Young, National Climatic Data Center, and Wayne M. Wendland, Illinois State 
+Water Survey, Journal of Climate and Applied Meteorology, January 1986, 
+American Meteorological Society, Boston, MA).  The time of observation bias 
+model which can be used for the maximum, minimum, and mean monthly temperature 
+at any location in the contiguous U.S. [program NCC*F11SRC (OBTBIAS Code) and 
+NCC*F11REL (OBTBIAS)], is available from the NCDC.</p>
+<br>
+<p>Historical drought data have been added to this file for the period 1895 to
+present.  The file is updated monthly.  All drought data are calibrated using 
+the period 1895-1990 (cf. Karl, 1986; Journal of Climate and Applied 
+Meteorology, Vol. 25, No. 1, January 1986).  Drought data include: </p> 
+<br>
+<p>1.  Palmer Drought Severity Index (PDSI)
+<br>
+<br>
+ This is the monthly value (index) that is generated indicating the severity
+ of a wet or dry spell.  This index is based on the principles of a balance
+ between moisture supply and demand.  Man-made changes were not considered in
+ this calculation.  The index generally ranges from -6 to +6, with negative
+ values denoting dry spells and positive values indicating wet spells.  There
+ are a few values in the magnitude of +7 or -7.  PDSI values 0 to -.5 =
+ normal; -0.5 to -1.0 = incipient drought; -1.0 to -2.0 = mild drought; -2.0
+ to -3.0 = moderate drought; -3.0 to -4.0 = severe drought; and greater than -
+ 4.0 = extreme drought.  Similar adjectives are attached to positive values of
+ wet spells.  This is a meteorological drought index used to assess the
+ severity of dry or wet spells of weather.</p>
+<br>
+<p>2.  Palmer Hydrological Drought Index (PHDI)
+<br>
+<br>
+ This is the monthly value (index) generated monthly that indicates the
+ severity of a wet or dry spell.  This index is based on the principles of a
+ balance between moisture supply and demand.  Man-made changes such as
+ increased irrigation, new reservoirs, and added industrial water use were not
+ included in the computation of this index.  The index generally ranges from -
+ 6 to +6, with negative values denoting dry spells, and positive values
+ indicating wet spells.  There are a few values in the magnitude of +7 or -7. 
+ PHDI values 0 to -0.5 = normal; -0.5 to -1.0 = incipient drought; -1.0 to -
+ 2.0 = mild drought; -2.0 to -3.0 = moderate drought; -3.0 to -4.0 = severe
+ drought; and greater than -4.0 = extreme drought.  Similar adjectives are
+ attached to positive values of wet spells.  This is a hydrological drought
+ index used to assess long-term moisture supply.</p>
+<br>
+<p>3.  Palmer "Z" Index (ZNDX)
+<br>
+<br>
+ This is the generated monthly Z values, and they can be expressed as the
+ "Moisture Anomaly Index."  Each monthly Z value is a measure of the departure
+ from normal of the moisture climate for that month.  This index can respond
+ to a month of above-normal precipitation, even during periods of drought. 
+ Table 1 contains expected values of the Z index and other drought parameters. 
+ See Historical Climatology Series 3-6 through 3-9 for a detailed description
+ of the drought indices.</p>
+<br>
+<p>4.  Modified Palmer Drought Severity Index (PMDI)
+<br>
+<br>
+ This is a modification of the Palmer Drought Severity Index.  The
+ modification was made by the National Weather Service Climate Analysis Center
+ for operational meteorological purposes.  The Palmer drought program
+ calculates three intermediate parallel index values each month.  Only one
+ value is selected as the PDSI drought index for the month.  This selection is
+ made internally by the program on the basis of probabilities.  If the
+ probability that a drought is over is 100%, then one index is used.  If the
+ probability that a wet spell is over is 100%, then another index is used.  If
+ the probability is between 0% and 100%, the third index is assigned to the
+ PDSI.  The modification (PMDI) incorporates a weighted average of the wet and
+ dry index terms, using the probability as the weighting factor.  (Thomas R.
+ Heddinghause and Paul Sabol, 1991; "A Review of the Palmer Drought Severity
+ Index and Where Do We Go From Here?," Proceedings of the Seventh Conference
+ on Applied Climatology, pp. 242-246, American Meteorological Society, Boston,
+ MA).  The PMDI and PDSI will have the same value during an established
+ drought or wet spell (i.e., when the probability is 100%), but they will have
+ different values during transition periods.</p>
+<br>
+<br>
+<center>
+<p>Classes for Wet and Dry Periods</p>
+</center>
+<br>
+<center>
+<table border=0>
+<tr> <th>Approximate<br> Cumulative<br> Frequency (%)</th>
+     <th>Range <br>PHDI</th>
+     <th>Category</th>
+     <th>Range <br>Z</th>
+</tr>
+<tr>
+     <td>>96</td> <td>> 4.00</td> <td>Extreme wetness</td> <td>>3.50</td>
+</tr>
+<tr>
+     <td>90-95</td> <td>3.00,  3.99</td> <td>Severe wetness</td> <td>2.50,  3.49</td>
+<tr>
+     <td>73-89</td> <td>1.50,  2.99</td> <td>Mild to moderate<br>wetness</td> <td>1.00,  2.49</td>
+</tr>
+<tr>
+     <td>28-72</td> <td>-1.49,  1.49</td> <td>Near normal</td> <td>-1.24,  0.99</td>
+</tr>
+<tr>
+     <td>11-27</td> <td>-1.50,  -2.99</td> <td>Mild to moderate<br>drought</td> <td>-1.25,  -1.99</td>
+</tr>
+<tr>
+     <td>5-10</td> <td>-3.00,  -3.99</td> <td>Severe drought</td> <td>-2.00,  -2.74</td>
+</tr>
+<tr>
+     <td>< 4</td> <td>< -4.00</td> <td>Extreme drought</td> <td>< -2.75</td>
+</tr>      
+</table>
+</center>
+<br>
+<br>
+<p>For a complete description of the data see <a
+href="ftp://ftp.ncdc.noaa.gov/pub/data/cirs/drought.README">
+ftp://ftp.ncdc.noaa.gov/pub/data/cirs/drought.README</a>
+</p>
+<INGRID>datasetdocumentationtrailer</INGRID>

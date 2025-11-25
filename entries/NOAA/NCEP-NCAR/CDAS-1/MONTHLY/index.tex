@@ -1,0 +1,10 @@
+\begin{ingrid}
+/X SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DegreeGrid .X def
+/Y SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DegreeGrid .Y def
+/T Intrinsic .PressureLevel .T def
+/last_modified Intrinsic .last_modified def
+/griblist.html {(griblist)htmlprint} def
+/expires T .last rm19602ymd ymd:nextmonth ymd:nextmonth  2 add
+ymd2systemtime def
+/ifvar? true def
+\end{ingrid}

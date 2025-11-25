@@ -1,0 +1,72 @@
+\begin{ingrid}
+
+continuedataset:
+
+  /name /prob def
+
+   /precip_pne {
+      1 index .dataset .dataset
+     mark Models {name /prob ne { pop}{.precip_pne}ifelse }{name /prob ne {pop}{.precip_pne}ifelse}foralldatasets2
+     counttomark dup dup
+        4 add %2 object on the top + 2 dup object on the bottom
+        1 roll
+       1 sub
+       {add}repeat
+    3 index div
+    3 {exch pop} repeat
+  }defasvar
+
+  /precip_poe {
+     1 index .dataset .dataset
+    mark Models {name /prob ne { pop}{.precip_poe}ifelse }{name /prob ne {pop}{.precip_poe}ifelse}foralldatasets2
+    counttomark dup dup
+       4 add %2 object on the top + 2 dup object on the bottom
+       1 roll
+      1 sub
+      {add}repeat
+   3 index div
+   3 {exch pop} repeat
+ }defasvar
+
+   /tref_pne {
+      1 index .dataset .dataset
+     mark Models {name /prob ne { pop}{.temperature_pne}ifelse }{name /prob ne {pop}{.temperature_pne}ifelse}foralldatasets2
+     counttomark dup dup
+        4 add %2 object on the top + 2 dup object on the bottom
+        1 roll
+       1 sub
+       {add}repeat
+    3 index div
+    3 {exch pop} repeat
+    temp_colors
+   /scale_symmetric false def
+   DATA AUTO AUTO RANGE
+  }defasvar
+
+  /tref_poe {
+     1 index .dataset .dataset
+    mark Models {name /prob ne { pop}{.temperature_poe}ifelse }{name /prob ne {pop}{.temperature_poe}ifelse}foralldatasets2
+    counttomark dup dup
+       4 add %2 object on the top + 2 dup object on the bottom
+       1 roll
+      1 sub
+      {add}repeat
+   3 index div
+   3 {exch pop} repeat
+   temp_colors
+  /scale_symmetric false def
+  DATA AUTO AUTO RANGE
+ }defasvar
+
+/target_date { S L add /long_name (forecast time) def /standard_name (time) def } defasvar
+
+
+
+:dataset
+
+precip_pne .S name exch def
+precip_pne .L name exch def
+
+
+
+\end{ingrid}

@@ -1,0 +1,92 @@
+\begin{ingrid}
+  continuedataset:
+    /source (<a href="http://faostat.fao.org/default.aspx">FAOSTAT</a>) def
+    grid:
+      /name (T) def
+      monthtime
+      /pointwidth 12 def
+      1 Jul 1961 ensotime
+      12
+      1 Jul 2008 ensotime
+    :grid
+    grid:
+      /name (code) def
+      /units (ids) def
+      /fullname (item code) def
+      values:
+242
+56
+299
+79
+211
+27
+83
+15
+      :values
+    :grid
+
+    variable:
+      /name /Name def
+      grids: code :grids
+      /long_name (item name) def
+      values:
+(Groundnuts, with shell)
+(Maize)
+(Melonseed)
+(Millet)
+(Pulses, nes)
+(Rice, paddy)
+(Sorghum)
+(Wheat)
+  :values
+    :variable
+
+    /Seed {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliProdSeed.csv)
+      readdatafile:
+        ((/,(77X,48(F6.0,9X)))) formatted
+      :readdatafile
+      /long_name (seed) def
+      /units (tonne) def
+      /scale_min 0 def
+    }defasvarsilent
+
+    /Flag {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliProdAnimals.csv)
+      readdatafile:
+        ((/,(101X,48(14X,F1.0,)))) formatted
+      :readdatafile
+      /long_name (data quality) def
+      /CLIST [
+        (Official data)
+        (Unofficial figure)
+        (FAO estimate)
+        (Data not available)
+        (FAO calculated)
+        (Estimated data using trading partners database)
+        (Manual Estimation)        (Country data reported by International Organizations where the country is a member (Semi-official))
+        (Official data reported on FAO Questionnaires from countries)
+      ] def
+      startcolormap
+        /maxncolor 12 def
+        DATA 0 8 RANGE
+        white white
+        black
+        LightBlue
+        red
+        grey
+        orange
+        yellow
+        purple
+        NavyBlue
+        blue
+        white
+      endcolormap
+    }defasvarsilent
+
+  /history (FAOSTAT | © FAO Statistics Division 2010) def
+
+  :dataset
+\end{ingrid}

@@ -1,0 +1,150 @@
+\begin{ingrid}
+continuedataset:
+/name (COADS) def
+/iridl:hasSemantics [(iridl:NOAA)(iridl:NCAR)] def
+/references (Slutz_etal1985) def
+grid: 
+/name /X cvx def
+/units /degreeE cvx def
+ periodic 1 to 359 N= 180 pts :grid
+grid: 
+/name /Y cvx def
+/units /degreeN cvx def
+ordered -89. to 89 N= 90 pts :grid
+grid:
+/name /T cvx def
+/units /monthtime cvx def
+ordered 16 Jan 1854 ensotime 1. 16 Dec 1992 ensotime 
+:grid
+/description (Comprehensive Ocean-Atmosphere Data Set: Trimmed monthly summaries)def
+/dataset_documentation.html descriptions  /coads.html get def
+/mean {/mean (/Data/data3/coads/mean.cuf) nameCUF
+datasetdefs: :datasetdefs
+  {shum u v tair slp sst X Y T}{currentobject 1 index get def}forall
+  /umag |u| /name 2 index def def
+ } def
+/nobs {/nobs (/Data/data3/coads/nobs.cuf) nameCUF
+datasetdefs: :datasetdefs
+  {shum u v tair slp sst X Y T}{currentobject 1 index get def}forall
+  /umag |u|  /name 2 index def def
+} def
+/stdev {/stdev (/Data/data3/coads/stdev.cuf) nameCUF
+datasetdefs: :datasetdefs
+  {shum u v tair slp sst X Y T}{currentobject 1 index get def}forall
+  /umag |u|  /name 2 index def def
+} def
+/xlon {/xlon (/Data/data3/coads/xlon.cuf) nameCUF
+datasetdefs: :datasetdefs
+  {shum u v tair slp sst X Y T}{currentobject 1 index get def}forall
+  /umag |u|  /name 2 index def def} def
+/ylat {/ylat (/Data/data3/coads/ylat.cuf) nameCUF
+datasetdefs: :datasetdefs
+  {shum u v tair slp sst X Y T}{currentobject 1 index get def}forall
+  /umag |u| /name 2 index def  def
+} def
+:dataset
+\end{ingrid}
+These data are in a special compressed format.  Talk to Alexey to get
+a fortran subroutine that can read the data.
+
+This is very complicated Ingrid coding, in an attempt to handle a
+complicated dataset compactly.  Not for beginners!
+\begin{oldingrid}
+/coadsS structure
+/mv real
+/lun integer
+/var 4 string
+/stat 4 string
+/coadsS myname
+endstructure
+def
+continuedataset:
+/name (COADS) def
+/description (Comprehensive Ocean-Atmosphere Data Set)def
+/dataset_documentation.html descriptions /coads.html get def
+grid: 
+/name /X cvx def
+/units /degreeE cvx def
+ periodic 1 to 359 N= 180 pts :grid
+grid: 
+/name /Y cvx def
+/units /degreeN cvx def
+ordered -89. to 89 N= 90 pts :grid
+grid:
+/name /T cvx def
+/units /monthtime cvx def
+ordered 16 Jan 1854 ensotime 1. 16 Dec 1992 ensotime 
+:grid
+% common parent for all COADS streams
+null 5 object
+/STREAM STREAM 2 object
+/T0 T 0 RECHUNK def
+/==alias /STREAM cvx def
+/DATASETbot 1 index def
+8 object
+2 SetStreamIndex* X Y T *
+/defbuffer
+{T0
+coadsS new
+2 index .dataset .name cvntos store stat
+(    ) store var
+2 index >name cvntos store var
+NaN store mv
+-1 store lun
+getCOADS0 chunksize NewBuffer0
+} def
+/missing_value NaN def
+def
+/theunits null 7 object
+/u (m/s) def
+/v u def
+/|u| u def
+/slp (mb) def
+/tair (Celsius) def
+/sst tair def
+/shum (g/kg) def
+def
+/thelong_name null 7 object
+/u (zonal wind) def
+/v (meridional wind) def
+/|u| (wind speed) def
+/slp (sea level pressure) def
+/tair (air temperature) def
+/sst (sea surface temperature) def
+/shum (specific humidity) def
+def
+/theprecision null 7 object
+/mean .01 def
+/stdev .01 def
+/nobs 1 def
+/xlon .2 def
+/ylat .2 def
+def
+3 1 roll
+[ /mean /stdev /nobs /xlon /ylat ]
+{
+dataset:
+/name 4 -1 roll def
+[/u /v /|u| /slp /sst /tair /shum ]
+{
+variable: /name 4 -1 roll def
+/precision theprecision dataset >name get dup null eq { pop pop } {def} ifelse
+precision .01 eq {/units theunits name get def
+ /long_name thelong_name name get def} if
+dataset >name /xlon eq { /units (degreeE) def  } if
+dataset >name /ylat eq { /units (degreeN) def } if
+dataset .name /stdev eq { units (Celsius) eq { /units (degC) def } if } if
+defbuffer
+:variable
+} forall
+name /mean eq { /description (Monthly average data for gridbox) def} if
+name /stdev eq { /description (Monthly average standard deviation of data for gridbox) def} if
+name /nobs eq { /description (Number of observations for gridbox) def} if
+name /xlon eq { /description (Average longitude for gridbox) def} if
+name /ylat eq { /description (Average latitude for gridbox) def} if
+:dataset } forall
+%mean DATASET null 2 object /name dup def /dataset dup def { def } forsome
+:dataset
+exch pop
+\end{oldingrid}
+

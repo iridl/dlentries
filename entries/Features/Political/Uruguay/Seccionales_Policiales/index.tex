@@ -1,0 +1,44 @@
+\begin{ingrid}
+/description (Seccionales Policiales 2010) def
+continuedataset:
+
+/deptosec {
+IRIDB (seccionales_2010) (deptosec) [(gid)] open_column_by
+/long_name (Deptosec) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (seccionales_2010) (('Departamento: '||deptonom||' - Seccional Policial: '||sp_2010) as label) [(gid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+/area {
+IRIDB (seccionales_2010) (area) [(gid)] open_column_by
+/long_name (Area) def
+}defasvarsilentnoreuse
+
+/perimeter {
+IRIDB (seccionales_2010) (perimeter) [(gid)] open_column_by
+/long_name (Perimeter) def
+}defasvarsilentnoreuse
+
+/shape_leng {
+IRIDB (seccionales_2010) (shape_leng) [(gid)] open_column_by
+/long_name (Shape Leng) def
+}defasvarsilentnoreuse
+/shape_area {
+IRIDB (seccionales_2010) (shape_area) [(gid)] open_column_by
+/long_name (Shape Area) def
+}defasvarsilentnoreuse
+
+/the_geom  {
+IRIDB (seccionales_2010) (the_geom) [(gid)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+:dataset
+
+deptosec .gid name exch def
+
+\end{ingrid}
+

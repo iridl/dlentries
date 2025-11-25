@@ -1,0 +1,157 @@
+\begin{ingrid}
+
+/description (Distribution of Live Animals by Region, 1970-2010) def
+
+link:
+/name /source def
+/description (Download selection interface) def
+/href (http://countrystat.org/home.aspx?c=NER&ta=158SPD035&tr=21) def
+:link
+
+continuedataset:
+
+grid:
+/name /T def
+/units (monthtime) def
+/defaultvalue { last } def
+1 Jul 1970 ensotime
+12
+1 Jul 2010 ensotime
+/pointwidth 12. def
+:grid
+
+grid:
+/name /provcode def
+values:
+2202. 2203. 2204. 2205. 2206. 2207. 2208. 2209.
+:values
+/long_name (Province Code) def
+:grid
+
+grid:
+/name /gid def
+values:
+779
+780
+781
+782
+783
+784
+785
+786
+:values
+:grid
+
+grid:
+/name /provname_CS def
+/units /ids def
+values:
+(Agadez)  (Diffa)  (Dosso)  (Maradi)  (Niamey)  (Tahoua)  (Tillaberi)  (Zinder)
+:values
+:grid
+
+
+/REAV_A{
+[T gid | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Niger/Sub-national/Production/Livestock/EAV/EAV_A.csv)
+readdatafile:
+[3 4] r*4astsv
+:readdatafile
+/missing_value -9 def
+/long_name (Distribution of Live Animals - Donkeys) def
+/units /tons def
+%/last_modified 2012 09 04 ymd2systemtime def
+}defasvarsilent
+
+
+/REAV_B{
+[T gid | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Niger/Sub-national/Production/Livestock/EAV/EAV_B.csv)
+readdatafile:
+[3 4] r*4astsv
+:readdatafile
+/missing_value -9 def
+/long_name (Distribution of Live Animals - Cattle) def
+/units /tons def
+%/last_modified 2012 09 04 ymd2systemtime def
+}defasvarsilent
+
+
+/REAV_CM{
+[T gid | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Niger/Sub-national/Production/Livestock/EAV/EAV_CM.csv)
+readdatafile:
+[3 4] r*4astsv
+:readdatafile
+/missing_value -9 def
+/long_name (Distribution of Live Animals - Camelids) def
+/units /tons def
+%/last_modified 2012 09 04 ymd2systemtime def
+}defasvarsilent
+
+
+/REAV_CP{
+[T gid | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Niger/Sub-national/Production/Livestock/EAV/EAV_CP.csv)
+readdatafile:
+[3 4] r*4astsv
+:readdatafile
+/missing_value -9 def
+/long_name (Distribution of Live Animals - Goats) def
+/units /tons def
+%/last_modified 2012 09 04 ymd2systemtime def
+}defasvarsilent
+
+
+/REAV_E{
+[T gid | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Niger/Sub-national/Production/Livestock/EAV/EAV_E.csv)
+readdatafile:
+[3 4] r*4astsv
+:readdatafile
+/missing_value -9 def
+/long_name (Distribution of Live Animals - Horses) def
+/units /tons def
+%/last_modified 2012 09 04 ymd2systemtime def
+}defasvarsilent
+
+
+/REAV_O{
+[T gid | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Niger/Sub-national/Production/Livestock/EAV/EAV_O.csv)
+readdatafile:
+[3 4] r*4astsv
+:readdatafile
+/missing_value -9 def
+/long_name (Distribution of Live Animals - Sheep) def
+/units /tons def
+%/last_modified 2012 09 04 ymd2systemtime def
+}defasvarsilent
+
+
+
+/the_geom {
+SOURCES .Features .Political .World .firstOrder_GAUL
+.the_geom gid 779 786 RANGE
+}defasvar
+
+/adm1_code {
+SOURCES .Features .Political .World .firstOrder_GAUL
+.adm1_code  gid 779 786 RANGE
+}defasvar
+
+/adm1_name {
+SOURCES .Features .Political .World .firstOrder_GAUL
+.adm1_name gid 779 786 RANGE
+}defasvar
+
+/label {
+SOURCES .Features .Political .World .firstOrder_GAUL
+.label gid 779 786 RANGE
+}defasvar
+
+:dataset
+
+%/last_modified 2012 09 04 ymd2systemtime def 
+
+\end{ingrid}

@@ -1,0 +1,127 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (AREA OPERATED AND AREA CROPLAND, HARVESTED) def
+/iridl:hasSemantics (iridl:area_harvested) def
+
+datasetdefs:
+
+grid:
+/name /mycol def
+1 1 50. 2. mul
+:grid
+
+grid:
+/name /myvar def
+1 1 12
+:grid
+
+:datasetdefs
+
+grid:
+/name /T def
+/units (monthtime) def
+/defaultvalue { last } def
+1 Jul 1997 ensotime
+5. 12. mul
+1 Jul 2017 ensotime
+/pointwidth 12. def
+:grid
+
+grid:
+/name /gid def
+1207 1 1257
+:grid
+
+grid:
+/name /areaOperated def
+/units /acres def
+values:
+ 1 10 50 70 100 140 180 220 260 500 1000 2000 5000 10000
+:values
+:grid
+
+areaOperated partialgrid name exch def
+
+/ach {
+[mycol T myvar | ]
+(/Data/PRISM/USDA/quickstats/CensusEcoFLAAgLandAreasAcres1.txt)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+myvar first VALUE myvar removeGRID
+mycol 2 splitstreamgrid
+mycol first VALUE mycol removeGRID
+mycol2 gid 1207 1208 1209 1210 1211 1212 1213 1214 1216 1217 1218 1219 1220 1221 1222 1223 1224 1225 1226 1227 1228 1229 1230 1231 1232 1233 1234 1235 1236 1237 1238 1239 1240 1241 1242 1243 1244 1245 1246 1247 1248 1249 1250 1251 1252 1253 1254 1255 1256 1257 subgrid
+replaceGRID
+/long_name (Area Cropland, Harvested) def
+/units /acres def
+/missing_value -9 def
+}defasvarsilent
+
+/ach_pct {
+[mycol T myvar | ]
+(/Data/PRISM/USDA/quickstats/CensusEcoFLAAgLandAreasAcres1.txt)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+myvar first VALUE myvar removeGRID
+mycol 2 splitstreamgrid
+mycol last VALUE mycol removeGRID
+mycol2 gid 1207 1208 1209 1210 1211 1212 1213 1214 1216 1217 1218 1219 1220 1221 1222 1223 1224 1225 1226 1227 1228 1229 1230 1231 1232 1233 1234 1235 1236 1237 1238 1239 1240 1241 1242 1243 1244 1245 1246 1247 1248 1249 1250 1251 1252 1253 1254 1255 1256 1257 subgrid
+replaceGRID
+/long_name (Area Cropland, Harvested) def
+/units /percent def
+/missing_value -9 def
+DATA 0 100 RANGE
+}defasvarsilent
+
+/aoach {
+[mycol T myvar | ]
+(/Data/PRISM/USDA/quickstats/CensusEcoFLAAgLandAreasAcres1.txt)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+myvar second last RANGE
+myvar areaOperated replaceGRID
+mycol 2 splitstreamgrid
+mycol first VALUE mycol removeGRID
+mycol2 gid 1207 1208 1209 1210 1211 1212 1213 1214 1216 1217 1218 1219 1220 1221 1222 1223 1224 1225 1226 1227 1228 1229 1230 1231 1232 1233 1234 1235 1236 1237 1238 1239 1240 1241 1242 1243 1244 1245 1246 1247 1248 1249 1250 1251 1252 1253 1254 1255 1256 1257 subgrid
+replaceGRID
+/long_name (Area Operated and Area Cropland, Harvested) def
+/units /acres def
+/missing_value -9 def
+}defasvarsilent
+
+/aoach_pct{
+[mycol T myvar | ]
+(/Data/PRISM/USDA/quickstats/CensusEcoFLAAgLandAreasAcres1.txt)
+readdatafile:
+[0 10 1] r*4astsv
+:readdatafile
+myvar second last RANGE
+myvar areaOperated replaceGRID
+mycol 2 splitstreamgrid
+mycol last VALUE mycol removeGRID
+mycol2 gid 1207 1208 1209 1210 1211 1212 1213 1214 1216 1217 1218 1219 1220 1221 1222 1223 1224 1225 1226 1227 1228 1229 1230 1231 1232 1233 1234 1235 1236 1237 1238 1239 1240 1241 1242 1243 1244 1245 1246 1247 1248 1249 1250 1251 1252 1253 1254 1255 1256 1257 subgrid
+replaceGRID
+/long_name (Area Operated and Area Cropland, Harvested) def
+/units /percent def
+/missing_value -9 def
+DATA 0 100 RANGE
+}defasvarsilent
+
+/the_geom {
+ SOURCES .Features .Political .UnitedStates .firstOrder_GAUL
+.the_geom
+}defasvar
+
+/label {
+ SOURCES .Features .Political .UnitedStates .firstOrder_GAUL
+.label
+}defasvar
+
+:dataset
+
+\end{ingrid}

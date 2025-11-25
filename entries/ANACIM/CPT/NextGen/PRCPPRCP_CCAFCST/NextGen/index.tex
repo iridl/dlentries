@@ -1,0 +1,200 @@
+\begin{ingrid}
+continuedataset:
+
+dataset:
+/name /History def
+/description (Predictand, Hindcast and Skill) def
+
+grid:
+/name /X def
+/units /degree_east def
+/long_name (Longitude) def
+-17.5875 0.0375 -11.2125
+:grid
+
+grid:
+/name /Y def
+/units /degree_north def
+/long_name (Latitude) def
+12.225 0.0375 16.8
+:grid
+
+grid:
+/name /S def
+monthtime
+/defaultvalue { last } def
+/long_name (Issue Date) def
+/pointwidth 0 def
+1 Apr 1993 ensotime
+12.
+1 Apr 2016 ensotime
+:grid
+
+grid:
+/name /T def
+monthtime
+/defaultvalue { last } def
+/long_name (Time) def
+/pointwidth 3 def
+16 Aug 1993 ensotime
+12.
+16 Aug 2016 ensotime
+:grid
+       
+        % grid:
+        %   /name /L def
+        %   /units /months def
+        %   /long_name (Forecast Lead Time in Months) def
+        %   2.5 1 2.5
+        % :grid
+
+/CrossValHind {
+[X Y last first subgrid S | ]
+(/data/asiebert/Senegal_NextGen_rainfall/raw/Hindcasts/NextGen_PRCP_Jul-Sep_iniApr.tsv)
+readdatafile:
+[2 1 2] r*4astsv
+:readdatafile
+/missing_value -999. def
+3 mul
+Y last first RANGE
+/long_name (cross-validated hindcasts) def
+/units /mm def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+/obs {
+[X Y last first subgrid T | ]
+(/data/asiebert/Senegal_NextGen_rainfall/raw/obs_PRCP_Jul-Sep.tsv)
+readdatafile:
+[2 1 3] r*4astsv
+:readdatafile
+Y last first RANGE
+/missing_value -999. def
+3 mul
+/long_name (input observations) def
+/units /mm def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+/Pearson {
+[X Y last first subgrid | ]
+(/data/asiebert/Senegal_NextGen_rainfall/raw/Skill_scores/NextGen_PRCPPRCP_CCA_Pearson_Jul-Sep_Apr.dat)
+readdatafile:
+decsequential
+:readdatafile
+Y last first RANGE
+/missing_value -999. def
+correlationcolorscale
+DATA -1 1 RANGE
+/long_name (Precipitation Pearson's Correlation) def
+/units /unitless def
+}defasvarsilent
+
+/hindcast_date {
+S c: 4.5 /units /months def :c add
+/long_name (hindcast time) def
+/pointwidth 3 def
+%   /units (months since 1960-01-01) def
+}defasvar
+
+:dataset
+
+%%%%%%%%%%%%%%%%%%
+dataset:
+/name /Forecasts def
+/description (Forecast and Error) def
+
+grid:
+/name /X def
+/units /degree_east def
+/long_name (Longitude) def
+-17.5875 0.0375 -11.2125
+:grid
+
+grid:
+/name /Y def
+/units /degree_north def
+/long_name (Latitude) def
+12.225 0.0375 16.8
+:grid
+
+grid:
+/name /S def
+monthtime
+/long_name (Start time) def
+/standard_name (forecast_reference_time) def
+/defaultvalue { last } def
+/pointwidth 0 def
+values:  1 Apr 2022 ensotime :values
+:grid
+
+/var {
+[ X Y last first subgrid S | ]
+(/data/asiebert/Senegal_NextGen_rainfall/raw/Forecast_var/NextGen_PRCPPRCP_CCAFCST_var_Jul-Sep_Apr2022.tsv)
+readdatafile:
+[4 1] r*4astsv
+:readdatafile
+/missing_value -999. def
+3 dup mul mul
+Y last first RANGE
+/long_name (prediction error variance) def
+/units /mm2 def
+rainbowcolorscale
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+/dof {
+%        [1
+%        /Dummy exch NewIntegerGRID | S ]
+%        (/data/asiebert/Niger_NextGen_FbF_March2021_rainfallmaproomfiles/Forecast_var/NextGen_PRCPPRCP_CCAFCST_var_*_%b%Y[S].tsv) [S]
+
+%        readdatafile:
+%         ((/,(37X,F2.0,141X))) formatted
+%        :readdatafile
+%        Dummy removeGRID
+c:
+2016. 1993. sub 1. add 1. sub 
+/long_name (Degree of Freedom) def
+:c
+}defasvarsilent
+
+/mu {
+[ X Y last first subgrid S | ]
+(/data/asiebert/Senegal_NextGen_rainfall/raw/Forecast_mu/NextGen_PRCPPRCP_CCAFCST_mu_Jul-Sep_Apr2022.tsv)
+readdatafile:
+[4 1] r*4astsv
+:readdatafile
+Y last first RANGE
+/missing_value -999. def
+3 mul
+/units /mm def
+/long_name (forecast) def
+startcolormap
+DATA 0 1000 RANGE
+transparent gray gray 0 VALUE
+gray gray 10 bandmax
+orange orange 50 bandmax
+yellow yellow 100 bandmax
+202 255 112 RGB RGBdup 200 bandmax
+162 205 90 RGB RGBdup 300 bandmax
+102 205 0 RGB RGBdup 500 bandmax
+ForestGreen ForestGreen 1000 bandmax
+DarkGreen
+endcolormap
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+/target_date {
+S c: 4.5 /units /months def :c add
+/long_name (forecast time) def
+/pointwidth 3 def
+%   /units (months since 1960-01-01) def
+}defasvar
+
+:dataset
+
+:dataset
+
+\end{ingrid}

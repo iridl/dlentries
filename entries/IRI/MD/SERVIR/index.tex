@@ -1,0 +1,50 @@
+\begin{ingrid}
+/last_modified
+last_modified
+SOURCES .USGS .LandDAAC .MODIS .SWAS .last_modified
+imax
+SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .RFEv2 .T
+.last_modified
+imax
+def
+/expires
+%this is irrelevant as long as it points to MODISv5
+%Can reinstate if ever switch to v6
+%SOURCES .USGS .LandDAAC .MODIS .SWAS .expires
+SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .RFEv2 .T
+.expires
+%imin
+def
+continuedataset:
+/MEWS
+{
+SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .RFEv2 .est_prcp
+} defasvarsilent
+/CSMT
+{
+SOURCES .IRI .Analyses .CSMT
+{ X Y T}{ TempCondProb exch exec nip name exch def} forall
+} defasvarsilent
+dataset:
+/name /MODIS def
+%dataset:
+%/name /reflectance def
+%/WAF {SOURCES .USGS .LandDAAC .MODIS .WAF .reflectance} defasvarsilent
+%/EAF {SOURCES .USGS .LandDAAC .MODIS .EAF .reflectance} defasvarsilent
+%/SWAS {SOURCES .USGS .LandDAAC .MODIS .SWAS .reflectance} defasvarsilent
+%:dataset
+dataset:
+/name /NDVI def
+/WAF {SOURCES .USGS .LandDAAC .MODIS .WAF .NDVI} defasvarsilent
+/EAF {SOURCES .USGS .LandDAAC .MODIS .EAF .NDVI} defasvarsilent
+/SWAS {SOURCES .USGS .LandDAAC .MODIS .SWAS .NDVI} defasvarsilent
+:dataset
+dataset:
+/name /EVI def
+/WAF {SOURCES .USGS .LandDAAC .MODIS .WAF .EVI} defasvarsilent
+/EAF {SOURCES .USGS .LandDAAC .MODIS .EAF .EVI} defasvarsilent
+/SWAS {SOURCES .USGS .LandDAAC .MODIS .SWAS .EVI} defasvarsilent
+:dataset
+:dataset
+:dataset
+\end{ingrid}

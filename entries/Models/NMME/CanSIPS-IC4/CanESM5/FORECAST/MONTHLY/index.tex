@@ -1,0 +1,80 @@
+\begin{ingrid}
+continuedataset:
+
+/references (Kirtman_etal2014) def
+
+/T { S L add
+/long_name (Time) def
+/standard_name (time) def } defasvarsilent
+
+
+/tref { 
+SOURCES .Models .NMME .CanSIPS-IC4 .FORECAST .MONTHLY .tref
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/sst { 
+SOURCES .Models .NMME .CanSIPS-IC4 .FORECAST .MONTHLY .sst
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/prec { 
+SOURCES .Models .NMME .CanSIPS-IC4 .FORECAST .MONTHLY .prec
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/prmsl { 
+SOURCES .Models .NMME .CanSIPS-IC4 .FORECAST .MONTHLY .prmsl
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/tmax { 
+SOURCES .Models .NMME .CanSIPS-IC4 .FORECAST .MONTHLY .tmax
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+ 
+/tmin { 
+SOURCES .Models .NMME .CanSIPS-IC4 .FORECAST .MONTHLY .tmin
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/tmp { 
+SOURCES .Models .NMME .CanSIPS-IC4 .FORECAST .MONTHLY .tmp
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/ugrd { 
+SOURCES .Models .NMME .CanSIPS-IC4 .FORECAST .MONTHLY .ugrd
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/vgrd { 
+SOURCES .Models .NMME .CanSIPS-IC4 .FORECAST .MONTHLY .vgrd
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+/hgt { 
+SOURCES .Models .NMME .CanSIPS-IC4 .FORECAST .MONTHLY .hgt
+M 21 40 RANGE
+M name 20 NewIntegerGRID replaceGRID
+} defasvarsilent
+
+:dataset
+
+ugrd .M name exch def
+ugrd .L name exch def
+ugrd .S name exch def
+ugrd .Y name exch def
+ugrd .X name exch def
+
+\end{ingrid}
+

@@ -1,0 +1,133 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+dataset: /name /r1986-2006 def
+:dataset 
+dataset: /name /r2007 def
+:dataset
+:datasetdefs
+grid:
+/name /X def
+degE
+periodic
+-178.75 2.5 178.75
+:grid
+grid:
+/name /Y def
+degN
+88.75 -2.5 -88.75
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1986 ensotime
+1.
+16
+systemtime systemtime2ymd pop .5 sub exch
+ensotime 
+:grid
+T {(/Data/data21/gpcc/gpcc_25_%m%Y[T]_monitoring_product) [T] } removeextrausing
+ /expires last rm19602ymd
+       3 {ymd:nextmonth}repeat
+       pop
+      16 ymd2systemtime
+     def
+ name exch def
+r1986-2006
+ [ /NVZ
+    2 NewIntegerGRID
+    X Y |
+    T first 16 Dec 2006 ensotime subgrid] (/Data/data21/gpcc/gpcc_25_%m[T]%s[y24]_monitor_gauge) [T
+ first 16 Dec 2006 ensotime subgrid 
+dup a: 
+    first 16
+      Dec 1999 ensotime
+      subgrid
+    (%y) strftimes
+    :a: 
+     16
+      Jan 2000 ensotime
+      last subgrid
+     (%Y) strftimes
+     :a
+   appendstream
+/name /y24 def
+]readdatafile:
+      [295 207655]r*4asascii
+      /missing_value -99999.99 def
+      :readdatafile
+definevariables:
+0 Zvariable:
+/name /prcp def
+/units (mm/month) def
+:Zvariable
+0 Zvariable:
+/name /cnts def
+:Zvariable
+:definevariables
+pop
+ [ /NVZ
+    7 NewIntegerGRID
+    X Y |
+    T 16
+      Jan 2007 ensotime
+      last subgrid
+     ] (/Data/data21/gpcc/gpcc_25_%m%Y[T]_monitoring_product) [T 16
+        Jan 2007 ensotime
+        last subgrid
+       ]readdatafile:
+      /missing_value -99999.99 def
+      [1073 726825]r*4asascii
+      :readdatafile
+definevariables:
+0 Zvariable:
+/name /prcp def
+/units (mm/month) def
+:Zvariable
+0 Zvariable:
+/name /cnts def
+:Zvariable
+0 Zvariable:
+/name /sprcp def
+/long_name (proportion of solid precip) def
+/units /percent def
+:Zvariable
+0 Zvariable:
+/name /lprcp def
+/long_name (proportion of liquid precip) def
+/units /percent def
+:Zvariable
+0 Zvariable:
+/name /eprcp def
+/long_name (absolute systematic gauge error) def
+/units (mm/month) def
+:Zvariable
+0 Zvariable:
+/name /reprcp def
+/long_name (relative systematic gauge error) def
+/units /percent def
+:Zvariable
+0 Zvariable:
+/name /gec def
+/long_name (systematic gauge error correction factor) def
+/units /fraction def
+:Zvariable
+:definevariables
+r2007 prcp name exch put
+r2007 cnts name exch put
+/prcp {
+r1986-2006 .prcp
+   r2007 .prcp appendstreamsilent
+} defasvarcachesilent
+/cnts {
+r1986-2006 .cnts
+   r2007 .cnts appendstreamsilent
+} defasvarcachesilent
+/last_modified T .last_modified def
+/expires T .expires def
+:dataset
+\end{ingrid}
+home .benno .GPCC .2p5
+   T first VALUE
+   TM first VALUE
+

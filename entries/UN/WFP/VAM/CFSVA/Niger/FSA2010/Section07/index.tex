@@ -1,0 +1,177 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9195
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 554
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAavril2010.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Aide) def
+/Q851 {
+mytable
+myquestion 
+289 VALUE
+ myquestion removeGRID
+/long_name (Q85.1 Banque céréalière) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q852 {
+mytable
+myquestion 
+290 VALUE
+ myquestion removeGRID
+/long_name (Q85.2 Distribution gratuite) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q853 {
+mytable
+myquestion 
+291 VALUE
+ myquestion removeGRID
+/long_name (Q85.3 Vente de céréales à prix modéré) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q854 {
+mytable
+myquestion 
+292 VALUE
+ myquestion removeGRID
+/long_name (Q85.4 Vivre contre travail) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q855 {
+mytable
+myquestion 
+293 VALUE
+ myquestion removeGRID
+/long_name (Q85.5 Argent contre travail) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q856 {
+mytable
+myquestion 
+294 VALUE
+ myquestion removeGRID
+/long_name (Q85.6 Ration de décharge/ protection) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q857 {
+mytable
+myquestion 
+295 VALUE
+ myquestion removeGRID
+/long_name (Q85.7 Don/Zakat) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q858 {
+mytable
+myquestion 
+296 VALUE
+ myquestion removeGRID
+/long_name (Q85.8 Blanket feeding) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q859 {
+mytable
+myquestion 
+297 VALUE
+ myquestion removeGRID
+/long_name (Q85.9 Ration complémentaire pour les femmes enceintes et all) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q8510 {
+mytable
+myquestion 
+298 VALUE
+ myquestion removeGRID
+/long_name (Q85.10 Intrants agricoles (engrais, semences...)) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q8511 {
+mytable
+myquestion 
+299 VALUE
+ myquestion removeGRID
+/long_name (Q85.11 Cash transfert) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q8512 {
+mytable
+myquestion 
+300 VALUE
+ myquestion removeGRID
+/long_name (Q85.12 Autres à préciser) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

@@ -1,0 +1,52 @@
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name /X def
+/long_name (Longitude) def
+degE
+0.125 0.25 359.875 
+periodic
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+degN
+-59.875 0.25 59.875
+:grid
+
+grid:
+/name /T def
+/long_name (Time) def
+/standard_name (time) def
+/units (days since 2005-02-23 12:00:00) def
+/defaultvalue {last} def
+01 Jun 2014 julian_day 23 Feb 2005 julian_day sub 
+1
+ systemtime (%d %b %Y) 12 strftime interp julian_day 23 Feb 2005 julian_day sub
+:grid
+
+T {(/Data/data6/noaa/cpc/cmorph/CMORPH_V0.x/RAW/0.25deg-DLY_00Z/%Y[T]/%Y%m[T]/CMORPH_V0.x_RAW_0.25deg-DLY_00Z_%Y%m%d[T].gz) [T]} removeextrausing
+/expires last 2 add 2005 02 23 ymd2rjt add rjt2ymd ymd2systemtime def
+name exch def
+/expires T .expires def
+/last_modified T .last_modified def
+
+/prcp {
+[ X Y | T ] (/Data/data6/noaa/cpc/cmorph/CMORPH_V0.x/RAW/0.25deg-DLY_00Z/%Y[T]/%Y%m[T]/CMORPH_V0.x_RAW_0.25deg-DLY_00Z_%Y%m%d[T].gz) [T] readdatafile:
+true /useopenfile myreadfileargs !
+/name (cmorph) def
+/long_name (estimated precipitation) def
+/standard_name (lwe_precipitation_rate) def
+/units (mm/day) def
+decdirect
+/missing_value -999.0 def
+:readdatafile
+} defasvarsilent
+%/references (Joyce, R.J., J.E. Janowiak, P. A. Arkin and P. Xie, 2004: CMORPH: A Method that Produces Global Precipitation Estimates from Passive Microwave and Infrared Data at High Spatial and Temporal Resolution. J. Hydrometeorology, 5, 487-503.) def
+
+/references (Joyce_etal2004) def
+
+:dataset
+\end{ingrid}

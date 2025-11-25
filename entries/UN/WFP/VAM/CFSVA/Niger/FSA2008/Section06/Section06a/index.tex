@@ -1,0 +1,206 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9575
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 586
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAnov2008.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/Q34 {
+mytable
+myquestion 
+77 VALUE
+ myquestion removeGRID
+dup 2 maskle 0 mul 3 add exch replaceNaN
+/long_name (Q34 DEPUIS LES RECOLTES 2007 AVEZ -VOUS EU A VOUS ENDETTER P) def 
+/units /ids def
+/CLIST [(OUI)(NON)(ND)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q35A1A {
+mytable
+myquestion 
+78 VALUE
+ myquestion removeGRID
+/long_name (Q35A1A QUANTITE MIL ENDETTE) def 
+}defasvarsilent
+
+/Q35A1B {
+mytable
+myquestion 
+79 VALUE
+ myquestion removeGRID
+/long_name (Q35A1B QUANTITE SORGHO ENDETTE) def 
+}defasvarsilent
+
+/Q35A1C {
+mytable
+myquestion 
+80 VALUE
+ myquestion removeGRID
+/long_name (Q35A1C QUANTITE MAIS ENDETTE) def 
+}defasvarsilent
+
+/Q35A1D {
+mytable
+myquestion 
+81 VALUE
+ myquestion removeGRID
+/long_name (Q35A1D QUANTITE RIZ ENDETTE) def 
+}defasvarsilent
+
+/Q35A1E {
+mytable
+myquestion 
+82 VALUE
+ myquestion removeGRID
+/long_name (Q35A1E QUANTITE BLE ENDETTE) def 
+}defasvarsilent
+
+/Q35A1F {
+mytable
+myquestion 
+83 VALUE
+ myquestion removeGRID
+/long_name (Q35A1F QUANTITE FONIO ENDETTE) def 
+}defasvarsilent
+
+/Q35A2 {
+mytable
+myquestion 
+84 VALUE
+ myquestion removeGRID
+/long_name (Q35A2 EN ESPECE (y compris les animaux)) def 
+}defasvarsilent
+
+/Q36 {
+mytable
+myquestion 
+85 VALUE
+ myquestion removeGRID
+dup 2 maskle 0 mul 3 add exch replaceNaN
+/long_name (Q36 LE REMBOURSEMENT A-T-IL ETE FAIT OU ENGAGE) def 
+/units /ids def
+/CLIST [(OUI)(NON)(ND)] def
+/scale_min 1 def
+/scale_max 3 def
+}defasvarsilent
+
+/Q84 {
+mytable
+myquestion 
+86 VALUE
+ myquestion removeGRID
+/long_name (Q84 VOS DEPENSES ONT ELLES CHANGE) def 
+}defasvarsilent
+
+/Q8411 {
+mytable
+myquestion 
+87 VALUE
+ myquestion removeGRID
+/long_name (Q8411ALIMENTATION) def 
+/units /ids def
+/CLIST [(N'ONT PAS CHANGE)(ONT BAISSE)(ONT AUGMENTE)(NON APPLICABLE)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q8412 {
+mytable
+myquestion 
+88 VALUE
+ myquestion removeGRID
+/long_name (Q8412 ENERGIE) def 
+/units /ids def
+/CLIST [(N'ONT PAS CHANGE)(ONT BAISSE)(ONT AUGMENTE)(NON APPLICABLE)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q8413 {
+mytable
+myquestion 
+89 VALUE
+ myquestion removeGRID
+/long_name (Q8413 LOGEMENT) def 
+/units /ids def
+/CLIST [(N'ONT PAS CHANGE)(ONT BAISSE)(ONT AUGMENTE)(NON APPLICABLE)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q8414 {
+mytable
+myquestion 
+90 VALUE
+ myquestion removeGRID
+/long_name (Q8414 INTRANTS AGRICOLE EQUIPEMENT ET MAIN D'OEUVRE) def 
+/units /ids def
+/CLIST [(N'ONT PAS CHANGE)(ONT BAISSE)(ONT AUGMENTE)(NON APPLICABLE)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q8415 {
+mytable
+myquestion 
+91 VALUE
+ myquestion removeGRID
+/long_name (Q8415 SANTE) def 
+/units /ids def
+/CLIST [(N'ONT PAS CHANGE)(ONT BAISSE)(ONT AUGMENTE)(NON APPLICABLE)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q8416 {
+mytable
+myquestion 
+92 VALUE
+ myquestion removeGRID
+/long_name (Q8416 EDUCATION) def 
+/units /ids def
+/CLIST [(N'ONT PAS CHANGE)(ONT BAISSE)(ONT AUGMENTE)(NON APPLICABLE)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q8417 {
+mytable
+myquestion 
+93 VALUE
+ myquestion removeGRID
+/long_name (Q8417 TRANSPORT) def 
+/units /ids def
+/CLIST [(N'ONT PAS CHANGE)(ONT BAISSE)(ONT AUGMENTE)(NON APPLICABLE)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

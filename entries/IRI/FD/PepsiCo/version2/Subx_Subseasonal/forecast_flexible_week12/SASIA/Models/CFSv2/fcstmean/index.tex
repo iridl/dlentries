@@ -1,0 +1,108 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Forecast Ensemble Mean) def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+59.5 1.0 93.5
+:grid
+/X1 X def
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+7.5 1.0 41.5
+:grid
+/Y1 Y def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+59.0 1.0 94.0
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+7.0 1.0 42.0
+:grid
+
+grid:
+/name /L def
+/long_name (Lead Time) def
+/units /days def
+4.5 7. 11.5
+:grid
+
+grid:
+/name /S def
+/long_name (Start Time) def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+%/netcdfgrid true def
+5 Jan 2024 julian_day 01 Jan 1960 julian_day sub
+7
+systemtime
+(%d %b %Y) 12 strftime interp julian_day
+    6
+        Jan 2023 julian_day
+        sub
+       7 div
+       1 add
+       7 mul
+       2 index add
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+
+S { (/Data/data21/iri/FD/PepsiCo/Subx_forecast/flexible_forecast/weekly_precip/CFSv2/Subx_SASIA_precip_issue_Fri_%d_%b_%Y[S]_weekly_fcst_mean.nc) [S] } removeextrausing
+   name exch def
+
+S
+/expires
+S last 6 add cvsunits nip interp exch 0.5 add 4 -2 roll exch pop ymd2systemtime
+def
+name exch def
+
+/expires S .expires def
+
+/precip {
+[ X1 Y1 last first subgrid L | S ]
+(/Data/data21/iri/FD/PepsiCo/Subx_forecast/flexible_forecast/weekly_precip/CFSv2/Subx_SASIA_precip_issue_Fri_%d_%b_%Y[S]_weekly_fcst_mean.nc) [S]
+readdatafile:
+/name (mean) def
+/doublearraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/long_name (Ensemble Mean Precipitation) def
+/units (mm/week) def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+/temperature {
+[ X Y last first subgrid L | S ]
+(/Data/data21/iri/FD/PepsiCo/Subx_forecast/flexible_forecast/weekly_T2M/CFSv2/Subx_SASIA_t2m_issue_Fri_%d_%b_%Y[S]_weekly_fcst_mean.nc) [S]
+readdatafile:
+/name (mean) def
+/doublearraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/long_name (Ensemble Mean Temperature) def
+/units /Kelvin_scale def
+temp_colors
+/scale_symmetric false def
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

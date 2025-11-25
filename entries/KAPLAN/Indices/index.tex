@@ -1,0 +1,394 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/RSA_MOHSST5.in {(http://ingrid.ldeo.columbia.edu/SOURCES/.KAPLAN/.Indices/) redirectto} def
+/RSA_MOHSST5.html {(http://ingrid.ldeo.columbia.edu/SOURCES/.KAPLAN/.Indices/.dataset_documentation.html) redirectto} def
+:datasetdefs
+/references (Kaplan_etal1998 Cane_etal1997) def
+%/name (SST_Indices) def
+/description (of RSA_MOHSST5; from Kaplan et al. 1998: <i>JGR</i>, <b>103</b>, 18,567-18,589, and  Cane et al. 1997: <i>Science</i>,  <b>275</b>, 957--960, and those related to them) def
+grid:
+/name (T) def
+/units /monthtime def
+16 Jan 1856 ensotime 1. 16 Dec 1991 ensotime
+:grid
+/fdir (/Data/data2/kaplan/) def
+dataset:
+/name (NAc) def
+/description (North Atlantic (caption) NAc index [30N-50N, 60W-0W]) def
+file:
+/name [ fdir (INDnac.dat.4ing) ] concat def
+/missing_value 1.e+30 def
+formatted
+/format (*)  def
+grids:  [ /avGOSTA /avOS /avOS_err ] | T :grids
+variable:
+/name /avGOSTA def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from GOSTA (MOHSST5)) def
+:variable
+
+variable:
+/name /avOS def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+
+variable:
+/name /avOS_err def
+/long_name (Error) def
+/scale_factor 2 sqrt def
+/units (Degree C) def
+/description (Error from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+:file
+:dataset
+
+
+dataset:
+/name (NAf) def
+/description (North Atlantic (figure) NAf index [35N-70N, 75W-10W]) def
+file:
+/name [ fdir (INDnaf.dat.4ing) ] concat def
+/missing_value 1.e+30 def
+formatted
+/format (*)  def
+grids:  [ /avGOSTA /avOS /avOS_err ] | T :grids
+variable:
+/name /avGOSTA def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from GOSTA (MOHSST5)) def
+:variable
+
+variable:
+/name /avOS def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+
+variable:
+/name /avOS_err def
+/long_name (Error) def
+/scale_factor 2 sqrt def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+:file
+:dataset
+
+dataset:
+/name (NAi) def
+/description (North Atlantic (intended) NAi index [35N-60N, 60W-0W]) def
+file:
+/name [ fdir (INDnai.dat.4ing) ] concat def
+/missing_value 1.e+30 def
+formatted
+/format (*)  def
+grids:  [ /avGOSTA /avOS /avOS_err ] | T :grids
+variable:
+/name /avGOSTA def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from GOSTA (MOHSST5)) def
+:variable
+
+variable:
+/name /avOS def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+
+variable:
+/name /avOS_err def
+/long_name (Error) def
+/scale_factor 2 sqrt def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+:file
+:dataset
+
+dataset:
+/name (NP) def
+/description (North Pacific NP index [30N-50N, 150E-120W]) def
+
+file:
+/name [ fdir (INDnp.dat.4ing) ] concat def
+/missing_value 1.e+30 def
+formatted
+/format (*)  def
+grids:  [ /avGOSTA /avOS /avOS_err ] | T :grids
+variable:
+/name /avGOSTA def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from GOSTA (MOHSST5)) def
+:variable
+
+variable:
+/name /avOS def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+
+variable:
+/name /avOS_err def
+/long_name (Error) def
+/scale_factor 2 sqrt def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+:file
+:dataset
+
+dataset:
+/name (NINO3) def
+/description (NINO3 index [5S-5N, 150W-90W]) def
+
+file:
+/name [ fdir (INDnino3.dat.4ing) ] concat def
+/missing_value 1.e+30 def
+formatted
+/format (*)  def
+grids:  [ /avGOSTA /avOS /avOS_err ] | T :grids
+variable:
+/name /avGOSTA def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from GOSTA (MOHSST5)) def
+:variable
+
+variable:
+/name /avOS def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+
+variable:
+/name /avOS_err def
+/long_name (Error) def
+/scale_factor 2 sqrt def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+:file
+:dataset
+
+dataset:
+/name (NINO34) def
+/long_name (NINO3.4) def
+/description (NINO3.4 index [5S-5N, 170W-120W]) def
+
+file:
+/name [ fdir (INDnino34.dat.4ing) ] concat def
+/missing_value 1.e+30 def
+formatted
+/format (*)  def
+grids:  [ /avGOSTA /avOS /avOS_err ] | T :grids
+variable:
+/name /avGOSTA def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from GOSTA (MOHSST5)) def
+:variable
+
+variable:
+/name /avOS def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+
+variable:
+/name /avOS_err def
+/long_name (Error) def
+/scale_factor 2 sqrt def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+:file
+:dataset
+
+dataset:
+/name (WP) def
+/description (Western Pacific (or Warm Pool) WP index [5S-5N, 120E-170E] from Cane et al. (1996) submitted to Science) def
+
+file:
+/name [ fdir (INDWP.dat.4ing) ] concat def
+/missing_value 1.e+30 def
+formatted
+/format (*)  def
+grids:  [ /avGOSTA /avOS /avOS_err ] | T :grids
+variable:
+/name /avGOSTA def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from GOSTA (MOHSST5)) def
+:variable
+
+variable:
+/name /avOS def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+
+variable:
+/name /avOS_err def
+/long_name (Error) def
+/scale_factor 2 sqrt def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+:file
+:dataset
+
+dataset:
+/name (EqNA) def
+/description (Equatorial North Atlantic average  EqNA [5N-20N,80W-15W]) def
+file:
+/name [ fdir (INDeqna.dat.4ing) ] concat def
+/missing_value 1.e+30 def
+formatted
+/format (*)  def
+grids:  [ /avGOSTA /avOS /avOS_err ] | T :grids
+variable:
+/name /avGOSTA def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from GOSTA (MOHSST5)) def
+:variable
+
+variable:
+/name /avOS def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+
+variable:
+/name /avOS_err def
+/long_name (Error) def
+/scale_factor 2 sqrt def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+:file
+:dataset
+
+dataset:
+/name (GT) def
+/description (Global equatorial mean [5S-5N]) def
+
+file:
+/name [ fdir (INDglt.dat.4ing) ] concat def
+/missing_value 1.e+30 def
+formatted
+/format (*)  def
+grids:  [ /avGOSTA /avOS /avOS_err ] | T :grids
+variable:
+/name /avGOSTA def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from GOSTA (MOHSST5)) def
+:variable
+
+variable:
+/name /avOS def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+
+variable:
+/name /avOS_err def
+/long_name (Error) def
+/scale_factor 2 sqrt def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+:file
+:dataset
+
+dataset:
+/name (GT30) def
+/description (Global tropical mean [30S-30N]) def
+
+file:
+/name [ fdir (INDglT.dat.4ing) ] concat def
+/missing_value 1.e+30 def
+formatted
+/format (*)  def
+grids:  [ /avGOSTA /avOS /avOS_err ] | T :grids
+variable:
+/name /avGOSTA def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from GOSTA (MOHSST5)) def
+:variable
+
+variable:
+/name /avOS def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+
+variable:
+/name /avOS_err def
+/long_name (Error) def
+/scale_factor 2 sqrt def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+:file
+:dataset
+
+dataset:
+/name (GL) def
+/description (Global mean [30S-60N]) def
+file:
+/name [ fdir (INDgl.dat.4ing) ] concat def
+formatted
+/missing_value 1.e+30 def
+/format (*)  def
+grids:  [ /avGOSTA /avOS /avOS_err ] | T :grids
+variable:
+/name /avGOSTA def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from GOSTA (MOHSST5)) def
+:variable
+
+variable:
+/name /avOS def
+/long_name (SST anomaly) def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+
+variable:
+/name /avOS_err def
+/long_name (Error) def
+/scale_factor 2 sqrt def
+/units (Degree C) def
+/description (from the analysis of Kaplan et al. (1996) submitted to JGR) def
+:variable
+:file
+:dataset
+
+:dataset
+\end{ingrid}
+% compile-command: ingrid
+
+
+
+
+

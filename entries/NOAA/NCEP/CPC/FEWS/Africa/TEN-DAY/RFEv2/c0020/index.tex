@@ -1,0 +1,31 @@
+\begin{ingrid}
+/est_prcp {
+ SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .RFEv2 .est_prcp
+     T (1 Jan 2001) (31 Dec 2001) RANGE
+   SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .RFEv2 .est_prcp
+%    /missing_value NaN def
+    T (1 Jan 2000) (31 Dec 2020) RANGE
+    T name
+      npts NewIntegerGRID
+      replaceGRID
+    T 36 splitstreamgrid
+    [T2]average
+    T 2 index
+      T dekadaledgesgrid partialgrid
+       2 1 roll
+       pop
+      replaceGRID
+    T (days since 2001-01-01) streamgridunitconvert
+    T T dekadaledgesgrid
+      first secondtolast subgrid
+      /calendar /365 def
+      gridS
+       365 store modulus
+       pop
+      periodic setgridtype
+      partialgrid replaceGRID
+	[X Y]REORDER
+	2 1 roll pop
+/fullname (RFEv2 2000-20 average) def
+/long_name (RFEv2 2000-20 average) def}defasvar
+\end{ingrid}

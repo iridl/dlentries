@@ -1,0 +1,136 @@
+<INGRID>datasetdocumentationheader</INGRID>
+    <h1>Pre-Release (Interim) CRU TS 3.0:  University of East Anglia Climatic Research Unit (CRU) Global 0.5&deg; Monthly Time Series</h1>
+<p>
+A dataset of mean monthly surface data (for 1901-2006)  over global land areas, excluding Antarctica.  Interpolated from station data to 0.5 degree lat/lon for a range of variables: precipitation and wet-day frequency, mean, maximum, and mimimum temperature and diurnal temperature range, vapor pressure, percent cloud cover, and ground-frost frequency.  Also includes variables specifying the number of stations within a grid box at each time step and the number of stations within the influence radius of a grid box (number of stations that may have contributed to the analysis value at a grid box) for each time step.
+<p>
+Please see the CRU TS 3.0 page at the British Atmospheric Data Centre (BADC) for additional information:  <a href="http://badc.nerc.ac.uk/data/cru/">http://badc.nerc.ac.uk/data/cru/</a>.  Additional background information on the "TS" series of datasets produced by the Climatic Research Unit may be found here:  <a href="http://www.cru.uea.ac.uk/cru/data/hrg.htm">http://www.cru.uea.ac.uk/cru/data/hrg.htm</a>
+<p>
+<h2>Restricted data</h2>
+CRU TS3.0 data are unrestricted and are available for download to all BADC users. If you are not a BADC user, then please <a href="http://badc.nerc.ac.uk/reg/user_register_info.html">register as a new BADC user</a>.
+<p>
+CRU Conditions of use states that acknowledgement should preferably be by citing one or more of the papers referenced (see Links and References section below).
+<p>
+<h2>Citation</h2>
+University of East Anglia Climate Research Unit (CRU). CRU Datasets, [Internet]. British Atmospheric Data Centre, 2008, Date of citation. Available from http://badc.nerc.ac.uk/data/cru 
+<p>
+<h2>Links and References</h2>
+<UL><strong>Links:</strong>
+
+<p>
+  <LI>The <a href="http://www.cru.uea.ac.uk/">Climatic Research Unit</a> at the University of East Anglia .    
+  <LI>The <a href="http://hadobs.metoffice.com/">Hadley Centre  observations</a> web pages 
+</UL>
+
+<UL><strong>CRU TS References:</strong>
+
+<br><br><li> For CRU TS3.0: In preparation
+
+<br><br><li>For CRU TS2.1: Mitchell and Jones, 2005
+
+<br><br><li>For CRU TS1.2 and CRU TS2.0: Mitchell, T. D., et al, 2003: <a href="http://www.tyndall.ac.uk/publications/working_papers/wp55.pdf">A comprehensive set of climate scenarios for Europe and the globe.</a> Tyndall Centre Working Paper 55.
+
+<br><br><li>For CRU TS1.0 and CRU TS1.1: New, M., Hulme, M. and Jones, P.D., 2000: <a href="http://dx.doi.org/10.1175/1520-0442(2000)013<2217:RTCSTC>2.0.CO;2">Representing twentieth century space-time climate variability. Part 2: development of 1901-96 monthly grids of terrestrial surface climate.</a>Journal of Climate 13, 2217-2238, DOI:10.1175/1520-0442(2000)013<2217:RTCSTC>2.0.CO;2
+
+</UL>
+
+<p>
+<b>Note:  The values in the "number of station" variables in the '.stn.' and '.cstn.' netCDF files held by the Data Library
+were found to be off (too low) by a factor of 10 on October 14, 2010.  To correct for this, a factor of 10 was applied to these variables in
+the Data Library data set definition at 1900 GMT on October 14, 2010.
+</b>
+<p>
+
+
+<p>
+<h2>Documentation from "Readme" Files</h2>
+<p>
+The contents of each of the "Readme" files that accompanied this dataset at BADC are included below:
+<p>
+<h3>00README.htm</h3>
+<p>
+Please <a href="http://badc.nerc.ac.uk/reg/user_register_info.html">register as a BADC user</a> and <a href="http://badc.nerc.ac.uk/browse/badc/cru/data?action=login">log in</a> to access data
+<p>
+<h3>Read_Me_First.txt</h3>
+<p>
+<pre>
+
+Climatic Research Unit Datasets
+
+
+The cru_ts_3_00*.gz files are copied from: http://www.cru.uea.ac.uk/cru/data/hrg-interim/
+
+These are INTERIM versions only, as there are several problems with the data which are documented in the readme files:
+
+
+Note that these data are yearly files REGARDLESS of whether the data exists
+for the full year.
+
+Currently, the data up to 06/2006 *ONLY* has been used.
+
+
+Variables Available:
+
+From http://www.cru.uea.ac.uk/cru/data/hrg.htm :
+
+TS (time-series)    Month-by-month variations in climate over the last century or so. These are high-resolution grids.
+
+Abbreviations used for CRU TS 3.00 variables:
+
+
+label    variable    units
+cld     cloud cover     percentage*10
+dtr     diurnal temperature range  degrees Celsius*10
+frs     frost day frequency*100     days*100
+pre     precipitation   millimetres*10
+tmp     daily mean temperature  degrees Celsius*10
+tmn     monthly average daily minimum temperature   degrees Celsius*10
+tmx     monthly average daily maximum temperature   degrees Celsius*10
+vap     vapour pressure     hecta-Pascals*10
+wet     wet day frequency   days*100
+</pre>
+<p>
+<h3>Read_Me_Pre_Release_TS_3_0.txt</h3>
+<p>
+<pre>
+NOTES ON PRE-RELEASE DATASET CRU TS 3.0
+
+1. The status of this dataset is PRE-RELEASE. Access is granted on a per-user basis, please do not allow datasets to be used beyond recall range. Please report any issues to Ian Harris (i.harris@uea.ac.uk).
+
+2. The data is only complete and safe to use from January 1901 to June 2006. Some parameters will have partial support for months later in 2006 but this data should not be used.
+
+3. There are two output formats containing identical datasets:
+
+3.1 ASCII text. The 360-lat x 720-lon grid is presented exactly as that, with 720 columns, and 360 rows per timestep. The first row in each grid is the southernmost (centred on 89.75S). The first column is the westernmost (centred on 179.75W).
+
+3.2 NetCDF. This is experimental, not all attributes are right yet.
+The data should be fine, though. Any comments and suggestions will be gratefully received!
+
+4. There are now two kinds of station file. Both types contain one value for every value in the data file.
+
+4.1 Regular '.stn.' files. The values in these represent, for each cell and timestep, the number of station that could have influenced the data value for that cell and timestep. The sphere of influence is the Correlation Decay Distance, which is 450 km for precipitation, 750 km for diurnal temperature range, and 1200 km for mean temperature (New et al, 2000).
+
+4.2 Cell station '.cstn.' files. These new files give the actual number of stations reporting in that cell at that timestep.
+
+Ian Harris, CRU, July 2008 (clarified October 2009)
+</pre>
+<p>
+
+<h3>Read_Me_Cloud.txt</h3>
+<p>
+<pre>
+CRU TS 3.0 CLD (Cloud Cover %)
+This dataset is unchanged from CRU TS 2.10 for the period 1901-2002. The
+additional data is a combination of converted observations of sun hours,
+and synthetic cloud derived from its relationship with DTR.
+A NetCDF version of this dataset is not yet available.
+</pre>
+<p>
+
+<h3>Read_Me_Wet.txt</h3>
+<p>
+CRU TS 3.0 WET (Rain Days)
+This dataset is constructed from observations, backed with synthetic data
+derived from precipitation. However, from 1990 onwards it is derived only
+from synthetic data, owing to problems with the observed database.
+</p>
+<INGRID>datasetdocumentationtrailer</INGRID>

@@ -1,0 +1,40 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (iriref:Morliere_A) def
+/description (Zonal and meridional wind stress data for the Atlantic and Eastern Pacific Oceans from Alain Morliere's model) def
+grid:
+/name /X def
+degE
+-101 2 21 
+:grid
+grid:
+/name /Y def
+degN
+-35. 2 57.
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1981 ensotime
+1.
+16 Jan 1990 ensotime
+:grid
+file:
+/name (/Data/data3/data/tau8189am) def
+sequential
+grids: X Y | [/taux /tauy ] T :grids
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+/history (Wind stresses from Alain Morliere's model.) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+/history (Wind stresses from Alain Morliere's model.) def
+:variable
+:file
+:dataset
+\end{ingrid}

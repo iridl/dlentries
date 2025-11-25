@@ -1,0 +1,304 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/Tlast2filename
+{
+last 12 mod floor cvi
+[ (jan) (feb) (mar) (apr) (may)(jun)(jul)(aug)(sep)(oct)(nov)(dec) ]
+exch get (/Data/data1/iri/forecast/data/echam4/longrun/post/24/EC4AMIP24_)
+exch append
+last 12 idiv floor cvi 1960 add s== append
+} def
+/removeextratime
+{
+Tlast2filename
+dup fileexists? 
+{deflastmod}
+{ pop first secondtolast subgrid
+removeextratime} ifelse
+} def
+grid: 
+/name /Z def
+/units (mb) def
+values:
+1000 950 850 700 500 400 300 200 100
+:values
+:grid
+:datasetdefs
+grid:
+/name /X def
+degE
+periodic
+0 2.8125  360 1 index sub
+:grid
+64 gaussianlat high low subgrid name exch def
+grid: 
+/name /P def
+/long_name (Pressure) def
+/units (mb) def
+values:
+1000 950 850 700 500 400 300 200 100
+:values
+:grid
+grid:
+/name /M def
+/long_name (member) def
+/units (ids) def
+1 1 24
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1950 ensotime
+1.
+16
+systemtime 
+(%b %Y) 10 strftime
+interp
+ensotime
+(/Data/data1/iri/forecast/data/echam4/longrun/post/24/) deflastmod
+:grid
+(/Data/data1/iri/forecast/data/echam4/longrun/post/24/) fileexists?
+{T removeextratime
+last rm19602ymd ymd:nextmonth ymd:nextmonth ymd:nextmonth pop
+     15 ymd2systemtime
+    /expires exch def
+name exch def
+} 
+{
+(/local/home/ingridcache/SOURCES/IRI/FD/ECHAM4p5/History/MONTHLY/surface/stemp.0001) fileexists?
+{
+T first dup
+(/local/home/ingridcache/SOURCES/IRI/FD/ECHAM4p5/History/MONTHLY/surface/stemp.0001) filelength
+X .npts Y .npts mul
+M .npts mul 4 mul
+div
+1 sub add subgrid
+}
+{T
+first 
+secondtolast
+subgrid
+} ifelse
+name exch def
+}ifelse
+file:
+grids: X Y | /NVZ 16 6 9 mul add NewIntegerGRID M T :grids
+defivars
+NVZ 1 onegridcounter copyachunk
+M (/Data/data1/iri/forecast/data/echam4/longrun/post/%2.2d/) sprintf
+M (EC4AMIP%2.2d_) sprintf
+sappend
+T (%b%Y) strftime360cs tolower
+ sappend
+copyachunk
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 2 add
+1
+PS2 .PSgetlun %0
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+STREAM TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids * defivars
+%/missing_value NaN def
+/last_modified T .last_modified def
+T /expires getknown 
+{ /expires exch def } if
+set_variableParent
+1 Zvariable:
+/name /sg def
+/long_name (surface geopotential) def
+/gribparam 129 def
+:Zvariable
+1 Zvariable:
+/name /pl def
+/long_name (large scale precipitation) def
+/units (m/s) def
+/gribparam 142 def
+:Zvariable
+1 Zvariable:
+/name /cp def
+/long_name (convective precipitation) def
+/units (m/s) def
+/gribparam 143 def
+:Zvariable
+1 Zvariable:
+/name /sh def
+/long_name (surface sensible heat flux) def
+/units (W/m2) def
+/gribparam 146 def
+:Zvariable
+1 Zvariable:
+/name /lh def
+/long_name (surface latent heat flux) def
+/units (W/m2) def
+/gribparam 147 def
+:Zvariable
+1 Zvariable:
+/name /slp def
+/long_name (sea level pressure) def
+/units (Pa) def
+/gribparam 151 def
+:Zvariable
+1 Zvariable:
+/name /cld def
+/long_name (total cloud cover) def
+/gribparam 164 def
+:Zvariable
+1 Zvariable:
+/name /t2m def
+/long_name (temperature at 2m) def
+/gribparam 167 def
+/units (Kelvin_scale) def
+:Zvariable
+1 Zvariable:
+/name /st def
+/long_name (surface Temperature) def
+/units (Kelvin_scale) def
+/gribparam 169 def
+:Zvariable
+1 Zvariable:
+/name /nswg def
+/long_name (net shortwave at ground) def
+/units (W/m2) def
+/gribparam 176 def
+:Zvariable
+1 Zvariable:
+/name /nlwg def
+/long_name (net longwave at ground) def
+/units (W/m2) def
+/gribparam 177 def
+:Zvariable
+1 Zvariable:
+/name /nswt def
+/long_name (net shortwave at top) def
+/units (W/m2) def
+/gribparam 178 def
+:Zvariable
+1 Zvariable:
+/name /olr def
+/long_name (outgoing longwave radiation) def
+/units (W/m2) def
+/gribparam 179 def
+:Zvariable
+1 Zvariable:
+/name /taux def
+/long_name (surface zonal wind stress) def
+/units (Newton/m2) def
+/gribparam 180 def
+:Zvariable
+1 Zvariable:
+/name /tauy def
+/long_name (surface meridional wind stress) def
+/units (Newton/m2) def
+/gribparam 181 def
+:Zvariable
+1 Zvariable:
+/name /evap def
+/long_name (evaporation) def
+/units (m/s) def
+/gribparam 182 def
+:Zvariable
+9 Zvariable:
+/name /tmp def
+/long_name (temperature) def
+/units (Kelvin_scale) def
+/gribparam 130 def
+:Zvariable
+9 Zvariable:
+/name /u def
+/long_name (zonal velocity) def
+/units (m/s) def
+/gribparam 131 def
+:Zvariable
+9 Zvariable:
+/name /v def
+/long_name (meridional velocity) def
+/units (m/s) def
+/gribparam 132 def
+:Zvariable
+9 Zvariable:
+/name /q def
+/long_name (specific humidity) def
+/units (kg/kg) def
+/scale_min 0 def
+/gribparam 133 def
+:Zvariable
+9 Zvariable:
+/name /omg def
+/long_name (vertical pressure velocity) def
+/gribparam 135 def
+/units (Pa/s) def
+:Zvariable
+9 Zvariable:
+/name /zg def
+/long_name (geopotential height) def
+/units (gpm) def
+/gribparam 156 def
+:Zvariable
+:file
+:dataset
+continuedataset:
+datasetdefs:
+:datasetdefs
+/X X def
+/Y Y def
+/P P def
+/M M def
+/T T def
+/last_modified T .last_modified def
+T /expires known
+{/expires T .expires def} if
+dataset:
+/name /surface def
+/taux { dataset .taux Z removeGRID} defasvarcachesilent
+/tauy { dataset .tauy Z removeGRID} defasvarcachesilent
+/evs { dataset .evap Z removeGRID} defasvarcachesilent
+/olr { dataset .olr Z removeGRID} defasvarcachesilent
+/stemp { dataset .st Z removeGRID} defasvarcachesilent
+/slp { dataset .slp Z removeGRID} defasvarcachesilent
+/hfls { dataset .lh Z removeGRID} defasvarcachesilent
+/hfss { dataset .sh Z removeGRID} defasvarcachesilent
+/tcld { dataset .cld Z removeGRID} defasvarcachesilent
+/prc { dataset .cp Z removeGRID} defasvarcachesilent
+/prl { dataset .pl Z removeGRID} defasvarcachesilent
+/prcp { prc prl add /long_name (Total Precipitation) def} defasvar
+/zg { dataset .sg Z removeGRID} defasvarcachesilent
+dataset:
+/name /net def
+/swflx { dataset .dataset .nswg Z removeGRID} defasvarcachesilent
+/lwflx { dataset .dataset .nlwg Z removeGRID} defasvarcachesilent
+:dataset
+:dataset
+dataset:
+/name /top def
+dataset:
+/name /net def
+/swflx { dataset .dataset .nswt Z removeGRID} defasvarcachesilent
+:dataset
+:dataset
+dataset:
+/name /above_ground def
+/t2m { dataset .t2m Z removeGRID} defasvarcachesilent
+:dataset
+dataset:
+/name /PressureLevel-SF def
+/long_name (Pressure Level: Smoothed and Filled) def
+/phi { dataset .zg Z /P renameGRID} defasvarcachesilent 
+/omega { dataset .omg Z /P renameGRID} defasvarcachesilent 
+/hus { dataset .q Z /P renameGRID} defasvarcachesilent
+/ua { dataset .u Z /P renameGRID} defasvarcachesilent 
+/va { dataset .v Z /P renameGRID} defasvarcachesilent 
+/ta { dataset .tmp Z /P renameGRID} defasvarcachesilent 
+:dataset
+/griblist.html {(griblist)htmlprint} def
+/note (Jul-Sep 2007 reread 20080623 to correct winds) def
+:dataset
+\end{ingrid}
+
+

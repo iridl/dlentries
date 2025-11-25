@@ -1,0 +1,144 @@
+\begin{ingrid}
+continuedataset:
+grid: 
+/name /X def
+degE
+0 2.8125 360 1 index sub
+:grid
+%grid:
+%/name /Y def
+%degN
+%87.885 -2.79 -87.885
+%:grid
+64 gaussianlat high low subgrid
+name exch def
+grid:
+/name /T def
+/units /monthtime def
+16 Feb 1950 ensotime
+1
+16 Feb 1995 ensotime
+:grid
+grid:
+/name /M def
+/units (integer) def
+1 1 13
+:grid
+file:
+%grids: X Y { taux tauy shfx lhfx Tskin Tair dlwfx ulwfx olr uswfx dswfx hcld
+%  mcld lcld prcp cprcp u10 v10 } cvlit | M T :grids
+%/name (/Data/data7/noaa/ncep/b9x/s2d/links/file%d4) def
+%/nfile M .npts T .npts mul def
+%/nrec 1 def
+%/crec 1 def
+%/filesize 1 def
+%/filecnt0 14 def
+%sequential
+grids: X Y | { taux tauy shfx lhfx Tskin Tair dlwfx ulwfx olr uswfx dswfx hcld
+  mcld lcld prcp cprcp u10 v10 } cvlit M T :grids
+/name (/Data/data7/noaa/ncep/b9x/s2d/b9x%d2/s2d.r4) def
+random
+/filecnt0 1 def
+M setfilenamegrid
+/filesize 1 def
+/nfile 13 def
+/nrec 0 def
+/crec 13 def
+variable:
+/name /taux def
+/long_name (zonal surface momentum flux) def
+/units (dyn/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional surface momentun flux) def
+:variable
+variable:
+/name /shfx def
+/long_name (surface sensible heat flux)def
+/units (W/m2)def
+:variable
+variable:
+/name /lhfx def
+/long_name (surface latent heat flux) def
+/units (W/m2)def
+:variable
+variable:
+/name /Tskin def    
+/long_name (surface skin temperature)def
+/units(Kelvin) def
+:variable
+variable:
+/name /Tair def
+/long_name (air temperature) def
+/units (Kelvin) def
+:variable
+variable:
+/name /dlwfx def
+/long_name (surface downward longwave heat flux) def
+/units (W/m2)def
+:variable
+variable:
+/name /ulwfx def
+/long_name (surface upward longwave heat flux) def
+/units (W/m2)def
+:variable
+variable:
+/name /olr def
+/long_name (outgoing longwave radiation) def
+/units (W/m2)def
+:variable
+variable:
+/name /uswfx def
+/long_name (surface upward shortwave heat flux) def
+/units (W/m2)def
+:variable
+variable:
+/name /dswfx def
+/long_name (surface downward short wave heat flux) def
+/units (W/m2)def
+:variable
+variable:
+/name /hcld def
+/long_name (high cloud fraction) def
+:variable
+variable:
+/name /mcld def
+/long_name (mid  cloud fraction) def
+:variable
+variable:
+/name /lcld def
+/long_name (low  cloud fraction) def
+:variable
+variable:
+/name /prcp def
+/long_name (total precipitation) def
+/units (2000 mm/day) def
+:variable
+variable:
+/name /cprcp def
+/long_name (convective precipitation) def
+/units (2000 mm/day) def
+:variable
+variable:
+/name /u10 def
+/long_name(zonal velocity at 10m) def
+/units(m/s)def
+:variable
+variable:
+/name /v10 def
+/long_name (meridional velocity at 10m) def
+/units(m/s) def
+:variable
+:file
+:dataset
+/pss {
+dataset .Intrinsic .lnpres
+  128 64 tsptogau
+  eexp
+  10 mul
+  /units /mb def
+Z removeGRID
+/long_name (surface pressure) def
+} defasvar
+\end{ingrid}

@@ -1,0 +1,426 @@
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name /X def
+/long_name (longitude) def
+/units /degree_east def
+periodic
+0.0 1.5 358.5
+:grid
+
+grid:
+/name /Y def
+/long_name (latitude) def
+/units /degree_north def
+-90.0 1.5 90.0
+:grid
+
+grid:
+/name /S def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+1 Jan 1999 julian_day 01 Jan 1960 julian_day sub
+1.0
+31 Dec 2018 julian_day
+01 Jan 1960 julian_day sub
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+% a lead grid for instantaneous values, starting from 1
+grid:
+/name /L1 def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units /days def
+1. 1. 65.
+/pointwidth 0. def
+:grid
+
+% a lead grid for daily averages or accumulation
+grid:
+/name /LA def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units /days def
+0.5 1. 64.5
+/pointwidth 1.0 def
+:grid
+
+grid:
+/name /P def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 10 50 100 200 300 500 700 850 925 1000 :values
+:grid
+
+grid:
+/name /M def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units /ids def
+1 1 3
+:grid
+
+/target_date1 {S L1 add /long_name (forecast time) def } defasvar
+/target_dateA {S LA add /long_name (forecast time) def } defasvar
+
+dataset:
+
+[X Y
+P 200 1000 subgrid
+L1 S M ] {name exch def } forall
+
+/name /pressure_level_q def
+
+/q { [ X Y last first subgrid | P M L1 S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_pl_q20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (SPFH) def
+/grib_name /SPFH def
+(04XXXX003C0100) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Specific Humidity ) def
+/standard_name (specific_humidity) def
+/units (kg/kg) cvn def
+/missing_value 9.9990003E+20 def
+DATA 0 AUTO RANGE
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+
+[X Y P 500 subgrid L1 S M] {name exch def } forall
+
+/name /pressure_level_w def
+
+/w { [ X Y last first subgrid | P M L1 S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_pl_w20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (VVEL) def
+(04XXXX003C0208) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Vertical Velocity (Pressure)) def
+/standard_name (lagrangian_tendency_of_air_pressure) def
+/units (Pa/s) cvn def
+/scale_min -1.5 def
+/scale_max 1.5 def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+
+[X Y P L1 S M] {name exch def } forall
+
+/name /pressure_level_zuvt def
+
+/t { [ X Y last first subgrid | P M L1 S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_pl_zuvt20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (TMP) def
+(04XXXX003C0000) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Temperature) def
+/standard_name (air_temperature) def
+/units /Kelvin_scale def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/gh { [ X Y last first subgrid | P M L1 S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_pl_zuvt20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (HGT) def
+(04XXXX003C0305) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Geopotential Height) def
+/standard_name (geopotential_height) def
+/units /gpm def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/u { [ X Y last first subgrid | P M L1 S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_pl_zuvt20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (UGRD) def
+(04XXXX003C0202) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (U-Component of Wind) def
+/standard_name (eastward_wind) def
+/units (m/s) def
+/missing_value 9.999000E+20 def
+/scale_symmetric true def
+decompress
+} defasvarsilent
+
+/v { [ X Y last first subgrid | P M L1 S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_pl_zuvt20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (VGRD) def
+(04XXXX003C0203) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (V-Component of Wind) def
+/standard_name (northward_wind) def
+/units (m/s) def
+/missing_value 9.999000E+20 def
+/scale_symmetric true def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+
+[X Y L1 LA S M] {name exch def } forall
+
+/name /surface def
+
+/sp { [ X Y last first subgrid | M L1 S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_sfc_sfc20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (PRES) def
+(04XXXX003C0300XXXXXXXXXXXXXXXXXXXXXX01) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Surface Pressure) def
+/standard_name (air_pressure) def
+/units /Pa def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/tp { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_sfc_sfc20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (TPRATE) def
+(04XXXX003D0134) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Accumulated Total Precipitation) def
+/standard_name (precipitation_amount) def
+/units (kg m-2) def
+/missing_value 9.999000E+20 def
+DATA 0 AUTO RANGE
+decompress
+} defasvarsilent
+
+/10u { [ X Y last first subgrid | M L1 S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_sfc_sfc20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (10u) def
+(04XXXX003C0202) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (10 metre u-velocity) def
+/standard_name (eastward_wind) def
+/units (m/s) def
+/missing_value 9.999000E+20 def
+/scale_symmetric true def
+decompress
+} defasvarsilent
+
+/10v { [ X Y last first subgrid | M L1 S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_sfc_sfc20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (10v) def
+(04XXXX003C0203) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (10 metre v-velocity) def
+/standard_name (northward_wind) def
+/units (m/s) def
+/missing_value 9.999000E+20 def
+/scale_symmetric true def
+decompress
+} defasvarsilent
+
+/mx2t6 { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_sfc_sfc20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (mx2t6) def
+(04XXXX003D0000XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX02020) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (2-meter Maximum Temperature) def
+/standard_name (air_temperature) def
+/units /Kelvin_scale def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/mn2t6 { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_sfc_sfc20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (mn2t6) def
+(04XXXX003D0000XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX03020) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (2-meter Minimum Temperature) def
+/standard_name (air_temperature) def
+/units /Kelvin_scale def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/ssrd { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_sfc_sfc20190101%Y%m%d[S].grb) [ S ]  readdatafile:
+/name (DSWRF) def
+(04XXXX003D0407) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Downward Short-Wave Radiation Flux) def
+/standard_name (surface_downwelling_shortwave_flux_in_air) def
+/units (J/m2) def
+/missing_value 9.999000E+20 def
+DATA 0 AUTO RANGE
+decompress
+} defasvarsilent
+
+/strd { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_sfc_sfc20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (DLWRF) def
+(04XXXX003D0503) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Downward Long-Wave Radiation Flux) def
+/standard_name (surface_downwelling_longwave_flux_in_air) def
+/units (J/m2) def
+/missing_value 9.999000E+20 def
+DATA 0 AUTO RANGE
+decompress
+} defasvarsilent
+
+/ssr { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_sfc_sfc20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (NSWRF) def
+(04XXXX003D0409) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Net Short Wave Radiation Flux) def
+/standard_name (surface_net_shortwave_flux) def
+/units (J/m2) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/str { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_sfc_sfc20190101%Y%m%d[S].grb) [ S ]  readdatafile:
+/name (NLWRF) def
+(04XXXX003D0505XXXXXXXXXXXXXXXXXXXXXX01) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Net Long-Wave Radiation Flux) def
+/standard_name (surface_net_upward_longwave_flux) def
+/units (J/m2) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/sf { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_sfc_sfc20190101%Y%m%d[S].grb) [ S ]  readdatafile:
+/name (TSRWE) def
+(04XXXX003D0135) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Snowfall Water Equivalent) def
+/standard_name (surface_snow_amount) def
+/units (kg/m2) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/ttr { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_sfc_sfc20190101%Y%m%d[S].grb) [ S ]  readdatafile:
+/name (NLWRF) def
+(04XXXX003D0505XXXXXXXXXXXXXXXXXXXXXX08) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Net Long-Wave Radiation Flux (top of atmosphere) ) def
+/standard_name (toa_outgoing_longwave_flux) def
+/units (J/m2) def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+dataset:
+
+/name (da_surface) def
+
+[X Y LA S M] {name exch def } forall
+
+/2t { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_da_sfc20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (TMP) def
+(04XXXX003D0000) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (2-meter Temperature) def
+/standard_name (air_temperature) def
+/units /Kelvin_scale def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/2dt { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_da_sfc20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (DPT) def
+(04XXXX003D0006) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (2-meter Dewpoint Temperature) def
+/standard_name (dew_point_temperature) def
+/units /Kelvin_scale def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/ci {
+[ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_da_sfc20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (ICEC) def
+(04XXXX003D0200) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Ice Cover Proportion) def
+/standard_name (sea_ice_area_fraction) def
+/units /unitless def
+/missing_value 9.999000E+20 def
+DATA 0 1 RANGE
+decompress
+} defasvarsilent
+
+/tcc { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_da_sfc20190101%Y%m%d[S].grb) [ S ]  readdatafile:
+/name (TCDC) def
+(04XXXX003D0601) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Total cloud cover) def
+/standard_name (total_cloud_cover) def
+/units /percent def
+/missing_value 9.999000E+20 def
+DATA 0 100 RANGE
+decompress
+} defasvarsilent
+
+/skt { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_da_sfc20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (SKINT) def
+(04XXXX003D0011) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Skin Temperature) def
+/standard_name (skin_temperature) def
+/units /Kelvin_scale def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/wtmp { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/IAP-CAS/REF/PF/iap-cas_ref_pf_da_sfc20190101%Y%m%d[S].grb) [ S ] readdatafile:
+/name (WTMP) def
+(04XXXX003D0300) GRIBvariable
+:readdatafile
+Y last first RANGE
+/long_name (Water Temperature) def
+/standard_name (water_temperature) def
+/units /Kelvin_scale def
+0 maskle
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+:dataset
+
+:dataset
+
+\end{ingrid}
+

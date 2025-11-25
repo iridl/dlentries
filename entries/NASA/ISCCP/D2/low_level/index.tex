@@ -1,0 +1,48 @@
+\begin{ingrid}
+continuedataset:
+/long_name (Low Level) def
+% /description (Low Level) def
+/T dataset .T def
+/boxnum dataset .boxnum def
+/lat dataset .lat def
+/lon dataset .lon def
+dataset:
+/name (mean_cloud) def
+/long_name (Mean Cloud) def
+variable:
+/name (amount) def
+/long_name (Amount) def
+/missing_value 255. -1000. 2 realarray astore def
+grids: boxnum T :grids
+file:
+decrandom
+/name (/Data/data4/nasa/isccp/mean16ca) def
+:file
+:variable
+
+variable:
+/name (press) def
+/long_name (Top Pressure) def
+/missing_value 255. -1000. 2 realarray astore def
+grids: boxnum T :grids
+file:
+decrandom
+/name (/Data/data4/nasa/isccp/mean16pc) def
+:file
+:variable
+
+variable:
+/name (temp) def
+/long_name (Top Temperature) def
+/missing_value 255. -1000. 2 realarray astore def
+grids: boxnum T :grids
+file:
+decrandom
+/name (/Data/data4/nasa/isccp/mean16tc) def
+:file
+:variable
+
+:dataset
+:dataset
+\end{ingrid}
+

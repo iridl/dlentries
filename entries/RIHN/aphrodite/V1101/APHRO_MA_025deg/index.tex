@@ -1,0 +1,42 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics [(irigaz:Asia_3329_1)] def
+datasetdefs:
+/long_name (Monsoon Asia daily precipitation with 0.25deg grids) def
+grid:
+/name /X def
+degE
+ 60.125 0.25 150 0.125 sub
+:grid
+grid:
+/name /Y def
+degN
+%0.125 0.25 55 0.125 sub
+-14.875 0.25 55 0.125 sub
+:grid
+
+grid:
+/name /T def
+      /units (days since 1960-01-01) def
+      /calendar /standard def
+      (1200 1 Jan 1951)
+       1 
+      (1200 31 Dec 2007)
+:grid
+
+
+
+
+[X Y |/NVZ 2 NewIntegerGRID T]
+(/Data/data21/jpan/rihn/aphrodite_V1101/APHRO_MA_025deg/APHRO_MA_025deg_V1101.%Y[T])  [T yearlyedgesgrid
+ first secondtolast subgrid]
+readdatafile:
+/missing_value -99.9 def
+decdirect
+:readdatafile
+definevariables:
+0 Zvariable:/name (precip) def /long_name (precipitation) def /units (mm/day) def :Zvariable
+0 Zvariable:/name (rstn) def /long_name (ratio of 0.05 grid box contatining station(s)) def /units (percent) def :Zvariable
+:definevariables
+:dataset
+\end{ingrid}

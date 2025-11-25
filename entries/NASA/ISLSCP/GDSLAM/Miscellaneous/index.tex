@@ -1,0 +1,35 @@
+\begin{ingrid}
+/description (Global data sets for land-atmosphere models, including grid area and a land-sea mask) def
+continuedataset:
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 1 -89.5
+:grid
+variable:
+/name /land_sea_mask def
+/long_name (Land-Sea Mask) def
+grids: X Y :grids
+file:
+i*2
+/name (/Data/data3/nasa/islscp/gdslam/misc/land_sea.i2) def
+:file
+:variable         
+variable:
+/name /gridarea def
+/long_name (Grid Area) def
+grids: X Y :grids
+file:
+direct
+/name (/Data/data3/nasa/islscp/gdslam/misc/gridarea.r4) def
+:file
+:variable         
+:dataset
+\end{ingrid}
+

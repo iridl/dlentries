@@ -1,0 +1,89 @@
+\begin{ingrid}
+continuedataset:
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 1 -89.5
+:grid
+grid:
+/name /T def
+monthtime
+/fullname (Month) def
+16 Jan 1987 ensotime
+1.
+16 Dec 1988 ensotime
+:grid
+variable:
+/name /csm_sd def
+/long_name (Climate Deep Soil Wetness) def
+/units (m) def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ec_mthin/csm/csms87_88.r4) def
+:file
+:variable
+
+variable:
+/name /cst_sd def
+/long_name (Climate Deep Soil Temperature) def
+/units (K) def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ec_mthin/cst/csts87_88.r4) def
+:file
+:variable
+
+variable:
+/name /dsm_sd def
+/long_name (Deep Soil Wetness) def
+/units (m) def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ec_mthin/dsm/dsms87_88.r4) def
+:file
+:variable
+
+variable:
+/name /dst_sd def
+/long_name (Deep Soil Temperature) def
+/units (K) def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ec_mthin/dst/dsts87_88.r4) def
+:file
+:variable
+
+variable:
+/name /sdp_sd def
+/long_name (Snow Depth) def
+/units (m) def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ec_mthin/sdp/sdps87_88.r4) def
+:file
+:variable
+
+variable:
+/name /ssm_sd def
+/long_name (Surface Soil Wetness) def
+/units (m) def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data3/nasa/islscp/gdslam/near_sfc/ec_mthin/ssm/ssms87_88.r4) def
+:file
+:variable
+
+:dataset
+\end{ingrid}

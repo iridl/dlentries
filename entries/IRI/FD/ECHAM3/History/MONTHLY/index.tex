@@ -1,0 +1,157 @@
+\begin{ingrid}
+datasetdefs:
+/defECHAM3Monthly
+{
+[
+na:  /above_ground /t2m :na
+na:  /above_ground /t2mmn :na
+na:  /above_ground /t2mmx :na
+na:  /above_ground /td2m :na
+na:  /above_ground /uas :na
+na:  /above_ground /vas :na
+na:  /above_ground /wind10 :na
+na:  /hybrid_lev /ACLCAC :na
+na:  /hybrid_lev /chi :na
+na:  /hybrid_lev /Div :na
+na:  /hybrid_lev /hus :na
+na:  /hybrid_lev /logpsl :na
+na:  /hybrid_lev /phi :na
+na:  /hybrid_lev /psi :na
+na:  /hybrid_lev /rvort :na
+na:  /hybrid_lev /ta :na
+na:  /hybrid_lev /u :na
+na:  /hybrid_lev /v :na
+na:  /PressureLevel /chi :na
+na:  /PressureLevel /Div :na
+na:  /PressureLevel /hus :na
+na:  /PressureLevel /phi :na
+na:  /PressureLevel /psi :na
+na:  /PressureLevel /rvort :na
+na:  /PressureLevel /ta :na
+na:  /PressureLevel /u :na
+na:  /PressureLevel /v :na
+na:  /surface /ALBEDO :na
+na:  /surface /clear_sky /net /lwflx :na
+na:  /surface /clear_sky /net /solr :na
+na:  /surface /clear_sky /upward /lwflx :na
+na:  /surface /clear_sky /upward /solr :na
+na:  /surface /evs :na
+na:  /surface /hfls :na
+na:  /surface /hfss :na
+na:  /surface /net /lwflx :na
+na:  /surface /net /swflx :na
+na:  /surface /prc :na
+na:  /surface /prl :na
+na:  /surface /prcp :na
+na:  /surface /prl :na
+na:  /surface /pss :na
+na:  /surface /snd :na
+na:  /surface /SNMEL :na
+na:  /surface /soilm :na
+na:  /surface /SRADSU :na
+na:  /surface /srun :na
+na:  /surface /stemp :na
+na:  /surface /tas :na
+na:  /surface /tasmn :na
+na:  /surface /Tasmx :na
+na:  /surface /tauu :na
+na:  /surface /tauv :na
+na:  /surface /td :na
+na:  /surface /TD3 :na
+na:  /surface /TD4 :na
+na:  /surface /TD5 :na
+na:  /surface /TSLIN :na
+na:  /surface /u*3 :na
+na:  /surface /zg :na
+na:  /top /clear_sky /net /lwflx :na
+na:  /top /clear_sky /net /solr :na
+na:  /top /clear_sky /upward /solr :na
+na:  /top /net /lwflx :na
+na:  /top /net /swflx :na
+na:  /total_air_column /ALWCVI :na
+na:  /total_air_column /cltm :na
+na:  /total_air_column /QVI :na
+na:  /total_air_column /UVI :na
+na:  /total_air_column /VVI :na
+na:  /total_air_column /UQVI :na
+na:  /total_air_column /VQVI :na
+
+]
+{
+[ 
+(http://ingrid.ldeo.columbia.edu/IRIONLY/SOURCES/.IRI/.FD/.ECHAM3/.History/.SIX-HOURLY/)
+name cvpops s== 
+(/.) 
+counttomark 1 add index cvnatoslurl
+(/T/30/boxAverage/dods)
+] concat
+[ exch
+/readdods cvx
+counttomark 1 add index 
+dup length 1 sub get  cvpops
+/CopyStream cvx
+]
+cvx
+defasvarsilent
+} forall
+} def
+:datasetdefs
+%/ECHAM3Access dataareIRIonlyPassword
+[
+%/R25004 /R25005 /R25006 /R25007
+/ensemble /ensemble_mean]
+{currentobject 1 index get def} forall
+/description (experimental version of MONTHLY ECHAM3 -- check results and ask) def
+/R25001 {
+SOURCES .IRI .FD .ECHAM3 .History .SIX-HOURLY .R25001 T 0.125 shiftGRID T 30 boxAverageSP
+T name monthtimename gridtype 16 Jan 1970 ensotime 1. 16 Dec 1996  ensotime NewEvenGRID replaceGRID
+} defasvarcache
+/R25002 {
+SOURCES .IRI .FD .ECHAM3 .History .SIX-HOURLY .R25002 T 0.125 shiftGRID T 30 boxAverageSP
+T name monthtimename gridtype 16 Jan 1970 ensotime 1. 16 Dec 1996  ensotime NewEvenGRID replaceGRID
+} defasvarcache
+/R25003 {
+SOURCES .IRI .FD .ECHAM3 .History .SIX-HOURLY .R25003 T 0.125 shiftGRID T 30 boxAverageSP
+T name monthtimename gridtype 16 Jan 1970 ensotime 1. 16 Dec 1996  ensotime NewEvenGRID replaceGRID
+} defasvarcache
+/R25004 {
+SOURCES .IRI .FD .ECHAM3 .History .SIX-HOURLY .R25004 T 0.125 shiftGRID T 30 boxAverageSP
+T name monthtimename gridtype 16 Jan 1949 ensotime 1. 16 Oct 2001 ensotime NewEvenGRID replaceGRID
+} defasvarcache
+/R25005 {
+SOURCES .IRI .FD .ECHAM3 .History .SIX-HOURLY .R25005 T 0.125 shiftGRID T 30 boxAverageSP
+T name monthtimename gridtype 16 Jan 1949 ensotime 1. 16 Oct 2001 ensotime NewEvenGRID replaceGRID
+} defasvarcache
+/R25006 {
+SOURCES .IRI .FD .ECHAM3 .History .SIX-HOURLY .R25006 T 0.125 shiftGRID T 30 boxAverageSP
+T name monthtimename gridtype 16 Jan 1949 ensotime 1. 16 Oct 2001 ensotime NewEvenGRID replaceGRID
+} defasvarcache
+/R25007 {
+SOURCES .IRI .FD .ECHAM3 .History .SIX-HOURLY .R25007 T 0.125 shiftGRID T 30 boxAverageSP
+T name monthtimename gridtype 16 Jan 1949 ensotime 1. 16 Oct 2001 ensotime NewEvenGRID replaceGRID
+} defasvarcache
+/R25008 {
+SOURCES .IRI .FD .ECHAM3 .History .SIX-HOURLY .R25008 T 0.125 shiftGRID T 30 boxAverageSP
+T name monthtimename gridtype 16 Jan 1949 ensotime 1. 16 Oct 2001 ensotime NewEvenGRID replaceGRID
+} defasvarcache
+/R25009 {
+SOURCES .IRI .FD .ECHAM3 .History .SIX-HOURLY .R25009 T 0.125 shiftGRID T 30 boxAverageSP
+T name monthtimename gridtype 16 Jan 1949 ensotime 1. 16 Oct 2001 ensotime NewEvenGRID replaceGRID
+} defasvarcache
+/R25010 {
+SOURCES .IRI .FD .ECHAM3 .History .SIX-HOURLY .R25010 T 0.125 shiftGRID T 30 boxAverageSP
+T name monthtimename gridtype 16 Jan 1949 ensotime 1. 16 Oct 2001 ensotime NewEvenGRID replaceGRID
+} defasvarcache
+/R25011 {
+SOURCES .IRI .FD .ECHAM3 .History .SIX-HOURLY .R25011 T 0.125 shiftGRID T 30 boxAverageSP
+T name monthtimename gridtype 16 Jan 1995 ensotime 1. 16 Oct 2001 ensotime NewEvenGRID replaceGRID
+} defasvarcache
+/R25012 {
+SOURCES .IRI .FD .ECHAM3 .History .SIX-HOURLY .R25012 T 0.125 shiftGRID T 30 boxAverageSP
+T name monthtimename gridtype 16 Jan 1995 ensotime 1. 16 Oct 2001 ensotime NewEvenGRID replaceGRID
+} defasvarcache
+/R25013 {
+SOURCES .IRI .FD .ECHAM3 .History .SIX-HOURLY .R25013 T 0.125 shiftGRID T 30 boxAverageSP
+T name monthtimename gridtype 16 Jan 1995 ensotime 1. 16 Oct 2001 ensotime NewEvenGRID replaceGRID
+} defasvarcache
+\end{ingrid}

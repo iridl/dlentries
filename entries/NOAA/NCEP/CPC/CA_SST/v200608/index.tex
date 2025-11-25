@@ -1,0 +1,117 @@
+305831232 8 X .npts
+      Y .npts mul
+      4 mul
+      add
+     div
+
+gives
+
+7272
+
+which matchs S .npts L .npts mul
+
+My formula is not quite right:
+
+it gives
+
+jan 1-612
+feb 613-1224
+...
+jun 3061-3672
+
+jul 3601-4200
+
+In other words, I cannot just multiply by the number of years, I have to integrate over the previous starts.
+
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/Smonth { S first sub 12 mod /units unitless def } defasvarsilent
+/Smonthlast { S last first sub nip 12 mod } def
+/yearsinSmonth { S  last first sub cvi 12 idiv   Smonth Smonthlast flagle add nip /long_name(years) def } defasvarsilent
+/offsetyearsinSmonth { S  last first sub cvi 12 idiv   Smonth Smonthlast flagle add nip S first dup 11 add RANGE 
+ S sums
+   S first secondtolast RANGE
+   S name
+     units periodic first step last NewEvenGRID
+     replaceGRID
+/long_name(years) def } defasvarsilent
+/CASSTrecordindex {
+1 S first sub
+    12 div
+    toi4 
+  
+    L yearsinSmonth mul
+    offsetyearsinSmonth L .npts mul  add
+    add add
+/long_name (record number) def
+/units unitless def
+   toi4
+
+} defasvarsilent
+:datasetdefs
+/description (SST hindcasts/forecasts released Aug 2006) def
+link:
+/name (source) def
+/href (ftp://ftp.cpc.ncep.noaa.gov/wd51hd/sst/) def
+:link
+link:
+/name (v200708) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCEP/.CPC/.CA_SST/.v200708/) def
+/description (newer version released Sep 2007 which supercedes v200608) def
+/semantics /dcterm:isReplacedBy def
+:link
+grid:
+/name /X def
+degE
+periodic
+0.  360 144. div 360  2 index add 1 index sub
+:grid
+grid:
+/name /Y def
+degN
+90 -2.5 -90
+:grid
+grid:
+/name /L def
+/long_name (CPC lead time) def
+/units (months) def
+0 1 11
+:grid
+grid:
+/name /M def
+/long_name (member) def
+1 1 12
+:grid
+grid:
+/name /S def
+/long_name (initial data) def
+
+
+/units (months since 1960-01-01) def
+/pointwidth 3. def
+16 Jan 1956 ensotime
+1 Jan 1960 ensotime sub
+1
+16 Jun 2006 ensotime
+1 Jan 1960 ensotime sub
+:grid
+/T { S L add 2 add /pointwidth 1. def /long_name (Forecast Time) def} defasvarsilent
+/sst {[X
+    Y |
+    M L S] (/Data/data7/noaa/ncep/cpc/ca_sst/caglobsst1_m%d[M]) [M]readdatafile: sequential
+      /openandreaddatafile {recordsandopenfiles nip exch CASSTrecordindex 0 RECHUNK copyachunk nip exch 3 -1 roll readdatafile}def
+      :readdatafile
+/units /Celsius_scale def
+/long_name (Sea Surface Temperature) def
+} defasvarsilent
+/landsea {
+[ X Y | ] (/Data/data7/noaa/ncep/cpc/ca_sst/mask.2.5.ieee) readdatafile: sequential :readdatafile
+} defasvarsilent
+\end{ingrid}
+data records are ordered  year lead startmonth 
+so start months after sept have to read one less record in going over years
+[ X Y | L S M ] (/Data/data7/noaa/ncep/cpc/ca_sst/caglobsst1_m%d[M]) [M] readdatafile: sequential :readdatafile
+\begin{ingrid}
+:dataset
+\end{ingrid}

@@ -1,0 +1,158 @@
+<HEAD>
+<TITLE> Computation of monthly statistics and objective
+analysis</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html368 HREF=section3_9.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html366 HREF=vol1.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html360 HREF=subsection3_7_8.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html369 HREF=section3_9.html> Fine tuning of </A>
+<B>Up:</B> <A NAME=tex2html367 HREF=vol1.html> Atlas of Surface </A>
+<B> Previous:</B> <A NAME=tex2html361 HREF=subsection3_7_8.html> Surface atmospheric fluxes</A>
+<HR> <P>
+<H1><A NAME=SECTION0008000000000000000> Computation of monthly statistics and objective
+analysis</A></H1>
+<P>
+<A NAME=secanalysis><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A>
+<P>
+The raw monthly fields are computed from the individual observations 
+in the following manner:
+<OL><LI> The world oceans are divided into boxes with constant grid spacing
+in latitude and longitude.  The grid we consider here is 1-degree
+latitude by 1-degree longitude (the same as Levitus [1982]).
+<P>
+<LI> All available (quality controlled) observations are averaged in
+each box for each month during the 45 year period, and the standard
+deviation and number of observations recorded.  Bias corrections, if
+applicable, are made to each individual observation before averaging.
+<P>
+</OL>
+<P>
+The raw monthly mean fields are then objectively analyzed to filter out
+spatial noise and interpolate to gridpoints where data are missing.
+The objective analysis scheme used is essentially the same scheme described by 
+Levitus (1982).
+This is an iterative
+difference-correction scheme (Cressman 1959) with a weight function developed
+by Barnes (1964).  The procedure can be summarized as follows:
+<OL><LI> Determine a first guess <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3477.xbm"> (see below).
+<LI> Compute the difference between the raw observed data (<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3475.xbm">) and the
+first guess (<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3477.xbm">), 
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3479.xbm"> 
+at grid point (<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3501.xbm">).
+<LI> Compute the smoothed analysis increments
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation703.xbm"><P>
+where <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3483.xbm"> is the Barnes weight function:
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3485.xbm"> for <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3487.xbm"> where <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3489.xbm"> is the distance between
+the <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3491.xbm">th gridpoint <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3493.xbm"> and the analysis 
+gridpoint <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3495.xbm">. The sum
+on the RHS is over the region of influence, i.e., those points that are at
+a distance less than <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3497.xbm">, the radius of influence.
+<LI> Update the first guess
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_equation712.xbm"><P>
+<LI> Apply a 5-point nonlinear median filter to <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3499.xbm"> (Beaton and
+Tukey 1974; Rabiner <em>et al.</em>  1975) followed by two passes of a 5-point
+linear filter (Shapiro 1970).  It was found that this combination effectively
+filters out noise with scales of the mesh-size.  The two filters are
+applied as follows:
+<OL><LI>  Non-linear.  The smoothed value at the grid point (<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3501.xbm">) is simply 
+the <em>median</em>
+value of the nine grid points in the 3 by 3 box centered at the grid point 
+(<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3501.xbm">).  The filter is not applied to grid points located over or adjacent to
+land.  The
+median filter is used to remove noise from the data while preserving 
+sharp gradients (Reynolds 1988; Rabiner <em>et al.</em>  1975).
+<LI>  Linear.   The smoothed value <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3505.xbm"> at grid point (<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3501.xbm">) of
+a grid <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3509.xbm"> is
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_eqnarray*721.xbm"><P>
+where <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3511.xbm"> is a smoothing parameter.  Two passes of
+the Shapiro filter are performed with <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3513.xbm"> for the
+first pass and <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3515.xbm"> for the second pass. The second pass is
+intended to restore the amplitude of the large scales which were
+slightly damped in the first pass (Shapiro 1970).
+The filter is not applied to the grid point if it is located 
+over land or if any of the four adjacent grid points (north, south,
+east, and west) are located over land.
+</OL>
+<P>
+<LI> Repeat steps 2-5 with a different radius of influence <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3517.xbm">.
+<P>
+</OL>
+<P>
+The radius of influence is decreased with each pass in order to
+analyze smaller scale features with each successive iteration (Cressman 1959).
+In practice, the smallest wavelengths are noisy.
+Therefore, the smallest radius of influence needs to be at least seven to
+eight times the average separation distance (Levitus 1982).  The smallest
+radius of influence we use, 771 km, is over seven times the average
+separation distance of a 1- by 1-degree grid.
+<P>
+For climatologies and anomalies, 4 passes of the analysis scheme are
+performed with radii of influence equal to 1541 km, 1211 km, 881 km,
+and 771 km, as in Levitus (1982).  These radii correspond to 14°,
+11°, 8°, and 7°  in latitude and longitude at the Equator.
+At 60°  latitude North or South, the radii correspond to 28°,
+22°, 16°, and 14°  longitude.  Below 40° S only the first
+two passes of the analysis are used in an effort to smooth the noisy
+data in these latitudes.  The standard deviation and standard error
+fields are also noisy.  In order to smooth them sufficiently, only two
+passes of the analysis are applied to those fields, using the two
+largest radii.
+<P>
+<P><A NAME=tabresponse><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A><IMG ALIGN=BOTTOM ALT="" SRC="_770_table734.gif"><P>
+<P>
+The response function for the objective analysis using four passes
+with radii of 1541, 1211, 881, and 771 km, but without any linear or
+nonlinear filter, is given in the second column of
+Table <A HREF=section3_8.html#tabresponse>10</A> (from Levitus 1982).  As expected, the short
+wavelengths are damped severely while the intermediate and longer
+wavelengths receive moderate and little damping, respectively.
+Table <A HREF=section3_8.html#tabresponse>10</A> also shows the response function of the
+analysis
+including the linear filter, for both four passes and two passes of
+the analysis.  Notice that the damping is much greater for all but the
+smallest wavelengths with two passes of the analysis compared to that
+with four passes.  For extremely long wavelengths (not shown), the
+damping from two passes of the analysis is nearly identical to the
+damping from four passes.
+<P>
+Finally, the first guess for the analysis depends on the kind of data
+being analyzed:
+<P>
+<DL ><DT>Annual Mean Climatology:
+<DD> <BR>Individual raw monthly means are averaged to
+produce the raw monthly mean climatologies.  These monthly
+climatologies are averaged to produce the raw annual climatology.  The
+first guess for the annual climatology analysis is the zonal average
+for the individual ocean basins, following Levitus (1982).
+<P>
+<DT>Monthly Mean Climatologies:
+<DD> <BR>The first guess for the analysis 
+of a raw monthly
+climatology is the analyzed annual mean climatology.
+<P>
+<DT>Monthly Mean Anomalies:
+<DD> <BR>From the observed 
+raw monthly mean fields, the
+monthly mean analyzed climatology is subtracted to produce observed
+<em>raw</em> anomalies.  A zero field is used as first guess in the
+analysis scheme.
+<P>
+<DT>Monthly Standard Deviation/Error:
+<DD><BR>The first guess 
+for the analysis of
+the raw monthly standard deviation or standard error is the zonal average for
+the individual ocean basins.
+<P>
+ </DL>
+<P>
+<HR> <A NAME=tex2html368 HREF=section3_9.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html366 HREF=vol1.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html360 HREF=subsection3_7_8.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html369 HREF=section3_9.html> Fine tuning of </A>
+<B>Up:</B> <A NAME=tex2html367 HREF=vol1.html> Atlas of Surface </A>
+<B> Previous:</B> <A NAME=tex2html361 HREF=subsection3_7_8.html> Surface atmospheric fluxes</A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>
+Fri Oct 20 12:28:33 EDT 1995</I>
+</ADDRESS>

@@ -1,0 +1,253 @@
+removed time_statistic instantaneous
+removed unknown comment
+edited units/missing units on ua/va
+
+Reading a sample file
+\begin{ingrid*}
+/pr 
+{
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MRI.D/1979/djfmamj/01/pr_mri_1979.djfmamj.01_mm.nc)readfile .pr time replacefirstofmonthGRID
+} defasvarsilent
+\end{ingrid*}
+
+Converted to a multiple read
+\begin{ingrid}
+continuedataset:
+/description (Meteorological Research Institute (Japan)) def
+/iridl:hasSemantics (iridl:MRI) def
+/references (JMA1997) def
+grid:
+/name (longitude)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+:grid
+grid:
+/name (latitude)def
+/units (degree_north)def
+ -90. 2.5 90.
+:grid
+grid:
+/name (levels)def
+/units (unitless)def
+values:  850. 650. 200. :values
+:grid
+grid:
+/name /M def
+/long_name (members) def
+1 1 6
+:grid
+grid:
+/name /S def
+/standard_name (forecast_reference_time) def
+monthtime
+/pointwidth 0 def
+periodic
+1 Mar 1979 ensotime
+3.
+1 Dec 1979 ensotime
+:grid
+variable:
+/name /season def
+grids: S :grids
+values:
+(mamjjas)
+(jjasond)
+(sondjfm)
+(djfmamj)
+:values
+:variable
+grid:
+/name /S def
+/long_name (start time) def
+/standard_name (forecast_reference_time) def
+monthtime
+/pointwidth 0 def
+1 Mar 1979 ensotime
+3.
+1 Dec 1999 ensotime
+:grid
+grid:
+/name /L def
+/long_name (lead time) def
+/standard_name (forecast_period) def
+/units (months) def
+0.5 1. 6.5
+:grid
+/T { S L add /long_name (Forecast Time) def /pointwidth 1 def
+/standard_name (time) def
+} defasvar
+ /pr{
+[ longitude latitude | M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MRI.D/%Y[S]/%s[season]/%2.2d[M]/pr_mri_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (pr) def
+ /grid_type (linear) def
+ /grid_name (grid-1) def
+ /long_name (Total precipitation rate) def
+ % /comments (Unknown1 variable comment) def
+ /missing_value -9.98999970E33 def
+ /level_description (Earth surface) def
+ /units (kg/(m^2*s))cvn def
+% /time_statistic (instantaneous) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+\begin{ingrid}
+ /psl{
+[ longitude latitude | M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MRI.D/%Y[S]/%s[season]/%2.2d[M]/psl_mri_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (psl) def
+ /level_description (Mean Sea Level) def
+ /grid_type (linear) def
+ /grid_name (grid-1) def
+ /long_name (Mean sea-level pressure) def
+ %/time_statistic (instantaneous) def
+ % /comments (Unknown1 variable comment) def
+ /units /Pa def
+ /missing_value -9.98999970E33 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarcachesilent
+\end{ingrid}
+/ta 
+{
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MRI.D/1979/djfmamj/01/ta_mri_1979.djfmamj.01_mm.nc)readfile .ta 
+} defasvarsilent
+\begin{ingrid}
+/ta{
+[ longitude latitude | grid:
+/name (levels)def
+/units (hPa)def
+values: 850. :values
+:grid
+M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MRI.D/%Y[S]/%s[season]/%2.2d[M]/ta_mri_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+ readdatafile:
+/name (ta) def
+ /grid_type (linear) def
+ /grid_name (grid-1) def
+ /long_name (Air Temperature) def
+ %/time_statistic (instantaneous) def
+ % /comments (Unknown1 variable comment) def
+ /units /Kelvin_scale def
+ /missing_value -9.98999970E33 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+/tas 
+{
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MRI.D/1979/djfmamj/01/tas_mri_1979.djfmamj.01_mm.nc)readfile .tas 
+} defasvarsilent
+\begin{ingrid}
+ /tas{
+ [ longitude latitude | M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MRI.D/%Y[S]/%s[season]/%2.2d[M]/tas_mri_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (tas) def
+ /level_description (2 meters above earth surface) def
+ /grid_type (linear) def
+ /grid_name (grid-1) def
+ /long_name (Surface (2m) air temperature) def
+ %/time_statistic (instantaneous) def
+ % /comments (Unknown1 variable comment) def
+ /units /Kelvin_scale def
+ /missing_value -9.98999970E33 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+/ts 
+{
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MRI.D/1979/djfmamj/01/ts_mri_1979.djfmamj.01_mm.nc)readfile .ts 
+} defasvarsilent
+\begin{ingrid}
+/ts{
+ [ longitude latitude | M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MRI.D/%Y[S]/%s[season]/%2.2d[M]/ts_mri_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+ readdatafile:
+/name (ts) def
+ /long_name (Ground Surface Temperature) def
+ /units /Kelvin_scale def
+ /missing_value -9.98999970E33 def
+ /grid_type (linear) def
+ /level_description (Earth surface) def
+ /grid_name (grid-1) def
+ %/time_statistic (instantaneous) def
+ % /comments (Unknown1 variable comment) def
+ /realarraytype netcdfrecords :readdatafile
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+}defasvarcachesilent
+\end{ingrid}
+/ua 
+{
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MRI.D/1979/djfmamj/01/ua_mri_1979.djfmamj.01_mm.nc)readfile .ua 
+} defasvarsilent
+\begin{ingrid}
+/ua{
+[ longitude latitude 
+| grid:
+/name (levels)def
+/units (unitless)def
+values:  850. 650. 200. :values
+:grid M L S] 
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MRI.D/%Y[S]/%s[season]/%2.2d[M]/ua_mri_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (ua) def
+ /units /unitless def
+ /missing_value 1.00000000E20 def
+/realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+/va 
+{
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MRI.D/1979/djfmamj/01/va_mri_1979.djfmamj.01_mm.nc)readfile .va 
+} defasvarsilent
+\begin{ingrid}
+ /va{
+[ longitude latitude | grid:
+/name (levels)def
+/units (unitless)def
+ values: 850. 650. 200. :values
+:grid
+ M L S] 
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MRI.D/%Y[S]/%s[season]/%2.2d[M]/va_mri_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (va) def
+ /units /unitless def
+ /missing_value 1.00000000E20 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+/zg
+{
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MRI.D/1979/djfmamj/01/zg_mri_1979.djfmamj.01_mm.nc)readfile .zg 
+} defasvarsilent
+\begin{ingrid}
+grid:
+/name (levels)def
+/units (hPa)def
+values: 500. :values
+:grid
+/zg{
+ [ longitude latitude | grid:
+/name (levels)def
+/units (hPa)def
+values: 500. :values
+:grid
+M L S]
+(/Data/data1/iri/modelling/daved/WGSIP.D/SMIP.D/MRI.D/%Y[S]/%s[season]/%2.2d[M]/zg_mri_%Y[S].%s[season].%2.2d[M]_mm.nc)[M S season]
+readdatafile:
+/name (zg) def
+ /grid_type (linear) def
+ /grid_name (grid-1) def
+ /long_name (Geopotential height) def
+ %/time_statistic (instantaneous) def
+ % /comments (Unknown1 variable comment) def
+ /units /m def
+ /missing_value -9.98999970E33 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+\end{ingrid}
+\begin{ingrid}
+:dataset
+T pop
+\end{ingrid}

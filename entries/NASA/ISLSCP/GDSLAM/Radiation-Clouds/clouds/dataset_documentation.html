@@ -1,0 +1,1135 @@
+<html>
+<INGRID>standardHeader</INGRID>
+ <h1 align=center>Monthly cloud products (C2)<br>
+  <font size=-1>(Monthly ; ISCCP/GISS)</font><br>
+  Revision Date for Document: April 5, 1995
+  </h1>
+
+  <p align=center>
+
+     Dr. William B. Rossow 
+     NASA Goddard Institute for Space Studies
+
+  </p><br><br>
+
+ <h2 align=center>International Satellite Cloud Climatology Project (ISCCP)</h2><br><br><br>
+
+<h3> Contacts (For Data Production Information)</h3>
+<pre>
+________________________________________________________
+              |                Contact 1                |
+______________|_________________________________________|
+|2.3.1 Name   |Alison Walker                            |
+2.3.2 Address |ISCCP Global Processing Center           |
+              |NASA Goddard Institute for Space Studies |
+              |2880 Broadway                            |
+      City/St.|New York, NY                             |
+      Zip Code|10025                                    |
+2.3.3 Tel.    |(212) 678-5542                           |
+2.3.4 Email   |claww@nasagiss.giss.nasa.gov             |
+______________|_________________________________________|
+________________________________________________________
+              |                Contact 2                |
+______________|_________________________________________|
+|2.3.1 Name   |Dr. William B. Rossow                    |
+2.3.2 Address |ISCCP Global Processing Center           |
+              |NASA Goddard Institute for Space Studies |
+              |2880 Broadway                            |
+      City/St.|New York, NY                             |
+      Zip Code|10025                                    |
+2.3.3 Tel.    |(212) 678-5567                           |
+2.3.4 Email   |clwbr@nasagiss.giss.nasa.gov             |
+______________|_________________________________________|
+
+2.4  Requested Form of Acknowledgment.
+
+     Pleas cite the following publication when these data are used:
+
+     Rossow, W.B., L.C. Garder, P.J. Lu and A.W. Walker, 1991. International 
+         Satellite Cloud Climatology Project (ISCCP) Documentation of Cloud 
+         Data. WMO/TD-No. 266 (revised), World Meteorological Organization, 
+         Geneva, 76 pp. plus three appendices.
+     Rossow, W.B., and R.A. Schiffer, 1991: ISCCP cloud data products. Bull. 
+         Amer. Meteor. Soc., 72:2-20.
+
+                            3.  INTRODUCTION
+
+3.1  Objective/Purpose.
+
+     The purpose of the ISCCP C2 monthly mean cloud data is to provide a 
+     global climatology of cloud properties to be used in the study of global 
+     radiation balance and hydrological cycle.
+
+3.2  Summary of Parameters.
+
+     Monthly mean; for cloud amount, cloud top pressure, cloud optical 
+                   thickness and cloud water path.
+
+3.3  Discussion.
+
+     The ISCCP Stage C2 data represent a monthly summary of the ISCCP C1 data 
+     (Rossow and Schiffer, 1991).  Monthly averages are first made at constant 
+     diurnal phase for each of the 3-hour periods; eight sets of averages for 
+     each month describe the mean diurnal variations of cloud and surface 
+     properties.  The complete monthly mean is then constructed by averaging 
+     these eight sets.  The cloud data on this CD-ROM consists only of the 
+     complete monthly mean data.
+
+                        4.  THEORY OF MEASUREMENTS.
+
+The primary data sets used to infer the cloud properties are the Stage B3, 
+reduced resolution narrowband radiance (600 nm and 11,000 nm) measurements 
+made by the imaging radiometers on operational weather satellites (Schiffer 
+and Rossow, 1985; Rossow et al., 1987).  These data have a nominal spatial 
+resolution of 30 km and temporal resolution of 3 hours produced by up to five 
+geostationary satellites (METEOSAT, INSAT, GMS, GOES-EAST and GOES-WEST) and 
+up to two polar orbiting NOAA satellite.  Only one year of complete INSAT data 
+have been obtained but they are not included here.  The absolute radiometric 
+calibration of all B3 radiances have been normalized to that of the AVHRR on 
+NOAA-7 in July 1983.  Subsequent comparisons to aircraft data led to a 
+revision of the VIS radiance calibration, accomplished by multiplying all 
+values by a factor of 1.2.  This corrected calibration is used to produce the 
+cloud products. No change was made in the IR absolute calibration.
+
+The Stage C Cloud Data Products are produced by analysis of the visible (VIS = 
+600.0 nm) and thermal infrared (IR = 11,000 nm) radiances from all of the 
+satellites, merged into a single global product, and reduced in volume by 
+summarizing cloud variations at a 280 km resolution (equivalent to 2.5 degrees 
+lat/long at the equator).  Stage C1 data report global results every 3 hours 
+(Rossow et al., 1991).  Stage C2 data are monthly summaries of the Stage C1 
+data with the same spatial resolution and including mean diurnal variations.  
+The ISCCP C2 cloud data on this CD-ROM contains only the complete monthly mean 
+data for the parameters; cloud amount, cloud top pressure, cloud optical 
+thickness and column total of water. Note that the latter two parameters are 
+measured only during daytime, when visible radiances are available. This 
+version of water path was calculated after computing the spatial average cloud 
+optical thickness, from which it is derived; hence, the values reported are 
+expected to systematically underestimate actual water path values.
+
+                              5.  EQUIPMENT.
+
+The primary ISCCP data set is radiance data obtained from a global set of 
+operational weather satellite imaging radiometers, which have in common a 
+narrowband spectral channel at about 600 nm near the peak of the solar 
+spectrum and one in the atmosphere's thermal opacity "window" near 11,000 nm.  
+Some of these radiometers have additional channels.  The spatial resolution of 
+the raw images ranges between 1 - 4 km (visible channel) and between 4 - 7 km 
+(infrared channel).  Imaging frequency (for a specific low latitude location) 
+varies from 48 to 14 times per day for geostationary satellites to twice daily 
+for polar orbiting satellites.
+
+5.1  Instrument Description.
+
+     5.1.1  Platform.
+
+            The ISCCP data were derived from data obtained from the 
+            following instruments/platforms:
+
+                Instruments                     Platforms
+                --------------------------------------------------------------
+                Advanced Very High Resolution   National Oceanic Atmospheric
+                Radiometer (AVHRR)              Administration Polar Orbiting 
+                                                Environmental Satellite 
+                                                (NOAA)
+
+                TIROS (Television and Infrared  National Oceanic Atmospheric
+                Operational Satellite)          Administration Polar Orbiting 
+                Operational Vertical Sounder    Environmental Satellite 
+                (TOVS)                          (NOAA)
+
+                Visible Infrared Spin-Scan      Geostationary Operational
+                Radiometer (VISSR)              Environmental Satellites 
+                                                (GOES) 
+
+                Multispectral Imaging           METEOSAT
+                Radiometer (MIR)
+
+                Visible Infrared Spin-Scan      Geostationary Meteorological 
+                Radiometer (VISSR)              Satellite (GMS)
+
+                Visible Infrared Spin-Scan      INSAT
+                Radiometer (VISSR)
+
+     5.1.2  Mission Objectives.
+
+            These are operational weather satellites.
+
+     5.1.3  Key Variables.
+
+            Radiances measured approximately at visible (600 nm) and near 
+            infrared (11,000 nm) wavelengths were used from these instruments 
+            to produce the ISCCP B3 data.
+
+     5.1.4  Principles of Operation.
+
+            NOAA/AVHRR:
+
+            The AVHRR is a four or five channel scanning radiometer that 
+            operates in the visible, near-infrared, and far-infrared regions.  
+            The fifth channel was added on the AVHRR/2 instrument flown on 
+            NOAA-7, -9, -11 and -12. Scanning is provided by an elliptical 
+            beryllium mirror rotating at 360 rpm about an axis parallel to the 
+            Earth.  A two-stage radiant cooler is designed to provide a basic 
+            temperature of 95 degrees K for the IR detectors.  The telescope 
+            is an 8-inch afocal, all-reflective system, with polarization of 
+            less than 10 percent.  Instrument operation is controlled by 26 
+            commands and monitored by 20 analog housekeeping parameters. 
+
+            GOES/VISSR:
+
+            The VISSR instrument operates in the visible region of 0.55 to 
+            0.75 micrometers and in the infrared region of 10.5 to 12.6 
+            micrometers.  Each of the eight photo-multiplier tubes on the 
+            visible detector is 0.025 X 0.021 mrads, with a dynamic range of 
+            3-100% albedo.  The infrared portion of the instrument consists of 
+            two detectors cooled to 95 degrees K, with an instantaneous field-
+            of-view (IFOV) of 192 X 192 microradians.  The VISSR telescope has 
+            an aperture of 40 cm and a focal length of 291 cm, and routes the 
+            IR wavelengths to separate detectors.  The video analog output of 
+            all detectors is transmitted to the VISSR Digital Multiplexer 
+            (VDM) where it is sequentially sampled every 2 microseconds by the 
+            visible channel and every 8 microseconds by the IR channel.  
+
+            METEOSAT/MIR:
+
+            The Multispectral Imaging Radiometer (MIR) sensor on METEOSAT is a 
+            scanning radiometer which provides images in the visible and 
+            thermal IR regions of the spectrum.  The instrument produces 
+            images of the full Earth disc viewed from a geostationary orbit.  
+            A reduced image format, corresponding to a limited band across the 
+            Earth's disc, may be selected by telecommand.  The optical 
+            reflector system of the radiometer includes a movable Ritchey-
+            Chretien telescope with primary and secondary mirrors.  This 
+            includes a mirror located in the center of the primary mirror 
+            inclined at 45 degrees to the optical axis, four folding mirrors, 
+            and a separation mirror for diverting light to the visible sensor. 
+
+            The optically-collected visible and IR signals are converted into 
+            analog electric signals by five detectors.  These are divided into 
+            two subsets, two visible and three IR.  The detectors are 
+            distributed across the focal plane of the radiometer and as a 
+            result of the relative displacement of the detectors in this 
+            plane, their respective fields-of-view (FOV) do not coincide but 
+            are displaced relative to each other. 
+
+            The two visible detectors are positioned in the focal plane of the 
+            primary telescope.  Their instantaneous FOV at the Earth's surface 
+            (2.5 square km) is determined by their physical size (250 X 250 
+            micrometers sensitive area) and the telescope's focal length (3650 
+            millimeters).  While the visible detectors function properly at 
+            ambient temperatures, the three IR detectors must be cooled to 
+            less than 95 degrees K. 
+
+            Each IR detector is 70 square micrometers and generates an 
+            instantaneous 5 km square FOV at the subsatellite point.  One 
+            visible channel time shares with the water vapor channel so that 
+            the resolution of the visible image changes depending on the 
+            choice of channels. 
+
+            GMS/VISSR:
+
+            The GMS Visible and IR Spin-Scan Radiometer (VISSR) is very 
+            similar to the scanning radiometers carried on Synchronous 
+            Meteorological Satellite (SMS) and GOES (1 through 3) satellites 
+            except for some modifications to stepping gears and detector 
+            portions.  The number of steps in each scan is 2500 for the IR 
+            detector on GMS versus 1821 for GOES.  
+
+            INSAT/VISSR:
+
+            The INSAT VISSR is also a scanning radiometer with a visible 
+            channel covering 0.55 to 0.75 micrometers and an IR channel 
+            covering the 10.5 to 12.5 micrometer spectral regions.  The full 
+            disc can be scanned every half-hour (23 minute scan plus 7 minute 
+            housekeeping), processing from north to south.  Sector scanning of 
+            the 1/4 disc (full east to west, 1/4 north to south) is possible 
+            every 6 minutes. 
+
+     5.1.5  Instrument Measurement Geometry .
+
+            The following table lists the measuring geometry characteristics 
+            for the satellites employed by the ISCCP program: 
+ 
+            SATELLITE   SCAN SYSTEM       SCAN DIRECTION      IMAGE VIEWING   
+                                                                 ANGLE        
+            ------------------------------------------------------------------
+            NOAA        Cross-track        Moving south to     55.4 degrees   
+                        scan mirror        north, scanning                    
+                                           west to east                       
+
+            GOES        Spacecraft spin    Stepping north to   20 X 20 degrees
+                        motion plus        south, scan west                   
+                        scan mirror        to east                            
+
+            METEOSAT    Spacecraft spin    Stepping south to   18 X 18 degrees
+                        motion plus        north, scan east                   
+                        scan mirror        west                               
+
+            GMS         Spacecraft spin    Stepping north to   18 X 18 degrees
+                        motion plus        south, scan west                   
+                        scan mirror        to east                            
+
+            INSAT       Spacecraft spin    Stepping north to   Not available  
+                        motion plus        south, scan east                   
+                        scan mirror        to west                            
+            ------------------------------------------------------------------
+
+     5.1.6  Manufacturer of Instrument.
+
+            Not available at this revision.
+
+5.2  Calibration.
+
+     Calibration procedures for the instruments can be found in Rossow et 
+     al., (1987), Brest and Rossow (1992), and Desormeaux et al., (1993).
+
+     5.2.1  Specifications.
+
+            See section 5.2.
+
+            5.2.1.1  Tolerance.
+
+                     See section 5.2.
+
+     5.2.2  Frequency of Calibration.
+
+            See section 5.2.
+
+     5.2.3  Other Calibration Information.
+
+            Although procedures are applied to normalize the radiances 
+            measured by various satellites to the reference polar orbiter 
+            (afternoon) measurements (Rossow et al. 1987), the precision of 
+            the normalization procedures leaves small residual differences 
+            which can be amplified by the process to retrieve physical 
+            quantities.  The collection of monthly comparison statistics 
+            provides more statistical weight with which to estimate these 
+            residuals.
+
+            To produce Stage C1 data, results from several satellites are 
+            merged into a single global dataset.  In regions where more than 
+            one satellite provides results, the merger process selects the 
+            preferred satellite according to a specified hierarchy that favors 
+            data continuity and observations made closer to nadir view.  
+            Frequency histograms of the differences in the overlapping 
+            measurements between all pairs of satellites are collected and the 
+            modal value estimated from the average of the mode value and the 
+            three nearest values above and below the mode value.  These 
+            estimated differences for each satellite when compared to the 
+            reference polar orbiter are applied to adjust for small residual 
+            radiance calibration differences.  The quantities in the hour-
+            monthly mean that are corrected are: cloud optical thickness and 
+            water path.  Magnitudes of these corrections are illustrated in 
+            the table bellow.
+
+            Magnitude of calibration adjustments applied to Stage C2 data to 
+            remove small residual calibration differences shown as the 
+            standard deviation and range of all corrections applied to each 
+            satellite over the period July 1983 - February 1987.
+
+            PARAMETER                    STD DEV               RANGE
+            --------------------------------------------------------------
+            Cloud Optical Thickness      0.02                  + or - 0.08
+            Cloud Water Path             0.02                  + or - 0.08
+
+            Special METEOSAT adjustment
+
+            The spectral response of the METEOSAT "visible" channel is wider 
+            than that of the other radiometers used in the ISCCP analysis; 
+            normalization of METEOSAT radiances is done using spectrally 
+            uniform targets (clouds and clear ocean areas). The spectral 
+            response difference means that surface reflectance determined for 
+            vegetated land areas are larger for METEOSAT than for the other 
+            satellites. This difference in surface reflectance is removed in 
+            the hour-monthly mean dataset by using regression relations that 
+            are obtained by comparing METEOSAT and NOAA measurements as a 
+            function of vegetation type and season. A single relationship that 
+            varies with season was found to represent differences as a 
+            function of vegetation type. Adjustment factors are applied for 
+            each season and are given in the table below. Unadjusted values 
+            can be recovered from Stage C2 values by multiplying by the slopes 
+            given in the table below and adding the intercept values. 
+
+            Adjustment factors applied to METEOSAT land surface reflectances 
+            to reduce them to values measured at an approximate wavelength of 
+            600 + or - 100 nm. Seasons are the standard three-month periods 
+            for the northern hemisphere.
+
+            Adjustment: Adjusted = (original value - intercept)/slope
+
+                                   SLOPE       INTERCEPT
+                                   ---------------------
+            SEASON:    Winter      0.893          0.1154
+                       Spring      0.786          0.1135
+                       Summer      0.752          0.1290
+                       Fall        0.820          0.1362
+
+                          6.  PROCEDURE
+
+6.1  Data Acquisition Methods.
+
+     The data sets described in this document were acquired from the 
+     Greenhouse Effect Detection Experiment (GEDEX) CD-ROM. For more 
+     information on the GEDEX CD-ROM contact the Goddard DAAC User support 
+     office (see section 13).  For additional information on data acquisition 
+     of ISCCP-C2 data see Rossow et al., (1991).
+
+6.2  Spatial Characteristics.
+
+     The Goddard DAAC converted the original ISCCP C2 data to a 1 degree equal 
+     angle lat/long grid (see section 9.3.1).  For information on the spatial 
+     characteristics of the original ISCCP C2 data see Rossow et al., (1991).
+
+     6.2.1  Spatial Coverage.
+
+            The coverage is global.  Data in each file are ordered from North 
+            to South and from West to East beginning at 180 degrees West and 
+            90 degrees North.  Point (1,1) represents the grid cell centered 
+            at 89.5 N and 179.5 W (see section 8.4).
+
+     6.2.2  Spatial Resolution.
+
+            The data are given in an equal-angle lat/long grid that has a 
+            spatial resolution of 1 X 1 degree lat/long.
+
+6.3  Temporal Characteristics.
+
+     6.3.1  Temporal Coverage.
+
+            January 1987 through December 1988.  
+
+            The original ISCCP C2 data set covers the period from July 1983 
+            through June 1991.
+
+     6.3.2  Temporal Resolution.
+
+            Monthly mean.
+
+                           7.  OBSERVATIONS
+
+7.1  Field Notes.
+
+     Not applicable.
+
+                         8.  DATA DESCRIPTION
+
+8.1  Table Definition With Comments.
+
+     Not applicable.
+
+8.2  Type of Data.
+
+--------------------------------------------------------------------------------
+|                 8.2.1                  |               |          |          |
+|Parameter/Variable Name                 |               |          |          |
+--------------------------------------------------------------------------------
+|    |               8.2.2               |     8.2.3     |  8.2.4   |  8.2.5   |
+|    |Parameter/Variable Description     |Range          |Units     |Source    |
+--------------------------------------------------------------------------------
+|CLD_AMNT                                |               |          |          |
+|    |The average frequency of cloudy    |min = 0,       |[percent] |ISCCP C2  |
+|    |(cloud amount) pixels              |max = 100.0,   |          |on the    |
+|    |                                   |missing =      |          |GEDEX     |
+|    |                                   |-99.000        |          |CD-ROM    |
+--------------------------------------------------------------------------------
+|CLD_TPPR                                |               |          |          |
+|    |Mean cloud top pressure            |min = 1.0,     |[millibars|ISCCP C2  |
+|    |                                   |max = 1100.0,  |]         |on the    |
+|    |                                   |missing =      |          |GEDEX     |
+|    |                                   |-99.000        |          |CD-ROM    |
+--------------------------------------------------------------------------------
+|CLD_OPTH                                |               |          |          |
+|    |Mean optical thickness             |min = 0.2,     |[Unitless]|ISCCP C2  |
+|    |                                   |max = 119.59,  |          |on the    |
+|    |                                   |missing =      |          |GEDEX     |
+|    |                                   |-99.000        |          |CD-ROM    |
+--------------------------------------------------------------------------------
+|CLD_PATH                                |               |          |          |
+|    |Cloud water mass (cloud water      |min = 1.25,    |[g] [m^-2]|ISCCP C2  |
+|    |path), per unit area               |max = 752.46,  |          |on the    |
+|    |                                   |missing =      |          |GEDEX     |
+|    |                                   |-99.000        |          |CD-ROM    |
+--------------------------------------------------------------------------------
+
+8.3  Sample Data Base Data Record.
+
+     Not applicable.
+
+8.4  Data Format.
+
+     The CD-ROM file format is ASCII, and consists of numerical fields of 
+     varying length, which are space delimited and arranged in columns and 
+     rows.  Each column contains 180 numerical values and each row contain 360 
+     numerical values.  
+
+          Grid arrangement
+
+             ARRAY(I,J)
+             I  = 1 IS CENTERED AT 179.5W
+             I INCREASES EASTWARD BY 1 DEGREE
+             J  = 1 IS CENTERED AT 89.5N
+             J INCREASES SOUTHWARD BY 1 DEGREE
+
+             90N - | - - - | - - - | - - - | - -
+                   | (1,1) | (2,1) | (3,1) |
+             89N - | - - - | - - - | - - - | - -
+                   | (1,2) | (2,2) | (3,2) |
+             88N - | - - - | - - - | - - - | - -
+                   | (1,3) | (2,3) | (3,3) |
+             87N - | - - - | - - - | - - - |
+                  180W   179W    178W   177W
+
+             ARRAY(360,180)
+
+8.5  Related Data Sets.
+
+     ISCCP-B3 data: reduced resolution radiances.
+     ISCCP-TV data: TOVS atmospheric properties.
+     ISCCP-SI data: merged snow and sea ice dataset.
+     ISCCP-C1 data: 30-hr cloud product.
+
+                         9.  DATA MANIPULATIONS
+
+9.1  Formulas.
+
+     9.1.1  Derivation Techniques/Algorithms.
+
+            The cloud analysis algorithm for ISCCP-C1 was developed from a
+            three year pilot study that compared the performance of nine
+            different algorithms applied to the same data (Rossow et al.,
+            1985; Rossow, W.B. and R.A. Schiffer, 1991).  This algorithm has
+            three fundamental parts:  cloud detection, radiative transfer
+            model analysis, and statistical analysis.
+
+            A. Cloud Detection.
+
+            The cloud detection step analyzes the radiance data twice:  first
+            to determine an estimate for the radiance values that represent
+            clear conditions and second, to determine which radiance
+            measurements deviate from these clear sky values (Rossow and
+            Garder, 1993a).  Cloudy conditions are defined to be those that
+            exhibit radiance values that are sufficiently different from the
+            clear values.
+
+            To avoid spurious diurnal variations of cloudiness caused by
+            changes in methodology associated with the presence or absence of
+            VIS data, the clear sky composite procedure relies primarily on IR
+            radiance tests to obtain both the VIS and IR clear radiances.
+            However, since the daytime results can be improved by use of the
+            VIS channel measurements, these results are incorporated so that
+            the IR-only results can be reconstructed.
+
+            The algorithm used to produce this C1 data does not use any
+            correlative data to construct the clear sky composite, except four
+            classification data sets that indicate whether a particular
+            location is land, water, or coast, gives the type of vegetation
+            cover for land areas, indicates the presence of snow or sea ice
+            cover, and whether the topography is high or rough.
+
+            B.  Radiative Transfer Model Analysis 
+
+            Once pixels are classified as cloudy or clear, the radiances are 
+            compared to radiative transfer model calculations designed to 
+            simulate the measurements of the AVHRR channels (to which all the 
+            radiometers have been normalized).  These comparisons are used to 
+            isolate the surface reflectances and temperatures from the clear 
+            radiances and the cloud optical thicknesses and cloud top 
+            temperatures from the cloudy radiances (Rossow et al. 1991).  
+            Atmospheric properties that affect the satellite measured 
+            radiances are specified from the correlative data. 
+
+            C. Statistical Analysis
+
+            Averages and variances of all cloud, surface and radiance
+            quantities are reported in C1 data for 280 km regions; however,
+            only average quantities are included in the CD dataset.  Cloud
+            parameters represent averages over all cloudy pixels in each
+            region at that time.
+
+            A single C1 data file represents the merging of analysis results
+            from all available satellites within the three hour time period.
+            The basic objective of the ISCCP-C2 analysis is to summarize the
+            cloud analysis results (Stage C1 data) on a monthly time scale.
+            To preserve information about diurnal variability, the results are
+            first averaged over the calendar month, separately for 00, 03, 06,
+            09, 12, 15, 18, and 21 GMT. Then, these eight results
+            are averaged to obtain the monthly mean values, but first
+            a number of adjustments are made.
+
+            Averaging the quantities from Stage C1 data to produce the Stage 
+            C2 data can be done in two ways, depending on the purpose.  Some 
+            quantities, such as cloud optical thickness or cloud top 
+            temperature, are related to the effect of clouds on radiation in a 
+            non-linear way.  Thus, an average value meant to be indicative of 
+            the average radiative effect of clouds must give equal weight to 
+            these values proportional to their radiative effect.  Since these 
+            quantities were retrieved from radiation measurements, this 
+            weighting is also related to the variation of relative measurement 
+            precision over the range of the parameters.  All quantities in 
+            Stage C2 data are averaged in this way, except for parameter 20, 
+            called PATH.  For most parameters, this weighting procedure 
+            produces an average value that is not much different than that 
+            given by a simple linear average.  This is not the case for cloud 
+            optical thickness, where a simple linear average produces a global 
+            monthly mean value that is about 60% larger than that produced by 
+            an energy-weighted average.  The optical thicknesses give the 
+            value that represents the average radiative effect of the clouds, 
+            whereas water path is proportional to the cloud water content 
+            times the vertical extent of the cloud.  Optical thicknesses are 
+            averaged in a non-linear manner, while water path represents the 
+            linear average of optical thickness.  For a constant cloud 
+            particle size distribution (as assumed in the retrieval of optical 
+            thicknesses), cloud water path, WP, is given by 
+
+                                 WP = [40/3]*[r~ * PATH]/Q    kg/m**2
+
+            where r~ is the average particle radius in cm, and Q is the 
+            normalized Mie extinction efficiency at 0.6 micrometers 
+            wavelength.  For the cloud particle size distribution used, with 
+            r~ approximately equal to -.001 cm, 
+
+                                      WP = 6.292 PATH    g/m**2
+
+9.2  Data Processing Sequence.
+
+     9.2.1  Processing Steps and Data Sets.
+
+            The ISCCP C1 data are produced from the analysis of a reduced 
+            resolution satellite radiance dataset (B3 data), together with 
+            four correlative datasets that describe properties of the 
+            atmosphere and surface.  The B3 data have a nominal 30 km 
+            resolution.  Radiance values at the 30 kilometer resolution for 
+            each of the sensors are normalized to the polar orbiter radiometer 
+            response.  Stage C1 data represent the global, merged results 
+            reported every 3 hours with a spatial resolution of 280 km; Stage 
+            C2 data are the monthly averages and the other summary statistics 
+            of the Stage C1 quantities.  The ISCCP-C2 data on this CD-ROM is 
+            comprised of complete monthly means for the parameters; cloud 
+            amount, cloud top pressure, cloud optical thickness and cloud 
+            water path. The Goddard DAAC converted this data from it's 
+            original grid to a 1 degree equal angle grid (see section 9.3.1).
+
+     9.2.2  Processing Changes.
+
+            Not available at this revision.
+
+9.3  Calculations.
+
+     9.3.1  Special Corrections/Adjustments.
+
+            The mean cloud properties reported in the C1 product are the final 
+            values from the radiative analysis.  This means that the daytime 
+            values of cloud top temperature (TC) and cloud top pressure (PC) 
+            have been altered by the effects of the VIS channel measurements.  
+            Since the same adjustment is not performed at night, direct 
+            comparison of the day and night values of cloud top temperature 
+            and pressure must be interpreted with caution.  However, the 
+            vertical distribution of clouds can be reconstructed from cloud 
+            classes and the mean IR radiance values.  The visible only (VIS-
+            ONLY) numbers can be subtracted from the total number of pixels at 
+            each pressure level, while the IR radiances can be used to 
+            estimate the cloud top temperature and pressure without TAU 
+            corrections. 
+
+            Producing the ISCCP-C2 product involved performing a number of 
+            adjustments on the ISCCP-C1 data before determining the monthly 
+            averages.  The adjustments necessary included VIS adjustments 
+            during daytime, VIS adjustments during nighttime, calibration 
+            adjustments, standard adjustments, special METEOSAT adjustments, 
+            and diurnal adjustments 
+
+            VIS adjustments during daytime (Adj1):
+
+            In the Stage C1 data, two different versions of cloud amount and 
+            cloud top temperature/pressure are reported for daytime 
+            conditions.  One version of cloud amount is obtained from the IR 
+            radiances alone, as must be done for nighttime conditions; the 
+            other version combines cloud detections from both the VIS and IR 
+            radiances.  IR radiances are insensitive to low-level clouds, 
+            especially broken ones, the VIS radiances analysis detects more 
+            low-level cloudiness than the IR analysis.  Likewise, one version 
+            of the cloud top temperature/pressure is obtained directly from 
+            the IR radiances as is done for nighttime conditions and the other 
+            version adjusts the values consistent with the cloud optical 
+            thickness value retrieved from the VIS radiances. This adjustment 
+            is significant only for optically thin clouds, which transmit IR 
+            radiation from below the cloud and, consequently, appear to have a 
+            higher temperature/pressure than they actually do.  Thus, the 
+            VIS/IR version is superior to the IR-only version.  Stage C2 data 
+            contain the VIS/IR versions of cloud amount, cloud top temperature 
+            and cloud top pressure. 
+
+            VIS adjustments during nighttime (Adj2):
+
+            The mean differences between the VIS/IR and IR-only results during 
+            daytime conditions are used to adjust the nighttime results in the 
+            hour-monthly mean data.  Daytime differences between VIS/IR and 
+            IR-only values of total cloud amount, mean cloud top pressure and 
+            cloud top temperature are linearly interpolated over the nighttime 
+            periods between the dusk and dawn values.  This interpolated 
+            difference is then added to the IR-only value during this time 
+            period.  The magnitude of these corrections is generally small.  
+            The smaller (<= 5%) cloud amount adjustments are distributed 
+            nearly uniformly over the globe with values slightly higher over 
+            ocean than over land.  The larger adjustments occur in near 
+            coastal regions, land and ocean, in low latitudes primarily 
+            associated with tropical rain forests and marine stratus regimes.  
+            The unadjusted cloud amount is reported as the last parameter in 
+            each map grid cell.  The cloud top pressure correction is positive 
+            where low clouds predominate, primarily in marine stratus regimes 
+            over oceans, and negative where high, thin clouds predominate, 
+            primarily over land, especially in desert areas. 
+
+            Interpolation to fill during nighttime (Adj3)
+
+            Values of the cloud optical thickness (both TAU and PATH) are 
+            interpolated over the nighttime period between the dusk and dawn 
+            values.  
+
+            Standard adjustment (Adj4):
+
+            To produce Stage C1 data, results from several satellites are 
+            merged into a single global dataset.  In regions where more than 
+            one satellite provides results, the merger process selects the 
+            preferred satellite according to a specified hierarchy that favors 
+            data continuity and observations made closer to nadir view.  
+            Frequency histograms of the differences in the overlapping 
+            measurements between all pairs of satellites are collected and the 
+            modal value estimated from the average of the mode value and the 
+            three nearest values above and below the mode value.  These 
+            estimated differences for each satellite, when compared to the 
+            reference polar orbiter, are applied to adjust for small residual 
+            radiance calibration differences.  The corrected quantities in the 
+            hour-monthly mean are:  cloud top and surface temperature, cloud 
+            optical thickness and water path, and surface reflectance.  
+            Magnitudes of these corrections are illustrated in the table 
+            below.  Actual calibration adjustments for each month are reported 
+            in the record prefixes for each parameter for each satellite.
+
+            The magnitude of the calibration adjustments applied to Stage C2 
+            data to remove small residual calibration differences are shown 
+            here as the standard deviation and range of all corrections 
+            applied to each satellite over the period July 1983 - February 
+            1987. 
+
+                    Parameter                       Std Dev         Range
+                    -----------------------------   -------         ---------
+                    Cloud Top Temperature           0.74 K          + - 2.5 K
+                    Surface Temperature             1.10 K          + - 3.0 K
+                    Cloud Optical Thickness
+                            and Water Path          0.02            + - 0.08
+                    Surface Visible Reflectance     2%              + - 8%
+
+            Special METEOSAT adjustment (Adj5):
+
+            The spectral response of the METEOSAT "visible" channel is wider 
+            than that of the other radiometers used in the ISCCP analysis; 
+            normalization of METEOSAT radiances is done using spectrally 
+            uniform targets (clouds and clear ocean areas).  The spectral 
+            response difference means that surface reflectances calculated for 
+            vegetated land areas from METEOSAT are larger than for the other 
+            satellites.  This difference in surface reflectance is removed in 
+            the hour-monthly mean dataset by using regression relations that 
+            are obtained by comparing METEOSAT and NOAA measurements as a 
+            function of vegetation type and season.  A single relationship 
+            that varies with season was found to represent differences as a 
+            function of vegetation.  Adjustment factors are applied for each 
+            season and are given in the table below.  Unadjusted values can be 
+            recovered from Stage C2 data by multiplying by the slopes (given 
+            in the table below) and adding the intercept values. 
+
+            Adjustment factors applied to METEOSAT land surface reflectances 
+            to reduce them to values measured at an approximate wavelength of 
+            0.6 + to - 0.1 micrometers are shown in the table below.  Seasons 
+            are the standard  three-month periods in the northern hemisphere. 
+
+            Adjustment:  Adjusted Value = (Original Value - Intercept)/Slope
+
+                            Season          Slope           Intercept
+                            ------          -----           ---------
+                            Winter          0.893           0.1154
+                            Spring          0.786           0.1135
+                            Summer          0.752           0.1290
+                            Fall            0.820           0.1362
+
+            Diurnal adjustment (Adj6):
+
+            Before the hour-monthly means are combined into a monthly mean, 
+            small corrections are made to account for incomplete sampling of 
+            the diurnal variations of cloud and surface properties.  An 
+            incomplete sample is less than 8 hour-monthly observations at low 
+            and middle latitudes.  These adjustments are determined using the 
+            zonally averaged variations of the quantities in local time at all 
+            locations with eight hour-monthly mean values available.  The 
+            diurnal average is calculated for the number of samples actually 
+            available and compared with the average of eight samples to 
+            determine the effect of sub-sampling on the diurnal average.  The 
+            calculations are performed within each latitude interval, 
+            separately for land and water areas.  The quantities that are 
+            adjusted are the total cloud amount, cloud top temperature and 
+            pressure, cloud optical thickness and water path, and the surface 
+            temperature.  These adjustments affect only the monthly mean 
+            values and are not applied to the individual hour-monthly means. 
+
+            Below is a description of the re-gridding process done by the 
+            Goddard DAAC:
+
+               Physical Lay Out of Original Data:   These data were subset 
+               from the GEDEX CD.  Resulting input data consisted of one file 
+               for both 1987 and 1988.   Within the file the data were 
+               arranged with the four chosen parameters for a grid cell and 
+               corresponding time, latitude, and longitude per line.
+
+               Logical Lay Out of Original Data:   These data were on a 2.5 x 
+               2.5 degree lat/lon grid (72 by 144 grid cells), with the data 
+               starting at 0 longitude, -90 latitude and progressing eastward, 
+               and then northward to 360 longitude, 90 latitude.  
+
+               Processing steps done by the Goddard DAAC:  Regrid each 
+               latitude and longitude band of data by implementing the 
+               following steps:
+
+               1) Replicated every data value in each latitude band 360 times, 
+                  assigning them to a temporary array.  Each of the original 
+                  latitude bands had 144 data values, which replicated 360 
+                  times produces a temporary array of 51840 data values for 
+                  that latitude band.
+               2) The first 144 (temporary array) data values are summed and 
+                  then divided by the number (144) of original latitude band 
+                  values. This was repeated 359 more times, for every 144 
+                  (temporary array) data values, in affect performing a linear 
+                  interpolation of the data within the latitude band.
+               3) Step 1 and 2 were repeated until all latitude bands have 
+                  been interpolated.
+               4) A test for fill value occurrance was performed.  If fill 
+                  value constitutes 50% or more of contributing values then 
+                  assign a fill value to that grid cell, otherwise compute the 
+                  average data value for grid cell from only those points 
+                  constituting data values.  When assigning fill values, a new 
+                  fill value was used, as the existing one was extremely 
+                  large.
+               5) The same method, discussed above, was used for regridding 
+                  each longitude band of data, except that the number of 
+                  replications was 180.  Utilizing the same test for fill 
+                  value mentioned above, and the same fill substitution.
+               6) The resulting array of data values were then split and 
+                  shifted from 0 longitude -> 360 longitude to -180 longitude 
+                  -> 180 longitude.
+               7) These data were then flip from -180 longitude, -90 latitude 
+                  to -180 longitude, 90 latitude.
+
+9.4  Graphs and Plots.
+
+     Not available at this revision.
+
+                                10.  ERRORS
+
+10.1  Sources of Error.
+
+      Some situations where the cloud properties are more uncertain are:
+      persistently cloudy locations, winter sea ice, and snow-covered land.
+
+10.2  Quality Assessment.
+
+      10.2.1  Data Validation by Source.
+
+              Errors in clear-sky radiances (Rossow and Garder, 1993b), 
+              suggest uncertainties in the ISCCP cloud detections of about 10% 
+              with a small (3%-6%) negative bias over land. Some specific 
+              regions exhibit both larger rms uncertainties and somewhat 
+              larger biases in cloud amount approaching 10%. ISCCP cloud 
+              detections are more in error over the polar regions than 
+              anywhere else. Based on comparisons with and analysis of 
+              radiances measured at other wavelengths. The ISCCP analysis 
+              appears to miss 15%-25% of the clouds in summer but only 5%-10% 
+              of the winter clouds. 
+
+              The ISCCP cloud amounts appear (Rossow et al., 1993) too low 
+              over land by about 10%. Somewhat less in summer and somewhat 
+              more in winter, and about right (maybe slightly low) over 
+              oceans. In polar regions, ISCCP cloud amounts are probably too 
+              low by about 15%-25% in summer and 5%-10% in winter. Comparison 
+              of the ISCCP climatology to three other cloud climatolgies shows 
+              excellent agreement in the geographic distribution and seasonal 
+              variation of cloud amounts: there is little agreement about 
+              day/night contrasts in cloud amount. Notable results from ISCCP 
+              are that the global annual mean cloud amount is about 63%. Being 
+              about 23% higher over oceans than over land. The magnitude of 
+              interannual variations of local (280-km scale) monthly mean 
+              cloud amounts is about 7%-9%.
+
+              For additional information on assessment of cloud detection and 
+              cloud amount errors, see Rossow and Garder (1993a).
+
+              For preliminary assessments of the radiation model errors, see 
+              Minnis et al.  1993, Han et al.  1994, Rossow and Zhang 1994.
+
+      10.2.2  Confidence Level/Accuracy Judgment.
+
+              See section 10.2.1.
+
+      10.2.3  Measurement Error for Parameters and Variables.
+
+              See section 10.2.1.
+
+      10.2.4  Additional Quality Assessment Applied.
+
+              Not available at this revision.
+
+                             11.  NOTES
+
+11.1  Known Problems With The Data.
+
+      Not available at this revision.
+
+11.2  Usage Guidance.
+
+      Not applicable. 
+
+11.3  Other Relevant Information.
+
+      Not available at this revision.
+
+                           12.  REFERENCES
+
+12.1  Satellite/Instrument/Data Processing Documentation.
+
+      Rossow, W.B., L.C. Garder, P-J. Lu and A.W. Walker, 1991.  
+          "International Satellite Cloud Climatology Project (ISCCP) 
+          Documentation of Cloud Data."   WMO/TD No. 266 (revised).  World 
+          Meteorological Organization, Geneva, 76 pp. plus three appendices.
+      Rossow, W.B., E. Kinsella, A. Wolf, L. Garder, July 1985. revised August 
+          1987.  "International Satellite Cloud Climatology Project 
+          Description of Reduced Resolution Radiance Data."  WMO TD-No. 58, 
+          World Meteorological Organization/International Council of 
+          Scientific Unions.
+      World Climate Research Program, November, 1982.  "The International 
+          Satellite Cloud Climatology Project Preliminary Implementation 
+          Plan."  World Meteorological Organization.  WCP-35.
+
+12.2  Journal Articles and Study Reports.
+
+      Brest, C.L., and W.B. Rossow, 1992. Radiometric calibration and 
+          monitoring of NOAA AVHRR data for ISCCP. Int. J. Remote Sensing, 
+          13:235-273.
+      Desormeaux, Y., W.B. Rossow, C.L. Brest and G.G. Cambell, 1993. 
+          Normalization and calibration of geostationary satellite radiances 
+          for ISCCP. J. Atmos. Ocean Tech., 10:304-325.
+      Han, Q., W.B.  Rossow and A.A.  Lacis, 1994.  Near-global survey of 
+          effective cloud droplet radii in liquid water clouds using ISCCP 
+          data.  J.  Climate, 7:465-497.
+      Hirai, M. et al., 1975.  "Development of Geostationary Meteorological 
+          Satellite (GMS) of Japan."  Proc. of the Eleventh International 
+          Symposium of Space Technology and Science, Tokyo, Japan, 461-465.
+      Matthews, E., and W.B. Rossow, 1987.  "Regional and Seasonal Variations 
+          of Surface Reflectance from Satellites Observations at 0.6 um.  J. 
+          Climate Appl. Meteor., 26:170-202.
+      Minnis, P., and E.F. Harrison, 1984.  "Diurnal Variability of Regional 
+          Cloud and Clear Sky Radiative Parameters Derived from GOES Data.  
+          Part I:  Analysis Method."  J. Climate Appl. Meteor., 23:993-1011.                                                
+      Minnis, P., P.W.  Heck and D.F.  Young, 1993.  Inference of cirrus cloud 
+          properties using satellite-observed visible and infrared radiances.  
+          Part II: Verification of theoretical cirrus radiative properties.  
+          J.  Atmos.  Sci., 50:1305-1322.
+      Raschke, E., W. Rossow and R. Schiffer, 1987. "The International 
+          Satellite Cloud Climatology Project - Preliminary Results and its 
+          Potential Aspects." Advanced Space Research, 7:(3)137-(3)145. 
+      Rossow, W.B., and L. Garder, 1984.  "Selection of Map Grid for Data 
+          Analysis and Archival."  J. Climate Appl. Meteor., 23:1253-1257. 
+      Rossow, W.B., F. Mosher, E. Kinsella, A. Arking, M. Desbois, E. 
+          Harrison, P. Minnis, E. Ruprecht, G. Seze, C. Simmer and E. Smith, 
+          1985.  "ISCCP Cloud Algorithm Intercomparison." J. Climate Appl. 
+          Meteor., 24:877-903. 
+      Rossow, W.B., 1989.  "Measuring Cloud Properties from Space: A Review."  
+          J. of Climate, 2:201-213.
+      Rossow, W.B., L.C. Garder, and L.C. Lacis, 1989.  "Global, Seasonal 
+          Cloud Variations from Satellite Radiance Measurements, Part I: 
+          Sensitivity of Analysis."  J. of Climate, 2:419-458.
+      Rossow, W.B., C.L. Brest, and L.C. Garder, 1989.  "Global, Seasonal 
+          Surface Variations from Satellite Radiance Measurements."  J. of 
+          Climate, 2:214-247. 
+      Rossow, W.B., and R.A. Schiffer, 1991.  "ISCCP Cloud Data Products."  
+          Bull. Amer. Meteor. Soc., 72: 2-20.
+      Rossow, W.B., and L.C. Garder, 1993a. Cloud detection using satellite 
+          measurements of infrared and visible radiances for ISCCP. J. 
+          Climate, 6:2341-2369.
+      Rossow, W.B., and L.C. Garder, 1993b. Validation of ISCCP cloud 
+          detections. J. Climate, 6:2370-2393.
+      Rossow, W.B., A.W. Walker and L.C. Garder, 1993: Comparison of ISCCP 
+          and other cloud amounts. J. Climate, 6:2394-2418.
+      Rossow, W.B., and Y.  Zhang, 1994.  Calculation of surface and top-of-
+          atmosphere radiative fluxes from physical quantities based on ISCCP 
+          datasets.  Part II:  Validation and first results.  J.  Geophys.  
+          Res., (in press).
+      Schiffer, R.A., and W.B. Rossow, 1983. "The International Satellite 
+          Cloud Climatology Project (ISCCP) -- The First Project of the World 
+          Climate Research Program."  Bull. Amer. Meteor. Soc., 64: 779-784. 
+      Schiffer, R.A., and W.B. Rossow, 1985. "ISCCP Global Radiance Data Set.  
+          A New Resource for Climate Research."  Bull. Amer. Meteor. Soc., 66: 
+          1498-1505. 
+      Seze, G., and M. Desbois, 1987.  "Cloud Cover Analysis from Satellite 
+          Imagery using Spatial and Temporal Characteristics of the Data."  J. 
+          Climate Appl. Meteor., 26: 287-303.
+      Seze, G., and W.B. Rossow, 1987.  "Time-cumulated Visible and Infrared 
+          Histograms used as Descriptor of Cloud Cover." Advanced Space 
+          Research, 7:(3)155-(3)158.
+      Seze, G., and W.B. Rossow, 1991.  "Time-cumulated Visible and Infrared 
+          Radiance Histograms Used as Descriptors of Surface and Cloud 
+          Variations."  Int. J. Remote Sensing, 12:877-920.
+      Seze, G., and W.B. Rossow, 1991.  "Effects of Satellite Data Resolution 
+          on Measuring the Space/Time Variations of Surfaces and Clouds."  
+          Int. J. Remote Sensing, 12:921-952.
+
+12.3  Archive/DBMS Usage Documentation.
+
+      Contact the EOS Distributed Active Archive Center (DAAC) at NASA Goddard 
+      Space Flight Center (GSFC), Greenbelt Maryland (see Section 13 below).
+      Documentation about using the archive or information about access to the 
+      on-line information system is available through the GSFC DAAC User 
+      Services Office.
+
+      For information about the ISCCP C2 data base archive contact the EOS 
+      DAAC at NASA Langley Research Center (LaRC), Hampton VA.  The Langley 
+      DAAC User and Data Services Office may be contacted as follows:
+
+               User and Data Services
+               Langley DAAC
+               Mail Stop 157B
+               NASA Langley Research Center
+               Hampton, VA 23681-0001
+
+               Telephone:   (804) 864-8656
+               FAX:         (804) 864-8807
+               e-mail:      userserv@eosdis.larc.nasa.gov
+
+                             13.  DATA ACCESS
+
+13.1  Contacts for Archive/Data Access Information.
+
+      GSFC DAAC User Services
+      NASA/Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Phone:     (301) 286-3209
+      Fax:       (301) 286-1775
+      Internet:  daacuso@eosdata.gsfc.nasa.gov
+
+13.2  Archive Identification.
+
+      Goddard Distributed Active Archive Center
+      NASA Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Telephone:  (301) 286-3209
+      FAX:        (301) 286-1775
+      Internet:   daacuso@eosdata.gsfc.nasa.gov
+
+13.3  Procedures for Obtaining Data.
+
+      Users may place requests by accessing the on-line system, by sending 
+      letters, electronic mail, FAX, telephone, or personal visit.
+
+      Accessing the GSFC DAAC Online System:
+
+      The GSFC DAAC Information Management System (IMS) allows users to 
+      ordering data sets stored on-line.  The system is open to the public.
+
+      Access Instructions:
+
+      Node name:  daac.gsfc.nasa.gov
+      Node number: 192.107.190.139
+      Login example: telnet daac.gsfc.nasa.gov
+      Username:  daacims
+      password:  gsfcdaac
+
+      You will be asked to register your name and address during your first
+      session.
+
+      Ordering CD-ROMs:
+
+      To order CD-ROMs (available through the Goddard DAAC) users should 
+      contact the Goddard DAAC User Support Office (see section 13.2).
+
+13.4  GSFC DAAC Status/Plans.
+
+      The ISLSCP Initiative I CD-ROM is available from the Goddard DAAC.
+
+                   14.  OUTPUT PRODUCTS AND AVAILABILITY
+
+14.1  Tape Products.
+
+      All ISCCP data sets are archived at the ISCCP Central Archives at
+
+      Contact:
+      Satellite Data Services Division
+      National Climatic Data Center
+      NOAA
+      Washington, DC 20233, USA
+      Telephone:       (301) 763-1372
+      FAX:             (301) 763-2635
+
+      All ISCCP data sets are also available from the Langley DAAC.
+
+      Contact:
+      User and Data Services
+      Langley DAAC
+      Mail Stop 157B
+      NASA Langley Research Center
+      Hampton, VA 23681-0001
+      Telephone:       (804) 864-8656
+      FAX:             (804) 864-8807
+      e-mail:          userserv@eosdis.larc.nasa.gov
+
+14.2  Film Products.
+
+      Not available at this revision.
+
+14.3  Other Products.
+
+      ISCCP-C2 CD-ROM
+
+      Contact:
+      User and Data Services (See section 14.1).
+
+      GEDEX CD-ROM
+
+      Contact:
+      Goddard DAAC User Support Office (see section 13).
+
+                       15.  GLOSSARY OF ACRONYMS
+
+AVHRR              Advanced Very High Resolution Radiometer
+CD-ROM             Compact Disk (optical), Read Only Memory
+DAAC               Distributed Active Archive Center
+EOS                Earth Observing System
+FOV                Field of View
+GAC                Global Area Coverage
+GCM                General Circulation Model of the atmosphere
+GEDEX              Greenhouse Effect Detection Experiment
+GMS                Geostationary Meteorological Satellite
+GOES               Geostationary Operational Environmental Satellite
+GSFC               Goddard Space Flight Center
+IDS                Inter disciplinary Science
+IFOV               Instantaneous Field Of View
+INSAT              Indian National Satellite System
+IR                 InfraRed
+ISCCP              International Satellite Cloud Climatology Project
+ISLSCP             International Satellite Land Surface Climotology Project
+LAC                Local Area Coverage
+MIR                Multispectral Imaging Radiometer
+NASA               National Aeronautics and Space Administration
+NOAA               National Oceanic and Atmospheric Administration
+PC                 Cloud Top Pressure
+pixel              Picture element
+RMS                Root Mean Square
+TAU                Optical Thickness
+TC                 Cloud Top Pressure
+TIROS              Television and Infrared Operational Satellite
+TOVS               TIROS Operational Vertical Sounder
+VISSR              Visible Infrared Spin-Scan Radiometer
+WP                 Cloud Water Path
+
+</pre>
+</body></html>

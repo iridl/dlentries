@@ -1,0 +1,88 @@
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units (degree_east) def
+0.0 1.0 359.0 
+periodic
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units (degree_north) def
+-90.0 1.0 90.0 
+:grid
+
+grid:
+/name /L def
+/long_name (Lead) def
+1.5 1.0 7.5
+/units /months def
+/pointwidth 3. def
+:grid
+
+grid:
+/name /S def
+/long_name (Forecast Start Time) def
+0.0 1.0 11.0
+/units (months since 01-Jan) def
+/pointwidth 0. def
+periodic
+:grid
+
+ dataset:
+ 
+ X name exch def
+ Y name exch def
+ L name exch def
+ S name exch def
+
+ /name (CAMS-OPI) def
+ /description (Seasonal (3-month) anomaly correlation between ensemble mean NASA-GMAO hindcast precipitation and CAMS-OPI precipitation during 1981-2010) def
+
+ /correlation {(/Data/data23/ICPAC/Models/NASA/GMAO-062012/HINDCAST/anomcorr/NASA_GMAO_prcp_anomcorr_s8110.nc) readfile .correlation } defasvarsilent 
+
+ :dataset
+
+ dataset:
+ X name exch def
+ Y name exch def
+ L name exch def
+ S name exch def
+ /name (GHCN_CAMS) def
+ /description (Seasonal (3-month) anomaly correlation between ensemble mean NASA-GMAO hindcast temperature and GHCN-CAMS temperature during 1981-2010) def
+
+ /correlation {(/Data/data23/ICPAC/Models/NASA/GMAO-062012/HINDCAST/anomcorr/NASA_GMAO_tref_anomcorr_s8110.nc) readfile .correlation } defasvarsilent
+
+ :dataset
+
+
+ dataset:
+ X name exch def
+ Y name exch def
+ L name exch def
+ S name exch def
+ /name (ERSSTv4) def
+ /description (Seasonal (3-month) anomaly correlation between ensemble mean NASA-GMAO hindcast sst and ERSSTv4 sst during 1981-2010) def
+
+ /correlation {(/Data/data23/ICPAC/Models/NASA/GMAO-062012/HINDCAST/anomcorr/NASA_GMAO_sst_anomcorr_s8110.nc) readfile .correlation } defasvarsilent
+
+ :dataset
+
+ dataset:
+ X name exch def
+ Y name exch def
+ L name exch def
+ S name exch def
+ /name (ERSSTv5) def
+ /description (Seasonal (3-month) anomaly correlation between ensemble mean NASA-GMAO hindcast sst and ERSSTv5 sst during 1981-2010) def
+
+ /correlation {(/Data/data23/ICPAC/Models/NASA/GMAO-062012/HINDCAST/anomcorr/NASA_GMAO_sst_ERSSTv5_anomcorr_s8110.nc) readfile .correlation } defasvarsilent
+
+ :dataset
+
+:dataset
+\end{ingrid}

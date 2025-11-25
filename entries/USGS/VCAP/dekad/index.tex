@@ -1,0 +1,69 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/TV
+1 Jan 2004 julian_day
+10 Oct 2008 julian_day
+dekadGRID
+def
+:datasetdefs
+/v200811 currentobject 1 index get def
+/v200901 currentobject 1 index get def
+grid:
+/name /X def
+degE
+-20. .1 55.
+:grid
+grid:
+/name /Y def
+degN
+40. -.1 -40.
+:grid
+1 Jan 2004 julian_day
+31 Dec 2006 julian_day
+dekadGRID
+name exch def
+/vcap {
+ [X
+    Y |
+    TV] (/Data/data21/usgs/edc/vcap/vcap/vcap_%Y/v%y%m[T]%d[dekad].flt) [TV dup day2dom
+        5. add
+        10. div
+        toi4
+        /name /dekad def
+        ]readdatafile:
+      /missing_value -9999. def
+/iridl:hasSemantics [(iridl:Vectorial_Capacity)(iridl:Malaria)] def
+      direct :readdatafile
+} defasvarsilent
+/temp {
+ [X
+    Y |
+    T] (/Data/data21/usgs/edc/vcap/tmp%y%m[T]%d[dekad].flt) [T dup day2dom
+        5. add
+        10. div
+        toi4
+        /name /dekad def
+        ]readdatafile:
+      /missing_value -9999. def
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+/units (Celsius_scale) def
+      direct :readdatafile
+} defasvarsilent
+/prcp {
+ [X
+    Y |
+    T] (/Data/data21/usgs/edc/vcap/trmm%y%m[T]%d[dekad].flt) [T dup day2dom
+        5. add
+        10. div
+        toi4
+        /name /dekad def
+	/long_name (Vectorial Capacity) def
+        ]readdatafile:
+      /missing_value -9999. def
+/iridl:hasSemantics (iridl:precipitation_amount) def
+/units (mm) def
+      direct :readdatafile
+} defasvarsilent
+:dataset
+\end{ingrid}

@@ -1,0 +1,191 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (irigaz:India_68_1) def
+/description (Districts and Provinces in India) def
+\end{ingrid}
+\begin{ingrid*}
+/Districts
+/description ( Districts) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select dcode,name2,name1,pcode,the_geom from india2 order by dcode) (dcode) openqueryby
+        dcode
+            /long_name (District code) def
+        CopyStream
+        name exch def
+        pcode
+            /long_name (Province code) def
+        CopyStream
+        name exch def
+        name2
+            /long_name (District name) def
+        CopyStream
+        name exch def
+        name1
+            /long_name (Province name) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (District geometry) def
+        name exch def
+}defasvarcachesilent
+\end{ingrid*}
+\begin{ingrid}
+dataset:
+/name /Districts def
+/pcode
+{IRIDB
+(india2) (pcode) [ (dcode) ]open_column_by
+/long_name (Province code) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+(india2) (the_geom) [ (dcode) ]open_column_by
+/long_name (District geometry) def
+}defasvarsilentnoreuse
+/name2
+{IRIDB
+(india2) (name2) [ (dcode) ]open_column_by
+/long_name (District name) def
+}defasvarsilentnoreuse
+/name1
+{IRIDB
+(india2) (name1) [ (dcode) ]open_column_by
+/long_name (Provicne name) def
+}defasvarsilentnoreuse
+/name2
+{IRIDB
+(india2) (name2) [ (dcode) ]open_column_by
+/long_name (District) def
+}defasvarsilentnoreuse
+/label
+{IRIDB
+(india2) ((name1 ||', '|| name2) as label) [ (dcode)]open_column_by
+/long_name (label) def
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Bihar_dist def
+/objectid
+{IRIDB
+(bihar_dist) (objectid) [ (gid) ]open_column_by
+/long_name (District code) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+(bihar_dist) (the_geom) [ (gid) ]open_column_by
+/long_name (District geometry) def
+}defasvarsilentnoreuse
+/district
+{IRIDB
+(bihar_dist) (district) [ (gid) ]open_column_by
+/long_name (District name) def
+}defasvarsilentnoreuse
+/state
+{IRIDB
+(bihar_dist) (state) [ (gid) ]open_column_by
+/long_name (State name) def
+}defasvarsilentnoreuse
+/district
+/label
+{IRIDB
+(bihar_dist) ((state ||', '|| district) as label) [ (gid)]open_column_by
+/long_name (label) def
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid*}
+/Provinces_WHO
+/description (Provinces of India from WHO) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,name as provname,lvlid,the_geom from admin1_india order by gid) (gid) openqueryby
+        provname
+            /long_name (Name) def
+        CopyStream
+        name exch def
+        lvlid
+            /long_name (LVL ID) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Province geometry) def
+        name exch def
+}defasvarcachesilent
+\end{ingrid*}
+\begin{ingrid}
+dataset:
+/name /Provinces_WHO def
+%/description (Provinces of India from WHO) def
+/provname
+{IRIDB
+(admin1_india) (name as provname) [ (gid) ]open_column_by
+/long_name (Name) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+(admin1_india) (the_geom) [ (gid) ]open_column_by
+/long_name (Province geometry) def
+}defasvarsilentnoreuse
+/lvlid
+{IRIDB
+(admin1_india) (lvlid) [ (gid) ]open_column_by
+/long_name (LVL ID) def
+}defasvarsilentnoreuse
+/label
+{IRIDB
+(admin1_india) (name as label) [ (gid)]open_column_by
+/long_name (label) def
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /India_K def
+%/India with disputed Kashmir included) def
+/state
+{IRIDB
+(india_k) (state) [ (gid) ]open_column_by
+/long_name (Sate Name) def
+}defasvarsilentnoreuse
+/the_geom
+{IRIDB
+(india_k) (the_geom) [ (gid) ]open_column_by
+/long_name (Country geometry) def
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+/Province_WHO_disputed
+%/description (Disputed Province of India from WHO) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,name as provname,the_geom from admin1_india_d order by gid) (gid) openqueryby
+        provname
+            /long_name (Name) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Province geometry) def
+        name exch def
+}defasvarcachesilent
+%/last_modified 
+%{  db: 
+%   /server (localhost) def 
+%   /dbname (iridb) def 
+%   :db
+%   (select max ( last_modified ) as last_modified from india2) openquery .last_modified
+%}def
+:dataset
+Bihar_dist objectid .gid name exch put
+Districts pcode .dcode name exch put
+Provinces_WHO lvlid .gid name exch put
+\end{ingrid}

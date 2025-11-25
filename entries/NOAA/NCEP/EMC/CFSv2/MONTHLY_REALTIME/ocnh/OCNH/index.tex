@@ -1,0 +1,135 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.250 0.5 359.75
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+%-89.277000 dup 89.277000 exch sub 190 div exch 89.277000
+89.75 -0.5 -89.75
+:grid
+
+grid:
+/name (M) def
+/long_name (Initial time) def
+values:
+00 06 12 18
+:values
+:grid
+
+grid:
+/name /L def
+/units (months) def
+/standard_name (forecast_period) def
+0.5 1. 9.5
+:grid
+
+grid:
+/name (S) def
+/units (days since 2011-01-01) def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+31
+1
+systemtime
+systemtime2ymd ymd2rjt 1 sub
+2011 01 01 ymd2rjt
+sub
+/defaultvalue {last} def
+:grid
+%S{(/Data/data22/noaa/ncep/cfsv2/fcst/%Y[S]/%m[S]/%d[S]/18/ocnh.01.%Y[S]%m[S]%d[S]18.%Y[T]%m[T].avrg.grib.grb2) [S  dup L .last add /name /T def]}
+S{(/Data/data22/noaa/ncep/cfsv2/fcst/%Y[S]/%m[S]/%d[S]/filecount) [S  dup L .last add /name /T def]}
+removeextrausing
+/expires last 2 add 
+2011 01 01  ymd2rjt
+add
+rjt2ymd ymd2systemtime 3600 19 mul add
+     def
+name exch def
+/last_modified S .last_modified def
+/expires S .expires def
+/T{
+currentobject
+S 
+monthlyedgesgrid first secondtolast subgrid
+ first cvsunits
+    interp ensotime
+     nip cvi onegridcounter
+
+/units (months since 1960-01-01) def
+L  add
+[S] regridLB nip
+/long_name (Forecast Time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/calendar /360 def
+/pointwidth 1 def
+}defasvarsilent
+
+
+dataset: /name /surface def :dataset
+dataset: /name /below_sea_level def :dataset
+dataset: /name /bottom_of_ocean_mixed_layer def :dataset
+dataset: /name /bottom_of_ocean_isothermal_layer def :dataset
+dataset: /name /layer_between_2_depths_below_ocean_surface def :dataset
+dataset: /name /layer_between_ocean_surface_and_26C_ocean_isothermal_level def :dataset
+dataset: /name /isothermal def :dataset
+
+grid:
+/name /P def
+/long_name (isothermal) def
+/units (Kelvin_scale) def
+values:
+2.5 5.0 10.0 15.0 20.0 25.0 28.0
+ :values
+:grid
+
+
+grid:
+/name /Z def
+/long_name (depth_below_sea_level) def
+/units (m) def
+values:
+4478 3972 3483 3016 2579 2174 1807 1479 1193 949 747 584 459 366 303 262 238 225 215 205 195 185 175 165 155 145 135 125 115 105 95 85 75 65 55 45 35 25 15 5
+ :values
+:grid
+
+[ X Y M S L T ] { name exch def } forall
+[ X Y | /NVZ 222 NewIntegerGRID M L S ] 
+(/Data/data22/noaa/ncep/cfsv2/fcst/%Y[S]/%m[S]/%d[S]/%2.2d[M]/ocnh.01.%Y[S]%m[S]%d[S]%2.2d[M].%Y[T]%m[T].avrg.grib.grb2) [M L S T] 
+readdatafile: 
+
+/missing_value 9.9990003E+20 def
+%GRIB1record
+1 GRIB2record
+:readdatafile
+definevariables:
+
+below_sea_level 40  Zvariable:/name (POT) def /long_name (Potential Temoerature) def /units (Kelvin_scale) def :Zvariable
+below_sea_level 40  Zvariable:/name (SALTY) def /long_name (Salinity) def /units (kg kg-1) def :Zvariable
+below_sea_level 40  Zvariable:/name (UOGRD) def /long_name (U-Component of Current) def /units (m s-1) def :Zvariable
+below_sea_level 40  Zvariable:/name (VOGRD) def /long_name (V-Component of Current) def /units (m s-1) def :Zvariable
+below_sea_level 40  Zvariable:/name (DZDT) def /long_name (Vertical Velocity (Geometric)) def /units (m s-1) def :Zvariable
+surface 0  Zvariable:/name (UFLX) def /long_name (U-Component of Momentum Flux) def /units (N s-2) def :Zvariable
+surface 0  Zvariable:/name (VFLX) def /long_name (V-Component of Momentum Flux) def /units (N s-2) def :Zvariable
+surface 0  Zvariable:/name (SSHG) def /long_name (Sea Surface Height Relative to Geoid) def /units (m) def :Zvariable
+surface 0  Zvariable:/name (ICEC) def /long_name (Ice Cover) def /units (Proportion) def :Zvariable
+surface 0  Zvariable:/name (ICETK) def /long_name (Ice Thickness) def /units (m) def :Zvariable
+surface 0  Zvariable:/name (SNOD) def /long_name (Snow Depth) def /units (m) def :Zvariable
+surface 0  Zvariable:/name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def :Zvariable
+surface 0  Zvariable:/name (UICE) def /long_name (U-component of Ice Drift) def /units (m s-1) def :Zvariable
+surface 0  Zvariable:/name (VICE) def /long_name (V-component of Ice Drift) def /units (m s-1) def :Zvariable
+surface 0  Zvariable:/name (EMNP) def /long_name (Evaporation - Precipitation) def /units (cm/day) def :Zvariable
+surface 0  Zvariable:/name (THFLX) def /long_name (Total Downward Heat Flux at Surface) def /units (W m-2) def :Zvariable
+bottom_of_ocean_mixed_layer 0  Zvariable:/name (DBSS) def /long_name (Geometric Depth Below Sea Surface) def /units (m) def :Zvariable
+bottom_of_ocean_isothermal_layer 0  Zvariable:/name (DBSS) def /long_name (Geometric Depth Below Sea Surface) def /units (m) def :Zvariable
+layer_between_2_depths_below_ocean_surface 0  Zvariable:/name (OHC) def /long_name (Ocean Heat Content) def /units (J m-2) def :Zvariable
+layer_between_ocean_surface_and_26C_ocean_isothermal_level 0  Zvariable:/name (TCHP) def /long_name (Tropical Cyclone Heat Potential) def /units (J m-2 Kelvin_scale-1) def :Zvariable
+isothermal 7 Pvariable:/name (DBSS) def /long_name (Geometric Depth Below Sea Surface) def /units (m) def :Pvariable
+
+:definevariables
+:dataset
+\end{ingrid}

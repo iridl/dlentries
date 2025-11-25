@@ -1,0 +1,22 @@
+\begin{ingrid}
+continuedataset:
+/description (Gridded Monthly Maps of Temperature Anomaly Data) def
+/Land-Ocean {
+(/Data/data3/nasa/giss/gisstemp/gistemp1200_ERSST.nc)readfile
+time dup monthtimegrid replaceGRID
+ lat /Y renameGRID
+  lon /X renameGRID
+  time /T renameGRID
+tempanomaly /units /degree_Kelvin def
+ name exch def
+} defasvarsilent
+/LandOnly {
+(/Data/data3/nasa/giss/gisstemp/gistemp250.nc)readfile
+time dup monthtimegrid replaceGRID
+ lat /Y renameGRID
+  lon /X renameGRID
+  time /T renameGRID
+tempanomaly /units /degree_Kelvin def name exch def
+} defasvarsilent
+:dataset
+\end{ingrid}

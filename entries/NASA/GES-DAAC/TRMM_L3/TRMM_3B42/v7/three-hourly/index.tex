@@ -1,0 +1,207 @@
+\begin{ingrid}
+continuedataset:
+/description (TRMM Version 7 Three-Hourly Precipitation Estimates) def
+datasetdefs:
+grid:
+/name /T def
+/units (days since 1998-01-01 00:00:00) def
+values:
+0
+1999 12 31 ymd2rjt
+1998 1 1 ymd2rjt sub
+1999 12 31 ymd2rjt
+1998 1 1 ymd2rjt sub
+2010 09 30 ymd2rjt
+1998 1 1 ymd2rjt sub
+2010 09 30 ymd2rjt
+1998 1 1 ymd2rjt sub
+systemtime systemtime2ymd ymd2rjt 60 sub
+1998 1 1 ymd2rjt sub
+:values
+:grid
+variable:
+/name /satsub def
+grids: T :grids
+values: /7 /7 /7A /7A /7 /7 :values
+:variable
+/prcp_hrlyrate_smooth {
+startcolormap
+    0.0 60.0 RANGE
+    LightGrey white white
+       0.0 VALUE
+       LightCyan
+        1.0 VALUE
+        SkyBlue
+         2.5 VALUE
+         DodgerBlue
+          5.0 VALUE
+          MediumBlue
+           10.0 VALUE
+           DarkSeaGreen
+            15.0 VALUE
+            MediumSeaGreen
+             20.0 VALUE
+             LightSeaGreen
+              30.0 VALUE
+              khaki
+               40.0 VALUE
+               SandyBrown
+                50.0 VALUE
+                firebrick
+                 60.0 VALUE
+                 firebrick endcolormap
+} defcolorscale
+:datasetdefs
+link:
+/name (source) def
+/description (original OpenDAP Server) def
+/href (http://disc2.nascom.nasa.gov/opendap/TRMM_3Hourly_3B42/) def
+:link
+link:
+/name (readme) def
+/description (Readme for TRMM Product 3B42 (V7)) def
+/href (http://disc.sci.gsfc.nasa.gov/precipitation/documentation/TRMM_README/TRMM_3B42_readme.shtml) def
+:link
+link:
+/name (product description) def
+/description (Product description for TRMM Product 3B42 V7 from Mirador) def
+/href (http://mirador.gsfc.nasa.gov/collections/TRMM_3B42__007.shtml) def
+:link
+link:
+/name (dataset_documentation) def
+/description (TRMM and Other Data Precipitation Data Set Documentation) def
+/href (ftp://precip.gsfc.nasa.gov/pub/trmmdocs/3B42_3B43_doc.pdf) def
+:link
+/auxinfo.owl currentobject /auxinfo.owl get def
+grid: 
+/name /Y def
+/long_name (Latitude) def
+/standard_name (latitude) def
+/units /degree_north def
+-50.
+100. 
+ 400 div
+50.
+:grid
+Y partialgrid
+name exch def
+grid: 
+/name /X def
+/long_name (Longitude) def
+/standard_name (longitude) def
+/units /degree_east def
+periodic
+-180.
+360. 
+1440 div
+180.
+1 index sub
+:grid
+X partialgrid
+name exch def
+grid: 
+/name /T def
+/standard_name (time) def
+/units (days since 1998-01-01 00:00:00) def
+/pointwidth 3. 24. div def
+/defaultvalue {last} def
+0
+1. 8 div
+% files are available 2-3 months after current time
+2015 05 31 ymd2rjt
+%systemtime systemtime2ymd ymd2rjt 80 sub
+1998 1 1 ymd2rjt sub
+%1 index sub
+:grid
+
+%T
+%{(/Data/data21/nasa/TRMM_3B42/v7/three-hourly/%Y/3B42.%Y%m%d.%H[T].%s[satsub].HDF) [T satsub]}
+%removeextrausing
+%name exch def
+
+%T
+%{(http://disc2.nascom.nasa.gov/opendap/TRMM_3Hourly_3B42/%Y/%j[Tle]/3B42.%Y%m%d.%H[T].%s[satsub].HDF.Z.dds) [T dup 1.5 24 div sub /name /Tle def satsub]}
+%remoteremoveextrausing
+%name exch def
+
+ /precipitation{
+[ Y X | T] 
+% (http://disc2.nascom.nasa.gov/opendap/TRMM_3Hourly_3B42/%Y/%j[Tle]/3B42.%Y%m%d.%H[T].%s[satsub].HDF.Z) [T dup 1.5 24 div sub /name /Tle def satsub] readdatafile:
+(/Data/data21/nasa/TRMM_3B42/v7/three-hourly/%Y/3B42.%Y%m%d.%H[T].%s[satsub].HDF) [T satsub] readdatafile:
+/name (precipitation) def
+/long_name (precipitation estimate) def
+/standard_name (lwe_precipitation_rate) def
+%/missing_value -9999.9004 def
+ /missing_value -9999.9 def
+ /units (mm/hr) def
+ /iridl:hasSemantics (iridl:precipitation) def
+%/realarraytype opendaprecords :readdatafile
+ /realarraytype netcdfrecords :readdatafile
+ prcp_hrlyrate_smooth
+ }defasvarcachesilent
+
+ /relativeError{
+[ Y X | T] 
+%  (http://disc2.nascom.nasa.gov/opendap/TRMM_3Hourly_3B42/%Y/%j[Tle]/3B42.%Y%m%d.%H[T].%s[satsub].HDF.Z) [T dup 1.5 24 div sub /name /Tle def satsub] readdatafile:
+(/Data/data21/nasa/TRMM_3B42/v7/three-hourly/%Y/3B42.%Y%m%d.%H[T].%s[satsub].HDF) [T satsub] readdatafile:
+/name (relativeError) def
+/long_name (random error estimate) def
+ /missing_value -9999.9 def
+ /units (mm/hr) def
+%/realarraytype opendaprecords :readdatafile
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+
+ /satPrecipitationSource{
+[ Y X | 
+    T] (http://disc2.nascom.nasa.gov/opendap/TRMM_3Hourly_3B42/%Y/%j[Tle]/3B42.%Y%m%d.%H[T].%s[satsub].HDF.Z) [T dup 1.5 24 div sub /name /Tle def satsub] readdatafile:
+ /name (satPrecipitationSource) def
+ /long_name (data source flag) def
+ /missing_value -9999.9 def
+ /units (ids) def
+ /integerarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+
+ /HQprecipitation{
+[ Y X | T] 
+%  (http://disc2.nascom.nasa.gov/opendap/TRMM_3Hourly_3B42/%Y/%j[Tle]/3B42.%Y%m%d.%H[T].%s[satsub].HDF.Z) [T dup 1.5 24 div sub /name /Tle def satsub] readdatafile:
+(/Data/data21/nasa/TRMM_3B42/v7/three-hourly/%Y/3B42.%Y%m%d.%H[T].%s[satsub].HDF) [T satsub] readdatafile:
+ /name (HQprecipitation) def
+ /long_name (pre-gauge-adjusted microwave precipitation estimate) def
+/standard_name (lwe_precipitation_rate) def
+%/missing_value -9999.9004 def
+ /missing_value -9999.9 def
+ /units (mm/hr) def
+%/realarraytype opendaprecords :readdatafile
+ /realarraytype netcdfrecords :readdatafile
+ prcp_hrlyrate_smooth
+}defasvarcachesilent
+
+ /IRprecipitation{
+[ Y X | T] 
+%  (http://disc2.nascom.nasa.gov/opendap/TRMM_3Hourly_3B42/%Y/%j[Tle]/3B42.%Y%m%d.%H[T].%s[satsub].HDF.Z) [T dup 1.5 24 div sub /name /Tle def satsub] readdatafile:
+(/Data/data21/nasa/TRMM_3B42/v7/three-hourly/%Y/3B42.%Y%m%d.%H[T].%s[satsub].HDF) [T satsub] readdatafile:
+ /name (IRprecipitation) def
+ /long_name (pre-gauge-adjusted infrared precipitation estimate) def
+/standard_name (lwe_precipitation_rate) def
+%/missing_value -9999.9004 def
+ /missing_value -9999.9 def
+ /units (mm/hr) def
+%/realarraytype opendaprecords :readdatafile
+ /realarraytype netcdfrecords :readdatafile
+ prcp_hrlyrate_smooth
+}defasvarcachesilent
+
+ /satObservationTime{
+[ Y X | 
+    T] (http://disc2.nascom.nasa.gov/opendap/TRMM_3Hourly_3B42/%Y/%j[Tle]/3B42.%Y%m%d.%H[T].%s[satsub].HDF.Z) [T dup 1.5 24 div sub /name /Tle def satsub] readdatafile:
+ /name (satObservationTime) def
+ /long_name (satellite observation time minus the time of the granule) def
+ /missing_value -99 def
+ /units (minutes) def
+ /integerarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+
+/references (Huffman_etal2007 Huffman_etal2010) def
+:dataset
+\end{ingrid}

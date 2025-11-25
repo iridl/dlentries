@@ -1,0 +1,120 @@
+<INGRID>datasetdocumentationheader</INGRID>
+<h3>3-hourly global CMORPH precipitation data from the CPC - aggregated to daily</h3>
+<p>
+These data are the daily averages of the 3-hourly data provided by CPC, with the daily
+averages calculated over the same accumulation period used to produce the daily values produced
+by the CPC, namely 00Z to 00Z. There are some minor differences between these data 
+the daily data provided by CPC (from Feb 2005) and are generally seen in portions of North America and Central Asia.  
+<a href="http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCEP/.CPC/.CMORPH/.daily_calculated/.mean/.morphed/.cmorph/SOURCES/.NOAA/.NCEP/.CPC/.CMORPH/.daily/.mean/.morphed/.cmorph/T/2/index/.T/.units/streamgridunitconvert/sub/figviewer.html?my.help=more+options&map.T.plotvalue=17+Sep+2005&map.Y.units=degree_north&map.Y.plotlast=43.96416N&map.url=X+Y+fig-+colors+thinnish+countries+-fig&map.domain=+%7B+%2Fcmorph+-0.1+0.1+plotrange+%2FT+1015.5+1015.5+plotrange+X+65.+111.6667+plotrange+Y+18.00437+43.964161+plotrange+%7D&map.domainparam=+%2Fplotaxislength+432+psdef+%2Fplotborder+72+psdef+%2FXOVY+null+psdef&map.zoom=Zoom&map.Y.plotfirst=18.00437N&map.X.plotfirst=65E&map.X.units=degree_east&map.X.modulus=360&map.X.plotlast=111.6667E&map.cmorph.plotfirst=-0.1&map.cmorph.units=mm%2Fhr&map.cmorph.plotlast=0.1&map.newurl.grid0=X&map.newurl.grid1=Y&map.newurl.land=countries&map.newurl.plot=colors&map.plotaxislength=432&map.plotborder=72&map.fnt=Helvetica&map.fntsze=12&map.XOVY=auto&map.color_smoothing=1&map.iftime=25&map.mftime=25&map.fftime=200&my.help=documented+page">Here</a> 
+is an example image of the difference between the daily and daily_calculated fields.  Please refer to the CPC documentation for 
+more information about potential sources for these differences.
+<p>
+<i>For documentation, see the
+following web page:  <a
+href="http://www.cpc.ncep.noaa.gov/products/janowiak/cmorph.shtml">http://www.cpc.ncep.noaa.gov/products/janowiak/cmorph.shtml</a></i>
+<p>
+<i>The appropriate reference for this data set is the following:</i> 
+<p>
+Joyce, R.J., J.E. Janowiak, P. A. Arkin and P. Xie, 2004: CMORPH: A Method that Produces Global Precipitation Estimates from Passive Microwave and Infrared Data at High Spatial and Temporal Resolution. <i>J. Hydrometeorology</i>, <b>5</b>, 487-503.
+
+<p>
+<i>The following information is excerpted from the "readme" file associated with the
+3-hourly data from which the daily averages are calculated:</i>
+<p>
+<pre>
+
+                 CMORPH 0.25 degree 3-hourly Information
+
+                    Last Update: November 8 2004
+
+The 0.25 degree 3-hourly CMORPH can be found on the ftpprd.ncep.noaa.gov
+server in the /pub/precip/global_CMORPH/3-hourly_025deg/ directory
+		 
+
+The data are compressed using the standard Unix compress function (files have a
+suffix of ".Z"). Each file is composed of 16 direct access binary
+("big_endian") records that are defined as follows:
+
+Record 1: contains the merged microwave precipitation only for 00 UTC
+Record 2: contains the "CMORPH" precipitation estimates for 00 UTC
+
+Record 3: contains the merged microwave precipitation only for 03 UTC
+Record 4: contains the "CMORPH" precipitation estimates for 03 UTC
+.
+.
+.
+Record 15: contains the merged microwave precipitation only for 21 UTC
+Record 16: contains the "CMORPH" precipitation estimates for 21 UTC
+
+All units are "mm/hr".  Missing data are denoted by values of "-9999."
+Each record contains a 1440 x 480 REAL*4 array of data which is oriented
+from 0.125E EASTward and from 59.875N SOUTHward, with a grid increment
+of 0.25 degrees of latitude and longitude.  Thus, the grid locations
+are the centers od a 0.25 degree lat/lon grid box.  Note that these 
+estimates represent spatial averages, so the data are grid-centered, 
+rather than lattice-centered.
+
+For example (1,1) is 0.125E, 59.875N 
+            (2,2) is 0.375E, 59.625N, etc.
+
+There is an associated GrADS ctl file with this data set:
+CMORPH+MWCOMB_025deg-3hr.ctl 
+
+ 
+Below is FORTRAN code (run on an SGI) that will read the data sets:
+
+      program cread
+c    program cpc_advt+comb_read.f
+
+      parameter (IRMAX=1440, JRMAX=480, PMAX=2)
+
+      real*4 ssmipropREG(IRMAX,JRMAX,PMAX)
+      character*115 in1ssmipropREG
+
+      iyrmndy = 20031110
+      irec = 0
+
+c    Open input regional blended sensor rainfall file for 3
+c      hour CPC micro rainfall file
+
+      in1ssmipropREG = '/export-2/sgi109/irstat/blended_tech/cpc/data/02
+     &5deg/YYYY0M0D_3hr-025deg_cpc+comb'
+
+      write (in1ssmipropREG(54:61),'(i8)') iyrmndy
+        write(6,'('' file '',a88)') in1ssmipropREG
+
+      open (unit=15, file=in1ssmipropREG, access='direct',
+     &              recl=1440*480*2*4, form='unformatted')
+
+c    Loop over 8 3 hourly periods for one day
+      do ihr = 0, 21, 3
+
+       irec = irec + 1
+
+       write(6,'(//,''proc 3 hr starting '',i8,i4)') iyrmndy, ihr
+
+       read (15, rec = irec) ssmipropREG
+
+       write (6,'(/,'' cpc combined MW '')')
+       do jreg = 271, 280
+        write(6,'(15(f5.1))') (ssmipropREG(ireg,jreg,1),ireg=1161,1175)
+       enddo
+
+       write (6,'(/,'' CMORPH '')')
+       do jreg = 271, 280
+        write(6,'(15(f5.1))') (ssmipropREG(ireg,jreg,2),ireg=1161,1175)
+       enddo
+
+c    End 3 hour loop
+
+      enddo
+
+      close (15)
+
+      stop
+
+      end
+
+
+</pre>
+<INGRID>datasetdocumentationtrailer</INGRID>

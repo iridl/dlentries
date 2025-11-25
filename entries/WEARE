@@ -1,0 +1,233 @@
+\begin{ingrid}
+dataset:
+/iridl:hasSemantics (iridl:UC_Davis) def
+exch
+/dovars
+{
+variable:
+/name /wspd def
+/long_name (Wind Speed) def
+/units (m/s) def
+:variable
+variable:
+/name /dqsa def
+/long_name (sea-air specific humidity difference) def
+/units (g/kg) def
+:variable
+variable:
+/name /pres def
+/long_name (Sea Level Pressure) def
+/units (mb) def
+:variable
+variable:
+/name /lcld def
+/long_name (low cloud cover) def
+:variable
+variable:
+/name /cld def
+/long_name (cloud cover) def
+:variable
+variable:
+/name /ce def
+/long_name (exchange coefficient) def
+:variable
+variable:
+/name /shfx def
+/long_name (sensible heat flux) def
+Wpm2
+:variable
+variable:
+/name /solr def
+/long_name (available solar radiation) def
+Wpm2
+:variable
+variable:
+/name /shfx def
+/long_name (sensible heat flux) def
+Wpm2
+:variable
+variable:
+/name /lwfx def
+/long_name (long wave heat flux) def
+Wpm2
+:variable
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dyne/cm2)def
+:variable
+variable:
+/name /tauy  def
+/long_name (meridional wind stress) def
+/units (dyne/cm2) def
+:variable
+variable:
+/name /ut def
+/long_name (zonal eddy temperature flux) def
+:variable
+variable:
+/name /vt def
+/long_name (meridional eddy temperature flux) def
+:variable
+variable:
+/name /uq def
+/long_name (zonal eddy moisture flux) def
+:variable
+variable:
+/name /vq def
+/long_name (meridional eddy moisture flux) def
+:variable
+variable:
+/name /uv def
+/long_name (meridional eddy flux of zonal momentum)def
+:variable
+variable:
+/name /sst def
+/long_name (sea surface temperature) def
+/units /Celsius def
+:variable
+variable:
+/name /vsst def
+/long_name (sst variance) def
+:variable
+variable:
+/name /tair def
+/long_name (air temperature) def
+/units /Celsius def
+:variable
+variable:
+/name /vta def
+/long_name (air temperature variance) def
+:variable
+variable:
+/name /qhum def
+/long_name (specific humidity) def
+/units (g/kg) def
+:variable
+variable:
+/name /vqh def
+/long_name (specific humidity variance) def
+:variable
+variable:
+/name /vspd def
+/long_name (meridional wind speed) def
+/units (m/s) def
+:variable
+variable:
+/name /vvsp def
+/long_name (merdional wind speed variance) def
+/units ((m/s)^2) def
+:variable
+variable:
+/name /uspd def
+/long_name (zonal wind speed) def
+/units (m/s) def
+:variable
+variable:
+/name /vusp def
+/long_name (zonal wind speed variance) def
+/units ((m/s)^2) def
+:variable
+variable:
+/name /nobs def
+/long_name (number of observations) def
+:variable
+} def
+exch
+/name /WEARE def
+/references (Weare:etal1980 Weare:etal1981) def
+/description (Marine climate atlas of the tropical Pacific Ocean) def
+/dataset_documentation.html descriptions /weare.html get def
+grid:
+/name /X def
+/long_name /Longitude def
+degE
+112.5 5 287.5
+:grid
+grid:
+/name /Y def
+/long_name /Latitude def
+degN
+-37.5 5 27.5
+:grid
+dataset:
+datasetdefs:
+/u't' {ut} def
+/v't' {vt} def
+/u'q' {uq} def
+/v'q' {vq} def
+/u'v' {uv} def
+:datasetdefs
+/name /MONTHLY def
+/X X def
+/Y Y def
+grid:
+/name /T def
+/long_name /Time def
+monthtime
+-35.5 1 203.5 
+:grid
+file:
+random
+/name (/Data/data3/rainbow/weare.monthly) def
+grids: Y X | {wspd dqsa pres lcld cld  ce   shfx lhfx solr lwfx taux tauy 
+ut vt uq vq uv sst vsst tair vta  qhum vqh  vspd vvsp uspd 
+vusp nobs} T :grids
+/missing_value 1e30 def
+/history (Weare averaged surface data) def
+dovars
+:file
+:dataset
+dataset:
+datasetdefs:
+/u't' {ut} def
+/v't' {vt} def
+/u'q' {uq} def
+/v'q' {vq} def
+/u'v' {uv} def
+:datasetdefs
+/name /CLIMO def
+/X X def
+/Y Y def
+grid:
+/name /T def
+/long_name /Time def
+/units /month def
+periodic
+Jan 1 Dec
+:grid
+file:
+random
+/name (/Data/data3/rainbow/weare.climo) def
+grids: Y X | {wspd dqsa pres lcld cld  ce   shfx lhfx solr lwfx taux tauy 
+ut vt uq vq uv sst vsst tair vta  qhum vqh  vspd vvsp uspd 
+vusp nobs} T :grids
+/missing_value 1e30 def
+/history (Weare monthly surface data climatology 1957-1976) def
+dovars
+:file
+:dataset
+dataset:
+datasetdefs:
+/u't' {ut} def
+/v't' {vt} def
+/u'q' {uq} def
+/v'q' {vq} def
+/u'v' {uv} def
+:datasetdefs
+/name /MEAN def
+/X X def
+/Y Y def
+file:
+random
+/name (/Data/data3/rainbow/weare.mean) def
+grids: Y X | {wspd dqsa pres lcld cld  ce   shfx lhfx solr lwfx taux tauy 
+ut vt uq vq uv sst vsst tair vta  qhum vqh  vspd vvsp uspd 
+vusp nobs} :grids
+/missing_value 1e30 def
+/history (Weare time-averaged surface data 1957-1976) def
+dovars
+:file
+:dataset
+:dataset
+\end{ingrid}

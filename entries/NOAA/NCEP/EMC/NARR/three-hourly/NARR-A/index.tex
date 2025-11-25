@@ -1,0 +1,2936 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/filenames {
+dup length 0 eq
+{(https://nomads.ncdc.noaa.gov/thredds/dodsC/narr/197901/19790101/narr-a_221_19790101_0000_000.grb)}
+{
+dup dup length 1 sub get time eq
+{
+(https://nomads.ncdc.noaa.gov/thredds/dodsC/narr/%Y%m/%Y%m%d[time]/narr-a_221_%Y%m%d_%H[shtime]00_000.grb)
+[ time dup 1.5 24. div sub /name /shtime def /pointwidth 0. def]
+}
+{
+(https://nomads.ncdc.noaa.gov/thredds/dodsC/narr/%Y%m/%Y%m%d/narr-a_221_%Y%m%d_%H[time]00_000.grb)
+[ time1]
+} ifelse
+} ifelse
+} def
+/defSRS {(EPSG:9802) crsid2srtext /SpatialReferenceSystemWKT exch def
+/SpatialReferenceSystemDims { x y } cvlit def
+} def
+:datasetdefs
+link:
+/name /source def
+/description (Original OpenDAP Server) def
+/href (https://nomads.ncdc.noaa.gov/thredds/dodsC/narr/) def
+:link
+%/name (narr/201012/20101228/narr-a_221_20101228_2100_000.grb)def
+ /location (/nomads3_data/raid2/noaaport/merged/narr/201012/20101228/narr-a_221_20101228_2100_000.grb) def
+ /_CoordinateModelRunDate (2010-12-28T21:00:00Z) def
+ /file_format (GRIB-1) def
+ /served_from (nomads.ncdc.noaa.gov) def
+ /Conventions (CF-1.0) def
+ /Originating_center (US National Weather Service (NCEP) subcenter = 15) def
+ /Generating_Process_or_Model (North American Regional Reanalysis (NARR)) def
+ /history (Direct read of GRIB-1 into NetCDF-Java 4.0 API) def
+ /Product_Type (Forecast/Uninitialized Analysis/Image Product) def
+ /cdm_data_type (GRID) def
+ /creator_name (US National Weather Service (NCEP) subcenter = 15) def
+grid:
+/name (x)def
+/units (km)def
+ -5632.668 32.463001 5664.4561
+:grid
+grid:
+/name (y)def
+/units (km)def
+ -4612.5664 32.462997 4347.2212
+:grid
+grid:
+/name (time)def
+/units (days since 1979-01-01)def
+/pointwidth 0. def
+/netcdfgrid true def
+/defaultvalue {last} def
+0.
+3. 24. div
+% systemtime 3600 24 mul 7 mul sub 1 index sub
+3 Oct 2014 julian_day %systemtime2ymd ymd2rjt
+1 Jan 1979 julian_day
+sub
+:grid
+time
+%   { (https://nomads.ncdc.noaa.gov/thredds/dodsC/narr/%Y%m/%Y%m%d/narr-a_221_%Y%m%d_%H[time]00_000.grb.ddx) [time]}remoteremoveextrausing
+last 1
+     Jan 1979 julian_day
+     add
+    rjt2ymd ymd2systemtime
+    3600
+     24 mul
+     7 mul
+     add
+/last_modified exch def
+%/expires last_modified 3600 24 mul add def
+name exch def
+time .last_modified set_last_modified
+%/expires time .expires def
+/time1 time def
+/time time 1.5
+     24. div
+     shiftGRIDgrid
+     /pointwidth 3.
+       24. div
+       def
+/netcdfgrid true def
+/defaultvalue {last} def
+     nip
+def
+ /Accumulated_snow{
+[ x y | time1] filenames readdatafile:
+/name (Accumulated_snow) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Accumulated_snow) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Accumulated_snow @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 65 def
+ /dodsname /Accumulated_snow def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WEASD) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 65 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /Albedo{
+[ x y | time1] filenames readdatafile:
+/name (Albedo) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Albedo) def
+ /missing_value -9999. def
+ /units /percent def
+ /long_name (Albedo @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 84 def
+ /dodsname /Albedo def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (ALBDO) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 84 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+grid:
+/name (layer_between_two_pressure_difference_from_ground1)def
+/units (hPa)def
+values: 90. :values
+:grid
+ /Best_4-layer_lifted_index{
+[ x y layer_between_two_pressure_difference_from_ground1 | time1] filenames readdatafile:
+/name (Best_4-layer_lifted_index) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Best_4-layer_lifted_index) def
+ /missing_value -9999. def
+ /units /Kelvin_scale def
+ /long_name (Best_4-layer_lifted_index @ layer_between_two_pressure_difference_from_ground) def
+ /GRIB_level_type 116 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 132 def
+ /dodsname /Best_4-layer_lifted_index def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (4LFTX) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 132 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+grid:
+/name (hybrid)def
+/units (unitless)def
+values: 1. :values
+:grid
+ /Blackadars_mixing_length_scale{
+[ x y | hybrid time1] filenames readdatafile:
+/name (Blackadars_mixing_length_scale) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Blackadars_mixing_length_scale) def
+ /missing_value -9999. def
+ /units /m def
+ /long_name (Blackadars_mixing_length_scale @ hybrid) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 226 def
+ /GRIB_level_type 109 def
+ /dodsname /Blackadars_mixing_length_scale def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (BMIXL) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 226 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Canopy_conductance{
+[ x y | time1] filenames readdatafile:
+/name (Canopy_conductance) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Canopy_conductance) def
+ /missing_value -9999. def
+ /units (m/s)cvn def
+ /long_name (Canopy_conductance @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 181 def
+ /dodsname /Canopy_conductance def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (CCOND) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 181 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Categorical_freezing_rain{
+[ x y | time] filenames readdatafile:
+/name (Categorical_freezing_rain) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Categorical_freezing_rain) def
+ /missing_value -9999. def
+ /units /yes=1;no=0 def
+ /long_name (Categorical_freezing_rain @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 141 def
+ /dodsname /Categorical_freezing_rain def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (CFRZR) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 141 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Categorical_ice_pellets{
+[ x y | time] filenames readdatafile:
+/name (Categorical_ice_pellets) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Categorical_ice_pellets) def
+ /missing_value -9999. def
+ /units /yes=1;no=0 def
+ /long_name (Categorical_ice_pellets @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 142 def
+ /dodsname /Categorical_ice_pellets def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (CICEP) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 142 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Categorical_rain{
+[ x y | time] filenames readdatafile:
+/name (Categorical_rain) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Categorical_rain) def
+ /missing_value -9999. def
+ /units /yes=1;no=0 def
+ /long_name (Categorical_rain @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 140 def
+ /dodsname /Categorical_rain def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (CRAIN) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 140 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Categorical_snow{
+[ x y | time] filenames readdatafile:
+/name (Categorical_snow) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Categorical_snow) def
+ /missing_value -9999. def
+ /units /yes=1;no=0 def
+ /long_name (Categorical_snow @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 143 def
+ /dodsname /Categorical_snow def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (CSNOW) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 143 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+grid:
+/name (isobaric)def
+/units (hPa)def
+values: 1000. 975. 950. 925. 900. 875. 850. 825. 800. 775. 750. 725. 700. 650. 600. 550. 500. 450. 400. 350. 300. 275. 250. 225. 200. 175. 150. 125. 100. :values
+:grid
+ /Cloud_water{
+[ x y | isobaric time1] filenames readdatafile:
+/name (Cloud_water) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Cloud_water) def
+ /units /unitless def
+ /long_name (Cloud_water @ isobaric) def
+ /missing_value -9999. def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 153 def
+ /GRIB_level_type 100 def
+ /dodsname /Cloud_water def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (CLWMR) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 153 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Convective_available_potential_energy{
+[ x y layer_between_two_pressure_difference_from_ground1 | time1] filenames readdatafile:
+/name (Convective_available_potential_energy) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Convective_available_potential_energy) def
+ /missing_value -9999. def
+ /units (J/kg)cvn def
+ /long_name (Convective_available_potential_energy @ layer_between_two_pressure_difference_from_ground) def
+ /GRIB_level_type 116 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 157 def
+ /dodsname /Convective_available_potential_energy def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (CAPE) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 157 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+ /Convective_available_potential_energy_surface{
+[ x y | time1] filenames readdatafile:
+/name (Convective_available_potential_energy_surface) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Convective_available_potential_energy) def
+ /missing_value -9999. def
+ /units (J/kg)cvn def
+ /long_name (Convective_available_potential_energy @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 157 def
+ /dodsname /Convective_available_potential_energy_surface def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (CAPE) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 157 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+ /Convective_cloud_cover{
+[ x y | time] filenames readdatafile:
+/name (Convective_cloud_cover) def
+ /GRIB_product_definition_type (Average) def
+ /GRIB_param_name (Convective_cloud_cover) def
+ /missing_value -9999. def
+ /units /percent def
+ /long_name (Convective_cloud_cover @ entire_atmosphere) def
+ /GRIB_level_type 200 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 72 def
+ /dodsname /Convective_cloud_cover def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (CDCON) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 72 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Convective_inhibition{
+[ x y layer_between_two_pressure_difference_from_ground1 | time1] filenames readdatafile:
+/name (Convective_inhibition) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Convective_inhibition) def
+ /missing_value -9999. def
+ /units (J/kg)cvn def
+ /long_name (Convective_inhibition @ layer_between_two_pressure_difference_from_ground) def
+ /GRIB_level_type 116 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 156 def
+ /dodsname /Convective_inhibition def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (CIN) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 156 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /Convective_inhibition_surface{
+[ x y | time1] filenames readdatafile:
+/name (Convective_inhibition_surface) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Convective_inhibition) def
+ /missing_value -9999. def
+ /units (J/kg)cvn def
+ /long_name (Convective_inhibition @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 156 def
+ /dodsname /Convective_inhibition_surface def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (CIN) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 156 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Convective_precipitation{
+[ x y | time] filenames readdatafile:
+/name (Convective_precipitation) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Convective_precipitation) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Convective_precipitation @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 63 def
+ /dodsname /Convective_precipitation def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (ACPCP) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 63 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+grid:
+/name (height_above_ground2)def
+/units (m)def
+values: 2. :values
+:grid
+ /Dew_point_temperature{
+[ x y height_above_ground2 | time1] filenames readdatafile:
+/name (Dew_point_temperature) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Dew_point_temperature) def
+ /missing_value -9999. def
+ /units /Kelvin_scale def
+ /long_name (Dew_point_temperature @ height_above_ground) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 17 def
+ /GRIB_level_type 105 def
+ /dodsname /Dew_point_temperature def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (DPT) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 17 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Downward_longwave_radiation_flux{
+[ x y | time] filenames readdatafile:
+/name (Downward_longwave_radiation_flux) def
+ /GRIB_product_definition_type (Average) def
+ /GRIB_param_name (Downward_longwave_radiation_flux) def
+ /missing_value -9999. def
+ /units (W/m2)cvn def
+ /long_name (Downward_longwave_radiation_flux @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 205 def
+ /dodsname /Downward_longwave_radiation_flux def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (DLWRF) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 205 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Downward_shortwave_radiation_flux{
+[ x y | time] filenames readdatafile:
+/name (Downward_shortwave_radiation_flux) def
+ /GRIB_product_definition_type (Average) def
+ /GRIB_param_name (Downward_shortwave_radiation_flux) def
+ /missing_value -9999. def
+ /units (W/m2)cvn def
+ /long_name (Downward_shortwave_radiation_flux @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 204 def
+ /dodsname /Downward_shortwave_radiation_flux def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (DSWRF) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 204 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Evaporation{
+[ x y | time] filenames readdatafile:
+/name (Evaporation) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Evaporation) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Evaporation @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 57 def
+ /dodsname /Evaporation def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (EVP) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 57 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+ /Exchange_coefficient{
+[ x y | time1] filenames readdatafile:
+/name (Exchange_coefficient) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Exchange_coefficient) def
+ /missing_value -9999. def
+ /units ((kg/m^3)(m/s))cvn def
+ /long_name (Exchange_coefficient @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 208 def
+ /dodsname /Exchange_coefficient def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (SFEXC) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 208 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Geopotential_height{
+[ x y | isobaric time1] filenames readdatafile:
+/name (Geopotential_height) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Geopotential_height) def
+ /units /m def
+ /long_name (Geopotential_height @ isobaric) def
+ /missing_value -9999. def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 7 def
+ /GRIB_level_type 100 def
+ /dodsname /Geopotential_height def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (HGT) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 7 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+ /Geopotential_height_cloud_base{
+[ x y | time1] filenames readdatafile:
+/name (Geopotential_height_cloud_base) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Geopotential_height) def
+ /missing_value -9999. def
+ /units /m def
+ /long_name (Geopotential_height @ cloud_base) def
+ /GRIB_level_type 2 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 7 def
+ /dodsname /Geopotential_height_cloud_base def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (HGT) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 7 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Geopotential_height_cloud_tops{
+[ x y | time1] filenames readdatafile:
+/name (Geopotential_height_cloud_tops) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Geopotential_height) def
+ /missing_value -9999. def
+ /units /m def
+ /long_name (Geopotential_height @ cloud_tops) def
+ /GRIB_level_type 3 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 7 def
+ /dodsname /Geopotential_height_cloud_tops def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (HGT) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 7 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Geopotential_height_hybrid{
+[ x y | hybrid time1] filenames readdatafile:
+/name (Geopotential_height_hybrid) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Geopotential_height) def
+ /missing_value -9999. def
+ /units /m def
+ /long_name (Geopotential_height @ hybrid) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 7 def
+ /GRIB_level_type 109 def
+ /dodsname /Geopotential_height_hybrid def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (HGT) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 7 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Geopotential_height_maximum_wind{
+[ x y | time1] filenames readdatafile:
+/name (Geopotential_height_maximum_wind) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Geopotential_height) def
+ /missing_value -9999. def
+ /units /m def
+ /long_name (Geopotential_height @ maximum_wind) def
+ /GRIB_level_type 6 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 7 def
+ /dodsname /Geopotential_height_maximum_wind def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (HGT) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 7 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Geopotential_height_tropopause{
+[ x y | time1] filenames readdatafile:
+/name (Geopotential_height_tropopause) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Geopotential_height) def
+ /missing_value -9999. def
+ /units /m def
+ /long_name (Geopotential_height @ tropopause) def
+ /GRIB_level_type 7 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 7 def
+ /dodsname /Geopotential_height_tropopause def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (HGT) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 7 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Geopotential_height_zeroDegC_isotherm{
+[ x y | time1] filenames readdatafile:
+/name (Geopotential_height_zeroDegC_isotherm) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Geopotential_height) def
+ /missing_value -9999. def
+ /units /m def
+ /long_name (Geopotential_height @ zeroDegC_isotherm) def
+ /GRIB_level_type 4 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 7 def
+ /dodsname /Geopotential_height_zeroDegC_isotherm def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (HGT) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 7 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Ground_Heat_Flux{
+[ x y | time] filenames readdatafile:
+/name (Ground_Heat_Flux) def
+ /GRIB_product_definition_type (Average) def
+ /GRIB_param_name (Ground_Heat_Flux) def
+ /missing_value -9999. def
+ /units (W/m2)cvn def
+ /long_name (Ground_Heat_Flux @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 155 def
+ /dodsname /Ground_Heat_Flux def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (GFLUX) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 155 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /High_level_cloud_cover{
+[ x y | time] filenames readdatafile:
+/name (High_level_cloud_cover) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (High_level_cloud_cover) def
+ /missing_value -9999. def
+ /units /percent def
+ /long_name (High_level_cloud_cover @ high_cloud_layer) def
+ /GRIB_level_type 234 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 75 def
+ /dodsname /High_level_cloud_cover def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (HCDC) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 75 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+grid:
+/name (layer_between_two_pressure_difference_from_ground)def
+/units (hPa)def
+ 165. 30. 15.
+:grid
+ /Horizontal_moisture_divergence{
+[ x y layer_between_two_pressure_difference_from_ground | time1] filenames readdatafile:
+/name (Horizontal_moisture_divergence) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Horizontal_moisture_divergence) def
+ /missing_value -9999. def
+ /units (kg/kg/s)cvn def
+ /long_name (Horizontal_moisture_divergence @ layer_between_two_pressure_difference_from_ground) def
+ /GRIB_level_type 116 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 135 def
+ /dodsname /Horizontal_moisture_divergence def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (MCONV) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 135 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Horizontal_moisture_divergence_hybrid{
+[ x y | hybrid time1] filenames readdatafile:
+/name (Horizontal_moisture_divergence_hybrid) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Horizontal_moisture_divergence) def
+ /missing_value -9999. def
+ /units (kg/kg/s)cvn def
+ /long_name (Horizontal_moisture_divergence @ hybrid) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 135 def
+ /GRIB_level_type 109 def
+ /dodsname /Horizontal_moisture_divergence_hybrid def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (MCONV) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 135 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+grid:
+/name (isobaric2)def
+/units (hPa)def
+values: 850. :values
+:grid
+ /Horizontal_moisture_divergence_isobaric{
+[ x y isobaric2 | time1] filenames readdatafile:
+/name (Horizontal_moisture_divergence_isobaric) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Horizontal_moisture_divergence) def
+ /missing_value -9999. def
+ /units (kg/kg/s)cvn def
+ /long_name (Horizontal_moisture_divergence @ isobaric) def
+ /GRIB_level_type 100 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 135 def
+ /dodsname /Horizontal_moisture_divergence_isobaric def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (MCONV) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 135 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Humidity_parameter_in_canopy_conductance{
+[ x y | time1] filenames readdatafile:
+/name (Humidity_parameter_in_canopy_conductance) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Humidity_parameter_in_canopy_conductance) def
+ /missing_value -9999. def
+ /units /unitless def
+ /long_name (Humidity_parameter_in_canopy_conductance @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 248 def
+ /dodsname /Humidity_parameter_in_canopy_conductance def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (RCQ) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 248 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Ice_mixing_ratio{
+[ x y | isobaric time1] filenames readdatafile:
+/name (Ice_mixing_ratio) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Ice_mixing_ratio) def
+ /units /unitless def
+ /long_name (Ice_mixing_ratio @ isobaric) def
+ /missing_value -9999. def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 178 def
+ /GRIB_level_type 100 def
+ /dodsname /Ice_mixing_ratio def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (ICMR) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 178 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /Lambert_Conformal{
+c: 0 :c
+/name (Lambert_Conformal) def
+ /GRIB_param_Ny 277 def
+ /GRIB_param_ResCompFlag 8 def
+ /GRIB_param_Dy 32463. def
+ /GRIB_param_La1 1. def
+ /GRIB_param_Latin2 50. def
+ /GRIB_param_NpProj (true) def
+ /earth_shape (spherical) def
+ /GRIB_param_Dx 32463. def
+ /GRIB_param_Nx 349 def
+ /GRIB_param_SpLon 0.0 def
+ /GRIB_param_Winds (Relative) def
+ /GRIB_param_grid_name (Lambert_Conformal) def
+ /GRIB_param_grid_radius_spherical_earth 6367.4702 def
+ /GRIB_param_ProjFlag 0 def
+ /GRIB_param_grid_shape (spherical) def
+ /GRIB_param_grid_shape_code 0 def
+ /GRIB_param_grid_type 3 def
+ /units /unitless def
+ /latitude_of_projection_origin 50. def
+ /longitude_of_central_meridian -107. def
+ /dodsname /Lambert_Conformal def
+ /GRIB_param_GDSkey 55295 def
+ /GRIB_param_Latin1 50. def
+ /GRIB_param_Lo1 -145.5 def
+ /grid_mapping_name (lambert_conformal_conic) def
+ /standard_parallel 50. def
+ /GRIB_param_LoV -107. def
+ /earth_radius 6367.4702 def
+ /GRIB_param_SpLat 0.0 def
+ /GRIB_param_VectorComponentFlag (gridRelative) def
+ /GRIB_param_grid_units (m) def
+ /GRIB_param_scanning_mode 64 def
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /Latent_heat_flux{
+[ x y | time] filenames readdatafile:
+/name (Latent_heat_flux) def
+ /GRIB_product_definition_type (Average) def
+ /GRIB_param_name (Latent_heat_flux) def
+ /missing_value -9999. def
+ /units (W/m2)cvn def
+ /long_name (Latent_heat_flux @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 121 def
+ /dodsname /Latent_heat_flux def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (LHTFL) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 121 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+grid:
+/name (bounds_dim)def
+/units (unitless)def
+ 1. 1. 2.
+:grid
+\end{ingrid}
+\begin{ingrid}
+grid:
+/name (layer_between_two_depths_below_surface1)def
+/units (cm)def
+values: 50. :values
+:grid
+ /layer_between_two_depths_below_surface1_bounds{
+[ bounds_dim layer_between_two_depths_below_surface1 |] filenames readdatafile:
+/name (layer_between_two_depths_below_surface1_bounds) def
+ /units /cm def
+ /long_name (bounds for layer_between_two_depths_below_surface1) def
+ /dodsname /layer_between_two_depths_below_surface1_bounds def
+ /doublearraytype opendaprecords :readdatafile
+}defasvarsilent
+grid:
+/name (layer_between_two_depths_below_surface2)def
+/units (cm)def
+values: 100. :values
+:grid
+ /layer_between_two_depths_below_surface2_bounds{
+[ bounds_dim layer_between_two_depths_below_surface2 |] filenames readdatafile:
+/name (layer_between_two_depths_below_surface2_bounds) def
+ /long_name (bounds for layer_between_two_depths_below_surface2) def
+ /units /cm def
+ /dodsname /layer_between_two_depths_below_surface2_bounds def
+ /doublearraytype opendaprecords :readdatafile
+}defasvarsilent
+grid:
+/name (layer_between_two_depths_below_surface)def
+/units (cm)def
+values: 5. 25. 70. 150. :values
+:grid
+ /layer_between_two_depths_below_surface_bounds{
+[ bounds_dim layer_between_two_depths_below_surface |] filenames readdatafile:
+/name (layer_between_two_depths_below_surface_bounds) def
+ /units /cm def
+ /long_name (bounds for layer_between_two_depths_below_surface) def
+ /dodsname /layer_between_two_depths_below_surface_bounds def
+ /doublearraytype opendaprecords :readdatafile
+}defasvarsilent
+grid:
+/name (layer_between_two_heights_above_ground1)def
+/units (m)def
+values: 3000. :values
+:grid
+ /layer_between_two_heights_above_ground1_bounds{
+[ bounds_dim layer_between_two_heights_above_ground1 |] filenames readdatafile:
+/name (layer_between_two_heights_above_ground1_bounds) def
+ /units /m def
+ /long_name (bounds for layer_between_two_heights_above_ground1) def
+ /dodsname /layer_between_two_heights_above_ground1_bounds def
+ /doublearraytype opendaprecords :readdatafile
+}defasvarsilent
+grid:
+/name (layer_between_two_heights_above_ground)def
+/units (m)def
+values: 1500. :values
+:grid
+ /layer_between_two_heights_above_ground_bounds{
+[ bounds_dim layer_between_two_heights_above_ground |] filenames readdatafile:
+/name (layer_between_two_heights_above_ground_bounds) def
+ /units /m def
+ /long_name (bounds for layer_between_two_heights_above_ground) def
+ /dodsname /layer_between_two_heights_above_ground_bounds def
+ /doublearraytype opendaprecords :readdatafile
+}defasvarsilent
+grid:
+/name (layer_between_two_isobaric1)def
+/units (hPa)def
+values: 750. :values
+:grid
+ /layer_between_two_isobaric1_bounds{
+[ bounds_dim layer_between_two_isobaric1 |] filenames readdatafile:
+/name (layer_between_two_isobaric1_bounds) def
+ /units /hPa def
+ /long_name (bounds for layer_between_two_isobaric1) def
+ /dodsname /layer_between_two_isobaric1_bounds def
+ /doublearraytype opendaprecords :readdatafile
+}defasvarsilent
+grid:
+/name (layer_between_two_isobaric)def
+/units (hPa)def
+values: 350. :values
+:grid
+ /layer_between_two_isobaric_bounds{
+[ bounds_dim layer_between_two_isobaric |] filenames readdatafile:
+/name (layer_between_two_isobaric_bounds) def
+ /units /hPa def
+ /long_name (bounds for layer_between_two_isobaric) def
+ /dodsname /layer_between_two_isobaric_bounds def
+ /doublearraytype opendaprecords :readdatafile
+}defasvarsilent
+ /layer_between_two_pressure_difference_from_ground1_bounds{
+[ bounds_dim layer_between_two_pressure_difference_from_ground1 |] filenames readdatafile:
+/name (layer_between_two_pressure_difference_from_ground1_bounds) def
+ /units /hPa def
+ /long_name (bounds for layer_between_two_pressure_difference_from_ground1) def
+ /dodsname /layer_between_two_pressure_difference_from_ground1_bounds def
+ /doublearraytype opendaprecords :readdatafile
+}defasvarsilent
+ /layer_between_two_pressure_difference_from_ground_bounds{
+[ bounds_dim layer_between_two_pressure_difference_from_ground |] filenames readdatafile:
+/name (layer_between_two_pressure_difference_from_ground_bounds) def
+ /units /hPa def
+ /long_name (bounds for layer_between_two_pressure_difference_from_ground) def
+ /dodsname /layer_between_two_pressure_difference_from_ground_bounds def
+ /doublearraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+/Liquid_volumetric_soil_moisture_non-frozen{
+[ x y layer_between_two_depths_below_surface | time1] filenames readdatafile:
+/name (Liquid_volumetric_soil_moisture_non-frozen) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Liquid_volumetric_soil_moisture_non-frozen) def
+ /missing_value -9999. def
+ /units /unitless def
+ /long_name (Liquid_volumetric_soil_moisture_non-frozen @ layer_between_two_depths_below_surface) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 160 def
+ /GRIB_level_type 112 def
+ /dodsname /Liquid_volumetric_soil_moisture_non-frozen def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (SOILL) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 160 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Low_level_cloud_cover{
+[ x y | time] filenames readdatafile:
+/name (Low_level_cloud_cover) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Low_level_cloud_cover) def
+ /missing_value -9999. def
+ /units /percent def
+ /long_name (Low_level_cloud_cover @ low_cloud_layer) def
+ /GRIB_level_type 214 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 73 def
+ /dodsname /Low_level_cloud_cover def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (LCDC) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 73 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Mean_sea_level_pressure_ETA_model{
+[ x y | time1] filenames readdatafile:
+/name (Mean_sea_level_pressure_ETA_model) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Mean_sea_level_pressure_ETA_model) def
+ /missing_value -9999. def
+ /units /Pa def
+ /long_name (Mean_sea_level_pressure_ETA_model @ msl) def
+ /GRIB_level_type 102 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 130 def
+ /dodsname /Mean_sea_level_pressure_ETA_model def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (MSLET) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 130 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Mid_level_cloud_cover{
+[ x y | time] filenames readdatafile:
+/name (Mid_level_cloud_cover) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Mid_level_cloud_cover) def
+ /missing_value -9999. def
+ /units /percent def
+ /long_name (Mid_level_cloud_cover @ middle_cloud_layer) def
+ /GRIB_level_type 224 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 74 def
+ /dodsname /Mid_level_cloud_cover def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (MCDC) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 74 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Moisture_availability{
+[ x y layer_between_two_depths_below_surface1 | time1] filenames readdatafile:
+/name (Moisture_availability) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Moisture_availability) def
+ /missing_value -9999. def
+ /units /percent def
+ /long_name (Moisture_availability @ layer_between_two_depths_below_surface) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 207 def
+ /GRIB_level_type 112 def
+ /dodsname /Moisture_availability def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (MSTAV) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 207 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Non-convective_cloud{
+[ x y | time] filenames readdatafile:
+/name (Non-convective_cloud) def
+ /GRIB_product_definition_type (Average) def
+ /GRIB_param_name (Non-convective_cloud) def
+ /missing_value -9999. def
+ /units /percent def
+ /long_name (Non-convective_cloud @ entire_atmosphere) def
+ /GRIB_level_type 200 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 213 def
+ /dodsname /Non-convective_cloud def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (CDLYR) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 213 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Planetary_boundary_layer_height{
+[ x y | time1] filenames readdatafile:
+/name (Planetary_boundary_layer_height) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Planetary_boundary_layer_height) def
+ /missing_value -9999. def
+ /units /m def
+ /long_name (Planetary_boundary_layer_height @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 221 def
+ /dodsname /Planetary_boundary_layer_height def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (HPBL) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 221 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Plant_canopy_surface_water{
+[ x y | time1] filenames readdatafile:
+/name (Plant_canopy_surface_water) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Plant_canopy_surface_water) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Plant_canopy_surface_water @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 223 def
+ /dodsname /Plant_canopy_surface_water def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (CNWAT) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 223 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Potential_evaporation{
+[ x y | time] filenames readdatafile:
+/name (Potential_evaporation) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Potential_evaporation) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Potential_evaporation @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 228 def
+ /dodsname /Potential_evaporation def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (PEVAP) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 228 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+grid:
+/name (height_above_ground1)def
+/units (m)def
+ 10. 20. 30.
+:grid
+\end{ingrid}
+\begin{ingrid}
+ /Potential_temperature{
+[ x y height_above_ground1 | time1] filenames readdatafile:
+/name (Potential_temperature) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Potential_temperature) def
+ /missing_value -9999. def
+ /units /Kelvin_scale def
+ /long_name (Potential_temperature @ height_above_ground) def
+ /GRIB_level_type 105 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 13 def
+ /dodsname /Potential_temperature def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (POT) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 13 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+ /Potential_temperature_hybrid{
+[ x y | hybrid time1] filenames readdatafile:
+/name (Potential_temperature_hybrid) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Potential_temperature) def
+ /missing_value -9999. def
+ /units /Kelvin_scale def
+ /long_name (Potential_temperature @ hybrid) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 13 def
+ /GRIB_level_type 109 def
+ /dodsname /Potential_temperature_hybrid def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (POT) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 13 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /Potential_temperature_surface{
+[ x y | time1] filenames readdatafile:
+/name (Potential_temperature_surface) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Potential_temperature) def
+ /missing_value -9999. def
+ /units /Kelvin_scale def
+ /long_name (Potential_temperature @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 13 def
+ /dodsname /Potential_temperature_surface def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (POT) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 13 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Precipitable_water{
+[ x y | time1] filenames readdatafile:
+/name (Precipitable_water) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Precipitable_water) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Precipitable_water @ entire_atmosphere) def
+ /GRIB_level_type 200 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 54 def
+ /dodsname /Precipitable_water def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (PWAT) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 54 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+ /Precipitation_rate{
+[ x y | time] filenames readdatafile:
+/name (Precipitation_rate) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Precipitation_rate) def
+ /missing_value -9999. def
+ /units ((kg/m^3)(m/s))cvn def
+ /long_name (Precipitation_rate @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 59 def
+ /dodsname /Precipitation_rate def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (PRATE) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 59 ] def
+ /realarraytype opendaprecords :readdatafile
+decompress
+}defasvarcachesilent
+grid:
+/name (height_above_ground)def
+/units (m)def
+values: 2. 10. 30. :values
+:grid
+ /Pressure{
+[ x y height_above_ground | time1] filenames readdatafile:
+/name (Pressure) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Pressure) def
+ /missing_value -9999. def
+ /units /Pa def
+ /long_name (Pressure @ height_above_ground) def
+ /GRIB_level_type 105 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 1 def
+ /dodsname /Pressure def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (PRES) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 1 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Pressure_adiabatic_condensation_lifted{
+[ x y | time1] filenames readdatafile:
+/name (Pressure_adiabatic_condensation_lifted) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Pressure) def
+ /missing_value -9999. def
+ /units /Pa def
+ /long_name (Pressure @ adiabatic_condensation_lifted) def
+ /GRIB_level_type 5 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 1 def
+ /dodsname /Pressure_adiabatic_condensation_lifted def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (PRES) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 1 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Pressure_cloud_base{
+[ x y | time1] filenames readdatafile:
+/name (Pressure_cloud_base) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Pressure) def
+ /missing_value -9999. def
+ /units /Pa def
+ /long_name (Pressure @ cloud_base) def
+ /GRIB_level_type 2 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 1 def
+ /dodsname /Pressure_cloud_base def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (PRES) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 1 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Pressure_cloud_tops{
+[ x y | time1] filenames readdatafile:
+/name (Pressure_cloud_tops) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Pressure) def
+ /missing_value -9999. def
+ /units /Pa def
+ /long_name (Pressure @ cloud_tops) def
+ /GRIB_level_type 3 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 1 def
+ /dodsname /Pressure_cloud_tops def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (PRES) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 1 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /Pressure_hybrid{
+[ x y | hybrid time1] filenames readdatafile:
+/name (Pressure_hybrid) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Pressure) def
+ /missing_value -9999. def
+ /units /Pa def
+ /long_name (Pressure @ hybrid) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 1 def
+ /GRIB_level_type 109 def
+ /dodsname /Pressure_hybrid def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (PRES) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 1 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Pressure_maximum_wind{
+[ x y | time1] filenames readdatafile:
+/name (Pressure_maximum_wind) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Pressure) def
+ /missing_value -9999. def
+ /units /Pa def
+ /long_name (Pressure @ maximum_wind) def
+ /GRIB_level_type 6 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 1 def
+ /dodsname /Pressure_maximum_wind def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (PRES) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 1 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Pressure_nearest_grid_point{
+[ x y | time1] filenames readdatafile:
+/name (Pressure_nearest_grid_point) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Pressure_nearest_grid_point) def
+ /missing_value -9999. def
+ /units /Pa def
+ /long_name (Pressure_nearest_grid_point @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 134 def
+ /dodsname /Pressure_nearest_grid_point def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (PRESN) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 134 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Pressure_reduced_to_MSL{
+[ x y | time1] filenames readdatafile:
+/name (Pressure_reduced_to_MSL) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Pressure_reduced_to_MSL) def
+ /missing_value -9999. def
+ /units /Pa def
+ /long_name (Pressure_reduced_to_MSL @ msl) def
+ /GRIB_level_type 102 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 2 def
+ /dodsname /Pressure_reduced_to_MSL def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (PRMSL) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 2 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+ /Pressure_surface{
+[ x y | time1] filenames readdatafile:
+/name (Pressure_surface) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Pressure) def
+ /missing_value -9999. def
+ /units /Pa def
+ /long_name (Pressure @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 1 def
+ /dodsname /Pressure_surface def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (PRES) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 1 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Pressure_tropopause{
+[ x y | time1] filenames readdatafile:
+/name (Pressure_tropopause) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Pressure) def
+ /missing_value -9999. def
+ /units /Pa def
+ /long_name (Pressure @ tropopause) def
+ /GRIB_level_type 7 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 1 def
+ /dodsname /Pressure_tropopause def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (PRES) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 1 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /Pressure_vertical_velocity{
+[ x y | isobaric time1] filenames readdatafile:
+/name (Pressure_vertical_velocity) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Pressure_vertical_velocity) def
+ /units (Pa/s)cvn def
+ /long_name (Pressure_vertical_velocity @ isobaric) def
+ /missing_value -9999. def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 39 def
+ /GRIB_level_type 100 def
+ /dodsname /Pressure_vertical_velocity def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (VVEL) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 39 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Pressure_vertical_velocity_hybrid{
+[ x y | hybrid time1] filenames readdatafile:
+/name (Pressure_vertical_velocity_hybrid) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Pressure_vertical_velocity) def
+ /missing_value -9999. def
+ /units (Pa/s)cvn def
+ /long_name (Pressure_vertical_velocity @ hybrid) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 39 def
+ /GRIB_level_type 109 def
+ /dodsname /Pressure_vertical_velocity_hybrid def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (VVEL) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 39 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /Pressure_vertical_velocity_layer_between_two_pressure_difference_from_ground{
+[ x y layer_between_two_pressure_difference_from_ground | time1] filenames readdatafile:
+/name (Pressure_vertical_velocity_layer_between_two_pressure_difference_from_ground) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Pressure_vertical_velocity) def
+ /missing_value -9999. def
+ /units (Pa/s)cvn def
+ /long_name (Pressure_vertical_velocity @ layer_between_two_pressure_difference_from_ground) def
+ /GRIB_level_type 116 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 39 def
+ /dodsname /Pressure_vertical_velocity_layer_between_two_pressure_difference_from_ground def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (VVEL) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 39 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Relative_humidity{
+[ x y height_above_ground2 | time1] filenames readdatafile:
+/name (Relative_humidity) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Relative_humidity) def
+ /missing_value -9999. def
+ /units /percent def
+ /long_name (Relative_humidity @ height_above_ground) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 52 def
+ /GRIB_level_type 105 def
+ /dodsname /Relative_humidity def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (RH) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 52 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+ /Relative_humidity_hybrid{
+[ x y | hybrid time1] filenames readdatafile:
+/name (Relative_humidity_hybrid) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Relative_humidity) def
+ /missing_value -9999. def
+ /units /percent def
+ /long_name (Relative_humidity @ hybrid) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 52 def
+ /GRIB_level_type 109 def
+ /dodsname /Relative_humidity_hybrid def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (RH) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 52 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Relative_humidity_zeroDegC_isotherm{
+[ x y | time1] filenames readdatafile:
+/name (Relative_humidity_zeroDegC_isotherm) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Relative_humidity) def
+ /missing_value -9999. def
+ /units /percent def
+ /long_name (Relative_humidity @ zeroDegC_isotherm) def
+ /GRIB_level_type 4 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 52 def
+ /dodsname /Relative_humidity_zeroDegC_isotherm def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (RH) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 52 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /Sensible_heat_flux{
+[ x y | time] filenames readdatafile:
+/name (Sensible_heat_flux) def
+ /GRIB_product_definition_type (Average) def
+ /GRIB_param_name (Sensible_heat_flux) def
+ /missing_value -9999. def
+ /units (W/m2)cvn def
+ /long_name (Sensible_heat_flux @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 122 def
+ /dodsname /Sensible_heat_flux def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (SHTFL) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 122 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Snow_cover{
+[ x y | time1] filenames readdatafile:
+/name (Snow_cover) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Snow_cover) def
+ /missing_value -9999. def
+ /units /percent def
+ /long_name (Snow_cover @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 238 def
+ /dodsname /Snow_cover def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (SNOWC) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 238 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Snow_depth{
+[ x y | time1] filenames readdatafile:
+/name (Snow_depth) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Snow_depth) def
+ /missing_value -9999. def
+ /units /m def
+ /long_name (Snow_depth @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 66 def
+ /dodsname /Snow_depth def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (SNOD) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 66 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Snow_melt{
+[ x y | time] filenames readdatafile:
+/name (Snow_melt) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Snow_melt) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Snow_melt @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 99 def
+ /dodsname /Snow_melt def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (SNOM) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 99 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Snow_phase-change_heat_flux{
+[ x y | time] filenames readdatafile:
+/name (Snow_phase-change_heat_flux) def
+ /GRIB_product_definition_type (Average) def
+ /GRIB_param_name (Snow_phase-change_heat_flux) def
+ /missing_value -9999. def
+ /units (W/m2)cvn def
+ /long_name (Snow_phase-change_heat_flux @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 229 def
+ /dodsname /Snow_phase-change_heat_flux def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (SNOHF) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 229 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /Soil_moisture_content{
+[ x y layer_between_two_depths_below_surface2 | time1] filenames readdatafile:
+/name (Soil_moisture_content) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Soil_moisture_content) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Soil_moisture_content @ layer_between_two_depths_below_surface) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 86 def
+ /GRIB_level_type 112 def
+ /dodsname /Soil_moisture_content def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (SOILM) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 86 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+ /Soil_moisture_parameter_in_canopy_conductance{
+[ x y | time1] filenames readdatafile:
+/name (Soil_moisture_parameter_in_canopy_conductance) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Soil_moisture_parameter_in_canopy_conductance) def
+ /missing_value -9999. def
+ /units /unitless def
+ /long_name (Soil_moisture_parameter_in_canopy_conductance @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 249 def
+ /dodsname /Soil_moisture_parameter_in_canopy_conductance def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (RCSOL) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 249 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+ /Soil_temperature{
+[ x y layer_between_two_depths_below_surface | time1] filenames readdatafile:
+/name (Soil_temperature) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Soil_temperature) def
+ /missing_value -9999. def
+ /units /Kelvin_scale def
+ /long_name (Soil_temperature @ layer_between_two_depths_below_surface) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 85 def
+ /GRIB_level_type 112 def
+ /dodsname /Soil_temperature def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (TSOIL) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 85 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+grid:
+/name (depth_below_surface)def
+/units (cm)def
+values: 800. :values
+:grid
+ /Soil_temperature_depth_below_surface{
+[ x y depth_below_surface | time1] filenames readdatafile:
+/name (Soil_temperature_depth_below_surface) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Soil_temperature) def
+ /missing_value -9999. def
+ /units /Kelvin_scale def
+ /long_name (Soil_temperature @ depth_below_surface) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 85 def
+ /GRIB_level_type 111 def
+ /dodsname /Soil_temperature_depth_below_surface def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (TSOIL) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 85 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Solar_parameter_in_canopy_conductance{
+[ x y | time1] filenames readdatafile:
+/name (Solar_parameter_in_canopy_conductance) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Solar_parameter_in_canopy_conductance) def
+ /missing_value -9999. def
+ /units /unitless def
+ /long_name (Solar_parameter_in_canopy_conductance @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 246 def
+ /dodsname /Solar_parameter_in_canopy_conductance def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (RCS) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 246 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Specific_humidity{
+[ x y | isobaric time1] filenames readdatafile:
+/name (Specific_humidity) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Specific_humidity) def
+ /units /unitless def
+ /long_name (Specific_humidity @ isobaric) def
+ /missing_value -9999. def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 51 def
+ /GRIB_level_type 100 def
+ /dodsname /Specific_humidity def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (SPFH) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 51 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Specific_humidity_height_above_ground{
+[ x y height_above_ground | time1] filenames readdatafile:
+/name (Specific_humidity_height_above_ground) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Specific_humidity) def
+ /missing_value -9999. def
+ /units /unitless def
+ /long_name (Specific_humidity @ height_above_ground) def
+ /GRIB_level_type 105 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 51 def
+ /dodsname /Specific_humidity_height_above_ground def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (SPFH) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 51 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Specific_humidity_hybrid{
+[ x y | hybrid time1] filenames readdatafile:
+/name (Specific_humidity_hybrid) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Specific_humidity) def
+ /missing_value -9999. def
+ /units /unitless def
+ /long_name (Specific_humidity @ hybrid) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 51 def
+ /GRIB_level_type 109 def
+ /dodsname /Specific_humidity_hybrid def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (SPFH) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 51 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /Specific_humidity_layer_between_two_pressure_difference_from_ground{
+[ x y layer_between_two_pressure_difference_from_ground | time1] filenames readdatafile:
+/name (Specific_humidity_layer_between_two_pressure_difference_from_ground) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Specific_humidity) def
+ /missing_value -9999. def
+ /units /unitless def
+ /long_name (Specific_humidity @ layer_between_two_pressure_difference_from_ground) def
+ /GRIB_level_type 116 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 51 def
+ /dodsname /Specific_humidity_layer_between_two_pressure_difference_from_ground def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (SPFH) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 51 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Storm_relative_helicity{
+[ x y layer_between_two_heights_above_ground | time1] filenames readdatafile:
+/name (Storm_relative_helicity) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Storm_relative_helicity) def
+ /missing_value -9999. def
+ /units (J/kg)cvn def
+ /long_name (Storm_relative_helicity @ layer_between_two_heights_above_ground) def
+ /GRIB_level_type 106 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 190 def
+ /dodsname /Storm_relative_helicity def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (HLCY) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 190 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Subsurface_runoff_baseflow{
+[ x y | time] filenames readdatafile:
+/name (Subsurface_runoff_baseflow) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Subsurface_runoff_baseflow) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Subsurface_runoff_baseflow @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 234 def
+ /dodsname /Subsurface_runoff_baseflow def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (BGRUN) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 234 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Surface_drag_coefficient{
+[ x y | time1] filenames readdatafile:
+/name (Surface_drag_coefficient) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Surface_drag_coefficient) def
+ /missing_value -9999. def
+ /units /non-dim def
+ /long_name (Surface_drag_coefficient @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 252 def
+ /dodsname /Surface_drag_coefficient def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (CD) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 252 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Surface_friction_velocity{
+[ x y | time1] filenames readdatafile:
+/name (Surface_friction_velocity) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Surface_friction_velocity) def
+ /missing_value -9999. def
+ /units (m/s)cvn def
+ /long_name (Surface_friction_velocity @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 253 def
+ /dodsname /Surface_friction_velocity def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (FRICV) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 253 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /Surface_lifted_index{
+[ x y layer_between_two_isobaric1 | time1] filenames readdatafile:
+/name (Surface_lifted_index) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Surface_lifted_index) def
+ /missing_value -9999. def
+ /units /Kelvin_scale def
+ /long_name (Surface_lifted_index @ layer_between_two_isobaric) def
+ /GRIB_level_type 101 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 131 def
+ /dodsname /Surface_lifted_index def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (LFTX) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 131 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Surface_runoff_non-infiltrating{
+[ x y | time] filenames readdatafile:
+/name (Surface_runoff_non-infiltrating) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Surface_runoff_non-infiltrating) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Surface_runoff_non-infiltrating @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 235 def
+ /dodsname /Surface_runoff_non-infiltrating def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (SSRUN) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 235 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /Temperature{
+[ x y | isobaric time1] filenames readdatafile:
+/name (Temperature) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Temperature) def
+ /units /Kelvin_scale def
+ /long_name (Temperature @ isobaric) def
+ /missing_value -9999. def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 11 def
+ /GRIB_level_type 100 def
+ /dodsname /Temperature def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (TMP) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 11 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+ /Temperature_cloud_tops{
+[ x y | time1] filenames readdatafile:
+/name (Temperature_cloud_tops) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Temperature) def
+ /missing_value -9999. def
+ /units /Kelvin_scale def
+ /long_name (Temperature @ cloud_tops) def
+ /GRIB_level_type 3 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 11 def
+ /dodsname /Temperature_cloud_tops def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (TMP) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 11 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Temperature_height_above_ground{
+[ x y height_above_ground | time1] filenames readdatafile:
+/name (Temperature_height_above_ground) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Temperature) def
+ /missing_value -9999. def
+ /units /Kelvin_scale def
+ /long_name (Temperature @ height_above_ground) def
+ /GRIB_level_type 105 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 11 def
+ /dodsname /Temperature_height_above_ground def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (TMP) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 11 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+ /Temperature_hybrid{
+[ x y | hybrid time1] filenames readdatafile:
+/name (Temperature_hybrid) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Temperature) def
+ /missing_value -9999. def
+ /units /Kelvin_scale def
+ /long_name (Temperature @ hybrid) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 11 def
+ /GRIB_level_type 109 def
+ /dodsname /Temperature_hybrid def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (TMP) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 11 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Temperature_layer_between_two_pressure_difference_from_ground{
+[ x y layer_between_two_pressure_difference_from_ground | time1] filenames readdatafile:
+/name (Temperature_layer_between_two_pressure_difference_from_ground) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Temperature) def
+ /missing_value -9999. def
+ /units /Kelvin_scale def
+ /long_name (Temperature @ layer_between_two_pressure_difference_from_ground) def
+ /GRIB_level_type 116 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 11 def
+ /dodsname /Temperature_layer_between_two_pressure_difference_from_ground def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (TMP) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 11 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Temperature_parameter_in_canopy_conductance{
+[ x y | time1] filenames readdatafile:
+/name (Temperature_parameter_in_canopy_conductance) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Temperature_parameter_in_canopy_conductance) def
+ /missing_value -9999. def
+ /units /unitless def
+ /long_name (Temperature_parameter_in_canopy_conductance @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 247 def
+ /dodsname /Temperature_parameter_in_canopy_conductance def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (RCT) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 247 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Temperature_surface{
+[ x y | time1] filenames readdatafile:
+/name (Temperature_surface) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Temperature) def
+ /missing_value -9999. def
+ /units /Kelvin_scale def
+ /long_name (Temperature @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 11 def
+ /dodsname /Temperature_surface def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (TMP) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 11 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+ /Temperature_tropopause{
+[ x y | time1] filenames readdatafile:
+/name (Temperature_tropopause) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Temperature) def
+ /missing_value -9999. def
+ /units /Kelvin_scale def
+ /long_name (Temperature @ tropopause) def
+ /GRIB_level_type 7 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 11 def
+ /dodsname /Temperature_tropopause def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (TMP) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 11 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Total_cloud_cover{
+[ x y | time] filenames readdatafile:
+/name (Total_cloud_cover) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Total_cloud_cover) def
+ /missing_value -9999. def
+ /units /percent def
+ /long_name (Total_cloud_cover @ entire_atmosphere) def
+ /GRIB_level_type 200 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 71 def
+ /dodsname /Total_cloud_cover def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (TCDC) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 71 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Total_precipitation{
+[ x y | time] filenames readdatafile:
+/name (Total_precipitation) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Total_precipitation) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Total_precipitation @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 61 def
+ /dodsname /Total_precipitation def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (APCP) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 61 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Total_precipitation_nearest_grid_point{
+[ x y | time] filenames readdatafile:
+/name (Total_precipitation_nearest_grid_point) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Total_precipitation_nearest_grid_point) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Total_precipitation_nearest_grid_point @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 202 def
+ /dodsname /Total_precipitation_nearest_grid_point def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (APCPN) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 202 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+grid:
+/name (isobaric1)def
+/units (hPa)def
+values: 1000. 975. 950. 925. 900. 875. 850. 825. 800. 775. 750. 725. 700. 650. 600. :values
+:grid
+ /Turbulent_Kinetic_Energy{
+[ x y isobaric1 | time1] filenames readdatafile:
+/name (Turbulent_Kinetic_Energy) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Turbulent_Kinetic_Energy) def
+ /missing_value -9999. def
+ /units (J/kg)cvn def
+ /long_name (Turbulent_Kinetic_Energy @ isobaric) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 158 def
+ /GRIB_level_type 100 def
+ /dodsname /Turbulent_Kinetic_Energy def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (TKE) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 158 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Turbulent_Kinetic_Energy_hybrid{
+[ x y | hybrid time1] filenames readdatafile:
+/name (Turbulent_Kinetic_Energy_hybrid) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Turbulent_Kinetic_Energy) def
+ /missing_value -9999. def
+ /units (J/kg)cvn def
+ /long_name (Turbulent_Kinetic_Energy @ hybrid) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 158 def
+ /GRIB_level_type 109 def
+ /dodsname /Turbulent_Kinetic_Energy_hybrid def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (TKE) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 158 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /u-component_of_storm_motion{
+[ x y layer_between_two_heights_above_ground1 | time1] filenames readdatafile:
+/name (u-component_of_storm_motion) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (u-component_of_storm_motion) def
+ /missing_value -9999. def
+ /units (m/s)cvn def
+ /long_name (u-component_of_storm_motion @ layer_between_two_heights_above_ground) def
+ /GRIB_level_type 106 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 196 def
+ /dodsname /u-component_of_storm_motion def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (USTM) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 196 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /u_wind{
+[ x y | isobaric time1] filenames readdatafile:
+/name (u_wind) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (u_wind) def
+ /units (m/s)cvn def
+ /long_name (u_wind @ isobaric) def
+ /missing_value -9999. def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 33 def
+ /GRIB_level_type 100 def
+ /dodsname /u_wind def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (UGRD) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 33 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /u_wind_height_above_ground{
+[ x y height_above_ground1 | time1] filenames readdatafile:
+/name (u_wind_height_above_ground) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (u_wind) def
+ /missing_value -9999. def
+ /units (m/s)cvn def
+ /long_name (u_wind @ height_above_ground) def
+ /GRIB_level_type 105 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 33 def
+ /dodsname /u_wind_height_above_ground def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (UGRD) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 33 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /u_wind_hybrid{
+[ x y | hybrid time1] filenames readdatafile:
+/name (u_wind_hybrid) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (u_wind) def
+ /missing_value -9999. def
+ /units (m/s)cvn def
+ /long_name (u_wind @ hybrid) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 33 def
+ /GRIB_level_type 109 def
+ /dodsname /u_wind_hybrid def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (UGRD) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 33 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /u_wind_layer_between_two_pressure_difference_from_ground{
+[ x y layer_between_two_pressure_difference_from_ground | time1] filenames readdatafile:
+/name (u_wind_layer_between_two_pressure_difference_from_ground) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (u_wind) def
+ /missing_value -9999. def
+ /units (m/s)cvn def
+ /long_name (u_wind @ layer_between_two_pressure_difference_from_ground) def
+ /GRIB_level_type 116 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 33 def
+ /dodsname /u_wind_layer_between_two_pressure_difference_from_ground def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (UGRD) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 33 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /u_wind_maximum_wind{
+[ x y | time1] filenames readdatafile:
+/name (u_wind_maximum_wind) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (u_wind) def
+ /missing_value -9999. def
+ /units (m/s)cvn def
+ /long_name (u_wind @ maximum_wind) def
+ /GRIB_level_type 6 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 33 def
+ /dodsname /u_wind_maximum_wind def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (UGRD) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 33 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /u_wind_tropopause{
+[ x y | time1] filenames readdatafile:
+/name (u_wind_tropopause) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (u_wind) def
+ /missing_value -9999. def
+ /units (m/s)cvn def
+ /long_name (u_wind @ tropopause) def
+ /GRIB_level_type 7 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 33 def
+ /dodsname /u_wind_tropopause def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (UGRD) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 33 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Upward_long_wave_radiation_flux{
+[ x y | time] filenames readdatafile:
+/name (Upward_long_wave_radiation_flux) def
+ /GRIB_product_definition_type (Average) def
+ /GRIB_param_name (Upward_long_wave_radiation_flux) def
+ /missing_value -9999. def
+ /units (W/m2)cvn def
+ /long_name (Upward_long_wave_radiation_flux @ atmosphere_top) def
+ /GRIB_level_type 8 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 212 def
+ /dodsname /Upward_long_wave_radiation_flux def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (ULWRF) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 212 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Upward_long_wave_radiation_flux_surface{
+[ x y | time] filenames readdatafile:
+/name (Upward_long_wave_radiation_flux_surface) def
+ /GRIB_product_definition_type (Average) def
+ /GRIB_param_name (Upward_long_wave_radiation_flux) def
+ /missing_value -9999. def
+ /units (W/m2)cvn def
+ /long_name (Upward_long_wave_radiation_flux @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 212 def
+ /dodsname /Upward_long_wave_radiation_flux_surface def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (ULWRF) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 212 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Upward_short_wave_radiation_flux{
+[ x y | time] filenames readdatafile:
+/name (Upward_short_wave_radiation_flux) def
+ /GRIB_product_definition_type (Average) def
+ /GRIB_param_name (Upward_short_wave_radiation_flux) def
+ /missing_value -9999. def
+ /units (W/m2)cvn def
+ /long_name (Upward_short_wave_radiation_flux @ atmosphere_top) def
+ /GRIB_level_type 8 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 211 def
+ /dodsname /Upward_short_wave_radiation_flux def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (USWRF) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 211 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Upward_short_wave_radiation_flux_surface{
+[ x y | time] filenames readdatafile:
+/name (Upward_short_wave_radiation_flux_surface) def
+ /GRIB_product_definition_type (Average) def
+ /GRIB_param_name (Upward_short_wave_radiation_flux) def
+ /missing_value -9999. def
+ /units (W/m2)cvn def
+ /long_name (Upward_short_wave_radiation_flux @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 211 def
+ /dodsname /Upward_short_wave_radiation_flux_surface def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (USWRF) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 211 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /v-component_of_storm_motion{
+[ x y layer_between_two_heights_above_ground1 | time1] filenames readdatafile:
+/name (v-component_of_storm_motion) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (v-component_of_storm_motion) def
+ /missing_value -9999. def
+ /units (m/s)cvn def
+ /long_name (v-component_of_storm_motion @ layer_between_two_heights_above_ground) def
+ /GRIB_level_type 106 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 197 def
+ /dodsname /v-component_of_storm_motion def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (VSTM) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 197 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /v_wind{
+[ x y | isobaric time1] filenames readdatafile:
+/name (v_wind) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (v_wind) def
+ /units (m/s)cvn def
+ /long_name (v_wind @ isobaric) def
+ /missing_value -9999. def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 34 def
+ /GRIB_level_type 100 def
+ /dodsname /v_wind def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (VGRD) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 34 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /v_wind_height_above_ground{
+[ x y height_above_ground1 | time1] filenames readdatafile:
+/name (v_wind_height_above_ground) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (v_wind) def
+ /missing_value -9999. def
+ /units (m/s)cvn def
+ /long_name (v_wind @ height_above_ground) def
+ /GRIB_level_type 105 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 34 def
+ /dodsname /v_wind_height_above_ground def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (VGRD) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 34 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /v_wind_hybrid{
+[ x y | hybrid time1] filenames readdatafile:
+/name (v_wind_hybrid) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (v_wind) def
+ /missing_value -9999. def
+ /units (m/s)cvn def
+ /long_name (v_wind @ hybrid) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 34 def
+ /GRIB_level_type 109 def
+ /dodsname /v_wind_hybrid def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (VGRD) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 34 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /v_wind_layer_between_two_pressure_difference_from_ground{
+[ x y layer_between_two_pressure_difference_from_ground | time1] filenames readdatafile:
+/name (v_wind_layer_between_two_pressure_difference_from_ground) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (v_wind) def
+ /missing_value -9999. def
+ /units (m/s)cvn def
+ /long_name (v_wind @ layer_between_two_pressure_difference_from_ground) def
+ /GRIB_level_type 116 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 34 def
+ /dodsname /v_wind_layer_between_two_pressure_difference_from_ground def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (VGRD) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 34 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /v_wind_maximum_wind{
+[ x y | time1] filenames readdatafile:
+/name (v_wind_maximum_wind) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (v_wind) def
+ /missing_value -9999. def
+ /units (m/s)cvn def
+ /long_name (v_wind @ maximum_wind) def
+ /GRIB_level_type 6 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 34 def
+ /dodsname /v_wind_maximum_wind def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (VGRD) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 34 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /v_wind_tropopause{
+[ x y | time1] filenames readdatafile:
+/name (v_wind_tropopause) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (v_wind) def
+ /missing_value -9999. def
+ /units (m/s)cvn def
+ /long_name (v_wind @ tropopause) def
+ /GRIB_level_type 7 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 34 def
+ /dodsname /v_wind_tropopause def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (VGRD) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 34 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Vegetation{
+[ x y | time1] filenames readdatafile:
+/name (Vegetation) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Vegetation) def
+ /missing_value -9999. def
+ /units /percent def
+ /long_name (Vegetation @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 87 def
+ /dodsname /Vegetation def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (VEG) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 87 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Vertical_speed_shear{
+[ x y | time1] filenames readdatafile:
+/name (Vertical_speed_shear) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Vertical_speed_shear) def
+ /missing_value -9999. def
+ /units (kg/kg/s)cvn def
+ /long_name (Vertical_speed_shear @ tropopause) def
+ /GRIB_level_type 7 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 136 def
+ /dodsname /Vertical_speed_shear def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (VWSH) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 136 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Visibility{
+[ x y | time1] filenames readdatafile:
+/name (Visibility) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Visibility) def
+ /missing_value -9999. def
+ /units /m def
+ /long_name (Visibility @ surface) def
+ /GRIB_level_type 1 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 20 def
+ /dodsname /Visibility def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (VIS) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 20 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Volumetric_soil_moisture_frozen_+_liquid{
+[ x y layer_between_two_depths_below_surface | time1] filenames readdatafile:
+/name (Volumetric_soil_moisture_frozen_+_liquid) def
+ /GRIB_product_definition_type (Forecast/Uninitialized Analysis/Image Product) def
+ /GRIB_param_name (Volumetric_soil_moisture_frozen_+_liquid) def
+ /missing_value -9999. def
+ /units /unitless def
+ /long_name (Volumetric_soil_moisture_frozen_+_liquid @ layer_between_two_depths_below_surface) def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 144 def
+ /GRIB_level_type 112 def
+ /dodsname /Volumetric_soil_moisture_frozen_+_liquid def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (SOILW) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 144 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+ /water_condensate_added_by_precip_assimilaition{
+[ x y | time] filenames readdatafile:
+/name (water_condensate_added_by_precip_assimilaition) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (water_condensate_added_by_precip_assimilaition) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (water_condensate_added_by_precip_assimilaition @ entire_atmosphere) def
+ /GRIB_level_type 200 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 233 def
+ /dodsname /water_condensate_added_by_precip_assimilaition def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WCINC) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 233 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /water_condensate_added_by_precip_assimilaition_layer_between_two_isobaric{
+[ x y layer_between_two_isobaric | time] filenames readdatafile:
+/name (water_condensate_added_by_precip_assimilaition_layer_between_two_isobaric) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (water_condensate_added_by_precip_assimilaition) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (water_condensate_added_by_precip_assimilaition @ layer_between_two_isobaric) def
+ /GRIB_level_type 101 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 233 def
+ /dodsname /water_condensate_added_by_precip_assimilaition_layer_between_two_isobaric def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WCINC) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 233 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Water_condensate_flux_convergence_vertical_int{
+[ x y | time] filenames readdatafile:
+/name (Water_condensate_flux_convergence_vertical_int) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Water_condensate_flux_convergence_vertical_int) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Water_condensate_flux_convergence_vertical_int @ entire_atmosphere) def
+ /GRIB_level_type 200 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 241 def
+ /dodsname /Water_condensate_flux_convergence_vertical_int def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WCCONV) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 241 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Water_condensate_flux_convergence_vertical_int_layer_between_two_isobaric{
+[ x y layer_between_two_isobaric | time] filenames readdatafile:
+/name (Water_condensate_flux_convergence_vertical_int_layer_between_two_isobaric) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Water_condensate_flux_convergence_vertical_int) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Water_condensate_flux_convergence_vertical_int @ layer_between_two_isobaric) def
+ /GRIB_level_type 101 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 241 def
+ /dodsname /Water_condensate_flux_convergence_vertical_int_layer_between_two_isobaric def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WCCONV) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 241 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Water_condensate_meridional_flux_vertical_int{
+[ x y | time] filenames readdatafile:
+/name (Water_condensate_meridional_flux_vertical_int) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Water_condensate_meridional_flux_vertical_int) def
+ /missing_value -9999. def
+ /units (kg/m)cvn def
+ /long_name (Water_condensate_meridional_flux_vertical_int @ entire_atmosphere) def
+ /GRIB_level_type 200 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 245 def
+ /dodsname /Water_condensate_meridional_flux_vertical_int def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WCVFLX) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 245 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Water_condensate_meridional_flux_vertical_int_layer_between_two_isobaric{
+[ x y layer_between_two_isobaric | time] filenames readdatafile:
+/name (Water_condensate_meridional_flux_vertical_int_layer_between_two_isobaric) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Water_condensate_meridional_flux_vertical_int) def
+ /missing_value -9999. def
+ /units (kg/m)cvn def
+ /long_name (Water_condensate_meridional_flux_vertical_int @ layer_between_two_isobaric) def
+ /GRIB_level_type 101 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 245 def
+ /dodsname /Water_condensate_meridional_flux_vertical_int_layer_between_two_isobaric def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WCVFLX) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 245 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Water_condensate_zonal_flux_vertical_int{
+[ x y | time] filenames readdatafile:
+/name (Water_condensate_zonal_flux_vertical_int) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Water_condensate_zonal_flux_vertical_int) def
+ /missing_value -9999. def
+ /units (kg/m)cvn def
+ /long_name (Water_condensate_zonal_flux_vertical_int @ entire_atmosphere) def
+ /GRIB_level_type 200 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 244 def
+ /dodsname /Water_condensate_zonal_flux_vertical_int def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WCUFLX) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 244 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Water_condensate_zonal_flux_vertical_int_layer_between_two_isobaric{
+[ x y layer_between_two_isobaric | time] filenames readdatafile:
+/name (Water_condensate_zonal_flux_vertical_int_layer_between_two_isobaric) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Water_condensate_zonal_flux_vertical_int) def
+ /missing_value -9999. def
+ /units (kg/m)cvn def
+ /long_name (Water_condensate_zonal_flux_vertical_int @ layer_between_two_isobaric) def
+ /GRIB_level_type 101 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 244 def
+ /dodsname /Water_condensate_zonal_flux_vertical_int_layer_between_two_isobaric def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WCUFLX) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 244 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /water_vapor_added_by_precip_assimilation{
+[ x y | time] filenames readdatafile:
+/name (water_vapor_added_by_precip_assimilation) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (water_vapor_added_by_precip_assimilation) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (water_vapor_added_by_precip_assimilation @ entire_atmosphere) def
+ /GRIB_level_type 200 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 232 def
+ /dodsname /water_vapor_added_by_precip_assimilation def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WVINC) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 232 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /water_vapor_added_by_precip_assimilation_layer_between_two_isobaric{
+[ x y layer_between_two_isobaric | time] filenames readdatafile:
+/name (water_vapor_added_by_precip_assimilation_layer_between_two_isobaric) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (water_vapor_added_by_precip_assimilation) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (water_vapor_added_by_precip_assimilation @ layer_between_two_isobaric) def
+ /GRIB_level_type 101 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 232 def
+ /dodsname /water_vapor_added_by_precip_assimilation_layer_between_two_isobaric def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WVINC) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 232 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Water_vapor_flux_convergence_vertical_int{
+[ x y | time] filenames readdatafile:
+/name (Water_vapor_flux_convergence_vertical_int) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Water_vapor_flux_convergence_vertical_int) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Water_vapor_flux_convergence_vertical_int @ entire_atmosphere) def
+ /GRIB_level_type 200 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 237 def
+ /dodsname /Water_vapor_flux_convergence_vertical_int def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WVCONV) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 237 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Water_vapor_flux_convergence_vertical_int_layer_between_two_isobaric{
+[ x y layer_between_two_isobaric | time] filenames readdatafile:
+/name (Water_vapor_flux_convergence_vertical_int_layer_between_two_isobaric) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Water_vapor_flux_convergence_vertical_int) def
+ /missing_value -9999. def
+ /units (kg/m^2)cvn def
+ /long_name (Water_vapor_flux_convergence_vertical_int @ layer_between_two_isobaric) def
+ /GRIB_level_type 101 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 237 def
+ /dodsname /Water_vapor_flux_convergence_vertical_int_layer_between_two_isobaric def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WVCONV) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 237 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Water_vapor_meridional_flux_vertical_int{
+[ x y | time] filenames readdatafile:
+/name (Water_vapor_meridional_flux_vertical_int) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Water_vapor_meridional_flux_vertical_int) def
+ /missing_value -9999. def
+ /units (kg/m)cvn def
+ /long_name (Water_vapor_meridional_flux_vertical_int @ entire_atmosphere) def
+ /GRIB_level_type 200 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 243 def
+ /dodsname /Water_vapor_meridional_flux_vertical_int def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WVVFLX) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 243 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Water_vapor_meridional_flux_vertical_int_layer_between_two_isobaric{
+[ x y layer_between_two_isobaric | time] filenames readdatafile:
+/name (Water_vapor_meridional_flux_vertical_int_layer_between_two_isobaric) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Water_vapor_meridional_flux_vertical_int) def
+ /missing_value -9999. def
+ /units (kg/m)cvn def
+ /long_name (Water_vapor_meridional_flux_vertical_int @ layer_between_two_isobaric) def
+ /GRIB_level_type 101 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 243 def
+ /dodsname /Water_vapor_meridional_flux_vertical_int_layer_between_two_isobaric def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WVVFLX) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 243 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Water_vapor_zonal_flux_vertical_int{
+[ x y | time] filenames readdatafile:
+/name (Water_vapor_zonal_flux_vertical_int) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Water_vapor_zonal_flux_vertical_int) def
+ /missing_value -9999. def
+ /units (kg/m)cvn def
+ /long_name (Water_vapor_zonal_flux_vertical_int @ entire_atmosphere) def
+ /GRIB_level_type 200 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 242 def
+ /dodsname /Water_vapor_zonal_flux_vertical_int def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WVUFLX) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 242 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+ /Water_vapor_zonal_flux_vertical_int_layer_between_two_isobaric{
+[ x y layer_between_two_isobaric | time] filenames readdatafile:
+/name (Water_vapor_zonal_flux_vertical_int_layer_between_two_isobaric) def
+ /GRIB_product_definition_type (Accumulation) def
+ /GRIB_param_name (Water_vapor_zonal_flux_vertical_int) def
+ /missing_value -9999. def
+ /units (kg/m)cvn def
+ /long_name (Water_vapor_zonal_flux_vertical_int @ layer_between_two_isobaric) def
+ /GRIB_level_type 101 def
+ /GRIB_center_id 7 def
+ /GRIB_param_number 242 def
+ /dodsname /Water_vapor_zonal_flux_vertical_int_layer_between_two_isobaric def
+ defSRS /grid_mapping (Lambert_Conformal) def
+ /GRIB_param_short_name (WVUFLX) def
+ /GRIB_VectorComponentFlag (gridRelative) def
+ /GRIB_table_id 131 def
+ /GRIB_param_id [ 1 7 131 242 ] def
+ /realarraytype opendaprecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+\begin{ingrid}
+:dataset
+\end{ingrid}
+
+

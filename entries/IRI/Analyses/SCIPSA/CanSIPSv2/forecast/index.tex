@@ -1,0 +1,235 @@
+\begin{ingrid}
+continuedataset:
+
+/ACKNOWLEDGEMENTS (In order to document NMME-Phase II data impact and enable continuing support, users of NMME data are expected to acknowledge NMME data and the participating modeling groups. The NMME model output should be referred to as "the NMME System Phase II data [https://www.earthsystemgrid.org/search.html?Project=NMME]."  In publications, users should include a table (referred to below as Table XX) listing the models and institutions that provided model output used in the NMME-Phase II system, as well as the digital object identifier of publications documenting the models, where "Table XX" in the paper should list the models and modeling groups that provided the NMME data.  In addition, an acknowledgement similar to the following should be included in any publication:  "We acknowledge the agencies that support the NMME-Phase II system, and we thank the climate modeling groups (Environment Canada, NASA, NCAR, NOAA/GFDL, NOAA/NCEP, and University of Miami) for producing and making available their model output. NOAA/NCEP, NOAA/CTB, and NOAA/CPO jointly provided coordinating support and led development of the NMME-Phase II system."  Besides the above acknowledgement, users should register any journal articles (or other scientific documents) that are based on NMME-Phase II results.) def
+
+/references (Kirtman_etal2014) def
+
+link:
+/name (dataset_documentation) def
+/description (CMC Technical Note:  The Canadian Seasonal to Interannual Prediction System version 2 (CanSIPSv2) ) def
+/href (https://iridl.ldeo.columbia.edu/documentation/Models/NMME/CanSIPSv2/technote_cansips-v2_20190703_e.pdf) def
+:link
+
+grid:
+/name (X) def
+/long_name (longitude) def
+/standard_name (longitude) def
+/units (degree_east) def
+periodic
+0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/long_name (latitude) def
+/standard_name (latitude) def
+/units (degree_north) def
+-90.0 1.0 90.0
+:grid
+
+grid:
+/name /L def
+/units (months) def
+/long_name (Lead) def
+0.5 1. 11.5
+:grid
+
+grid:
+/name /M def
+/standard_name (realization) def
+/long_name (Ensemble Member) def
+/units /unitless def
+1 1 20
+:grid
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 200 850 :values
+:grid
+
+grid:
+/name (P2) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 500 200 :values
+:grid
+
+grid:
+/name (S) def
+/units (months since 1960-01-01) def
+/long_name (Forecast Start Time) def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+1 Dec  2016 ensotime
+1
+%1 Feb 2016 ensotime
+1 systemtime (%b %Y) 10 strftime
+interp
+ensotime
+:grid
+
+S { (/Data/data23/NMME/CanSIPSv2.D/Forecast.D/*_cansips_forecast_raw_nmme_latlon-1x1_PRATE_SFC_0_%Y[S]-%m[S]_allmembers.grib2) [S]} removeextrausing
+/expires
+last_modified systemtime2ymd ymd:nextmonth ymd:nextmonth
+ymd2systemtime 7 3600 mul add
+def
+/defaultvalue last def
+name exch def
+/expires S .expires def
+/last_modified S .last_modified def
+
+/T { S L add
+/long_name (Time) def
+/standard_name (time) def } defasvarsilent
+
+/tref { [ X Y | L M S ] (/Data/data23/NMME/CanSIPSv2.D/Forecast.D/*_cansips_forecast_raw_nmme_latlon-1x1_TMP_TGL_2m_%Y-%m[S]_allmembers.grib2) [ S ] readdatafile:
+/name (TMP) def
+/units (K) def
+/grib_name /TMP def
+(04XXXX) GRIBvariable
+:readdatafile
+/missing_value 9.999e20 def
+decompress
+/long_name (Reference Temperature) def
+/standard_name (air_temperature) def
+} defasvarsilent
+
+/temp {tref (Celsius_scale) unitconvert } defasvarsilent
+
+/sst { [ X Y | L M S ] (/Data/data23/NMME/CanSIPSv2.D/Forecast.D/*_cansips_forecast_raw_nmme_latlon-1x1_WTMP_SFC_0_%Y-%m[S]_allmembers.grib2) [ S ] readdatafile:
+/name (WTMP) def
+/grib_name /WTMP def
+/units (K) def
+(04XXXX) GRIBvariable
+:readdatafile
+/missing_value 9.999e20 def
+decompress
+/long_name (Sea Surface Temperature) def
+/standard_name (sea_surface_temperature) def
+} defasvarsilent
+
+/prec { [ X Y | L M S ] (/Data/data23/NMME/CanSIPSv2.D/Forecast.D/*_cansips_forecast_raw_nmme_latlon-1x1_PRATE_SFC_0_%Y-%m[S]_allmembers.grib2) [ S ] readdatafile:
+/name (TPRATE) def
+/units (kg m-2 s-1) def
+/grib_name /PRATE def
+(04XXXX) GRIBvariable
+:readdatafile
+/missing_value 9.999e20 def
+decompress
+/standard_name (lwe_pecipitation_rate) def
+/long_name (Total Precipitation) def
+  c:
+   0.001 (m3 kg-1) :c
+   mul
+  c:
+   1000 (mm m-1) :c
+   mul
+  c:
+   86400 (s day-1) :c
+   mul
+} defasvarsilent
+
+/prmsl { [ X Y | L M S ] (/Data/data23/NMME/CanSIPSv2.D/Forecast.D/*_cansips_forecast_raw_nmme_latlon-1x1_PRMSL_MSL_0_%Y-%m[S]_allmembers.grib2) [ S ] readdatafile:
+/name (PRMSL) def
+/grib_name /PRMSL def
+/units (Pa) def
+(04XXXX) GRIBvariable
+:readdatafile
+/missing_value 9.999e20 def
+decompress
+/long_name (Pressure Reduced to Mean Sea Level) def
+/standard_name (air_pressure_at_sea_level) def
+} defasvarsilent
+
+%/soilw { [ X Y | L M S ] (/Data/data23/NMME/CanSIPSv2.D/Forecast.D/*_cansips_forecast_raw_nmme_latlon-1x1_SOILM_DBLL_10cm_%Y-%m[S]_allmembers.grib2) [ S ] readdatafile:
+%/name (SOILM) def
+%/grib_name /SOILM def
+%/units (kg m-2) def
+%(04XXXX) GRIBvariable
+%:readdatafile
+%/missing_value 9.999e20 def
+%decompress
+%/long_name (Soil Moisture Content 0-10cm Below Surface) def
+%/standard_name (soil_moisture_content) def
+%} defasvarsilent
+
+/tmax { [ X Y | L M S ] (/Data/data23/NMME/CanSIPSv2.D/Forecast.D/*_cansips_forecast_raw_nmme_latlon-1x1_TMAX_TGL_2m_%Y-%m[S]_allmembers.grib2) [ S ] readdatafile:
+/name (TMAX) def
+/grib_name /TMAX def
+/units (Kelvin_scale) def
+(04XXXX) GRIBvariable
+:readdatafile
+/missing_value 9.999e20 def
+decompress
+/long_name (Maximum Temperature) def
+/standard_name (air_temperature) def
+} defasvarsilent
+ 
+/tmin { [ X Y | L M S ] (/Data/data23/NMME/CanSIPSv2.D/Forecast.D/*_cansips_forecast_raw_nmme_latlon-1x1_TMIN_TGL_2m_%Y-%m[S]_allmembers.grib2) [ S ] readdatafile:
+/name (TMIN) def
+/grib_name /TMIN def
+/units (Kelvin_scale) def
+(04XXXX) GRIBvariable
+:readdatafile
+/missing_value 9.999e20 def
+decompress
+/long_name (Minimum Temperature) def
+/standard_name (air_temperature) def
+} defasvarsilent
+
+/tmp { [ X Y | L M S ] (/Data/data23/NMME/CanSIPSv2.D/Forecast.D/*_cansips_forecast_raw_nmme_latlon-1x1_TMP_ISBL_0850_%Y-%m[S]_allmembers.grib2) [ S ] readdatafile:
+/name (TMP) def
+/grib_name /TMP def
+/units (Kelvin_scale) def
+(04XXXX) GRIBvariable
+:readdatafile
+/missing_value 9.999e20 def
+decompress
+/long_name (850 hPa Temperature) def
+/standard_name (air_temperature) def
+} defasvarsilent
+
+/ugrd { [ X Y | L M P S ] (/Data/data23/NMME/CanSIPSv2.D/Forecast.D/*_cansips_forecast_raw_nmme_latlon-1x1_UGRD_ISBL_0%3.3d[P]_%Y-%m[S]_allmembers.grib2) [ P S ] readdatafile:
+/name (UGRD) def
+/grib_name /UGRD def
+/units (m s-1) def
+(04XXXX) GRIBvariable
+:readdatafile
+/missing_value 9.999e20 def
+decompress
+/long_name (Zonal Wind) def
+/standard_name (eastward_wind) def
+} defasvarsilent
+
+/vgrd { [ X Y | L M P S ] (/Data/data23/NMME/CanSIPSv2.D/Forecast.D/*_cansips_forecast_raw_nmme_latlon-1x1_VGRD_ISBL_0%3.3d[P]_%Y-%m[S]_allmembers.grib2) [ P S ] readdatafile:
+/name (VGRD) def
+/grib_name /VGRD def
+/units (m s-1) def
+(04XXXX) GRIBvariable
+:readdatafile
+/missing_value 9.999e20 def
+decompress
+/long_name (Meridional Wind) def
+/standard_name (northward_wind) def
+} defasvarsilent
+
+/hgt { [ X Y | L M P2 S ] (/Data/data23/NMME/CanSIPSv2.D/Forecast.D/*_cansips_forecast_raw_nmme_latlon-1x1_HGT_ISBL_0%3.3d[P2]_%Y-%m[S]_allmembers.grib2) [ P2 S ] readdatafile:
+/name (HGT) def
+/grib_name /HGT def
+/units (gpm) def
+(04XXXX) GRIBvariable
+:readdatafile
+/missing_value 9.999e20 def
+decompress
+/long_name (Geopotential Height) def
+/standard_name (geopotential_height) def
+} defasvarsilent
+
+:dataset
+\end{ingrid}
+

@@ -1,0 +1,96 @@
+\begin{ingrid}
+continuedataset:
+grid: 
+/name /X def
+degE
+-20. .1 60
+:grid
+X partialgrid 
+name exch def
+grid:
+/name /Y def
+degN
+40 -.1 -40
+:grid
+Y partialgrid
+name exch def
+grid:
+/name /T def
+/units (days since 1990-01-01) def
+/pointwidth 0 def
+values:
+1990
+1
+systemtime systemtime2ymd pop pop 1 sub
+{
+dup  1 1 ymd2rjt 1990 1 1 ymd2rjt sub
+exch
+8. exch
+1 add 1 1 ymd2rjt 1990 1 1 ymd2rjt sub
+{} for
+} for
+
+systemtime systemtime2ymd pop pop 
+1 1 ymd2rjt 1990 1 1 ymd2rjt sub
+8.
+systemtime
+    systemtime2ymd ymd2rjt 1990 1 1 ymd2rjt sub
+2 index 
+     sub
+    8. div
+    cvi
+    8. mul
+2 index add
+{} for
+:values
+:grid
+
+/T T 
+first
+1 index
+{(/Data/data21/usgs/edc/vcap/sheffield/prcp%Y%j[T].flt) [T]}
+removeextrausing
+3 1 roll
+     /last_modified 3 index .last_modified def
+     3 -1 roll
+.npts indextovalue subgrid
+
+partialgrid
+/defaultvalue {last} def
+def
+\end{ingrid}
+\begin{ingrid}
+/prcp {
+ [X
+    Y |
+    T] (/Data/data21/usgs/edc/vcap/sheffield/prcp%Y%j[starts].flt)
+[T get_bounds I_bounds first VALUE I_bounds removeGRID   /name /starts def]readdatafile:
+      /missing_value -9999. def
+/iridl:hasSemantics (iridl:precipitation_amount) def
+/units (mm) def
+	/long_name (precipitation) def
+      direct :readdatafile
+} defasvarsilent
+/vcap {
+ [X
+    Y |
+    T] (/Data/data21/usgs/edc/vcap/sheffield/vs%Y%j[starts].flt)
+[T get_bounds I_bounds first VALUE I_bounds removeGRID /name /starts def]readdatafile:
+      /missing_value -9999. def
+/iridl:hasSemantics [(iridl:Vectorial_Capacity)(iridl:Malaria)] def
+      direct :readdatafile
+} defasvarsilent
+
+/tmin {
+ [X
+    Y |
+    T] (/Data/data21/usgs/edc/vcap/sheffield/tmin%Y%j[starts].flt)
+[T get_bounds I_bounds first VALUE I_bounds removeGRID /name /starts def]readdatafile:
+      /missing_value -9999. def
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+/units (Celsius_scale) def
+      direct :readdatafile
+temp_colors
+} defasvarsilent
+:dataset
+\end{ingrid}

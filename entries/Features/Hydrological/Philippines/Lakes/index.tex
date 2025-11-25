@@ -1,0 +1,73 @@
+\begin{ingrid}
+
+/description (Lakes of the Philippines) def
+
+continuedataset:
+
+/code {
+IRIDB (phl_hyd_lakes_rwdb) (bnd_code) [(uniq_id)] open_column_by
+/long_name (Code) def
+}defasvarsilentnoreuse
+
+/Name {
+IRIDB (phl_hyd_lakes_rwdb) (bnd_name) [(uniq_id)] open_column_by
+/long_name (Name) def
+}defasvarsilentnoreuse
+
+/Type {
+IRIDB (phl_hyd_lakes_rwdb) (bnd_type) [(uniq_id)] open_column_by
+/long_name (Type) def
+}defasvarsilentnoreuse
+
+/code_flag {
+IRIDB (phl_hyd_lakes_rwdb) (code_flag) [(uniq_id)] open_column_by
+/long_name (Code Flag) def
+}defasvarsilentnoreuse
+
+/area {
+IRIDB (phl_hyd_lakes_rwdb) (shape_area) [(uniq_id)] open_column_by
+/long_name (Area) def
+/units (km2) def
+}defasvarsilentnoreuse
+
+/leng {
+IRIDB (phl_hyd_lakes_rwdb) (shape_leng) [(uniq_id)] open_column_by
+/long_name (Perimeter) def
+/units (km) def
+}defasvarsilentnoreuse
+
+/src_layer {
+IRIDB (phl_hyd_lakes_rwdb) (src_layer) [(uniq_id)] open_column_by
+/long_name (Layer) def
+}defasvarsilentnoreuse
+
+/src_rank {
+IRIDB (phl_hyd_lakes_rwdb) (src_rank) [(uniq_id)] open_column_by
+/long_name (Rank) def
+}defasvarsilentnoreuse
+
+/swb_flag {
+IRIDB (phl_hyd_lakes_rwdb) (swb_flag) [(uniq_id)] open_column_by
+/long_name (Flag) def
+}defasvarsilentnoreuse
+
+/type_code {
+IRIDB (phl_hyd_lakes_rwdb) (type_code) [(uniq_id)] open_column_by
+/long_name (Type Code) def
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (phl_hyd_lakes_rwdb) (geom) [(uniq_id)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (phl_hyd_lakes_rwdb) ((bnd_name ||', '|| bnd_type) as label) [(uniq_id)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+swb_flag .uniq_id name exch def
+
+\end{ingrid}

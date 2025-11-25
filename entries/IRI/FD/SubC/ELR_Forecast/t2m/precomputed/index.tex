@@ -1,0 +1,137 @@
+\begin{ingrid}
+
+
+(iri.columbia.edu/terms/forecast/1) cvn datadownloadsareRestricted
+/Cookie varies_on
+
+continuedataset:
+
+(iri.columbia.edu/terms/forecast/1) cvn datadownloadsareRestricted
+/Cookie varies_on
+
+/description (pre-computed probabilistic forecasts) def
+
+/probaNEcx15 {
+ SOURCES .IRI .FD .SubC .ELR_Forecast .t2m
+  mark ELR_coeffs {name dup /fcstmean eq 1 index /paramfcst2 eq or 1 index /paramclim eq or exch /ELR_coeffs eq or {pop}{.target_date}ifelse}{pop}foralldatasets2
+      counttomark
+       1 sub
+       {[S]regridLB nip}repeat
+    exch
+    ELR_coeffs {pop}{name /target_date eq {pop}{ dup null eq {pop}if}ifelse}foralldatasets2 counttomark
+              3 div
+              {3 array astore counttomark 1 roll}repeat
+       counttomark array astore
+     dup
+      0 get
+      aload pop
+        pop
+       nip a:
+        ind 2 VALUE
+        ind removeGRID
+        :a:
+         ind 0 VALUE
+         ind removeGRID
+         :a
+       15
+        100.0 div
+        dup
+         -1.0 mul
+         1.0 add
+         div
+        ln exch sub
+       exch div
+      dup dataflag
+       1 masklt
+       exch
+       0.0 max
+       mul
+      exch
+      {aload pop nip a: ind 2 VALUE ind removeGRID :a: ind 0 VALUE ind removeGRID :a: ind 1 VALUE ind removeGRID :a 4 -1 roll mul add exch counttomark 1 sub index mul add eexp dup 1.0 add div}forall counttomark
+         1 sub
+         dup
+          1 add
+          1 roll
+         counttomark
+          3 sub
+          {add}repeat
+       exch div
+
+startcolormap DATA 0 1 RANGE transparent IndianRed IndianRed 0 VALUE red 15 100.0 div  0.05 sub 3.0 div VALUE orange 0.15 0.05 sub 3.0 div 2.0 mul VALUE yellow 0.15 0.05 sub VALUE moccasin RGBdup 0.15 0.05 add bandmax azure 0.15 0.05 add 0.005 add VALUE LightSkyBlue 0.15 0.05 add 2.0 mul 1.0 add 3.0 div VALUE blue 0.15 0.05 add 2.0 add 3.0 div VALUE purple 1 VALUE purple endcolormap
+
+     /long_name (Probability of non-exceeding 15th %-ile) def
+      4 {nip}repeat
+}defasvar
+
+/probaExc85 {
+ SOURCES .IRI .FD .SubC .ELR_Forecast .t2m
+  mark ELR_coeffs {name dup /fcstmean eq 1 index /paramfcst2 eq or 1 index /paramclim eq or exch /ELR_coeffs eq or {pop}{.target_date}ifelse}{pop}foralldatasets2
+      counttomark
+       1 sub
+       {[S]regridLB nip}repeat
+    exch
+    ELR_coeffs {pop}{name /target_date eq {pop}{ dup null eq {pop}if}ifelse}foralldatasets2 counttomark
+              3 div
+              {3 array astore counttomark 1 roll}repeat
+       counttomark array astore
+     dup
+      0 get
+      aload pop
+        pop
+       nip a:
+        ind 2 VALUE
+        ind removeGRID
+        :a:
+         ind 0 VALUE
+         ind removeGRID
+         :a
+       85
+        100.0 div
+        dup
+         -1.0 mul
+         1.0 add
+         div
+        ln exch sub
+       exch div
+      dup dataflag
+       1 masklt
+       exch
+       0.0 max
+       mul
+      exch
+      {aload pop nip a: ind 2 VALUE ind removeGRID :a: ind 0 VALUE ind removeGRID :a: ind 1 VALUE ind removeGRID :a 4 -1 roll mul add exch counttomark 1 sub index mul add eexp dup 1.0 add div}forall counttomark
+         1 sub
+         dup
+          1 add
+          1 roll
+         counttomark
+          3 sub
+          {add}repeat
+       exch div
+      -1 mul
+      1 add
+
+startcolormap DATA 0 1 RANGE transparent purple RGBdup 0 VALUE blue 85  100.0 div -1 mul 1 add  0.05 sub 3.0 div VALUE LightSkyBlue 0.15 0.05 sub 3.0 div 2.0 mul VALUE azure 0.15 0.05 sub VALUE moccasin RGBdup 0.15 0.05 add bandmax yellow 0.15 0.05 add 0.005 add VALUE orange 0.15 0.05 add 2.0 mul 1.0 add 3.0 div VALUE red 0.15 0.05 add 2.0 add 3.0 div VALUE IndianRed 1 VALUE IndianRed endcolormap
+
+     /long_name (Probability of exceeding 85th %-ile) def
+      4 {nip}repeat
+}defasvar
+
+/target_date {
+ SOURCES .IRI .FD .SubC .ELR_Forecast .t2m
+  mark ELR_coeffs {name dup /fcstmean eq 1 index /paramfcst2 eq or 1 index /paramclim eq or exch /ELR_coeffs eq or {pop}{.target_date}ifelse}{pop}foralldatasets2
+      counttomark
+       1 sub
+       {[S]regridLB nip}repeat
+    nip nip
+/long_name (forecast time) def
+}defasvarsilent
+
+:dataset
+
+target_date .S name exch def
+target_date .L name exch def
+probaExc85 .X name exch def
+probaExc85 .Y name exch def
+
+\end{ingrid}

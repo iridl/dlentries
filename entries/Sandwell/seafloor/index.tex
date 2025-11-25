@@ -1,0 +1,33 @@
+Note 72.009 is the lat of the last point -- because of the projection
+Y is not otherwise latitude.
+\begin{ingrid}
+continuedataset:
+/description (Measured and estimated seafloor topography) def
+/version (6.2) def
+grid: /name /X def 
+/units /degreeE def
+periodic 
+0.0166666667 360. 1 index sub  N= 10800 pts :grid 
+grid: /name /Y def
+/long_name (North) def 
+/units (ln(tan(pi/4+lat/2))*39.06657) def
+-72.0009 to 72.0009 N= 6336 pts :grid 
+variable:
+/name /height cvx def
+/long_name (topography) def
+/units (m) def
+grids: X | Y :grids
+file:
+i*2
+/name (/Data/data5/topo/sandwell/topo_6.2R.img) def
+:file
+topographycolorscale
+:variable
+:dataset
+\end{ingrid}
+
+
+
+
+
+

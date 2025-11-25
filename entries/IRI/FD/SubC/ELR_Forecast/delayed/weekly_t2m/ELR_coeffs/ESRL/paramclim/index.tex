@@ -1,0 +1,54 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (ELR climatological coefficients) def
+
+grid:
+/name /S def
+/long_name (Start Time) def
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+%/netcdfgrid true def
+30 Apr 2021 julian_day 01 Jan 1960 julian_day sub
+7
+systemtime
+(%d %b %Y) 12 strftime interp julian_day
+    30
+        Apr 2021 julian_day
+        sub
+       7 div
+       1 add
+       7 mul
+       2 index add
+4 7 mul sub
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+S
+/expires
+S last 4 7 mul add 6 add cvsunits nip interp exch 0.5 add 4 -2 roll exch pop ymd2systemtime
+def
+name exch def
+
+/expires S .expires def
+
+/target_date {S
+SOURCES .IRI .FD .SubC .ELR_Forecast .weekly_t2m .ELR_coeffs .ESRL .paramclim .L
+add /long_name (forecast time) def /pointwidth 7 def} defasvarsilent
+
+/temperature {
+SOURCES .IRI .FD .SubC .ELR_Forecast .weekly_t2m .ELR_coeffs .ESRL .paramclim .temperature
+S first target_date .S .last RANGE
+/expires target_date .S .expires def
+}defasvarsilent
+
+:dataset
+
+temperature .X name exch def
+temperature .Y name exch def
+temperature .L name exch def
+temperature .ind name exch def
+
+\end{ingrid}

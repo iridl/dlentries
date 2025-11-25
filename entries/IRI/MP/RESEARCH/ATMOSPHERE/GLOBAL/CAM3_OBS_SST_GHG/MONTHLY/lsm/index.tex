@@ -1,0 +1,891 @@
+\begin{ingrid}
+continuedataset:
+
+[ lon lat M time ] {name exch def} forall
+/description (land surface model) def
+/source (Community Land Model: CLM2) def
+\end{ingrid}
+grid:
+/name (lon)def
+/units (degree_east)def
+ 0.0 2.8125 357.1875
+:grid
+grid:
+/name (lat)def
+/units (degree_north)def
+values: -87.8638 -85.096527 -82.312912 -79.525604 -76.7369 -73.947517 -71.157753 -68.36776 -65.577606 -62.787354 -59.997021 -57.206631 -54.416199 -51.625732 -48.835239 -46.044727 -43.254196 -40.46365 -37.673088 -34.882523 -32.091946 -29.301359 -26.510769 -23.720175 -20.929575 -18.138971 -15.348365 -12.557756 -9.7671452 -6.9765334 -4.1859207 -1.3953069 1.3953069 4.1859207 6.9765334 9.7671452 12.557756 15.348365 18.138971 20.929575 23.720175 26.510769 29.301359 32.091946 34.882523 37.673088 40.46365 43.254196 46.044727 48.835239 51.625732 54.416199 57.206631 59.997021 62.787354 65.577606 68.36776 71.157753 73.947517 76.7369 79.525604 82.312912 85.096527 87.8638 :values
+:grid
+
+
+/Area{
+[ lon lat | M time ] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (area) def
+ /units /km^2 def
+ /long_name (grid cell areas) def
+/realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+
+\begin{ingrid}
+grid:
+/name (levsoi)def
+/units (m)def
+values: 0.007100635 0.027925 0.06225858 0.1188651 0.2121934 0.3660658 0.6197585 1.038027 1.7276353 2.8646071 :values
+:grid
+ /BSW{
+[ lon lat | levsoi M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc)
+[M time] readdatafile:
+/name (BSW) def
+ /units /unitless def
+ /missing_value 9.99999962E35 def
+ /long_name (slope of soil water retention curve) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+\end{ingrid}
+
+grid:
+/name (time)def
+/units (days since 1944-09-01 00:00:00)def
+/calendar /365 def
+values: 1613. :values
+:grid
+\begin{ingrid}
+ /BTRAN{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (BTRAN) def
+ /units /unitless def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (transpiration beta factor) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+
+ /date_written{
+[ | time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (date_written) def
+ /units /unitless def
+ /stringtype 8 netcdfrecords :readdatafile
+}defasvarsilent
+\begin{ingrid}
+
+ /DZSOI{
+[ lon lat | levsoi M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (DZSOI) def
+ /units /m def
+ /missing_value 9.99999962E35 def
+ /long_name (soil thickness) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /ELAI{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (ELAI) def
+ /units /unitless def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (exposed one-sided leaf area index) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+
+ /ERRH2O{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (ERRH2O) def
+ /units /mm def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (total water conservation error) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /ERRSEB{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (ERRSEB) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (surface energy conservation error) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /ERRSOI{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (ERRSOI) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (soil/lake energy conservation error) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /ERRSOL{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (ERRSOL) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (solar radiation conservation error) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /ESAI{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (ESAI) def
+ /units /unitless def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (exposed one-sided stem area index) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FCEV{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FCEV) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (canopy evaporation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /FCTR{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FCTR) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (canopy transpiration) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FGEV{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FGEV) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (ground evaporation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FGR{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FGR) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (heat flux into soil) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /FIRA{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FIRA) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (net infrared (longwave) radiation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FIRE{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FIRE) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (emitted infrared (longwave) radiation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FLDS{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FLDS) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (atmospheric longwave radiation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FPSN{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FPSN) def
+ /units (umol/m2s)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (photosynthesis) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSA{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSA) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (absorbed solar radiation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSDS{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSDS) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (atmospheric incident solar radiation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /FSDSND{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSDSND) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (direct nir incident solar radiation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSDSNDLN{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSDSNDLN) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (direct nir incident solar radiation at local noon) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSDSNI{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSDSNI) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (diffuse nir incident solar radiation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSDSVD{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSDSVD) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (direct vis incident solar radiation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSDSVDLN{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSDSVDLN) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (direct vis incident solar radiation at local noon) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSDSVI{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSDSVI) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (diffuse vis incident solar radiation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSH{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSH) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (sensible heat) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSH_G{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSH_G) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (sensible heat from ground) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSH_V{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSH_V) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (sensible heat from veg) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSM{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSM) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (snow melt heat flux) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSNO{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSNO) def
+ /units /unitless def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (fraction of ground covered by snow) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+
+ /FSR{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSR) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (reflected solar radiation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSRND{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSRND) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (direct nir reflected solar radiation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSRNDLN{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSRNDLN) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (direct nir reflected solar radiation at local noon) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSRNI{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSRNI) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (diffuse nir reflected solar radiation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSRVD{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSRVD) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (direct vis reflected solar radiation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSRVDLN{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSRVDLN) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (direct vis reflected solar radiation at local noon) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /FSRVI{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (FSRVI) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (diffuse vis reflected solar radiation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /H2OCAN{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (H2OCAN) def
+ /units /mm def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (intercepted water) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /H2OSNO{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (H2OSNO) def
+ /units /mm def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (snow depth (liquid water)) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /H2OSOI{
+[ lon lat levsoi | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (H2OSOI) def
+ /units /unitless def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (volumetric soil water) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /landfrac{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (landfrac) def
+ /long_name (land fraction) def
+ /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+
+ /landmask{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (landmask) def
+ /long_name (land/ocean mask (0.=ocean and 1.=land)) def
+ /units /unitless def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /latixy{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (latixy) def
+ /units /degree_north def
+ /long_name (latitude) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /longxy{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (longxy) def
+ /units /degree_east def
+ /long_name (longitude) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+\end{ingrid}
+ /mcdate{
+[ time |] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (mcdate) def
+ /logname (current date (YYYYMMDD)) def
+ /units /unitless def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /mcsec{
+[ time |] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (mcsec) def
+ /logname (current seconds of current date) def
+ /units /s def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /mdcur{
+[ time |] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (mdcur) def
+ /logname (current day (from base day)) def
+ /units /unitless def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /mscur{
+[ time |] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (mscur) def
+ /logname (current seconds of current day) def
+ /units /unitless def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /nstep{
+[ time |] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (nstep) def
+ /logname (time step) def
+ /units /unitless def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /numlon{
+[ lat |] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (numlon) def
+ /long_name (number of longitudes at each latitude) def
+ /units /unitless def
+ /integerarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+\begin{ingrid}
+ /Q2M{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (Q2M) def
+ /units /unitless def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (2m specific humidity) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+
+ /QBOT{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (QBOT) def
+ /units /unitless def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (atmospheric specific humidity) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /QDRAI{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (QDRAI) def
+ /units (mm/s)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (sub-surface drainage) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /QDRIP{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (QDRIP) def
+ /units (mm/s)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (throughfall) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /QINFL{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (QINFL) def
+ /units (mm/s)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (infiltration) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /QINTR{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (QINTR) def
+ /units (mm/s)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (interception) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /QMELT{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (QMELT) def
+ /units (mm/s)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (snow melt) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /QOVER{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (QOVER) def
+ /units (mm/s)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (surface runoff) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /QRGWL{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (QRGWL) def
+ /units (mm/s)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (surface runoff at glaciers, wetlands, lakes) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /QSOIL{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (QSOIL) def
+ /units (mm/s)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (ground evaporation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /QVEGE{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (QVEGE) def
+ /units (mm/s)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (canopy evaporation) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /QVEGT{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (QVEGT) def
+ /units (mm/s)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (canopy transpiration) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /RAIN{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (RAIN) def
+ /units (mm/s)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (atmospheric rain) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /RSSHA{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (RSSHA) def
+ /units (s/m)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: minimum) def
+ /long_name (shaded leaf stomatal resistance) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /RSSUN{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (RSSUN) def
+ /units (s/m)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: minimum) def
+ /long_name (sunlit leaf stomatal resistance) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /SABG{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (SABG) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (solar rad absorbed by ground) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /SABV{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (SABV) def
+ /units (W/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (solar rad absorbed by veg) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /SNOW{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (SNOW) def
+ /units (mm/s)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (atmospheric snow) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /SNOWAGE{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (SNOWAGE) def
+ /units /unitless def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (snow age) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /SNOWDP{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (SNOWDP) def
+ /units /m def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (snow height) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /SNOWICE{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (SNOWICE) def
+ /units (kg/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (snow ice) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /SNOWLIQ{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (SNOWLIQ) def
+ /units (kg/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (snow liquid water) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /SOILICE{
+[ lon lat levsoi | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (SOILICE) def
+ /units (kg/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (soil ice) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /SOILLIQ{
+[ lon lat levsoi | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (SOILLIQ) def
+ /units (kg/m2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (soil liquid water) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+
+ /SUCSAT{
+[ lon lat | levsoi M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (SUCSAT) def
+ /units /mm def
+ /missing_value 9.99999962E35 def
+ /long_name (saturated soil matric potential) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+
+ /TAUX{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (TAUX) def
+ /units (kg/m/s^2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (zonal surface stress) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TAUY{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (TAUY) def
+ /units (kg/m/s^2)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (meridional surface stress) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TBOT{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (TBOT) def
+ /units /Kelvin_scale def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (atmospheric air temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TG{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (TG) def
+ /units /Kelvin_scale def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (ground temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /THBOT{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (THBOT) def
+ /units /Kelvin_scale def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (atmospheric air potential temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+grid:
+/name (hist_interval)def
+/units (unitless)def
+ 1. 1. 2.
+:grid
+ /time_bounds{
+[ hist_interval | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (time_bounds) def
+ /logname (history time interval endpoints) def
+ /units /unitless def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /time_written{
+[ | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (time_written) def
+ /units /unitless def
+ /stringtype 8 netcdfrecords :readdatafile
+}defasvarsilent
+ /TLAKE{
+[ lon lat levsoi | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (TLAKE) def
+ /units /Kelvin_scale def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (lake temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TREFMNAV{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (TREFMNAV) def
+ /units /Kelvin_scale def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (daily minimum of average 2-m temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TREFMXAV{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (TREFMXAV) def
+ /units /Kelvin_scale def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (daily maximum of average 2-m temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TSA{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (TSA) def
+ /units /Kelvin_scale def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (2m air temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TSNOW{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (TSNOW) def
+ /units /Kelvin_scale def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (snow temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TSOI{
+[ lon lat levsoi | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (TSOI) def
+ /units /Kelvin_scale def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (soil temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /TV{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (TV) def
+ /units /Kelvin_scale def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (vegetation temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /WATSAT{
+[ lon lat | levsoi M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (WATSAT) def
+ /units /unitless def
+ /missing_value 9.99999962E35 def
+ /long_name (saturated soil water content (porosity)) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /WIND{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (WIND) def
+ /units (m/s)cvn def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (atmospheric wind velocity magnitude) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /ZBOT{
+[ lon lat | M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (ZBOT) def
+ /units /m def
+ /missing_value 9.99999962E35 def
+ /cell_method (time: mean) def
+ /long_name (atmospheric reference height) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /ZSOI{
+[ lon lat | levsoi M time] (/Data/data1/iri/forecast/data/cam3/longrun/post/%2.2d[M]/camrun.clm2.h0.%Y-%m[time].nc) [M time] readdatafile:
+/name (ZSOI) def
+ /units /m def
+ /missing_value 9.99999962E35 def
+ /long_name (soil depth) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,204 @@
+<html><head>
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+  <title>CRU TS3.21: Climatic Research Unit (CRU) Time-Series (TS) Version 3.21 of High Resolution Gridded Data of Month-by-month Variation in Climate (Jan. 1901 - Dec. 2012)</title>
+<link rel="stylesheet" type="text/css" href="/site.css" >
+</head>
+<INGRID>standardHeader</INGRID>
+  <body>
+    <h1>CRU TS3.21: Climatic Research Unit (CRU) Time-Series (TS) Version 3.21 of High Resolution Gridded Data of Month-by-month Variation in Climate (Jan. 1901 - Dec. 2012)</h1>
+<p>
+Climatic Research Unit (CRU) TS (time-series) datasets are month-by-month variations in climate over the last century or so. These are calculated on high-resolution (0.5x0.5 degree) grids, which are based on an archive of monthly average daily maximum and minimum temperatures provided by more than 4000 weather stations distributed around the world. They allow variations in climate to be studied. CRU TS 3.21 variables are cloud cover, diurnal temperature range, frost day frequency, PET, precipitation, daily mean temperature, monthly average daily maximum and minimum temperature, vapour pressure and wet day frequency for the period Jan. 1901 - Dec. 2012. In addition to updating the dataset with 2012 data, the v3.21 release corrects two errors in the v3.20 dataset.
+This data is citable (DOI: 10.5285/D0E1585D-3417-485F-87AE-4FCECF10A992).
+<p>
+CRU Conditions of use states that acknowledgement should preferably be by citing one or more of the papers referenced (see Links and References section below).
+<p>
+<h2>Citation</h2>
+University of East Anglia Climatic Research Unit (CRU). [Phil Jones, Ian Harris]. CRU TS3.21: Climatic Research Unit (CRU) Time-Series (TS) Version 3.21 of High Resolution Gridded Data of Month-by-month Variation in Climate (Jan. 1901 - Dec. 2012), [Internet]. NCAS British Atmospheric Data Centre, 2013, Date of citation. Available from http://badc.nerc.ac.uk/view/badc.nerc.ac.uk__ATOM__ACTIVITY_0c08abfc-f2d5-11e2-a948-00163e251233 ; doi: 10.5285/D0E1585D-3417-485F-87AE-4FCECF10A992
+<p>
+<h2>Links and References</h2>
+<UL><strong>Links:</strong>
+
+<p>
+  <LI>The <a href="http://www.cru.uea.ac.uk/">Climatic Research Unit</a> at the University of East Anglia .    
+  <LI>The <a href="http://hadobs.metoffice.com/">Hadley Centre observations</a> web pages 
+</UL>
+
+<UL><strong>CRU TS References:</strong>
+
+<br><br><li>A reference paper is in press for CRU TS3.10: 
+<p>
+Harris, I., Jones, P.D., Osborn, T.J., and Lister, D.H., 2013: <a href="http://onlinelibrary.wiley.com/doi/10.1002/joc.3711/abstract">Updated high-resolution grids of monthly climatic observations.</a> In press, Int. J. Climatol., Doi: 10.1002/joc.3711
+
+<br><br><li>For CRU TS2.1: Mitchell and Jones, 2005: <a href="http://onlinelibrary.wiley.com/doi/10.1002/joc.1181/abstract">An improved method of constructing a database of monthly climate observations and associated high-resolution grids.</a> Int. J. Climatology, 25, 693-712, Doi: 10.1002/joc.1181.
+
+<br><br><li>For CRU TS1.2 and CRU TS2.0: Mitchell, T. D., et al, 2003: <a href="http://www.tyndall.ac.uk/publications/working_papers/wp55.pdf">A comprehensive set of climate scenarios for Europe and the globe.</a> Tyndall Centre Working Paper 55.
+
+<br><br><li>For CRU TS1.0 and CRU TS1.1: New, M., Hulme, M. and Jones, P.D., 2000: <a href="http://dx.doi.org/10.1175/1520-0442(2000)013<2217:RTCSTC>2.0.CO;2">Representing twentieth century space-time climate variability. Part 2: development of 1901-96 monthly grids of terrestrial surface climate.</a>Journal of Climate 13, 2217-2238, DOI:10.1175/1520-0442(2000)013<2217:RTCSTC>2.0.CO;2
+
+</UL>
+
+<p>
+<h2>Documentation from "Release_Notes_CRU_TS3.21_updated_17092013.txt" and "CRU_Advisory_v3.2x_NE_Africa.txt" Files</h2>
+<p>
+<h3>Release_Notes_CRU_TS3.21_updated_17092013.txt</h3>
+<p>
+<pre>
+
+RELEASE NOTES FOR CRU TS v3.21: 16 July 2013
+
+************************
+Updated 17 September 2013 
+files added:
+comparison.cruts321vs321mozfix.PRE.pdf
+comparison.cruts321vs321mozfix.WET.pdf
+CRU_Advisory_v3.2x_NE_Africa.txt
+
+These should be read by all users
+
+************************
+
+The 3.21 release of the CRU TS dataset covers the period 1901-2012. It
+supercedes all earlier releases.
+
+Differences between CRU TS v3.20 and v3.21
+
+Summary
+
+In addition to updating the dataset with 2012 data, the v3.21 release
+corrects two errors in the v3.20 dataset. These are described in detail
+below. Areal means based on country boundaries have been constructed to
+aid comparison: 'comparison.cruts320vs321.PRE.pdf' and
+'comparison.cruts320vs321.WET.pdf'.
+
+1. WMO Code Error (All dates, PRE and WET variables only)
+
+A bespoke update of the precipitation observations database in
+December 2011 resulted in the corruption of some European station codes.
+This resulted in the observations from a number of European stations
+being relocated to countries in the Equatorial 'band'. The v3.20 release
+was based on this partially-corrupted database, affecting both PRE and
+WET (since WET is partially generated using synthetics derived from
+PRE). Both gridded data files and station files were affected. The
+relevant observations database was, of course, also affected.
+
+The files affected are as follows:
+
+All files beginning cru_ts3.20, for PRE and WET only
+pre.1207171231.clean.dtb
+
+In general, the station relocations took place to and from areas already
+served by numerous stations, absorbing any potential changes. However,
+there are exceptions:
+. Where the European station extends back further in time than any of
+the stations in the 'destination' region.
+. Where local station density in the 'destination' region is low.
+. Where local station density in the 'source' region is low.
+
+Many countries appear to have been affected in very minor ways, but some
+precipitation means have been affected in more noticeable (and perhaps
+significant, depending on context) ways:
+
+Colombia: 1901-1910
+Venezuela: 1901-1920
+Gabon: 1920-1940
+Congo: 1901-1940
+Tajikistan: 2005-2011
+Israel: 2005-2011
+Bulgaria: 1901-1940 and 1990-2011
+Czech Republic: 2005-2011
+Andorra: throughout
+
+For wet days, the countries most affected are:
+
+Bioko: 1915-1925
+Gabon: 1930-1940
+Cabinda: 1901-1940
+Congo: 1915-1940
+Socotra: 1925-1940
+Georgia: 1920-1930
+
+The recently-released precipitation database file for v3.20 is:
+
+pre.1207171231.clean.dtb
+
+This includes the corrupted metadata, and so will remain available to
+assist in any analysis of the issue.
+
+
+2. Missing Observations (April-August 2011; PRE and WET variables only)
+
+An error in the database update process resulted in four almost-
+completely missing months in the PRE observation database: April thru
+August 2011 (inclusive). The dataset production process took the
+predefined approach for sparse areas and substituted the 1961-1990
+monthly climatology for these months, so the error was not immediately
+apparent. The error propagated to the WET variable because of its
+dependence on the PRE variable.
+
+The files affected are as follows:
+
+All files beginning cru_ts3.20, for PRE and WET only
+pre.1207171231.clean.dtb
+
+
+Ian Harris
+Climatic Research Unit
+School of Environmental Sciences
+University of East Anglia
+Norwich
+NR4 7TJ
+
+</pre>
+<p>
+<h3>CRU_Advisory_v3.2x_NE_Africa.txt</h3>
+<p>
+<pre>
+
+CRU TS/CY ADVISORY NOTE: 29 August 2013
+
+Scope
+
+This advisory relates to the v3.20 and v3.21 releases of the CRU TS
+dataset, and to the v3.21 release of the CRU CY dataset. It concerns a
+spatial area of Northeast Africa, for the PRE and WET variables only.
+
+Summary
+
+An error has been detected in new Mozambigue precipitation observations
+introduced in 2011 for the v3.20 dataset and continuing to be used in
+the v3.21 dataset. The new stations had the signs of their latitudes
+swapped, so that they appeared north of the equator instead of south of
+it. Thus, the erroneous station data affects cells in an area
+corresponding to Mozambique if it were 'mirrored' in the equator.
+
+The error impacts on both PRE and WET data (as WET is derived from PRE).
+
+An examination of the error found 35 new stations that had been
+incorrectly located. A test run using corrected data was used to
+construct annual averages for each country, allowing comparison with
+the published data (v3.21). Comparison plots are available as:
+
+comparison.cruts321vs321mozfix.PRE.pdf
+comparison.cruts321vs321mozfix.WET.pdf
+
+A visual inspection identifies Eritrea and Egypt as those countries
+showing the greatest changes, though some others show small differences
+in one or two years.
+
+Action
+
+Users who feel their work may be affected by this error should make
+contact via BADC. At this time there are no plans to issue corrections,
+since the next scheduled release (3.22, covering 1901-2013) will
+incorporate these. Urgent requests for corrected data will, however, be
+viewed sympathetically.
+
+Ian Harris
+CRU, UEA, Norwich, UK
+29 August 2013
+
+</pre>
+<p>
+
+
+</body></html>

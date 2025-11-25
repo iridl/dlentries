@@ -1,0 +1,13 @@
+#! /bin/sh
+# arg 1 is lowercase month (3 letters)
+# arg 2 is 2 digit year
+cd /Data/data8/noaa/grdl/topex
+date=`./topexenddate`
+echo "seeking $date"
+cd topex_monthly_dev
+if ./updatetopex $date; then
+cd ../topex_monthly_anom
+./updatetopex $date
+else
+echo "not yet ready"
+fi

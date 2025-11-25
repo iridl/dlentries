@@ -1,0 +1,86 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/ver1{ v9912 .ver1 }def
+/ver2{ v9912 .ver2 }def
+:datasetdefs
+{v0107 v0203 v0207 v0309 v0312 v0407 v0411 v0507 v0511 v0605 v0610 v0703 v0802 v0806 v0809 v1001 v1101
+v1201 v1504 v1611 v1807 v1903 v1910 v1911 v1912 latest_rotating
+v9912}
+{ currentobject 1 index get def} forall
+/latest { latest_rotating } defasvar
+:dataset
+\end{ingrid}
+
+grid: 
+/name /X def
+degE
+periodic
+1.25 2.5 358.75
+:grid
+grid:
+/name /Y def
+degN
+-88.75 2.5 88.75
+:grid
+grid:
+/name /T def
+/units (monthtime) def
+16 Jan 1979 ensotime
+1.
+16  Dec        1999 ensotime % enddate
+:grid
+dataset:
+/name /ver1 def
+/long_name (Version 1) def
+/description (using rain gauge , satellite, and  Numerical Model Predictions) def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/units (mm/day) def
+/missing_value -999. def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cac/cmap/monthly/xie.rain1.r4) def
+:file
+:variable
+variable:
+/name /error def
+/units (percent) def
+/missing_value -999. def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cac/cmap/monthly/xie.err1.r4) def
+:file
+:variable
+:dataset
+dataset:
+/name /ver2 def
+/long_name (Version 2)def
+/description (using rain gauge and satellite estimates) def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/units (mm/day) def
+/missing_value -999. def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cac/cmap/monthly/xie.rain2.r4) def
+:file
+:variable
+variable:
+/name /error def
+/units (percent) def
+/missing_value -999. def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data5/noaa/cac/cmap/monthly/xie.err2.r4) def
+:file
+:variable
+:dataset
+:dataset
+\end{ingrid}

@@ -1,0 +1,19 @@
+\begin{ingrid}
+
+continuedataset:
+
+/prcp {
+SOURCES .NOAA .NCEP .CPC .GOB .V0px .daily .RETRO .prcp
+T monthlyAverage
+SOURCES .NOAA .NCEP .CPC .GOB .V0px .daily .REALTIME .prcp
+T monthlyAverage
+appendstream
+  T (days since 1960-01-01) streamgridunitconvert
+  T differential_mul
+  T (months since 1960-01-01) streamgridunitconvert
+  /units (mm/month) def
+} defasvarsilent
+
+:dataset
+
+\end{ingrid}

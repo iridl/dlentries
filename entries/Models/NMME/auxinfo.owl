@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE uridef[
+  <!ENTITY owl "http://www.w3.org/2002/07/owl">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema">
+  <!ENTITY iridl "http://iridl.ldeo.columbia.edu/ontologies/iridl.owl">
+  <!ENTITY iridlsem "http://iridl.ldeo.columbia.edu/ontologies/iridlsemantics.owl">
+]>
+
+<rdf:RDF
+  xmlns:owl  ="http://www.w3.org/2002/07/owl#"
+  xmlns:rdf  ="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs ="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:xsd  ="http://www.w3.org/2001/XMLSchema#"
+    xmlns:cfatt="http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#"
+    xmlns:iridl="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#"
+    xmlns:gcmdi="http://marinemetadata.org/2005/08/gcmd-inst#"
+    xmlns:iriref="http://iridl.ldeo.columbia.edu/ontologies/ReferenceList.owl#"
+    xmlns:term="http://iridl.ldeo.columbia.edu/ontologies/iriterms.owl#"
+    xmlns:irigaz="http://iridl.ldeo.columbia.edu/ontologies/irigaz.owl#"
+    xmlns:gcmd="http://marinemetadata.org/2005/08/gcmd-keyw#"
+    xmlns:iridlauth="http://iridl.ldeo.columbia.edu/ontologies/AuthorizationRealms.owl#"
+    xmlns:iridlsemantics="http://iridl.ldeo.columbia.edu/ontologies/iridlsemantics.owl#"
+    xmlns:gcmdp="http://marinemetadata.org/2005/08/gcmd-platf#"
+>
+
+<owl:Ontology rdf:about="">
+ <owl:versionInfo>$Id$</owl:versionInfo>
+ <rdfs:comment>
+ </rdfs:comment>
+ <owl:imports rdf:resource="rdf.xml"/>
+</owl:Ontology>
+<rdf:Description rdf:about="/SOURCES/.Models/.NMME/">
+  <term:isDescribedBy rdf:resource="&iridlsem;#NMME" />
+</rdf:Description>
+<rdf:Description rdf:about=".IRI-ECHAM4p5-AnomalyCoupled/">
+  <term:isDescribedBy rdf:resource="&iridlsem;#NMME" />
+  <term:isDescribedBy rdf:resource="&iridl;#IRI" />
+  <term:isDescribedBy rdf:resource="&iridl;#ECHAM4p5" />
+</rdf:Description>
+<rdf:Description rdf:about=".IRI-ECHAM4p5-DirectCoupled/">
+  <term:isDescribedBy rdf:resource="&iridlsem;#NMME" />
+  <term:isDescribedBy rdf:resource="&iridl;#IRI" />
+  <term:isDescribedBy rdf:resource="&iridl;#ECHAM4p5" />
+</rdf:Description>
+<rdf:Description rdf:about=".NCEP-CFSv1/">
+  <term:isDescribedBy rdf:resource="&iridlsem;#NMME" />
+  <term:isDescribedBy rdf:resource="&iridl;#NCEP" />
+  <term:isDescribedBy rdf:resource="&iridl;#CFSv1" />
+</rdf:Description>
+<rdf:Description rdf:about=".NCEP-CFSv2/">
+  <term:isDescribedBy rdf:resource="&iridlsem;#NMME" />
+  <term:isDescribedBy rdf:resource="&iridl;#NCEP" />
+  <term:isDescribedBy rdf:resource="&iridl;#CFSv2" />
+</rdf:Description>
+<rdf:Description rdf:about=".GFDL-CM2p1/">
+  <term:isDescribedBy rdf:resource="&iridlsem;#NMME" />
+  <term:isDescribedBy rdf:resource="&iridl;#GFDL" />
+  <term:isDescribedBy rdf:resource="&iridl;#CM2p1" />
+</rdf:Description>
+<rdf:Description rdf:about=".GFDL-CM2p1-aer04/">
+  <term:isDescribedBy rdf:resource="&iridlsem;#NMME" />
+  <term:isDescribedBy rdf:resource="&iridl;#GFDL" />
+  <term:isDescribedBy rdf:resource="&iridl;#CM2p1-aer04" />
+</rdf:Description>
+<rdf:Description rdf:about=".GFDL-CM2p5-FLOR-A06/">
+  <term:isDescribedBy rdf:resource="&iridlsem;#NMME" />
+  <term:isDescribedBy rdf:resource="&iridl;#GFDL" />
+  <term:isDescribedBy rdf:resource="&iridl;#CM2p5-FLOR-A06" />
+</rdf:Description>
+<rdf:Description rdf:about=".GFDL-CM2p5-FLOR-B01/">
+  <term:isDescribedBy rdf:resource="&iridlsem;#NMME" />
+  <term:isDescribedBy rdf:resource="&iridl;#GFDL" />
+  <term:isDescribedBy rdf:resource="&iridl;#CM2p5-FLOR-B01" />
+</rdf:Description>
+<rdf:Description rdf:about=".COLA-RSMAS-CCSM3/">
+  <term:isDescribedBy rdf:resource="&iridlsem;#NMME" />
+  <term:isDescribedBy rdf:resource="&iridl;#COLA" />
+  <term:isDescribedBy rdf:resource="&iridl;#RSMAS" />
+  <term:isDescribedBy rdf:resource="&iridl;#CCSM3" />
+</rdf:Description>
+<rdf:Description rdf:about=".COLA-RSMAS-CCSM4/">
+  <term:isDescribedBy rdf:resource="&iridlsem;#NMME" />
+  <term:isDescribedBy rdf:resource="&iridl;#COLA" />
+  <term:isDescribedBy rdf:resource="&iridl;#RSMAS" />
+  <term:isDescribedBy rdf:resource="&iridl;#CCSM4" />
+</rdf:Description>
+<rdf:Description rdf:about=".NASA-GMAO/">
+  <term:isDescribedBy rdf:resource="&iridlsem;#NMME" />
+  <term:isDescribedBy rdf:resource="&iridl;#NASA" />
+  <term:isDescribedBy rdf:resource="&iridl;#GMAO" />
+</rdf:Description>
+<rdf:Description rdf:about=".CMC1-CanCM3/">
+  <term:isDescribedBy rdf:resource="&iridlsem;#NMME" />
+  <term:isDescribedBy rdf:resource="&iridl;#CCCma" />
+  <term:isDescribedBy rdf:resource="&iridl;#CanCM3" />
+</rdf:Description>
+<rdf:Description rdf:about=".CMC2-CanCM4/">
+  <term:isDescribedBy rdf:resource="&iridlsem;#NMME" />
+  <term:isDescribedBy rdf:resource="&iridl;#CCCma" />
+  <term:isDescribedBy rdf:resource="&iridl;#CanCM4" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#GMAO">
+<term:label>GMAO</term:label>
+<rdf:type rdf:resource="&iridl;#Model" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#ECHAM4p5-AnomalyCoupled">
+<term:label>ECHAM4p5-AnomalyCoupled</term:label>
+<rdf:type rdf:resource="&iridl;#Model" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#ECHAM4p5-DirectCoupled">
+<term:label>ECHAM4p5-DirectCoupled</term:label>
+<rdf:type rdf:resource="&iridl;#Model" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#CFSv1">
+<term:label>CFSv1</term:label>
+<rdf:type rdf:resource="&iridl;#Model" />
+<term:directlyImplies rdf:resource="&iridl;#CFS" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#CFSv2">
+<term:label>CFSv2</term:label>
+<rdf:type rdf:resource="&iridl;#Model" />
+<term:directlyImplies rdf:resource="&iridl;#CFS" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#CM2p1">
+<term:label>CM2p1</term:label>
+<rdf:type rdf:resource="&iridl;#Model" />
+<term:directlyImplies rdf:resource="&iridl;#GFDLCM" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#CM2p1-aer04">
+<term:label>CM2p1-aer04</term:label>
+<term:directlyImplies rdf:resource="&iridl;#GFDLCM" />
+<rdf:type rdf:resource="&iridl;#Model" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#CM2p5-FLOR-A06">
+<term:label>CM2p5-FLOR-A06</term:label>
+<term:directlyImplies rdf:resource="&iridl;#GFDLCM" />
+<rdf:type rdf:resource="&iridl;#Model" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#CM2p5-FLOR-B01">
+<term:label>CM2p5-FLOR-B01</term:label>
+<term:directlyImplies rdf:resource="&iridl;#GFDLCM" />
+<rdf:type rdf:resource="&iridl;#Model" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#RSMAS">
+<term:label>RSMAS</term:label>
+<rdf:type rdf:resource="&iridl;#Institution" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#CCSM3">
+<term:label>CCSM3</term:label>
+<rdf:type rdf:resource="&iridl;#Model" />
+<term:directlyImplies rdf:resource="&iridl;#CCSM" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#CCSM4">
+<term:label>CCSM4</term:label>
+<rdf:type rdf:resource="&iridl;#Model" />
+<term:directlyImplies rdf:resource="&iridl;#CCSM" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#CCSM">
+<term:label>CCSM</term:label>
+<term:gloss>Community Climate System Model</term:gloss>
+<rdf:type rdf:resource="&iridl;#Model" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#GFDLCM">
+<term:label>GFDL CM</term:label>
+<term:gloss>GFDL Coupled Model</term:gloss>
+<rdf:type rdf:resource="&iridl;#Model" />
+<term:implies rdf:resource="&iridl;#GFDL" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#CanCM3">
+<term:label>CanCM3</term:label>
+<rdf:type rdf:resource="&iridl;#Model" />
+<term:directlyImplies rdf:resource="&iridl;#CanCM" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#CanCM4">
+<term:label>CanCM4</term:label>
+<rdf:type rdf:resource="&iridl;#Model" />
+<term:directlyImplies rdf:resource="&iridl;#CanCM" />
+</rdf:Description>
+<rdf:Description rdf:about="&iridl;#CanCM">
+<term:label>CanCM</term:label>
+<term:gloss>Canadian Climate Model</term:gloss>
+<rdf:type rdf:resource="&iridl;#Model" />
+<term:implies rdf:resource="&iridl;#CCCma" />
+</rdf:Description>
+
+<!-- Created: Thu Dec  8 10:40:33 2011 -->
+
+</rdf:RDF>

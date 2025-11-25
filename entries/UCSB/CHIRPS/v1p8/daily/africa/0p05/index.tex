@@ -1,0 +1,93 @@
+\begin{ingrid}
+continuedataset:  
+
+%% -50.00S --  50.00N Northward;
+%%         180.00W -- 180.00E Eastward  
+%%        7200 grid points in east - west direction
+%%        2000 grid points in south - north direction
+% -20 55-40 40
+
+datasetdefs:
+/prcp_dailyrate_max100_smooth {
+  startcolormap
+    0.0 100.0 RANGE
+    LightGrey white white
+       0.0 VALUE
+       LightCyan
+        2.0 VALUE
+        SkyBlue
+         4.0 VALUE
+         DodgerBlue
+          9.0 VALUE
+          MediumBlue
+           16.0 VALUE
+           DarkSeaGreen
+            25.0 VALUE
+            MediumSeaGreen
+             33.0 VALUE
+             LightSeaGreen
+              50.0 VALUE
+              khaki
+               67.0 VALUE
+               SandyBrown
+                83.0 VALUE
+                firebrick 100.0 VALUE
+                firebrick endcolormap
+} defcolorscale
+:datasetdefs
+
+link:
+/name (USGS Data Series 832) def
+/description (Reference paper PDF) def
+/href (http://pubs.usgs.gov/ds/832/) def
+:link
+
+link:
+/name (CHIRPS Home Page) def
+/description (CHIRPS page at UCSB Climate Hazards Group) def
+/href (http://chg.geog.ucsb.edu/data/chirps/) def
+:link 
+
+%latitude 
+grid: 
+/name /Y def 
+/units (degree_north) def
+ordered 
+40 0.05 2 div sub to -40 0.05 2 div add N= 1600 pts 
+:grid
+
+%longitude 
+grid: 
+/name /X def 
+/units (degree_east) def 
+periodic 
+-20 .025 add to 55 0.025 sub  N= 1500 pts 
+:grid
+grid:
+/name (T) def
+/standard_name (time) def
+/units (days since 1960-01-01 12:00:00) def
+/pointwidth 1 def
+01 Jan 1981 julian_day 01 Jan 1960 julian_day sub
+1.0
+31 Jan 2015 julian_day 01 Jan 1960 julian_day sub
+/defaultvalue {last} def
+:grid
+
+/precipitation{
+[X Y | T] 
+(/Data/ingridcache/ftp/chg-ftpout.geog.ucsb.edu/pub/org/chg/products/CHIRPS-1.8/africa_daily/tifs/africa_p05_tif/%Y[T]/chirps-v1.8.%Y[T].%m[T].%d[T].tif) [T]readdatafile:
+      /realarraytype tiffimage
+      /missing_value -9999.0 def
+/name (precipitation) def
+/long_name (precipitation) def
+/standard_name (lwe_precipitation_rate) def
+/units (mm/day) def
+      :readdatafile
+prcp_dailyrate_max100_smooth
+} defasvarsilent
+
+/references (Funk_etal2014) def
+
+:dataset
+\end{ingrid}

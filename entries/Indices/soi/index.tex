@@ -1,0 +1,128 @@
+\begin{ingrid}
+continuedataset:
+/long_name (Southern Oscillation Index) def
+/description (Southern Oscillation Index) def
+/iridl:hasSemantics [(iridl:SouthernOscillationIndex)(iridl:NOAA)(iriref:Cole_J)] def
+
+datasetdefs:
+/anomaly { c9120 .anomaly } def
+/standardized { c9120 .standardized } def
+:datasetdefs
+
+link:
+/name (updated source) def
+/href (http://www.cpc.ncep.noaa.gov/data/indices/soi) def
+/description (1951-present SOI series from CPC) def
+:link
+link:
+/name (CPC Indices) def
+/href (http://www.cpc.ncep.noaa.gov/data/indices/) def
+/description (U. S. Climate Prediction Center indices page) def
+:link
+link:
+/name (FAQ) def
+/href (http://www.cpc.ncep.noaa.gov/data/indices/Readme.index.shtml) def
+/description (FAQ regarding CPC indices) def
+:link
+
+dataset:
+ /name (c9120) def
+ /long_name (1991-2020 base period) def
+ /iridl:hasSemantics [(iridl:SouthernOscillationIndex)(iridl:NOAA)(iriref:Cole_J)] def
+
+ /anomaly {
+ SOURCES .Indices .Tahiti .slp .c9120 .standardized
+ SOURCES .Indices .Darwin .slp .c9120 .standardized
+ sub
+ /long_name (sea level pressure anomaly) def
+ /missing_value -999.9 def
+ } defasvar
+
+ /standardized {
+ SOURCES .Indices .Tahiti .slp .c9120 .standardized
+ SOURCES .Indices .Darwin .slp .c9120 .standardized
+ sub
+ dup
+ T (Jan 1991) (Dec 2020) RANGE
+ dup mul
+ [T]sum
+ 360 div
+ sqrt
+ div
+ /long_name (standardized slp difference) def
+ } defasvar
+
+:dataset
+
+ dataset:
+  /name (c8110) def
+  /long_name (1981-2010 base period) def
+  /iridl:hasSemantics [(iridl:SouthernOscillationIndex)(iridl:NOAA)(iriref:Cole_J)] def
+
+  /anomaly {
+  SOURCES .Indices .Tahiti .slp .c8110 .standardized
+  SOURCES .Indices .Darwin .slp .c8110 .standardized
+  sub
+  /long_name (sea level pressure anomaly) def
+  /missing_value -999.9 def
+  } defasvar
+
+  /standardized {
+  SOURCES .Indices .Tahiti .slp .c8110 .standardized
+  SOURCES .Indices .Darwin .slp .c8110 .standardized
+  sub
+  dup
+  T (Jan 1981) (Dec 2010) RANGE
+  dup mul
+  [T]sum
+  360 div
+  sqrt
+  div
+  /long_name (standardized slp difference) def
+  } defasvar
+
+ :dataset
+ 
+:dataset
+\end{ingrid}
+
+
+Replaced the following entry on gfs2geo1 on 25 Feb 2014
+
+
+continuedataset:
+/long_name (Southern Oscillation Index) def
+/description (Southern Oscillation Index) def
+/iridl:hasSemantics [(iridl:SouthernOscillationIndex)(iridl:NOAA)(iriref:Cole_J)] def
+grid:
+/name /T def
+monthtime
+16 Jan 1951 ensotime 1 
+16 Jan 2014 ensotime % enddate
+:grid
+variable:
+/name /anomaly def
+/long_name (sea level pressure anomaly) def
+/units (mb-1000) def
+/missing_value -999.9 def
+grids: T :grids
+file:
+/name (/Data/data1/noaa/indices/soi.anom) def
+/format ((4X,12f6.1)) def
+formatted
+:file
+:variable
+variable:
+/name /standardized def
+/long_name (standardized slp difference) def
+/missing_value -999.9 def
+grids: T :grids
+file:
+/name (/Data/data1/noaa/indices/soi.stan) def
+/format ((4X,12f6.1)) def
+formatted
+:file
+:variable
+:dataset
+\end{ingrid}
+

@@ -1,0 +1,221 @@
+\begin{ingrid}
+
+%For detailed commentaries see the temperature index.tex file. Here I will document only the specificities of that dataset
+
+%/CarterCenter dataareRestricted
+
+continuedataset:
+
+%This starts the definition of specific colorscales for this dataset
+%Go to the IRI Data Library tutorials to find out how to make colorscales
+
+Ingrid:
+
+/rfediff_colors { %starts teh definition of a colorscale names  rfediff_colors.
+startcolormap -150 150 RANGE
+DimGray sienna
+sienna -150 VALUE
+sienna sienna -100 bandmax
+peru peru -50 bandmax
+burlywood burlywood -25 bandmax
+wheat wheat -5 bandmax
+LightYellow LightYellow 5 bandmax
+LightCyan LightCyan 25 bandmax
+PaleTurquoise PaleTurquoise 50 bandmax
+MediumAquamarine MediumAquamarine 100 bandmax
+CadetBlue CadetBlue 150 bandmax
+CadetBlue
+endcolormap
+}defcolorscale %ends the definition of colorscales
+
+%the same for another colorscale
+
+/rfepercent_colors {
+startcolormap
+0 300 RANGE
+DimGray white SaddleBrown
+0 VALUE
+SaddleBrown SaddleBrown
+25 bandmax
+peru peru
+50 bandmax
+burlywood burlywood
+75 bandmax
+wheat wheat
+100 bandmax
+LightCyan LightCyan
+120 bandmax
+aquamarine aquamarine 140
+bandmax
+MediumAquamarine MediumAquamarine 160
+bandmax
+MediumSeaGreen MediumSeaGreen 180
+bandmax
+SeaGreen SeaGreen 200
+bandmax
+DarkSeaGreen DarkSeaGreen 300
+bandmax
+DarkSeaGreen endcolormap
+}defcolorscale
+
+pop %ends the definition of colorscales
+
+%datasetdefs:
+/T
+1 Jan 1983 julian_day
+31 Dec 2010 julian_day
+%systemtime (%d %b %Y) 12 strftime interp julian_day
+dekadGRID
+/defaultvalue { last } def
+def
+%:datasetdefs
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ 3.05 0.1 14.95
+:grid
+
+grid:
+/name (X)def
+/units (degree_east)def
+ 33.05 0.1 47.95
+:grid
+
+ /rfe_merged{
+[ X Y | T] (/data/jdcorral/Ethiopia/Eth_RR_Merged/mrgd%Y[T]_%m[T]-dk%-d[dekad].nc)
+[T dup day2dom 5. add 10. div toi4 /name /dekad def ]
+readdatafile:
+/name (merged) def
+/long_name (Merged Rain Fall Reconstruction) def
+/units /mm def
+/missing_value -9999 def
+/shortarraytype netcdfrecords
+:readdatafile
+cmorph_dekad_colors %applies a colorscale named cmorph_dekad_colors to the variable
+}defasvarcachesilent
+
+ /rfe_adj{
+[ X Y | T] (/Data/data23/NMA_Ethiopia/Eth_RR_Adj/adjusted_rfe%Y[T]_%m[T]-dk%-d[dekad].nc)
+[T dup day2dom 5. add 10. div toi4 /name /dekad def]
+readdatafile:
+/name (rfe) def
+/long_name (Adjusted Rain Fall Reconstruction) def
+/units /mm def
+/missing_value -9999 def
+/shortarraytype netcdfrecords
+:readdatafile
+cmorph_dekad_colors
+}defasvarcachesilent
+
+%This section defines variables that are computed from the variables that were read from datafiles. They don't read any actual datafiles, theyr are pure Ingrid code.
+
+/SPI-rfe_adj_1-dekad { %starts a varaible and names it
+SOURCES .Ethiopia .NMA .dekadal .rainfall .rfe_adj %selects the rfe_adf precipitation variable
+  1 36 gamma3par %starts the computation of SPI for dekadla precipitation variable
+  pcpn_accum gmean gsd gskew pzero 1 gammaprobs
+  1 gammastandardize %ends computation SPI for dekadal precipitation variable
+  /long_name (Standard Precipitation Index 1-dekad) def %gives the variables a more understandable name to show up in maps and graphs
+}defasvarcachesilent %ends the definition of the variables
+
+/rfe_adjdiff { %starts a variable and names it
+  SOURCES .Ethiopia .NMA .dekadal .rainfall .rfe_adj %selects rfe_adj variable
+  SOURCES .Ethiopia .NMA .dekadal .climatologies .rfe_adj %selects rfe_adj dekadal climatology
+   T 2 index .T %starts the computation of dekadal anomalies from dekadal climatology
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   sub %ends the computation of dekadal anomalies from dekadal climatology
+%Note that you can use those few lines for any dekadal data for which you have a dekadal climatology
+
+startcolormap -150 150 RANGE %starts the definition of a new colorscale for this variable
+DimGray sienna
+sienna -150 VALUE
+sienna sienna -100 bandmax
+peru peru -50 bandmax
+burlywood burlywood -25 bandmax
+wheat wheat -5 bandmax
+LightYellow LightYellow 5 bandmax
+LightCyan LightCyan 25 bandmax
+PaleTurquoise PaleTurquoise 50 bandmax
+MediumAquamarine MediumAquamarine 100 bandmax
+CadetBlue CadetBlue 150 bandmax
+CadetBlue
+endcolormap % ends the definition of a new colorscale for this variable
+
+/long_name (Reconstructed Rainfall Anomaly) def %gives the variable a more descriptive name
+
+}defasvarcachesilent %ends the variable definiton
+
+%Same as above but computes the relative difference between rfe_adj and its climatology
+%Try to copy and paste the code that is within the curly brackets '{' and '}' and see what the code is doing step by step
+
+/rfe_adjdiff_percent {
+
+  SOURCES .Ethiopia .NMA .dekadal .rainfall .rfe_adj
+  SOURCES .Ethiopia .NMA .dekadal .climatologies .rfe_adj
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   sub
+  SOURCES .Ethiopia .NMA .dekadal .climatologies .rfe_adj
+   10 maskle
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   div
+  100 mul
+  -1000 replaceNaN
+
+  startcolormap
+    -100 400 RANGE
+    LightSteelBlue ivory SaddleBrown
+       -100 VALUE
+       SaddleBrown SaddleBrown
+         -60 bandmax
+         peru peru
+           -40 bandmax
+           burlywood burlywood
+             -20 bandmax
+             wheat wheat
+               0 bandmax
+               LightCyan LightCyan
+                 40 bandmax
+                 aquamarine aquamarine
+                   80 bandmax
+                   MediumAquamarine MediumAquamarine 120
+                     bandmax
+                     MediumSeaGreen MediumSeaGreen 200
+                     bandmax
+                     SeaGreen SeaGreen 300
+                     bandmax
+                     DarkSeaGreen DarkSeaGreen 400
+                     bandmax
+                     DarkSeaGreen endcolormap
+  /long_name (Rainfall Difference Expressed as Percent of Long-Term Average (%)) def
+}defasvarcache
+
+/rfe_adj_vs_meanrfe_adj {
+  SOURCES .Ethiopia .NMA .dekadal .rainfall .rfe_adj
+  SOURCES .Ethiopia .NMA .dekadal .climatologies .rfe_adj
+   7 maskle
+   T 2 index .T
+     a: .first cvsunits
+       :a: .last cvsunits :a
+      RANGE
+   T 2 index .T replaceGRID
+   div
+  100 mul
+  -1000 replaceNaN
+rfepercent_colors
+  /long_name (Reconstructed Rainfall Expressed as Percentages of the Long-Term Average) def
+}defasvarcache
+
+:dataset
+
+\end{ingrid}

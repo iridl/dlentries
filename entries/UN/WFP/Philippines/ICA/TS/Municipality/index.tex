@@ -1,0 +1,224 @@
+\begin{ingrid}
+
+/description (Tropical Storms by Municipality) def
+
+continuedataset:
+
+grid:
+/name /T def
+  /units monthtimename def
+  periodic
+  Jan
+  3.
+  Oct
+/pointwidth 3 def
+:grid
+
+datasetdefs:
+
+/count_1212 {
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) (count_mcod) [(gid)] open_column_by
+/long_name (Number of Tropical Storms) def
+startcolormap
+DATA 0 6 RANGE
+transparent grey grey 0 VALUE
+ForestGreen 1 VALUE
+green 2 VALUE
+yellow 3 VALUE
+orange 4 VALUE
+red 5 VALUE
+DarkRed 6 VALUE
+DarkRed
+endcolormap
+}defasvarsilentnoreuse
+
+/count_345 {
+IRIDB (phlts200212wind20_3_4_5_adminbuf51020thr3463output_20140211) (count_mcod) [(gid)] open_column_by
+/long_name (Number of Tropical Storms) def
+startcolormap
+DATA 0 6 RANGE
+transparent grey grey 0 VALUE
+ForestGreen 1 VALUE
+green 2 VALUE
+yellow 3 VALUE
+orange 4 VALUE
+red 5 VALUE
+DarkRed 6 VALUE
+DarkRed
+endcolormap
+}defasvarsilentnoreuse
+
+/count_678 {
+IRIDB (phlts200212wind20_6_7_8_adminbuf51020thr3463output_20140211) (count_mcod) [(gid)] open_column_by
+/long_name (Number of Tropical Storms) def
+startcolormap
+DATA 0 6 RANGE
+transparent grey grey 0 VALUE
+ForestGreen 1 VALUE
+green 2 VALUE
+yellow 3 VALUE
+orange 4 VALUE
+red 5 VALUE
+DarkRed 6 VALUE
+DarkRed
+endcolormap
+}defasvarsilentnoreuse
+
+/count_91011 {
+IRIDB (phlts200212wind20_9_10_11_adminbuf51020thr3463output_20140211) (count_mcod) [(gid)] open_column_by
+/long_name (Number of Tropical Storms) def
+startcolormap
+DATA 0 6 RANGE
+transparent grey grey 0 VALUE
+ForestGreen 1 VALUE
+green 2 VALUE
+yellow 3 VALUE
+orange 4 VALUE
+red 5 VALUE
+DarkRed 6 VALUE
+DarkRed
+endcolormap
+}defasvarsilentnoreuse
+
+/frequency_1212 {
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) (frequency) [(gid)] open_column_by
+/long_name (Frequency of Tropical Storms) def
+}defasvarsilentnoreuse
+
+/frequency_345 {
+IRIDB (phlts200212wind20_3_4_5_adminbuf51020thr3463output_20140211) (frequency) [(gid)] open_column_by
+/long_name (Frequency of Tropical Storms) def
+}defasvarsilentnoreuse
+
+/frequency_678 {
+IRIDB (phlts200212wind20_6_7_8_adminbuf51020thr3463output_20140211) (frequency) [(gid)] open_column_by
+/long_name (Frequency of Tropical Storms) def
+}defasvarsilentnoreuse
+
+/frequency_91011 {
+IRIDB (phlts200212wind20_9_10_11_adminbuf51020thr3463output_20140211) (frequency) [(gid)] open_column_by
+/long_name (Frequency of Tropical Storms) def
+}defasvarsilentnoreuse
+
+:datasetdefs
+
+/count2063All {
+IRIDB (phlts200212wind63_Municip_buf51020thr3463output_20140205) (count_mcod) [(gid)] open_column_by
+/long_name (N. of TS, buff: 20km, ws>=63, All Months) def
+startcolormap
+DATA 0 6 RANGE
+transparent grey grey 0 VALUE
+LightYellow 1 VALUE
+yellow 2 VALUE
+orange 3 VALUE
+DarkOrange 4 VALUE
+red 5 VALUE
+DarkRed 6 VALUE
+DarkRed endcolormap
+}defasvarsilentnoreuse
+
+/freq2063All {
+IRIDB (phlts200212wind63_Municip_buf51020thr3463output_20140205) (frequency) [(gid)] open_column_by
+/long_name (N. of TS, buff: 20km, ws>=63, All Months) def
+startcolormap
+DATA 0 6 RANGE
+transparent grey grey 0 VALUE
+LightYellow 1 VALUE
+yellow 2 VALUE
+orange 3 VALUE
+DarkOrange 4 VALUE
+red 5 VALUE
+DarkRed 6 VALUE
+DarkRed endcolormap
+}defasvarsilentnoreuse
+
+
+/count {
+ds: count_1212 count_345 count_678 count_91011 :ds
+   { count_1212 count_345 count_678 count_91011 } grouptogrid
+M T replaceGRID
+[T gid]REORDER CopyStream
+}defasvarsilent
+
+/frequency {
+ds: frequency_1212 frequency_345 frequency_678 frequency_91011 :ds
+   { frequency_1212 frequency_345 frequency_678 frequency_91011 } grouptogrid
+M T replaceGRID
+[T gid]REORDER CopyStream
+}defasvarsilent
+
+/iso {
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) (iso) [(gid)] open_column_by
+/long_name (Country Name ISO) def
+}defasvarsilentnoreuse
+
+/main_lc {
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) (main_lc) [(gid)] open_column_by
+/long_name (main Land Cover) def
+}defasvarsilentnoreuse
+
+/main_lc_te {
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) (main_lc_te) [(gid)] open_column_by
+/long_name (main Land Cover term) def
+}defasvarsilentnoreuse
+
+/mcode_lo_1 {
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) (mcode_lo_1) [(gid)] open_column_by
+/long_name (Long Municipality Code) def
+}defasvarsilentnoreuse
+
+/mcode_long {
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) (mcode_long) [(gid)] open_column_by
+/long_name (Long Municipality Code) def
+}defasvarsilentnoreuse
+
+/name_1 {
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) (name_1) [(gid)] open_column_by
+/long_name (Region Name) def
+}defasvarsilentnoreuse
+
+/name_2 {
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) (name_2) [(gid)] open_column_by
+/long_name (Provicne Name) def
+}defasvarsilentnoreuse
+
+/objectid {
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) (objectid) [(gid)] open_column_by
+/long_name (Object ID) def
+}defasvarsilentnoreuse
+
+/objectid_1 { 
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) (objectid_1) [(gid)] open_column_by
+/long_name (Object ID) def
+}defasvarsilentnoreuse
+
+/area {
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) (shape_area) [(gid)] open_column_by
+/long_name (Area) def
+}defasvarsilentnoreuse
+
+/leng{
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) (shape_leng) [(gid)] open_column_by
+/long_name (Length) def
+}defasvarsilentnoreuse
+
+/mcode_shor {
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) (mcode_shor) [(gid)] open_column_by
+/long_name (Short Municipilaty Code) def
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) (geom) [(gid)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (phlts200212wind20_12_1_2_adminbuf51020thr3463output_20140211) ((main_lc_te || ', ' || name_2 || ', ' || name_1 || ', ' || iso) as label) [(gid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+mcode_shor .gid name exch def
+
+\end{ingrid}

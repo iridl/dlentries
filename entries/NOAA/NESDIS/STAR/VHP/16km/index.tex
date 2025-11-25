@@ -1,0 +1,171 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+grid: /name /T def
+/units (days since 1981-01-01 00:00:00) def
+/pointwidth 7 def
+/defaultvalue {last} def
+values:
+1981 1 2016
+{
+1 exch Jan exch julian_day
+1 Jan 1981 julian_day sub
+3.5 add
+51 {dup 7 add } repeat
+} for
+:values
+:grid
+/weekno T 1 52 onegridmodcounter /name /weekno def def
+
+%The path has changed so it's unclear if there is more data to read
+%if there is, it may be a new version
+%so will just leave at where it is now (2016)
+%T first 245 3.5 sub add
+%%last
+%systemtime systemtime2ymd ymd2rjt
+%1 Jan 2014 julian_day sub 7 div cvi 7 mul
+%
+%1 Jan 2014 julian_day add 3.5 add 1 Jan 1981 julian_day sub
+%subgrid
+%name exch def
+%weekno T 2 index .T SAMPLE name exch def
+%T
+%/expires { last 1 Jan 1981 julian_day add 11 add
+%rjt2ymd ymd2systemtime } def
+%{(ftp://ftp.star.nesdis.noaa.gov/pub/corp/scsb/wguo/data/VHP_16km/VH/VHP.G16.C07.NP.P%Y[T]%3.3d[weekno].ND.hdf)
+%[T dup 12056.5 sub  toi4
+%    7 div 52 mod
+%    1 add
+%/units /unitless def /name /weekno def ]}
+%remoteremoveextrausing
+%name exch def
+:datasetdefs
+/T T def
+%/expires T .expires def
+/last_modified T .last_modified def
+link:
+/name (dataset_documentation) def
+/href (ftp://ftp.star.nesdis.noaa.gov/pub/corp/scsb/wguo/doc/VHP_uguide_v1.4_2013_1221.pdf) def
+:link
+/references (Kogan_Sullivan1993) def
+grid:
+/name /X def
+degE
+periodic
+-180 180 2 copy exch sub 2500. div exch :grid
+X partialgrid name exch def
+grid:
+/name /Y def
+degN
+75.024002 -55.152 2 copy exch sub 904. div exch :grid
+Y partialgrid name exch def
+variable:
+/name /satid def
+grids:
+T first
+[1985009 1988046 1994036 2001001 2005024 2010003 ]
+{ dup 1000 idiv 1 exch Jan exch julian_day
+1 Jan 1981 julian_day sub
+exch 1000 mod 1 sub 7 mul add 3.5 add
+} forall
+subgridvalues
+ :grids
+values: (NC) (NF) (NH) (NJ) (NL) (NN) (NP) cvn :values
+:variable
+satid [T] regridLB name exch def
+/NDVI {
+[X Y | T]
+(ftp://ftp.star.nesdis.noaa.gov/pub/corp/scsb/wguo/data/VHP_16km/VH/VHP.G16.C07.%2.2s[satid].P%Y[T]%3.3d[weekno].ND.hdf)
+[T weekno satid]readdatafile:
+      /name (NDVI) def
+/missing_value -999 def
+      /shortarraytype netcdfrecords
+/scale_factor .001 def
+/scale_min -.1 scale_factor div def
+/scale_max 1000. def
+/iridl:hasSemantics (iridl:NDVI) def
+      :readdatafile
+NDVIcolorscale
+} defasvarsilent
+/BT4 {
+[X Y | T]
+(ftp://ftp.star.nesdis.noaa.gov/pub/corp/scsb/wguo/data/VHP_16km/VH/VHP.G16.C07.%2.2s[satid].P%Y[T]%3.3d[weekno].ND.hdf)
+[T weekno satid]readdatafile:
+      /name (BT4) def
+/missing_value -999 def
+      /shortarraytype netcdfrecords
+/scale_factor .1 def
+/scale_min 0. def
+/scale_max 4000. def
+/units (Kelvin_scale) def
+      :readdatafile
+} defasvarsilent
+/SMN {
+[X Y | T]
+(ftp://ftp.star.nesdis.noaa.gov/pub/corp/scsb/wguo/data/VHP_16km/VH/VHP.G16.C07.%2.2s[satid].P%Y[T]%3.3d[weekno].SM.hdf)
+[T weekno satid]readdatafile:
+      /name (SMN) def
+/missing_value -999 def
+      /shortarraytype netcdfrecords
+/scale_factor .001 def
+/scale_min -.1 scale_factor div def
+/scale_max 1000. def
+      :readdatafile
+} defasvarsilent
+/SMT {
+[X Y | T]
+(ftp://ftp.star.nesdis.noaa.gov/pub/corp/scsb/wguo/data/VHP_16km/VH/VHP.G16.C07.%2.2s[satid].P%Y[T]%3.3d[weekno].SM.hdf)
+[T weekno satid]readdatafile:
+      /name (SMT) def
+/missing_value -999 def
+      /shortarraytype netcdfrecords
+/scale_factor .1 def
+/scale_min 0. def
+/scale_max 4000. def
+/units (Kelvin_scale) def
+      :readdatafile
+} defasvarsilent
+/VHI {
+[X Y | T]
+(ftp://ftp.star.nesdis.noaa.gov/pub/corp/scsb/wguo/data/VHP_16km/VH/VHP.G16.C07.%2.2s[satid].P%Y[T]%3.3d[weekno].VH.hdf)
+[T weekno satid]readdatafile:
+      /name (VHI) def
+/missing_value -999 def
+      /shortarraytype netcdfrecords
+/scale_factor .01 def
+/scale_min 0 def
+/scale_max 10000. def
+/iridl:hasSemantics (iridl:VHI) def
+      :readdatafile
+} defasvarsilent
+/TCI {
+[X Y | T]
+(ftp://ftp.star.nesdis.noaa.gov/pub/corp/scsb/wguo/data/VHP_16km/VH/VHP.G16.C07.%2.2s[satid].P%Y[T]%3.3d[weekno].VH.hdf)
+[T weekno satid]readdatafile:
+      /name (TCI) def
+/missing_value -999 def
+      /shortarraytype netcdfrecords
+/scale_factor .01 def
+/scale_min 0 def
+/scale_max 10000. def
+/iridl:hasSemantics (iridl:TCI) def
+      :readdatafile
+} defasvarsilent
+/VCI {
+[X Y | T]
+(ftp://ftp.star.nesdis.noaa.gov/pub/corp/scsb/wguo/data/VHP_16km/VH/VHP.G16.C07.%2.2s[satid].P%Y[T]%3.3d[weekno].VH.hdf)
+[T weekno satid]readdatafile:
+      /name (VCI) def
+/missing_value -999 def
+      /shortarraytype netcdfrecords
+/scale_factor .01 def
+/scale_min 0 def
+/scale_max 10000. def
+/iridl:hasSemantics (iridl:VCI) def
+      :readdatafile
+} defasvarsilent
+\end{ingrid}
+
+\begin{ingrid}
+:dataset
+\end{ingrid}

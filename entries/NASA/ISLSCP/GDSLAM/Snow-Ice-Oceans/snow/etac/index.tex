@@ -1,0 +1,40 @@
+\begin{ingrid}
+continuedataset:
+grid: 
+/name /X def
+degE
+periodic
+-179.5 1 179.5
+:grid
+grid:
+/name /Y def
+degN
+89.5 -1 -89.5
+:grid
+grid:
+/name /T def
+monthtime
+periodic
+Jan
+1
+Dec
+:grid
+/references (Foster_Davy1988) def
+variable:
+/name /snow_depth def
+/units (mm) def
+grids: X Y | T :grids
+file:
+%formatted
+%/name (/Data/data3/nasa/islscp/gdslam/snowice/snow/etac/etac.all) def
+random
+/name (/Data/data3/nasa/islscp/gdslam/snowice/snow/etac/data.r4) def
+:file
+:variable
+:dataset
+\end{ingrid}
+
+
+
+
+

@@ -1,0 +1,40 @@
+\begin{ingrid}
+dataset:
+/name /WORLDBATH cvx def
+/dataset_documentation.html descriptions /dbdb5.html get def
+/description (ETOPO5 5x5 minute Navy bathymetry) def
+link:
+/name (NOAA NGDC ETOPO5) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NGDC/.ETOPO5/) def
+/description (superceded by NOAA NDGC ETOPO5) def
+/semantics /dcterm:isReplacedBy def
+:link
+/iridl:hasSemantics (iridl:NOAA) def
+grid: /name /X def 
+/units /degreeE def
+periodic 
+0 to 360 360. 4320. div sub  N= 4320 pts :grid 
+%grid: /name /Y def 
+%/units /degreeN def
+%90 to -90 N= 2161 pts :grid 
+grid: /name /Y def 
+/units /degreeN def
+-90 to 90 N= 2161 pts :grid 
+variable:
+/name /bath cvx def
+/long_name (topography) def
+/units (m) def
+%/note (old version -- will be updated soon) def
+/note (updated 27 Feb 1998 from NGDC CD-ROM 29 April 1993) def
+grids: X | Y :grids
+%grids: Y | X :grids
+file:
+i*2
+%/name (/Data/data2/topog/etopo5-bathyt.b) def
+/name (/Data/data1/topog/etopo5-bathyt.b) def
+%/name (/Data/data2/topog/dbdb5) def
+:file
+topographycolorscale
+:variable
+:dataset
+\end{ingrid}

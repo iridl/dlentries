@@ -1,0 +1,27 @@
+\begin{ingrid}
+continuedataset:
+/pressure
+{ SOURCES .NOAA .NCEP-NCAR .CDAS-1 .MONTHLY .Intrinsic .MSL .pressure
+  T (Jan 1981) (Dec 2010) RANGE
+/expires undef
+  yearly-climatology
+} defasvarcache
+grid:
+/name /X def
+degE
+periodic
+0 2.5 -2.5
+:grid
+grid:
+/name /Y def
+degN
+90 2.5 -90
+:grid
+grid:
+/name /T def
+/units monthclimoname def
+periodic
+Jan 1. Dec
+:grid
+:dataset
+\end{ingrid}

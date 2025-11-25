@@ -1,0 +1,110 @@
+\begin{ingrid}
+  continuedataset:
+    /source (<a href="http://faostat.fao.org/default.aspx">FAOSTAT</a>) def
+    grid:
+      /name (T) def
+      monthtime
+      /pointwidth 12 def
+      1 Jul 1961 ensotime
+      12
+      1 Jul 2007 ensotime
+    :grid 
+    grid:
+      /name (code) def
+      /units (ids) def
+      /fullname (item code) def
+      values:
+6600
+6601
+6610
+6620
+6621
+6630
+6631
+6632
+6633
+6650
+6655
+6659
+6661
+6670
+6680
+6690
+      :values
+    :grid
+
+    variable:
+      /name /Name def
+      grids: code :grids
+      /long_name (item name) def
+      values:
+(Country area)
+(Land area)
+(Agricultural area)
+(Arable land and Permanent crops)
+(Arable land)
+(Temporary crops)
+(Temp. crops irrigated)
+(Temp. crops non-irrigated)
+(Temporary meadows and pastures)
+(Permanent crops)
+(Permanent meadows and pastures)
+(Perm. meadows & pastures - Nat. grown)
+(Forest area)
+(Other land)
+(Inland water)
+(Total area equipped for irrigation)
+  :values
+    :variable
+
+    /Areas {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliAreas.csv)
+      readdatafile:
+        ((/,(93X,47(F7.0,10X)))) formatted
+      :readdatafile
+      /long_name (areas) def
+      /units (hectare) def
+      /scale_factor 1000. def
+      /scale_min 0 def
+    }defasvarsilent
+
+    /Flag {
+      [T code | ]
+      (/data/remic/mydatafiles/FAO/FAOSTAT/MaliAreas.csv)
+      readdatafile:
+        ((/,(93X,47(16X,F1.0,)))) formatted
+      :readdatafile
+      /long_name (data quality) def
+      /CLIST [
+        (Official data)
+        (Unofficial figure)
+        (FAO estimate)
+        (Data not available)
+        (FAO calculated)
+        (Estimated data using trading partners database)
+        (Manual Estimation)
+        (Country data reported by International Organizations where the country is a member (Semi-official))
+        (Official data reported on FAO Questionnaires from countries)
+      ] def
+      startcolormap
+        /maxncolor 12 def
+        DATA 0 8 RANGE
+        white white
+        black
+        LightBlue
+        red
+        grey
+        orange
+        yellow
+        purple
+        NavyBlue
+        blue
+        white
+      endcolormap
+    }defasvarsilent
+
+  /history (FAOSTAT | © FAO Statistics Division 2010) def
+
+  :dataset
+\end{ingrid}

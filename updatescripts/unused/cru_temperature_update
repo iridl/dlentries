@@ -1,0 +1,10 @@
+#!/bin/sh
+# MBB 11 Jul 2005 -- changed webcopy to wget
+cd /Data/data2/cru/temperature
+get="/usr/freeware/bin/wget -N"
+$get http://www.cru.uea.ac.uk/ftpdata/crutem2.nc
+$get http://www.cru.uea.ac.uk/ftpdata/crutem2v.nc
+$get http://www.cru.uea.ac.uk/ftpdata/hadcrut2.nc
+$get http://www.cru.uea.ac.uk/ftpdata/hadcrut2v.nc
+$get http://www.cru.uea.ac.uk/ftpdata/absolute.nc
+

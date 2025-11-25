@@ -1,0 +1,151 @@
+\begin{ingrid}
+continuedataset:
+dataset:
+/name /Livelihood_Mali_2010 def
+/description (Livelihood Zones in Mali 2010) def
+%{  db:
+%   /server (localhost) def
+%   /dbname (iridb) def
+%   :db
+%   (select gid,country,cast(lznum as integer),lzcode,lznamee,lznamef,class,the_geom from mali_livelihoods_merged order by gid) (gid) openqueryby
+        /country
+{ IRIDB (mali_livelihoods_merged) (country) [(gid)] open_column_by
+            /long_name (Country Code) def
+}defasvarsilentnoreuse
+        /lznum 
+            { IRIDB (mali_livelihoods_merged) (lznum) [(gid)] open_column_by            
+            /long_name (Livelihood Number) def
+%            /units /ids def
+	    /CLIST [
+	    (Nomadism and trans-Saharan trade)
+	    (Nomadic and transhumant pastoralism)
+	    (Fluvial rice and transhumant livestock rearing
+	    (agropastoral))
+	    (Millet and transhumant livestock rearing)
+	    (Dogon plateau - millet, shallots, wild foods, and tourism)
+	    (Niger delta/lakes - rice and livestock rearing
+	    (agropastoral))
+	    ('Office du Niger' - Irrigated rice)
+	    (North-west remittances, sorghum, and transhumant livestock
+	    rearing)
+	    (West and central rainfed millet/sorghum)
+	    (Sorghum, millet, and cotton)
+	    (South maize, cotton, and fruits)
+	    (South-west maize, sorghum, and fruits)
+	    (Bamako urban)
+	    ] def
+	    startcolormap
+	    /maxncolor 16 def
+	    DATA 1 13 RANGE
+	    white white
+	    yellow
+	    orange
+	    RoyalBlue
+	    LightSeaGreen
+	    DarkKhaki
+	    blue
+	    LightBlue
+	    SeaGreen
+	    OliveDrab
+	    ForestGreen
+	    DarkGreen
+	    green
+	    red
+	    white
+	    endcolormap
+}defasvarsilentnoreuse
+        /lzcode 
+            { IRIDB (mali_livelihoods_merged) (lzcode) [(gid)] open_column_by            
+            /long_name (Livelihood Code) def
+}defasvarsilentnoreuse
+        /lznamee
+            { IRIDB (mali_livelihoods_merged) (lznamee) [(gid)] open_column_by            
+            /long_name (Livelihood-English) def
+}defasvarsilentnoreuse
+        /lznamef
+            { IRIDB (mali_livelihoods_merged) (lznamef) [(gid)] open_column_by            
+            /long_name (Livelihood-French) def
+}defasvarsilentnoreuse
+        /class
+            { IRIDB (mali_livelihoods_merged) (class) [(gid)] open_column_by            
+            /long_name (Livelihood Class) def
+}defasvarsilentnoreuse
+        /the_geom
+            { IRIDB (mali_livelihoods_merged) (the_geom) [(gid)] open_column_by            
+            /long_name (Livelihood zone geometry) def
+}defasvarsilentnoreuse
+/label
+{ IRIDB (mali_livelihoods_merged) (lznamee as label) [(gid)] open_column_by
+}defasvarsilentnoreuse
+:dataset
+dataset:
+/name /Livelihood_Mali_2005 def
+/description (Livelihood Zones in Mali 2005) def
+%{  db:
+%   /server (localhost) def
+%   /dbname (iridb) def
+%   :db
+%   (select gid,cccode,cast(lznum as integer),lznamee,lznamef,gavprimary,the_geom from rp3_polygon_merged order by gid) (gid) openqueryby
+        /cccode
+{ IRIDB (rp3_polygon_merged) (cccode) [(gid)]open_column_by
+            /long_name (CC Code) def
+}defasvarsilentnoreuse
+        /lznum 
+            { IRIDB (rp3_polygon_merged) (lznum) [(gid)]open_column_by            
+            /long_name (Livelihood Number) def
+%            /units /ids def
+	    /CLIST [
+(Desert)
+(Nomadic and transhumant pastoralism)
+(Riverine: rice - transhumant herding)
+(Millet/transhumant herding)
+(Delta-lakes: rice flood/retreat sorghum)
+(Office du Niger: irrigated rice)
+(Dogon Plateau: millet/onions)
+(Rainfed millet/sorghum)
+(Millet/sorghum/cotton)
+(Maize/cotton/fruit)
+(Rainfed millet/sorghum/fruits)
+	    ]def
+	    startcolormap
+	    /maxncolor 14 def
+            DATA 1 11 RANGE
+	    transparent white
+yellow
+khaki
+orange
+LightBlue
+cyan
+green
+brown
+pink
+PeachPuff
+PaleGreen
+DarkViolet
+white
+endcolormap
+}defasvarsilentnoreuse
+        /lznamee
+            { IRIDB (rp3_polygon_merged) (lznamee) [(gid)]open_column_by            
+            /long_name (Livelihood-English) def
+}defasvarsilentnoreuse
+        /lznamef
+            { IRIDB (rp3_polygon_merged) (lznamef) [(gid)]open_column_by            
+            /long_name (Livelihood-French) def
+}defasvarsilentnoreuse
+        /gavprimary
+            { IRIDB (rp3_polygon_merged) (gavprimary) [(gid)]open_column_by            
+            /long_name (GAV Primary) def
+}defasvarsilentnoreuse
+        /the_geom
+            { IRIDB (rp3_polygon_merged) (the_geom) [(gid)]open_column_by            
+            /long_name (Livelihood zone geometry) def
+}defasvarsilentnoreuse
+/label
+{ IRIDB (mali_livelihoods_merged) (lznamee as label) [(gid)] open_column_by
+}defasvarsilentnoreuse
+:dataset
+:dataset
+Livelihood_Mali_2005 cccode .gid name exch put
+Livelihood_Mali_2010 class .gid name exch put 
+\end{ingrid}

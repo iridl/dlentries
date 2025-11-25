@@ -1,0 +1,119 @@
+\begin{ingrid}
+continuedataset:
+/description (Indices representative of the NINO 1 and 2, NINO 3, NINO 3.4, and NINO 4 regions) def
+datasetdefs:
+dataset: /name /CAC def
+/NINO3 {filters .NINO
+  SOURCES .CAC .ssta NINO3 nip sstacolorscale } def
+/NINO12 {filters .NINO
+  SOURCES .CAC .ssta NINO12 nip sstacolorscale } def
+/NINO4 {filters .NINO
+  SOURCES .CAC .ssta NINO4 nip sstacolorscale } def
+%/IO1 {filters .NINO
+%  SOURCES .CAC .ssta IO1 nip sstacolorscale } def
+:dataset
+:datasetdefs
+/dataset_documentation.html currentobject 1 index get def
+dataset: /name /KAPLAN def
+/iridl:hasSemantics [ (iridl:SeaSurface) (iridl:LDEO) ] def
+/references (Kaplan_etal1998) def
+/NINO3 {filters .NINO SOURCES .KAPLAN .RSA_MOHSST5.cuf .OS .ssta NINO3 nip sstacolorscale
+/long_name (NINO3) def
+} defasvarcache
+/NINO4 {filters .NINO SOURCES .KAPLAN .RSA_MOHSST5.cuf .OS .ssta NINO4 nip sstacolorscale
+/long_name name cvntos def
+} defasvarcache
+/NINO34 {filters .NINO SOURCES .KAPLAN .RSA_MOHSST5.cuf .OS .ssta NINO34 nip sstacolorscale
+/long_name name cvntos def
+} defasvarcache
+/NINO12 {filters .NINO SOURCES .KAPLAN .RSA_MOHSST5.cuf .OS .ssta NINO12 nip sstacolorscale
+/long_name name cvntos def
+} defasvarcache
+%/IO1 {filters .NINO SOURCES .KAPLAN .RSA_MOHSST5.cuf .OS .ssta IO1 nip sstacolorscale} defasvarcache
+:dataset
+dataset: /name /NCEP def
+/iridl:hasSemantics [ (iridl:SeaSurface) (iridl:NCEP) ] def
+/references (Reynolds_Smith1994) def
+/NINO3 {filters .NINO
+  SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .monthly .ssta NINO3 nip sstacolorscale 
+/long_name name cvntos def} defasvarcache
+/NINO34 {filters .NINO
+  SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .monthly .ssta NINO34 nip sstacolorscale
+/long_name name cvntos def } defasvarcache
+/NINO12 {filters .NINO
+  SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .monthly .ssta NINO12 nip sstacolorscale
+/long_name name cvntos def } defasvarcache
+/NINO4 {filters .NINO
+  SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .monthly .ssta NINO4 nip sstacolorscale
+/long_name name cvntos def } defasvarcache
+%/IO1 {filters .NINO
+%  SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .monthly .ssta IO1 nip sstacolorscale } def
+:dataset
+dataset: /name /NCEP_OIv2 def
+/iridl:hasSemantics [ (iridl:SeaSurface) (iridl:NCEP) ] def
+/references (Reynolds_etal2002) def
+/NINO3 {filters .NINO
+  SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .Reyn_SmithOIv2 .monthly .ssta NINO3 nip sstacolorscale 
+/long_name name cvntos def} defasvarcache
+/NINO34 {filters .NINO
+  SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .Reyn_SmithOIv2 .monthly .ssta NINO34 nip sstacolorscale
+/long_name name cvntos def } defasvarcache
+/NINO12 {filters .NINO
+  SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .Reyn_SmithOIv2 .monthly .ssta NINO12 nip sstacolorscale
+/long_name name cvntos def } defasvarcache
+/NINO4 {filters .NINO
+  SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .Reyn_SmithOIv2 .monthly .ssta NINO4 nip sstacolorscale
+/long_name name cvntos def } defasvarcache
+:dataset
+dataset:
+/name /EXTENDED def
+/iridl:hasSemantics [ (iridl:SeaSurface) (iridl:LDEO) (iridl:NOAA)] def
+/references (Kaplan_etal1998 Reynolds_etal2002) def
+/NINO3 {filters .NINO SOURCES .KAPLAN .EXTENDED .v2 .ssta NINO3 nip sstacolorscale
+/long_name name cvntos def
+} defasvarcache
+/NINO4 {filters .NINO SOURCES .KAPLAN .EXTENDED .v2 .ssta NINO4 nip sstacolorscale
+/long_name name cvntos def
+} defasvarcache
+/NINO34 {filters .NINO SOURCES .KAPLAN .EXTENDED .v2 .ssta NINO34 nip sstacolorscale
+/long_name name cvntos def
+} defasvarcache
+/NINO12 {filters .NINO SOURCES .KAPLAN .EXTENDED .v2 .ssta NINO12 nip sstacolorscale
+/long_name name cvntos def
+} defasvarcache
+:dataset
+dataset:
+/name /EXTENDEDv3 def
+/iridl:hasSemantics [ (iridl:SeaSurface) (iridl:LDEO) (iridl:NOAA)] def
+/references (Kaplan_etal1998 Reynolds_etal2002) def
+/NINO3 {filters .NINO SOURCES .KAPLAN .EXTENDED .v3 .ssta NINO3 nip sstacolorscale
+/long_name name cvntos def
+} defasvarcache
+/NINO4 {filters .NINO SOURCES .KAPLAN .EXTENDED .v3 .ssta NINO4 nip sstacolorscale
+/long_name name cvntos def
+} defasvarcache
+/NINO34 {filters .NINO SOURCES .KAPLAN .EXTENDED .v3 .ssta NINO34 nip sstacolorscale
+/long_name name cvntos def
+} defasvarcache
+/NINO12 {filters .NINO SOURCES .KAPLAN .EXTENDED .v3 .ssta NINO12 nip sstacolorscale
+/long_name name cvntos def
+} defasvarcache
+:dataset
+dataset:
+/name /OISSTv2p1-AVHRR def
+/iridl:hasSemantics [ (iridl:SeaSurface) (iridl:NOAA)] def
+/NINO3 {filters .NINO SOURCES .NOAA .NCDC .OISST .version2p1 .AVHRR_monthly .anom lon /X renameGRID lat /Y renameGRID NINO3 nip sstacolorscale
+/long_name name cvntos def
+} defasvarcache
+/NINO4 {filters .NINO SOURCES .NOAA .NCDC .OISST .version2p1 .AVHRR_monthly .anom lon /X renameGRID lat /Y renameGRID NINO4 nip sstacolorscale
+/long_name name cvntos def
+} defasvarcache
+/NINO34 {filters .NINO SOURCES .NOAA .NCDC .OISST .version2p1 .AVHRR_monthly .anom lon /X renameGRID lat /Y renameGRID NINO34 nip sstacolorscale
+/long_name name cvntos def
+} defasvarcache
+/NINO12 {filters .NINO SOURCES .NOAA .NCDC .OISST .version2p1 .AVHRR_monthly .anom lon /X renameGRID lat /Y renameGRID NINO12 nip sstacolorscale
+/long_name name cvntos def
+} defasvar
+:dataset
+:dataset
+\end{ingrid}

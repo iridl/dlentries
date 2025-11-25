@@ -1,0 +1,128 @@
+\begin{ingrid}
+continuedataset:
+/references (Gobron_etal2002 Gobron_etal2006) def
+link:
+/name /source def
+/description (FAPAR web site) def
+/href(http://fapar.jrc.it/WWW/Home.php) def
+:link
+dataset:
+/name /WestAfrica def
+grid:
+/name /X def
+degE
+-13 0.019830 8 
+1 index .5 mul sub
+3 -1 roll 2 index .5 mul add 3 1 roll
+:grid
+grid:
+/name /Y def
+degN
+17
+-0.019490
+4
+1 index .5 mul sub
+3 -1 roll 2 index .5 mul add 3 1 roll
+:grid
+/NVZ 4 NewIntegerGRID 
+name exch def
+/Mission (Seastar SeaWiFS) def
+/Processing_Center (Joint Research Centre - IMW - GVM / IES) def
+/Software_Name (ReMap Aggregate - JRC - GVM / IES) def
+/Software_Version (ReMap Aggregate - Version 1.0) def
+dataset:
+/name /monthly def
+{X Y} { dataset exch cvx cvpops exec name exch def} forall
+grid:
+/name /T def
+monthtime
+16 Sep 1997 ensotime
+1.
+16 Aug 2004 ensotime
+:grid
+[X Y | NVZ T]
+(/beluga/data/datag/FAPAR/Month/FAPAR/%Y/SEA01_ORB01_%Y%m[T].bin) [T
+]
+readdatafile: ui*1 :readdatafile
+definevariables:
+0 Zvariable:
+/name (fapar) def
+/long_name (Fraction of Absorbed Photosynthetically Active Radiation (FAPAR)) def/scale_factor .004 def
+/valid_range 0 250 2 integerarray astore def
+/missing_value 255 def
+:Zvariable
+0 Zvariable:
+/name (dev_temporal_fapar) def
+/long_name (Temporal deviation of FAPAR during the time composite period) def
+:Zvariable
+0 Zvariable:
+/name (nb_temporal_fapar) def
+/long_name (Number of daily FAPAR estimates used in time composite) def
+/missing_value 255 def
+:Zvariable
+0 Zvariable:
+/name (day_fapar) def
+/long_name (Day selected for FAPAR value during the time composite) def
+/missing_value 255 def
+:Zvariable
+:definevariables
+:dataset
+dataset:
+/name /tenday def
+{X Y} { dataset exch cvx cvpops exec name exch def} forall
+1 Sep 1997 julian_day
+31 Aug 2004 julian_day
+dekadGRID
+name exch def
+/NVZ 4 NewIntegerGRID 
+name exch def
+variable:
+/name /version def
+grids: T :grids
+values:
+58 {2} repeat
+1 {1} repeat
+22 {2} repeat
+3 {1} repeat
+36 {2} repeat
+36 {1} repeat
+96 {2} repeat
+:values
+:variable
+[X Y | NVZ T]
+(/beluga/data/datag/FAPAR/10D/FAPAR/%Y[T]/SEA01_ORB01_%Y%m%d[lbnd]000000_%Y%m%d[ubnd]000000_L3_FPA_%6.6d[version]_040N170N0130W0080E_PLC_2170M_PRO.bin) [T dup get_bounds dup
+           I_bounds 1 VALUE
+           /name /lbnd def
+           exch
+           I_bounds 2 VALUE
+           1 sub
+           /name /ubnd def
+	   version
+           ]
+readdatafile: ui*1 :readdatafile
+definevariables:
+0 Zvariable:
+/name (fapar) def
+/long_name (Fraction of Absorbed Photosynthetically Active Radiation (FAPAR)) def/scale_factor .004 def
+/valid_range 0 250 2 integerarray astore def
+/missing_value 255 def
+:Zvariable
+0 Zvariable:
+/name (dev_temporal_fapar) def
+/long_name (Temporal deviation of FAPAR during the time composite period) def
+:Zvariable
+0 Zvariable:
+/name (nb_temporal_fapar) def
+/long_name (Number of daily FAPAR estimates used in time composite) def
+/missing_value 255 def
+:Zvariable
+0 Zvariable:
+/name (day_fapar) def
+/long_name (Day selected for FAPAR value during the time composite) def
+/missing_value 255 def
+:Zvariable
+:definevariables
+:dataset
+:dataset
+:dataset
+\end{ingrid}

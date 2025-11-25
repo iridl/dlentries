@@ -1,0 +1,186 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Équipements agricoles et activités de transformation des produits agricoles) def
+
+grid:
+/name /hhid def
+1. 1. 5270.
+:grid
+
+/k01_1 { IRIDB (erasan2014) (k01_1) [(hhid)] open_column_by
+/long_name (cheval) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/k01_2 { IRIDB (erasan2014) (k01_2) [(hhid)] open_column_by
+/long_name (ane) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/k01_3 { IRIDB (erasan2014) (k01_3) [(hhid)] open_column_by
+/long_name (boeuf) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/k01_4 { IRIDB (erasan2014) (k01_4) [(hhid)] open_column_by
+/long_name (semoir) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/k01_5 { IRIDB (erasan2014) (k01_5) [(hhid)] open_column_by
+/long_name (houe) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/k01_6 { IRIDB (erasan2014) (k01_6) [(hhid)] open_column_by
+/long_name (charrette) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/k01_7 { IRIDB (erasan2014) (k01_7) [(hhid)] open_column_by
+/long_name (appareil transfo arachide) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/k01_8 { IRIDB (erasan2014) (k01_8) [(hhid)] open_column_by
+/long_name (appareil d'étuvage riz) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(non)
+(oui)
+] def
+/scale_min 0 def
+/scale_max 1 def
+}defasvarsilentnoreuse
+
+/k01_9 { IRIDB (erasan2014) (k01_9) [(hhid)] open_column_by
+/long_name (autre équipement) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+/k02 { IRIDB (erasan2014) (k02) [(hhid)] open_column_by
+/long_name (debut de campagne où trouver services tracteurs) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(dans le village)
+(sur un rayon 5km)
+(5km-10 km)
+(plus de 10 km)
+(NA)
+] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilentnoreuse
+
+/k03 { IRIDB (erasan2014) (k03) [(hhid)] open_column_by
+/long_name (fin de campagne où trouver services mecaniques de recolte riz) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(dans le village)
+(sur un rayon 5km)
+(5km-10 km)
+(plus de 10 km)
+] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilentnoreuse
+
+/k04 { IRIDB (erasan2014) (k04) [(hhid)] open_column_by
+/long_name (fin  campagne ou trouver les services  décorticage mécanique du riz) def 
+/missing_value -999 def
+/units /ids def
+/CLIST [(dans le village)
+(sur un rayon 5km)
+(5km-10 km)
+(plus de 10 km)
+] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilentnoreuse
+
+/k05 { IRIDB (erasan2014) (k05) [(hhid)] open_column_by
+/long_name (qui gere le materiel transfo produits agricoles) def 
+/missing_value -999 def
+}defasvarsilentnoreuse
+
+[/NVZ 2 NewIntegerGRID hhid |]
+(/Data/data6/WFP/senegal/ERASAN/2014ERASAN_matched_idnew_ll.txt)
+readdatafile:
+[1 1]r*4astsv
+:readdatafile
+/missing_value -999 def
+
+definevariables:
+
+0 Zvariable:
+/name /lat def
+/long_name (Latitude) def
+/units /degree_north def
+/scale_min 12.2 def
+/scale_max 16.8 def
+:Zvariable
+
+0 Zvariable:
+/name /lon def
+/long_name (Longitude) def
+/units /degree_east def
+/scale_min -17.7 def
+/scale_max -11.2 def
+:Zvariable
+
+:definevariables
+
+/location {
+lon lat geopt
+/long_name (Location) def
+}defasvar
+
+:dataset
+
+%k01_1 .hhid name exch def
+\end{ingrid}
+

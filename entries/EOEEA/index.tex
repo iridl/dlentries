@@ -1,0 +1,141 @@
+\begin{ingrid}
+
+/iridl:hasSemantics [(iridl:EOEEA)(iridl:Power_Outage)(iridlsemantics:PRISM)] def
+
+/description (Massachusetts Executive Office of Energy and Environmental Affairs) def
+link:
+/name (mass.gov) def
+/long_name (Massachusetts Executive Office of Energy and Environmental Affairs) def
+/href (https://www.mass.gov/info-details/power-ma_outages) def
+:link
+
+continuedataset:
+
+/city_town {
+IRIDB (ma_outage) (city_town) [(event_id)] open_column_by
+/long_name (City Town) def
+}defasvarsilentnoreuse
+
+/circuit_type {
+IRIDB (ma_outage) (circuit_type) [(event_id)] open_column_by
+/long_name (Circuit type) def
+}defasvarsilentnoreuse
+
+/company {
+IRIDB (ma_outage) (company_name) [(event_id)] open_column_by
+/long_name (Company Name) def
+}defasvarsilentnoreuse
+
+/Tin {
+IRIDB (ma_outage) (days_since_in) [(event_id)] open_column_by
+/long_name (Time in) def
+/units (days since 2010-01-01) def
+}defasvarsilentnoreuse
+
+/Tout {
+IRIDB (ma_outage) (days_since_out) [(event_id)] open_column_by
+/long_name (Time out) def
+/units (days since 2010-01-01) def
+}defasvarsilentnoreuse
+
+/county {
+IRIDB (ma_outage) (county) [(event_id)] open_column_by
+/long_name (County) def
+}defasvarsilentnoreuse
+
+/fdeqp {
+IRIDB (ma_outage) (failed_damaged_equip) [(event_id)] open_column_by
+/long_name (Failed or Damaged Equipment) def
+}defasvarsilentnoreuse
+
+/geoid {
+IRIDB (ma_outage) (geo_id) [(event_id)] open_column_by
+/long_name (MA County ID) def
+}defasvarsilentnoreuse
+
+/load_type {
+IRIDB (ma_outage) (load_type) [(event_id)] open_column_by
+/long_name (Load Type) def
+}defasvarsilentnoreuse
+
+/rfo {
+IRIDB (ma_outage) (reason_for_outage) [(event_id)] open_column_by
+/long_name (Reason for Outage) def
+}defasvarsilentnoreuse
+
+/street {
+IRIDB (ma_outage) (street) [(event_id)] open_column_by
+/long_name (Street) def
+}defasvarsilentnoreuse
+
+/wct {
+IRIDB (ma_outage) (weather_cond_type) [(event_id)] open_column_by
+/long_name (Weather Condition Type) def
+}defasvarsilentnoreuse
+
+/ncustomers_affected {
+IRIDB (ma_outage) (ncustomers_affected) [(event_id)] open_column_by
+/long_name (Number of customers affected) def
+/iridl:hasSemantics (iridl:number_of_customers_affected) def
+}defasvarsilentnoreuse
+
+/outage_duration {
+IRIDB (ma_outage) (outage_duration) [(event_id)] open_column_by
+/long_name (Outage duration) def
+/units /hr def
+}defasvarsilentnoreuse
+
+/time_diff {
+IRIDB (ma_outage) (time_diff) [(event_id)] open_column_by
+/long_name (Time Difference) def
+}defasvarsilentnoreuse
+
+/volt_lvl {
+IRIDB (ma_outage) (voltage_levels) [(event_id)] open_column_by
+/long_name (Voltage Levels) def
+}defasvarsilentnoreuse
+
+/the_geom {
+ SOURCES .Features .Political .UnitedStates .MA .Counties .the_geom
+}defasvar
+
+/label {
+ SOURCES .Features .Political .UnitedStates .MA .Counties .label
+}defasvar
+
+/countymask {
+ geoid label .geoid .gridvalues
+     {2 copy cvntos masknotfound /missing_value NaN def dataflag exch /name exch def exch}forall
+                     pop
+                     357 ds
+    {}
+     {.name}foralldatasets2 357 array astore
+     grouptogrid
+    M /geoid renameGRID
+    1 masklt
+    [geoid event_id ] REORDER
+    CopyStream
+/long_name (County Mask) def
+}defasvarcache
+
+/ncacm {
+ncustomers_affected
+   countymask mul
+/long_name (Number of customers affected by county) def
+}defasvarcache
+
+/dailyevents {
+  Tout toi4
+   0.5 add
+   classify
+   1 masklt
+   Tout /T renameGRID
+/long_name (Daily events) def
+}defasvarcache
+
+:dataset
+
+time_diff .event_id name exch def
+%countymask .geoid name exch def
+
+\end{ingrid}

@@ -1,0 +1,249 @@
+\begin{ingrid}
+continuedataset:
+exch
+/doit
+{
+grids: X Y [ /taux /tauy ] | T :grids
+/missing_value 9998. def
+random
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+} def
+/doit2
+{
+grids: X Y [ /taux /tauy ] | T :grids
+/missing_value 99998. def
+random
+variable:
+/name /taux def
+/long_name (zonal wind stress) def
+/units (dynes/cm2) def
+:variable
+variable:
+/name /tauy def
+/long_name (meridional wind stress) def
+/units (dynes/cm2) def
+:variable
+} def
+exch
+
+/description (Wind stress calculated from EOF-filtered Servain stress and various drag formulations for the tropical Atlantic) def
+/dataset_documentation.html descriptions  /chris.html get def
+/iridl:hasSemantics (iridl:LDEO) def
+grid: 
+/name /X def
+degE  -59 to 13 N= 37 pts :grid
+grid: 
+/name /Y def
+degN  29 to -19 N= 25 pts :grid
+%dataset:
+%/name /N def
+%/history (Christine wind stress calculated from wind field with EOF analysis factored in (Cd: from Large & Pond).)def
+%file:
+%/name (/hosts/fox/room/nas/data/chris.6486ws) def
+%doit2
+%:file
+%:dataset
+%dataset:
+%/name /MEANN def
+%/history (Christine wind stress averaged over 23 years (Cd:Large & Pond).)def
+%grid:
+%/name /T def
+%month
+%periodic
+%Jan  1.  Dec :grid
+%file:
+%/name (/hosts/fox/room/nas/data/chrism.6486ws) def
+%doit2
+%:file
+%:dataset
+dataset:
+/name /LP def
+/history (Christine wind stress calculated from Christine pseudo stress and Cd from Large & Pond)def
+grid:
+/name /X def
+degE  -59 to 13 N= 37 pts :grid
+grid: 
+/name /Y def
+degN  29 to -19 N= 25 pts :grid
+grid: 
+/name /T def
+monthtime 
+16 Jan 1964 ensotime 1. 16 Dec 1986 ensotime :grid
+file:
+/name (/Data/data1/nas/chris.lpWS) def
+doit
+:file
+:dataset
+dataset:
+/name /SMI def
+/history (Christine wind stress calculated from Christine pseudo stress and Cd from Smith)def
+grid:
+/name /X def
+degE  -59 to 13 N= 37 pts :grid
+grid: 
+/name /Y def
+degN  29 to -19 N= 25 pts :grid
+grid: 
+/name /T def
+monthtime 
+16 Jan 1964 ensotime 1. 16 Dec 1986 ensotime :grid
+file:
+/name (/Data/data1/nas/chris.smithWS) def
+doit
+:file
+:dataset
+dataset:
+/name /IHAS def
+/history (Christine wind stress calculated from Christine pseudo stress and Cd from Isemer & Hasse)def
+grid:
+/name /X def
+degE  -59 to 13 N= 37 pts :grid
+grid: 
+/name /Y def
+degN  29 to -19 N= 25 pts :grid
+grid: 
+/name /T def
+monthtime 
+16 Jan 1964 ensotime 1. 16 Dec 1986 ensotime :grid
+file:
+/name (/Data/data1/nas/chris.ihaWS) def
+doit
+:file
+:dataset
+dataset:
+/name /CARD def
+/history (Christine wind stress calculated from Christine pseudo stress and Cd from Cardone)def
+grid:
+/name /X def
+degE  -59 to 13 N= 37 pts :grid
+grid: 
+/name /Y def
+degN  29 to -19 N= 25 pts :grid
+grid: 
+/name /T def
+monthtime 
+16 Jan 1964 ensotime 1. 16 Dec 1986 ensotime :grid
+file:
+/name (/Data/data1/nas/chris.cardWS) def
+doit
+:file
+:dataset
+dataset:
+/name /LIU def
+/history (Christine wind stress calculated from Christine pseudo stress and Cd from Liu)def
+grid:
+/name /X def
+degE  -59 to 13 N= 37 pts :grid
+grid: 
+/name /Y def
+degN  29 to -19 N= 25 pts :grid
+grid: 
+/name /T def
+monthtime 
+16 Jan 1964 ensotime 1. 16 Dec 1986 ensotime :grid
+file:
+/name (/Data/data1/nas/chris.liuWS) def
+doit
+:file
+:dataset
+dataset:
+/name /CLIMO def
+/history (a wind field calculated from a Servain wind field with EOF analysis factored in.) def
+grid:
+/name /T def
+month
+periodic
+Jan  1.  Dec :grid
+grid:
+/name /X def
+degE  -59 to 13 N= 37 pts :grid
+grid: 
+/name /Y def
+degN  29 to -19 N= 25 pts :grid
+file:
+/name (/Data/data3/data/CHRISclimo) def
+random
+grids: X Y [ /absuu /absuv ] | T :grids
+variable:
+/name /absuu def
+/long_name (zonal pseudostress) def
+/units (m2/s2) def
+:variable
+variable:
+/name /absuv def
+/long_name (meridional pseudostress) def
+/units (m2/s2) def
+:variable
+:file
+:dataset
+dataset:
+/name /4YRRM def
+/history (a wind field calculated from a Servain wind field with EOF analysis factored in.) def
+grid: 
+/name /T def
+monthtime 
+16 Jan 1967 ensotime 1. 16 Dec 1984 ensotime :grid
+grid:
+/name /X def
+degE  -59 to 13 N= 37 pts :grid
+grid: 
+/name /Y def
+degN  29 to -19 N= 25 pts :grid
+file:
+/name (/Data/data3/data/CHRIS4yrrm) def
+random
+grids: X Y [ /absuu /absuv ] | T :grids
+variable:
+/name /absuu def
+/long_name (zonal pseudostress) def
+/units (m2/s2) def
+:variable
+variable:
+/name /absuv def
+/long_name (meridional pseudostress) def
+/units (m2/s2) def
+:variable
+:file
+:dataset
+dataset:
+/name /4YRH def
+/history (a wind field calculated from a Servain wind field with EOF analysis factored in.  Hellerman75 mean and 4yr detrend.) def
+grid: 
+/name /T def
+monthtime 
+16 Jan 1967 ensotime 1. 16 Dec 1984 ensotime :grid
+grid:
+/name /X def
+degE  -59 to 13 N= 37 pts :grid
+grid: 
+/name /Y def
+degN  29 to -19 N= 25 pts :grid
+file:
+/name (/Data/data3/data/CHRIS4yrH) def
+random
+grids: X Y [ /absuu /absuv ] | T :grids
+variable:
+/name /absuu def
+/long_name (zonal pseudostress) def
+/units (m2/s2) def
+:variable
+variable:
+/name /absuv def
+/long_name (meridional pseudostress) def
+/units (m2/s2) def
+:variable
+:file
+:dataset
+:dataset
+\end{ingrid}
+
+

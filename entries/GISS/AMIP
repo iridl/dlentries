@@ -1,0 +1,186 @@
+The surface diagnostics from an
+atmospheric model simulation that used AMIP boundary conditions.
+
+Date: Wed, 2 Nov 1994 15:42:26 -0500
+From: cmglr@isis.giss.nasa.gov (Gary L. Russell)
+To: benno@ldgo.columbia.edu
+Subject: AMIP data
+
+Dear Benno,
+
+I have an account on rosie under the account "cmrun".  There is a
+subdirectory "AMIP" which contains the surface diagnostics from an
+atmospheric model simulation that used AMIP boundary conditions.  In my
+account on cmrun are two fortran programs and their executable modules:
+MEAN4X5 and QDF.  "QDF AMIP/EVAP" will list on the console the title of
+each record of the file.  "MEAN4X5 AMIP/EVAP 12" will list on the console
+the mean values of the 12-th record of the file.  Call me if you have
+additional questions.
+
+Sincerely, Gary Russell
+
+\begin{ingrid}
+/AMIP insertdataset:
+/iridl:hasSemantics (iriref:Russell_GL) def
+/name /AMIP def
+/source (Run C027AM) def
+/contact (Gary L. Russell <I>cmglr@isis.giss.nasa.gov</I>)def
+/description (The surface diagnostics from an atmospheric model simulation with AMIP boundary conditions.) def
+grid:
+/name /X def
+degE
+periodic
+-177.5 5 177.5
+:grid
+grid:
+/name /Y def
+degN
+-90 to 90 N= 46 pts
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1985 ensotime 1. 16 Dec 1988 ensotime
+:grid
+variable:
+/name /ABSSRADS def
+/long_name (ABSORBED SOLAR RADIATION at SURFACE) def
+/history dataset >history def
+Wpm2
+grids: X Y | T :grids
+file:
+/name (/Data/data2/cmrun/AMIP/ABSSRADS) def
+sequential
+/nskp 20 def
+:file
+:variable
+variable:
+/name /INCSRADS def
+/long_name (INCIDENT SOLAR RADIATION at SURFACE) def
+/history dataset >history def
+Wpm2
+grids: X Y | T :grids
+file:
+/name (/Data/data2/cmrun/AMIP/INCSRADS) def
+sequential
+/nskp 20 def
+:file
+:variable
+variable:
+/name /NLWRADS def
+/long_name (NET THERMAL RADIATION at SURFACE) def
+/history dataset >history def
+Wpm2
+grids: X Y | T :grids
+file:
+/name (/Data/data2/cmrun/AMIP/NLWRADS) def
+sequential
+/nskp 20 def
+:file
+:variable
+variable:
+/name /SENSHEAT def
+/long_name (SENSIBLE HEAT FLUX) def
+/history dataset >history def
+Wpm2
+grids: X Y | T :grids
+file:
+/name (/Data/data2/cmrun/AMIP/SENSHEAT) def
+sequential
+/nskp 20 def
+:file
+:variable
+variable:
+/name /GTEM def
+/long_name (GROUND TEMPERATURE of Layer 1) def
+/history dataset >history def
+/units (K) def
+grids: X Y | T :grids
+file:
+/name (/Data/data2/cmrun/AMIP/GTEM) def
+sequential
+/nskp 20 def
+:file
+:variable
+variable:
+/name /SATEM def
+/long_name (Surface Air Temperature) def
+/history dataset >history def
+/units (K) def
+grids: X Y | T :grids
+file:
+/name (/Data/data2/cmrun/AMIP/SATEM) def
+sequential
+/nskp 20 def
+:file
+:variable
+variable:
+/name /LOWCLOUD def
+/long_name (CLOUD COVER from Layers 1, 2 and 3) def
+/history dataset >history def
+/units (percent) def
+grids: X Y | T :grids
+file:
+/name (/Data/data2/cmrun/AMIP/LOWCLOUD) def
+sequential
+/nskp 20 def
+:file
+:variable
+variable:
+/name /TOTCLOUD def
+/long_name (TOTAL CLOUD COVER) def
+/history dataset >history def
+/units (percent) def
+grids: X Y | T :grids
+file:
+/name (/Data/data2/cmrun/AMIP/TOTCLOUD) def
+sequential
+/nskp 20 def
+:file
+:variable
+variable:
+/name /PRECIPITATION def
+/long_name (PRECIPITATION) def
+/history dataset >history def
+/units (mm/day) def
+grids: X Y | T :grids
+file:
+/name (/Data/data2/cmrun/AMIP/PRECIS) def
+sequential
+/nskp 20 def
+:file
+:variable
+variable:
+/name /EVAP def
+/long_name (EVAPORATAION) def
+/history dataset >history def
+/units (mm/day) def
+grids: X Y | T :grids
+file:
+/name (/Data/data2/cmrun/AMIP/EVAP) def
+sequential
+/nskp 20 def
+:file
+:variable
+variable:
+/name /SAHUM def
+/long_name (SURFACE AIR SPECIFIC HUMIDITY) def
+/history dataset >history def
+/units (g/kg) def
+grids: X Y | T :grids
+file:
+/name (hosts/rosie/local/home/cmrun/AMIP/SAHUM) def
+sequential
+/nskp 20 def
+:file
+:variable
+:insertdataset
+\end{ingrid}
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+\begin{ingrid}
+/iridl:hasSemantics (irigaz:Sri_Lanka_136_1) def
+/Czones
+/description ( Climate zones in Sri Lanka) def
+{  db:
+   /server (localhost) def
+   /dbname (iridb) def
+   :db
+   (select gid,gid as geom_id,czone,the_geom from czone_dd1 order by gid) (gid) openqueryby
+        geom_id
+            /long_name (Climate Zone index) def
+        CopyStream
+        name exch def
+        czone 
+            /long_name (Zone Name) def
+        CopyStream
+        name exch def
+        the_geom
+            /long_name (Climate Zone geometry) def
+        name exch def
+}defasvarcachesilent
+\end{ingrid}

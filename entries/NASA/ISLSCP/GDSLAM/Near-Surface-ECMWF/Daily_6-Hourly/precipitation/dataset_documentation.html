@@ -1,0 +1,836 @@
+<html>
+<INGRID>standardHeader</INGRID>
+  <h1 align=center>Total and Convective Precipitation<br>
+   <font size=-1>(6-hourly ; NOAA/NMC, GPCP Hybrid)</font><br>
+
+    Revision Date Of This Document: April 5, 1995 </h1>
+
+    <p align=center>
+    <br>
+
+     Dr. Kenneth E. Mitchell, 
+     Research Meteorologist,
+     Development Division,
+     National Meteorological Center (NMC)
+<br>
+     Dr. Ying Lin,
+     UCAR Visiting Scientist,
+     Development Division,
+     National Meteorological Center
+
+</p><br><br>
+
+   <h2 align=center>Application of NMC Reanalysis precipitation to 
+     temporal partitioning of GPCP monthly precipitation
+     for ISLSCP Initiative I CD-ROM data sets.</h2><br><br><br>
+
+<h3> Contacts (For Data Production Information)</h3>
+<pre>
+___________________________________________________________________
+               |         Contact 1       |       Contact 2        |
+_______________|_________________________|________________________|
+  2.3.1 Name   |Dr. Ken Mitchell         |Dr. Ying Lin            |
+  2.3.2 Address|Development Division     |Development Division    |
+               |DOC, NOAA                |DOC, NOAA               |
+               |W/NMC22, WWB, Rm 204     |W/NMC22, WWB, Rm 204    |
+       City/St.|Wasington DC, USA        |Washington DC, USA      |
+       Zip Code|20233                    |20233                   |
+ 2.3.3 Tel.    |301-763-8161             |301-763-8056            |
+ 2.3.4 Email   |wd22km@sgi74.wwb.noaa.gov|wd22yl@sun1.wwb.noaa.gov|
+_______________|_________________________|________________________|
+
+2.4  Requested Form of Acknowledgement.
+
+     Mitchell, K.E., and Y. Lin, 1994: Production of 6-hourly 
+     continental precipitation data sets for 1987 and 1988 for ISLSCP
+     Initiative I, Development Division, National Meteorological 
+     Center, Washington, DC.
+
+                       3.  INTRODUCTION
+
+3.1  Objective/Purpose.
+
+     The objective of this data set is to provide a global continental 
+     precipitation time series of relatively high temporal frequency.
+     Its purpose is to fulfill the precipitation forcing needs of the 
+     various land-surface/hydrology initiatives of the Global Energy 
+     and Water Cycle Experiment (GEWEX), including ISLSCP, GCIP, GNEP, 
+     and PILPS.  
+
+     One chief application is in the initiative of the GEWEX Global Soil 
+     Wetness Workshop (4-6 Oct 1994, Longmont, Colorado), which enlisted 
+     a number of international land-surface modeling groups to utilize 
+     the same global, continental atmosperic forcing data as input to 
+     various land-surface process models to generate a set of global 
+     soil wetness estimates for use in global climate models and other 
+     applications.  A good discussion of the need for and approach to 
+     a global soil wetness initiative is given by Dirmeyer (1995) in 
+     his summary of a related forerunner meeting on soil wetness 
+     (COLA, 19 Aug 94, Calverton, MD).
+
+3.2  Summary of Parameters.
+
+     The data set provides global gridded 1-degree fields of 6-hourly
+     total and convective precipitation for 1987/88.  Over a given
+     month, the 6-hourly total precipitation sums up to the original
+     monthly total of the GPCP data set.  As in the GPCP data set,
+     all values over sea points (non-land mass) are set to zero.  
+     The convective precipitation is always less than or equal to the 
+     total precipitation for each 6-hour (and hence monthly) period.  
+
+3.3  Discussion.
+
+     The starting point for the generation of the 6-hour precipitation
+     analyses here was the global 1-degree monthly land mass precipit-
+     ation analyses of the GPCP, available as separate, independent 
+     data sets in the ISLSCP Initiative I CD-ROM SET.  Briefly summarizing 
+     the latter, the GPCP a) collects monthly precipitation totals 
+     received in CLIMATE reports via the World Weather Watch GTS (Global 
+     Telecommunication System), b) calculates monthly totals from 
+     synoptic reports, and c) acquires monthly precipitation data 
+     from international/national meteorological and hydrological 
+     services/institutions. On the basis of these precipitation-gauge 
+     measurements, 1-degree gridded analyses over land areas are 
+     carried out using a spatial objective analysis method.  For 
+     further documentation, refer to the documentation in this CD-ROM
+     collection accompanying the GPCP monthly analyses.  Note that the
+     GPCP analyses on this CD-ROM set and applied below are 1-degree,
+     land-mass only, and based on surface gauge measurements only.  
+
+     But the GPCP data sets provide only monthly total precipitation.
+     To satisfy the GEWEX modeling needs discussed in Sec. 3.1,
+     NMC agreed to partition the above GPCP monthly precipitation
+     analyses into estimates of 6-hourly total and convective 
+     precipitation time series, using the 6-hourly precipitation time 
+     series of the global 4DDA-based NMC Reanalysis Project (Kalnay 
+     and Jenne, 1991; Kalnay et al. 1993, Kalnay et al., 1995).  The NMC
+     Reanalysis 6-hourly precipitation time-series are the source of the 
+     derivation of temporal partitioning coefficients or weights applied to 
+     the GPCP monthly precipitation totals.  Note that the NMC Reanalysis 
+     precipitation is used only to derive weights for temporal partitioning, 
+     so that the derived time series sum up over one month to the original 
+     monthly GPCP amounts.
+
+     The NMC Reanalysis provides an opportunity to estimate not only
+     the 6-hourly time series of total precipitation, but also the
+     time series of convective precipitation, since both total and
+     convective precipitation amounts at 6-hourly intervals are
+     routine products of the Reanalysis.  Here we embrace this 
+     opportunity and derive a time series of 6-hourly convective
+     precipitation from the 6-hourly total precipitation by applying 
+     in each 6-hour period the Reanalysis ratio of convective to total 
+     precipitation.  The user must bear in mind that the above ratio
+     is a product of the physical parameterizations for stable and
+     convective precipitation in the GCM of the NMC Reanalysis.  
+
+                    4.  THEORY OF MEASUREMENTS
+
+The derivation of this data set begins with the GPCP gauge-based monthly 
+precipitation analyses.  See the GPCP documentation (GPCP_PRC.DOC), for a 
+description of the gauge measurements.
+
+                     5.  EQUIPMENT
+
+See comment in Sec. 4.
+
+5.1  Instrument Description.
+
+     Not applicable.
+
+     5.1.1  Platform.
+
+            Not applicable.
+
+     5.1.2  Mission Objectives.
+
+            Not applicable.  
+
+     5.1.3  Key Variables.
+
+            Not applicable. 
+
+     5.1.4  Principles of Operation.
+
+            Not applicable.  
+
+     5.1.5  Instrument Measurement Geometry.
+
+            Not applicable.  
+
+     5.1.6  Manufacturer of Instrument.
+
+            Not applicable. 
+
+5.2  Calibration.
+
+     5.2.1  Specifications.
+
+            Not applicable.
+
+            5.2.1.1  Tolerance.
+
+                     Not applicable. 
+
+     5.2.2  Frequency of Calibration. 
+
+            Not applicable.
+
+     5.2.3  Other Calibration Information.
+
+            Not applicable.  
+
+                      6.  PROCEDURE
+
+6.1  Data Acquisition Methods.
+
+     Four input data sets were acquired to derive the final dataset described 
+     in this document.  See Sec. 9 for a description of how these input data 
+     sets were processed to derive the final data set.  
+
+     The four input sets are:
+
+     1)  The GPCP global 1-degree gauge-based monthly precipitation 
+         analyses for 1987 & 1988 (available and documented on this CD-ROM 
+         set).
+
+     2)  The NMC Reanalysis global 1.875-degree 4DDA-based 6-hourly 
+         total precipitation analyses for 1987 & 1988, available from NMC,
+         (Kalnay et al., 1993, Kalnay et al., 1995).
+
+     3)  The NMC Reanalysis global 1.875-degree 4DDA-based 6-hourly 
+         convective precipitation analyses for 1987 & 1988, available from 
+         NMC, (Kalnay et al., 1993, Kalnay et al., 1995).
+
+     4)  The NASA/GSFC global 4x5 degree gauge-based daily precip
+         analyses for Dec 1978 through Nov 1979, available from NASA/GSFC,
+         (G. Walker, private communication, NASA/GSFC, 
+         greg@rootboy.gsfc.nasa.gov; see also Liston et al., 1993,
+         specifically Sec. 2.c, page 13).  Sec. 9.2.1 below provides
+         more details on this data set.
+
+6.2  Spatial Characteristics.
+
+     For each of the four input data sets listed in Sec. 6.1, 
+     the spatial characteristics are as follows:
+
+     1) GPCP Monthly Precipitation: global 1-degree latitude by 
+        longitude.
+                         
+     2) NMC Reanalysis 6-Hourly Total Precipitation: global 
+        1.875-degree latitude by longitude.  
+
+        (Specifically a 192 x 94 Gaussian grid, commonly used in 
+        global spectral models; the longitude increment is 1.875 
+        degree, the latitude increment is slightly variable, but 
+        nearly 1.915 degree.)
+
+     3) NMC Reanalysis 6-Hourly Convective Precipitation:  
+        same as 2) above.
+
+     4) NASA/GSFC Daily Precipitation: global 4x5 degree latitude 
+        by longitude (Dec 1978 - Nov 1979 only) 
+
+     Again, we emphasize that the final derived data set is derived 
+     from the above four input data sets as described in Sec. 9.
+
+     The spatial characteristics of the final derived data set is 
+     global 1-degree latitude by longitude.  This is described in
+     more detail next in Secs. 6.2.1 and 6.2.2.      
+
+     6.2.1  Spatial Coverage.
+
+            The coverage is global.  Data in each file are ordered from North 
+            to South and from West to East beginning at 180 degrees West and 
+            90 degrees North.  Point (1,1) represents the grid cell centered 
+            at 89.5 N and 179.5 W (see section 8.4).
+
+            Only land-mass grid points have non-zero values.  All values over 
+            water are zero (as in GPCP).  The 1-degree land/water mask is 
+            available in this CD-ROM collection.
+
+     6.2.2  Spatial Resolution.
+
+            The final data set is given on an equal-angle grid that has 
+            a spatial resolution of 1 X 1 degree lat/long.
+
+6.3  Temporal Characteristics.
+
+     6.3.1  Temporal Coverage.
+
+            The final data set covers the period Jan 1987 through Dec 1988.
+
+     6.3.2  Temporal Resolution.
+
+            The final data set is 6-hourly. 
+
+                   7.  OBSERVATIONS
+
+7.1  Field Notes.
+
+     See Sec. 3.3.
+
+                   8.  DATA DESCRIPTION
+
+8.1  Table Definition With Comments.
+
+     Not applicable.
+
+8.2  Type of Data.
+
+------------------------------------------------------------------------------
+|                 8.2.1               |               |       |              |
+|Parameter/Variable Name              |               |       |              |
+------------------------------------------------------------------------------
+|    |          8.2.2                 |     8.2.3     |  8.2.4 |    8.2.5    |
+|    |Parameter/Variable Description  |Range          |Units   |Source       |
+------------------------------------------------------------------------------
+|TOTAL PRECIP                         |               |        |GPCP gauge   |
+|    |The total amount of             |min = 0.,      |[MM]    |analysis and |
+|    |precipitation over a six hour   |max = 1000.,   |        |NMC 4DDA     |
+|    |period.                         |over sea = 0.  |        |Reanalysis   |
+|    |                                |               |        |             |
+------------------------------------------------------------------------------
+|CONVECTIVE PRECIP                    |               |        |GPCP gauge   |
+|    |The convective precipitation    |min = 0.,      |[MM]    |analysis and |
+|    |over a six hourly period.       |max = 1000.,   |        |NMC 4DDA     |
+|    |                                |over sea = 0.  |        |Reanalysis   |
+|    |                                |               |        |             |
+------------------------------------------------------------------------------
+
+8.3  Sample Data Base Data Record.
+
+     Not applicable.
+
+8.4  Data Format.
+
+     Compressed format:
+
+     The ECMWF data has been compressed using Unix Compress.  Compress uses 
+     the modified Lempel-Ziv algorithm popularized in "A Technique for High 
+     Performance Data Compression", Terry A. Welch, IEEE Computer, vol. 17, 
+     no. 6 (June 1984), pp. 8-19.  Common substrings in the file are first 
+     replaced by 9-bit codes 257 and up.  When code 512 is reached, the 
+     algorithm switches to 10-bit codes and continues to use more bits until 
+     the limit specified by the -b flag is reached (default 16).  Bits must be 
+     between 9 and 16.  The default can be changed in the source to allow 
+     compress to be run on a smaller machine.
+
+     The amount of compression obtained depends on the size of the input, the
+     number of bits per code, and the distribution of common substrings.  The 
+     ECMWF data has been reduced by approximately 85%.  So watch out!!!
+
+     The data described here can be de-compressed using the platform specific 
+     programs listed below. 
+
+     DOS       MAC               UNIX         VMS        
+     ----------------------------------------------------
+     u16.zip   MacGzip0.3b2      gzip1-2-3    gzip-1-2-3
+
+     These programs are located in the SOFTWARE directory on this CD-ROM.  The 
+     programs are also available via FTP from many archival data bases on the 
+     Internet.  Information on anonymous FTP sites which supply these software 
+     can be obtained via anonymous FTP at ftp.cso.uiuc.edu in the directory 
+     /doc/pcnet in the file compression.
+
+
+     Uncompressed format:
+
+     The CD-ROM file format is ASCII, and consists of numerical fields of 
+     varying length, which are space delimited and arranged in columns and 
+     rows.  Each column contains 180 numerical values and each row contain 360 
+     numerical values.  
+
+          Grid arrangement
+
+             ARRAY(I,J)
+             I  = 1 IS CENTERED AT 179.5W
+             I INCREASES EASTWARD BY 1 DEGREE
+             J  = 1 IS CENTERED AT 89.5N
+             J INCREASES SOUTHWARD BY 1 DEGREE
+
+             90N - | - - - | - - - | - - - | - -
+                   | (1,1) | (2,1) | (3,1) |
+             89N - | - - - | - - - | - - - | - -
+                   | (1,2) | (2,2) | (3,2) |
+             88N - | - - - | - - - | - - - | - -
+                   | (1,3) | (2,3) | (3,3) |
+             87N - | - - - | - - - | - - - |
+                  180W   179W    178W   177W
+
+            ARRAY(360,180)
+
+8.5  Related Data Sets.
+
+     1)  The ECMWF data on ISLSCP Initiative I CD-ROMs 2, 3, and 4,
+     2)  The GPCP global 1-degree gauge-based monthly precipitation 
+         analyses for 1987 & 1988 (available and documented on the ISLSCP 
+         Initiative I, Volume 1 CD-ROM).
+     3)  The NMC Reanalysis global 1.875-degree 4DDA-based 6-hourly 
+         total precipitation analyses for 1987 & 1988, available from NMC,
+         (Kalnay et al., 1993, Kalnay et al. 1995).
+     4)  The NMC Reanalysis global 1.875-degree 4DDA-based 6-hourly 
+         convective precipitation analyses for 1987 & 1988, available from 
+         NMC, (Kalnay et al., 1993, Kalnay et al. 1995).
+     4)  The NASA/GSFC global 4x5 degree gauge-based daily precip
+         analyses for Dec 1978 through Nov 1979, available from NASA/GSFC,
+         (G. Walker, private communication, NASA/GSFC, 
+         greg@rootboy.gsfc.nasa.gov; see also Liston et al., 1993,
+         specifically Sec. 2.c, page 13).  Sec. 9.2.1 below provides
+         more details on this data set.
+
+                        9.  DATA MANIPULATIONS
+
+9.1  Formulas.
+
+     9.1.1  Derivation. 
+
+            See Sec. 9.2.1. 
+
+     9.1.2  Techniques/Algorithms.
+
+            See Sec. 9.2.1. 
+
+9.2  Data Processing Sequence.
+
+     9.2.1  Processing Steps and Data Sets.
+
+            For a given month in 1987 & 1988, and for a given global 1-degree 
+            grid land mass point denoted (i,j), we denote the following 
+            relative to the first three input data sets in Sec. 6.2:
+
+              GP(i,j) - original monthly GPCP precipitation amount
+     
+            NMC Reanalysis total precip amount for day k of month for
+
+              RPT06(i,j,k,1) -  first 6-hour period 
+              RPT06(i,j,k,2) - second 6-hour period  
+              RPT06(i,j,k,3) -  third 6-hour period
+              RPT06(i,j,k,4) - fourth 6-hour period
+
+              RPT24(i,j,k)   - summation of above four 6-hour amounts
+
+              RPTMM(i,j)     - monthly total from summation of RPT24(i,j,k)
+                               over all days k of given month
+
+            NMC Reanalysis convective precip for day k of month for 
+
+              RPC06(i,j,k,1) -  first 6-hour period 
+              RPC06(i,j,k,2) - second 6-hour period 
+              RPC06(i,j,k,3) -  third 6-hour period
+              RPC06(i,j,k,4) - fourth 6-hour period
+                      
+              RPC24(i,j,k)   - summation of above four 6-hour amounts
+     
+            We note that RPCtt convective precip amount is always less 
+            than or equal to the corresponding RPTtt total precip amount.
+     
+            The desired partitioned 6-hourly GPCP total precipitation amount
+     
+              GPT06(i,j,k,1) -  first 6-hour period
+              GPT06(i,j,k,2) - second 6-hour period
+              GPT06(i,j,k,3) -  third 6-hour period
+              GPT06(i,j,k,4) - fourth 6-hour period  
+     
+            The desired partitioned 6-hourly GPCP convective precipitation 
+            amount
+
+              GPC06(i,j,k,1) -  first 6-hour period
+              GPC06(i,j,k,2) - second 6-hour period
+              GPC06(i,j,k,3) -  third 6-hour period
+              GPC06(i,j,k,4) - fourth 6-hour period  
+     
+            In Section 6.2, we noted that the original NMC Reanalysis fields
+            are provided on a 192 x 94 global Gaussian grid at 1.875 by
+            1.915 degree.  Our first operation is to bilinearly interpolate
+            these horizontally to the 1-degree grid of the GPCP fields.  
+            The above notation of RPTtt or RPCtt denotes 1-degree Reanalysis 
+            fields after this interpolation.   
+
+            Before applying the above 1-degree Reanalysis precipitation 
+            fields, we first filtered the fields, as described next, to 
+            eliminate an identified tendency for the Reanalysis to generate 
+            too many days of measurable daily rainfall in the warm months over 
+            the southeast portions of both the North American and Asian 
+            continents.  This tendency is a product of the convective 
+            parameterization scheme in the GCM of the Reanalysis system.  The 
+            hydrological modelers who expect to apply the final 6-hourly 
+            precipitation data set firmly urged us to take care in reproducing 
+            observed frequencies of measurable daily precipitation.  
+     
+            To accomplish the filter, we needed a gauge-based, global,
+            land-mass analysis of DAILY rainfall.  Such fields are not
+            easily available on a global basis.  (Indeed it is the lack of 
+            such gauge-based global daily precipitation analyses that led 
+            to this very project to apply Reanalysis to monthly GPCP.)  One 
+            exception is the data set 4) in Section 6.1 and Section 6.2, 
+            namely the NASA/GSFC gauge-based global 4x5 degree daily 
+            precipitation analysis spanning the FGGE months of Dec 1978 
+            through Nov 1979 (used in Liston et al., 1993).  Even though the 
+            above analysis is for 1979, we decided its frequency of measurable 
+            daily rainfall was more representative than that of Reanalysis.  
+            Note that we apply below only the FREQUENCY in 1979 as a filter 
+            threshold.  We do NOT use the order of precipitation events in the 
+            1979 daily series as a source for the order of events in the final 
+            1987 & 1988 data set here.  Rather the Reanalysis time series 
+            (filtered below) will determine the order of 6-hourly precip 
+            events.
+     
+            Thus for the same FGGE calendar month as the given month
+            in 1987 & 1988 assumed above, we denote the daily, 24-hour 
+            precipitation amount from the NASA/GSFC gauge-based global 
+            analysis as
+     
+              NP24(i,j,k) - 24-hour precipitation amount for day k
+     
+            Following earlier practice, the above denotes the NASA/GSFC
+            analysis after bilinear interpolation from 4x5 degree to the
+            GPCP 1-degree grid.
+
+            To accomplish the frequency filter, for each (i,j) land 
+            mass point, we compute for the given month a) the number of 
+            days, NR(i,j), in which RPT24(i,j,k) exceeded 1 mm and 
+            b) the number of days, NF(i,j), in which NP24(i,j,k) exceeded
+            1 mm.  If NF(i,j) > 10 (in order to target convective regions
+            for the most part) and NR(i,j) > NF(i,j) then we iterated
+            to determine a threshold daily precipitation amount, E(i,j), such
+            that if RPT24(i,j,k) < E(i,j), then we set RPT24(i,j,k)=0
+            and RPC24(i,j,k)=0 and hence also we set 
+
+              RPT06(i,j,k,1)=RPT06(i,j,k,2)=RPT06(i,j,k,3)=RPT06(i,j,k,4)=0
+
+              RPC06(i,j,k,1)=RPC06(i,j,k,2)=RPC06(i,j,k,3)=RPC06(i,j,k,4)=0
+
+            for each such day k of the month satisfying the threshold, 
+            with the result that after such filtering (month by month) 
+            then NR(i,j)=NF(i,j) whenever NF(i,j) > 10.  Thus, at a given 
+            grid point (i,j), if RPT24(i,j,k) is less than the threshold 
+            E(i,j), then ALL Reanalysis precipitation amounts for that day 
+            were set to zero.  Note that the threshold field E(i,j) was 
+            determined separately for each of the 48 months in 1987 & 1988.  
+            With few exceptions, the values of E(i,j) were less than several 
+            millimeters. 
+
+            We denote all such filtered Reanalysis fields as follows
+            (for tt=06 and tt=24):
+
+              RPTttF = filtered counterpart to RPTtt
+              RPCttF = filtered counterpart to RPCtt
+              RPTMMF = filtered counterpart to RPTMM
+
+            At last, it is straightforward to derive the desired 
+            temporally partitioned GPCP analyses.
+
+            First, the 6-hourly partitioned GPCP total precipitation
+            is derived for each day k of given month from
+
+              GPT06(i,j,k,m)  = [RPT06F(i,j,k,m)/RPTMMF(i,j)] * GP(i,j)
+
+            for each 6-hourly period m=1,2,3,4.  In the above we see that 
+            the Reanalysis 6-hourly amount, scaled by the Reanalysis 
+            monthly total, acts as the temporal partitioning or weighting 
+            coefficient.  (Note: If GP(i,j)=0, then we set GPT06(i,j,k,m)=0.
+            If GP(i,j) is nonzero and RPTMMF(i,j) is zero, we search for
+            and substitute for RPT06F and RPTMMF from the nearest land 
+            mass (i,j) at which RPTMMF is nonzero.)
+           
+            Secondly, the 6-hourly partitioned GPCP convective precipitation
+            is derived for each day k of given month from
+
+            GPC06(i,j,k,m)=[RPC06F(i,j,k,m)/RPT06F(i,j,k,m)]*GPT06(i,j,k,m)
+     
+            for each 6-hourly period m=1,2,3,4.  In the above we see that 
+            the Reanalysis 6-hourly convective amount, scaled by the 
+            Reanalysis 6-hourly total amount, acts as the convective 
+            partitioning or weighting coefficient.  (Note:  If 
+            GPT06(i,j,k,m) is zero, then we set GPC06(i,j,k,m)=0.
+            If GPT06(i,j,k,m) is nonzero, then RPT06F(i,j,k,m) is 
+            nonzero and hence GPC06(i,j,k,m) is well defined.) 
+
+     9.2.2  Processing Changes.
+
+            None at the time of this first revision.
+
+9.3  Calculations.
+
+     9.3.1  Special Corrections/Adjustments.
+
+            See Sec. 9.2.1 above.
+
+9.4  Graphs and Plots.
+
+     See Mo et al. (1995), Kalnay et al. (1993), and Kalnay et al. (1995).
+
+                          10.  ERRORS
+
+10.1  Sources of Error.
+
+      The final data set inherits errors from the four input data
+      sets of Section 6.1.
+
+      First, the monthly totals obtained by summing the derived 
+      6-hourly time series agree with the input GPCP monthly 
+      precipitation.  Hence these monthly totals reflect the 
+      accuracy of the GPCP analyses.
+
+      In particular, the procedures of Section 9 were specifically 
+      designed to avoid having the monthly totals of this 6-hourly 
+      data set reflect any of the biases in monthly totals in the 
+      NMC Reanalysis.
+
+      The sources of error in the input GPCP monthly precipitation
+      analyses are discussed in Section 10 of the GPCP documentation
+      in this CD-ROM set.  The reader should review all of that 
+      information. 
+
+      Within a given month, the temporal character of the 
+      precipitation time series is dependent on the temporal character 
+      of the NMC Reanalysis precipitation.  
+
+      In the NMC Reanalysis, stringent care was given to quality 
+      control (see Kalnay et al., 1993, and Kalnay et al., 1995).
+      Nevertheless, as in any modern state-of-the-art multi-variant
+      four-dimensional data assimilation system (4DDA), the NMC 
+      Reanalysis inevitably embodies some systematic errors.
+
+      The precipitation fields from the NMC Reanalysis have been 
+      examined by external researchers and presented at the recent 
+      Nineteenth Annual Climate Diagnostics Workshop, sponsored
+      during 14-18 Nov 94 at College Park, MD by the Cooperative 
+      Institute for Climate Studies at the University of Maryland.
+      The results showed, for example, that the diurnal character 
+      of the precipitation fields from the NMC Reanalysis compared
+      favorably with observations in the spring season over the
+      central U.S. and that this diurnal character was significantly
+      better than an alternative non-NMC reanalysis product.
+
+      On the other hand, in the NMC Reanalysis, researchers have found 
+      that the frequency of measurable daily precipitation is too high 
+      over the southeast portions of the North American and Asian
+      continents.  Hence the frequency filter described in Section 9.2
+      was applied.
+
+      The resultant temporal character of the 6-hourly time series, 
+      though having some of the limitations of a global 4DDA system,
+      are nevertheless superior in our view for many applications to 
+      the alternative of a researcher having to take the GPCP monthly 
+      amounts and arbitrarily distributing these amounts across the
+      monthly period (e.g., a constant mean 6-hourly amount for
+      the whole month).  Furthermore, the Reanalysis-based time
+      series are strongly linked to the regular progression of
+      synoptic weather systems and convective triggers that
+      characterize the real atmosphere.
+
+      As cited earlier, the data set includes the 6-hourly time
+      series for both total and convective precipitation.  Of
+      the two, the total precipitation time series is more
+      reliable, as the temporal character and relative magnitude
+      of the convective time series is heavily tied to the
+      convective parameterization scheme in the GCM of the 
+      NMC Reanalysis system.  Some sensitivities of the Reanalysis
+      precipitation to choice of convective parameterization scheme
+      are presented in Kalnay et al. (1993).  Despite some NMC 
+      reluctance to provide the convective time series, GEWEX modelers 
+      strongly urged this present attempt, because their land surface 
+      process models often require a partitioning between non-convective
+      and convective precipitation, and once again 4DDA, or its
+      Reanalysis equivalent, was viewed as the best reasonably 
+      available means for providing this separation.
+
+10.2   Quality Assessment.
+
+       10.2.1  Data Validation by Source.
+
+               See Section 10.2.1 of the GPCP documentation for
+               information on that source.
+
+               The NMC Reanalysis precipitation has been compared
+               on a global monthly basis with GPCP monthly analyses,
+               with other precipitation climatologies, and with
+               other Reanalysis products from other centers.  Regional,
+               diurnal, and water budget characteristics have been
+               studied by both internal and external NMC researchers.
+               Since the Reanalysis products are very new, much of the 
+               above research is not yet available in the commonly 
+               available literature.  One exception is the study by
+               Mo et al. (1995), who examined the sensitivity of the
+               Reanalysis, including global precipitation analyses, to
+               the use or omission of satellite data in the Reanalysis.
+               Other very recent examples of Reanalysis fields are given 
+               in Kalnay et al. (1995).
+
+       10.2.2  Confidence Level/Accuracy. 
+
+               See previous Sec. 10 subsections above. 
+
+       10.2.3  Measurement Error for Parameters and Variables.
+
+               Not applicable.
+
+       10.2.4  Additional Quality Assessment Applied.
+
+               In the final data set, the following checks were applied.
+
+               1 - No negative values.
+
+               2 - The summation over one month of the 6-hourly time
+                   series of total precipitation agrees at every 
+                   grid point with the original GPCP monthly amount.
+
+               3 - The convective precipitation amount is always less
+                   than or equal to the total precipitation amount.
+
+               4 - All over water values (sea) are zero.
+
+               5 - No missing flags (-99999.99) are present in either
+                   the input GPCP monthly analyses or the final output
+                   6-hourly time series.
+
+                                 11.  NOTES
+
+11.1  Known Problems With The Data.
+
+      See Section 10 above and Section 11.1 in the companion documentation 
+      for the GPCP monthly precipitation analyses. 
+
+11.2  Usage Guidance.
+
+      In data void or sparse continental areas, the quality of the 
+      analysis results will be less reliable. 
+
+11.3  Other Relevant Information.
+
+      Not available.
+
+                         12.  REFERENCES
+
+12.1  Satellite/Instrument/Data Processing Documentation.
+
+      WCRP, 1990.  The Global Precipitation Climatology Project - 
+          Implementation and Data Management Plan. WMO/TD-No. 367, Geneva, 
+          June 1990, 47 pp. and appendices. 
+      Kalnay, E., M. Kanamitsu, R. Kistler, W. Collins, D. Deaven, L. Gandin, 
+          S. Saha, G. White, J. Woollen, M. Chelliah, J. Janowiak, K.C. Mo, J. 
+          Wang, A. Leetmaa, R. Reynolds, R. Jenne, E. Kung, and D. Salstein, 
+          1993.  The NMC/NCAR CDAS/Reanalysis Project, NMC Office Note 401, 
+          Washington, DC, October 1993, 42 pp. and figures.
+
+12.2  Journal Articles and Study Reports.
+
+      Dirmeyer, P.A., 1995. Summary of Meeting on Problems in Initializing 
+          Soil Wetness, submitted to Bull. Amer. Meteor. Soc. (also available 
+          as COLA Report No. 9, January 1995, COLA, Calverton, MD).
+      Kalnay, E., M. Kanamitsu, R. Kistler, W. Collins, D. Deaven, L. Gandin, 
+          M. Iredell, S. Saha, G. White, J. Woollen, Y. Zhu, M. Chelliah, W. 
+          Ebisuzaki, W. Higgins, J. Janowiak, K.C. Mo, C. Ropelewski, A. 
+          Leetmaa, R. Reynolds, R. Jenne, 1995. The NMC/NCAR Reanalysis 
+          Project.  Submitted to the Bull. Amer. Meteor. Soc.
+      Kalnay, E., and R. Jenne, 1991. Summary of the NMC/NCAR reanalysis. 
+          Bull. Amer. Meteor. Soc., 72:1897-1904.
+      Liston, G.E., Y.C. Sud, and G.K. Walker, 1993.  Design of a Global Soil 
+          Moisture Initialization Procedure for the Simple Biosphere Model, 
+          NASA Tech Memo 104590, NASA Goddard Space Flight Center, Greenbelt, 
+          MD, 130 pp.
+      Mo, K.C., X.L. Wang, R. Kistler, M. Kanamitsu, and E. Kalnay, 1995. 
+          Impact of satellite data on the CDAS-Reanalysis System, Mon. Wea. 
+          Rev., 123:124-139.
+
+12.3  Archive/DBMS Usage Documentation.
+
+      Contact the EOS Distributed Active Archive Center (DAAC) at NASA Goddard 
+      Space Flight Center (GSFC), Greenbelt Maryland (see Section 13 below).
+      Documentation about using the archive or information about access to the 
+      on-line information system is available through the GSFC DAAC User 
+      Services Office.
+
+                             13.  DATA ACCESS
+
+13.1  Contacts for Archive/Data Access Information.
+
+      GSFC DAAC User Services
+      NASA/Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Phone:     (301) 286-3209
+      Fax:       (301) 286-1775
+      Internet:  daacuso@eosdata.gsfc.nasa.gov
+
+13.2  Archive Identification.
+
+      Goddard Distributed Active Archive Center
+      NASA Goddard Space Flight Center
+      Code 902.2
+      Greenbelt, MD 20771
+
+      Telephone:  (301) 286-3209
+      FAX:        (301) 286-1775
+      Internet:   daacuso@eosdata.gsfc.nasa.gov
+
+13.3  Procedures for Obtaining Data.
+
+      Users may place requests by accessing the on-line system, by sending 
+      letters, electronic mail, FAX, telephone, or personal visit.
+
+      Accessing the GSFC DAAC Online System:
+
+      The GSFC DAAC Information Management System (IMS) allows users to 
+      ordering data sets stored on-line.  The system is open to the public.
+
+      Access Instructions:
+
+      Node name:  daac.gsfc.nasa.gov
+      Node number: 192.107.190.139
+      Login example: telnet daac.gsfc.nasa.gov
+      Username:  daacims
+      password:  gsfcdaac
+
+      You will be asked to register your name and address during your first
+      session.
+
+      Ordering CD-ROMs:
+
+      To order CD-ROMs (available through the Goddard DAAC) users should 
+      contact the Goddard DAAC User Support Office (see section 13.2).
+
+13.4  GSFC DAAC Status/Plans.
+
+      The ISLSCP Initiative I CD-ROM is available from the Goddard DAAC.
+
+                        14.  OUTPUT PRODUCTS AND AVAILABILITY 
+
+14.1  Tape Products.
+
+      None.
+
+14.2  Film Products. 
+
+      None.
+
+14.3  Other Products. 
+
+      None.
+
+                             15.  GLOSSARY OF ACRONYMS
+
+4DDA           four dimensional data assimilation
+COLA           Center for Ocean-Land-Atmosphere Studies
+DAAC           Destributed Active Archive Center
+DOC            Department of Commerce
+EOS            Earth Observation System
+EOS-DIS        EOS data and Information System
+GCIP           GEWEX Continental Scale Project
+GCM            General Circulation Model
+GEWEX          Global Energy and Water Cycle Experiment
+GNEP           GEWEX Numerical Experimentation Project
+GPCP           Global Precipitation Climatology Project
+GSFC           Goddard Space Flight Center
+GTS            Global Telecommunications System
+ISLSCP         International Satellite Land Surface Climatology Project
+NASA           National Aeronautics and Space Administration
+NMC            National Meteorological Center
+NOAA           National Oceanic and Atmospheric Administration
+PILPS          Project for Intercomparison of Land-Surface Process Schemes
+UCAR           University Corporation for Atmospheric Research
+
+</pre>
+</body></html>

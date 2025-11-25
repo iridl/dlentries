@@ -1,0 +1,88 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+/prcp_dekadrate_max600_smooth {
+  startcolormap
+    0.0 600.0 RANGE
+    LightGrey white white
+       0.0 VALUE
+       LightCyan
+        10.0 VALUE
+        SkyBlue
+         15.0 VALUE
+         DodgerBlue
+          50.0 VALUE
+          MediumBlue
+           100.0 VALUE
+           DarkSeaGreen
+            150.0 VALUE
+            MediumSeaGreen
+             200.0 VALUE
+             LightSeaGreen
+              300.0 VALUE
+              khaki
+               400.0 VALUE
+               SandyBrown
+                500.0 VALUE
+                firebrick 600.0 VALUE
+                firebrick endcolormap
+} defcolorscale
+:datasetdefs
+
+link:
+/name (USGS Data Series 832) def
+/description (Reference paper PDF) def
+/href (http://pubs.usgs.gov/ds/832/) def
+:link
+
+link:
+/name (CHIRPS Home Page) def
+/description (CHIRPS page at UCSB Climate Hazards Group) def
+/href (http://chg.geog.ucsb.edu/data/chirps/) def
+:link
+link:
+/name (v2p0) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.UCSB/.CHIRPS/.v2p0/.dekad/) def
+/description (v2.0 replaces v1.8) def
+/semantics /dcterm:isReplacedBy def
+:link
+grid:
+/name /X def
+degE
+periodic
+-180. 180. 7201 pts 1 index sub
+:grid
+X partialgrid name exch def
+grid:
+/name /Y def
+degN
+50. -50. 2001 pts
+:grid
+Y partialgrid name exch def
+1 Jan 1981 julian_day
+28 Feb 2015 julian_day dekadGRID
+name exch def
+
+ T /defaultvalue {last} def pop
+
+/prcp {
+ [X Y | T ]
+ (/Data/ingridcache/ftp/chg-ftpout.geog.ucsb.edu/pub/org/chg/products/CHIRPS-1.8/global_dekad/tifs/chirps-v1.8.%Y.%m[T].%d[dkd].tif) [T dup
+        0 3 onegridmodcounter
+        1 add
+        /name /dkd def
+        ]readdatafile:
+      /realarraytype tiffimage
+/long_name (precipitation) def
+/standard_name (lwe_precipitation_rate) def
+/missing_value -9999. def
+/units (mm) def
+      :readdatafile
+prcp_dekadrate_max600_smooth
+} defasvarsilent
+
+/references (Funk_etal2014) def
+
+:dataset
+\end{ingrid}

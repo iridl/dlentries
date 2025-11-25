@@ -1,0 +1,132 @@
+\begin{ingrid}
+
+continuedataset:
+
+datasetdefs:
+/ssta {
+ v1 .ssta 
+ } defasvarsilent
+:datasetdefs
+
+/dataset_documentation.html currentobject 1 index get def
+
+/v1 {
+    (/Data/data2/kaplan/OSxbNCEP.cuf) readCUF
+    /description(Statistically homogenous concatenation of SST version 1) def
+} defasvarsilent
+
+/v2 {
+(/Data/data2/kaplan/OSxbNCEP2.cdf) readCDF
+/note (revised 13 Sep 2005 and 24 Oct 2005, following the 13 Sep 2005 revision of the Reynolds and Smith Version 2 data set that affected fields from Nov 1981 to Apr 2002) def
+/references (Kaplan_etal1998 Reynolds_Smith1994) def
+/description(Statistically homogenous concatenation of SST version 2) def
+
+ssta /long_name (SST anomaly) def
+/history  (OS extended by NCEP) def 
+name exch def
+
+/ssta_c9120 {
+ssta
+dup T (1991) (2020) RANGE
+yearly-climatology sub
+/long_name (1991-2020 SST anomaly) def
+}defasvar
+
+} defasvarsilent
+
+dataset:
+
+/name /v3 def
+
+/references (Kaplan_etal1998 Reynolds_Smith1994) def
+/description(Statistically homogenous concatenation of SST version 3) def
+
+datasetdefs:
+
+/ssta_avhrr {
+    SOURCES .NOAA .NCDC .OISST .version2p1 .AVHRR_monthly .sst
+    lon 5 boxAverage
+    lat 5 boxAverage
+    lon /X renameGRID
+    lat /Y renameGRID
+    zlev removeGRID
+    SOURCES .GOSTA .atlas7 .climatology .5deg .sst sub
+    SOURCES .KAPLAN .EXTENDED .EOFs .W_mul mul
+    [X Y]sum
+    SOURCES .KAPLAN .EXTENDED .EOFs .W_div mul
+    [L]sum
+}defasvarcachesilent
+
+:datasetdefs
+
+/ssta {
+    SOURCES .KAPLAN .EXTENDED .v1 .ssta T first (Aug 1981) RANGE
+    ssta_avhrr
+    appendstream
+/long_name (SST anomaly) def
+/history  (OS extended by AVHRR) def 
+}defasvarsilent
+
+/ssta_c9120 {
+ssta
+ssta_avhrr T (1991) (2020) RANGE
+yearly-climatology sub
+/long_name (1991-2020 SST anomaly) def
+}defasvar
+
+:dataset
+
+dataset:
+
+/name /EOFs def
+
+grid:
+/name /X def
+periodic
+/units /degree_east def
+/long_name (Longitude) def
+-332.5 5 22.5
+:grid
+
+grid:
+/name /Y def
+/units /degree_north def
+/long_name (Latitude) def
+-87.5 5 87.5
+:grid
+
+grid:
+/name /L def
+1 1 80
+:grid
+
+/W_mul {
+    [X Y L | ]
+    (/Data/data2/kaplan/upd_xHSSTv3/EOF_W_mul.cdf)
+    readdatafile:
+    /name (EOF_W_mul) def
+    /realarraytype netcdfrecords
+    :readdatafile
+}defasvarsilent
+
+/W_div {
+    [X Y L | ]
+    (/Data/data2/kaplan/upd_xHSSTv3/EOF_W_div.cdf)
+    readdatafile:
+    /name (EOF_W_div) def
+    /realarraytype netcdfrecords
+    :readdatafile
+}defasvarsilent
+
+:dataset
+
+/references (Kaplan_etal1998 Reynolds_Smith1994) def
+
+:dataset
+
+v3 ssta .T name exch put
+v3 ssta .X name exch put
+v3 ssta .Y name exch put
+
+\end{ingrid}
+

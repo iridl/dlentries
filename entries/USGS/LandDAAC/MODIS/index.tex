@@ -1,0 +1,63 @@
+\begin{ingrid}
+continuedataset:
+STREAM
+/ndvi_colorsMODIS {
+startcolormap
+DATA -.2 1.0 RANGE
+transparent
+blue
+cyan -.1 bandmax
+white 0.0 bandmax
+234 233 189 RGB RGBdup 0.05 bandmax
+215 211 148 RGB RGBdup 0.1 bandmax
+202 189 119 RGB RGBdup 0.15 bandmax
+175 175 77 RGB RGBdup 0.2 bandmax
+128 169 5 RGB RGBdup 0.3 bandmax
+12 127 0 RGB RGBdup 0.4 bandmax
+0 94 0 RGB RGBdup 0.5 bandmax
+0 59 1 RGB RGBdup 0.6 bandmax
+0 9 0 RGB RGBdup 1.0 bandmax
+0 9 0 RGB 1.0 VALUE
+0 9 0 RGB
+endcolormap } defcolorscale
+pop
+Ingrid: 
+/outsidedelayMODISchange
+{
+last_modified systemtime 24
+      3600 imul
+      sub
+     gt IRIurl? not and
+{
+first secondtolast subgrid
+}
+{
+IRIurl? not { 
+/last_modified last_modified 24
+      3600 imul add def
+} if
+} ifelse
+} put
+datasetdefs:
+/EAF { version_005 .EAF } def
+/Horn_of_Africa { version_005 .Horn_of_Africa } def
+/Madagascar { version_005 .Madagascar } def
+/NOMADE_region { version_005 .NOMADE_region } def
+/SAF { version_005 .SAF } def
+/SEAS { version_005 .SEAS } def
+/SSA { version_005 .SSA } def
+/NSA { version_005 .NSA } def
+/SWAS { version_005 .SWAS } def
+/WAF { version_005 .WAF } def
+
+:datasetdefs
+
+/version_004 currentobject 1 index get def
+/version_005 currentobject 1 index get def
+/version_006 currentobject 1 index get def
+/MOD17A2H currentobject 1 index get def
+/auxinfo.owl currentobject 1 index get def
+/1km currentobject 1 index get def
+/250m currentobject 1 index get def
+:dataset
+\end{ingrid}

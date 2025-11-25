@@ -1,0 +1,183 @@
+\begin{ingrid}
+datasetdefs:
+  /catalog
+    (https://dpesgf03.nccs.nasa.gov/thredds/catalog/bypass/CREATE-IP/reanalysis/ECMWF/IFS-Cy31r2/ERA-Interim/6hr/atmos/catalog.xml) readthredds
+  def
+:datasetdefs
+
+continuedataset:
+link:
+/name /homepage def
+/href (https://cds-cv.nccs.nasa.gov/CREATE-V/) def
+/description (CREATE Reanalysis Server Home Page) def
+:link
+
+/zg{
+catalog .zg.ncml .zg
+/long_name (Geopotential Height) def
+/units (m) def
+time 0.25 setpointwidthreplaceGRID
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/vas{
+catalog .vas.ncml .vas
+/long_name (Northward Near-Surface Wind) def
+/units (m s-1) def
+time 0.25 setpointwidthreplaceGRID
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/va{
+catalog .va.ncml .va
+/long_name (Northward Wind) def
+/units (m s-1) def
+time 0.25 setpointwidthreplaceGRID
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/uas{
+catalog .uas.ncml .uas
+/long_name (Eastward Near-Surface Wind) def
+/units (m s-1) def
+time 0.25 setpointwidthreplaceGRID
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/ua{
+catalog .ua.ncml .ua
+/long_name (Eastward Wind) def
+/units (m s-1) def
+time 0.25 setpointwidthreplaceGRID
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/ts{
+catalog .ts.ncml .ts
+/long_name (Surface Temperature) def
+/units (K) def
+time 0.25 setpointwidthreplaceGRID
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/tro3{
+catalog .tro3.ncml .tro3
+/long_name (Mole Fraction of O3) def
+/units (ppmv) def
+time 0.25 setpointwidthreplaceGRID
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/tas{
+catalog .tas.ncml .tas
+/long_name (Near-Surface Air Temperature) def
+/units (K) def
+time 0.25 setpointwidthreplaceGRID
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/ta{
+catalog .ta.ncml .ta
+/long_name (Air Temperature) def
+/units (K) def
+time 0.25 setpointwidthreplaceGRID
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/psl{
+catalog .psl.ncml .psl
+/long_name (Sea Level Pressure) def
+/units (Pa) def
+time 0.25 setpointwidthreplaceGRID
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/pr{
+catalog .pr.ncml .pr
+/long_name (Precipitation) def
+/units (kg m-2 s-1) def
+time 0.25 setpointwidthreplaceGRID
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/hus{
+catalog .hus.ncml .hus
+/long_name (Specific Humidity) def
+/units (kg kg-1) def
+time 0.25 setpointwidthreplaceGRID
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/evspsbl{
+catalog .evspsbl.ncml .evspsbl
+/long_name (Evaporation) def
+/units (kg m-2 s-1) def
+time 0.25 setpointwidthreplaceGRID
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+
+/clt{
+catalog .clt.ncml .clt
+/long_name (Total Cloud Fraction) def
+/units (%) def
+time 0.25 setpointwidthreplaceGRID
+time /T renameGRID
+lon /X renameGRID
+lat /Y renameGRID
+T /defaultvalue { last } def pop
+}defasvar
+
+:dataset
+\end{ingrid}

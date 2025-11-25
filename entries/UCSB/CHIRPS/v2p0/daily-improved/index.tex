@@ -1,0 +1,9 @@
+\begin{ingrid}
+continuedataset:
+
+/description (Daily CHIRPS v2.0 data with improved temporal downscaling procedure) def
+
+/note (There is an improved temporal downscaling procedure for estimating the final daily CHIRPS.  The previous daily data will be supported through the end of 2015. Since CHIRPS pentads and monthly remain unchanged there will be no change in the CHIRPS version number. This is not a new version of CHIRPS, it is an improvement on the temporal downscaling to daily estimates.  The Problem:  When temporally downscaling CHIRPS to daily maps, there are many locations with significant residuals.  (Residual here is the difference between monthly CHIRPS and the sum of daily CHIRPS for that month) In fact for over 80 percent of the locations with residuals, the residual was 100 percent of the monthly CHIRPS. These are places where the daily CCD fails, often due to warm precipitation.  The Solution:  Add an extra step to distribute the monthly precipitation to across days in the month only for pixels where the monthly residual is > 1 mm.  The first challenge was to decide the appropriate number of days of precipitation for a given month. We used the locations with zero residual to derive a relationship between total monthly CHIRPS and number of rain days.  Now, using the total residual and number of rain days, we use the highest N values of daily CHIRP for the month to proportionally distribute the monthly total across those days.) def
+
+:dataset
+\end{ingrid}

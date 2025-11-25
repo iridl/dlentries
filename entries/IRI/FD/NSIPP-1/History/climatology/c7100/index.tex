@@ -1,0 +1,47 @@
+\begin{ingrid}
+continuedataset: 
+/long_name (1971-2000) def
+/iridl:hasSemantics (iridl:climatology) def
+grid: /name /T def monthtime
+periodic
+16 Jan 1960 ensotime 1 16 Dec 1960 ensotime :grid
+grid: /name /Y def degN 89 2 -89 :grid
+grid: /name /X def degE periodic 0 2.5 357.5 :grid
+variable:
+/name /prcp def
+/long_name (precipitation rate) def
+/units (mm/day) def
+grids: X Y | T :grids
+file:
+decsequential
+/name (/beluga/data/forecast/DATA/gsfc/pcp/gsfc.pcp.7100.clm) def
+:file
+:variable
+variable:
+/name /t2m def
+/long_name (temperature at 2m) def
+/units (Kelvin_scale) def
+/missing_value -9999. def
+grids: X Y | T :grids
+file:
+decsequential
+/name (/beluga/data/forecast/DATA/gsfc/2mt/gsfc.2mt.7100.clm) def
+:file
+:variable
+/zg {
+  SOURCES .IRI .FD .NSIPP-1 .History .ensemble .monthly .z500
+  0 masklt
+  [M] average
+  T (1971) (2000) RANGEEDGES
+  yearly-climatology
+}defasvar
+:dataset
+\end{ingrid}
+
+
+
+
+
+
+
+

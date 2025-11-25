@@ -1,0 +1,313 @@
+\begin{ingrid}
+Ingrid:
+\end{ingrid}
+Old file names
+\begin{ingrid}
+/IRIforecastmemberfns null 11 object
+(ccm3/asst)	{ 1 sub toi4 (%1.1d_)} def
+(ccm3/psst)	{ 1 sub toi4 (%1.1d_) } def
+(cola/asst)	{ 1 sub toi4 (%1.1d_) } def
+(ecm4/asst)     { toi4 (fc%2.2d_) } def
+(ecm4/psst)     { toi4 (fc%2.2d_) } def
+(gsfc/asst)	{1 sub toi4 (%1.1d_) } def
+(ncep/asst)	{1 sub toi4 (%1.1d_) } def
+(ecpc/asst)     {1 sub toi4 (%1.1d_) } def
+(ecpc/psst)     {1 sub toi4 (%1.1d_) } def
+(gfdl/psst)     {1 sub toi4 (%2.2d_) } def
+\end{ingrid}
+New file names
+\begin{ingrid}
+(ccm3/ssst)	{ 1 sub toi4 (%2.2d_)} def
+(cola/ssst)	{ 1 sub toi4 (%2.2d_) } def
+(ecm4/ssst)     { toi4 (fc%2.2d_) } def
+(gsfc/ssst)	{1 sub toi4 (%2.2d_) } def
+(ncep/ssst)	{1 sub toi4 (%2.2d_) } def
+(ecpc/ssst)     {1 sub toi4 (%2.2d_) } def
+(gfdl/ssst)     {1 sub toi4 (%2.2d_) } def
+def
+/IRIforecastrunfns null 11 object
+\end{ingrid}
+ssst run calculations
+\begin{ingrid}
+(ecm4/ssst)     {40034 add toi4 (/%5.5d) } def
+(gsfc/ssst)	{      8040 add toi4 (/%4.4d)} def
+(ncep/ssst)	{      6607 add toi4 (/%4.4d)} def
+(ecpc/ssst)     { 2 mul 5025 add  
+	  toi4 (/%4.4d)} def
+(gfdl/ssst)     { 2 mul 4003 add  
+	  toi4 (/%4.4d)} def
+(cola/ssst)	{      7032 add toi4 (/%4.4d)} def
+\end{ingrid}
+asst and psst run calculations
+\begin{ingrid}
+(gfdl/psst)     { 2 mul 4002 add  
+	  toi4 (/%4.4d)} def
+(ccm3/asst)	{2 mul 4617 add toi4 (/%4.4d)} def
+(ccm3/psst)	{2 mul 4616 add toi4 (/%4.4d)} def
+(cola/asst)	{      7003 add toi4 (/%4.4d)} def
+(ecm4/asst)     {30005 add 
+dup 30033 flaggt 10000 mul add
+toi4 (/%5.5d) 
+} def
+(ecm4/psst)     {20005 add toi4 (/%5.5d) } def
+(gsfc/asst)	{      8011 add toi4 (/%4.4d)} def
+(ncep/asst)	{      6578 add 
+dup 6541 flaglt sub
+dup 6538 flaglt sub
+toi4 (/%4.4d)} def
+(ecpc/asst)     { 2 mul 6001 add 
+dup 6013 flagge -1000 mul add
+toi4 (/%4.4d)} def
+(ecpc/psst)     { 2 mul 6000 add 
+dup 6012 flagge -1000 mul add
+dup 5024 5999 flagrange 9 mul 1 add mul
+toi4 (/%d)} def
+def
+/IRIforecastfilename {
+IRIforecastmemberfns 1 index get exch
+IRIforecastrunfns 1 index get
+exch
+S
+exch
+    (/Data/data1/iri/forecast/data/fcst_monthly_mean/)
+exch
+(/%b%y) 3array astore concat strftime360cs
+    tolower
+S
+     (1 Jan 2002) readunits 
+array? { dup length 1 ge {0 get} if } if
+number? not
+{ pop first } if
+sub
+3 -1 roll exec
+     sprintf
+     sappend
+M
+3 -1 roll exec
+4 -1 roll (_)
+3 array astore concat 
+sprintf
+    [M S] sappend
+T
+    (%y%m) strftimes
+%[ M L S]    
+sappend
+ [M L S]REORDER
+   0 RECHUNK
+S /expires known 
+{ S .expires /expires exch def} if
+/name /filename def
+1 exch
+} def
+/setrunoffset
+{
+/runoffset
+S
+     (1 Jan 2002) readunits 
+array? { dup length 1 ge {0 get} if } if
+number? not
+{ pop first } if
+nip
+def
+} def
+/IRIlastforecastfilenameREU
+{
+(/Data/data1/iri/forecast/data/fcst_monthly_mean/) 1 index
+      (/%b:lc[S]%y[S]) 3array astore
+     concat
+     /pop cvx
+      4 2 roll
+/IRIlastforecastfilenameREU0 cvx
+5 array astore cvx
+} def
+/IRIlastforecastfilenameREU0 {
+[X Y][M last last subgrid  L last last subgrid S] 4 2 roll
+IRIforecastmemberfns 1 index get exch
+IRIforecastrunfns 1 index get
+exch
+    (/Data/data1/iri/forecast/data/fcst_monthly_mean/)
+exch
+ (/%b:lc[S]%y[S]) 3array astore
+      concat
+S runoffset
+sub
+3 -1 roll exec 
+sprintf
+/name /Run cvx def /fullname name def
+exch (%s[Run]) append
+M last last subgrid
+4 -1 roll exec /name /M2 def
+5 -1 roll ([M2]) exch(_%y%m[T])
+4array astore concat
+3 -1 roll exch append
+3 index aload pop
+ 6 -2 roll
+3 index 3 index add /name /T def
+6 array astore 4 2 roll pop pop
+}def
+/IRIforecastfilenameCS {
+[X Y][M L S] 4 2 roll
+IRIforecastmemberfns 1 index get exch
+IRIforecastrunfns 1 index get
+exch
+    (/Data/data1/iri/forecast/data/fcst_monthly_mean/)
+exch
+ (/%b:lc[S]%y[S]) 3array astore
+      concat
+S
+     (1 Jan 2002) readunits 
+array? { dup length 1 ge {0 get} if } if
+number? not
+{ pop first } if
+sub
+3 -1 roll exec 
+sprintf
+/name /Run cvx def /fullname name def
+exch (%s[Run]) append
+M
+4 -1 roll exec /name /M2 def
+5 -1 roll ([M2]) exch(_%y%m[T])
+4array astore concat
+3 -1 roll exch append
+3 index aload pop
+ 6 -2 roll
+T
+6 array astore
+} def
+/IRIforecastfilenameCS_P {
+[X Y][P M L S] 4 2 roll
+IRIforecastmemberfns 1 index get exch
+IRIforecastrunfns 1 index get
+exch
+    (/Data/data1/iri/forecast/data/fcst_monthly_mean/)
+exch
+ (/%b:lc[S]%y[S]) 3array astore
+      concat
+S
+     (1 Jan 2002) readunits 
+array? { dup length 1 ge {0 get} if } if
+number? not
+{ pop first } if
+sub
+3 -1 roll exec 
+sprintf
+/name /Run cvx def /fullname name def
+exch (%s[Run]) append
+M
+4 -1 roll exec /name /M2 def
+5 -1 roll ([M2]) exch(_%d[P]_%y%m[T])
+4array astore concat
+3 -1 roll exch append
+3 index aload pop
+ 7 -2 roll
+T
+7 array astore
+} def
+/IRIforecastdir
+{
+    (/Data/data1/iri/forecast/data/fcst_monthly_mean/)
+exch 
+append
+} def
+/systime2IRIforecastdir
+{
+    (/Data/data1/iri/forecast/data/fcst_monthly_mean/)
+3 1 roll
+exch (/) exch
+(%b%y) 5 strftime
+dup
+0 1 index 0 get 32 add put
+4array astore concat
+} def
+/IRIforecastdir-now
+{
+    (/Data/data1/iri/forecast/data/fcst_monthly_mean/)
+exch 
+(/)
+systemtime (%b%y) 5 strftime
+dup
+0 1 index 0 get 32 add put
+4array astore concat
+} def
+/4array 4 array def
+/IRImaxstarttime
+{ systemtime
+     (%b %Y) 10 strftime} def
+/IRIlaststarttime
+{
+systemtime
+null {dup 2 index systime2IRIforecastdir
+dup fileexists?
+{deflastmod leave}
+{pop systemtime2ymd ymd:lastmonth ymd2systemtime} ifelse
+} repeat
+nip
+dup
+systemtime2ymd ymd:nextmonth
+     3
+      copy ymd2systemtime
+      (%w) 1 strftime
+      interp
+      dup
+       2 le
+       {2 exch sub}{9 exch sub}ifelse
+      add
+     7 add
+ymd2systemtime /expires exch def
+(%b %Y) 10 strftime
+} def 
+/IRIforecastexpires
+{
+last rm19602ymd ymd:nextmonth
+      3
+       copy ymd2systemtime
+       (%w) 1 strftime
+       interp
+       dup
+        2 le
+        {2 exch sub}{9 exch sub}ifelse
+       add
+      7 add
+      ymd2systemtime
+    /expires exch def
+/defaultvalue {last} def
+} def
+pop
+datasetdefs:
+/ECHAM { ECHAM3 .History .MONTHLY} def
+:datasetdefs
+/AgMIP currentobject /AgMIP get def
+/ECHAM3 currentobject /ECHAM3 get def
+/ECHAM4p5 currentobject /ECHAM4p5 get def
+/ECHAM5 currentobject /ECHAM5 get def
+/CCM3 currentobject 1 index get def
+/CCM3v6 currentobject 1 index get def
+/COLA currentobject 1 index get def
+/NCEP currentobject 1 index get def
+/ECPC currentobject 1 index get def
+/GFDL currentobject 1 index get def
+/SSTA_FCST currentobject 1 index get def
+/NSIPP-1 currentobject 1 index get def
+/Seasonal_Forecast currentobject 1 index get def
+/CPT currentobject 1 index get def
+/GCM currentobject 1 index get def
+/NOAA currentobject 1 index get def
+/Flexible_Forecast currentobject 1 index get def
+/SubX currentobject 1 index get def
+/SubC currentobject 1 index get def
+/NMME_Seasonal_Forecast currentobject 1 index get def
+/NMME_India_Forecast currentobject 1 index get def
+/PepsiCo currentobject 1 index get def
+/Kaust currentobject 1 index get def
+/long_name (Forecast Division) def
+/ssst.html currentobject 1 index get def
+\end{ingrid}
+old laststarttime
+
+/IRIlaststarttime
+{
+IRIforecastdir-now fileexists?
+{systemtime}
+{systemtime 1728000 sub } ifelse
+(%b %Y) 10 strftime
+} def 

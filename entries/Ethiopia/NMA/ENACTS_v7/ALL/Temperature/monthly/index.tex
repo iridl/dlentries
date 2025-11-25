@@ -1,0 +1,21 @@
+\begin{ingrid}
+
+continuedataset:
+
+/tmax {
+ SOURCES .Ethiopia .NMA .ENACTS_v7 .ALL .Temperature .dekadal .tmax
+monthlyAverage
+}defasvar
+
+/tmin {
+ SOURCES .Ethiopia .NMA .ENACTS_v7 .ALL .Temperature .dekadal .tmin
+monthlyAverage
+}defasvar
+
+:dataset
+
+tmax .X name exch def
+tmax .Y name exch def
+tmax .T name exch def
+
+\end{ingrid}

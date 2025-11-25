@@ -1,0 +1,70 @@
+\begin{ingrid}
+continuedataset:
+/description (Climatological sea surface temperature and wind pseudo-stress data for the tropical Atlantic Ocean) def
+/long_name (1964-2003 Climatology) def
+/iridl:hasSemantics (iridl:climatology) def
+grid:
+/name /X def
+degE
+-59 to 15 N= 38 pts
+:grid
+grid:
+/name /Y def
+degN
+29 to -19 N= 25 pts
+:grid
+grid:
+/name /T def
+/units monthclimoname def
+periodic
+Jan
+1.
+Dec
+:grid
+variable:
+/name /sst def
+grids: X Y | T :grids
+file:
+direct
+/name (/Data/data3/funceme/tropatl/sstclim6403.r4) def
+%/name (/beluga/data/mbell/dldata/servaindata.d/sstclim6403.r4) def
+:file
+/missing_value 9999.8 def
+/units (deg_C) def
+/long_name (sea surface temperature) def
+/scale_min 13 def
+/scale_max 29.5 def
+:variable
+
+variable:
+/name /pwsx def
+grids: X Y | T :grids
+file:
+direct
+/name (/Data/data3/funceme/tropatl/pwsxclim6403.r4) def
+%/name (/beluga/data/mbell/dldata/servaindata.d/pwsxclim6403.r4) def
+:file
+/missing_value 9999.8 def
+/units (m2/s2) def
+/long_name (zonal wind pseudo-stress) def
+/scale_min -90 def
+/scale_max 27 def
+:variable
+
+variable:
+/name /pwsy def
+grids: X Y | T :grids
+file:
+direct
+/name (/Data/data3/funceme/tropatl/pwsyclim6403.r4) def
+%/name (/beluga/data/mbell/dldata/servaindata.d/pwsyclim6403.r4) def
+:file
+/missing_value 9999.8 def
+/units (m2/s2) def
+/long_name (meridional wind pseudo-stress) def
+/scale_min -70 def
+/scale_max 60 def
+:variable
+
+:dataset
+\end{ingrid}

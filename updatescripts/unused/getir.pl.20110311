@@ -1,0 +1,169 @@
+#! /usr/bin/env perl
+# changed to run on iridlc3p
+
+use File::Basename;
+my $libdir = dirname(__FILE__) . "/perl";
+require "$libdir/credentials.pl";
+
+my ($user, $passwd) = get_credential("anonymous");
+
+require "ctime.pl";
+#$GNUDATE="/ClimateGroup/network/gnu/bin/date";
+$GNUDATE="date";
+$DataCat="/Data/data1/DataCatalog/entries";
+$subdir="4km IR";
+$year=`date +%Y`;
+print "Updating $subdir\n";
+#$server="ftp.ncep.noaa.gov";
+$server="ftp.cpc.ncep.noaa.gov";
+#$sdir="pub/precip/global_full_res_IR";
+$sdir="precip/global_full_res_IR";
+$filepatt= "(merg_\d\d\d\d\d\d\d\d\d\d_4km-pixel)(.Z)?";
+$mstoredir="/Data/data1/iri/monitoring/blyon/";
+#$mstoredir="/c12/blyon/";
+$tmpdir="/usr/tmp";
+if(-d $mstoredir){
+chdir "$mstoredir";
+}
+else {
+    print "problems with the mass store -- quitting.\n";
+    exit;
+}
+# mkdir if necessary
+if(! -d "IR"){
+    mkdir "IR", 0777;
+}
+# get list of files
+open(out,"|ftp -n $server > $tmpdir/ftpsession$$");
+print out <<eoftp;
+user $user $passwd
+binary
+cd $sdir
+ls
+quit
+eoftp
+close(out);
+# process list of files for any missing here
+$needany="";
+open(in,"$tmpdir/ftpsession$$");
+while(<in>){
+if(m/(merg_\d\d\d\d\d\d\d\d\d\d_4km-pixel(.Z)?)$/){
+    $filename = $1;
+    $fileroot = $filename;
+    $fileroot =~ s/.Z$//;
+    if($fileroot =~ /merg_(\d\d\d\d)(\d\d)\d\d\d\d_4km-pixel/){
+	$year=$1;
+	$month=$2;
+	$dirname = "IR/" . "$year" . "$month";
+	if(! -d $dirname ) {
+	    mkdir $dirname, 0777;
+	}
+        $localfileroot= $dirname . "/" . $fileroot;
+    }
+    else {
+	print "problem with $filename parsing -- quitting\n.";
+	exit 100;
+    }
+    if ( -f $filename ){
+#	print "$filename is here compressed\n";
+	}
+    elsif ( -f $fileroot ){
+#	print "$filename is here uncompressed\n";
+	}
+    elsif ( -f $localfileroot ){
+#	print "$filename is here uncompressed\n";
+	}
+    else {
+	print "we need $filename\n";
+	$needany ="1";
+	$needed{"$filename"}=$fileroot;
+    }
+}
+}
+close(in);
+unlink "$tmpdir/ftpsession$$";
+# get any needed files
+chdir($tmpdir);
+if($needany){
+while (($filename,$fileroot) = each %needed){
+    print "fetching $filename\n";
+open(out,"|ftp -n $server");
+print out <<eoftp;
+user $user $passwd
+binary
+cd $sdir
+eoftp
+    if($filename =~ /\.Z$/){
+	if(!$needed{"$fileroot"}){
+	    print out "get $filename\n";
+	}
+    }
+    else {
+	print out "get $filename\n";
+    }
+print out "quit\n";
+close(out);
+sleep 60;
+}
+system("ls -lt");
+# uncompress compressed files
+while (($filename,$fileroot) = each %needed){
+    if ($filename =~ m/.Z$/){
+	if(!$needed{"$fileroot"}){
+	    system("gunzip $filename");
+	}
+    }
+}
+# check file lengths
+while (($filename,$fileroot) = each %needed){
+($ev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,$atime,$mtime,$ctime,$blksize,$blocks) = stat $fileroot;
+if($size != 65274016){
+print "$fileroot size is $size while expecting 65274016. Deleting it.\n";
+unlink $fileroot;
+}
+else {
+    if($fileroot =~ /merg_(\d\d\d\d)(\d\d)\d\d\d\d_4km-pixel/){
+	$year=$1;
+	$month=$2;
+	$dirname = "IR/" ."$year" . "$month";
+	if(! -d $dirname ) {
+	    mkdir $dirname, '777';
+	}
+        $localfileroot="$mstoredir$dirname" . "/" . $fileroot;
+	system("cp $fileroot $localfileroot");
+	if($!){
+	    unlink $fileroot;
+	}
+    }
+}
+}
+chdir "$mstoredir";
+# update data catalog
+$lastdir = `ls -1 IR | tail -1`;
+chop $lastdir;
+open (in,"ls -1 IR/$lastdir | grep merg | tail -1|");
+$lastfile=<in>;
+close(in);
+chop $lastfile;
+$lastfile =~ m/merg_(\d\d\d\d)(\d\d)(\d\d)(\d\d)_4km-pixel/;
+$year = $1;
+$month = $2;
+$day = $3;
+$hour = $4;
+print "last file is $hour:00 $2/$3/$1\n";
+#open(in,"$DataCat/NOAA/NCEP/CPC/GLOBAL/half-hourly/index.tex");
+#open(out,">$tmpdir/tmpindex.tex");
+#while(<in>){
+#    if(/%enddate/){
+#	s/.*julian_day/$day $month $year julian_day/;
+#    }
+#    print out;
+#}
+#close(in);
+#close(out);
+#system("cp $tmpdir/tmpindex.tex $DataCat/NOAA/NCEP/CPC/GLOBAL/half-hourly/index.tex");
+}
+else {
+    print "no new files available\n";
+}
+exit;

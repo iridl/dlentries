@@ -1,0 +1,808 @@
+\begin{ingrid}
+continuedataset:
+/description (Weighted Anomaly of Standardized Precipitation Index analyses of multiple global precipitation data sets) def
+/references (Lyon2004 Lyon_Barnston2005) def
+% UEA TS2.1
+
+%/WASP-UEA-TS2p1_1-Month { home .mbell .IRI .Analyses .WASP .WASP-UEA-TS2p1_1-Month
+%std_wasp_colors
+%} defasvarsilent
+
+/WASP-UEA-TS2p1_1-Month {
+ SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+  a: :a:
+     T (Jan 1961) (Dec 1990) RANGE
+     yearly-climatology :a
+   sub
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+  SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+   T (Jan 1961) (Dec 1990) RANGE
+   yearly-climatology
+   a: :a:
+      [T]average
+      12 mul
+      0.001 masklt
+      div
+     :a
+   mul
+  /history null def
+  dup
+   T (Jan-Dec 1950) last RANGE
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+  SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+   T (Jan 1961) (Dec 1990) RANGE
+   yearly-climatology
+   [T]average
+   8 masklt
+   dup div
+   div
+  /long_name (UEA-TS2p1_WASP1) def
+  std_wasp_colors
+} defasvarcachesilent
+
+%/WASP-UEA-TS2p1_3-Month { home .blyon .wasp_functions .UEA_WASP3_02 
+%std_wasp_colors
+%} defasvarsilent
+
+/WASP-UEA-TS2p1_3-Month {
+ SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+  a: :a:
+     T (Jan 1961) (Dec 1990) RANGE
+     yearly-climatology :a
+   sub
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+  SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+   T (Jan 1961) (Dec 1990) RANGE
+   yearly-climatology
+   a: :a:
+      [T]average
+      12 mul
+      0.001 masklt
+      div
+     :a
+   mul
+  /history null def
+  T 3 runningAverage
+  dup
+   T (Jan-Dec 1950) last RANGE
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+  SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+   T (Jan 1961) (Dec 1990) RANGE
+   yearly-climatology
+   [T]average
+   8 masklt
+   dup div
+   div
+  /long_name (UEA-TS2p1_WASP3) def
+  std_wasp_colors
+} defasvarcachesilent
+
+%/WASP-UEA-TS2p1_6-Month { home .blyon .wasp_functions .UEA_WASP6_02 
+%std_wasp_colors
+%} defasvarsilent
+
+/WASP-UEA-TS2p1_6-Month {
+ SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+  a: :a:
+     T (Jan 1961) (Dec 1990) RANGE
+     yearly-climatology :a
+   sub
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+  SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+   T (Jan 1961) (Dec 1990) RANGE
+   yearly-climatology
+   a: :a:
+      [T]average
+      12 mul
+      0.001 masklt
+      div
+     :a
+   mul
+  /history null def
+  T 6 runningAverage
+  dup
+   T (Jan-Dec 1950) last RANGE
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+  SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+   T (Jan 1961) (Dec 1990) RANGE
+   yearly-climatology
+   [T]average
+   8 masklt
+   dup div
+   div
+  /long_name (UEA-TS2p1_WASP6) def
+  std_wasp_colors
+} defasvarcachesilent
+
+%/WASP-UEA-TS2p1_9-Month { home .blyon .wasp_functions .UEA_WASP9_02 
+%std_wasp_colors
+%} defasvarsilent
+
+/WASP-UEA-TS2p1_9-Month {
+ SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+  a: :a:
+     T (Jan 1961) (Dec 1990) RANGE
+     yearly-climatology :a
+   sub
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+  SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+   T (Jan 1961) (Dec 1990) RANGE
+   yearly-climatology
+   a: :a:
+      [T]average
+      12 mul
+      0.001 masklt
+      div
+     :a
+   mul
+  /history null def
+  T 9 runningAverage
+  dup
+   T (Jan-Dec 1950) last RANGE
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+  SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+   T (Jan 1961) (Dec 1990) RANGE
+   yearly-climatology
+   [T]average
+   8 masklt
+   dup div
+   div
+  /long_name (UEA-TS2p1_WASP9) def
+  std_wasp_colors
+} defasvarcachesilent
+
+%/WASP-UEA-TS2p1_12-Month { home .blyon .wasp_functions .UEA_WASP12_02 
+%std_wasp_colors
+%} defasvarsilent
+
+/WASP-UEA-TS2p1_12-Month {
+ SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+  a: :a:
+     T (Jan 1961) (Dec 1990) RANGE
+     yearly-climatology :a
+   sub
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+  SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+   T (Jan 1961) (Dec 1990) RANGE
+   yearly-climatology
+   a: :a:
+      [T]average
+      12 mul
+      0.001 masklt
+      div
+     :a
+   mul
+  /history null def
+  T 12 runningAverage
+  dup
+   T (Jan-Dec 1950) last RANGE
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+  SOURCES .UEA .CRU .TS2p1 .monthly .prcp
+   T (Jan 1961) (Dec 1990) RANGE
+   yearly-climatology
+   [T]average
+   8 masklt
+   dup div
+   div
+  /long_name (UEA-TS2p1_WASP12) def
+  std_wasp_colors
+} defasvarcachesilent
+
+% GPCPv2Sat-Gauge
+
+/WASP-GPCPv2Sat-Gauge_1-Month
+{ SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp
+  a:
+    :a: yearly-climatology sub
+    :a
+  dup
+  T 12 splitstreamgrid
+  [T2]rmsaover
+  0.01 masklt
+  div
+  SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp
+  yearly-climatology
+  a: :a:
+     [T]average
+     12 mul
+     0.001 masklt
+     div
+     :a
+   mul /history null def
+   dup
+    T 12 splitstreamgrid
+    [T2]rmsaover
+    0.01 masklt
+    div
+  SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp yearly-climatology
+    [T]average
+    0.258 masklt
+    dup div
+    div
+ /long_name (GPCPv2Sat-Gauge_WASP1) def
+std_wasp_colors
+} defasvarsilent
+
+/WASP-GPCPv2Sat-Gauge_3-Month
+{ SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp
+  a:
+    :a: yearly-climatology sub
+    :a
+  dup
+  T 12 splitstreamgrid
+  [T2]rmsaover
+  0.01 masklt
+  div
+  SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp
+  yearly-climatology
+  a: :a:
+     [T]average
+     12 mul
+     0.001 masklt
+     div
+     :a
+   mul /history null def
+   T 3 runningAverage
+   dup
+    T 12 splitstreamgrid
+    [T2]rmsaover
+    0.01 masklt
+    div
+  SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp yearly-climatology
+    [T]average
+    0.258 masklt
+    dup div
+    div
+ /long_name (GPCPv2Sat-Gauge_WASP3) def
+std_wasp_colors
+} defasvarsilent
+
+/WASP-GPCPv2Sat-Gauge_6-Month
+{ SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp
+  a:
+    :a: yearly-climatology sub
+    :a
+  dup
+  T 12 splitstreamgrid
+  [T2]rmsaover
+  0.01 masklt
+  div
+  SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp
+  yearly-climatology
+  a: :a:
+     [T]average
+     12 mul
+     0.001 masklt
+     div
+     :a
+   mul /history null def
+   T 6 runningAverage
+   dup
+    T 12 splitstreamgrid
+    [T2]rmsaover
+    0.01 masklt
+    div
+  SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp yearly-climatology
+    [T]average
+    0.258 masklt
+    dup div
+    div
+ /long_name (GPCPv2Sat-Gauge_WASP6) def
+std_wasp_colors
+} defasvarsilent
+
+/WASP-GPCPv2Sat-Gauge_9-Month
+{ SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp
+  a:
+    :a: yearly-climatology sub
+    :a
+  dup
+  T 12 splitstreamgrid
+  [T2]rmsaover
+  0.01 masklt
+  div
+  SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp
+  yearly-climatology
+  a: :a:
+     [T]average
+     12 mul
+     0.001 masklt
+     div
+     :a
+   mul /history null def
+   T 9 runningAverage
+   dup
+    T 12 splitstreamgrid
+    [T2]rmsaover
+    0.01 masklt
+    div
+  SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp yearly-climatology
+    [T]average
+    0.258 masklt
+    dup div
+    div
+ /long_name (GPCPv2Sat-Gauge_WASP9) def
+std_wasp_colors
+} defasvarsilent
+
+/WASP-GPCPv2Sat-Gauge_12-Month 
+{ SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp
+  a:
+    :a: yearly-climatology sub
+    :a
+  dup
+  T 12 splitstreamgrid
+  [T2]rmsaover
+  0.01 masklt
+  div
+  SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp
+  yearly-climatology
+  a: :a:
+     [T]average
+     12 mul
+     0.001 masklt
+     div
+     :a
+   mul /history null def
+   T 12 runningAverage
+   dup
+    T 12 splitstreamgrid
+    [T2]rmsaover
+    0.01 masklt
+    div
+  SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp yearly-climatology
+    [T]average
+    0.258 masklt
+    dup div
+    div
+ /long_name (GPCPv2Sat-Gauge_WASP12) def
+std_wasp_colors
+} defasvarsilent
+
+% CMAP latest
+
+/WASP-CMAPlatestv2_12-Month {
+SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+  a:
+    :a: yearly-climatology sub
+    :a
+  [T]REORDER
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+ SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+  yearly-climatology
+  [T]REORDER
+  /name /prcp3 def
+  a: :a:
+     [T]average
+     12 mul
+     0.001 masklt
+     div
+    :a
+  mul
+  /history null def
+  12 mul
+  T 12 runningAverage
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+  SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+   yearly-climatology
+   [T]average
+   0.25 masklt
+   dup div
+   div
+/long_name (CMAP-latest_WASP12) def
+std_wasp_colors
+} defasvarsilent
+
+/WASP-CMAPlatestv2_9-Month {
+SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+  a:
+    :a: yearly-climatology sub
+    :a
+  [T]REORDER
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+ SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+  yearly-climatology
+  [T]REORDER
+  /name /prcp3 def
+  a: :a:
+     [T]average
+     12 mul
+     0.001 masklt
+     div
+    :a
+  mul
+  /history null def
+  12 mul
+  T 9 runningAverage
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+  SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+   yearly-climatology
+   [T]average
+   0.25 masklt
+   dup div
+   div
+/long_name (CMAP-latest_WASP9) def
+std_wasp_colors
+} defasvarsilent
+
+/WASP-CMAPlatestv2_6-Month {
+SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+  a:
+    :a: yearly-climatology sub
+    :a
+  [T]REORDER
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+ SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+  yearly-climatology
+  [T]REORDER
+  /name /prcp3 def
+  a: :a:
+     [T]average
+     12 mul
+     0.001 masklt
+     div
+    :a
+  mul
+  /history null def
+  12 mul
+  T 6 runningAverage
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+  SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+   yearly-climatology
+   [T]average
+   0.25 masklt
+   dup div
+   div
+/long_name (CMAP-latest_WASP6) def
+std_wasp_colors
+} defasvarsilent
+
+/WASP-CMAPlatestv2_3-Month {
+SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+  a:
+    :a: yearly-climatology sub
+    :a
+  [T]REORDER
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+ SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+  yearly-climatology
+  [T]REORDER
+  /name /prcp3 def
+  a: :a:
+     [T]average
+     12 mul
+     0.001 masklt
+     div
+    :a
+  mul
+  /history null def
+  12 mul
+  T 3 runningAverage
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+  SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+   yearly-climatology
+   [T]average
+   0.25 masklt
+   dup div
+   div
+/long_name (CMAP-latest_WASP3) def
+std_wasp_colors
+} defasvarsilent
+
+/WASP-CMAPlatestv2_1-Month {
+SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+  a:
+    :a: yearly-climatology sub
+    :a
+  [T]REORDER
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+ SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+  yearly-climatology
+  [T]REORDER
+  /name /prcp3 def
+  a: :a:
+     [T]average
+     12 mul
+     0.001 masklt
+     div
+    :a
+  mul
+  /history null def
+  12 mul
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+  SOURCES .NOAA .NCEP .CPC .Merged_Analysis .monthly .latest .ver2 .prcp_est
+   yearly-climatology
+   [T]average
+   0.25 masklt
+   dup div
+   div
+/long_name (CMAP-latest_WASP1) def
+std_wasp_colors
+} defasvarsilent
+
+% CAMS-OPI-v0208
+
+/WASP-CAMS-OPI-v0208_12-Month {
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+  a:
+    :a: yearly-climatology sub
+    :a
+  [T]REORDER
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+  yearly-climatology
+  [T]REORDER
+  /name /prcp3 def
+  a: :a:
+     [T]average
+     12 mul
+     0.001 masklt
+     div
+    :a
+  mul
+  /history null def
+  12 mul
+  T 12 runningAverage
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+   yearly-climatology
+   [T]average
+   0.25 masklt
+   dup div
+   div
+/long_name (CAMS-OPI-v0208_WASP12) def
+std_wasp_colors
+} defasvarsilent
+
+/WASP-CAMS-OPI-v0208_9-Month {
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+  a:
+    :a: yearly-climatology sub
+    :a
+  [T]REORDER
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+  yearly-climatology
+  [T]REORDER
+  /name /prcp3 def
+  a: :a:
+     [T]average
+     12 mul
+     0.001 masklt
+     div
+    :a
+  mul
+  /history null def
+  12 mul
+  T 9 runningAverage
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+   yearly-climatology
+   [T]average
+   0.25 masklt
+   dup div
+   div
+/long_name (CAMS-OPI-v0208_WASP9) def
+std_wasp_colors
+} defasvarsilent
+
+/WASP-CAMS-OPI-v0208_6-Month {
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+  a:
+    :a: yearly-climatology sub
+    :a
+  [T]REORDER
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+  yearly-climatology
+  [T]REORDER
+  /name /prcp3 def
+  a: :a:
+     [T]average
+     12 mul
+     0.001 masklt
+     div
+    :a
+  mul
+  /history null def
+  12 mul
+  T 6 runningAverage
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+   yearly-climatology
+   [T]average
+   0.25 masklt
+   dup div
+   div
+/long_name (CAMS-OPI-v0208_WASP6) def
+std_wasp_colors
+} defasvarsilent
+
+/WASP-CAMS-OPI-v0208_3-Month {
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+  a:
+    :a: yearly-climatology sub
+    :a
+  [T]REORDER
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+  yearly-climatology
+  [T]REORDER
+  /name /prcp3 def
+  a: :a:
+     [T]average
+     12 mul
+     0.001 masklt
+     div
+    :a
+  mul
+  /history null def
+  12 mul
+  T 3 runningAverage
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+   yearly-climatology
+   [T]average
+   0.25 masklt
+   dup div
+   div
+/long_name (CAMS-OPI-v0208_WASP3) def
+std_wasp_colors
+} defasvarsilent
+
+/WASP-CAMS-OPI-v0208_1-Month {
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+  a:
+    :a: yearly-climatology sub
+    :a
+  [T]REORDER
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsover
+   0.01 masklt
+   div
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+  yearly-climatology
+  [T]REORDER
+  /name /prcp3 def
+  a: :a:
+     [T]average
+     12 mul
+     0.001 masklt
+     div
+    :a
+  mul
+  /history null def
+  12 mul
+  dup
+   T 12 splitstreamgrid
+   [T2]rmsaover
+   0.01 masklt
+   div
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+   yearly-climatology
+   [T]average
+   0.25 masklt
+   dup div
+   div
+/long_name (CAMS-OPI-v0208_WASP1) def
+std_wasp_colors
+} defasvarsilent
+:dataset
+/last_modified
+last_modified
+SOURCES .NOAA .NCEP .CPC .CAMS_OPI .v0208 .mean .prcp
+.last_modified 
+imax
+SOURCES .NASA .GPCP .V2 .satellite-gauge .prcp
+.last_modified
+imax
+def
+\end{ingrid}

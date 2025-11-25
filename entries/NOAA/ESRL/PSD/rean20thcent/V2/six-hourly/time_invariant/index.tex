@@ -1,0 +1,68 @@
+\begin{ingrid}
+continuedataset:
+/description (Time-Invariant Data) def
+link:
+/name (source) def
+/description (original OpenDAP Server) def
+/href (http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/20thC_ReanV2/catalog.html) def
+:link
+link:
+/name (dataset_documentation) def
+/description (Data Set Documentation) def
+/href (http://www.esrl.noaa.gov/psd/data/gridded/data.20thC_ReanV2.html) def
+:link
+
+/citation (Compo, G.P., J.S. Whitaker, and P.D. Sardeshmukh, 2006: Feasibility of a 100 year reanalysis using only surface pressure data. Bull. Amer. Met. Soc., 87, 175-190.) def
+ /platform (Model) def
+ /references (Compo_etal2011 Compo_etal2006 Whitaker_etal2004) def
+%/references (http://www.esrl.noaa.gov/psd/data/gridded/data.20thC_ReanV2.html) def
+ /institution (NOAA ESRL/PSD) def
+ /version (2.0) def
+ /history (created 2009/09 by Hoop (netCDF3)) def
+ /Conventions (CF-1.2) def
+ /title (4x Daily NOAA-CIRES 20th Century Reanalysis) def
+ /comments (Data is from NOAA-CIRES 20th Century Reanalysis version 2 (4x/day).  It consists of most variables interpolated to pressure surfaces from model (sigma) surfaces.) def
+
+grid:
+/name (lon)def
+/units (degree_east)def
+ 0.0 2. 358.
+:grid
+
+grid:
+/name (lat)def
+/units (degree_north)def
+ 90. 2. -90.
+:grid
+
+grid:
+/name (time)def
+/units (hours since 1800-1-1 00:00:0.0)def
+values: 797688. :values
+:grid
+
+ /hgt {
+[ lon lat | time ] (http://www.esrl.noaa.gov/psd/thredds/dodsC/Datasets/20thC_ReanV2/time_invariant/hgt.sfc.nc) readdatafile:
+/name (hgt) def
+ /level_desc (Surface) def
+ /actual_range [ -523.90002 5685.2998 ] def
+ /parent_stat (Other) def
+ /add_offset 31266. def
+ /long_name (Geopotential Height at Surface) def
+ /precision 0 def
+ /GRIB_id 7 def
+ /valid_range [ -32766 28734 ] def
+ /GRIB_name (HGT) def
+ /var_desc (Geopotential height) def
+ /Dataset (NOAA-CIRES 20th Century Reanalysis version 2) def
+ /statistic (Ensemble Mean) def
+ /missing_value 32766 def
+ /standard_name (geopotential_height) def
+ /unpacked_valid_range [ -1500. 60000. ] def
+ /units /m def
+ /shortarraytype opendaprecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

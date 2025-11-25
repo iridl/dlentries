@@ -1,0 +1,56 @@
+\begin{ingrid}
+continuedataset:
+ /year0 0 def
+ /filepattern (/data/dstore4/iri/modelling/daved/NMME_Data.D/Obs.D/oisst.qd.1982.2010.monthly.1x1.grb) def
+%dataset:
+%/name (surface)def
+grid:
+/name (X)def
+/units (degree_east)def
+/standard_name (longitude) def
+ 0.0 1. 359.
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+/standard_name (latitude) def
+ 90. 1. -90.
+:grid
+grid:
+/name (T)def
+monthtime
+/standard_name (time) def
+16 Jan 1982 ensotime
+1.
+16 Dec 2010 ensotime
+:grid
+ /sst{
+[ X Y | T] 
+(/data/dstore4/iri/modelling/daved/NMME_Data.D/Obs.D/oisst.qd.1982.2010.monthly.1x1.grb)
+readdatafile:
+/name (temp) def
+ /calendar /standard def
+ %/scale_max 309.22 def
+ /process 44 def
+ /subcenter 4 def
+ /PTVersion 2 def
+ /gribparam 11 def
+ /gribNumBits 12 def
+ /center 160 def
+ /GRIBgridcode 3 def
+ /gribfield 1 def
+ /units /Kelvin_scale def
+ /long_name (Sea Surface Temperature) def
+/standard_name (Sea Surface Temperature) def
+ /PDS_TimeRange 1 def
+ /grib_name /TMP def
+% /scale_min 271.35001 def
+ /gribleveltype 1 def
+ /gribcenter 160 def
+GRIB1record
+ :readdatafile
+(Celsius_scale) unitconvert
+}defasvarcachesilent
+%:dataset
+:dataset
+\end{ingrid}

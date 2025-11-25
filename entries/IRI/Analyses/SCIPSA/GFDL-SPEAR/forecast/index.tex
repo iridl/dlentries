@@ -1,0 +1,166 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/fileavail {
+prec dataflag[X Y]average 0 maskle 0 flaggt L first VALUE M first VALUE grid: /name /S1 def /units monthtimename def /gridtype periodic def Jan 1 Dec :grid grid: /name /S2 def /units monthtimename def /pointwidth 12 def 1 Jul 2020 ensotime 12 1 Jul 2021 ensotime :grid add 6.5 sub S .first S .last masknotrange /pointwidth 0 def[S]sample-along /fullname (fileavail) def
+} defasvar
+:datasetdefs
+ /Conventions (CF-1.6) def
+
+link:
+/name (data_availability) def
+/href (fileavail/mark/exch/S2/exch[S1]table:/mark/:table/.html) def 
+:link
+
+link:
+/name (Journal Paper) def
+/description (SPEAR: The Next Generation GFDL Modeling System for Seasonal to Multidecadal Prediction and Projection, in Journal of Advances in Modeling Earth Systems) def
+/href (https://doi.org/10.1029/2019MS001895) def
+:link
+
+grid:
+/name (X)def
+/units (degree_east)def
+periodic
+ 0.0 1. 359.
+/standard_name (longitude) def
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ -90. 1. 90.
+/standard_name (latitude) def
+:grid
+
+grid:
+/name (S)def
+/long_name (Forecast Start Time) def
+/units (months since 1960-01-01)def
+/calendar /360 def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+1 Dec 2020 ensotime
+1.
+1 systemtime (%b %Y) 10 strftime
+interp
+ensotime
+:grid
+
+S { (/Data/data23/NMME/GFDL_SPEAR.D/Forecast.D/%b.D/%Y%m[S]01.1x1.precip_ens01.nc) [S]} removeextrausing
+/expires
+last_modified systemtime2ymd ymd:nextmonth
+ymd2systemtime 7 3600 mul add
+def
+/defaultvalue last def
+name exch def
+/expires S .expires def
+/last_modified S .last_modified def
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+/standard_name (forecast_period) def
+0.5 1 11.5
+:grid
+
+/M 30 NewIntegerGRID
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+ name exch def
+
+/T { S L add
+/long_name (Time) def
+/standard_name (time) def } defasvarsilent
+
+grid:
+/name (Z) def
+/units (m) def
+/long_name (Height) def
+/standard_name (height) def
+2 :grid
+
+grid:
+/name (P) def
+/units (hPa) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+values: 200 :values
+:grid
+
+ /prec{
+[ X Y | M L S] (/Data/data23/NMME/GFDL_SPEAR.D/Forecast.D/%b.D/%Y%m[S]01.1x1.precip_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (PRECIP_1X1) def
+/missing_value -1.e+34 def
+/long_name (Total Precipitation) def
+/standard_name (lwe_precipitation_rate) def
+ /realarraytype netcdfrecords :readdatafile
+86400 mul
+/units (mm/day) def
+}defasvarsilent
+
+/sst{
+[ X Y | M L S] (/Data/data23/NMME/GFDL_SPEAR.D/Forecast.D/%b.D/%Y%m[S]01.1x1.SST_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (SST_1X1) def
+ /units /Celsius_scale def
+/missing_value -1.e+34 def
+/long_name (Sea Surface Temperature) def
+/standard_name (sea_surface_temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/tref{
+[ X Y | Z M L S] (/Data/data23/NMME/GFDL_SPEAR.D/Forecast.D/%b.D/%Y%m[S]01.1x1.t_ref_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (T_REF_1X1) def
+ /units /Kelvin_scale def
+/missing_value -1.e+34 def
+/long_name (Reference Temperature) def
+/standard_name (air_temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/temp {tref} defasvarsilent
+
+/t_ref_max{
+[ X Y | Z M L S] (/Data/data23/NMME/GFDL_SPEAR.D/Forecast.D/%b.D/%Y%m[S]01.1x1.t_ref_max_ens%2.2d[M].nc) [ M S ] readdatafile:
+/name (T_REF_MAX_1X1) def
+/units /Kelvin_scale def
+/missing_value -1.e+34 def
+/long_name (Maximum Temperature) def
+/standard_name (air_temperature) def
+/realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/t_ref_min{
+[ X Y | Z M L S] (/Data/data23/NMME/GFDL_SPEAR.D/Forecast.D/%b.D/%Y%m[S]01.1x1.t_ref_min_ens%2.2d[M].nc) [ M S ] readdatafile:
+/name (T_REF_MIN_1X1) def
+/units /Kelvin_scale def
+/missing_value -1.e+34 def
+/long_name (Minimum Temperature) def
+/standard_name (air_temperature) def
+/realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/h200{
+[ X Y P | M L S] (/Data/data23/NMME/GFDL_SPEAR.D/Forecast.D/%b.D/%Y%m[S]01.1x1.hght.200hPa_ens%2.2d[M].nc) [ M S ] readdatafile:
+/name (HGHT_200HPA_1X1) def
+ /units /m def
+/missing_value -1.e+34 def
+ /long_name (Geopotential Height at 200 hPa) def
+ /standard_name (geopotential_height) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+ /ssh{
+[ X Y | M L S ] (/Data/data23/NMME/GFDL_SPEAR.D/Forecast.D/%b.D/%Y%m[S]01.1x1.ssh_ens%2.2d[M].nc) [ M S ] readdatafile:
+/name (SSH_1X1) def
+ /long_name (Sea Surface Height) def
+ /standard_name (sea_surface_height_above_mean_sea_level) def
+ /units /m def
+/missing_value -1.e+34 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+\end{ingrid}

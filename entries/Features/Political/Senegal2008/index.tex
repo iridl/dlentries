@@ -1,0 +1,64 @@
+\begin{ingrid}
+continuedataset:
+/description (Senegal 2008 2nd Administrative Boundaries) def
+
+dataset:
+
+/name /Department def
+/descirption (Départements) def
+
+/admin0
+{ IRIDB (sn_admin2_2008) (admin0) [(fnid)]open_column_by
+/long_name (Country Name) def
+}defasvarsilentnoreuse
+
+/admin1
+{ IRIDB (sn_admin2_2008) (admin1) [(fnid)]open_column_by
+/long_name (Region) def
+}defasvarsilentnoreuse
+
+/admin1fr
+{ IRIDB (sn_admin2_2008) (admin1fr) [(fnid)]open_column_by
+/long_name (Région) def
+}defasvarsilentnoreuse
+
+/admin2
+{ IRIDB (sn_admin2_2008) (admin2) [(fnid)]open_column_by
+/long_name (Department) def
+}defasvarsilentnoreuse
+
+/admin2fr
+{ IRIDB (sn_admin2_2008) (admin2fr) [(fnid)]open_column_by
+/long_name (Département) def
+}defasvarsilentnoreuse
+
+/country
+{ IRIDB (sn_admin2_2008) (country) [(fnid)]open_column_by
+/long_name (Country ID) def
+}defasvarsilentnoreuse
+
+/eff_year
+{ IRIDB (sn_admin2_2008) (eff_year) [(fnid)]open_column_by
+/long_name (Eff Year) def
+}defasvarsilentnoreuse
+
+/aliases
+{ IRIDB (sn_admin2_2008) (aliases) [(fnid)]open_column_by
+/long_name (Aliases) def
+}defasvarsilentnoreuse
+
+/the_geom
+{ IRIDB (sn_admin2_2008) (the_geom) [(fnid)]open_column_by
+}defasvarsilentnoreuse
+/label
+{ IRIDB (sn_admin2_2008) ((admin2fr ||', '|| admin1fr ||', '|| country) as label) [(fnid)]open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+:dataset
+
+Department aliases .fnid name exch put
+
+\end{ingrid}

@@ -1,0 +1,94 @@
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units (degree_east) def
+0.0 1.0 359.0 
+periodic
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units (degree_north) def
+-90.0 1.0 90.0 
+:grid
+
+grid:
+/name /L def
+/long_name (Lead) def
+1.5 1.0 8.5
+/units /months def
+/pointwidth 3. def
+:grid
+
+grid:
+/name /S def
+/long_name (Forecast Start Time) def
+0.0 1.0 11.0
+/units (months since 01-Jan) def
+/pointwidth 0. def
+periodic
+:grid
+
+ X name exch def
+ Y name exch def
+ L name exch def
+ S name exch def
+
+% /name (CAMS-OPI) def
+% /description (Seasonal (3-month) anomaly correlation between ensemble mean CanSIPSv2 hindcast precipitation and CAMS-OPI precipitation during 1981-2010) def
+
+%/correlation {(/Data/data23/ICPAC/GPC/anomcorr/CMC2_CanCM4_prcp_anomcorr_s8110.nc) readfile .correlation } defasvarsilent 
+ /prec {(/Data/data23/ICPAC/Models/Montreal/CanSIPSv2/HINDCAST/anomcorr/CanSIPSv2_prcp_anomcorr_s8110.nc) readfile } defasvarsilent 
+
+% :dataset
+
+% dataset:
+% X name exch def
+% Y name exch def
+% L name exch def
+% S name exch def
+% /name (GHCN_CAMS) def
+% /description (Seasonal (3-month) anomaly correlation between ensemble mean CanSIPSv2 hindcast temperature and GHCN-CAMS temperature during 1981-2010) def
+
+%/correlation {(/Data/data23/ICPAC/GPC/anomcorr/CMC2_CanCM4_tref_anomcorr_s8110.nc) readfile .correlation } defasvarsilent
+ /temp {(/Data/data23/ICPAC/Models/Montreal/CanSIPSv2/HINDCAST/anomcorr/CanSIPSv2_tref_anomcorr_s8110.nc) readfile } defasvarsilent
+
+% :dataset
+\end{ingrid} 
+
+
+ dataset:
+ X name exch def
+ Y name exch def
+ L name exch def
+ S name exch def
+ /name (ERSSTv4) def
+ /description (Seasonal (3-month) anomaly correlation between ensemble mean CanSIPSv2 hindcast sst and ERSSTv4 sst during 1981-2010) def
+
+%/correlation {(/Data/data23/ICPAC/GPC/anomcorr/CMC2_CanCM4_sst_anomcorr_s8110.nc) readfile .correlation } defasvarsilent
+ /sst {(/Data/data23/ICPAC/Models/Montreal/CanSIPSv2/HINDCAST/anomcorr/CanSIPSv2_sst_anomcorr_s8110.nc) readfile } defasvarsilent
+
+ :dataset
+
+\begin{ingrid}
+
+
+% dataset:
+% X name exch def
+% Y name exch def
+% L name exch def
+% S name exch def
+% /name (ERSSTv5) def
+% /description (Seasonal (3-month) anomaly correlation between ensemble mean CanSIPSv2 hindcast sst and ERSSTv5 sst during 1981-2010) def
+
+ /sst {(/Data/data23/ICPAC/Models/Montreal/CanSIPSv2/HINDCAST/anomcorr/CanSIPSv2_ERSSTv5_anomcorr_s8110.nc) readfile } defasvarsilent
+
+% :dataset
+
+:dataset
+\end{ingrid}
+

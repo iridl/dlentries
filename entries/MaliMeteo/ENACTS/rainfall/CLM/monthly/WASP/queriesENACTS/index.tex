@@ -1,0 +1,215 @@
+\begin{ingrid}
+
+continuedataset:
+
+/countryquery
+{
+IRIDB
+     (select cntry_name as country,cntry_name,the_geom from esri2002_national where cntry_name is not null) (country) openqueryby
+%country /units /ids def pop
+ country (Mali) VALUE
+/long_name (country info) def
+} defasvarsilent
+
+/provincequery
+{
+IRIDB
+     (select caption as prov_name,caption as province,the_geom from mal_level_1 order by caption) (province) openqueryby
+% province /units /ids def pop
+%/long_name (Province info) def
+%/last_modified 1100113152 def
+%the_geom
+%/last_modified 1100113152 def
+%name exch def
+} defasvarsilent 
+
+/districtquery
+{
+IRIDB
+     (select adm2 as dist_name,adm2 as district,adm1,the_geom from mal_level_2 order by adm2) (district) openqueryby
+%district /units /ids def pop
+%/long_name (District info) def
+%/last_modified 1100113152 def
+%the_geom 
+%/last_modified 1100113152 def
+%name exch def
+} defasvarsilent
+
+/caWASP12 {
+ SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .WASP .wasp_functions .WASP12
+  [X Y]REORDER
+%  dup
+countryquery .the_geom
+%rasterize
+[X Y]weighted-average
+/fullname (12-Month WASP) def
+/long_name (Country-Average ENACTS 12-Month WASP) def
+T /pointwidth 0 def pop
+/scale_min -2.5 def
+/scale_max 2.5 def
+} defasvarsilent
+
+/cabaseline {
+ SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .WASP .wasp_functions .WASP12
+     [X Y]REORDER
+     T 12 STEP
+     T /Baseline renameGRID
+     Baseline /pointwidth 12 def pop
+%     dup
+countryquery .the_geom
+%rasterize
+[X Y]weighted-average
+ SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .WASP .wasp_functions .WASP12
+      X 0.0 VALUE
+      Y 15.0 VALUE
+      0 mul
+      add
+     /long_name (Country-Average ENACTS 12-Month WASP Baseline) def
+     /fullname (Country-Average ENACTS 12-Month WASP Baseline) def
+} defasvarsilent
+
+/cabaseline_full {
+ SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .WASP .wasp_functions .WASP12
+     [X Y]REORDER
+     T /Baseline renameGRID
+     Baseline /pointwidth 12 def pop
+%     dup
+countryquery .the_geom
+%rasterize
+[X Y]weighted-average
+ SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .WASP .wasp_functions .WASP12
+      X 0.0 VALUE
+      Y 15.0 VALUE
+      0 mul
+      add
+     Baseline dup
+       (pointwidth) 1.0 def
+       replaceGRID
+     Baseline 12 splitstreamgrid
+     Baseline -5.5 shiftGRID
+     Baseline2 -5.5 shiftGRID
+     Baseline2 (BaseYears) renameGRID
+     /long_name (Country-Average ENACTS 12-Month WASP Baseline) def
+     /fullname (Country-Average ENACTS 12-Month WASP Baseline) def
+} defasvarsilent
+
+/paWASP12 {
+ SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .WASP .wasp_functions .WASP12
+  [X Y]REORDER
+  dup
+provincequery .the_geom
+rasterize
+[X Y]weighted-average
+/fullname (12-Month WASP) def
+/long_name (Province-Average ENACTS 12-Month WASP) def
+T /pointwidth 0 def pop
+/scale_min -2.5 def
+/scale_max 2.5 def
+} defasvarsilent
+
+/pabaseline {
+ SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .WASP .wasp_functions .WASP12
+     [X Y]REORDER
+     T 12 STEP
+
+     T /Baseline renameGRID
+     Baseline /pointwidth 12 def pop
+     dup
+provincequery .the_geom
+rasterize
+[X Y]weighted-average
+ SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .WASP .wasp_functions .WASP12
+      X 0.0 VALUE
+      Y 15.0 VALUE
+      0 mul
+      add
+     /long_name (Province-Average ENACTS 12-Month WASP Baseline) def
+     /fullname (Province-Average ENACTS 12-Month WASP Baseline) def
+} defasvarsilent
+
+/pabaseline_full {
+ SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .WASP .wasp_functions .WASP12
+     [X Y]REORDER
+     T /Baseline renameGRID
+     Baseline /pointwidth 12 def pop
+     dup
+provincequery .the_geom
+rasterize
+[X Y]weighted-average
+ SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .WASP .wasp_functions .WASP12
+      X 0.0 VALUE
+      Y 15.0 VALUE
+      0 mul
+      add
+     Baseline dup
+       (pointwidth) 1.0 def
+       replaceGRID
+     Baseline 12 splitstreamgrid
+     Baseline -5.5 shiftGRID
+     Baseline2 -5.5 shiftGRID
+     Baseline2 (BaseYears) renameGRID
+     /long_name (Province-Average ENACTS 12-Month WASP Baseline) def
+     /fullname (Province-Average ENACTS 12-Month WASP Baseline) def
+} defasvarsilent
+
+/daWASP12 {
+ SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .WASP .wasp_functions .WASP12
+  [X Y]REORDER
+  dup
+districtquery .the_geom 
+rasterize
+[X Y]weighted-average
+/fullname (12-Month WASP) def
+/long_name (District-Average ENACTS 12-Month WASP) def
+T /pointwidth 0 def pop
+/scale_min -2.5 def
+/scale_max 2.5 def
+} defasvarsilent
+
+/dabaseline {
+ SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .WASP .wasp_functions .WASP12
+     [X Y]REORDER
+     T 12 STEP
+     T /Baseline renameGRID
+     Baseline /pointwidth 12 def pop
+     dup
+districtquery .the_geom 
+rasterize
+[X Y]weighted-average
+ SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .WASP .wasp_functions .WASP12
+      X 0.0 VALUE
+      Y 15.0 VALUE
+      0 mul
+      add
+     /long_name (District-Average ENACTS 12-Month WASP Baseline) def
+     /fullname (District-Average ENACTS 12-Month WASP Baseline) def
+} defasvarsilent
+
+/dabaseline_full {
+ SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .WASP .wasp_functions .WASP12
+     [X Y]REORDER
+     T /Baseline renameGRID
+     Baseline /pointwidth 12 def pop
+     dup
+districtquery .the_geom
+rasterize
+[X Y]weighted-average
+ SOURCES .MaliMeteo .ENACTS .rainfall .CLM .monthly .WASP .wasp_functions .WASP12
+      X 0.0 VALUE
+      Y 15.0 VALUE
+      0 mul
+      add
+     Baseline dup
+       (pointwidth) 1.0 def
+       replaceGRID
+     Baseline 12 splitstreamgrid
+     Baseline -5.5 shiftGRID
+     Baseline2 -5.5 shiftGRID
+     Baseline2 (BaseYears) renameGRID
+     /long_name (District-Average ENACTS 12-Month WASP Baseline) def
+     /fullname (District-Average ENACTS 12-Month WASP Baseline) def
+} defasvarsilent
+
+:dataset
+
+\end{ingrid}

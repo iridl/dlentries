@@ -1,0 +1,188 @@
+\begin{ingrid}
+continuedataset:
+
+datasetdefs:
+grid: 
+/name /time def
+/standard_name (time) def
+/units (days since 1979-01-01 00:00:00) def
+/pointwidth 1. 4. div def
+/defaultvalue {last} def
+values:
+% 100
+1. 4. div 2 div
+ 
+1993 1 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 4. div 2 div sub
+% 200
+1993 1 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 4. div 2 div sub
+
+2001 1 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 4. div 2 div sub
+% 300
+2001 1 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 4. div 2 div sub
+
+2010 6 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 4. div 2 div sub
+% 301
+2010 6 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 4. div 2 div sub
+
+2010 9 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 4. div 2 div sub
+% 300
+2010 9 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 4. div 2 div sub
+
+2016 01 01 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 4. div 2 div sub
+:values
+:grid
+
+variable:
+/name /mver def
+grids: time :grids
+values: /100 /100 /200 /200 /300 /300 /301 /301 /300 /300 :values
+:variable
+:datasetdefs
+
+/description (Variables at Sigma Levels) def
+link:
+/name (link to MERRA project) def
+/description (MODERN-ERA RETROSPECTIVE ANALYSIS FOR RESEARCH AND APPLICATIONS) def
+/href (http://gmao.gsfc.nasa.gov/research/merra/) def
+:link
+
+grid: 
+/name /Y def
+/long_name (Latitude) def
+/standard_name (latitude) def
+/units /degree_north def
+-90.
+0.5
+90.
+:grid
+
+grid: 
+/name /X def
+/long_name (Longitude) def
+/standard_name (longitude) def
+/units /degree_east def
+-180.
+360. 
+540 div
+179.3333
+:grid
+
+grid: 
+/name /lev def
+/long_name (Level) def
+/standard_name (hybrid_sigma_pressure) def
+values:
+0.015 0.02635 0.04014251 0.05679251 0.07767251 0.104524 0.139599 0.185422 0.2449375 0.3217836 0.4204236 0.5462926 0.7059566 0.9072872 1.159975 1.47565 1.86788 2.352591 2.948321 3.676501 4.561686 5.631801 6.918322 8.456392 10.28492 12.46015 15.05025 18.12435 21.76101 26.0491 31.08891 36.99271 43.90966 52.01591 61.49566 72.55786 85.43902 100.5144 118.25 139.115 163.6615 192.4854 226.2338 265.7452 311.373 354.0915 390.8975 427.6734 464.4209 501.1478 537.8599 574.5571 611.2435 647.923 678.4814 702.9253 727.3685 751.8077 776.2435 798.2358 815.34 829.9995 844.6581 859.3163 873.9745 888.6323 903.2892 917.9457 932.602 947.2576 961.913 976.6204
+:values
+:grid
+
+grid: 
+/name /time def
+/standard_name (time) def
+/units (days since 1979-01-01 00:30:00) def
+/pointwidth 1. 4. div def
+/defaultvalue {last} def
+1. 4. div 2 div
+1. 4. div 
+2016 1 1 ymd2rjt
+1979 1 1 ymd2rjt sub
+1. 4. div 2 div sub
+:grid
+
+ /delp{
+[ X Y | lev time] 
+(/Data/data20/jallen/MERRA/%Y[time]/3D_Anal/%m[time]/MERRA%s[mver].prod.assim.inst6_3d_ana_Nv.%Y%m%d[time].hdf) [time dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (DELP) def
+/standard_name (layer_pressure_thickness) def
+/long_name (Layer pressure thickness) def
+ /missing_value 9.99999987E14 def
+ /units (Pa) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /o3{
+[ X Y | lev time] 
+(/Data/data20/jallen/MERRA/%Y[time]/3D_Anal/%m[time]/MERRA%s[mver].prod.assim.inst6_3d_ana_Nv.%Y%m%d[time].hdf) [time dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (O3) def
+/standard_name (ozone_mixing_ratio) def
+/long_name (Ozone mixing ratio) def
+ /missing_value 9.99999987E14 def
+ /units (unitless) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /ps{
+[ X Y | time] 
+(/Data/data20/jallen/MERRA/%Y[time]/3D_Anal/%m[time]/MERRA%s[mver].prod.assim.inst6_3d_ana_Nv.%Y%m%d[time].hdf) [time dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (PS) def
+/standard_name (surface_air_pressure) def
+/long_name (Surface pressure) def
+ /missing_value 9.99999987E14 def
+ /units (Pa) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /qv{
+[ X Y | lev time] 
+(/Data/data20/jallen/MERRA/%Y[time]/3D_Anal/%m[time]/MERRA%s[mver].prod.assim.inst6_3d_ana_Nv.%Y%m%d[time].hdf) [time dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (QV) def
+/standard_name (specific_humidity) def
+/long_name (Specific humidity) def
+ /missing_value 9.99999987E14 def
+ /units (unitless) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /t{
+[ X Y | lev time] 
+(/Data/data20/jallen/MERRA/%Y[time]/3D_Anal/%m[time]/MERRA%s[mver].prod.assim.inst6_3d_ana_Nv.%Y%m%d[time].hdf) [time dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (T) def
+/standard_name (air_temperature) def
+/long_name (Air temperature) def
+ /missing_value 9.99999987E14 def
+ /units (Kelvin_scale) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /u{
+[ X Y | lev time] 
+(/Data/data20/jallen/MERRA/%Y[time]/3D_Anal/%m[time]/MERRA%s[mver].prod.assim.inst6_3d_ana_Nv.%Y%m%d[time].hdf) [time dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (U) def
+/standard_name (eastward_wind) def
+/long_name (Eastward wind component) def
+ /missing_value 9.99999987E14 def
+ /units (m/s) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+ /v{
+[ X Y | lev time] 
+(/Data/data20/jallen/MERRA/%Y[time]/3D_Anal/%m[time]/MERRA%s[mver].prod.assim.inst6_3d_ana_Nv.%Y%m%d[time].hdf) [time dailyedgesgrid first secondtolast subgrid mver] readdatafile:
+/name (V) def
+/standard_name (northward_wind) def
+/long_name (Northward wind component) def
+ /missing_value 9.99999987E14 def
+ /units (m/s) def
+ /realarraytype netcdfrecords :readdatafile
+ }defasvarsilent
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,77 @@
+\begin{ingrid}
+continuedataset:
+grid: /name /T def monthtime 16 Jan 1950 ensotime 1 16 Dec 2003 ensotime :grid
+/Y 96 namedgaussianlat high low subgrid name exch def
+grid: /name /X def degE periodic 0 1.875 358.125 :grid
+grid:
+/name /M def
+/long_name (member) def
+%/units (ids) def
+1 1 10
+:grid
+/prcp
+{
+ [ X Y | M T ]
+(/beluga/data/forecast/DATA/cola/pcp/cola.pcp.5003.tot.%2.2d[cnt])[M [M] 11 onegridcounter /name /cnt def]
+readdatafile:
+decsequential
+:readdatafile
+/name /prcp def
+/long_name (precipitation rate) def
+/units (mm/day) def
+} defasvarsilent
+/t2m
+{
+ [ X Y | M T ]
+(/beluga/data/forecast/DATA/cola/2mt/cola.2mt.5003.tot.%2.2d[cnt])[M [M] 11 onegridcounter /name /cnt def]
+readdatafile:
+decsequential
+:readdatafile
+/long_name (temperature at canopy air space) def
+/units (Kelvin_scale) def
+/missing_value -9999. def
+} defasvarsilent
+:dataset
+\end{ingrid}
+
+%old version
+continuedataset: 
+grid: /name /T def monthtime 16 Jan 1950 ensotime 1 16 Nov 1998 ensotime :grid
+/Y 96 namedgaussianlat high low subgrid name exch def
+grid: /name /X def degE periodic 0 1.875 358.125 :grid
+grid: /name /M def
+1 1 10
+:grid
+variable:
+/name /prcp def
+/long_name (precipitation rate) def
+/units (mm/day) def
+grids: X Y | M T :grids
+file:
+decsequential
+/name (/pantano/rd14/DATA/cola_T63/pcp/cola.pcp.5098.tot.%d2) def
+%/name (/beluga/data/goddard/DATA/cola/pcp/cola.pcp.5098.tot.%d2) def
+%/name (/Data/data1/iri/forecast/lgoddard/COLA/T63/pcp/cola.pcp.5098.tot.%d2) def
+/filecnt0 11 def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /t2m def
+/long_name (temperature at canapy air space) def
+/units (degreeK) def
+/missing_value -9999. def
+grids: X Y | M T :grids
+file:
+decsequential
+/name (/pantano/rd14/DATA/cola_T63/2mt/cola.2mt.5098.tot.%d2) def
+%/name (/beluga/data/goddard/DATA/cola/2mt/cola.2mt.5098.tot.%d2) def
+%/name (/Data/data1/iri/forecast/lgoddard/COLA/T63/2mt/cola.2mt.5098.tot.%d2) def
+/filecnt0 11 def
+M setfilenamegrid
+:file
+:variable
+:dataset
+\end{ingrid}
+
+

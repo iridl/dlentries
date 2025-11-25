@@ -1,0 +1,25 @@
+\begin{ingrid}
+continuedataset:
+
+/description (KMA Seasonal Prediction System) def
+
+datasetdefs:
+/forecast { r2p5 .forecast } def
+/reforecast { r2p5 .reforecast } def
+:datasetdefs
+/r2p5 currentobject /r2p5 get def
+/r1p5 currentobject /r1p5 get def
+
+
+link:
+/name (dataset_documentation) def
+/description (KMA Model Description) def
+/href (https://software.ecmwf.int/wiki/display/S2S/KMA+Model+Description) def
+:link
+
+/note (GloSea5-GC2 global seasonal prediction system which is developed at the Met Office. A Stochastic Kinetic Energy Backscatter scheme (SKEB) was used to generate spread between members initialized from the same analysis. Four ensemble members initialized every day in the cast of the forecast – two run for 75 days and two for 240 days. Hindcast (historical re-forecasts) covers the period 1991~2010 and 3 members initialized on fixed calendar dates – 1st, 9th, 17th and 25th.) def
+
+%/ensemble_id_code () def
+
+:dataset
+\end{ingrid}

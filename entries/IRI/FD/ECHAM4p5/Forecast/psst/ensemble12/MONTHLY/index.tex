@@ -1,0 +1,275 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+grid: 
+/name /Z def
+/units (mb) def
+values:
+1000 950 850 700 500 400 300 200 100
+:values
+:grid
+:datasetdefs
+grid:
+/name /X def
+degE
+periodic
+0 2.8125  360 1 index sub
+:grid
+64 gaussianlat high low subgrid name exch def
+grid: 
+/name /P def
+/long_name (Pressure) def
+/units (mb) def
+values:
+1000 950 850 700 500 400 300 200 100
+:values
+:grid
+grid:
+/name /M def
+/long_name (member) def
+/units (ids) def
+13 1 24
+:grid
+grid:
+/name /S def
+/long_name (Forecast Started) def
+monthtime
+/pointwidth 0. def
+1 Jan 1968 ensotime
+1.
+1 Jun 2003 ensotime
+:grid
+grid:
+/name /L def
+/units (months) def
+0.5 1 4.5
+:grid
+/FT { L S add [L S] REORDER /long_name (Forecast Time) def /calendar /360 def} defasvar
+/T currentobject /FT get def
+/filename {
+S (/Data/data3/iri/fd/forecastdata/ECHAM4_3.23.D/Retrospective.D/MONTHLY/PerSSTFcst1sea.D/%b%Y) strftime360cs 
+S (/%b%y) strftime360cs tolower
+ sappend
+M 12 sub (rf%2.2d_) sprintf
+sappend
+FT (%Y%m) strftime360cs
+sappend
+} defasvar
+file:
+grids: X Y | /NVZ 16 6 9 mul add NewIntegerGRID M L S :grids
+defivars
+NVZ 1 onegridcounter copyachunk
+S (/Data/data3/iri/fd/forecastdata/ECHAM4_3.23.D/Retrospective.D/MONTHLY/PerSSTFcst1sea.D/%b%Y) strftime360cs 
+S (/%b%y) strftime360cs tolower
+ sappend
+copyachunk
+M 12 sub (rf%2.2d_) sprintf
+sappend
+FT (%Y%m) strftime360cs
+sappend
+copyachunk
+X .npts Y .npts mul
+1 index .bufferwordsize
+1 index 2 add
+1
+PS2 .PSgetlun %0
+-1
+-1
+-1
+8 integerarray astore
+0 4 getinterval
+readr40
+STREAM TaskParameterBlock 0 get NewRealBuffer
+2 SetStreamIndex* streamgrids *
+%/missing_value NaN def
+/last_modified 3 index .last_modified def
+set_variableParent
+1 Zvariable:
+/name /sg def
+/long_name (surface geopotential) def
+/gribparam 129 def
+:Zvariable
+1 Zvariable:
+/name /pl def
+/long_name (large scale precipitation) def
+/units (m/s) def
+/gribparam 142 def
+:Zvariable
+1 Zvariable:
+/name /cp def
+/long_name (convective precipitation) def
+/units (m/s) def
+/gribparam 143 def
+:Zvariable
+1 Zvariable:
+/name /sh def
+/long_name (surface sensible heat flux) def
+/units (W/m2) def
+/gribparam 146 def
+:Zvariable
+1 Zvariable:
+/name /lh def
+/long_name (surface latent heat flux) def
+/units (W/m2) def
+/gribparam 147 def
+:Zvariable
+1 Zvariable:
+/name /slp def
+/long_name (sea level pressure) def
+/units (Pa) def
+/gribparam 151 def
+:Zvariable
+1 Zvariable:
+/name /cld def
+/long_name (total cloud cover) def
+/gribparam 164 def
+:Zvariable
+1 Zvariable:
+/name /t2m def
+/long_name (temperature at 2m) def
+/gribparam 167 def
+/units (Kelvin_scale) def
+:Zvariable
+1 Zvariable:
+/name /st def
+/long_name (surface Temperature) def
+/units (Kelvin_scale) def
+/gribparam 169 def
+:Zvariable
+1 Zvariable:
+/name /nswg def
+/long_name (net shortwave at ground) def
+/units (W/m2) def
+/gribparam 176 def
+:Zvariable
+1 Zvariable:
+/name /nlwg def
+/long_name (net longwave at ground) def
+/units (W/m2) def
+/gribparam 177 def
+:Zvariable
+1 Zvariable:
+/name /nswt def
+/long_name (net shortwave at top) def
+/units (W/m2) def
+/gribparam 178 def
+:Zvariable
+1 Zvariable:
+/name /olr def
+/long_name (net longwave at top) def
+/units (W/m2) def
+/gribparam 179 def
+:Zvariable
+1 Zvariable:
+/name /taux def
+/long_name (surface zonal wind stress) def
+/units (Newton/m2) def
+/gribparam 180 def
+:Zvariable
+1 Zvariable:
+/name /tauy def
+/long_name (surface meridional wind stress) def
+/units (Newton/m2) def
+/gribparam 181 def
+:Zvariable
+1 Zvariable:
+/name /evap def
+/long_name (evaporation) def
+/units (m/s) def
+/gribparam 182 def
+:Zvariable
+9 Zvariable:
+/name /tmp def
+/long_name (temperature) def
+/units (Kelvin_scale) def
+/gribparam 130 def
+:Zvariable
+9 Zvariable:
+/name /u def
+/long_name (zonal velocity) def
+/units (m/s) def
+/gribparam 131 def
+:Zvariable
+9 Zvariable:
+/name /v def
+/long_name (meridional velocity) def
+/units (m/s) def
+/gribparam 132 def
+:Zvariable
+9 Zvariable:
+/name /q def
+/long_name (specific humidity) def
+/units (kg/kg) def
+/scale_min 0 def
+/gribparam 133 def
+:Zvariable
+9 Zvariable:
+/name /omg def
+/long_name (vertical pressure velocity) def
+/gribparam 135 def
+:Zvariable
+9 Zvariable:
+/name /zg def
+/long_name (geopotential height) def
+/units (gpm) def
+/gribparam 156 def
+:Zvariable
+:file
+:dataset
+continuedataset:
+datasetdefs:
+:datasetdefs
+/X X def
+/Y Y def
+/P P def
+/M M def
+/S S def
+/L L def
+/T T def
+dataset:
+/name /surface def
+/taux { dataset .taux Z removeGRID} defasvarsilent
+/tauy { dataset .tauy Z removeGRID} defasvarsilent
+/evs { dataset .evap Z removeGRID} defasvarsilent
+/stemp { dataset .st Z removeGRID} defasvarsilent
+/slp { dataset .slp Z removeGRID} defasvarsilent
+/hfls { dataset .lh Z removeGRID} defasvarsilent
+/hfss { dataset .sh Z removeGRID} defasvarsilent
+/tcld { dataset .cld Z removeGRID} defasvarsilent
+/prc { dataset .cp Z removeGRID} defasvarsilent
+/prl { dataset .pl Z removeGRID} defasvarsilent
+/prcp { prc prl add /long_name (Total Precipitation) def} defasvar
+/zg { dataset .sg Z removeGRID} defasvarsilent
+dataset:
+/name /net def
+/swflx { dataset .dataset .nswg Z removeGRID} defasvarsilent
+/lwflx { dataset .dataset .nlwg Z removeGRID} defasvarsilent
+:dataset
+:dataset
+dataset:
+/name /top def
+dataset:
+/name /net def
+/swflx { dataset .dataset .nswt Z removeGRID} defasvarsilent
+/lwflx { dataset .dataset .olr Z removeGRID} defasvarsilent
+:dataset
+:dataset
+dataset:
+/name /above_ground def
+/t2m { dataset .t2m Z removeGRID} defasvarsilent
+:dataset
+dataset:
+/name /PressureLevel-SF def
+/long_name (Pressure Level: Smoothed and Filled) def
+/phi { dataset .zg Z /P renameGRID} defasvarsilent 
+/omega { dataset .omg Z /P renameGRID} defasvarsilent 
+/hus { dataset .q Z /P renameGRID} defasvarsilent
+/ua { dataset .u Z /P renameGRID} defasvarsilent 
+/va { dataset .v Z /P renameGRID} defasvarsilent 
+/ta { dataset .tmp Z /P renameGRID} defasvarsilent 
+:dataset
+/griblist.html {(griblist)htmlprint} def
+:dataset
+\end{ingrid}
+
+

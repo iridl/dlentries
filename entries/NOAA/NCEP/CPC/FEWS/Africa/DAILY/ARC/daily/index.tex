@@ -1,0 +1,91 @@
+\begin{ingrid}
+continuedataset:
+%Archived daily ARC data from CPC are located here:  ftp.cpc.ncep.noaa.gov/fews/ARC
+/description (African Rainfall Climatology daily estimates from the Famine Early Warning System) def
+datasetdefs:
+/dly_fews_prcp_colors {
+startcolormap
+DATA 0 600 RANGE
+white white LightCyan 0 VALUE
+PaleTurquoise PaleTurquoise 2.5 bandmax
+LightSkyBlue LightSkyBlue 5 bandmax
+DeepSkyBlue DeepSkyBlue 12.5 bandmax
+DodgerBlue DodgerBlue 25 bandmax
+blue blue 37.5 bandmax
+MediumBlue MediumBlue 50 bandmax
+DarkGreen DarkGreen 75 bandmax
+SeaGreen SeaGreen 100 bandmax
+MediumSeaGreen MediumSeaGreen 125 bandmax
+LimeGreen LimeGreen 150 bandmax
+green green 175 bandmax
+GreenYellow GreenYellow 200 bandmax
+yellow yellow 225 bandmax
+gold gold 250 bandmax
+orange orange 300 bandmax
+DarkOrange DarkOrange 350 bandmax
+red red 400 bandmax
+DeepPink DeepPink 450 bandmax
+HotPink HotPink 500 bandmax
+magenta magenta 550 bandmax
+orchid orchid 600 bandmax
+orchid endcolormap } def
+:datasetdefs
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+-20 0.1 55
+:grid
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+-40 0.1 40
+:grid
+grid:
+/name /T def
+/units (days since 1995-01-07 12:00:00) def
+/defaultvalue { last } def
+/standard_name (time) def
+0 1 
+%systemtime
+%   (%d %b %Y) 12 strftime interp julian_day
+14 Mar 2012 julian_day %enddate
+07 Jan 1995 julian_day sub
+:grid
+%T {T /unixtime unitconvertbyattribute exch scale_factor mul add_offset add (/Data/data6/noaa/cpc/fews/arc_data/daily_data/all_products_CLIM.bin.%Y%m%d) 100 strftime nip}
+%removeextrausing name exch def  
+\end{ingrid}
+Original Definition
+
+/est_prcp {[T]T
+%(/beluga/data/mbell/cpc/arc_data/daily_data/all_products_CLIM.bin.%Y%m%d) strftimes
+%recordsandfilenames nip[X Y]-999. readr4
+(/Data/data6/noaa/cpc/fews/arc_data/daily_data/all_products_CLIM.bin.%Y%m%d) strftimes
+recordsandfilenames nip[X Y]-999. readr4
+/long_name (Estimated Precipitation) def
+/scale_min 0 def
+/scale_max 600 def
+/units /mm def
+dly_fews_prcp_colors
+/description (CPC/Africa Rainfall Climatology: Daily Values)
+def}defasvarsilent
+\begin{ingrid}
+/est_prcp {
+ [X
+    Y |
+    T] (/Data/data6/noaa/cpc/fews/arc_data/daily_data/all_products_CLIM.bin.%Y%m%d[T]) [T]readdatafile:
+      /missing_value -9999. def
+/long_name (Estimated Precipitation) def
+/standard_name (lwe_precipitation_rate) def
+/scale_min 0 def
+/scale_max 600 def
+/units (mm/day) def
+dly_fews_prcp_colors
+/description (CPC/Africa Rainfall Climatology: Daily Values)
+def
+      direct :readdatafile
+} defasvarsilent
+:dataset
+\end{ingrid}
+

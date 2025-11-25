@@ -1,0 +1,246 @@
+\begin{ingrid}
+continuedataset:
+/description (Gridded Population of the World, Version 3, from the Socioeconomic Data and Applications Center (SEDAC) at CIESIN, gridded at 2.5 arc-minute resolution) def
+
+/Use_Constraints (The Trustees of Columbia University in the City of New York and the Centro Internacional de Agricultura Tropical (CIAT) hold the copyright of this data set. Users are prohibited from any commercial, non-free resale, or redistribution without explicit written permission from CIESIN and CIAT. Users should acknowledge CIESIN and CIAT as the source used in the creation of any reports, publications, new data sets, derived products, or services resulting from the use of this data set. CIESIN and CIAT also request reprints of any publications and notification of any redistributing efforts.) def
+
+link:
+/name (Gridded Population of the World, Version 3 (CIESIN)) def
+/href (http://sedac.ciesin.org/gpw/index.jsp) def
+:link
+
+link:
+/name (dataset_documentation) def
+/href (http://sedac.ciesin.org/gpw/documentation.jsp) def
+:link
+
+link:
+/name (data source) def
+/href (http://sedac.ciesin.org/gpw/global.jsp) def
+:link
+
+link:
+/name (metadata) def
+/href (https://sedac.ciesin.columbia.edu/data/set/gpw-v3-population-count/metadata) def
+:link
+
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+periodic
+-179.979166667 to 179.979166667 N= 8640 pts
+:grid
+
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+84.979166667 to -57.979166667 N= 3432 pts
+:grid
+
+grid:
+/name /T def
+monthtime
+01 Jul 1990 ensotime
+60
+01 Jul 2015 ensotime
+/pointwidth 12 def
+:grid
+
+dataset:
+/name (adjusted) def
+/long_name (U.N.-Adjusted) def
+
+X name exch def
+Y name exch def
+T name exch def
+
+/count {
+[X Y | T]
+(/Data/data5/ciesin/gpwv3/grid2p5arcmin/y%Y[T]/glp%Y[T]ag.r4) [T] readdatafile:
+direct
+/long_name (U.N.-Adjusted Population Counts) def
+/description (Estimates for 1990, 1995, and 2000; projections for 2005, 2010, and 2015) def
+/missing_value -9999. def
+startcolormap
+DATA 0 25000 RANGE
+transparent transparent transparent 0 VALUE
+transparent transparent 20 bandmax
+255 218 166 RGB RGBdup 100 bandmax
+250 184 85 RGB RGBdup 500 bandmax
+209 130 33 RGB RGBdup 5000 bandmax
+145 65 15 RGB RGBdup 20000 bandmax
+92 5 1 RGB RGBdup 25000 bandmax
+92 5 1 RGB
+endcolormap
+/units (Number of Persons) def
+:readdatafile
+/Use_Constraints (The Trustees of Columbia University in the City of New York and the Centro Internacional de Agricultura Tropical (CIAT) hold the copyright of this data set. Users are prohibited from any commercial, non-free resale, or redistribution without explicit written permission from CIESIN and CIAT. Users should acknowledge CIESIN and CIAT as the source used in the creation of any reports, publications, new data sets, derived products, or services resulting from the use of this data set. CIESIN and CIAT also request reprints of any publications and notification of any redistributing efforts.) def
+} defasvarsilent
+
+/density {
+[X Y | T first dup 120 add subgrid]
+(/Data/data5/ciesin/gpwv3/grid2p5arcmin/y%Y[T]/glds%Y[T]ag.r4) [T] readdatafile:
+direct
+/long_name (U.N.-Adjusted Population Density) def
+/missing_value -9999. def
+startcolormap
+DATA 0 1250 RANGE
+transparent transparent transparent 0 VALUE
+transparent transparent 1 bandmax
+255 218 166 RGB RGBdup 5 bandmax
+250 184 85 RGB RGBdup 25 bandmax
+209 130 33 RGB RGBdup 250 bandmax
+145 65 15 RGB RGBdup 1000 bandmax
+92 5 1 RGB RGBdup 1250 bandmax
+92 5 1 RGB
+endcolormap
+/units (Number of Persons/km2) def
+:readdatafile
+/Use_Constraints (The Trustees of Columbia University in the City of New York and the Centro Internacional de Agricultura Tropical (CIAT) hold the copyright of this data set. Users are prohibited from any commercial, non-free resale, or redistribution without explicit written permission from CIESIN and CIAT. Users should acknowledge CIESIN and CIAT as the source used in the creation of any reports, publications, new data sets, derived products, or services resulting from the use of this data set. CIESIN and CIAT also request reprints of any publications and notification of any redistributing efforts.) def
+} defasvarsilent 
+
+:dataset
+
+grid:
+/name /T def
+monthtime
+01 Jul 1990 ensotime
+60
+01 Jul 2000 ensotime
+/pointwidth 12 def
+:grid
+
+dataset:
+/name (notadjusted) def
+/long_name (Not Adjusted) def
+
+X name exch def
+Y name exch def
+T name exch def
+
+/count {
+[X Y | T]
+(/Data/data5/ciesin/gpwv3/grid2p5arcmin/y%Y[T]/glp%Y[T]g.r4) [T] readdatafile:
+direct
+/long_name (Population Counts) def
+/missing_value -9999. def
+startcolormap
+DATA 0 25000 RANGE
+transparent transparent transparent 0 VALUE
+transparent transparent 20 bandmax
+255 218 166 RGB RGBdup 100 bandmax
+250 184 85 RGB RGBdup 500 bandmax
+209 130 33 RGB RGBdup 5000 bandmax
+145 65 15 RGB RGBdup 20000 bandmax
+92 5 1 RGB RGBdup 25000 bandmax
+92 5 1 RGB
+endcolormap
+/units (Number of Persons) def
+:readdatafile
+/Use_Constraints (The Trustees of Columbia University in the City of New York and the Centro Internacional de Agricultura Tropical (CIAT) hold the copyright of this data set. Users are prohibited from any commercial, non-free resale, or redistribution without explicit written permission from CIESIN and CIAT. Users should acknowledge CIESIN and CIAT as the source used in the creation of any reports, publications, new data sets, derived products, or services resulting from the use of this data set. CIESIN and CIAT also request reprints of any publications and notification of any redistributing efforts.) def
+} defasvarsilent
+
+/density {
+[X Y | T]
+(/Data/data5/ciesin/gpwv3/grid2p5arcmin/y%Y[T]/glds%Y[T]g.r4) [T] readdatafile:
+direct
+/long_name (Population Density) def
+/missing_value -9999. def
+startcolormap
+DATA 0 1250 RANGE
+transparent transparent transparent 0 VALUE
+transparent transparent 1 bandmax
+255 218 166 RGB RGBdup 5 bandmax
+250 184 85 RGB RGBdup 25 bandmax
+209 130 33 RGB RGBdup 250 bandmax
+145 65 15 RGB RGBdup 1000 bandmax
+92 5 1 RGB RGBdup 1250 bandmax
+92 5 1 RGB
+endcolormap
+/units (Number of Persons/km2) def
+:readdatafile
+/Use_Constraints (The Trustees of Columbia University in the City of New York and the Centro Internacional de Agricultura Tropical (CIAT) hold the copyright of this data set. Users are prohibited from any commercial, non-free resale, or redistribution without explicit written permission from CIESIN and CIAT. Users should acknowledge CIESIN and CIAT as the source used in the creation of any reports, publications, new data sets, derived products, or services resulting from the use of this data set. CIESIN and CIAT also request reprints of any publications and notification of any redistributing efforts.) def
+} defasvarsilent
+
+:dataset
+
+variable:
+/name /areag def
+/long_name (Land Area in Grid Cell) def
+/missing_value -9999 def
+%/scale_max 15000 def
+/units (km2) def
+grids: X Y :grids
+file:
+direct
+/name (/Data/data5/ciesin/gpwv3/grid2p5arcmin/area/glareag.r4) def
+:file
+/Use_Constraints (The Trustees of Columbia University in the City of New York and the Centro Internacional de Agricultura Tropical (CIAT) hold the copyright of this data set. Users are prohibited from any commercial, non-free resale, or redistribution without explicit written permission from CIESIN and CIAT. Users should acknowledge CIESIN and CIAT as the source used in the creation of any reports, publications, new data sets, derived products, or services resulting from the use of this data set. CIESIN and CIAT also request reprints of any publications and notification of any redistributing efforts.) def
+:variable
+
+variable:
+/name /madmg def
+/long_name (Mean Geographic Unit Area) def
+/missing_value -9999 def
+%/scale_max 15000 def
+/units (km2) def
+grids: X Y :grids
+file:
+direct
+/name (/Data/data5/ciesin/gpwv3/grid2p5arcmin/area/glmadmg.r4) def
+:file
+/Use_Constraints (The Trustees of Columbia University in the City of New York and the Centro Internacional de Agricultura Tropical (CIAT) hold the copyright of this data set. Users are prohibited from any commercial, non-free resale, or redistribution without explicit written permission from CIESIN and CIAT. Users should acknowledge CIESIN and CIAT as the source used in the creation of any reports, publications, new data sets, derived products, or services resulting from the use of this data set. CIESIN and CIAT also request reprints of any publications and notification of any redistributing efforts.) def
+:variable
+
+dataset:
+/name (natids) def
+/long_name (National Identifiers Circa 2000) def
+
+variable:
+/name /id def
+/long_name (National ID Value) def
+/missing_value -9999 def
+/units (ids) def
+grids: X Y :grids
+file:
+direct
+/name (/Data/data5/ciesin/gpwv3/grid2p5arcmin/natids/glbnds.r4) def
+:file
+/Use_Constraints (The Trustees of Columbia University in the City of New York and the Centro Internacional de Agricultura Tropical (CIAT) hold the copyright of this data set. Users are prohibited from any commercial, non-free resale, or redistribution without explicit written permission from CIESIN and CIAT. Users should acknowledge CIESIN and CIAT as the source used in the creation of any reports, publications, new data sets, derived products, or services resulting from the use of this data set. CIESIN and CIAT also request reprints of any publications and notification of any redistributing efforts.) def
+:variable
+
+/nationalinfo
+{
+db:
+ /server (localhost) def
+ /dbname (mbell) def
+ :db
+(select id,count,iso3v10,unsdcode,countryname from gpwv3natids order by id) (id) openqueryby
+count
+  /long_name (Count) def
+CopyStream
+name exch def
+
+iso3v10
+  /long_name (ISO3 3-Letter Country ID) def
+CopyStream
+name exch def
+
+unsdcode
+  /long_name (UN Statistical Division Country Code) def
+CopyStream
+name exch def
+
+countryname
+  /long_name (Country Name) def
+CopyStream
+name exch def
+} defasvarsilent 
+
+:dataset
+
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,62 @@
+\begin{ingrid}
+
+continuedataset:
+
+(iri.columbia.edu/terms/forecast/1) cvn datadownloadsareRestricted
+/Cookie varies_on
+
+
+/description (Forecast Ensemble Mean) def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+0 1 359
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+-90.0 1 90.0
+:grid
+
+/L
+SOURCES .IRI .FD .SubC .ELR_Forecast .weekly_t2m .ELR_coeffs .GEFSv12 .L
+def
+
+/S
+SOURCES .IRI .FD .SubC .ELR_Forecast .weekly_t2m .ELR_coeffs .GEFSv12 .S
+def
+
+S { (/crunch/c10/jingyuan/Subx_forecast/Subx_flexible_forecast/Subx_flexible_weekly_T2M_ELR_forecast/GEFSv12/Subx_global_t2m_issue_Fri_%d_%b_%Y[S]_weekly_fcst_mean.nc) [S] } removeextrausing
+   name exch def
+
+S
+/expires
+S last 6 add cvsunits nip interp exch 0.5 add 4 -2 roll exch pop ymd2systemtime
+def
+name exch def
+
+/expires S .expires def
+
+/temperature {
+[ X Y last first subgrid L | S ]
+(/crunch/c10/jingyuan/Subx_forecast/Subx_flexible_forecast/Subx_flexible_weekly_T2M_ELR_forecast/GEFSv12/Subx_global_t2m_issue_Fri_%d_%b_%Y[S]_weekly_fcst_mean.nc) [S]
+readdatafile:
+/name (mean) def
+/doublearraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+/long_name (Ensemble Mean Temperature) def
+/units /Kelvin_scale def
+temp_colors
+/scale_symmetric false def
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+
+:dataset
+
+\end{ingrid}

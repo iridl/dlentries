@@ -1,0 +1,36 @@
+\begin{ingrid}
+
+continuedataset:
+
+/rfe_adj {
+ SOURCES .Ethiopia .NMA .dekadal .rainfall .rfe_adj
+monthlyAverage 3. mul
+yearly-climatology
+/long_name (rfe 1983-2010 average) def
+precip_colors
+DATA 0 300 RANGE
+}defasvarcache
+
+/tmin {
+ SOURCES .Ethiopia .NMA .dekadal .temperature .tmin
+monthlyAverage
+yearly-climatology
+/long_name (tmin 1983-2010 average) def
+temp_colors
+/scale_symmetric false def
+  DATA 0 32 RANGE
+}defasvarcache
+
+/tmax {
+ SOURCES .Ethiopia .NMA .dekadal .temperature .tmax
+monthlyAverage
+yearly-climatology
+/long_name (tmax 1983-2010 average) def
+temp_colors
+/scale_symmetric false def
+  DATA 14 46 RANGE
+}defasvarcache
+
+:dataset
+
+\end{ingrid}

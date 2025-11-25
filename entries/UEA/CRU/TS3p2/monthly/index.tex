@@ -1,0 +1,843 @@
+\begin{ingrid}
+/CRU-TS datadownloadsareRestricted
+/Cookie varies_on
+continuedataset:
+
+ /comment (Data restrictions: for academic research use only.Contact BADC for details) def
+ /institution (Data held at British Atmospheric Data Centre, RAL, UK.) def
+ /Conventions (CF-1.4) def
+ /history (Thu 25 Oct 2012 22:16:55 BST : User ianharris : Program makegridsauto.for called by update.for) def
+ /contact (BADC ) def
+ /title (CRU TS3.20) def
+ /references (Harris_etal2014) def
+
+ /note (CRU Conditions of Use states that acknowledgement should preferably be by citing one or more of the papers referenced) def
+
+link:
+/name (BADC Documentation Page) def
+/description (Climatic Research Unit (CRU) TS (time-series) version 3.20 gridded data) def
+/href (http://badc.nerc.ac.uk/view/badc.nerc.ac.uk__ATOM__ACTIVITY_3ec0d1c6-4616-11e2-89a3-00163e251233) def
+:link
+
+grid:
+/name (X)def
+/units (degree_east)def
+ -179.75 0.5 179.75
+periodic
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ -89.75 0.5 89.75
+:grid
+
+grid:
+/name (T)def
+/units (months since 1960-01-01)def
+16 Jan 1901 ensotime
+1
+16 Dec 2011 ensotime
+:grid
+
+ /cld{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].cld.dat.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime 
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (cld) def
+ /correlation_decay_distance 600. def
+ /missing_value 9.96920997E36 def
+ /units /percentage def
+ /long_name (cloud cover) def
+ /standard_name (cloud_area_fraction) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /dtr{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].dtr.dat.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (dtr) def
+ /units (degree_Celsius)cvn def
+ /missing_value 9.96920997E36 def
+ /long_name (diurnal temperature range) def
+ /correlation_decay_distance 750. def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /frs{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].frs.dat.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (frs) def
+ /correlation_decay_distance 750. def
+ /units /days def
+ /missing_value 9.96920997E36 def
+ /long_name (ground frost frequency) def
+ /doublearraytype netcdfrecords :readdatafile
+    startcolormap
+  DATA 0 31 RANGE
+  transparent white
+  white 0 VALUE
+  212 245 255 RGB RGBdup 1 bandmax
+  202 239 252 RGB RGBdup 2 bandmax
+  188 222 244 RGB RGBdup 4 bandmax
+  173 205 237 RGB RGBdup 6 bandmax
+  159 188 229 RGB RGBdup 8 bandmax
+  145 171 221 RGB RGBdup 10 bandmax
+  131 154 214 RGB RGBdup 12 bandmax
+  116 137 206 RGB RGBdup 14 bandmax
+  102 121 198 RGB RGBdup 16 bandmax
+  88 104 191 RGB RGBdup 18 bandmax
+  73 87 183 RGB RGBdup 20 bandmax
+  59 70 176 RGB RGBdup 22 bandmax
+  45 53 168 RGB RGBdup 24 bandmax
+  31 36 160 RGB RGBdup 26 bandmax
+  16 19 153 RGB RGBdup 28 bandmax
+  0 0 138 RGB RGBdup 31 bandmax
+  0 0 138 RGB
+  endcolormap
+}defasvarsilent
+
+ /pet{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].pet.dat.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (pet) def
+ /units (mm/day)cvn def
+ /missing_value 9.96920997E36 def
+ /long_name (potential evapotranspiration) def
+ /correlation_decay_distance -999. def
+ /standard_name (water_potential_evaporation_flux) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /pre{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].pre.dat.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (pre) def
+ /correlation_decay_distance 450. def
+ /missing_value 9.96920997E36 def
+ /units (mm/month)def
+ /long_name (precipitation) def
+ /standard_name (lwe_precipitation_rate) def
+ /doublearraytype netcdfrecords :readdatafile
+   startcolormap
+  DATA 0 700 RANGE
+  transparent white
+  white 0 VALUE
+  137 255 131 RGB RGBdup 25 bandmax
+  128 242 122 RGB RGBdup 50 bandmax
+  119 228 114 RGB RGBdup 75 bandmax
+  110 215 105 RGB RGBdup 100 bandmax
+  101 202 97 RGB RGBdup 150 bandmax
+  92 189 88 RGB RGBdup 200 bandmax
+  83 175 79 RGB RGBdup 250 bandmax
+  74 162 71 RGB RGBdup 300 bandmax
+  66 149 62 RGB RGBdup 350 bandmax
+  57 136 54 RGB RGBdup 400 bandmax
+  48 122 45 RGB RGBdup 450 bandmax
+  39 109 36 RGB RGBdup 500 bandmax
+  30 96 28 RGB RGBdup 550 bandmax
+  21 83 19 RGB RGBdup 600 bandmax
+  12 69 11 RGB RGBdup 650 bandmax
+  3 56 2 RGB RGBdup 700 bandmax
+  3 56 2 RGB
+  endcolormap
+}defasvarsilent
+
+ /tmn{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].tmn.dat.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (tmn) def
+ /units (Celsius_scale)cvn def
+ /missing_value 9.96920997E36 def
+ /long_name (near-surface temperature minimum) def
+ /correlation_decay_distance 1200. def
+ /standard_name (air_temperature) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmp{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].tmp.dat.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (tmp) def
+ /units (Celsius_scale)cvn def
+ /correlation_decay_distance 1200. def
+ /missing_value 9.96920997E36 def
+ /long_name (near-surface temperature) def
+ /standard_name (air_temperature) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmx{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].tmx.dat.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (tmx) def
+ /units (Celsius_scale)cvn def
+ /missing_value 9.96920997E36 def
+ /long_name (near-surface temperature maximum) def
+ /correlation_decay_distance 1200. def
+ /standard_name (air_temperature) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /vap{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].vap.dat.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (vap) def
+ /correlation_decay_distance 1000. def
+ /units /hPa def
+ /missing_value 9.96920997E36 def
+ /long_name (vapour pressure) def
+/standard_name (water_vapor_pressure) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /wet{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].wet.dat.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (wet) def
+ /correlation_decay_distance 450. def
+ /missing_value 9.96920997E36 def
+ /units /days def
+ /long_name (wet day frequency) def
+/standard_name (number_of_days_with_lwe_thickness_of_precipitation_amount_above_threshold) def
+ /doublearraytype netcdfrecords :readdatafile
+  startcolormap
+  DATA 0 31 RANGE
+  transparent white
+  white 0 VALUE
+  137 255 131 RGB RGBdup 1 bandmax
+  128 242 122 RGB RGBdup 2 bandmax
+  119 228 114 RGB RGBdup 4 bandmax
+  110 215 105 RGB RGBdup 6 bandmax
+  101 202 97 RGB RGBdup 8 bandmax
+  92 189 88 RGB RGBdup 10 bandmax
+  83 175 79 RGB RGBdup 12 bandmax
+  74 162 71 RGB RGBdup 14 bandmax
+  66 149 62 RGB RGBdup 16 bandmax
+  57 136 54 RGB RGBdup 18 bandmax
+  48 122 45 RGB RGBdup 20 bandmax
+  39 109 36 RGB RGBdup 22 bandmax
+  30 96 28 RGB RGBdup 24 bandmax
+  21 83 19 RGB RGBdup 26 bandmax
+  12 69 11 RGB RGBdup 28 bandmax
+  3 56 2 RGB RGBdup 31 bandmax
+  3 56 2 RGB
+  endcolormap 
+}defasvarsilent
+
+
+dataset:
+/name (stn) def
+/long_name (number of stations within correlation decay distance of grid box) def
+
+ /comment (Data restrictions: for academic research use only.Contact BADC for details) def
+ /institution (Data held at British Atmospheric Data Centre, RAL, UK.) def
+ /Conventions (CF-1.4) def
+ /history (Thu 25 Oct 2012 22:16:55 BST : User ianharris : Program makegridsauto.for called by update.for) def
+ /contact (BADC ) def
+ /title (CRU TS3.20) def
+ /references (Harris_etal2014) def
+
+ /note (CRU Conditions of Use states that acknowledgement should preferably be by citing one or more of the papers referenced) def
+
+link:
+/name (BADC Documentation Page) def
+/description (Climatic Research Unit (CRU) TS (time-series) version 3.20 gridded data) def
+/href (http://badc.nerc.ac.uk/view/badc.nerc.ac.uk__ATOM__ACTIVITY_3ec0d1c6-4616-11e2-89a3-00163e251233) def
+:link
+
+grid:
+/name (X)def
+/units (degree_east)def
+ -179.75 0.5 179.75
+periodic
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ -89.75 0.5 89.75
+:grid
+
+grid:
+/name (T)def
+/units (months since 1960-01-01)def
+16 Jan 1901 ensotime
+1
+16 Dec 2011 ensotime
+:grid
+
+ /cld{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].cld.stn.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 600. def
+ /units /number def
+ /missing_value 9.96920997E36 def
+ /long_name (within-CDD station count for cld) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /dtr{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].dtr.stn.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 750. def
+ /units /number def
+ /missing_value 9.96920997E36 def
+ /long_name (within-CDD station count for dtr) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /pre{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].pre.stn.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 450. def
+ /units /number def
+ /missing_value 9.96920997E36 def
+ /long_name (within-CDD station count for pre) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmpdtr{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].tmpdtr.stn.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 1200. def
+ /units /number def
+ /missing_value 9.96920997E36 def
+ /long_name (within-CDD station count for tmpdtr) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmp{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].tmp.stn.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 1200. def
+ /units /number def
+ /missing_value 9.96920997E36 def
+ /long_name (within-CDD station count for tmp) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /vap{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].vap.stn.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 1000. def
+ /units /number def
+ /missing_value 9.96920997E36 def
+ /long_name (within-CDD station count for vap) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /wet{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].wet.stn.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 450. def
+ /missing_value 9.96920997E36 def
+ /units /number def
+ /long_name (within-CDD station count for wet) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+dataset:
+/name (st0) def
+/long_name (number of stations within grid box) def
+
+ /comment (Data restrictions: for academic research use only.Contact BADC for details) def
+ /institution (Data held at British Atmospheric Data Centre, RAL, UK.) def
+ /Conventions (CF-1.4) def
+ /history (Thu 25 Oct 2012 22:16:55 BST : User ianharris : Program makegridsauto.for called by update.for) def
+ /contact (BADC ) def
+ /title (CRU TS3.20) def
+ /references (Harris_etal2014) def
+
+ /note (CRU Conditions of Use states that acknowledgement should preferably be by citing one or more of the papers referenced) def
+
+link:
+/name (BADC Documentation Page) def
+/description (Climatic Research Unit (CRU) TS (time-series) version 3.20 gridded data) def
+/href (http://badc.nerc.ac.uk/view/badc.nerc.ac.uk__ATOM__ACTIVITY_3ec0d1c6-4616-11e2-89a3-00163e251233) def
+:link
+
+grid:
+/name (X)def
+/units (degree_east)def
+ -179.75 0.5 179.75
+periodic
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ -89.75 0.5 89.75
+:grid
+
+grid:
+/name (T)def
+/units (months since 1960-01-01)def
+16 Jan 1901 ensotime
+1
+16 Dec 2011 ensotime
+:grid
+
+ /dtr{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].dtr.st0.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (st0) def
+ /missing_value 9.96920997E36 def
+ /units /number def
+ /long_name (in-cell station count for dtr) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /pre{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].pre.st0.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (st0) def
+ /missing_value 9.96920997E36 def
+ /units /number def
+ /long_name (in-cell station count for pre) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmpdtr{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].tmpdtr.st0.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (st0) def
+ /missing_value 9.96920997E36 def
+ /units /number def
+ /long_name (in-cell station count for tmpdtr) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmp{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].tmp.st0.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (st0) def
+ /missing_value 9.96920997E36 def
+ /units /number def
+ /long_name (in-cell station count for tmp) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /vap{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].vap.st0.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (st0) def
+ /missing_value 9.96920997E36 def
+ /units /number def
+ /long_name (in-cell station count for vap) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /wet{
+[ X Y | T] (/Data/data7/uea/cru/ts3p2/cru_ts3.20.%Y[T].%Y[T2].wet.st0.nc) [grid: /T (months since 1960-01-01) 0 values: 1
+         Jan 1901 ensotime
+         120.0 1
+           Jan 2011 ensotime
+           {}
+            for :values
+        :grid
+   /pointwidth 0 def
+   dup dup 
+      1 Jan 2010 ensotime
+      flaggt
+     c:
+      108 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+/name /T2 def ] readdatafile:
+/name (st0) def
+ /missing_value 9.96920997E36 def
+ /units /number def
+ /long_name (in-cell station count for wet) def
+ /doublearraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}

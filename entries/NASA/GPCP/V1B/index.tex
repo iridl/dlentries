@@ -1,0 +1,277 @@
+\begin{ingrid}
+continuedataset:
+/references (Huffman_etal1997) def
+grid:
+/name /X def
+degE
+1.25 2.5 358.75
+:grid
+grid:
+/name /Y def
+degN
+88.75 -2.5 -88.75
+:grid
+grid:
+/name /T def
+monthtime
+16 Jul 1987 ensotime
+1
+16 Sep 1998 ensotime
+:grid
+/iridl:hasSemantics (iriref:Huffman_GL) def
+dataset:
+/name (SSMI_emission) def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/technique (SSMI scattering) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (mm/day) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_pse.r4) def
+direct
+:file
+:variable
+variable:
+/name /nsamp def
+/long_name (number of samples) def
+/technique (SSMI emission) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (equiv .5 deg images) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_nse.r4) def
+direct
+:file
+:variable
+:dataset
+dataset:
+/name (SSMI_scattering) def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/technique (SSMI scattering) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (mm/day) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_pss.r4) def
+direct
+:file
+:variable
+variable:
+/name /nsamp def
+/long_name (number of samples) def
+/technique (SSMI scattering) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (equiv .5 deg images) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_nss.r4) def
+direct
+:file
+:variable
+:dataset
+dataset:
+/name (satellite-gauge) def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/technique (satellite/gauge) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (mm/day) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_psg.r4) def
+direct
+:file
+:variable
+variable:
+/name /err def
+/long_name (abs. error) def
+/technique (satellite/gauge) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (mm/day) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_esg.r4) def
+direct
+:file
+:variable
+:dataset
+dataset:
+/name (SSMI_combined) def
+variable:
+/name /src def
+/long_name (source) def
+/technique (SSMI combined) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/scale_min 0 def
+/scale_max 1 def
+/CLIST [ (emiss)(scat) ] def
+/units /id def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_ssc.r4) def
+direct
+:file
+:variable
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/technique (SSMI combined) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (mm/day) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_psc.r4) def
+direct
+:file
+:variable
+variable:
+/name /err def
+/long_name (abs. error) def
+/technique (SSMI combined) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (mm/day) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_esc.r4) def
+direct
+:file
+:variable
+variable:
+/name /nsamp def
+/long_name (number of samples) def
+/technique (SSMI combined) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (equiv .5 deg images) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_nsc.r4) def
+direct
+:file
+:variable
+:dataset
+dataset:
+/name (multi-satellite) def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/technique (multi-satellite) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (mm/day) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_pms.r4) def
+direct
+:file
+:variable
+variable:
+/name /err def
+/long_name (abs. error) def
+/technique (multi-satellite) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (mm/day) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_ems.r4) def
+direct
+:file
+:variable
+:dataset
+dataset:
+/name (GPI) def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/technique (GPI) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (mm/day) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_pgp.r4) def
+direct
+:file
+:variable
+variable:
+/name /nsamp def
+/long_name (number of samples) def
+/technique (GPI) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (equiv .5 deg images) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_ngp.r4) def
+direct
+:file
+:variable
+:dataset
+dataset:
+/name /gauge def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/technique (bias-cor. gauge) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (mm/day) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_pga.r4) def
+direct
+:file
+:variable
+variable:
+/name /err def
+/long_name (abs. error) def
+/technique (bias-cor gauge) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (mm/day) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_ega.r4) def
+direct
+:file
+:variable
+variable:
+/name /nsamp def
+/long_name (number of samples) def
+/technique (bias-cor gauge) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (equiv .5 deg images) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_nga.r4) def
+direct
+:file
+:variable
+:dataset
+dataset: /name (AGPI) def
+variable:
+/name /prcp def
+/long_name (precipitation) def
+/technique (AGPI) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (mm/day) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_pag.r4) def
+direct
+:file
+:variable
+variable:
+/name /err def
+/long_name (abs. error) def
+/technique (AGPI) def
+grids: X Y | T :grids
+/missing_value -99999. def
+/units (mm/day) def
+file:
+/name (/Data/data7/nasa/gpcp/gpcp_v1b_eag.r4) def
+direct
+:file
+:variable
+:dataset
+:dataset
+\end{ingrid}

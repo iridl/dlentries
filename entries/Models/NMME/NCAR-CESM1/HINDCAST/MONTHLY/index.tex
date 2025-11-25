@@ -1,0 +1,158 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/fileavail {
+prec dataflag[X Y]average 0 maskle 0 flaggt L first VALUE M first VALUE grid: /name /S1 def /units monthtimename def 
+/gridtype periodic def Jan 1 Dec :grid grid: /name /S2 def /units monthtimename def /pointwidth 12 def 1 Jul 1980 ensotime 12 1 Jul 2010 ensotime :grid add 6.5 sub S .first S .last masknotrange /pointwidth 0 def[S]sample-along /fullname (fileavail) def
+} defasvar
+:datasetdefs
+ /references (Kirtman_etal2014) def
+ /Conventions (CF-1.0) def
+
+link:
+/name (data_availability) def
+/href (fileavail/mark/exch/S2/exch[S1]table:/mark/:table/.html) def 
+:link
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1. 359.
+/standard_name (longitude) def
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+ -90. 1. 90.
+/standard_name (latitude) def
+:grid
+
+grid:
+/name (S)def
+/long_name (Forecast Start Time) def
+/units (months since 1960-01-01)def
+/calendar /360 def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+1 Jan 1980 ensotime
+1. 
+1 Dec 2010 ensotime %enddate
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (months) def
+/standard_name (forecast_period) def
+0.5 1 11.5
+:grid
+
+/M 10 NewIntegerGRID
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+ name exch def
+
+/T { S L add
+/long_name (Time) def
+/standard_name (time) def } defasvarsilent
+
+\end{ingrid}
+grid:
+/name (Z) def
+/units (m) def
+/long_name (Height) def
+/standard_name (height) def
+2 :grid
+
+grid:
+/name (P) def
+/units (hPa) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+values: 200 :values
+:grid
+\begin{ingrid}
+
+ /prec{
+[ X Y | M L S] (/Data/data23/NMME/CESM1.D/%b.D/%Y%m[S]01.1x1.precip_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (precip) def
+ /units (mm/day)cvn def
+/long_name (Total Precipitation) def
+ /standard_name (lwe_precipitation_rate) def
+ /missing_value -9999.0 def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/sst{
+[ X Y | M L S] (/Data/data23/NMME/CESM1.D/%b.D/%Y%m[S]01.1x1.sst_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (sst) def
+ /missing_value -9999.0 def
+/long_name (Sea Surface Temperature) def
+ /standard_name (sea_surface_temperature) def
+ /units /Kelvin_scale def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/tref{
+[ X Y | M L S] (/Data/data23/NMME/CESM1.D/%b.D/%Y%m[S]01.1x1.t_ref_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (t_ref) def
+ /missing_value -9999.0 def
+ /standard_name (air_temperature) def
+ /long_name (Reference height temperature) def
+ /units /Kelvin_scale def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+/gz{
+[ X Y | M L S] (/Data/data23/NMME/CESM1.D/%b.D/%Y%m[S]01.1x1.z200_ens%2.2d[M].nc) [ M S] readdatafile: 
+/name (z200) def
+ /standard_name (geopotential_height) def
+ /long_name (Geopotential Height (above sea level) at 200mb) def
+ /units (m) def
+ /lev_p 200.0 def
+ /missing_value -9999.0 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/runoff{
+[ X Y | M L S] (/Data/data23/NMME/CESM1.D/%b.D/%Y%m[S]01.1x1.runoff_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (runoff) def
+ /standard_name (runoff_flux) def
+ /units (mm/s)cvn def
+ /long_name (Total liquid runoff (does not include QSNWCPICE)) def
+ /missing_value -9999.0 def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/soilw{
+[ X Y | M L S] (/Data/data23/NMME/CESM1.D/%b.D/%Y%m[S]01.1x1.Mrsov_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (Mrsov) def
+ /missing_value -9999.0 def
+ /standard_name (volume_fraction_of_water_in_soil) def
+ /long_name (Volume fraction of water in soil) def
+ /units /unitless def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+/tsmn{
+[ X Y | M L S] (/Data/data23/NMME/CESM1.D/%b.D/%Y%m[S]01.1x1.Tsmin_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (Tsmin) def
+ /standard_name (air_temperature) def
+ /units /Kelvin_scale def
+ /missing_value -9999.0 def
+ /long_name (Daily minimum of average 2-m temperature) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+
+/tsmx{
+[ X Y | M L S] (/Data/data23/NMME/CESM1.D/%b.D/%Y%m[S]01.1x1.Tsmax_ens%2.2d[M].nc) [ M S] readdatafile:
+/name (Tsmax) def
+ /standard_name (air_temperature) def
+ /units /Kelvin_scale def
+ /missing_value -9999.0 def
+ /long_name (Daily maximum of average 2-m temperature) def
+ /realarraytype netcdfrecords :readdatafile
+} defasvarsilent
+
+:dataset
+\end{ingrid}

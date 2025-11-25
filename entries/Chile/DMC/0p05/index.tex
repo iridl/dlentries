@@ -1,0 +1,145 @@
+\begin{ingrid} 
+  continuedataset:
+
+  grid:
+  /name (X)def
+    /units (degree_east)def
+    -76.975 0.05 -66.025
+    periodic
+  :grid
+  
+  grid:
+  /name (Y)def
+    /units (degree_north)def
+    -56.975 0.05 -17.025
+  :grid
+
+  /cl_mask{
+    [X Y | ] (/Data/data6/Chile/DMC/meteorological/grid/pr/CR2MET_pr_v2.5_day_2021_12_005deg.nc) readdatafile:
+      /name (cl_mask) def
+      /missing_value 0 def
+      /stringtype netcdfrecords
+      :readdatafile
+   }defasvarsilent
+   
+  dataset:
+   [X Y] {name exch def } forall
+   /name /daily def 
+
+   grid:
+    /name /T def
+    /netcdfgrid true def
+    /standard_name (time) def
+    /units (julian_day) def
+    1 Jan 1960 julian_day
+    1.0
+    30 Dec 2021 julian_day
+  :grid
+ 
+  /pr_sd{
+   [X Y | T ]
+   (/Data/data6/Chile/DMC/meteorological/grid/pr/CR2MET_pr_v2.5_day_%Y[T]_%m[T]_005deg.nc) [T monthlyedgesgrid first secondtolast subgrid]
+   readdatafile:
+   /name (pr_sd) def
+    /units (mm/day)cvn def
+    /scale_factor 0.01 def
+    /add_offset 300.0 def
+    /missing_value -32768.0 def
+    /shortarraytype netcdfrecords :readdatafile
+    SOURCES .Chile .DMC .0p05 .cl_mask
+    exch mul 
+    /long_name (standard deviation of precipitation) def
+  }defasvarsilent
+
+  /prcp {
+   [X Y | T ]
+   (/Data/data6/Chile/DMC/meteorological/grid/pr/CR2MET_pr_v2.5_day_%Y[T]_%m[T]_005deg.nc) [T monthlyedgesgrid first secondtolast subgrid]
+   readdatafile:
+   /name (pr) def
+    /units (mm/day)cvn def
+    /scale_factor 0.01 def
+    /add_offset 300.0 def
+    /missing_value -32768.0 def
+    /shortarraytype netcdfrecords :readdatafile
+     SOURCES .Chile .DMC .0p05 .cl_mask
+     exch mul 
+     /long_name (precipitation) def
+  } defasvarsilent
+
+  /tmax{
+   [X Y | T ]
+   (/Data/data6/Chile/DMC/meteorological/grid/txn/CR2MET_tmin_tmax_v2.5_day_%Y[T]_%m[T]_005deg.nc) [T monthlyedgesgrid first secondtolast subgrid]
+   readdatafile:
+   /name (tmax) def
+    /units /Celsius_scale def
+    /scale_factor 0.001666667 def
+    /missing_value -32768.0 def
+    /shortarraytype netcdfrecords :readdatafile
+     SOURCES .Chile .DMC .0p05 .cl_mask
+     exch mul 
+     /long_name (maximum temperature) def
+     temp_colors
+  }defasvarsilent
+
+  /tmin{
+    [X Y | T ]
+    (/Data/data6/Chile/DMC/meteorological/grid/txn/CR2MET_tmin_tmax_v2.5_day_%Y[T]_%m[T]_005deg.nc) [T monthlyedgesgrid first secondtolast subgrid]
+    readdatafile:
+    /name (tmin) def
+      /units /Celsius_scale def
+      /scale_factor 0.001666667 def
+      /missing_value -32768.0 def
+      /shortarraytype netcdfrecords :readdatafile
+       SOURCES .Chile .DMC .0p05 .cl_mask
+       exch mul 
+       /long_name (minimum temperature) def
+       temp_colors
+  }defasvarsilent
+
+  /tmean {
+    tmax
+    tmin add
+     2 div
+    /units (Celsius_scale) def
+    /long_name (mean temperature) def
+    temp_colors
+  } defasvarsilent
+
+  :dataset
+
+  dataset:
+  /name /monthly def
+  /prcp {
+    dataset .daily .prcp
+    monthlyAverage
+    /units (mm/day)cvn def
+  } defasvarsilent
+ 
+  /pr_sd {
+    dataset .daily .pr_sd
+    monthlyAverage
+    /units (mm/day)cvn def
+  } defasvarsilent
+ 
+  /tmax {
+    dataset .daily .tmax
+    monthlyAverage
+  } defasvarsilent
+ 
+  /tmin {
+    dataset .daily .tmin
+    monthlyAverage
+  } defasvarsilent
+ 
+  /tmean {
+    dataset .daily .tmean
+    monthlyAverage
+  } defasvarsilent
+ 
+    prcp .X name exch def
+    prcp .Y name exch def
+    prcp .T name exch def
+  :dataset
+:dataset
+    
+\end{ingrid}

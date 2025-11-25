@@ -1,0 +1,22 @@
+\begin{ingrid}
+continuedataset:
+/long_name (Surface) def
+/T dataset .T def
+/boxnum dataset .boxnum def
+/lat dataset .lat def
+/lon dataset .lon def
+variable:
+/name (ice) def
+/long_name (Ice and Snow Cover) def
+/missing_value 255. -1000. 2 realarray astore def
+grids: boxnum T :grids
+file:
+random
+/name (/Data/data4/nasa/isccp/meanice) def
+:file
+:variable
+
+:dataset
+\end{ingrid}
+
+

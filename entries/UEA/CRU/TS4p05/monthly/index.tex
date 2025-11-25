@@ -1,0 +1,660 @@
+\begin{ingrid}
+/CRU-TS datadownloadsareRestricted
+/Cookie varies_on
+continuedataset:
+
+ /contact (BADC) def
+ /title (CRU TS4.05) def
+ /comment (Access to these data is available to any registered CEDA user) def
+ /Conventions (CF-1.4) def
+% /references (Information on the data is available at http://badc.nerc.ac.uk/data/cru/) def
+ /institution (Data held at British Atmospheric Data Centre, RAL, UK.) def
+ /references (Harris_etal2020) def
+
+ /note (Please use the attribution Climatic Research Unit (University of East Anglia) and Met Office) def
+
+ /citation (University of East Anglia Climatic Research Unit; Harris, I.C.; Jones, P.D.; Osborn, T. (2021): CRU TS4.05: Climatic Research Unit (CRU) Time-Series (TS) version 4.05 of high-resolution gridded data of month-by-month variation in climate (Jan. 1901- Dec. 2020). NERC EDS Centre for Environmental Data Analysis, date of citation. https://catalogue.ceda.ac.uk/uuid/c26a65020a5e4b80b20018f148556681) def
+
+link:
+/name (BADC Documentation Page) def
+/description (CRU TS4.05: Climatic Research Unit (CRU) Time-Series (TS) version 4.05 of high-resolution gridded data of month-by-month variation in climate (Jan. 1901- Dec. 2020)) def
+/href (https://catalogue.ceda.ac.uk/uuid/c26a65020a5e4b80b20018f148556681) def
+:link
+
+link:
+/name (Reference Document) def
+/description (Harris et al. (2020) Scientific Data paper) def
+/href (https://www.nature.com/articles/s41597-020-0453-3) def
+:link
+
+link:
+/name (Release Notes) def
+/description (Release notes for CRU TS v4.05) def
+/href (https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.05/Release_Notes_CRU_TS4.05.txt) def
+:link
+
+link:
+/name (DataSource) def
+/description (Data Source) def
+/href (https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.05/) def
+:link
+
+grid:
+/name /X def
+/units /degree_east def
+ -179.75 0.5 179.75
+periodic
+:grid
+
+grid:
+/name /Y def
+/units /degree_north def
+ -89.75 0.5 89.75
+:grid
+
+grid:
+/name /T def
+/units (months since 1960-01-01) def
+16 Jan 1901 ensotime
+1
+16 Dec 2020 ensotime
+:grid
+
+ /cld{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].cld.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (cld) def
+ /correlation_decay_distance 600. def
+ /missing_value 9.96920997E36 def
+ /units /percent def
+DATA 0 100 RANGE
+ /long_name (cloud cover) def
+ /standard_name (cloud_area_fraction) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /dtr{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].dtr.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (dtr) def
+ /units (degree_Celsius)cvn def
+ /missing_value 9.96920997E36 def
+ /long_name (diurnal temperature range) def
+ /correlation_decay_distance 750. def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /frs{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].frs.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (frs) def
+ /correlation_decay_distance 750. def
+ /units /days def
+ /missing_value 9.96920997E36 def
+ /long_name (ground frost frequency) def
+ /realarraytype netcdfrecords :readdatafile
+   startcolormap
+  DATA 0 31 RANGE
+  transparent white
+  white 0 VALUE
+  212 245 255 RGB RGBdup 1 bandmax
+  202 239 252 RGB RGBdup 2 bandmax
+  188 222 244 RGB RGBdup 4 bandmax
+  173 205 237 RGB RGBdup 6 bandmax
+  159 188 229 RGB RGBdup 8 bandmax
+  145 171 221 RGB RGBdup 10 bandmax
+  131 154 214 RGB RGBdup 12 bandmax
+  116 137 206 RGB RGBdup 14 bandmax
+  102 121 198 RGB RGBdup 16 bandmax
+  88 104 191 RGB RGBdup 18 bandmax
+  73 87 183 RGB RGBdup 20 bandmax
+  59 70 176 RGB RGBdup 22 bandmax
+  45 53 168 RGB RGBdup 24 bandmax
+  31 36 160 RGB RGBdup 26 bandmax
+  16 19 153 RGB RGBdup 28 bandmax
+  0 0 138 RGB RGBdup 31 bandmax
+  0 0 138 RGB
+  endcolormap
+}defasvarsilent
+
+ /pet{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].pet.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (pet) def
+ /units (mm/day)cvn def
+ /missing_value 9.96920997E36 def
+ /long_name (potential evapotranspiration) def
+ /correlation_decay_distance -999. def
+ /standard_name (water_potential_evaporation_flux) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /pre{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].pre.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (pre) def
+ /correlation_decay_distance 450. def
+ /missing_value 9.96920997E36 def
+ /units (mm/month)def
+ /long_name (precipitation) def
+ /standard_name (lwe_precipitation_rate) def
+ /realarraytype netcdfrecords :readdatafile
+  startcolormap
+  DATA 0 700 RANGE
+  transparent white
+  white 0 VALUE
+  137 255 131 RGB RGBdup 25 bandmax
+  128 242 122 RGB RGBdup 50 bandmax
+  119 228 114 RGB RGBdup 75 bandmax
+  110 215 105 RGB RGBdup 100 bandmax
+  101 202 97 RGB RGBdup 150 bandmax
+  92 189 88 RGB RGBdup 200 bandmax
+  83 175 79 RGB RGBdup 250 bandmax
+  74 162 71 RGB RGBdup 300 bandmax
+  66 149 62 RGB RGBdup 350 bandmax
+  57 136 54 RGB RGBdup 400 bandmax
+  48 122 45 RGB RGBdup 450 bandmax
+  39 109 36 RGB RGBdup 500 bandmax
+  30 96 28 RGB RGBdup 550 bandmax
+  21 83 19 RGB RGBdup 600 bandmax
+  12 69 11 RGB RGBdup 650 bandmax
+  3 56 2 RGB RGBdup 700 bandmax
+  3 56 2 RGB
+  endcolormap
+}defasvarsilent
+
+ /tmn{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].tmn.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (tmn) def
+ /units (Celsius_scale)cvn def
+ /missing_value 9.96920997E36 def
+ /long_name (near-surface temperature minimum) def
+ /correlation_decay_distance 1200. def
+ /standard_name (air_temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmp{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].tmp.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (tmp) def
+ /units (Celsius_scale)cvn def
+ /correlation_decay_distance 1200. def
+ /missing_value 9.96920997E36 def
+ /long_name (near-surface temperature) def
+ /standard_name (air_temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tmx{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].tmx.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (tmx) def
+ /units (Celsius_scale)cvn def
+ /missing_value 9.96920997E36 def
+ /long_name (near-surface temperature maximum) def
+ /correlation_decay_distance 1200. def
+ /standard_name (air_temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /vap{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].vap.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (vap) def
+ /correlation_decay_distance 1000. def
+ /units /hPa def
+ /missing_value 9.96920997E36 def
+ /long_name (vapour pressure) def
+/standard_name (water_vapor_pressure) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /wet{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].wet.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (wet) def
+ /correlation_decay_distance 450. def
+ /missing_value 9.96920997E36 def
+ /units /days def
+ /long_name (wet day frequency) def
+/standard_name (number_of_days_with_lwe_thickness_of_precipitation_amount_above_threshold) def
+ /realarraytype netcdfrecords :readdatafile
+  startcolormap
+  DATA 0 31 RANGE
+  transparent white
+  white 0 VALUE
+  137 255 131 RGB RGBdup 1 bandmax
+  128 242 122 RGB RGBdup 2 bandmax
+  119 228 114 RGB RGBdup 4 bandmax
+  110 215 105 RGB RGBdup 6 bandmax
+  101 202 97 RGB RGBdup 8 bandmax
+  92 189 88 RGB RGBdup 10 bandmax
+  83 175 79 RGB RGBdup 12 bandmax
+  74 162 71 RGB RGBdup 14 bandmax
+  66 149 62 RGB RGBdup 16 bandmax
+  57 136 54 RGB RGBdup 18 bandmax
+  48 122 45 RGB RGBdup 20 bandmax
+  39 109 36 RGB RGBdup 22 bandmax
+  30 96 28 RGB RGBdup 24 bandmax
+  21 83 19 RGB RGBdup 26 bandmax
+  12 69 11 RGB RGBdup 28 bandmax
+  3 56 2 RGB RGBdup 31 bandmax
+  3 56 2 RGB
+  endcolormap
+}defasvarsilent
+
+
+dataset:
+/name (stn) def
+/long_name (number of contributing stations) def
+%/description (pre-2003, size of station pool from which three are used for each datum; 2003 onwards, number of stations contributing to each datum) def
+
+ /contact (BADC) def
+ /title (CRU TS4.01) def
+ /comment (Access to these data is available to any registered CEDA user) def
+ /Conventions (CF-1.4) def
+ /references (Information on the data is available at http://badc.nerc.ac.uk/data/cru/) def
+ /institution (Data held at British Atmospheric Data Centre, RAL, UK.) def
+ /references (Harris_etal2014) def
+
+ /note (CRU Conditions of Use states that acknowledgement should preferably be by citing one or more of the papers referenced) def
+
+ /citation (University of East Anglia Climatic Research Unit; Harris, I.C.; Jones, P.D. (2017): CRU TS4.01: Climatic Research Unit (CRU) Time-Series (TS) version 4.01 of high-resolution gridded data of month-by-month variation in climate (Jan. 1901- Dec. 2016). Centre for Environmental Data Analysis, date of citation. http://catalogue.ceda.ac.uk/uuid/58a8802721c94c66ae45c3baa4d814d0) def
+
+link:
+/name (BADC Documentation Page) def
+/description (Climatic Research Unit (CRU) Time-Series (TS) Version 4.01 of High Resolution Gridded Data of Month-by-month Variation in Climate (Jan. 1901 - Dec. 2016)) def
+/href (http://catalogue.ceda.ac.uk/uuid/58a8802721c94c66ae45c3baa4d814d0) def
+:link
+
+grid:
+/name (X)def
+/units (degree_east)def
+ -179.75 0.5 179.75
+periodic
+:grid
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ -89.75 0.5 89.75
+:grid
+
+grid:
+/name (T)def
+/units (months since 1960-01-01)def
+16 Jan 1901 ensotime
+1
+16 Dec 2020 ensotime
+:grid
+
+ /cld{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].cld.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 600. def
+ /units /number def
+%/missing_value 9.96920997E36 def
+ /description (pre-2003, size of station pool from which three are used for each datum; 2003 onwards, number of stations contributing to each datum) def
+ /long_name (observation count for cloud cover) def
+ /integerarraytype netcdfrecords :readdatafile
+ /missing_value -999. def
+}defasvarsilent
+
+ /dtr{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].dtr.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 750. def
+ /units /number def
+%/missing_value 9.96920997E36 def
+ /long_name (observation count for diurnal temperature range) def
+ /description (number of stations contributing to each datum for dtr) def
+ /integerarraytype netcdfrecords :readdatafile
+ /missing_value -999. def
+}defasvarsilent
+
+ /frs{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].frs.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 750. def
+ /units /number def
+%/missing_value 9.96920997E36 def
+ /long_name (observation count for ground frost frequency) def
+ /description (number of stations contributing to each datum for frs) def
+ /integerarraytype netcdfrecords :readdatafile
+ /missing_value -999. def
+}defasvarsilent
+
+ /pre{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].pre.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 450. def
+ /units /number def
+%/missing_value 9.96920997E36 def
+ /long_name (observation count for precipitation) def
+ /description (number of stations contributing to each datum for pre) def
+ /integerarraytype netcdfrecords :readdatafile
+ /missing_value -999. def
+}defasvarsilent
+
+ /tmn{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].tmn.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 1200. def
+ /units /number def
+%/missing_value 9.96920997E36 def
+ /long_name (observation count for minimum temperature) def
+ /description (number of stations contributing to each datum for tmn) def
+ /integerarraytype netcdfrecords :readdatafile
+ /missing_value -999. def
+}defasvarsilent
+
+ /tmp{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].tmp.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 1200. def
+ /units /number def
+%/missing_value 9.96920997E36 def
+ /long_name (observation count for mean temperature) def
+ /description (number of stations contributing to each datum for tmp) def
+ /integerarraytype netcdfrecords :readdatafile
+ /missing_value -999. def
+}defasvarsilent
+
+ /tmx{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].tmx.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 1200. def
+ /units /number def
+%/missing_value 9.96920997E36 def
+ /long_name (observation count for maximum temperature) def
+ /description (number of stations contributing to each datum for tmx) def
+ /integerarraytype netcdfrecords :readdatafile
+ /missing_value -999. def
+}defasvarsilent
+
+ /vap{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].vap.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 1000. def
+ /units /number def
+%/missing_value 9.96920997E36 def
+ /long_name (observation count for vapour pressure) def
+ /description (number of stations contributing to each datum for vap) def
+ /integerarraytype netcdfrecords :readdatafile
+ /missing_value -999. def
+}defasvarsilent
+
+ /wet{
+[ X Y | T] (/Data/data7/uea/cru/ts4p05/cru_ts4.05.%Y[T].%Y[T2].wet.dat.nc) [
+  T
+   gridvalues { dup T .first sub 120 mod 0 ne {pop}if }forall subgrid
+   dup dup
+     0. mul
+     c:
+      48 (months) :c
+      mul
+     sub
+    c:
+     119 (months) :c
+     add
+    1 index .units
+     /units exch def
+/name /T2 def ] readdatafile:
+/name (stn) def
+ /correlation_decay_distance 450. def
+%/missing_value 9.96920997E36 def
+ /units /number def
+ /long_name (observation count for wet day frequency) def
+ /description (number of stations contributing to each datum for wet) def
+ /integerarraytype netcdfrecords :readdatafile
+ /missing_value -999. def
+}defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}

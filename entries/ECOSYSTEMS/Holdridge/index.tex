@@ -1,0 +1,184 @@
+\begin{ingrid}
+continuedataset:
+/description (Global vegetation and ecosystems data) def
+datasetdefs:
+/ecosystemcolors {
+startcolormap
+/maxncolor 41 def
+DATA 1 38 RANGE
+white white 
+192 192 192 RGB 
+MidnightBlue 
+navy 
+MediumBlue
+blue
+DodgerBlue
+LightSkyBlue
+cyan
+LightBlue
+LightCyan
+turquoise
+LightSeaGreen
+SeaGreen
+ForestGreen 
+LimeGreen
+green 
+255 255 150 RGB 
+yellow   
+gold  
+BrightMustard
+goldenrod   
+orange     
+DarkOrange 
+221 160 221 RGB 
+160  32 240 RGB 
+186  85 211 RGB 
+218 112 214 RGB 
+255   0 255 RGB 
+153  50 204 RGB 
+219 112 147 RGB 
+255 255 220 RGB 
+255   0   0 RGB 
+180   0 051 RGB 
+204   0 102 RGB 
+255 131 102 RGB 
+204 102   0 RGB 
+255 102 051 RGB 
+204 153 153 RGB 
+DarkFirebrick
+endcolormap} def
+:datasetdefs
+/iridl:hasSemantics (iridl:IIASA) def
+/references (Leemans1990) def
+/long_name (Holdridge Life Zones) def
+grid:
+/name /X def
+degE
+periodic
+-179.75 .5 179.75
+:grid
+grid:
+/name /Y def
+degN
+89.75 -.5 -89.75
+:grid
+/source (<a href="ftp://grid2.cr.usgs.gov/pub/data/datafile_descriptions/holdridge.html">Holdridge Life Zones Data Set</a>)def
+dataset:
+/name /present def
+variable:
+/name /life-zone def
+/long_name (life-zone class) def
+/units (ids) def
+/scale_min 1 def
+/scale_max 38 def
+/iridl:hasSemantics (iridl:LandCover) def
+/CLIST [
+(Polar desert)
+(Subpolar dry tundra)
+(Subpolar moist tundra)
+(Subpolar wet tundra)
+(Subpolar rain tundra)
+(Boreal desert)
+(Boreal dry scrub)
+(Boreal moist forest)
+(Boreal wet forest)
+(Boreal rain forest)
+(Cool temperate desert)
+(Cool temperate desert scrub)
+(Cool temperate steppe)
+(Cool temperate moist forest)
+(Cool temperate wet forest)
+(Cool temperate rain forest)
+(Warm temperate desert)
+(Warm temperate desert scrub)
+(Warm temperate thorn steppe)
+(Warm temperate dry forest)
+(Warm temperate moist forest)
+(Warm temperate wet forest)
+(Warm temperate rain forest)
+(Subtropical desert)
+(Subtropical desert scrub)
+(Subtropical thorn woodland)
+(Subtropical dry forest)
+(Subtropical moist forest)
+(Subtropical wet forest)
+(Subtropical rain forest)
+(Tropical desert)
+(Tropical desert scrub)
+(Tropical thorn woodland)
+(Tropical very dry forest)
+(Tropical dry forest)
+(Tropical moist forest)
+(Tropical wet forest)
+(Tropical rain forest)
+] def
+grids: X Y :grids
+ecosystemcolors
+file:
+/name (/Data/data1/ecosys/holdridge/holdridge.normal) def
+i*1
+:file
+:variable
+:dataset
+dataset:
+/name /doubleCO2 def
+variable:
+/name /life-zone def
+/long_name (life-zone class) def
+/units (ids) def
+/scale_min 1 def
+/scale_max 38 def
+/iridl:hasSemantics (iridl:LandCover) def
+ecosystemcolors
+/CLIST present .life-zone .CLIST def
+grids: X Y :grids
+file:
+/name (/Data/data1/ecosys/holdridge/holdridge.double.co2) def
+i*1
+:file
+:variable
+:dataset
+dataset:
+/name /changes def
+/long_name (Areas with Life-Zone Changes in doubled CO2 senario) def
+dataset:
+/name /present def
+variable:
+/name /life-zone def
+/long_name (life-zone class) def
+/units (ids) def
+/scale_min 1 def
+/scale_max 38 def
+ecosystemcolors
+/iridl:hasSemantics (iridl:LandCover) def
+/CLIST present .life-zone .CLIST def
+grids: X Y :grids
+file:
+/name (/Data/data1/ecosys/holdridge/holdridge.change.from) def
+i*1
+:file
+:variable
+:dataset
+dataset:
+/name /doubleCO2 def
+variable:
+/name /life-zone def
+/long_name (life-zone class) def
+/units (ids) def
+/scale_min 1 def
+/scale_max 38 def
+ecosystemcolors
+/iridl:hasSemantics (iridl:LandCover) def
+/CLIST present .life-zone .CLIST def
+grids: X Y :grids
+file:
+/name (/Data/data1/ecosys/holdridge/holdridge.change.to) def
+i*1
+:file
+:variable
+:dataset
+:dataset
+:dataset
+\end{ingrid}
+
+

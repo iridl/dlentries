@@ -1,0 +1,407 @@
+\begin{ingrid}
+continuedataset:
+
+/references (Sillmann_etal2013a Sillmann_etal2013b) def
+ 
+ dataset:
+ /name (r1i1p1) def
+
+grid:
+/name /lon def
+/long_name (longitude) def
+/units (degree_east) def
+periodic
+-180 1.5 178.5
+:grid
+grid:
+/name /lat def
+/long_name (latitude) def
+/units (degree_north) def
+90 1.5 -90 
+:grid
+grid:
+/name /time def
+/units (months since 1960-01-01) def
+01 Jul 1979 ensotime
+12.0
+01 Jul 2011 ensotime
+:grid
+
+/altcdd {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/altcddETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .altcddETCCDI 
+/iridl:hasSemantics [ (climdex:ALTCDD) ] def
+} defasvarsilent
+
+/altcsdi {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/altcsdiETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .altcsdiETCCDI 
+/iridl:hasSemantics [ (climdex:ALTCSDI) ] def
+ /long_name (Cold Spell Duration Index Spanning Years) def
+} defasvarsilent
+
+/altcwd {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/altcwdETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .altcwdETCCDI
+/iridl:hasSemantics [ (climdex:ALTCWD) ] def
+ } defasvarsilent
+
+/altwsdi {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/altwsdiETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .altwsdiETCCDI
+/iridl:hasSemantics [ (climdex:ALTWSDI) ] def 
+ /long_name (Warm Spell Duration Index Spanning Years) def
+} defasvarsilent
+
+/cdd {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/cddETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .cddETCCDI 
+/iridl:hasSemantics [ (climdex:CDD) ] def
+} defasvarsilent
+
+/csdi {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/csdiETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .csdiETCCDI 
+/iridl:hasSemantics [ (climdex:CSDI) ] def
+} defasvarsilent
+
+/cwd {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/cwdETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .cwdETCCDI 
+/iridl:hasSemantics [ (climdex:CWD) ] def
+} defasvarsilent
+
+/dtr {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/dtrETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .dtrETCCDI 
+/iridl:hasSemantics [ (climdex:DTR) ] def
+} defasvarsilent
+
+/fd {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/fdETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .fdETCCDI 
+/iridl:hasSemantics [ (climdex:FD) ] def
+} defasvarsilent
+
+/gsl {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/gslETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .gslETCCDI 
+/iridl:hasSemantics [ (climdex:GSL) ] def
+} defasvarsilent
+
+/id {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/idETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .idETCCDI 
+/iridl:hasSemantics [ (climdex:ID) ] def
+} defasvarsilent
+
+/prcptot {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/prcptotETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .prcptotETCCDI 
+/iridl:hasSemantics [ (climdex:PRCPTOT) ] def
+} defasvarsilent
+
+/r10mm {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/r10mmETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .r10mmETCCDI 
+/iridl:hasSemantics [ (climdex:R10mm) ] def
+} defasvarsilent
+
+/r1mm {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/r1mmETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .r1mmETCCDI 
+/iridl:hasSemantics [ (climdex:R01mm) ] def
+} defasvarsilent
+
+/r20mm {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/r20mmETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .r20mmETCCDI 
+/iridl:hasSemantics [ (climdex:R20mm) ] def
+} defasvarsilent
+
+/r95p {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/r95pETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .r95pETCCDI 
+/iridl:hasSemantics [ (climdex:R95pTOT) ] def
+} defasvarsilent
+
+/r99p {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/r99pETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .r99pETCCDI 
+/iridl:hasSemantics [ (climdex:R99pTOT) ] def
+} defasvarsilent
+
+/rx1day {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/rx1dayETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .rx1dayETCCDI 
+/iridl:hasSemantics [ (climdex:Rx1day) ] def
+} defasvarsilent
+
+/rx5day {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/rx5dayETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .rx5dayETCCDI 
+/iridl:hasSemantics [ (climdex:Rx5day) ] def
+} defasvarsilent
+
+/sdii {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/sdiiETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .sdiiETCCDI 
+/iridl:hasSemantics [ (climdex:SDII) ] def
+} defasvarsilent
+
+/su {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/suETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .suETCCDI 
+/iridl:hasSemantics [ (climdex:SU) ] def
+} defasvarsilent
+
+/tn10p {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/tn10pETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .tn10pETCCDI 
+/iridl:hasSemantics [ (climdex:TN10p) ] def
+} defasvarsilent
+
+/tn90p {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/tn90pETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .tn90pETCCDI 
+/iridl:hasSemantics [ (climdex:TN90p) ] def
+} defasvarsilent
+
+/tnn {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/tnnETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .tnnETCCDI 
+/iridl:hasSemantics [ (climdex:TNn) ] def
+} defasvarsilent
+
+/tnx {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/tnxETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .tnxETCCDI 
+/iridl:hasSemantics [ (climdex:TNx) ] def
+} defasvarsilent
+
+/tr {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/trETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .trETCCDI 
+/iridl:hasSemantics [ (climdex:TR) ] def
+} defasvarsilent
+
+/tx10p {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/tx10pETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .tx10pETCCDI 
+/iridl:hasSemantics [ (climdex:TX10p) ] def
+} defasvarsilent
+
+/tx90p {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/tx90pETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .tx90pETCCDI 
+/iridl:hasSemantics [ (climdex:TX90p) ] def
+} defasvarsilent
+
+/txn {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/txnETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .txnETCCDI 
+/iridl:hasSemantics [ (climdex:TXn) ] def
+} defasvarsilent
+
+/txx {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/txxETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .txxETCCDI 
+/iridl:hasSemantics [ (climdex:TXx) ] def
+} defasvarsilent
+
+/wsdi {  (/Data/data21/CCCma/ETCCDI/REANALYSES/historical/ERAInterim/r1i1p1/wsdiETCCDI_yr_ERAInterim_historical_r1i1p1_1979-2012.nc) readCDF
+  time name (months since 1960-01-01) ordered 1
+       Jul 1979 ensotime
+       12.0 1
+         Jul 2012 ensotime
+         NewEvenGRID
+    replaceGRID
+    time (1979) (2011) RANGE
+  .wsdiETCCDI 
+/iridl:hasSemantics [ (climdex:WSDI) ] def
+} defasvarsilent
+
+ :dataset
+
+:dataset
+\end{ingrid}

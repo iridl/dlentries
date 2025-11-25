@@ -1,0 +1,192 @@
+\begin{ingrid}
+
+/CCROM-ASEAN dataareRestricted
+
+continuedataset:
+
+datasetdefs:
+
+grid:
+/name /day31 def
+1 1 31
+:grid
+
+grid:
+/name /mycol  def
+1 1 2
+:grid
+
+:datasetdefs
+
+grid:
+/name /T def
+/units (days since 1980-01-01) def
+/defaultvalue { last } def
+0.5 1 11322.5
+/pointwidth 1. def
+:grid
+
+grid:
+/name /Station def
+/units /ids def
+values:
+  (Attapeu)
+  (Namtha)
+  (Luangprabang)
+  (Oudomxay)
+  (Pakse)
+  (Phongsaly)
+  (Saravan)
+  (Savannakhet)
+  (Vientiane_CAPITAL)
+  (Sayabouly)
+  (Sekong)
+  (Paksane)
+  (Thakhek)
+(Borlikhamsay)
+(Xiengkhouang)
+:values
+:grid
+
+/lat {
+[mycol Station | ]
+(/data/remic/mydatafiles/CCROM/Station.txt)
+readdatafile:
+[1 1] r*4astsv
+:readdatafile
+mycol 2 VALUE
+mycol removeGRID
+/long_name (Latitude) def
+/units (degree_north) def
+/scale_min 13.5 def
+/scale_max 23. def
+}defasvarsilent
+
+/lon {
+[mycol Station | ]
+(/data/remic/mydatafiles/CCROM/Station.txt)
+readdatafile:
+[1 1] r*4astsv
+:readdatafile
+mycol 1 VALUE
+mycol removeGRID
+/long_name (Longitude) def
+/units (degree_east) def
+/scale_min 100. def
+/scale_max 108. def
+}defasvarsilent
+
+/location {
+lon lat geopt
+}defasvar
+
+/label {
+Station CopyStream defivars
+/long_name (label) def
+}defasvar
+
+/Rainfall {
+[T monthlygrid daytimetomonthtime 12 splitgrid day31 exch | Station ]
+(/data/remic/mydatafiles/CCROM/Daily_Met_%s[Station]_R.txt) [Station]
+readdatafile:
+[7 1 0] r*4astsv
+:readdatafile
+/missing_value -999. def
+[Station day31] REORDER
+T unsplitstreamgrid
+[Station] REORDER
+[day31 T] /I nchunk NewIntegerGRID replaceGRIDstream
+   T
+    0.0 add
+    /units undef
+    /name /crap def
+    T monthlyedgesgrid CopyStream defivars
+     /name /crapbis def
+     [T]regridLB
+     nip T exch sub
+    T monthlyedgesgrid
+     0 onegridcounter
+     31 mul
+     [T]regridLB
+     add
+    0.5 add
+    /name /I def
+    I sample-along
+/long_name (Total Rainfall) def
+/units (mm) def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+/Tmax {
+[T monthlygrid daytimetomonthtime 12 splitgrid day31 exch | Station ]
+(/data/remic/mydatafiles/CCROM/Daily_Met_%s[Station]_Tmax.txt) [Station]
+readdatafile:
+[7 1 0] r*4astsv
+:readdatafile
+/missing_value -999. def
+[Station day31] REORDER
+T unsplitstreamgrid
+[Station] REORDER
+[day31 T] /I nchunk NewIntegerGRID replaceGRIDstream
+   T
+    0.0 add
+    /units undef
+    /name /crap def
+    T monthlyedgesgrid CopyStream defivars
+     /name /crapbis def
+     [T]regridLB
+     nip T exch sub
+    T monthlyedgesgrid
+     0 onegridcounter
+     31 mul
+     [T]regridLB
+     add
+    0.5 add
+    /name /I def
+    I sample-along
+0 maskle
+/long_name (Maximum Temperature) def
+/units (Celsius_scale) def
+temp_colors
+/scale_symmetric false def
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+/Tmin {
+[T monthlygrid daytimetomonthtime 12 splitgrid day31 exch | Station ]
+(/data/remic/mydatafiles/CCROM/Daily_Met_%s[Station]_Tmin.txt) [Station]
+readdatafile:
+[7 1 0] r*4astsv
+:readdatafile
+/missing_value -999. def
+[Station day31] REORDER
+T unsplitstreamgrid
+[Station] REORDER
+[day31 T] /I nchunk NewIntegerGRID replaceGRIDstream
+   T
+    0.0 add
+    /units undef
+    /name /crap def
+    T monthlyedgesgrid CopyStream defivars
+     /name /crapbis def
+     [T]regridLB
+     nip T exch sub
+    T monthlyedgesgrid
+     0 onegridcounter
+     31 mul
+     [T]regridLB
+     add
+    0.5 add
+    /name /I def
+    I sample-along
+/long_name (Minimum Temperature) def
+/units (Celsius_scale) def
+temp_colors
+/scale_symmetric false def
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

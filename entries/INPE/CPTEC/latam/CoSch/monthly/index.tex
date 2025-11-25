@@ -1,0 +1,17 @@
+\begin{ingrid}
+
+continuedataset:
+
+/rainfall {
+SOURCES .INPE .CPTEC .latam .CoSch .daily .rainfall monthlyAverage
+  T (days since 1960-01-01) streamgridunitconvert
+  T differential_mul
+  T (months since 1960-01-01) streamgridunitconvert
+  T differential_div
+  /long_name (Rainfall) def
+  DATA 0 AUTO RANGE
+}defasvar
+
+:dataset
+
+\end{ingrid}

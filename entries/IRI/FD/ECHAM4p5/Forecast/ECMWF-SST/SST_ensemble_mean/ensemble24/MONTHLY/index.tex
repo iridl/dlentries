@@ -1,0 +1,154 @@
+Hi Benno,
+
+We have two new sets of retrospective fcst data ready to be posted on the 
+Data Library.  They are echam4.5 AGCM retro runs forced with the ECMWF SST 
+hindcast data sets. 
+
+The data period is 1958-2001, for only 4 start months (Feb, May, Aug, Nov) 
+and 0-4 months (5) lead.  Included below is an example control file of the 
+monthly data for Nov.
+
+Each set of the retro runs has 24 ensembles: the 1st set for SST scenarios
+and 2nd set for ensemble-mean SSTs.
+(for 2nd set, the 1st line of the .ctl file is changed to:
+ /Data/data1/iri/forecast/shuhua/retro_ecem.D/Retro_em01.D/nov/echamcout.%mc%y4)
+
+Please let me kniow if any additional information is required.
+
+Thanks,
+Shuhua
+
+--
+DSET /Data/data1/iri/forecast/shuhua/retro_ec.D/Retro_ec01.D/nov/echamcout.%mc%y4
+UNDEF  -999.0
+TITLE ECHAM4.5 AMIP2a
+options template sequential big_endian yrev
+**headerbytes 8
+*
+XDEF 128 LINEAR  0.0 2.8125
+*
+YDEF 64 LEVELS -87.86 -85.10 -82.31 -79.53 -76.74 -73.95 -71.16 -68.37
+ -65.58 -62.79 -60.00 -57.21 -54.42 -51.63 -48.84 -46.04 -43.25 -40.46
+ -37.67 -34.88 -32.09 -29.30 -26.51 -23.72 -20.93 -18.14 -15.35 -12.56
+ -9.77  -6.98  -4.19  -1.40   1.40   4.19   6.98   9.77  12.56  15.35
+ 18.14  20.93  23.72  26.51  29.30  32.09  34.88  37.67  40.46  43.25
+ 46.04  48.84  51.63  54.42  57.21  60.00  62.79  65.58  68.37  71.16
+ 73.95  76.74  79.53  82.31  85.10  87.86
+*
+ZDEF 17 LEVELS 1000 925 850 775 700 600 500 450 400 350 300 250 200 150 100 50 25
+*
+TDEF  4000 LINEAR nov1958 1mon
+*
+VARS 20
+sh 0 99   surface sensible heat flux watts/sq meter
+lh 0 99   surface latent heat flux watts/sq meter
+slp 0 99  sea level pressure pascals
+cld 0 99  total cloud cover
+t2m 0 99  temperature at 2m Kelvin
+st  0 99  surface temperature
+nswg 0 99 net shortwave at ground watts/sq meter
+nlwg 0 99 net longwave at ground watts/sq meter
+nswt 0 99 net shortwave at toa watts/sq meter
+olr  0 99 olr watts/sq meter
+taux 0 99 surface zonal wind stress newton/ sq meter
+tauy 0 99 surface meridional wind stress newton/ sq meter
+evap 0 99 evaporation meters/second
+prec 0 99 total precipitation
+tmp 17 99 temperature
+u 17 99 zonal velocity meters/second
+v 17 99 meridional velocity meters/second
+q 17 99 specific humidity kg/kg
+omg 17 99 vertical pressure velocity
+gz  17 99 geopotential height
+endvars
+
+\begin{ingrid}
+continuedataset:
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.8125 357.1875
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+values: 87.860001 85.099998 82.309998 79.529999 76.739998 73.949997 71.160004 68.370003 65.580002 62.790001 60. 57.209999 54.419998 51.630001 48.84 46.040001 43.25 40.459999 37.669998 34.880001 32.09 29.299999 26.51 23.719999 20.93 18.139999 15.35 12.56 9.7700005 6.98 4.1900001 1.4 -1.4 -4.1900001 -6.98 -9.7700005 -12.56 -15.35 -18.139999 -20.93 -23.719999 -26.51
+ -29.299999 -32.09 -34.880001 -37.669998 -40.459999 -43.25 -46.040001 -48.84 -51.630001 -54.419998 -57.209999 -60. -62.790001 -65.580002 -68.370003 -71.160004 -73.949997 -76.739998 -79.529999 -82.309998 -85.099998 -87.860001 :values
+:grid
+grid:
+/name /M def
+/long_name (ensemble member) def
+1 1 24
+:grid
+grid:
+/name (S)def
+/long_name (Start Time) def
+/units (months since 1960-01-01)def
+/standard_name (forecast_reference_time) def
+/calendar /360 def
+/pointwidth 0 def
+1 Feb 1958 ensotime
+3.
+1 Nov 2001 ensotime
+:grid
+grid:
+/name /L def
+/long_name (Lead Time) def
+/standard_name (forecast_period) def
+/units (months) def
+0.5 1 4.5
+:grid
+/T {
+L S add /long_name (Forecast Time) def
+/calendar /360 def
+ /standard_name (time) def
+} defasvar
+grid:
+/name (Z)def
+/long_name (Pressure) def
+/units (mb)def
+values: 1000 925 850 775 700 600 500 450 400 350 300 250 200 150 100 50 25 :values
+:grid
+/NVZ 14 Z .npts 6 mul add NewIntegerGRID 
+name exch def
+[X
+    Y |
+    NVZ M L S] (/Data/data1/iri/forecast/shuhua/retro_ecem.D/Retro_em%2.2d[M].D/%s[Smonth]/echamcout.%s[T]) [M L S S
+          (%b) strftimes
+          tolower
+          /name /Smonth def
+          T
+           (%b%Y) strftimes
+           tolower
+           /name /T def
+           ]readdatafile:
+sequential
+/missing_value -999. def
+:readdatafile
+definevariables:
+0 Zvariable: /name (sh) def /long_name (surface sensible heat flux) def /units (W/m2) def :Zvariable
+0 Zvariable: /name (lh) def /long_name (surface latent heat flux) def /units (W/m2) def :Zvariable
+0 Zvariable: /name (slp) def /long_name (sea level pressure) def /units (pascals) def :Zvariable
+0 Zvariable: /name (cld) def /long_name (total cloud cover) def /units (fraction) def :Zvariable
+0 Zvariable: /name (t2m) def /long_name (temperature at 2m) def /units (Kelvin_scale) def :Zvariable
+0 Zvariable: /name (st) def /long_name (surface temperature) def /units (Kelvin_scale) def :Zvariable
+0 Zvariable: /name (nswg) def /long_name (net shortwave at ground) def /units (W/m2) def :Zvariable
+0 Zvariable: /name (nlwg) def /long_name (net longwave at ground) def /units (W/m2) def :Zvariable
+0 Zvariable: /name (nswt) def /long_name (net shortwave at toa) def /units (W/m2) def :Zvariable
+0 Zvariable: /name (olr) def /long_name (outgoing longwave radiation) def
+/units (W/m2) def
+:Zvariable
+0 Zvariable: /name (taux) def /long_name (surface zonal wind stress) def /units (newton/ meter2) def :Zvariable
+0 Zvariable: /name (tauy) def /long_name (surface meridional wind stress) def /units (newton/ meter2) def :Zvariable
+0 Zvariable: /name (evap) def /long_name (evaporation) def /units (meters/second) def :Zvariable
+0 Zvariable: /name (prec) def /long_name (total precipitation) def /units unitless def :Zvariable
+17 Zvariable: /name (temp) def /long_name (temperature) def /units (Kelvin_scale) def :Zvariable
+17 Zvariable: /name (u) def /long_name (zonal velocity) def /units (meters/second) def :Zvariable
+17 Zvariable: /name (v) def /long_name (meridional velocity) def /units (meters/second) def :Zvariable
+17 Zvariable: /name (q) def /long_name (specific humidity) def /units (kg/kg) def :Zvariable
+17 Zvariable: /name (omg) def /long_name (vertical pressure velocity) def /units unitless def :Zvariable
+17 Zvariable: /name (gz) def /long_name(geopotential height) def :Zvariable
+:definevariables
+:dataset
+ dup {pop} {cachevar pop}foralldatasets2
+\end{ingrid}

@@ -1,0 +1,36 @@
+<html>
+<head><title>documentation: Monthly to Pentad unaveraing</title></head>
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+  <INGRID>standardHeader</INGRID>
+    <h1>Monthly to Pentad Unaveraging</h1>
+  This operator
+inverts the averaging operator using a .5 month correlation scale.  
+ This means we find a smooth solution that averages to the monthly climatology.  It is only an interpolation.
+<p>
+Suppose we use the following notation:
+<dl compact>
+<dt><b>|m&gt;</b>
+<dd>vector of monthly data
+<dt><b>[est&gt;</b>
+<dd>vector of pentad data
+<dt><b>|A]</b>
+<dd>averaging operator going from pentads to months.
+<dt><b>[M]</b>
+<dd> model-model covariance matrix, constructed from a correlation
+function exp(-T/L), where T is the time difference between the two
+points and L is about .5 month.  T is periodic with period 1 year (365
+days or more importantly 73 pentads).  Covariances below
+10<sup>-5</sup> were set to zero.
+</dl>
+<b>|A]</b> is the averaging operator, so by construction
+<p>
+<b>|A][est&gt;</b> = <b>|m&gt;</b>
+<p>
+We invert this using a data-space inverse with the data-space error
+  convariance set to zero (i.e. the average of our pentad estimates
+  will be exactly equal to the monthly data).
+<p>
+<b>[est&gt;</b> = <b>[M][A|{|A][M][A|}<sup>-1</sup>|m&gt;</b>
+<p>
+  </body>
+</html>

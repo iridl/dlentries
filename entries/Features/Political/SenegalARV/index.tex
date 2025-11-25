@@ -1,0 +1,65 @@
+\begin{ingrid}
+continuedataset:
+/description (Afircan Risk View Senegal 2nd Administrative Boundaries) def
+
+dataset:
+
+/name /Department def
+/descirption (Départements) def
+
+/adm0_code
+{ IRIDB (senegal_arv_admin2) (adm0_code) [(adm2_code)]open_column_by
+/long_name (Country Code) def
+}defasvarsilentnoreuse
+
+/adm0_name
+{ IRIDB (senegal_arv_admin2) (adm0_name) [(adm2_code)]open_column_by
+/long_name (Country Name) def
+}defasvarsilentnoreuse
+
+/adm1_code
+{ IRIDB (senegal_arv_admin2) (adm1_code) [(adm2_code)]open_column_by
+/long_name (Region Code) def
+}defasvarsilentnoreuse
+
+/adm1_name
+{ IRIDB (senegal_arv_admin2) (adm1_name) [(adm2_code)]open_column_by
+/long_name (Region Name) def
+}defasvarsilentnoreuse
+
+/adm2_name
+{ IRIDB (senegal_arv_admin2) (adm2_name) [(adm2_code)]open_column_by
+/long_name (Department Name) def
+}defasvarsilentnoreuse
+
+/continent
+{ IRIDB (senegal_arv_admin2) (continent) [(adm2_code)]open_column_by
+/long_name (Cntinent) def
+}defasvarsilentnoreuse
+
+/last_updat
+{ IRIDB (senegal_arv_admin2) (last_updat) [(adm2_code)]open_column_by
+/long_name (Last Update YYYYMMDD) def
+}defasvarsilentnoreuse
+
+/Region
+{ IRIDB (senegal_arv_admin2) (region) [(adm2_code)]open_column_by
+/long_name (Region Name) def
+}defasvarsilentnoreuse
+
+/the_geom
+{ IRIDB (senegal_arv_admin2) (the_geom) [(adm2_code)]open_column_by
+}defasvarsilentnoreuse
+
+/label
+{ IRIDB (senegal_arv_admin2) ((adm2_name ||', '|| adm1_name ||', '|| adm0_name) as label) [(adm2_code)]open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+:dataset
+
+Department last_updat .adm2_code name exch put
+
+\end{ingrid}

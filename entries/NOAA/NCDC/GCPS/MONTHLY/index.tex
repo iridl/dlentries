@@ -1,0 +1,32 @@
+\begin{ingrid}
+datasetdefs:
+%/STATION {
+%  (http://ingrid.ldgo.columbia.edu/SOURCES/.NOAA/.NCDC/.GCPS/.MONTHLY/.STATION.cuf/) redirectto } def
+/STATION.cuf {STATION} def
+:datasetdefs
+/references (Baker_etal1995) def
+dup /GRIDDED get /GRIDDED exch def
+STATION
+elev
+/missing_value -999. def
+/elev exch def
+lon
+/scale_min -180 def
+/scale_max 180 def
+name exch def
+lat
+/scale_min -90 def
+/scale_max 90 def
+name exch def
+.mean 
+/IWMO dataset .IWMO def
+temp
+/units /Celsius_scale cvx store
+name exch store
+pop
+\end{ingrid}
+
+
+
+
+

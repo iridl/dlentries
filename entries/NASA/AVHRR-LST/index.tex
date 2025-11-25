@@ -1,0 +1,174 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+grid:
+/name /T def
+/units (days since 1995-01-01 00:00:00) def
+values: -.25 .25 :values
+/pointwidth 0 def
+/standard_name (time) def
+periodic
+:grid
+variable: 
+/name (daynight) def
+grids: T :grids
+% original version
+%values: (DAY) (NIGHT) :values
+% after night data correction (24 Mar 2006 data -- 1 June 2006 change)
+values: (DAY) (NIGHT_CORRECTED) :values
+:variable
+variable: 
+/name (dn) def
+grids: T :grids
+values: (d) (n) :values
+:variable
+:datasetdefs
+/Conventions (CF-1.0) def
+%/NotOpen dataareIRIonlyPassword
+/iridl:hasSemantics (gcmdi:AVHRR) def
+/references (Pinheiro_etal2006) def
+/history (Night Time Images Revised 1 Jun 2006 from 24 Mar 2006 image files) def
+link:
+/name (dataset_documentation) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NASA/.AVHRR-LST/documentation.pdf) def
+:link
+grid:
+/name /x def
+-4604000 8000 4604000 
+/standard_name (projection_x_coordinate) def
+/units (m) def
+:grid
+grid:
+/name /y def
+4604000 8000 -4604000
+/standard_name (projection_y_coordinate) def
+/units (m) def
+:grid
+/lat {
+ [x y][]
+    (/beluga/data/benno/AVHRR/africa_albers.lat.gz) readdatafile: i*2
+       /units (degreeN) def
+        /fullname (Latitude) def
+	/standard_name (latitude) def
+/scale_factor 1e-2 def
+ :readdatafile
+} defasvarsilent
+/lon {
+ [x y][]
+    (/beluga/data/benno/AVHRR/africa_albers.lon.gz) readdatafile: i*2
+        /units (degreeE) def
+        /fullname (Longitude) def
+	/standard_name (longitude) def
+/scale_factor 1e-2 def
+/add_offset 0. def
+ :readdatafile
+} defasvarsilent
+/landmask {
+ [x y][]
+    (/beluga/data/benno/AVHRR/africa_albers_8bit.mask) readdatafile: ui*1
+/valid_min 0 def
+/valid_max 1 def
+ :readdatafile
+ /grid_mapping /Projection def
+x /standard_name (projection_x_coordinate) def name exch def
+y /standard_name (projection_y_coordinate) def name exch def
+ /standard_name (land_binary_mask) def
+} defasvarsilent
+grid:
+/name /T def
+/units (days since 1995-01-01 00:00:00) def
+/standard_name (time) def
+.25
+.5
+31 Dec 2000 julian_day 
+1 Jan 1995 julian_day sub
+.75 add
+%pop 40.75
+/defaultvalue { last } def
+/pointwidth .5 def
+:grid
+/LST {
+[x
+    y |
+    T]
+(/beluga/data/benno/AVHRR/%Y/AVHRR_%Y[T]_%s[daynight]/%Y[T]_%s[daynight]_LST_UL/af%s[dn]_%j-%j_%y[T].n14-LST_UL.gz) [T daynight dn]readdatafile:
+i*2
+/missing_value -888 -999 2 shortarray astore def
+/SpatialReferenceSystemDims {x y} cvlit def
+/SpatialReferenceSystemWKT (PROJCS["Albers_Equal_Area_Conic",GEOGCS["GCS_North_American_1927",DATUM["D_North_American_1927",SPHEROID["Clarke_1866",6378206.4,294.9786982]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Albers"],PARAMETER["False_Easting",0],PARAMETER["False_Northing",0],PARAMETER["Central_Meridian",20],PARAMETER["Standard_Parallel_1",21],PARAMETER["Standard_Parallel_2",-19],PARAMETER["Latitude_Of_Origin",1],UNIT["Meter",1]]) def
+/long_name (land_surface_temperature) def
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+:readdatafile
+/scale_max 4900 def
+/scale_min 0 def
+/scale_factor .1 def
+/units (Kelvin_scale) def
+/grid_mapping /Projection def
+x /standard_name (projection_x_coordinate) def name exch def
+y /standard_name (projection_y_coordinate) def name exch def
+/standard_name (surface_temperature) def
+} defasvarcachesilent
+/stime {
+[x
+    y |
+    T]
+(/beluga/data/benno/AVHRR/%Y/AVHRR_%Y[T]_%s[daynight]/%Y[T]_%s[daynight]_LSTIME/af%s[dn]_%j-%j_%y[T].n14-LSTIME.gz) [T daynight dn]readdatafile:
+i*2
+/long_name (local solar time) def
+/missing_value -888 -999 2 shortarray astore def
+/SpatialReferenceSystemDims {x y} cvlit def
+/SpatialReferenceSystemWKT (PROJCS["Albers_Equal_Area_Conic",GEOGCS["GCS_North_American_1927",DATUM["D_North_American_1927",SPHEROID["Clarke_1866",6378206.4,294.9786982]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Albers"],PARAMETER["False_Easting",0],PARAMETER["False_Northing",0],PARAMETER["Central_Meridian",20],PARAMETER["Standard_Parallel_1",21],PARAMETER["Standard_Parallel_2",-19],PARAMETER["Latitude_Of_Origin",1],UNIT["Meter",1]]) def
+:readdatafile
+/scale_factor 0.001 def
+  /scale_min 0 def
+  /scale_max 30000 def
+  /grid_mapping /Projection def
+x /standard_name (projection_x_coordinate) def name exch def
+y /standard_name (projection_y_coordinate) def name exch def
+} defasvarsilent
+/cld {
+[x
+    y |
+    T]
+(/beluga/data/benno/AVHRR/%Y/AVHRR_%Y[T]_%s[daynight]/%Y[T]_%s[daynight]_CLD/af%s[dn]_%j-%j_%y[T].n14-CLD.gz) [T daynight dn]readdatafile:
+i*2
+/long_name (cloud mask) def
+/missing_value -888 -999 2 shortarray astore def
+/SpatialReferenceSystemDims {x y} cvlit def
+/SpatialReferenceSystemWKT (PROJCS["Albers_Equal_Area_Conic",GEOGCS["GCS_North_American_1927",DATUM["D_North_American_1927",SPHEROID["Clarke_1866",6378206.4,294.9786982]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Albers"],PARAMETER["False_Easting",0],PARAMETER["False_Northing",0],PARAMETER["Central_Meridian",20],PARAMETER["Standard_Parallel_1",21],PARAMETER["Standard_Parallel_2",-19],PARAMETER["Latitude_Of_Origin",1],UNIT["Meter",1]]) def
+/scale_min 1 def
+/scale_max 8 def
+/plotfirst scale_min def
+/plotlast scale_max def
+/missing_value 0 def
+/units /ids def
+/CLIST [ 
+(Ocean Clear)
+(Ocean Clear and glint)
+(Land Clear)
+(Land Clear and DDV (dense dark vegetation))
+(Ocean Cloudy or mixed)
+(Land Cloudy or mixed)
+(Ocean Shadow)
+(Land Shadow)
+] def
+:readdatafile
+/grid_mapping /Projection def
+x /standard_name (projection_x_coordinate) def name exch def
+y /standard_name (projection_y_coordinate) def name exch def
+} defasvarcachesilent
+
+variable:
+ grids: :grids
+ values: 0 :values
+ /name (Projection) def
+ /grid_mapping_name (albers_conical_equal_area) def
+ /latitude_of_projection_origin 1 def
+ /longitude_of_central_meridian 20.0 def
+ /standard_parallel 21 -19 2 realarray astore def
+ /false_easting 0 def
+ /false_northing 0 def
+:variable
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,704 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 9575
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 586
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/NIGER_HHL_FSAnov2008.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/QA51 {
+mytable
+myquestion 
+198 VALUE
+ myquestion removeGRID
+/long_name (QA CODE ALIMENT) def 
+/units /ids def
+/CLIST [(RIZ)(MIL)(SORGHO)(MAIS)(FARINE DE MANIOC)(BLE/FARINE)(PAIN)(PATES ALIMENTAIRES)(HUILE DE CUISSON)(VIANDE/ABATS)(VOLAILLE)(POISSON)(FROMAGE)(LAIT)(OEUF)(BEURRE)(ARRACHIDE)(NIEBE)(PETIT POIS)(VOANDZOU)(SUCRE)(OIGNON)(SEL)(MANIOC)(IGNAME)(FEUILLES VERTRES)(POMME DE TERRE)(ATRES CONDIMENTS)] def
+/scale_min 37 def
+/scale_max 64 def
+}defasvarsilent
+
+/QA151 {
+mytable
+myquestion 
+199 VALUE
+ myquestion removeGRID
+/long_name (QA1 AVEZ VOUS EFFECTUE LA DEPENSE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QA251 {
+mytable
+myquestion 
+200 VALUE
+ myquestion removeGRID
+/long_name (QA2 MONTANT DEPENSE CASH 30 DERNIERS JOURS) def 
+}defasvarsilent
+
+/QA351 {
+mytable
+myquestion 
+201 VALUE
+ myquestion removeGRID
+/long_name (QA3 VALEUR PRODUITS AUTOCOCONSOMMES) def 
+}defasvarsilent
+
+/QA451 {
+mytable
+myquestion 
+202 VALUE
+ myquestion removeGRID
+/long_name (QA4 VALEUR PRODUIT ECHANGE) def 
+}defasvarsilent
+
+/QA52 {
+mytable
+myquestion 
+203 VALUE
+ myquestion removeGRID
+/long_name (QA CODE ALIMENT) def 
+/units /ids def
+/CLIST [(RIZ)(MIL)(SORGHO)(MAIS)(FARINE DE MANIOC)(BLE/FARINE)(PAIN)(PATES ALIMENTAIRES)(HUILE DE CUISSON)(VIANDE/ABATS)(VOLAILLE)(POISSON)(FROMAGE)(LAIT)(OEUF)(BEURRE)(ARRACHIDE)(NIEBE)(PETIT POIS)(VOANDZOU)(SUCRE)(OIGNON)(SEL)(MANIOC)(IGNAME)(FEUILLES VERTRES)(POMME DE TERRE)(ATRES CONDIMENTS)] def
+/scale_min 37 def
+/scale_max 64 def
+}defasvarsilent
+
+/QA152 {
+mytable
+myquestion 
+204 VALUE
+ myquestion removeGRID
+/long_name (QA1 AVEZ VOUS EFFECTUE LA DEPENSE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QA252 {
+mytable
+myquestion 
+205 VALUE
+ myquestion removeGRID
+/long_name (QA2 MONTANT DEPENSE CASH 30 DERNIERS JOURS) def 
+}defasvarsilent
+
+/QA352 {
+mytable
+myquestion 
+206 VALUE
+ myquestion removeGRID
+/long_name (QA3 VALEUR PRODUITS AUTOCOCONSOMMES) def 
+}defasvarsilent
+
+/QA452 {
+mytable
+myquestion 
+207 VALUE
+ myquestion removeGRID
+/long_name (QA4 VALEUR PRODUIT ECHANGE) def 
+}defasvarsilent
+
+/QA53 {
+mytable
+myquestion 
+208 VALUE
+ myquestion removeGRID
+/long_name (QA CODE ALIMENT) def 
+/units /ids def
+/CLIST [(RIZ)(MIL)(SORGHO)(MAIS)(FARINE DE MANIOC)(BLE/FARINE)(PAIN)(PATES ALIMENTAIRES)(HUILE DE CUISSON)(VIANDE/ABATS)(VOLAILLE)(POISSON)(FROMAGE)(LAIT)(OEUF)(BEURRE)(ARRACHIDE)(NIEBE)(PETIT POIS)(VOANDZOU)(SUCRE)(OIGNON)(SEL)(MANIOC)(IGNAME)(FEUILLES VERTRES)(POMME DE TERRE)(ATRES CONDIMENTS)] def
+/scale_min 37 def
+/scale_max 64 def
+}defasvarsilent
+
+/QA153 {
+mytable
+myquestion 
+209 VALUE
+ myquestion removeGRID
+/long_name (QA1 AVEZ VOUS EFFECTUE LA DEPENSE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QA253 {
+mytable
+myquestion 
+210 VALUE
+ myquestion removeGRID
+/long_name (QA2 MONTANT DEPENSE CASH 30 DERNIERS JOURS) def 
+}defasvarsilent
+
+/QA353 {
+mytable
+myquestion 
+211 VALUE
+ myquestion removeGRID
+/long_name (QA3 VALEUR PRODUITS AUTOCOCONSOMMES) def 
+}defasvarsilent
+
+/QA453 {
+mytable
+myquestion 
+212 VALUE
+ myquestion removeGRID
+/long_name (QA4 VALEUR PRODUIT ECHANGE) def 
+}defasvarsilent
+
+/QA54 {
+mytable
+myquestion 
+213 VALUE
+ myquestion removeGRID
+/long_name (QA CODE ALIMENT) def 
+/units /ids def
+/CLIST [(RIZ)(MIL)(SORGHO)(MAIS)(FARINE DE MANIOC)(BLE/FARINE)(PAIN)(PATES ALIMENTAIRES)(HUILE DE CUISSON)(VIANDE/ABATS)(VOLAILLE)(POISSON)(FROMAGE)(LAIT)(OEUF)(BEURRE)(ARRACHIDE)(NIEBE)(PETIT POIS)(VOANDZOU)(SUCRE)(OIGNON)(SEL)(MANIOC)(IGNAME)(FEUILLES VERTRES)(POMME DE TERRE)(ATRES CONDIMENTS)] def
+/scale_min 37 def
+/scale_max 64 def
+}defasvarsilent
+
+/QA154 {
+mytable
+myquestion 
+214 VALUE
+ myquestion removeGRID
+/long_name (QA1 AVEZ VOUS EFFECTUE LA DEPENSE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QA254 {
+mytable
+myquestion 
+215 VALUE
+ myquestion removeGRID
+/long_name (QA2 MONTANT DEPENSE CASH 30 DERNIERS JOURS) def 
+}defasvarsilent
+
+/QA354 {
+mytable
+myquestion 
+216 VALUE
+ myquestion removeGRID
+/long_name (QA3 VALEUR PRODUITS AUTOCOCONSOMMES) def 
+}defasvarsilent
+
+/QA454 {
+mytable
+myquestion 
+217 VALUE
+ myquestion removeGRID
+/long_name (QA4 VALEUR PRODUIT ECHANGE) def 
+}defasvarsilent
+
+/QA55 {
+mytable
+myquestion 
+218 VALUE
+ myquestion removeGRID
+/long_name (QA CODE ALIMENT) def 
+/units /ids def
+/CLIST [(RIZ)(MIL)(SORGHO)(MAIS)(FARINE DE MANIOC)(BLE/FARINE)(PAIN)(PATES ALIMENTAIRES)(HUILE DE CUISSON)(VIANDE/ABATS)(VOLAILLE)(POISSON)(FROMAGE)(LAIT)(OEUF)(BEURRE)(ARRACHIDE)(NIEBE)(PETIT POIS)(VOANDZOU)(SUCRE)(OIGNON)(SEL)(MANIOC)(IGNAME)(FEUILLES VERTRES)(POMME DE TERRE)(ATRES CONDIMENTS)] def
+/scale_min 37 def
+/scale_max 64 def
+}defasvarsilent
+
+/QA155 {
+mytable
+myquestion 
+219 VALUE
+ myquestion removeGRID
+/long_name (QA1 AVEZ VOUS EFFECTUE LA DEPENSE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QA255 {
+mytable
+myquestion 
+220 VALUE
+ myquestion removeGRID
+/long_name (QA2 MONTANT DEPENSE CASH 30 DERNIERS JOURS) def 
+}defasvarsilent
+
+/QA355 {
+mytable
+myquestion 
+221 VALUE
+ myquestion removeGRID
+/long_name (QA3 VALEUR PRODUITS AUTOCOCONSOMMES) def 
+}defasvarsilent
+
+/QA455 {
+mytable
+myquestion 
+222 VALUE
+ myquestion removeGRID
+/long_name (QA4 VALEUR PRODUIT ECHANGE) def 
+}defasvarsilent
+
+/QA56 {
+mytable
+myquestion 
+223 VALUE
+ myquestion removeGRID
+/long_name (QA CODE ALIMENT) def 
+/units /ids def
+/CLIST [(RIZ)(MIL)(SORGHO)(MAIS)(FARINE DE MANIOC)(BLE/FARINE)(PAIN)(PATES ALIMENTAIRES)(HUILE DE CUISSON)(VIANDE/ABATS)(VOLAILLE)(POISSON)(FROMAGE)(LAIT)(OEUF)(BEURRE)(ARRACHIDE)(NIEBE)(PETIT POIS)(VOANDZOU)(SUCRE)(OIGNON)(SEL)(MANIOC)(IGNAME)(FEUILLES VERTRES)(POMME DE TERRE)(ATRES CONDIMENTS)] def
+/scale_min 37 def
+/scale_max 64 def
+}defasvarsilent
+
+/QA156 {
+mytable
+myquestion 
+224 VALUE
+ myquestion removeGRID
+/long_name (QA1 AVEZ VOUS EFFECTUE LA DEPENSE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QA256 {
+mytable
+myquestion 
+225 VALUE
+ myquestion removeGRID
+/long_name (QA2 MONTANT DEPENSE CASH 30 DERNIERS JOURS) def 
+}defasvarsilent
+
+/QA356 {
+mytable
+myquestion 
+226 VALUE
+ myquestion removeGRID
+/long_name (QA3 VALEUR PRODUITS AUTOCOCONSOMMES) def 
+}defasvarsilent
+
+/QA456 {
+mytable
+myquestion 
+227 VALUE
+ myquestion removeGRID
+/long_name (QA4 VALEUR PRODUIT ECHANGE) def 
+}defasvarsilent
+
+/QA57 {
+mytable
+myquestion 
+228 VALUE
+ myquestion removeGRID
+/long_name (QA CODE ALIMENT) def 
+/units /ids def
+/CLIST [(RIZ)(MIL)(SORGHO)(MAIS)(FARINE DE MANIOC)(BLE/FARINE)(PAIN)(PATES ALIMENTAIRES)(HUILE DE CUISSON)(VIANDE/ABATS)(VOLAILLE)(POISSON)(FROMAGE)(LAIT)(OEUF)(BEURRE)(ARRACHIDE)(NIEBE)(PETIT POIS)(VOANDZOU)(SUCRE)(OIGNON)(SEL)(MANIOC)(IGNAME)(FEUILLES VERTRES)(POMME DE TERRE)(ATRES CONDIMENTS)] def
+/scale_min 37 def
+/scale_max 64 def
+}defasvarsilent
+
+/QA157 {
+mytable
+myquestion 
+229 VALUE
+ myquestion removeGRID
+/long_name (QA1 AVEZ VOUS EFFECTUE LA DEPENSE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QA257 {
+mytable
+myquestion 
+230 VALUE
+ myquestion removeGRID
+/long_name (QA2 MONTANT DEPENSE CASH 30 DERNIERS JOURS) def 
+}defasvarsilent
+
+/QA357 {
+mytable
+myquestion 
+231 VALUE
+ myquestion removeGRID
+/long_name (QA3 VALEUR PRODUITS AUTOCOCONSOMMES) def 
+}defasvarsilent
+
+/QA457 {
+mytable
+myquestion 
+232 VALUE
+ myquestion removeGRID
+/long_name (QA4 VALEUR PRODUIT ECHANGE) def 
+}defasvarsilent
+
+/QA58 {
+mytable
+myquestion 
+233 VALUE
+ myquestion removeGRID
+/long_name (QA CODE ALIMENT) def 
+/units /ids def
+/CLIST [(RIZ)(MIL)(SORGHO)(MAIS)(FARINE DE MANIOC)(BLE/FARINE)(PAIN)(PATES ALIMENTAIRES)(HUILE DE CUISSON)(VIANDE/ABATS)(VOLAILLE)(POISSON)(FROMAGE)(LAIT)(OEUF)(BEURRE)(ARRACHIDE)(NIEBE)(PETIT POIS)(VOANDZOU)(SUCRE)(OIGNON)(SEL)(MANIOC)(IGNAME)(FEUILLES VERTRES)(POMME DE TERRE)(ATRES CONDIMENTS)] def
+/scale_min 37 def
+/scale_max 64 def
+}defasvarsilent
+
+/QA158 {
+mytable
+myquestion 
+234 VALUE
+ myquestion removeGRID
+/long_name (QA1 AVEZ VOUS EFFECTUE LA DEPENSE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QA258 {
+mytable
+myquestion 
+235 VALUE
+ myquestion removeGRID
+/long_name (QA2 MONTANT DEPENSE CASH 30 DERNIERS JOURS) def 
+}defasvarsilent
+
+/QA358 {
+mytable
+myquestion 
+236 VALUE
+ myquestion removeGRID
+/long_name (QA3 VALEUR PRODUITS AUTOCOCONSOMMES) def 
+}defasvarsilent
+
+/QA458 {
+mytable
+myquestion 
+237 VALUE
+ myquestion removeGRID
+/long_name (QA4 VALEUR PRODUIT ECHANGE) def 
+}defasvarsilent
+
+/QA59 {
+mytable
+myquestion 
+238 VALUE
+ myquestion removeGRID
+/long_name (QA CODE ALIMENT) def 
+/units /ids def
+/CLIST [(RIZ)(MIL)(SORGHO)(MAIS)(FARINE DE MANIOC)(BLE/FARINE)(PAIN)(PATES ALIMENTAIRES)(HUILE DE CUISSON)(VIANDE/ABATS)(VOLAILLE)(POISSON)(FROMAGE)(LAIT)(OEUF)(BEURRE)(ARRACHIDE)(NIEBE)(PETIT POIS)(VOANDZOU)(SUCRE)(OIGNON)(SEL)(MANIOC)(IGNAME)(FEUILLES VERTRES)(POMME DE TERRE)(ATRES CONDIMENTS)] def
+/scale_min 37 def
+/scale_max 64 def
+}defasvarsilent
+
+/QA159 {
+mytable
+myquestion 
+239 VALUE
+ myquestion removeGRID
+/long_name (QA1 AVEZ VOUS EFFECTUE LA DEPENSE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QA259 {
+mytable
+myquestion 
+240 VALUE
+ myquestion removeGRID
+/long_name (QA2 MONTANT DEPENSE CASH 30 DERNIERS JOURS) def 
+}defasvarsilent
+
+/QA359 {
+mytable
+myquestion 
+241 VALUE
+ myquestion removeGRID
+/long_name (QA3 VALEUR PRODUITS AUTOCOCONSOMMES) def 
+}defasvarsilent
+
+/QA459 {
+mytable
+myquestion 
+242 VALUE
+ myquestion removeGRID
+/long_name (QA4 VALEUR PRODUIT ECHANGE) def 
+}defasvarsilent
+
+/QA60 {
+mytable
+myquestion 
+243 VALUE
+ myquestion removeGRID
+/long_name (QA CODE ALIMENT) def 
+/units /ids def
+/CLIST [(RIZ)(MIL)(SORGHO)(MAIS)(FARINE DE MANIOC)(BLE/FARINE)(PAIN)(PATES ALIMENTAIRES)(HUILE DE CUISSON)(VIANDE/ABATS)(VOLAILLE)(POISSON)(FROMAGE)(LAIT)(OEUF)(BEURRE)(ARRACHIDE)(NIEBE)(PETIT POIS)(VOANDZOU)(SUCRE)(OIGNON)(SEL)(MANIOC)(IGNAME)(FEUILLES VERTRES)(POMME DE TERRE)(ATRES CONDIMENTS)] def
+/scale_min 37 def
+/scale_max 64 def
+}defasvarsilent
+
+/QA160 {
+mytable
+myquestion 
+244 VALUE
+ myquestion removeGRID
+/long_name (QA1 AVEZ VOUS EFFECTUE LA DEPENSE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QA260 {
+mytable
+myquestion 
+245 VALUE
+ myquestion removeGRID
+/long_name (QA2 MONTANT DEPENSE CASH 30 DERNIERS JOURS) def 
+}defasvarsilent
+
+/QA360 {
+mytable
+myquestion 
+246 VALUE
+ myquestion removeGRID
+/long_name (QA3 VALEUR PRODUITS AUTOCOCONSOMMES) def 
+}defasvarsilent
+
+/QA460 {
+mytable
+myquestion 
+247 VALUE
+ myquestion removeGRID
+/long_name (QA4 VALEUR PRODUIT ECHANGE) def 
+}defasvarsilent
+
+/QA61 {
+mytable
+myquestion 
+248 VALUE
+ myquestion removeGRID
+/long_name (QA CODE ALIMENT) def 
+/units /ids def
+/CLIST [(RIZ)(MIL)(SORGHO)(MAIS)(FARINE DE MANIOC)(BLE/FARINE)(PAIN)(PATES ALIMENTAIRES)(HUILE DE CUISSON)(VIANDE/ABATS)(VOLAILLE)(POISSON)(FROMAGE)(LAIT)(OEUF)(BEURRE)(ARRACHIDE)(NIEBE)(PETIT POIS)(VOANDZOU)(SUCRE)(OIGNON)(SEL)(MANIOC)(IGNAME)(FEUILLES VERTRES)(POMME DE TERRE)(ATRES CONDIMENTS)] def
+/scale_min 37 def
+/scale_max 64 def
+}defasvarsilent
+
+/QA161 {
+mytable
+myquestion 
+249 VALUE
+ myquestion removeGRID
+/long_name (QA1 AVEZ VOUS EFFECTUE LA DEPENSE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QA261 {
+mytable
+myquestion 
+250 VALUE
+ myquestion removeGRID
+/long_name (QA2 MONTANT DEPENSE CASH 30 DERNIERS JOURS) def 
+}defasvarsilent
+
+/QA361 {
+mytable
+myquestion 
+251 VALUE
+ myquestion removeGRID
+/long_name (QA3 VALEUR PRODUITS AUTOCOCONSOMMES) def 
+}defasvarsilent
+
+/QA461 {
+mytable
+myquestion 
+252 VALUE
+ myquestion removeGRID
+/long_name (QA4 VALEUR PRODUIT ECHANGE) def 
+}defasvarsilent
+
+/QA62 {
+mytable
+myquestion 
+253 VALUE
+ myquestion removeGRID
+/long_name (QA CODE ALIMENT) def 
+/units /ids def
+/CLIST [(RIZ)(MIL)(SORGHO)(MAIS)(FARINE DE MANIOC)(BLE/FARINE)(PAIN)(PATES ALIMENTAIRES)(HUILE DE CUISSON)(VIANDE/ABATS)(VOLAILLE)(POISSON)(FROMAGE)(LAIT)(OEUF)(BEURRE)(ARRACHIDE)(NIEBE)(PETIT POIS)(VOANDZOU)(SUCRE)(OIGNON)(SEL)(MANIOC)(IGNAME)(FEUILLES VERTRES)(POMME DE TERRE)(ATRES CONDIMENTS)] def
+/scale_min 37 def
+/scale_max 64 def
+}defasvarsilent
+
+/QA162 {
+mytable
+myquestion 
+254 VALUE
+ myquestion removeGRID
+/long_name (QA1 AVEZ VOUS EFFECTUE LA DEPENSE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QA262 {
+mytable
+myquestion 
+255 VALUE
+ myquestion removeGRID
+/long_name (QA2 MONTANT DEPENSE CASH 30 DERNIERS JOURS) def 
+}defasvarsilent
+
+/QA362 {
+mytable
+myquestion 
+256 VALUE
+ myquestion removeGRID
+/long_name (QA3 VALEUR PRODUITS AUTOCOCONSOMMES) def 
+}defasvarsilent
+
+/QA462 {
+mytable
+myquestion 
+257 VALUE
+ myquestion removeGRID
+/long_name (QA4 VALEUR PRODUIT ECHANGE) def 
+}defasvarsilent
+
+/QA63 {
+mytable
+myquestion 
+258 VALUE
+ myquestion removeGRID
+/long_name (QA CODE ALIMENT) def 
+/units /ids def
+/CLIST [(RIZ)(MIL)(SORGHO)(MAIS)(FARINE DE MANIOC)(BLE/FARINE)(PAIN)(PATES ALIMENTAIRES)(HUILE DE CUISSON)(VIANDE/ABATS)(VOLAILLE)(POISSON)(FROMAGE)(LAIT)(OEUF)(BEURRE)(ARRACHIDE)(NIEBE)(PETIT POIS)(VOANDZOU)(SUCRE)(OIGNON)(SEL)(MANIOC)(IGNAME)(FEUILLES VERTRES)(POMME DE TERRE)(ATRES CONDIMENTS)] def
+/scale_min 37 def
+/scale_max 64 def
+}defasvarsilent
+
+/QA163 {
+mytable
+myquestion 
+259 VALUE
+ myquestion removeGRID
+/long_name (QA1 AVEZ VOUS EFFECTUE LA DEPENSE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QA263 {
+mytable
+myquestion 
+260 VALUE
+ myquestion removeGRID
+/long_name (QA2 MONTANT DEPENSE CASH 30 DERNIERS JOURS) def 
+}defasvarsilent
+
+/QA363 {
+mytable
+myquestion 
+261 VALUE
+ myquestion removeGRID
+/long_name (QA3 VALEUR PRODUITS AUTOCOCONSOMMES) def 
+}defasvarsilent
+
+/QA463 {
+mytable
+myquestion 
+262 VALUE
+ myquestion removeGRID
+/long_name (QA4 VALEUR PRODUIT ECHANGE) def 
+}defasvarsilent
+
+/QA64 {
+mytable
+myquestion 
+263 VALUE
+ myquestion removeGRID
+/long_name (QA CODE ALIMENT) def 
+/units /ids def
+/CLIST [(RIZ)(MIL)(SORGHO)(MAIS)(FARINE DE MANIOC)(BLE/FARINE)(PAIN)(PATES ALIMENTAIRES)(HUILE DE CUISSON)(VIANDE/ABATS)(VOLAILLE)(POISSON)(FROMAGE)(LAIT)(OEUF)(BEURRE)(ARRACHIDE)(NIEBE)(PETIT POIS)(VOANDZOU)(SUCRE)(OIGNON)(SEL)(MANIOC)(IGNAME)(FEUILLES VERTRES)(POMME DE TERRE)(ATRES CONDIMENTS)] def
+/scale_min 37 def
+/scale_max 64 def
+}defasvarsilent
+
+/QA164 {
+mytable
+myquestion 
+264 VALUE
+ myquestion removeGRID
+/long_name (QA1 AVEZ VOUS EFFECTUE LA DEPENSE) def 
+/units /ids def
+/CLIST [(OUI)(NON)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/QA264 {
+mytable
+myquestion 
+265 VALUE
+ myquestion removeGRID
+/long_name (QA2 MONTANT DEPENSE CASH 30 DERNIERS JOURS) def 
+}defasvarsilent
+
+/QA364 {
+mytable
+myquestion 
+266 VALUE
+ myquestion removeGRID
+/long_name (QA3 VALEUR PRODUITS AUTOCOCONSOMMES) def 
+}defasvarsilent
+
+/QA464 {
+mytable
+myquestion 
+267 VALUE
+ myquestion removeGRID
+/long_name (QA4 VALEUR PRODUIT ECHANGE) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

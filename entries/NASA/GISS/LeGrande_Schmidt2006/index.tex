@@ -1,0 +1,52 @@
+Benno,
+
+ I just had a gridded d18Oseawater dataset published. It falls out of Gavin Schmidt's d18Oseawater & salinity database. It is hosted on the GISS website, but Peter deMenocal suggested adding it ingrid, as well.
+
+Gridded Dataset: http://data.giss.nasa.gov/o18data/grid.html   (1x1x33 levels on the WOA01 grid)
+Reference:  LeGrande, A.N., and G.A. Schmidt 2006. Global gridded data set of the oxygen isotopic composition in seawater. Geophys. Res. Lett. *33*, L12604, doi:10.1029/2006GL026011.
+http://pubs.giss.nasa.gov/abstracts/2006/LeGrande_Schmidt.html
+Fortran Binary format (this is what it was created in: 33 records, each record: character*80,real*4(360,180).)
+NetCDF format
+If it would be easier for you, I can sftp the data to you or make it available.
+
+Database: http://data.giss.nasa.gov/o18data/
+Reference: Schmidt, G.A., G. R. Bigg and E. J. Rohling. 1999. "Global Seawater Oxygen-18 Database". http://data.giss.nasa.gov/o18data/ls -
+ASCII format
+
+Allegra 
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/d18o { v1p0 .d18o } def
+:datasetdefs
+/v1p0 {
+(/Data/data7/nasa/giss/LeGrande_Schmidt2006/calculated_d18O.nc) readfile
+/long_name (v1.0) def
+link:
+/name (v1.1) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NASA/.GISS/.LeGrande_Schmidt2006/.v1p1/) def
+/description (LeGrande and Schmidt 2006 Version 1.1) def
+/semantics /dcterm:isReplacedBy def
+:link
+d18o
+/iridl:hasSemantics (iridl:dO18) def
+name exch def
+}
+defasvarsilent
+/v1p1 {
+(/Data/data7/nasa/giss/LeGrande_Schmidt2006/calculated_d18O_v1_1.nc) readfile
+/long_name (v1.1) def
+d18o
+/iridl:hasSemantics (iridl:dO18) def
+name exch def
+}
+defasvarsilent
+/description (Global gridded dataset of the oxygen isotopic composition in seawater) def
+link:
+/name (VSMOW) def
+/href (http://en.wikipedia.org/wiki/VSMOW) def
+:link
+/references (LeGrande_Schmidt2006) def
+/iridl:hasSemantics (iridl:GISS) def
+:dataset
+\end{ingrid}

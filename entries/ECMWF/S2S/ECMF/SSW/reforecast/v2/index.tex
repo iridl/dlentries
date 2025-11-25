@@ -1,0 +1,106 @@
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (forecast start time) def
+/standard_name (forecast_reference_time) def
+13 Nov 2024 julian_day 01 Jan 1960 julian_day sub
+1.0
+systemtime
+(%d %b %Y) 12 strftime interp julian_day
+01 Jan 1960 julian_day sub
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+%Adjustment of S grid according to the owner's specification -> 
+%      1/3/5/7/9/11/13/15/17/19/21/23/25/27/29/31 of each month (excluding 29 February)
+S monthlyedgesgrid
+   name units gridtype mark gridvalues
+      %The owner does not provide the 29th of Feb, so Feb will always go up to the 27th.
+        {dup cvsunits (Feb) search {3 {pop}repeat 13 {dup 2 add}repeat}{ 
+         % Apr, Jun, Sep and Nov They are months with 30 days, so these months will always go up to the 29th.
+         (Apr) search {3 {pop}repeat 14 {dup 2 add}repeat} { 
+            (Jun) search {3 {pop}repeat 14 {dup 2 add}repeat} { 
+               (Sep) search {3 {pop}repeat 14 {dup 2 add}repeat} { 
+                  (Nov) search {3 {pop}repeat 14 {dup 2 add}repeat} 
+                     %For the rest of the months, it will be shown up to the 31st.
+                     {pop 15 {dup 2 add}repeat}
+                     ifelse}
+                  ifelse}
+               ifelse}
+            ifelse}
+         ifelse
+         }forall counttomark realarray astore
+        nip NewGRID
+    /pointwidth 0.0 def
+    %The calculations are done for each month starting on the 1st day, then it moves to November 13th, 
+    % which is the date indicated by the owner as the first data of this version. 
+    first 12 add last subgrid
+    /defaultvalue { last } def
+    replaceGRID
+
+S {(/Data/data25/ECMWF/S2S/ECMF/REF/SSW/%Y[S]/%m[S]/SSW.ecmwf.2010%m%d[S].%Y%m%d[S]) [S]} removeextrausing
+name exch def
+
+S
+last
+35 add
+cvsunits interp
+  3 -2 roll
+  0.5 add
+  exch ymd2systemtime
+nip
+/expires exch def
+name exch def
+
+/expires S .expires def
+
+grid:
+/name /hdate def
+/units (months since 1960-01-01) def
+01 Jul 2004 ensotime
+12.0
+% hdate must be one less year than the current year
+01 Jul
+systemtime
+(%Y) 12 strftime
+interp
+1 sub
+ensotime
+/defaultvalue { last } def
+:grid
+
+grid:
+/name /L def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+1. 1. 46.
+/pointwidth 0. def
+:grid
+
+grid:
+/name /M def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+0 1 10
+:grid
+
+
+ /ensembles { [ M L | S hdate ] 
+ (/Data/data25/ECMWF/S2S/ECMF/REF/SSW/%Y[S]/%m[S]/SSW.ecmwf.%Y[hdate]%m%d[S].%Y%m%d[S]) [ S hdate ]
+readdatafile:
+((45(11(25X,F6.7,/)),(10(25X,F6.7,/),(25X,F6.7)))) formatted
+:readdatafile
+/missing_value -999 def
+/units (unitless) def
+} defasvarsilent
+
+
+
+:dataset
+\end{ingrid}

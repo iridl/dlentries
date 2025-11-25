@@ -1,0 +1,62 @@
+<html><head>
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+ <title>documentation:  Description of ADDS dekadal NDVI data for Africa </title>
+</head>
+<INGRID>standardHeader</INGRID>
+<h3>Description of ADDS dekadal NDVI data for Africa
+ </h3>
+<p>
+<pre>
+This data set contains dekadal Version 3 NOAA-16 calibration NDVI data for Africa (full 
+continent) for July 1981 to present, downloaded from the USGS/USAID/FEWS Net Africa Data
+Dissemination Service (ADDS) website:
+<a href="http://edcw2ks21.cr.usgs.gov/adds/">http://edcw2ks21.cr.usgs.gov/adds/</a>.
+
+More information and references associated with this data set can be found on the following 
+pages at the ADDS website:
+<a href="http://edcw2ks21.cr.usgs.gov/adds/NDVIPaper.php">http://edcw2ks21.cr.usgs.gov/adds/NDVIPaper.php</a>, and <a href="http://edcsnw4.cr.usgs.gov/adds/readme.php?symbol=ne">http://edcsnw4.cr.usgs.gov/adds/readme.php?symbol=ne</a>
+
+The data come from ADDS in the Albers Equal Area Conic projection.  The relevant projection 
+information is as follows:
+
+Projection:  ALBERS (WinDisp projection 8, Albers Equal Area Conic)
+Units:  METERS
+Spheroid:  CLARKE1866
+Parameters:
+1st standard parallel (dms):   -19 00 0.000
+2nd standard parallel (dms):   21 00 0.000 
+central meridian (dms):    20 00 0.000 
+latitude of projection's origin:    1 00 0.000
+false easting (meters):   0.00000 
+false northing (meters):    0.00000
+
+Pixel size (for all spatial extents): 
+x-direction:  8000 m 
+y-direction:  8000 m 
+
+The data values have been rescaled from [1,250] (the data range in the WinDisp files available
+from ADDS) to [0,1.0].  More information on the spatial parameters and scaling of the NDVI data
+can be found on the following page at the ADDS site: 
+<a href="http://edcw2ks21.cr.usgs.gov/adds/parameterse.php">http://edcw2ks21.cr.usgs.gov/adds/parameterse.php</a>. 
+
+It should be noted that the image coordinates listed on this page differ from those contained 
+in the WinDisp file headers for the NDVI data.  The image coordinates contained within the
+WinDisp headers are as follows:
+
+Image coordinates (center of pixel, in meters) (x,y):
+Upper Left:  -4604000.0, 4604000.0
+Upper Right:  4604000.0, 4604000.0 
+Lower Left:  -4604000.0, -4604000.0
+Lower Right:  4604000.0, -4604000.0
+
+The number of rows and columns (1152) and the centers (x = y = 576.0) given on the parameters 
+page agree with those in the file headers.  The values of the longitudes and latitudes given 
+in the "lon" and "lat" variables in this data set were generated using the Proj4 projection 
+library and the parameters given in the WinDisp file headers.
+
+The base periods used for the short-term average and long-term average NDVI values are 1995 to 
+1999 and 1982 to 1999, respectively.  
+See <a href="http://edcw2ks21.cr.usgs.gov/adds/hist_def.php">http://edcw2ks21.cr.usgs.gov/adds/hist_def.php</a>.
+</pre>
+<p>
+</body></html>

@@ -1,0 +1,50 @@
+\begin{ingrid}
+continuedataset:
+
+/long_name(1982-2010 Seasonal Climatology) def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units (degree_east) def
+periodic
+0. 1.0 359.0
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units (degree_north) def
+-90. 1.0 90.
+:grid
+
+grid:
+/name /S def
+/long_name (Forecast Start Time) def
+/units (months since 01-Jan) def
+periodic
+0.0 1.0 11.0
+/pointwidth 0 def
+:grid
+
+grid:
+/name /L def
+/long_name (Lead) def
+/units (months) def
+1.5 1.0 7.5
+:grid
+
+/prec {(/data/sruti/mydatafiles/Models/NMME/NASA-GEOSS2S/HINDCAST/sc8210/prec_seas_clim_8210.nc) readCDF .prec } defasvarsilent
+
+/sst {(/data/sruti/mydatafiles/Models/NMME/NASA-GEOSS2S/HINDCAST/sc8210/sst_seas_clim_8210.nc) readCDF .sst } defasvarsilent
+
+/tref {(/data/sruti/mydatafiles/Models/NMME/NASA-GEOSS2S/HINDCAST/sc8210/tref_seas_clim_8210.nc) readCDF .tref Z removeGRID /long_name (Near-Surface Temperature) def } defasvarsilent
+
+/T { S L add
+/long_name (Time) def
+/standard_name (time) def
+/pointwidth 3 def
+ } defasvarsilent
+
+:dataset
+\end{ingrid}

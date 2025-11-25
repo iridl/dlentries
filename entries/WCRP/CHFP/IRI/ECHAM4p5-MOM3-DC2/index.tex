@@ -1,0 +1,275 @@
+A few variables are missing
+%atm downward shortwave at surface /rsds   {ATM .Surface .} def2Dvar
+%atm downward longwave at surface /rlds   {ATM .Surface .} def2Dvar
+% ocean net surface solar flux missing
+
+I had to make up names for some of the variables, indicating that
+matching their names is perhaps unnecessary.
+
+They want 6hourly/daily as well
+
+\begin{ingrid}
+/sourcedataset SOURCES .IRI .MP .RESEARCH .COUPLED .GLOBAL .ECHAM4p5-MOM3-DC2
+S /expires undef first (1 Dec 2009) RANGE
+/expires undef
+def
+/time sourcedataset .ATM
+    S .npts
+     L .npts mul
+     nip NewIntegerGRID
+   name exch def
+continuedataset:
+datasetdefs:
+/def2Dvar
+{
+{null 2 index exch dataset .sourcedataset exch exec nip
+X /longitude renameGRID
+Y /latitude renameGRID
+[ longitude latitude ] regridAveragev0
+M -1 shiftGRID
+M /ensemble renameGRID
+ [L S]time replaceGRIDstream
+nip
+/name 2 index def 
+/expires undef
+leadtime experiment_id institution source reftime 6 ds
+/Conventions (CF-1.0) def
+/expires undef
+longitude name exch def
+    latitude name exch def
+    ensemble name exch def
+} dup length array copy cvx
+ dup 0
+     4 -1 roll
+     put defasvarsilent
+} def
+/tostringNindex
+{tostring
+  1 SetStreamIndex* (string) bufferwordsize s== append
+      bufferwordsize NewIntegerGRID
+      *
+  /bufferwordsize 1 def
+  defivars
+
+} def
+/def3Dvar
+{
+{null 2 index exch dataset .sourcedataset exch exec nip
+X /longitude renameGRID
+Y /latitude renameGRID
+[ longitude latitude ] regridAveragev0
+P /level renameGRID
+[level]regridAverage
+/Conventions (CF-1.0) def
+/expires undef
+M -1 shiftGRID
+M /ensemble renameGRID
+ [L S]time replaceGRIDstream
+nip 
+/name 2 index def 
+leadtime experiment_id institution source reftime 6 ds
+/Conventions (CF-1.0) def
+/expires undef
+longitude name exch def
+    latitude name exch def
+    ensemble name exch def
+    level name exch def
+} dup length array copy cvx
+ dup 0
+     4 -1 roll
+     put defasvarsilent
+} def
+/def3DZvar
+{
+{null 2 index exch dataset .sourcedataset exch exec nip
+X /longitude renameGRID
+Y /latitude renameGRID
+[ longitude latitude ] regridAveragev0
+Z /level renameGRID
+[level] regridAverage
+M -1 shiftGRID
+M /ensemble renameGRID
+ [L S]time replaceGRIDstream
+nip
+/name 2 index def 
+/expires undef
+leadtime experiment_id institution source reftime 6 ds
+/Conventions (CF-1.0) def
+/expires undef
+longitude name exch def
+    latitude name exch def
+    ensemble name exch def
+    level name exch def
+} dup length array copy cvx
+ dup 0
+     4 -1 roll
+     put defasvarsilent
+} def
+grid:
+/name /longitude def
+/standard_name (longitude) def
+degE
+periodic
+0 2.5 357.5
+:grid
+grid:
+/name /latitude def
+/standard_name (latitude) def
+degN
+90 -2.5 -90
+:grid
+grid: /name /ensemble def
+0 1 11
+:grid
+/thereftime {
+sourcedataset .ATM
+   S L
+     0 mul
+     add
+    [L S]REORDER
+    /pointwidth 0 def
+/standard_name (forecast_reference_time) def
+[ L S ] time replaceGRIDstream
+nip}
+def
+/theleadtime  {
+sourcedataset .ATM
+   S 0 mul L
+     add
+    [L S]REORDER
+    /pointwidth 1 def
+/standard_name (forecast_period) def
+/long_name (lead time) def
+[ L S ] time replaceGRIDstream
+nip}
+def
+c: 1
+    /name /institution def
+    :c
+   (IRI)
+    1 namearray astore
+    constantdata
+tostringNindex
+name exch def
+c: 1
+    /name /source def
+    :c
+   (ECHAM4p5-MOM3)
+    1 namearray astore
+    constantdata
+tostringNindex
+name exch def
+c: 1
+    /name /experiment_id def
+    :c
+   (ECHAM4p5-MOM3-DC2)
+    1 namearray astore
+    constantdata
+tostringNindex
+name exch def
+:datasetdefs
+\end{ingrid}
+\begin{ingrid}
+/iridl:hasSemantics [(iridl:MPI_Met)(iriref:DeWitt_DG)] def
+/references (Roeckner_etal1996 Danabasoglu_etal2006 Derber_Rosati1989 DeWitt_DG2005 Luo_JJ2005a Pacanowski_Griffies1998 ) def
+dataset:
+/name /ATM def
+/longitude longitude def
+/latitude latitude def
+/time time def
+/ensemble ensemble def
+/reftime {dataset .thereftime} defasvarsilent
+/leadtime {dataset .theleadtime} defasvarsilent
+/experiment_id {dataset .experiment_id} defasvarsilent
+/institution {dataset .institution} defasvarsilent
+/source {dataset .source} defasvarsilent
+/Conventions (CF-1.0) def
+grid:
+/name /level def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 850 500 200 100 50 10
+:values
+:grid
+/ts     {ATM .Surface .st} def2Dvar
+/tasmax {ATM .Surface .t2mmax} def2Dvar
+/tasmin {ATM .Surface .t2mmin} def2Dvar
+/psl    {ATM .Surface .slp} def2Dvar
+/snld   {ATM .Surface .snowd} def2Dvar
+/mrsov  {ATM .Surface .sw} def2Dvar
+/prlr   {ATM .Surface .prec} def2Dvar
+%These two are missing
+%/rsds   {ATM .Surface .} def2Dvar
+%/rlds   {ATM .Surface .} def2Dvar
+/rss    {ATM .Surface .nswg} def2Dvar
+/rls    {ATM .Surface .nlwg} def2Dvar
+/rst    {ATM .Surface .nswt} def2Dvar
+/rlt    {ATM .Surface .olr} def2Dvar
+/hflsd  {ATM .Surface .lh} def2Dvar
+/hfssd  {ATM .Surface .sh} def2Dvar
+% these two do not have var names specified in the example
+/taux   {ATM .Surface .taux} def2Dvar
+/tauy   {ATM .Surface .tauy} def2Dvar
+/tas    {ATM .Surface .t2m} def2Dvar
+/tdps   {ATM .Surface .t2md} def2Dvar
+/clt    {ATM .Surface .cld} def2Dvar
+/uas    {ATM .Surface .u10m} def2Dvar
+/vas    {ATM .Surface .v10m} def2Dvar
+\end{ingrid}
+\begin{ingrid}
+/g      {ATM .PressureLevel .gz} def3Dvar
+/ta     {ATM .PressureLevel .tmp} def3Dvar
+/ua     {ATM .PressureLevel .u} def3Dvar
+/va     {ATM .PressureLevel .v} def3Dvar
+/hus    {ATM .PressureLevel .q} def3Dvar
+:dataset
+\end{ingrid}
+\begin{ingrid}
+dataset: /name /OCEAN def
+/Conventions (CF-1.0) def
+/time time def
+/ensemble ensemble def
+/reftime {dataset .thereftime} defasvarsilent
+/leadtime {dataset .theleadtime} defasvarsilent
+/experiment_id {dataset .experiment_id} defasvarsilent
+/institution {dataset .institution} defasvarsilent
+/source {dataset .source} defasvarsilent
+grid:
+/name /longitude def
+/standard_name (longitude) def
+degE
+periodic
+0 1 359.
+:grid
+grid:
+/name /latitude def
+/standard_name (latitude) def
+degN
+-89 1 89
+:grid
+grid:
+/name /level def
+/standard_name (depth) def
+/units (m) def
+values: 0.0, 10.0, 20.0, 30.0, 50.0, 75.0, 100.0, 125.0, 150.0, 200.0, 250.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0, 1000.0, 1100.0, 1200.0, 1300.0, 1400.0, 1500.0, 1750.0, 2000.0, 2500.0, 3000.0, 3500.0, 4000.0, 4500.0, 5000.0, 5500.0
+:values
+:grid
+
+/thetao {OCEAN .BelowSeaSurface .t} def3DZvar
+/so {OCEAN .BelowSeaSurface .s} def3DZvar
+/uo {OCEAN .BelowSeaSurface .u} def3DZvar
+/vo {OCEAN .BelowSeaSurface .v} def3DZvar
+/wo {OCEAN .BelowSeaSurface .w} def3DZvar
+/zoh   {OCEAN .Surface .eta} def2Dvar
+/zmlo  {OCEAN .Surface .hmlt} def2Dvar
+% net surface solar flux missing
+% these had no specified names
+/htf   {OCEAN .Surface .htf} def2Dvar
+/tauxo {OCEAN .Surface .taux} def2Dvar
+/tauyo {OCEAN .Surface .tauy} def2Dvar 
+/fwf   {OCEAN .Surface .fwf}  def2Dvar
+:dataset
+/Conventions (CF-1.0) def
+/ifvar? false def
+:dataset
+\end{ingrid}

@@ -1,0 +1,54 @@
+\begin{ingrid}
+
+continuedataset:
+
+/references (<a href="http://journals.ametsoc.org/doi/abs/10.1175/2011BAMS3148.1">Tencer, Bárbara, Matilde Rusticucci, Phil Jones, David Lister, 2011: A Southeastern South American Daily Gridded Dataset of Observed Surface Minimum and Maximum Temperature for 1961–2000. Bull. Amer. Meteor. Soc., 92, 1339–1346.doi</a>) def
+
+grid:
+/name (T) def
+/long_name (Time) def
+/units (days since 1961-01-01) def
+0.5 1 14609.5
+:grid
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units (degree_east) def
+-70. 0.5 -45.
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units (degree_north) def
+ -40.25 0.5 -19.75
+:grid
+
+/tx {
+[X Y T | ](/data/gonzalez/SESA_data/Tencer_temp/tx_61-00.nc)readdatafile:
+/name (tx) def
+/shortarraytype netcdfrecords
+/long_name (maximum temperature) def
+/units (Celsius_scale) def
+/missing_value -9999. def
+/scale_factor 0.1 def
+:readdatafile
+temp_colors
+}defasvarsilent
+
+/tn {
+[X Y T | ](/data/gonzalez/SESA_data/Tencer_temp/tn_61-00.nc)readdatafile:
+/name (tn) def
+/shortarraytype netcdfrecords
+/long_name (minimum temperature) def
+/units (Celsius_scale) def
+/missing_value -9999. def
+/scale_factor 0.1 def
+:readdatafile
+temp_colors
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,202 @@
+Output image info
+-----------------
+output image corners (lat/lon):
+    UL:  40.000000000000 60.000000000000
+    UR:  40.000000000000 94.000534161179
+    LL:  -0.002062980579 60.000000000000
+    LR:  -0.002062980579 94.000534161179
+
+output image corners (X-Y projection units):
+    UL:  60.000000000000 40.000000000000
+    UR:  94.000534161179 40.000000000000
+    LL:  60.000000000000 -0.002062980579
+    LR:  94.000534161179 -0.002062980579
+
+     band               type lines smpls pixsiz      min    max   fill
+  1) 250m 16 days NDVI  INT16 18043 15336 0.0022  -2000  10000  -3000
+
+End Time:  Mon Oct 23 17:16:54 2006
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/ndvi_colorsMODIS {
+startcolormap
+DATA -.2 1.0 RANGE
+white 
+blue -.2 VALUE
+cyan -.1 bandmax
+white 0.0 bandmax
+234 233 189 RGB RGBdup 0.05 bandmax
+215 211 148 RGB RGBdup 0.1 bandmax
+202 189 119 RGB RGBdup 0.15 bandmax
+175 175 77 RGB RGBdup 0.2 bandmax
+128 169 5 RGB RGBdup 0.3 bandmax
+12 127 0 RGB RGBdup 0.4 bandmax
+0 94 0 RGB RGBdup 0.5 bandmax
+0 59 1 RGB RGBdup 0.6 bandmax
+0 9 0 RGB RGBdup 1.0 bandmax
+0 9 0 RGB 1.0 VALUE
+0 9 0 RGB
+endcolormap } defcolorscale
+:datasetdefs
+
+link:
+/name (dataset_documentation) def
+/description (MOD13Q1: MODIS/Terra Vegetation Indices 16-Day L3 Global 250m SIN Grid V006) def
+/href (https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mod13q1_v006) def
+:link
+
+/long_name (South West Asia) def
+/iridl:hasSemantics [(iridl:Asia_Indonesia) (irigaz:Asia_South_319_0)]def
+grid:
+/name /X def
+degE
+60.  94.000534161179
+ 2 copy exch sub 15336 div exch
+% converts edges to centers
+1 index .5 mul sub
+3 -1 roll
+2 index .5 mul add
+3 1 roll
+:grid
+grid:
+/name /Y def
+degN
+40. -0.002062980579
+2 copy exch sub 18043 div exch
+% converts edges to centers
+1 index .5 mul sub
+3 -1 roll
+2 index .5 mul add
+3 1 roll
+:grid
+grid:
+/name /T def
+/units (days since 2003-01-01) def
+\end{ingrid}
+file 2004.05.08/MOD13Q1.A2004129.h17v07.004.2004148112503.hdf to  ../modus.2004/MOD13Q1.A2004129.h17v07.004.2004148112503.hdf
+
+file 2004.05.24/MOD13Q1.A2004145.h19v08.004.2004165081004.hdf to  ../modus.2004/MOD13Q1.A2004145.h19v08.004.2004165081004.hdf
+
+Turns out the first number is the first day of the interval, the second date is
+not the end of the interval (the interval is 16 days wide). 
+So I enter the edges grid and take the partial to get the right time grid.
+Filenames are generated from the left edge values.
+\begin{ingrid}
+/pointwidth 0 def
+values:
+2000
+1
+2000
+{
+dup  1 1 ymd2rjt 112 add 2003 1 1 ymd2rjt sub
+exch
+16. exch
+1 add 1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+{} for
+} for
+2001
+1
+2022
+{
+dup  1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+exch
+16. exch
+1 add 1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+{} for
+} for
+
+2023
+1 1 ymd2rjt 2003 1 1 ymd2rjt sub
+16.
+2023 2 17 ymd2rjt 2003 1 1 ymd2rjt sub
+2 index 
+     sub
+    16 div
+    cvi
+    16 mul
+2 index add
+{} for
+:values
+:grid
+
+/T T 
+partialgrid
+/defaultvalue {last} def
+def
+/last_modified T .last_modified def
+
+grid:
+/name /band def
+values: /MIR /NIR /red /blue :values
+:grid
+/reflectance
+{[X Y | band T]
+(/Data/data23/usgs/landdaac/componentimagesAF_v006/%Y/A%Y%j[T]AF3.250m_16_days_%s[band]_reflectance.dat.gz)
+     [band T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value -1000 def
+/valid_min 0 def
+/valid_max 10000 def
+ui*2 :readdatafile
+9999.   254 div   1 255 SCALEtoui1
+}
+defasvarsilent
+/NDVI
+{[X | Y T]
+(/Data/data23/usgs/landdaac/componentimagesAF_v006/%Y/A%Y%j[T]AF3.250m_16_days_NDVI.dat.gz)
+     [T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value -3000 def
+/valid_min -2000 def
+/valid_max 10000 def
+/scale_factor 1e-4 def
+ndvi_colorsMODIS
+/scale_min valid_min def
+/scale_max valid_max def
+/iridl:hasSemantics (iridl:NDVI) def
+ui*2 :readdatafile
+%9999.   254 div   1 255 SCALEtoui1
+} defasvarsilent
+/VI_Quality
+{[X | Y T]
+(/Data/data23/usgs/landdaac/componentimagesAF_v006/%Y/A%Y%j[T]AF3.250m_16_days_VI_Quality.dat.gz)
+     [T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value 65535 def
+/valid_min 0 def
+/valid_max 65534 def
+ui*2 :readdatafile
+%9999.   254 div   1 255 SCALEtoui1
+} defasvarsilent
+/EVI
+{[X | Y T]
+(/Data/data23/usgs/landdaac/componentimagesAF_v006/%Y/A%Y%j[T]AF3.250m_16_days_EVI.dat.gz)
+     [T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value -3000 def
+/valid_min -2000 def
+/valid_max 10000 def
+/scale_factor 1e-4 def
+ndvi_colorsMODIS
+/scale_min valid_min def
+/scale_max valid_max def
+ui*2 :readdatafile
+%9999.   254 div   1 255 SCALEtoui1
+} defasvarsilent
+/view_zenith_angle
+{[X | Y T]
+(/Data/data23/usgs/landdaac/componentimagesAF_v006/%Y/A%Y%j[T]AF3.250m_16_days_view_zenith_angle.dat.gz)
+     [T integralgrid first secondtolast subgrid]
+readdatafile:
+/missing_value 10000 def
+/valid_min -9000 def
+/valid_max  9000 def
+/scale_factor 1e-2 def
+/scale_min valid_min def
+/scale_max valid_max def
+ui*2 :readdatafile
+
+} defasvarsilent
+:dataset
+\end{ingrid}

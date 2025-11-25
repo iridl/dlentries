@@ -1,0 +1,35 @@
+\begin{ingrid}
+
+    continuedataset:
+    
+      dataset:
+        /name /RETRO def
+        /rain {
+           SOURCES .NOAA .NCEP .CPC .UNIFIED_PRCP .GAUGE_BASED .GLOBAL .v1p0 .RETRO .rain
+            monthlyAverage
+               /long_name (Monthly Precipitation) def	
+        }defasvarcache	
+      :dataset
+     
+      dataset:
+            /name /REALTIME def
+            /rain {
+               SOURCES .NOAA .NCEP .CPC .UNIFIED_PRCP .GAUGE_BASED .GLOBAL .v1p0 .REALTIME .rain
+                    monthlyAverage
+               /long_name (Monthly Precipitation) def
+             }defasvarsilent
+      :dataset
+    
+      dataset:
+            /name /extREALTIME def
+            /rain {
+            SOURCES .NOAA .NCEP .CPC .UNIFIED_PRCP .GAUGE_BASED .GLOBAL .v1p0 .Monthly .RETRO .rain
+             SOURCES .NOAA .NCEP .CPC .UNIFIED_PRCP .GAUGE_BASED .GLOBAL .v1p0 .Monthly .REALTIME .rain
+            appendstream
+               /long_name (Monthly Precipitation) def
+             }defasvarsilent
+      :dataset
+    
+    :dataset
+    
+    \end{ingrid}

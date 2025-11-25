@@ -1,0 +1,69 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+/units (degreeE) def
+/fullname (Longitude) def
+periodic
+0.5 1. 359.5
+:grid
+grid:
+/name /Y def
+/units (degreeN) def
+/fullname (Latitude) def
+-89.5 1. 89.5
+:grid
+grid:
+/name /T def
+/defaultvalue { last } def
+monthtime
+16 Dec 1981 ensotime
+1
+16 Feb 2004 ensotime %enddate
+:grid
+variable:
+/name /sst def
+/long_name (Sea Surface Temperature) def
+/units /Celsius def
+/missing_value -999.9 def
+sstcolorscale
+grids: X Y | T :grids
+file:
+direct
+/name (/Data/data3/ocean/nmc/RSOIver2/monthly/oiv2monthly.r4) def
+:file
+:variable
+
+variable:
+/name /sea_ice def
+/long_name (Sea Ice Concentration) def
+/units /percent def
+/scale_min 0 def
+/scale_max 100 def
+grids: X Y | T :grids
+file:
+i*1
+/name (/Data/data3/ocean/nmc/RSOIver2/monthly/cicemonthly.i1) def
+:file
+:variable
+
+variable:
+/name /mask def
+/long_name (Land-Sea Mask) def
+grids: X Y :grids
+file:
+direct
+/name (/Data/data3/ocean/nmc/RSOIver2/lstags.onedeg.dat) def
+:file
+:variable
+
+/ssta { SOURCES .NOAA .NCEP .EMC .CMB .GLOBAL .Reyn_SmithOIv2
+ a: .monthly .sst
+  :a: .climatology .sst :a
+   sub 
+sstacolorscale
+/long_name (Sea Surface Temperature Anomaly) def
+ } defasvar
+
+:dataset
+\end{ingrid}

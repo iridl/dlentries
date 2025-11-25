@@ -1,0 +1,105 @@
+\begin{ingrid}
+continuedataset:
+/description (TRMM Three-Hourly Precipitation Estimates) def
+datasetdefs:
+grid: 
+/name /T def
+/units (days since 1998-01-01 00:00:00) def
+values:
+0
+2007 5 1 ymd2rjt
+1998 1 1 ymd2rjt sub
+:values
+:grid
+variable:
+/name /satsub def
+grids: T :grids
+values: /6 /6A :values
+:variable
+:datasetdefs
+link:
+/name (source) def
+/description (original OpenDAP Server) def
+/href (http://disc2.nascom.nasa.gov/opendap/TRMM_L3/TRMM_3B42/) def
+:link
+link:
+/name (readme) def
+/description (Readme for TRMM Product 3B42 (V6)) def
+/href (http://disc.sci.gsfc.nasa.gov/precipitation/documentation/TRMM_README/TRMM_3B42_readme.shtml) def
+:link
+link:
+/name (dataset_documentation) def
+/description (TRMM and Other Data Precipitation Data Set Documentation) def
+/href (ftp://precip.gsfc.nasa.gov/pub/trmmdocs/3B42_3B43_doc.pdf) def
+:link
+link:
+/name (suspended) def
+/description (TRMM 3B42 suspended 2011-06) def
+/href (http://disc.sci.gsfc.nasa.gov/mirador-news-items/status-of-trmm-3b42-3b43) def
+:link
+/auxinfo.owl currentobject /auxinfo.owl get def
+grid: 
+/name /Y def
+/units /degree_north def
+-50.
+100. 
+ 400 div
+50.
+:grid
+Y partialgrid
+name exch def
+grid: 
+/name /X def
+/units /degree_east def
+periodic
+-180.
+360. 
+1440 div
+180.
+1 index sub
+:grid
+X partialgrid
+name exch def
+grid:
+/name (scan)def
+/units (unitless)def
+values: 1. :values
+:grid
+grid: 
+/name /T def
+/standard_name (time) def
+/units (days since 1998-01-01 00:00:00) def
+/pointwidth 3. 24. div def
+/defaultvalue {last} def
+0
+1. 8 div
+2011 07 1 ymd2rjt  %systemtime systemtime2ymd ymd2rjt 21 sub
+1998 1 1 ymd2rjt sub
+1 index sub
+:grid
+%T
+%{(http://disc2.nascom.nasa.gov/opendap/TRMM_L3/TRMM_3B42/%Y/%j[Tle]/3B42.%y%m%d.%-H[T].6A.HDF.Z) [T dup 1.5 24 div sub /name /Tle def]}
+%remoteremoveextrausing
+%name exch def
+
+ /precipitation{
+[ Y X | scan
+    T] (http://disc2.nascom.nasa.gov/opendap/TRMM_L3/TRMM_3B42/%Y/%j[Tle]/3B42.%y%m%d.%-H[T].%s[satsub].HDF.Z) [T dup 1.5 24 div sub /name /Tle def satsub] readdatafile:
+/name (precipitation_DATA_GRANULE_PlanetaryGrid) def
+/long_name (Surface Rain from all Satellite and Surface) def
+ /missing_value -9999.9004 def
+ /units (mm/hr) def
+ /iridl:hasSemantics (iridl:precipitation) def
+ /realarraytype opendaprecords :readdatafile
+}defasvarcachesilent
+ /relativeError{
+[ Y X | scan
+    T] (http://nolongeravailable.disc2.nascom.nasa.gov/opendap/TRMM_L3/TRMM_3B42/%Y/%j[Tle]/3B42.%y%m%d.%-H[T].%s[satsub].HDF.Z) [T dup 1.5 24 div sub /name /Tle def satsub] readdatafile:
+/name (relativeError_DATA_GRANULE_PlanetaryGrid) def
+ /missing_value -9999.9004 def
+ /units (mm/hr) def
+ /realarraytype opendaprecords :readdatafile
+}pop pop
+/references (Huffman_etal2007) def
+:dataset
+\end{ingrid}

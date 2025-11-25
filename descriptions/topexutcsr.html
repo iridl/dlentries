@@ -1,0 +1,93 @@
+<html><head>
+<title>UTCSR TOPEX/POSEIDON Gridded Sea Level Anomalies</title>
+</head>
+<body>
+<h1 align=center>UTCSR TOPEX/POSEIDON Gridded Sea Level Anomalies</h1>
+<p align=center>Last Update: August 9, 1994</p>
+
+The data are
+<a href="http://ingrid.ldgo.columbia.edu/SOURCES/.IGOSS/.TOPEX/.UTCSR/">here</a>.
+<h2>INTRODUCTION</h2>
+
+These data are from the University of Texas at Austin Center for Space Research
+(UT/CSR) monthly dynamic ocean topography data base anonymous ftp site
+(ftp.csr.utexas.edu).  This data base contains gridded dynamic topography
+heights observed by the TOPEX/POSEIDON (T/P) altimeter measurements and the
+corresponding sea level anomalies.  These solutions, in the form
+of sea surface anomalies in the equatorial Pacific, appear monthly 
+in the Climate Diagnostics Bulletin published by U.S. Department of 
+Commerce NOAA/NWS/NMC.
+  <p>
+Please note that the maps contained in this directory will differ slightly
+from the solutions presented in the Bulletin.  Starting in June, 1994, the
+ocean topography anomaly maps published in the Bulletin were averaged over
+10-days, the time for TOPEX/POSEIDON to repeat its groundtrack.  The dynamic 
+topography and topography anomaly maps in the directoy month_dat/ are
+averaged over a month, while the maps in the directory cycle_dat/ are averaged
+over a 10-day repeat period.  To see what dates a T/P repeat cycle refer to,
+please refer to the file CYCLE.START_TIMES.  Note that all the data has been
+compressed using the unix command compress.  To use these files, upload them
+to your directory, then uncompress the file.
+<p>
+The monthly maps contain all of the altimeter data which is available within
+any given month.  Because we like to wait until we receive all the data for a 
+month before uploading them to this site, the maps in this directory may have 
+a one-month real-time lag.  Cycle averaged maps will also be uploaded at the
+begining of each month.
+<p>
+One situation affecting the data in the solutions is the fact that the POSEIDON
+altimeter is on for a complete repeat cycle approximately every 100 days.
+Because POSEIDON data availability lags behind TOPEX data availability, this
+could cause delays as long as several months.  To allay these problems, we
+will provide monthly maps using just TOPEX data initially, and then update
+them as soon as the POSEIDON data are available and processed.  Both
+solutions will be available, and a naming convention has been adopted
+(described below) so that you can be aware when a monthly solution is
+incomplete and contains only TOPEX altimeter data.
+
+
+<h2>SOLUTION PROCESS</h2>
+The dynamic ocean topography heights are determined from TOPEX/POSEIDON 
+altimeter data in which all media and instrument corrections (ionosphere,
+wet and dry troposphere, and electromagnetic bias) and geophysical
+corrections (tides and inverted barometer) have been applied to the
+measurements. The altimeter measurements are then reduced to sea surface
+topography heights using a precise orbit computed at UT/CSR using the
+available Satellite Laser Ranging and DORIS doppler tracking data.  
+<p>
+The altimeter measurements used are equivalent to the Geophysical
+Data Record (GDR) with the exception of the precise orbit and a preliminary
+ocean tide correction computed using 1 year of TOPEX altimeter data.  This
+preliminary ocean tide model produces more consistent topographies and 
+reduces altimeter residuals a great deal.  An altimeter bias is also removed 
+from the data during this process. 
+<p>
+The topography heights were computed using 10-second altimeter normal points
+and consist of surface spherical harmonics complete to degree and order 25.
+All the topography heights in the grids are referenced to the geoid computed
+from the JGM-3 gravity field model and corrected to refer to the mean ocean
+geoid. [Note: this is a change of the previous data storedat this site, which
+was referred to the JGM-2 geoid.  ALL data is now referred to the JGM-3 geoid.]
+<p>
+The dynamic ocean topography heights are referenced to the mean JGM-3 geoid.
+The dynamic ocean topography height anomalies are with
+respect to a long-term mean sea surface.  The current mean sea surface model 
+was determined using TOPEX altimeter data from cycles 2-64, or 620 days worth
+of altimeter measurements.
+
+<p>
+
+For more information about availability of other
+relevant data, please send email to C. K. Shum at shum@csr.utexas.edu,
+or Don Chambers at chambers@csr.utexas.edu.
+<p>
+<table border>
+<tr>
+<th><a
+href="http://www.grdl.noaa.gov/SAT/products/topex.html">TOPEX/POSEIDON</a></th>
+<td><a href="http://rainbow.ldeo.columbia.edu/">LDEO Climate Group</a></td>
+<td><a href="http://www.ldeo.columbia.edu/">LDEO</a></td>
+</tr></table>
+
+</body>
+</html>

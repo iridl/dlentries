@@ -1,0 +1,22 @@
+\begin{ingrid}
+continuedataset:
+/description (Honduras Municipalities) def
+\end{ingrid}
+\begin{ingrid}
+dataset:
+/name /Municipalities def
+/mname
+{ IRIDB (honduraslimitemunicipal) (nombre) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/mlabel
+{ IRIDB (honduraslimitemunicipal) (nombre) [(gid)]open_column_by
+}defasvarsilentnoreuse
+/geom
+{ IRIDB (honduraslimitemunicipal) (geom) [(gid)]open_column_by
+}defasvarsilentnoreuse
+:dataset
+\end{ingrid}
+\begin{ingrid}
+:dataset
+Municipalities mname .gid name exch put
+\end{ingrid}

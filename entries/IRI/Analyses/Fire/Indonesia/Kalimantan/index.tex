@@ -1,0 +1,36 @@
+\begin{ingrid}
+
+continuedataset:
+  grid:
+    /name (gid) def
+    /fullname (geom_id) def
+    10 to 13 N= 4 pts
+  :grid
+  grid:
+    /name (T) def
+    monthtime
+    /fullname (Month) def
+    16 Jun 1998 ensotime
+    1.
+    16 Oct 2006 ensotime
+  :grid
+  variable:
+    /name (numberOfFires) def
+    /long_name (Number of fires) def
+    /missing_value -9 def
+    grids: gid T :grids
+    file:
+      /name (/data/remic/mydatafiles/Fire/Fire.csv) def
+      /format ((6X,F6.0,F5.0,F6.0,F5.0)) def
+      formatted
+    :file
+  :variable
+
+ /label { SOURCES .Features .Political .Indonesia .Provinces .label gid 10 13 RANGE } defasvarsilent
+
+ /name1 { SOURCES .Features .Political .Indonesia .Provinces .name1 gid 10 13 RANGE } defasvarsilent
+
+ /the_geom { SOURCES .Features .Political .Indonesia .Provinces .the_geom gid 10 13 RANGE } defasvarsilent
+
+:dataset
+\end{ingrid}

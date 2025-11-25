@@ -1,0 +1,503 @@
+<?xml version="1.0"?>
+<!DOCTYPE owl [
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+<!ENTITY units "http://iridl.ldeo.columbia.edu/ontologies/iriunits.owl?units=">
+<!ENTITY gcmdp "http://marinemetadata.org/2005/08/gcmd-platf#">
+<!ENTITY gcmd "http://marinemetadata.org/2005/08/gcmd-keyw#">
+<!ENTITY cfatt "http://iridl.ldeo.columbia.edu/ontologies/cf-att.owl#">
+<!ENTITY iridlauth "http://iridl.ldeo.columbia.edu/ontologies/AuthorizationRealms.owl#">
+<!ENTITY wms "http://www.opengis.net/wms#">
+<!ENTITY iridl "http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#">
+<!ENTITY deg "°">
+]><rdf:RDF
+    xmlns="http://www.climdex.org/indices.html#"
+    xmlns:term="http://iridl.ldeo.columbia.edu/ontologies/iriterms.owl#"
+    xmlns:iridl="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#"
+    xmlns:dct="http://purl.org/dc/terms/#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xml:base="http://www.climdex.org/indices.html">
+  <owl:Ontology rdf:about="http://iridl.ldeo.columbia.edu/ontologies/climdex.owl">
+    <owl:imports rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iriterms.owl"/>
+    <owl:imports rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridlsemantics.owl"/>
+</owl:Ontology>
+<iridl:Quantity rdf:about="#FD">
+<term:label xml:lang="en">Number of frost days</term:label>
+<term:gloss xml:lang="en">Annual count of days when TN (daily minimum temperature) &lt; 0°C</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Count" />
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/uri/range/minf:0:cfsn:air_temperature:celsius_scale:rn" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#SU">
+<term:label xml:lang="en">Number of summer days</term:label>
+<term:gloss xml:lang="en">Annual count of days when TX (daily maximum temperature) &gt; 25°C.</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Count" />
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/uri/range/25:inf:cfsn:air_temperature:celsius_scale:rn" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#ID">
+<term:label xml:lang="en">Number of icing days</term:label>
+<term:gloss xml:lang="en">Annual count of days when TX (daily maximum temperature) &lt; 0°C.</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Count" />
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/uri/range/minf:0:cfsn:air_temperature:celsius_scale:rn" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#TR">
+<term:label xml:lang="en">Number of tropical nights</term:label>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Count" />
+<term:gloss xml:lang="en">Annual count of days when TN (daily minimum temperature) > 20°C.</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/uri/range/20:inf:cfsn:air_temperature:celsius_scale:rn" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#GSL">
+<term:label xml:lang="en">Growing season length</term:label>
+<term:gloss xml:lang="en">Annual (1st Jan to 31st Dec in Northern Hemisphere (NH), 1st July to 30th June in Southern Hemisphere (SH)) count between first span of at least 6 days with daily mean temperature TG>5°C and first span after July 1st (Jan 1st in SH) of 6 days with TG&lt;5°C.
+</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Duration" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="http://iridl.ldeo.columbia.edu/uri/range/minf:0:cfsn:air_temperature:celsius_scale:rn">
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+  <term:label xml:lang="en">Temperature &lt; 0°C</term:label>
+</iridl:Quantity>
+<iridl:Quantity rdf:about="http://iridl.ldeo.columbia.edu/uri/range/20:inf:cfsn:air_temperature:celsius_scale:rn">
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+  <term:label xml:lang="en">Temperature > 20°C</term:label>
+</iridl:Quantity>
+<iridl:Quantity rdf:about="http://iridl.ldeo.columbia.edu/uri/range/25:inf:cfsn:air_temperature:celsius_scale:rn">
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+  <term:label xml:lang="en">Temperature > 25°C</term:label>
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#TXx">
+  <term:label xml:lang="en">TXx</term:label>
+  <term:gloss xml:lang="en">Maximum value of daily maximum temperature</term:gloss>
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#TNx">
+  <term:label xml:lang="en">TNx</term:label>
+  <term:gloss xml:lang="en">Maximum value of daily minimum temperature</term:gloss>
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#TXn">
+  <term:label xml:lang="en">TXn</term:label>
+  <term:gloss xml:lang="en">Minimum value of daily maximum temperature</term:gloss>
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#TNn">
+  <term:label xml:lang="en">TNn</term:label>
+  <term:gloss xml:lang="en">Minimum value of daily minimum temperature</term:gloss>
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#TN10p">
+  <term:label xml:lang="en">TN10p</term:label>
+  <term:gloss xml:lang="en">Percentage of days when minimum temperature &lt; 10th percentile</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Fraction" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#TX10p">
+  <term:label xml:lang="en">TX10p</term:label>
+  <term:gloss xml:lang="en">Percentage of days when maximum temperature &lt; 10th percentile</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Fraction" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#TN90p">
+  <term:label xml:lang="en">TN90p</term:label>
+  <term:gloss xml:lang="en">Percentage of days when minimum temperature &gt; 90th percentile</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Fraction" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#TX90p">
+  <term:label xml:lang="en">TX90p</term:label>
+  <term:gloss xml:lang="en">Percentage of days when maximum temperature &gt; 90th percentile</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Fraction" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#WSDI">
+  <term:label xml:lang="en">Warm spell duration index</term:label>
+  <term:gloss xml:lang="en">Annual count of days with at least 6 consecutive days when maximum temperature &gt; 90th percentile</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Count" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#CDSI">
+  <term:label xml:lang="en">Cold spell duration index</term:label>
+  <term:gloss xml:lang="en">Annual count of days with at least 6 consecutive days when minimum temperature &lt; 10th percentile</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Count" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#DTR">
+  <term:label xml:lang="en">Daily temperature range</term:label>
+  <term:gloss xml:lang="en">Monthly mean difference between maximum and minimum temperatures</term:gloss>
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#Rx1day">
+  <term:label xml:lang="en">Monthly maximum 1-day precipitation</term:label>
+  <term:gloss xml:lang="en">Monthly maximum of daily precipitation amount</term:gloss>
+  <term:implies rdf:resource="http://marinemetadata.org/cf#lwe_thickness_of_precipitation_amount" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#precipitation_amount" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#Rx5day">
+  <term:label xml:lang="en">Monthly maximum consecutive 5-day precipitation</term:label>
+  <term:gloss xml:lang="en">Monthly maximum of five-day precipitation amount, i.e. five-day periods ending within the month</term:gloss>
+  <term:implies rdf:resource="http://marinemetadata.org/cf#lwe_thickness_of_precipitation_amount" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#precipitation_amount" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#SDII">
+  <term:label xml:lang="en">SDII</term:label>
+  <term:gloss xml:lang="en">Simple precipitation intensity index</term:gloss>
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#precipitation_amount" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#R01mm">
+  <term:label xml:lang="en">R01mm</term:label>
+  <term:gloss xml:lang="en">Annual count of days when PRCP ≥ 1mm</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Count" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/uri/range/1:inf:cfsn:lwe_thickness_of_precipitation_amount:mm:rn" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="http://iridl.ldeo.columbia.edu/uri/range/0:1:cfsn:lwe_thickness_of_precipitation_amount:mm:rn">
+  <term:directlyImplies rdf:resource="http://marinemetadata.org/cf#lwe_thickness_of_precipitation_amount" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#precipitation_amount" />
+  <term:label xml:lang="en">PRCP &lt; 1mm</term:label>
+</iridl:Quantity>
+<iridl:Quantity rdf:about="http://iridl.ldeo.columbia.edu/uri/range/1:inf:cfsn:lwe_thickness_of_precipitation_amount:mm:rn">
+  <term:directlyImplies rdf:resource="http://marinemetadata.org/cf#lwe_thickness_of_precipitation_amount" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#precipitation_amount" />
+  <term:label xml:lang="en">PRCP ≥ 1mm</term:label>
+</iridl:Quantity>
+<iridl:Quantity rdf:about="http://iridl.ldeo.columbia.edu/uri/range/10:inf:cfsn:lwe_thickness_of_precipitation_amount:mm:rn">
+  <term:directlyImplies rdf:resource="http://marinemetadata.org/cf#lwe_thickness_of_precipitation_amount" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#precipitation_amount" />
+  <term:label xml:lang="en">PRCP ≥ 10mm</term:label>
+</iridl:Quantity>
+<iridl:Quantity rdf:about="http://iridl.ldeo.columbia.edu/uri/range/20:inf:cfsn:lwe_thickness_of_precipitation_amount:mm:rn">
+  <term:directlyImplies rdf:resource="http://marinemetadata.org/cf#lwe_thickness_of_precipitation_amount" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#precipitation_amount" />
+  <term:label xml:lang="en">PRCP ≥ 20mm</term:label>
+</iridl:Quantity>
+<iridl:Quantity rdf:about="http://iridl.ldeo.columbia.edu/uri/range/30:inf:cfsn:lwe_thickness_of_precipitation_amount:mm:rn">
+  <term:directlyImplies rdf:resource="http://marinemetadata.org/cf#lwe_thickness_of_precipitation_amount" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#precipitation_amount" />
+  <term:label xml:lang="en">PRCP ≥ 30mm</term:label>
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#R10mm">
+  <term:label xml:lang="en">R10mm</term:label>
+  <term:gloss xml:lang="en">Annual count of days when PRCP ≥ 10mm</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Count" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/uri/range/10:inf:cfsn:lwe_thickness_of_precipitation_amount:mm:rn" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#R20mm">
+  <term:label xml:lang="en">R20mm</term:label>
+  <term:gloss xml:lang="en">Annual count of days when PRCP ≥ 20mm</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Count" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/uri/range/20:inf:cfsn:lwe_thickness_of_precipitation_amount:mm:rn" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#R30mm">
+  <term:label xml:lang="en">R30mm</term:label>
+  <term:gloss xml:lang="en">Annual count of days when PRCP ≥ 30mm</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Count" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/uri/range/30:inf:cfsn:lwe_thickness_of_precipitation_amount:mm:rn" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#CDD">
+  <term:label xml:lang="en">Maximum length of dry spell</term:label>
+  <term:gloss xml:lang="en">maximum number of consecutive days with daily precipitation amount  &lt; 1mm</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Duration" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/uri/range/0:1:cfsn:lwe_thickness_of_precipitation_amount:mm:rn" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#CWD">
+  <term:label xml:lang="en">Maximum length of wet spell</term:label>
+  <term:gloss xml:lang="en">maximum number of consecutive days with daily precipitation amount   ≥ 1mm</term:gloss>
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/uri/range/1:inf:cfsn:lwe_thickness_of_precipitation_amount:mm:rn" />
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Duration" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#R95pTOT">
+  <term:label xml:lang="en">R95pTOT</term:label>
+  <term:gloss xml:lang="en">Annual total PRCP when RR > 95 percentile based on 1961-1990</term:gloss>
+  <term:implies rdf:resource="http://marinemetadata.org/cf#lwe_thickness_of_precipitation_amount" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#precipitation_amount" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#R99pTOT">
+  <term:label xml:lang="en">R99pTOT</term:label>
+  <term:gloss xml:lang="en">Annual total PRCP when RR > 99 percentile based on 1961-1990</term:gloss>
+  <term:implies rdf:resource="http://marinemetadata.org/cf#lwe_thickness_of_precipitation_amount" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#precipitation_amount" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#PRCPTOT">
+  <term:label xml:lang="en">PRCPTOT</term:label>
+  <term:gloss xml:lang="en">Annual total PRCP in wet days</term:gloss>
+  <term:implies rdf:resource="http://marinemetadata.org/cf#lwe_thickness_of_precipitation_amount" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#precipitation_amount" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#ALTCDD">
+  <term:label xml:lang="en">Annual maximum length of dry spell</term:label>
+  <term:gloss xml:lang="en">Annual maximum number of consecutive days with less than 1 mm of precipitation</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Duration" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/uri/range/0:1:cfsn:lwe_thickness_of_precipitation_amount:mm:rn" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#ALTCDSI">
+  <term:label xml:lang="en">Cold spell duration index spanning years</term:label>
+  <term:gloss xml:lang="en">Count of days with at least 6 consecutive days when minimum temperature &lt; 10th percentile spanning years</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Count" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#ALTCWD">
+  <term:label xml:lang="en">Annual maximum length of wet spell</term:label>
+  <term:gloss xml:lang="en">Annual maximum number of consecutive days with daily precipitation amount   ≥ 1mm</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Duration" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/uri/range/1:inf:cfsn:lwe_thickness_of_precipitation_amount:mm:rn" />
+</iridl:Quantity>
+<iridl:Quantity rdf:about="#ALTWSDI">
+  <term:label xml:lang="en">Warm spell duration index spanning years</term:label>
+  <term:gloss xml:lang="en">Count of days with at least 6 consecutive days when maximum temperature &gt; 90th percentile spanning years</term:gloss>
+<term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#Count" />
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#AirTemperature" />
+</iridl:Quantity>
+<iridl:Project rdf:about="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#ETCCDI">
+  <term:gloss xml:lang="en">Expert Team on Climate Change Detection and Indices</term:gloss>
+  <rdfs:label xml:lang="en">ETCCDI</rdfs:label>
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#CLIVAR" />
+</iridl:Project>
+<iridl:Project rdf:about="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#CLIVAR">
+  <term:gloss xml:lang="en">Climate and Ocean: Variability, Predictability and Change</term:gloss>
+  <rdfs:label xml:lang="en">CLIVAR</rdfs:label>
+  <term:directlyImplies rdf:resource="http://iridl.ldeo.columbia.edu/ontologies/iridl.owl#WCRP" />
+</iridl:Project>
+<iridl:Institution rdf:about="&iridl;CSIRO">
+  <term:label>CSIRO</term:label>
+  <term:gloss xml:lang="en">Commonwealth Scientific and Industrial Research Organisation</term:gloss>
+  </iridl:Institution>
+<iridl:Model rdf:about="&iridl;ACCESS1-0">
+<term:label>ACCESS1-0</term:label>
+<term:implies rdf:resource="&iridl;CSIRO" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;ACCESS1-3">
+<term:label>ACCESS1-3</term:label>
+<term:implies rdf:resource="&iridl;CSIRO" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;bcc-csm1-1">
+<term:label>bcc-csm1-1</term:label>
+<term:directlyImplies rdf:resource="&iridl;bcc-csm" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;bcc-csm1-1-m">
+<term:label>bcc-csm1-1-m</term:label>
+<term:directlyImplies rdf:resource="&iridl;bcc-csm" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;bcc-csm">
+<term:label>bcc-csm</term:label>
+<term:gloss xml:lang="en">Beijing Climate Center Climate System Model</term:gloss>
+<term:implies rdf:resource="&iridl;BCC" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;BNU-ESM">
+<term:label>BNU-ESM</term:label>
+<term:implies rdf:resource="&iridl;GCESS" />
+</iridl:Model>
+<iridl:Institution rdf:about="&iridl;GCESS">
+  <term:label>GCESS</term:label>
+  <term:gloss xml:lang="en">College of Global Change and Earth System Science</term:gloss>
+<term:directlyImplies rdf:resource="&iridl;BNU" />
+  </iridl:Institution>
+<iridl:Institution rdf:about="&iridl;BNU">
+  <term:label>BNU</term:label>
+  <term:gloss xml:lang="en">Beijing Normal University</term:gloss>
+  </iridl:Institution>
+
+<iridl:Model rdf:about="&iridl;CanESM2">
+<term:label>CanESM2</term:label>
+<term:directlyImplies rdf:resource="&iridl;CanESM" />
+</iridl:Model>
+<rdf:Description rdf:about="&iridl;CanESM">
+<term:label>CanESM</term:label>
+<term:gloss xml:lang="en">Canadian Earth System Model</term:gloss>
+<rdf:type rdf:resource="&iridl;Model" />
+<term:implies rdf:resource="&iridl;CCCma" />
+</rdf:Description>
+<iridl:Model rdf:about="&iridl;CCSM4">
+<term:label>CCSM4</term:label>
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;CESM1-FASTCHEM">
+<term:label>CESM1-FASTCHEM</term:label>
+<term:directlyImplies rdf:resource="&iridl;CESM" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;CMCC-CESM">
+<term:label>CMCC-CESM</term:label>
+<term:directlyImplies rdf:resource="&iridl;CESM" />
+<term:implies rdf:resource="&iridl;CMCC" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;CESM">
+<term:label>CESM</term:label>
+<term:gloss>Community Earth System Model</term:gloss>
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;CMCC-CMS">
+<term:directlyImplies rdf:resource="&iridl;CMCC-CM" />
+<term:label>CMCC-CMS</term:label>
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;CMCC-CM">
+<term:label>CMCC-CM</term:label>
+<term:gloss xml:lang="en">CMCC Climate Model</term:gloss>
+<term:implies rdf:resource="&iridl;CMCC" />
+</iridl:Model>
+<iridl:Institution rdf:about="&iridl;CMCC">
+  <term:label>CMCC</term:label>
+  <term:gloss xml:lang="it">Centro Euro-Mediterraneo sui Cambiamenti Climatici</term:gloss>
+  </iridl:Institution>
+<iridl:Model rdf:about="&iridl;CNRM-CM5">
+<term:label>CNRM-CM5</term:label>
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;CSIRO-Mk3-6-0">
+<term:label>CSIRO-Mk3-6-0</term:label>
+<term:implies rdf:resource="&iridl;CSIRO" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;EC-EARTH">
+<term:label>EC-EARTH</term:label>
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;FGOALS-g2">
+<term:label>FGOALS-g2</term:label>
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;FGOALS-s2">
+<term:label>FGOALS-s2</term:label>
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;GFDL-CM3">
+<term:label>GFDL-CM3</term:label>
+<term:directlyImplies rdf:resource="&iridl;GFDLCM" />
+</iridl:Model>
+<rdf:Description rdf:about="&iridl;GFDL-ESM">
+<term:label>GFDL ESM</term:label>
+<term:gloss xml:lang="en">GFDL Earth System Model</term:gloss>
+<rdf:type rdf:resource="&iridl;Model" />
+<term:implies rdf:resource="&iridl;GFDL" />
+</rdf:Description>
+<iridl:Model rdf:about="&iridl;GFDL-ESM2G">
+<term:label>GFDL-ESM2G</term:label>
+<term:directlyImplies rdf:resource="&iridl;GFDL-ESM" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;GFDL-ESM2M">
+<term:label>GFDL-ESM2M</term:label>
+<term:directlyImplies rdf:resource="&iridl;GFDL-ESM" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;GISS-E2-R">
+<term:label>GISS-E2-R</term:label>
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;HadCM3">
+<term:label>HadCM3</term:label>
+<term:directlyImplies rdf:resource="&iridl;HadCM" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;HadCM">
+<term:implies rdf:resource="&iridl;HADLEY" />
+<term:label>HadCM</term:label>
+<term:gloss xml:lang="en">Hadley Center Climate Model</term:gloss>
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;HadGEM2-CC">
+<term:label>HadGEM2-CC</term:label>
+<term:directlyImplies rdf:resource="&iridl;HadGEM" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;HadGEM2-ES">
+<term:label>HadGEM2-ES</term:label>
+<term:directlyImplies rdf:resource="&iridl;HadGEM" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;HadGEM">
+<term:implies rdf:resource="&iridl;HADLEY" />
+<term:label>HadGEM</term:label>
+<term:gloss xml:lang="en">Hadley Center Coupled Climate Models</term:gloss>
+</iridl:Model>
+<iridl:Institution rdf:about="&iridl;INM">
+  <term:label>INM</term:label>
+  <term:gloss xml:lang="en">Institute for Numerical Mathematics</term:gloss>
+  </iridl:Institution>
+<iridl:Model rdf:about="&iridl;inmcm4">
+<term:label>INM-CM4</term:label>
+<term:implies rdf:resource="&iridl;INM" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;IPSL-CM5A-LR">
+<term:label>IPSL-CM5A-LR</term:label>
+<term:implies rdf:resource="&iridl;ICMC" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;IPSL-CM5A-MR">
+<term:label>IPSL-CM5A-MR</term:label>
+<term:implies rdf:resource="&iridl;ICMC" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;IPSL-CM5B-LR">
+<term:label>IPSL-CM5B-LR</term:label>
+<term:implies rdf:resource="&iridl;ICMC" />
+</iridl:Model>
+<iridl:Institution rdf:about="&iridl;IPSL">
+  <term:label>ISPL</term:label>
+  <term:gloss xml:lang="en">Institut Pierre Simon Laplace</term:gloss>
+  </iridl:Institution>
+<iridl:Institution rdf:about="&iridl;ICMC">
+  <term:label>ICMC</term:label>
+  <term:gloss xml:lang="en">IPSL Climate Modeling Centre</term:gloss>
+<term:directlyImplies rdf:resource="&iridl;IPSL" />
+  </iridl:Institution>
+<iridl:Model rdf:about="&iridl;MIROC-ESM">
+<term:label>MIROC-ESM</term:label>
+<term:implies rdf:resource="&iridl;JAMSTEC" />
+<term:implies rdf:resource="&iridl;AORI" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;MIROC-ESM-CHEM">
+<term:label>MIROC-ESM-CHEM</term:label>
+<term:implies rdf:resource="&iridl;JAMSTEC" />
+<term:implies rdf:resource="&iridl;AORI" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;MIROC4h">
+<term:implies rdf:resource="&iridl;JAMSTEC" />
+<term:implies rdf:resource="&iridl;AORI" />
+<term:label>MIROC4h</term:label>
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;MIROC5">
+<term:implies rdf:resource="&iridl;JAMSTEC" />
+<term:implies rdf:resource="&iridl;AORI" />
+<term:label>MIROC5</term:label>
+</iridl:Model>
+<iridl:Institution rdf:about="&iridl;AORI">
+<term:label>AORI</term:label>
+<term:gloss xml:lang="en">Atmosphere and Ocean Research Institute</term:gloss>
+<term:directlyImplies rdf:resource="&iridl;UTokyo" />
+</iridl:Institution>
+<iridl:Institution rdf:about="&iridl;UTokyo">
+<term:label>University of Tokyo</term:label>
+<term:gloss xml:lang="en">University of Tokyo</term:gloss>
+</iridl:Institution>
+<iridl:Model rdf:about="&iridl;MPI-ESM-LR">
+<term:label>MPI-ESM-LR</term:label>
+<term:directlyImplies rdf:resource="&iridl;MPI-ESM" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;MPI-ESM-MR">
+<term:label>MPI-ESM-MR</term:label>
+<term:directlyImplies rdf:resource="&iridl;MPI-ESM" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;MPI-ESM-P">
+<term:label>MPI-ESM-P</term:label>
+<term:directlyImplies rdf:resource="&iridl;MPI-ESM" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;MPI-ESM">
+<term:label>MPI ESM</term:label>
+<term:gloss xml:lang="en">MPI Earth System Model</term:gloss>
+<term:implies rdf:resource="&iridl;MPI_Met" />
+</iridl:Model>
+
+<iridl:Model rdf:about="&iridl;MRI-CGCM3">
+<term:label>MRI-CGCM3</term:label>
+<term:implies rdf:resource="&iridl;MRI" />
+</iridl:Model>
+<iridl:Institution rdf:about="&iridl;MRI">
+<term:label>MRI</term:label>
+<term:gloss xml:lang="en">Meteorological Research Institute</term:gloss>
+</iridl:Institution>
+<iridl:Model rdf:about="&iridl;NorESM1-M">
+<term:label>NorESM1-M</term:label>
+<term:implies rdf:resource="&iridl;NCC" />
+</iridl:Model>
+<iridl:Institution rdf:about="&iridl;NCC">
+<term:label>NCC</term:label>
+<term:gloss xml:lang="en">Norwegian Climate Centre</term:gloss>
+</iridl:Institution>
+<iridl:Model rdf:about="&iridl;ERA40">
+<term:label>ERA40</term:label>
+<term:implies rdf:resource="&iridl;ECMWF" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;ERAInterim">
+<term:label>ERAInterim</term:label>
+<term:implies rdf:resource="&iridl;ECMWF" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;NCEPREANALYSIS">
+<term:label>NCEPREANALYSIS</term:label>
+<term:implies rdf:resource="&iridl;NCEP" />
+</iridl:Model>
+<iridl:Model rdf:about="&iridl;NCEPREANALYSIS2">
+<term:label>NCEPREANALYSIS2</term:label>
+<term:implies rdf:resource="&iridl;NCEP" />
+</iridl:Model>
+</rdf:RDF>

@@ -1,0 +1,30 @@
+\begin{ingrid}
+ (/Data/data6/PAGASA/monthly/station/philmonthly.cuf) continuewithCUF
+
+continuedataset:
+/PAGASA datadownloadsareRestricted
+ grid:
+ /name (T) def
+ /defaultvalue { last } def
+ monthtime
+ 16 Jan 1949 ensotime
+ 1 
+ 16 Dec 2005 ensotime
+ :grid
+
+ variable:
+ /name (prcp) def
+ /long_name (precipitation) def
+ /units (mm/month) def
+ /missing_value -2.0 def
+ grids: T | STNID :grids
+ file:
+  direct
+ /name (/Data/data6/PAGASA/monthly/station/philmonthly.r4) def
+ :file
+ :variable
+
+lon /long_name (Longitude) def /scale_min 114.0 def /scale_max 132.0 def name exch def
+lat /long_name (Latitude) def /scale_min 3.0 def /scale_max 22.0 def name exch def
+:dataset
+\end{ingrid} 

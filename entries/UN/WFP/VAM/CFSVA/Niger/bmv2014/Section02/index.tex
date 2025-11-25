@@ -1,0 +1,441 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 21668
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 345
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Base_menage_vulnerabilite_2014.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Ménages) def
+/Q15 {
+mytable
+myquestion 
+30 VALUE
+ myquestion removeGRID
+/long_name (Sexe du chef de ménage) def 
+/units /ids def
+/CLIST [(Masculin)(Féminin)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q16 {
+mytable
+myquestion 
+31 VALUE
+ myquestion removeGRID
+/long_name (Age du chef de ménage) def 
+}defasvarsilent
+
+/Q17 {
+mytable
+myquestion 
+32 VALUE
+ myquestion removeGRID
+/long_name (Statut matrimonial du chef de ménage) def 
+/units /ids def
+/CLIST [(Marié(e) monogame)(Marié(e) polygame)(Divorcé(e))(Veuf/veuve)(Célibataire)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q18 {
+mytable
+myquestion 
+33 VALUE
+ myquestion removeGRID
+/long_name (La principale activité du chef de ménage) def 
+/units /ids def
+/CLIST [(Agriculture)(Elevage)(Commerce)(Artisanat)(Secteur public)(Secteur privé)("Travail journalier (maçon, taximen..)")(Bucheron)(Chasse/pêche)(Inactif)(Autres à préciser)] def
+/scale_min 1 def
+/scale_max 11 def
+}defasvarsilent
+
+/Q19 {
+mytable
+myquestion 
+34 VALUE
+ myquestion removeGRID
+/long_name (La principale source d'eau de boisson du ménage) def 
+/units /ids def
+/CLIST [(Robinet d'eau courante)(Forage)(Mini AEP)(Puits protégé)(Puits ouvert)("Eau surface (marigot, rivière...)")(Camion citerne)(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 8 def
+}defasvarsilent
+
+/Q20 {
+mytable
+myquestion 
+35 VALUE
+ myquestion removeGRID
+/long_name (Le principal type de toilette qu'utilise le ménage) def 
+/units /ids def
+/CLIST [(W.C moderne/toilette avec chasse d'eau)(Latrine améliorée)(Latrine traditionnelle)(Brousse (dans la nature))(Autre à préciser)] def
+/scale_min 1 def
+/scale_max 5 def
+}defasvarsilent
+
+/Q21A {
+mytable
+myquestion 
+36 VALUE
+ myquestion removeGRID
+/long_name (La principale source d'énergie pour la cuisson du ménage) def 
+/units /ids def
+/CLIST [(Bois de chauffe)(Charbon)(Gaz)(Electricité)(Rechaud à pétrole)(Bouses de vache)(Tiges de céréales)(Autre)] def
+/scale_min 1 def
+/scale_max 8 def
+}defasvarsilent
+
+/Q21B {
+mytable
+myquestion 
+37 VALUE
+ myquestion removeGRID
+/long_name (La principale source d'éclairage  pour votre  ménage) def 
+/units /ids def
+/CLIST [(Electricité)(Energie solaire)(Generateur)(Pétrole)(Gaz)(Lampe à pile)(Autre)] def
+/scale_min 1 def
+/scale_max 7 def
+}defasvarsilent
+
+/Q22 {
+mytable
+myquestion 
+38 VALUE
+ myquestion removeGRID
+/long_name (Le statut d'occupation du logement du ménage) def 
+/units /ids def
+/CLIST [(Propriétaire)(Locataire)(Occupe sans payer de location/logé gratuitement)(Autres)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q23 {
+mytable
+myquestion 
+39 VALUE
+ myquestion removeGRID
+/long_name (La nature principale du toit du logement du ménage) def 
+/units /ids def
+/CLIST [(Terre/Argile/Banco)(Paille)(Bois)(Tôle ou métal)(Ciment/béton)(Tuiles)(Peau)(Nattes)(Autres)(Briques cuites)(Terres/briques de terre)(Bois/Bambou)(Pierres)(Tôles en métal)(Paille)(Autres)] def
+/scale_min 1 def
+/scale_max 8 def
+}defasvarsilent
+
+/Q24 {
+mytable
+myquestion 
+40 VALUE
+ myquestion removeGRID
+/long_name (La nature principale des murs du logement du ménage) def 
+/units /ids def
+/CLIST [(Ciments/béton)] def
+/scale_min 1 def
+/scale_max 1 def
+}defasvarsilent
+
+/Q25B1 {
+mytable
+myquestion 
+41 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 1. Meubles: Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q25C1 {
+mytable
+myquestion 
+42 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 1. Meubles: Nombre) def 
+}defasvarsilent
+
+/Q25B2 {
+mytable
+myquestion 
+43 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 2. Bijoux de valeur (or, argent): Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q25C2 {
+mytable
+myquestion 
+44 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 2. Bijoux de valeur (or,argent): Nombre) def 
+}defasvarsilent
+
+/Q25B3 {
+mytable
+myquestion 
+45 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 3. Fer à repasser: Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q25C3 {
+mytable
+myquestion 
+46 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 3. Fer à repasser: Nombre) def 
+}defasvarsilent
+
+/Q25B4 {
+mytable
+myquestion 
+47 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 4. Machine à coudre: Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q25C4 {
+mytable
+myquestion 
+48 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 4. Machine à coudre: Nombre) def 
+}defasvarsilent
+
+/Q25B5 {
+mytable
+myquestion 
+49 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 5. Téléphone portable: Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q25C5 {
+mytable
+myquestion 
+50 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 5. Téléphone portable: Nombre) def 
+}defasvarsilent
+
+/Q25B6 {
+mytable
+myquestion 
+51 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 6. Appareil TV/Accessoires: Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q25C6 {
+mytable
+myquestion 
+52 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 6. Appareil TV/Accessoires : Nombre) def 
+}defasvarsilent
+
+/Q25B7 {
+mytable
+myquestion 
+53 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 7. Petit outillage agricole: Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q25C7 {
+mytable
+myquestion 
+54 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 7. Petit outillage agricole: Nombre) def 
+}defasvarsilent
+
+/Q25B8 {
+mytable
+myquestion 
+55 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 8. Cyclomoteur : Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q25C8 {
+mytable
+myquestion 
+56 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 8. Cyclomoteur: Nombre) def 
+}defasvarsilent
+
+/Q25B9 {
+mytable
+myquestion 
+57 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 9. Vélo: Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q25C9 {
+mytable
+myquestion 
+58 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 9. Vélo: Nombre) def 
+}defasvarsilent
+
+/Q25B10 {
+mytable
+myquestion 
+59 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 10. Charrette : Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q25C10 {
+mytable
+myquestion 
+60 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 10. Charrette: Nombre) def 
+}defasvarsilent
+
+/Q25B11 {
+mytable
+myquestion 
+61 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 11. Motopompe: Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q25C11 {
+mytable
+myquestion 
+62 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 11. Motopompe: Nombre) def 
+}defasvarsilent
+
+/Q25B12 {
+mytable
+myquestion 
+63 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 12. Voiture: Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q25C12 {
+mytable
+myquestion 
+64 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 12. Voiture: Nombre) def 
+}defasvarsilent
+
+/Q25B13 {
+mytable
+myquestion 
+65 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 13. Unité de culture attelée: Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q25C13 {
+mytable
+myquestion 
+66 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 13. Unité de culture attelée: Nombre) def 
+}defasvarsilent
+
+/Q25B14 {
+mytable
+myquestion 
+67 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 14. Autres: Oui/Non) def 
+/units /ids def
+/CLIST [(Oui)(Non)] def
+/scale_min 1 def
+/scale_max 2 def
+}defasvarsilent
+
+/Q25C14 {
+mytable
+myquestion 
+68 VALUE
+ myquestion removeGRID
+/long_name (Biens du ménage: 14. Autres: Nombre) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

@@ -1,0 +1,302 @@
+\begin{ingrid}
+continuedataset:
+/description (Data for a single level or integrated over the full depth of the atmosphere) def
+link:
+/name (20th Century Reanalysis) def
+/href (http://www.cdc.noaa.gov/data/gridded/data.20thC_Rean.html) def
+/description (ESRL Documentation for Twentieth Century Reanalysis (V1) dataset) def
+:link
+
+dataset:
+/name (analysis) def
+
+/air_sig995 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/air.sig995.mon.mean.nc) readfile .air
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/air_tropo 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/air.tropo.mon.mean.nc) readfile .air
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/cape 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/cape.mon.mean.nc) readfile .cape
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/cin 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/cin.mon.mean.nc) readfile .cin
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/cldwtr 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/cldwtr.eatm.mon.mean.nc) readfile .cldwtr
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/hgt 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/hgt.tropo.mon.mean.nc) readfile .hgt
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/omega 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/omega.sig995.mon.mean.nc) readfile .omega
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/pottmp 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/pottmp.sig995.mon.mean.nc) readfile .pottmp
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/pres_sfc 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/pres.sfc.mon.mean.nc) readfile .pres
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/pres_tropo
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/pres.tropo.mon.mean.nc) readfile .pres
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/prmsl
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/prmsl.mon.mean.nc) readfile .prmsl
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/pr_wtr
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/pr_wtr.eatm.mon.mean.nc) readfile .pr_wtr
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/rhum
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/rhum.sig995.mon.mean.nc) readfile .rhum
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/tco3
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/tco3.eatm.mon.mean.nc) readfile .tco3
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/uwnd_sig995
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/uwnd.sig995.mon.mean.nc) readfile .uwnd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/uwnd_tropo
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/uwnd.tropo.mon.mean.nc) readfile .uwnd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/vwnd_sig995
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/vwnd.sig995.mon.mean.nc) readfile .vwnd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/vwnd_tropo
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/vwnd.tropo.mon.mean.nc) readfile .vwnd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/wspd_sig995
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/wspd.sig995.mon.mean.nc) readfile .wspd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/wspd_tropo
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel/wspd.tropo.mon.mean.nc) readfile .wspd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+:dataset
+
+dataset:
+/name (spread) def
+
+/air_sig995 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/air.sig995.mon.mean.nc) readfile .air
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/air_tropo 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/air.tropo.mon.mean.nc) readfile .air
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/cape 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/cape.mon.mean.nc) readfile .cape
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/cin 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/cin.mon.mean.nc) readfile .cin
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/cldwtr 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/cldwtr.eatm.mon.mean.nc) readfile .cldwtr
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/hgt 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/hgt.tropo.mon.mean.nc) readfile .hgt
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/omega 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/omega.sig995.mon.mean.nc) readfile .omega
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/pottmp 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/pottmp.sig995.mon.mean.nc) readfile .pottmp
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/pres_sfc 
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/pres.sfc.mon.mean.nc) readfile .pres
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/pres_tropo
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/pres.tropo.mon.mean.nc) readfile .pres
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/prmsl
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/prmsl.mon.mean.nc) readfile .prmsl
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/pr_wtr
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/pr_wtr.eatm.mon.mean.nc) readfile .pr_wtr
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/rhum
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/rhum.sig995.mon.mean.nc) readfile .rhum
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/tco3
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/tco3.eatm.mon.mean.nc) readfile .tco3
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/uwnd_sig995
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/uwnd.sig995.mon.mean.nc) readfile .uwnd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/uwnd_tropo
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/uwnd.tropo.mon.mean.nc) readfile .uwnd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/vwnd_sig995
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/vwnd.sig995.mon.mean.nc) readfile .vwnd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/vwnd_tropo
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/vwnd.tropo.mon.mean.nc) readfile .vwnd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/wspd_sig995
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/wspd.sig995.mon.mean.nc) readfile .wspd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+/wspd_tropo
+{
+(/Data/data21/noaa/esrl/psd/rean20thcent/version1/monthly/monolevel_sprd/wspd.tropo.mon.mean.nc) readfile .wspd
+  time /monthtime streamgridunitconvert
+  time 0.5 shiftGRID
+ time /T renameGRID} defasvarsilent
+
+:dataset
+
+:dataset
+\end{ingrid}
+

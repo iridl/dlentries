@@ -1,0 +1,45 @@
+\begin{ingrid}
+/long_name (CIESIN Products) def
+/description (CIESIN Products for the Precipitation Forecast in Context Map Tool) def
+/iridl:hasSemantics (iridl:CIESIN) def
+/CIESIN datadownloadsareIRIonlyPassword
+continuedataset:
+
+dataset:
+ /name (GPWv3) def
+ /long_name (Gridded Population of the World, Version 3) def
+
+/count { SOURCES .CIESIN .GPWv3 .grid2p5arcmin .adjusted .count
+ T (2005) VALUE /long_name (U.N.-Adjusted Population Count Projected for 2005) def
+ X -180.0 180.0 RANGEEDGES
+ Y -65.0 75.0 RANGE
+} defasvarsilent
+
+:dataset
+
+dataset:
+ /name (Poverty) def
+ /long_name (Global Distribution of Poverty) def
+
+/imr { SOURCES .CIESIN .Poverty .global .beta .grid0p25deg .infantmortality .imr 
+ /long_name (Infant Mortality Rate, Year 2000) def
+ X -180.0 180.0 RANGEEDGES
+ Y -65.0 75.0 RANGE
+ startcolormap
+ DATA 0 2000 RANGE
+ white white 255 255 128 RGB 0. VALUE
+ 255 255 128 RGB RGBdup 90. bandmax
+ 252 228 104 RGB RGBdup 250. bandmax
+ 250 205 80 RGB RGBdup 500. bandmax
+ 245 179 56 RGB RGBdup 750. bandmax
+ 224 144 38 RGB RGBdup 1000. bandmax
+ 181 94 24 RGB RGBdup 1250. bandmax
+ 145 51 10 RGB RGBdup 1500. bandmax
+ 107 0 0 RGB RGBdup 2000. bandmax
+ 107 0 0 RGB
+ endcolormap
+} defasvarsilent
+:dataset
+
+:dataset
+\end{ingrid}

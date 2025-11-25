@@ -1,0 +1,25 @@
+\begin{ingrid}
+continuedataset:
+
+%/description (Beijing Climate Center (BCC) Climate Prediction System version 1 for S2S) def
+/description (Beijing Climate Center (BCC) Climate Prediction System for S2S) def
+
+datasetdefs:
+/forecast { BCC-CPS-S2Sv1 .forecast } def
+/reforecast { BCC-CPS-S2Sv1 .reforecast } def
+:datasetdefs
+/BCC-CPS-S2Sv1 currentobject /BCC-CPS-S2Sv1 get def
+/BCC-CPS-S2Sv2 currentobject /BCC-CPS-S2Sv2 get def
+
+link:
+/name (dataset_documentation) def
+/description (CMA Model Information) def
+/href (https://confluence.ecmwf.int/display/S2S/CMA+Model) def
+:link
+
+%/note (Beijing Climate Center (BCC) Climate Prediction System version 1 for S2S is based on lagged average forecasting (LAF) method using a fully-coupled BCC Climate System Model BCC-CSM1.2. The S2S Forecasts are running on every day since 1 Jan 1994 and end with a 60-day integration. Each forecast consists of 4 LAF ensemble members, which are initialized at 00 UTC of the first forecast day and 18, 12 and 06 UTC of the previous day, respectively.) def
+
+%/ensemble_id_code (BCC-CPS-S2Sv1) def
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,36 @@
+\begin{ingrid}
+/BC insertdataset:
+/long_name (Boundary Conditions) def
+/description (Sea surface temperature boundary conditions from the Atmospheric Model Intercomparison Project) def
+grid:
+/name /X def
+degE
+periodic
+-177.5 5 177.5 
+:grid
+grid:
+/name /Y def
+degN
+-90 to 90 N= 46 pts
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1979 ensotime 
+1. 16 Dec 1988 ensotime
+:grid
+variable:
+/name /sst def
+/long_name (sea surface temperature) def
+/history dataset >history def
+/units /Celsius def
+grids: X Y | T :grids
+file:
+/name (/Data/data1/amip/AMIPSST.4X5.S4) def
+sequential
+%/nskp 2 def
+:file
+:variable
+:insertdataset
+
+\end{ingrid}

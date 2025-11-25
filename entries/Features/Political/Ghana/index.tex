@@ -1,0 +1,51 @@
+\begin{ingrid}
+
+continuedataset:
+
+dataset:
+/name (Districts) def
+
+/adm2_name{
+ SOURCES .Features .Political .World .secondOrder_GAUL .adm2_name
+  gid 6231 6446 RANGE
+}defasvar
+
+/the_geom{
+ SOURCES .Features .Political .World .secondOrder_GAUL .the_geom
+  gid 6231 6446 RANGE
+}defasvar
+
+/label{
+ SOURCES .Features .Political .World .secondOrder_GAUL .label
+  gid 6231 6446 RANGE
+}defasvar
+
+:dataset
+
+dataset:
+
+/name (Regions) def
+
+/adm1_name{
+ SOURCES .Features .Political .World .firstOrder_GAUL .adm1_name
+  gid 688 697 RANGE
+}defasvar
+
+/the_geom{
+ SOURCES .Features .Political .World .firstOrder_GAUL .the_geom
+  gid 688 697 RANGE
+}defasvar
+
+/label{
+ SOURCES .Features .Political .World .firstOrder_GAUL .label
+  gid 688 697 RANGE
+}defasvar
+
+:dataset
+
+:dataset
+% make the gid grid available to maprooms
+Districts adm2_name .gid name exch put
+Regions adm1_name .gid name exch put
+
+\end{ingrid}

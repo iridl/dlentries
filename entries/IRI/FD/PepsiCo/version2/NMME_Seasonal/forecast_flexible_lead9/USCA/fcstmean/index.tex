@@ -1,0 +1,96 @@
+\begin{ingrid}
+
+continuedataset:
+
+/PepsiCo datadownloadsareRestricted
+/Cookie varies_on
+
+/description (Forecast Ensemble Mean for NMME USCA long lead 9 seasonal forecasts) def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+
+   215.0 360.0 sub 1.0 315.0 360.0 sub
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+15.0 1 60.0
+:grid
+
+grid:
+/name /L def
+/long_name (Lead Time) def
+/units /months def
+1 1 9
+:grid
+
+grid:
+/name /modl def
+/long_name (Models) def
+1 1 6
+:grid
+
+grid:
+/name (S) def
+monthtime
+/fullname (Month Forecast Issued) def
+/defaultvalue { last } def
+/pointwidth 1 def
+16 Oct 2021 ensotime
+1.0
+16 systemtime (%b %Y) 10 strftime interp ensotime
+/netcdfgrid true def
+:grid
+
+S { (/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_year/forecast_mean_tref_%b%Y[S]_lead9_3models_USCA.nc) [S] } removeextrausing
+
+/expires
+last_modified systemtime2ymd ymd:nextmonth
+pop 14 ymd2systemtime
+def
+/defaultvalue last def
+name exch def
+/expires S .expires def
+/last_modified S .last_modified def
+
+/target_date {S L
+	add 1 add /long_name (forecast time) def /bounds undef /pointwidth 3 def /standard_name (time) def } defasvar
+
+/precip {
+[ X Y modl L | S ]
+(/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_year/forecast_mean_precip_%b%Y[S]_lead9_3models_USCA.nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+/missing_value NaN def
+/long_name (Ensemble Mean Precipitation) def
+/units (mm/month) def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+/tref {
+[ X Y modl L | S (0000 1 Oct 2021) last subgrid ]
+(/Data/data21/iri/FD/PepsiCo/NMME_seasonal_flexible_forecast_year/forecast_mean_tref_%b%Y[S]_lead9_3models_USCA.nc) [S]
+readdatafile:
+/name (coeff) def
+/doublearraytype netcdfrecords
+:readdatafile
+S  (0000 1 Oct 2021) last RANGE
+/missing_value NaN def
+/long_name (Ensemble Mean Temperature) def
+/units /Celsius_scale def
+temp_colors
+/scale_symmetric false def
+DATA AUTO AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,60 @@
+<html><head>
+    <title>TOGA-TAO Quarterly SST and winds</title>
+</head>
+<INGRID>standardHeader</INGRID>
+<h1>TOGA-TAO Quarterly SST and winds</h1>
+Wind vectors and sea surface temperatures (SSTs) from the TOGA-TAO
+    array of current meter moorings and ATLAS thermistor chain
+    moorings.  Both quarterly means and quarterly anomalies are given.
+<p>
+The data are <a
+      href="http://ingrid.ldgo.columbia.edu/SOURCES/.IGOSS/.TOGA-TAO.cdf/">here</a>.
+<p>
+<h2>Anomalies</h2>
+    The anomalies are calculated from the
+    COADS wind climatology and the <a
+      href="reynoldsclimo.html">Reynolds and Smith 1994 AOI SST</a> climatology.
+<p>
+First, an anomaly field is computed on the array
+grid by subtracting climatological averages from 
+the quarterly means after bilinearly interpolating
+the climatology field in latitude and longitude 
+to the array grid. 
+
+Second, the anomalies are linearly interpolated, 
+first in latitude, and then in longitude, to a 1 
+deg by 1 deg grid. 
+
+Third, the interpolated anomaly field is smoothed
+by passing a gappy running mean filter over the 
+data twice, which approximates a Hanning filter by
+a triangle, first in the zonal direction, and then
+in the meridional direction. Triangle filter widths
+are 21 deg in the zonal direction, and 5 deg in the
+meridional direction.
+<p>
+Finally, this gridded and smoothed anomaly field 
+is added to the climatology to produce the gridded
+quarterly mean field, after bilinearly interpolating
+the original climatology to the 1 deg by 1 deg 
+grid. 
+<p>
+This gridding method was developed by Dr. William S. Kessler, 
+Dr. Michael J. McPhaden, and Dai McClurg, all at PMEL/NOAA.
+
+<h2>TOGA-TAO Array Support</h2>
+The TOGA-TAO array is presently supported by the United States (NOAA
+    office of Global Programs, EPOCS), France (ORSTOM), Japan (STA),
+    Korea (STA), and Taiwan (NSC).  Further information is available
+    from Michael J. McPhaden (NOAA/PMEL).
+<p>
+<address>
+Michael J. McPhaden
+<br>NOAA/PMEL
+<br>7600 Sand Point Way
+<br>Seattle, Washington 98115 
+<br>USA
+<p>Omnet:  M.McPhaden
+<br>e-mail:  mcphaden@noaa.pmel.gov
+</address>
+</body></html>

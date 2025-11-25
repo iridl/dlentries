@@ -1,0 +1,264 @@
+\begin{ingrid}
+  continuedataset:
+
+50.0 /percentile parameter
+pop
+
+Ingrid:
+
+/prob_percentile_exc_rain {
+startcolormap DATA 0 1 RANGE transparent black RGBdup 0 VALUE brown /percentile get_parameter 100. div -1. mul 1. add /probref parameter 0.05 sub 3. div VALUE orange /probref get_parameter 0.05 sub 3. div 2. mul VALUE yellow /probref get_parameter 0.05 sub VALUE moccasin RGBdup /probref get_parameter 0.05 add bandmax LimeGreen /probref get_parameter 0.05 add 0.005 add VALUE turquoise /probref get_parameter 0.05 add 2. mul 1. add 3. div VALUE blue /probref get_parameter 0.05 add 2. add 3. div VALUE purple 1 VALUE purple endcolormap
+}defcolorscale
+
+/prob_percentile_nonexc_rain {
+startcolormap DATA 0 1 RANGE transparent purple RGBdup 0 VALUE blue /percentile get_parameter 100. div /probref parameter 0.05 sub 3. div VALUE turquoise /probref get_parameter 0.05 sub 3. div 2. mul VALUE LimeGreen /probref get_parameter 0.05 sub VALUE moccasin RGBdup /probref get_parameter 0.05 add bandmax yellow /probref get_parameter 0.05 add 0.005 add VALUE orange /probref get_parameter 0.05 add 2. mul 1. add 3. div VALUE brown /probref get_parameter 0.05 add 2. add 3. div VALUE black 1 VALUE black endcolormap
+}defcolorscale
+
+pop
+  
+  dataset:
+  /name /History def
+  /description (Predictand, Hindcast and Skill) def
+
+    grid:
+      /name /X def
+      /units /degree_east def
+      /long_name (Longitude) def
+      28.25 to 44.75 N= 34 pts
+    :grid
+    grid:
+      /name /Y def
+      /units /degree_north def
+      /long_name (Latitude) def
+      -11.75 to 15.75 N= 56 pts
+    :grid
+    grid:
+      /name /L def
+      /units /months def
+      /long_name (Forecast Lead Time in Months) def
+      2.5 1 5.5
+    :grid
+    
+    grid:
+      /name /S def
+      monthtime
+      /defaultvalue { last } def
+      /long_name (Hindcast Issue Date) def
+      /pointwidth 0 def
+        1 Jan 1982 ensotime
+        1.  
+        1 Dec 2007 ensotime
+    :grid
+
+/hindcast_date {S L add /long_name (hindcast time) def /pointwidth 3 def} defasvar
+
+    /PearsonR {
+      [ X Y last first subgrid | S 12 splitgrid pop L ]
+      (/Data/data1/iri/modelling/awr/SCIPEA/GHArolling/GPCC/PearsonR_Start%-m[S]_Lead%d[L].txt) [S 12 splitgrid pop L 1.5 sub]
+      readdatafile: 
+        [4 1] r*4astsv 
+      :readdatafile
+       Y last first RANGE
+        /long_name (Pearson correlation skill values) def
+        /units /unitless def
+        /missing_value -999. def
+        correlationcolorscale
+DATA -1 1 RANGE
+    }defasvarsilent
+    
+    /CrossValHind {
+      [ X Y last first subgrid S 12 splitgrid nip | S 12 splitgrid pop L ]
+      (/Data/data1/iri/modelling/awr/SCIPEA/GHArolling/GPCC/CrossValPred_Start%-m[S]_Lead%d[L].txt) [S 12 splitgrid pop L 1.5 sub]
+      readdatafile:
+        [2 1 3] r*4astsv
+      :readdatafile
+       Y last first RANGE
+        /long_name (cross-validated hindcasts) def
+        /units (mm/day) def
+        /missing_value -999. def
+          [S S2]REORDER
+  CopyStream
+  S unsplitstreamgrid
+  S
+   /pointwidth 0. def
+   12 shiftGRID
+        precip_colors
+DATA 0 AUTO RANGE
+    }defasvarsilent
+
+    /InputObs {
+      [ X Y last first subgrid S 12 splitgrid nip | S 12 splitgrid pop L ]
+      (/Data/data1/iri/modelling/awr/SCIPEA/GHArolling/GPCC/YinputData_Start%-m[S]_Lead%d[L].txt) [S 12 splitgrid pop L 1.5 sub]
+      readdatafile:
+        [2 1 3] r*4astsv
+      :readdatafile
+       Y last first RANGE
+        /long_name (input observations) def
+        /units (mm/day) def
+        /missing_value -999. def
+          [S S2]REORDER
+  CopyStream
+  S unsplitstreamgrid
+  S
+   /pointwidth 0. def
+   12 shiftGRID
+        precip_colors
+DATA 0 AUTO RANGE
+    }defasvarsilent
+
+/hindcast_length {
+hindcast_date .S
+   units /T exch
+     gridtype first
+       0.5 add
+       1 last
+         5.5 add
+         1.0 add
+         NewEvenGRID
+    nip c: 1 :c
+    /name /target_length def
+    exch
+    0 mul
+    add
+   T (days since 1960-01-01) streamgridunitconvert
+   T differential_mul
+   T (months since 1960-01-01) streamgridunitconvert
+   T differential_div
+   /units /days def
+   T 3 runningAverage
+   3. mul
+   hindcast_date T sample-along
+/long_name (Length of hindcast time) def
+}defasvar
+    
+	:dataset
+	
+	dataset:
+	/name /Forecast def
+	/description (Forecast and Error) def
+
+    grid:
+      /name /X def
+      /units /degree_east def
+      /long_name (Longitude) def
+      28.25 to 44.75 N= 34 pts
+    :grid
+    grid:
+      /name /Y def
+      /units /degree_north def
+      /long_name (Latitude) def
+      -11.75 to 15.75 N= 56 pts
+    :grid
+    grid:
+      /name /L def
+      /units /months def
+      /long_name (Forecast Lead Time in Months) def
+      2.5 1 5.5
+    :grid
+    
+    grid:
+      /name /S def
+      monthtime
+      /long_name (Forecast Issue Date) def
+      /standard_name (forecast_reference_time) def
+      /defaultvalue { last } def
+      /pointwidth 0 def
+      values:
+        1 Dec 2015 ensotime
+        1.
+        systemtime
+        systemtime2ymd
+        ymd:lastmonth
+        ymd:nextmonth 15 add
+        ymd2rm1960
+        {} for
+      :values
+      /expires
+        systemtime
+        last_modified sub
+        86400 lt {
+          null
+        }{
+          last_modified
+          systemtime2ymd pop dup 12 lt {
+            1 add
+          }{
+            pop 1 add 1
+          }ifelse
+          9 ymd2systemtime
+        }ifelse
+      def
+    :grid
+S { (/Data/data1/iri/modelling/awr/SCIPEA/GHArolling/GPCC/Forecasts_%Y_Start%-m[S]_Lead1.txt) [S] } removeextrausing
+   name exch def
+
+    /target_date {S L add /long_name (forecast time) def /pointwidth 3 def} defasvar
+
+    /Forecast {
+      [ X Y last first subgrid | S L ]
+      (/Data/data1/iri/modelling/awr/SCIPEA/GHArolling/GPCC/Forecasts_%Y_Start%-m[S]_Lead%d[L].txt) [S L 1.5 sub]
+      readdatafile:
+        [5 1] r*4astsv
+      :readdatafile
+       Y last first RANGE
+        /missing_value -999. def
+        /units (mm/day) def
+target_length mul
+        /long_name (forecast) def
+startcolormap
+DATA 0 1000 RANGE
+transparent gray gray 0 VALUE
+gray gray 10 bandmax
+orange orange 50 bandmax
+yellow yellow 100 bandmax
+202 255 112 RGB RGBdup 200 bandmax
+162 205 90 RGB RGBdup 300 bandmax
+102 205 0 RGB RGBdup 500 bandmax
+ForestGreen ForestGreen 1000 bandmax
+DarkGreen
+endcolormap
+    }defasvarsilent
+    
+    /PredErrorVars {
+      [ X Y last first subgrid | S L ]
+      (/Data/data1/iri/modelling/awr/SCIPEA/GHArolling/GPCC/PredErrorVars_%Y_Start%-m[S]_Lead%d[L].txt) [S L 1.5 sub]
+      readdatafile:
+        [5 1] r*4astsv
+      :readdatafile
+       Y last first RANGE
+        /missing_value -999. def
+      /long_name (prediction error variance) def
+      /units (mm2/day2) def
+        rainbowcolorscale
+DATA 0 AUTO RANGE
+    }defasvarsilent
+
+/target_length {
+target_date .S
+   units /T exch
+     gridtype first
+       0.5 add
+       1 last
+         5.5 add
+         1.0 add
+         NewEvenGRID
+    nip c: 1 :c
+    /name /target_length def
+    exch
+    0 mul
+    add
+   T (days since 1960-01-01) streamgridunitconvert
+   T differential_mul
+   T (months since 1960-01-01) streamgridunitconvert
+   T differential_div
+   /units /days def
+   T 3 runningAverage
+   3. mul
+   target_date T sample-along
+/long_name (Length of forecast time) def
+}defasvar
+    
+    :dataset
+
+  :dataset
+\end{ingrid}

@@ -1,0 +1,93 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /sp def
+1 1 1722
+:grid
+grid:
+/name /M def
+/units (integer) def
+1 1 13
+:grid
+grid:
+/name /T def
+/units /monthtime def
+16 Feb 1950 ensotime
+1
+16 Feb 1995 ensotime
+:grid
+grid: 
+/name /Z def
+/long_name (sigma) def
+/units /unitless def
+values:
+ 0.9949970      0.9814912      0.9604806      0.9204022      0.8563147    
+   0.7772232      0.6881258      0.5935376      0.4974482      0.4248248    
+   0.3748014      0.3247708      0.2747290      0.2246685      0.1745731    
+   0.1244001      7.3985934E-02  2.0747587E-02
+  :values
+:grid
+%integralgrid for Z
+%   1.000000      0.9899999      0.9730000      0.9480000      0.8929999    
+%   0.8200000      0.7350000      0.6420000      0.5459999      0.4500000    
+%   0.4000000      0.3500000      0.3000000      0.2500000      0.2000000    
+%   0.1500000      9.9999964E-02  4.9999997E-02  0.0000000E+00
+file:
+grids: sp | /NVZ 74 NewIntegerGRID M T :grids
+/cNVZ 0 def
+/name (/Data/data7/noaa/ncep/b9x/sig/b9x%d2/sig.r4) def
+ibmdirect
+/filecnt0 1 def
+M setfilenamegrid
+1 Zvariable:
+/name /topo def
+/long_name (topography) def
+:Zvariable
+1 Zvariable:
+/name /lnpres def
+/long_name (log of surface pressure) def
+:Zvariable
+18 Zvariable:
+/name /temp def
+/long_name (temperature) def
+:Zvariable
+18 Zvariable:
+/name /Div def
+/long_name (divergence) def
+:Zvariable
+18 Zvariable:
+/name /vort def
+/long_name (vorticity) def
+:Zvariable
+18 Zvariable:
+/name /hum def
+/long_name (humidity) def
+:Zvariable
+:file
+/psi { vort invlaplacian
+/long_name (streamfunction) def
+} defasvar
+/chi { Div invlaplacian 
+/long_name (velocity potential) def
+} defasvar
+/u { 
+psi partialnorth 
+chi partialeast
+matchtruncation exch sub
+/long_name (zonal velocity) def
+%994173937 set_code_last_modified
+/last_modified last_modified 1024932578 imax def
+} defasvar
+/v { 
+chi partialnorth
+psi partialeast
+matchtruncation add
+/long_name (meridional velocity) def
+} defasvar
+/P {
+dataset .Diagnostic .pss
+Z mul
+/long_name (pressure) def
+} defasvar
+:dataset
+\end{ingrid}

@@ -1,0 +1,194 @@
+\begin{ingrid}
+
+continuedataset:
+
+  grid:
+  /name /hh def
+  /long_name (Households) def
+  1 1 21668
+  :grid
+
+  datasetdefs:
+
+  grid:
+  /name /myquestion def
+  1 1 345
+  :grid
+
+  /mytable {
+  [myquestion hh | ]
+  (/Data/data6/WFP/Niger/Base_menage_vulnerabilite_2014.dat)
+readdatafile:
+  [1 0] r*4astsv
+  :readdatafile
+  /missing_value -999 def
+  }defasvarsilent
+
+  :datasetdefs
+
+/description (Questionnaire) def
+
+/Q01 {
+mytable
+myquestion 
+1 VALUE
+ myquestion removeGRID
+/long_name (Région) def 
+/units /ids def
+/CLIST [(Agadez)(Diffa)(Dosso)(Maradi)(Tahoua)(Tillabéry)(Zinder)(Niamey)] def
+/scale_min 1 def
+/scale_max 8 def
+}defasvarsilent
+
+/DEP {
+mytable
+myquestion 
+2 VALUE
+ myquestion removeGRID
+/long_name (Departement) def 
+}defasvarsilent
+
+/Q02 {
+mytable
+myquestion 
+3 VALUE
+ myquestion removeGRID
+/long_name (Q02) def 
+}defasvarsilent
+
+/Q03 {
+mytable
+myquestion 
+4 VALUE
+ myquestion removeGRID
+/long_name (Commune) def 
+}defasvarsilent
+
+/Q04 {
+mytable
+myquestion 
+5 VALUE
+ myquestion removeGRID
+/long_name (Numéro de la grappe) def 
+}defasvarsilent
+
+/Q07 {
+mytable
+myquestion 
+6 VALUE
+ myquestion removeGRID
+/long_name (Numéro du ménage) def 
+}defasvarsilent
+
+/PONDMEN {
+mytable
+myquestion 
+7 VALUE
+ myquestion removeGRID
+/long_name (Ponderation menage) def 
+}defasvarsilent
+
+/PONDIND {
+mytable
+myquestion 
+8 VALUE
+ myquestion removeGRID
+/long_name (Ponderation individu) def 
+}defasvarsilent
+
+/ISA {
+mytable
+myquestion 
+9 VALUE
+ myquestion removeGRID
+/long_name (Classe insécurité alimentaire) def 
+/units /ids def
+/CLIST [(Sévère)(Modérée)(A risque)(En sécurité)] def
+/scale_min 1 def
+/scale_max 4 def
+}defasvarsilent
+
+/Q05 {
+mytable
+myquestion 
+10 VALUE
+ myquestion removeGRID
+/long_name (Numéro de la ZD) def 
+}defasvarsilent
+
+/Q9 {
+mytable
+myquestion 
+11 VALUE
+ myquestion removeGRID
+/long_name (Code enquêteur) def 
+}defasvarsilent
+
+/Q10 {
+mytable
+myquestion 
+12 VALUE
+ myquestion removeGRID
+/long_name (Code chef d'équipe) def 
+}defasvarsilent
+
+/Q11J {
+mytable
+myquestion 
+13 VALUE
+ myquestion removeGRID
+/long_name (Jour de passage) def 
+}defasvarsilent
+
+/Q11M {
+mytable
+myquestion 
+14 VALUE
+ myquestion removeGRID
+/long_name (Mois de passage) def 
+}defasvarsilent
+
+/Q11A {
+mytable
+myquestion 
+15 VALUE
+ myquestion removeGRID
+/long_name (Année de passage) def 
+}defasvarsilent
+
+/taille {
+mytable
+myquestion 
+16 VALUE
+ myquestion removeGRID
+/long_name (Taille du ménage) def 
+}defasvarsilent
+
+/Q13B {
+mytable
+myquestion 
+17 VALUE
+ myquestion removeGRID
+/long_name (Nombre d'enfants de moins de 5 ans) def 
+}defasvarsilent
+
+/Q13C {
+mytable
+myquestion 
+18 VALUE
+ myquestion removeGRID
+/long_name (Nombre d'enfants de 6 à 23 mois) def 
+}defasvarsilent
+
+/Q13D {
+mytable
+myquestion 
+19 VALUE
+ myquestion removeGRID
+/long_name (Nombre total des membres actifs dans le ménage) def 
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}
+

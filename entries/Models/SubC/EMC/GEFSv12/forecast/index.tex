@@ -1,0 +1,439 @@
+\begin{ingrid}
+continuedataset:
+
+link:
+/name (GEFS_Notes) def
+/description (GEFS Notes PDF Document) def
+/href (ftp://ftp.emc.ncep.noaa.gov/gc_wmb/esinsky/GEFS_SubX/Notes_SubX_GEFS.pdf) def
+:link
+
+grid:
+/name (X) def
+/units (degree_east) def
+periodic
+ 0.0 1.0 359.0
+:grid
+
+grid:
+/name (Y) def
+/units (degree_north) def
+90.0 1.0 -90.0
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (days) def
+ 0.5 1.0 34.5
+/pointwidth 0.0 def
+:grid
+
+grid:
+/name (M) def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units (ids) def
+0 1 30
+:grid
+
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 850 500 200 100 50 30 10 :values
+:grid
+
+grid:
+/name (S) def
+/long_name (Start Time) def
+/standard_name (forecast_reference_time) def
+30 Sep 2020 julian_day 01 Jan 1960 julian_day sub
+1.0
+1 Jul 2022 julian_day 01 Jan 1960 julian_day sub
+/units (days since 1960-01-01) def
+/defaultvalue { last } def
+/pointwidth 0. def
+:grid
+
+/cape { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/cape_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX00010706) GRIBvariable
+/name (cape) def
+:readdatafile
+/long_name (Convective Available Potential Energy) def
+/standard_name (atmosphere_convective_available_potential_energy) def
+/units (J/kg) cvn def
+/level_type (180-0 mb above ground) def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/dlwrf { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/dlwrf_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+1 GRIB2record
+%(04XXXX000105C0) GRIBvariable
+%(040000000105C004006B0000000200000003010000000000FF0000000000030114) GRIBvariable
+/name (dlwrf) def
+:readdatafile
+/long_name (Surface Downward Long-Wave Radiation Flux) def
+/standard_name (surface_downwelling_longwave_flux_in_air) def
+/level_type (surface) def
+/units (W/m2) cvn def
+/missing_value 9.999000E+20 def
+decompress
+} defasvarsilent
+
+/dswrf { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/dswrf_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+1 GRIB2record
+%(04XXXX000104C0) GRIBvariable
+/name (dswrf) def
+:readdatafile
+/long_name (Surface Downward Short-Wave Radiation Flux) def
+/standard_name (surface_downwelling_shortwave_flux_in_air) def
+/level_type (surface) def
+/units (W/m2) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/hfls { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/hfls_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX0001000A) GRIBvariable
+/name (hfls) def
+:readdatafile
+/long_name (Surface Latent Heat Net Flux) def
+%/standard_name () def
+/level_type (surface) def
+/units (W/m2) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/hfss { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/hfss_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX0001000B) GRIBvariable
+/name (hfss) def
+:readdatafile
+/long_name (Surface Sensible Heat Net Flux) def
+%/standard_name () def
+/level_type (surface) def
+/units (W/m2) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/huss { [ X Y | L M S P 850 subgrid ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/huss_850_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX00010100) GRIBvariable
+/name (huss) def
+:readdatafile
+/long_name (850mb Specific Humidity) def
+/standard_name (specific_humidity) def
+/units (kg/kg) cvn def
+/level_type (pressure level) def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+\end{ingrid}
+
+\begin{ingrid}
+
+/pr { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/prate_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX00010107) GRIBvariable
+/name (pr) def
+:readdatafile
+/long_name (Total Precipitation) def
+/standard_name (precipitation_flux) def
+/level_type (surface) def
+/units (kg m-2 s-1) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/psl { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/psl_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX00010301) GRIBvariable
+/name (psl) def
+:readdatafile
+/long_name (Mean Sea Level Pressure) def
+/standard_name (air_pressure_at_sea_level) def
+/level_type (surface) def
+/units (Pa) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/rlut { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/rlut_toa_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+1 GRIB2record
+%(04XXXX000105C1) GRIBvariable
+/name (rlut) def
+:readdatafile
+/long_name (Top-of Atmosphere Upward Long-Wave Radiation Flux) def
+/standard_name (toa_outgoing_longwave_flux) def
+/units (W/m2) cvn def
+/level_type (top of atmosphere) def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/sic { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/sic_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX00010200) GRIBvariable
+/name (sic) def
+:readdatafile
+/long_name (Surface Sea Ice Cover Proportion) def
+/standard_name (sea_ice_area_fraction) def
+/level_type (surface) def
+/units (unitless) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/snc { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/snc_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX0001012A) GRIBvariable
+/name (snc) def
+:readdatafile
+/long_name (Surface Snow Cover Percentage) def
+/standard_name (surface_snow_area_fraction) def
+/level_type (surface) def
+/units (percent) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/snod { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/snod_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX0001010B) GRIBvariable
+/name (snod_sfc) def
+:readdatafile
+/long_name (Surface Snow Depth) def
+/standard_name (lwe_thickness_of_surface_snow_amount) def
+/level_type (surface) def
+/units (m) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/soilw1 { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/soilw1_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+1 GRIB2record
+%(04XXXX000100C0) GRIBvariable
+/name (soilw1) def
+:readdatafile
+/long_name (0-0.1 m Below Ground Volumetric Soil Moisture Content) def
+/standard_name () def
+/level_type (0-0.1 meters below ground) def
+/units (unitless) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/soilw2 { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/soilw2_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+1 GRIB2record
+%(04XXXX000100C0) GRIBvariable
+/name (soilw2) def
+:readdatafile
+/long_name (0.1-0.4 m Below Ground Volumetric Soil Moisture Content) def
+/level_type (0.1-0.4 meters below ground) def
+/standard_name () def
+/units (unitless) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/soilw3 { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/soilw3_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+1 GRIB2record
+%(04XXXX000100C0) GRIBvariable
+/name (soilw3) def
+:readdatafile
+/long_name (0.4-1.0 m Below Ground Volumetric Soil Moisture Content) def
+/standard_name () def
+/level_type (0.4-1.0 meters below ground) def
+/units (unitless) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/soilw4 { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/soilw4_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+1 GRIB2record
+%(04XXXX000100C0) GRIBvariable
+/name (soilw4) def
+:readdatafile
+/long_name (1.0-2.0 m Below Ground Volumetric Soil Moisture Content) def
+/standard_name () def
+/level_type (1.0-2.0 meters below ground) def
+/units (unitless) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/stx { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/stx_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX00010211) GRIBvariable
+/name (stx) def
+:readdatafile
+/long_name (U-Component of Surface Momentum Flux) def
+/standard_name () def
+/level_type (surface) def
+/units (N/m2) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/sty { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/sty_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX00010212) GRIBvariable
+/name (sty) def
+:readdatafile
+/long_name (V-Component of Surface Momentum Flux) def
+/standard_name () def
+/level_type (surface) def
+/units (N/m2) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/swe { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/swe_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX0001010D) GRIBvariable
+/name (swe) def
+:readdatafile
+/long_name (Water Equivalent of Accumulated Snow Depth) def
+/standard_name (liquid_water_content_of_surface_snow) def
+/level_type (surface) def
+/units (kg/m2) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/ta { [ X Y | L M S P 100 50 30 10 subgrid ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/ta_%d[P]_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M P S ] readdatafile:
+(04XXXX00010000) GRIBvariable
+/name (ta) def
+:readdatafile
+/long_name (Air Temperature) def
+/standard_name (air_temperature) def
+/level_type (pressure level) def
+/units (K) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/tas { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/tas_2m_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX00010000) GRIBvariable
+/name (tas) def
+:readdatafile
+/long_name (2-meter Mean Air Temperature) def
+/standard_name (air_temperature) def
+/level_type (2 meters above ground) def
+/units (K) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/tasmax { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/tasmax_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX00010004) GRIBvariable
+/name (tasmax) def
+:readdatafile
+/long_name (2-meter Maximum Air Temperature) def
+/standard_name (air_temperature) def
+/level_type (2 meters above ground) def
+/units (K) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/tasmin { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/tasmin_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX00010005) GRIBvariable
+/name (tasmin) def
+:readdatafile
+/long_name (2-meter Minimum Air Temperature) def
+/standard_name (air_temperature) def
+/level_type (2 meters above ground) def
+/units (K) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/tdps { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/tdps_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX00010006) GRIBvariable
+/name (tdps) def
+:readdatafile
+/long_name (2-meter Dew Point Temperature) def
+/standard_name (dew_point_temperature) def
+/level_type (2 meters above ground) def
+/units (K) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/ts { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/ts_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX00010000) GRIBvariable
+/name (ts) def
+:readdatafile
+/long_name (Surface Temperature) def
+/standard_name (surface_temperature) def
+/level_type (surface) def
+/units (K) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/ua { [ X Y | L M S P 850 200 100 50 30 10 subgrid ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/ua_%d[P]_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M P S ] readdatafile:
+(04XXXX00010202) GRIBvariable
+/name (ua) def
+:readdatafile
+/long_name (U-Component of Wind) def
+/standard_name (eastward_wind) def
+/units (m/s) cvn def
+/level_type (pressure level) def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/uas { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/ua_10m_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX00010202) GRIBvariable
+/name (uas) def
+:readdatafile
+/long_name (10-meter U-Component of Wind) def
+/standard_name (eastward_wind) def
+/units (m/s) cvn def
+/level_type (10 meters above ground) def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/ulwrf { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/ulwrf_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+1 GRIB2record
+%(04XXXX000105C1) GRIBvariable
+/name (ulwrf) def
+:readdatafile
+/long_name (Surface Upward Long-Wave Radiation Flux) def
+/standard_name (surface_upwelling_longwave_flux_in_air) def
+/level_type (surface) def
+/units (W/m2) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/uswrf { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/uswrf_sfc_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+1 GRIB2record
+%(04XXXX000104C1) GRIBvariable
+/name (uswrf) def
+:readdatafile
+/long_name (Surface Upward Short-Wave Radiation Flux) def
+/standard_name (surface_upwelling_shortwave_flux_in_air) def
+/level_type (surface) def
+/units (W/m2) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/va { [ X Y | L M S P 850 200 100 50 30 10 subgrid ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/va_%d[P]_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M P S ] readdatafile:
+(04XXXX00010203) GRIBvariable
+/name (va) def
+:readdatafile
+/long_name (V-Component of Wind) def
+/standard_name (northward_wind) def
+/units (m/s) cvn def
+/level_type (pressure level) def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/vas { [ X Y | L M S ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/va_10m_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX00010203) GRIBvariable
+/name (vas) def
+:readdatafile
+/long_name (10-meter V-Component of Wind) def
+/standard_name (northward_wind) def
+/units (m/s) cvn def
+/level_type (10 meters above ground) def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/wap { [ X Y | L M S P 500 subgrid ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/wap_500_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M S ] readdatafile:
+(04XXXX00010208) GRIBvariable
+/name (wap) def
+:readdatafile
+/long_name (500mb Pressure Vertical Velocity) def
+/standard_name (lagrangian_tendency_of_air_pressure) def
+/level_type (pressure level) def
+/units (Pa/s) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+/zg { [ X Y | L M S P 850 500 200 50 30 10 subgrid ] (/Data/SubX/EMC/GEFSv12/forecast/%Y%m%d[S]/zg_%d[P]_GEFS_%d[S]%b:lc[S]%Y[S]_00z_d01_d35_m%2.2d[M].grb2) [ M P S ] readdatafile:
+(04XXXX00010305) GRIBvariable
+/name (zg) def
+:readdatafile
+/long_name (Geopotential Height) def
+/standard_name (geopotential_height) def
+/level_type (pressure level) def
+/units (gpm) cvn def
+/missing_value 9.999000E+20 def
+} defasvarsilent
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,130 @@
+\begin{ingrid}
+
+/description (Distribution of the Area Harvested by Region, 2000-2011) def
+
+link:
+/name /source def
+/description (Download selection interface) def
+/href (http://countrystat.org/home.aspx?c=NER&ta=158SPD015&tr=21) def
+:link
+
+continuedataset:
+
+grid:
+/name /T def
+/units (monthtime) def
+/defaultvalue { last } def
+1 Jul 2000 ensotime
+12
+1 Jul 2011 ensotime
+/pointwidth 12. def
+:grid
+
+grid:
+/name /provcode def
+values:
+2202. 2203. 2204. 2205. 2206. 2207. 2208. 2209.
+:values
+/long_name (Province Code) def
+:grid
+
+grid:
+/name /gid def
+values:
+779
+780
+781
+782
+783
+784
+785
+786
+:values
+:grid
+
+grid:
+/name /provname_CS def
+/units /ids def
+values:
+(Agadez)  (Diffa)  (Dosso)  (Maradi)  (Niamey)  (Tahoua)  (Tillaberi)  (Zinder)
+:values
+:grid
+
+
+/RSR_A{
+[T gid | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Niger/Sub-national/Production/Crops/SR/SR_A.csv)
+readdatafile:
+[3 4] r*4astsv
+:readdatafile
+/missing_value -9 def
+/long_name (Distribution of Area Harvested - Groundnuts) def
+/units /tons def
+%/last_modified 2012 09 04 ymd2systemtime def
+}defasvarsilent
+
+
+/RSR_M{
+[T gid | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Niger/Sub-national/Production/Crops/SR/SR_M.csv)
+readdatafile:
+[3 4] r*4astsv
+:readdatafile
+/missing_value -9 def
+/long_name (Distribution of Area Harvested - Millet) def
+/units /tons def
+%/last_modified 2012 09 04 ymd2systemtime def
+}defasvarsilent
+
+
+/RSR_N{
+[T gid | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Niger/Sub-national/Production/Crops/SR/SR_N.csv)
+readdatafile:
+[3 4] r*4astsv
+:readdatafile
+/missing_value -9 def
+/long_name (Distribution of Area Harvested - Cowpea) def
+/units /tons def
+%/last_modified 2012 09 04 ymd2systemtime def
+}defasvarsilent
+
+
+/RSR_S{
+[T gid | ]
+(/data/audreyv/mydatafiles/CountrySTAT/Niger/Sub-national/Production/Crops/SR/SR_S.csv)
+readdatafile:
+[3 4] r*4astsv
+:readdatafile
+/missing_value -9 def
+/long_name (Distribution of Area Harvested - Sorghum) def
+/units /tons def
+%/last_modified 2012 09 04 ymd2systemtime def
+}defasvarsilent
+
+
+/the_geom {
+SOURCES .Features .Political .World .firstOrder_GAUL
+.the_geom gid 779 786 RANGE
+}defasvar
+
+/adm1_code {
+SOURCES .Features .Political .World .firstOrder_GAUL
+.adm1_code  gid 779 786 RANGE
+}defasvar
+
+/adm1_name {
+SOURCES .Features .Political .World .firstOrder_GAUL
+.adm1_name gid 779 786 RANGE
+}defasvar
+
+/label {
+SOURCES .Features .Political .World .firstOrder_GAUL
+.label gid 779 786 RANGE
+}defasvar
+
+:dataset
+
+%/last_modified 2012 09 04 ymd2systemtime def 
+
+\end{ingrid}

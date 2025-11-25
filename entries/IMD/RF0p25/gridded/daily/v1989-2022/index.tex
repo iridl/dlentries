@@ -1,0 +1,46 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (IMD 0.25 Degree Daily Gridded Precipitation Data Set) def
+/iridl:hasSemantics (iridl:India_ERFS) def
+/MMS2SAI dataareRestricted
+/Cookie varies_on
+
+grid:
+/name /X def
+/long_name (longitude) def
+/units /degree_east def
+ 66.5 0.25 100.
+ :grid
+
+ grid:
+ /name /Y def
+ /units /degree_north def
+  6.5 0.25 38.5
+  :grid
+
+  grid:
+  /name /T def
+  /units /julian_day def
+  01 Jan 1989 julian_day
+  1
+  31 Dec 2024 julian_day
+  :grid
+
+  /rf {
+   [X Y | T] (/Data/data6/IMD/OBS_IMD_RF_data/ind%Y[T]_rfp25.grd) [T yearlyedgesgrid
+      first secondtolast subgrid
+      ]readdatafile:
+      decdirect :readdatafile
+      /long_name (GRIDDED RAINFALL) def
+      /missing_value -999. def
+      /units (mm/day) def
+      /standard_name (rainfall_rate) def
+   precip_colors
+   DATA 0 AUTO RANGE
+   } defasvarsilent
+
+:dataset
+
+\end{ingrid}

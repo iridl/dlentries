@@ -1,0 +1,150 @@
+\begin{ingrid}
+continuedataset:
+
+/references (Kirtman_etal2014) def
+
+link:
+/name (dataset_documentation) def
+/description (CMC Technical Note:  The Canadian Seasonal to Interannual Prediction System version 2.1 (CanSIPS-IC3) ) def
+/href (https://iridl.ldeo.columbia.edu/documentation/Models/NMME/CanSIPS-IC3/technote.pdf) def
+:link
+
+/T { S L add
+/long_name (Time) def
+/standard_name (time) def } defasvarsilent
+
+/tref { 
+SOURCES .Models .NMME .CanSIPS-IC3 .FORECAST .MONTHLY .tref
+M 1 10 RANGE
+S /defaultvalue last def pop
+/units (K) def
+/grib_name /TMP def
+/missing_value 9.999e20 def
+/long_name (Reference Temperature) def
+/standard_name (air_temperature) def
+} defasvarsilent
+
+/sst { 
+SOURCES .Models .NMME .CanSIPS-IC3 .FORECAST .MONTHLY .sst
+M 1 10 RANGE
+S /defaultvalue last def pop
+/units (K) def
+/grib_name /WTMP def
+/units (K) def
+/missing_value 9.999e20 def
+/long_name (Sea Surface Temperature) def
+/standard_name (sea_surface_temperature) def
+} defasvarsilent
+
+/prec { 
+SOURCES .Models .NMME .CanSIPS-IC3 .FORECAST .MONTHLY .prec
+M 1 10 RANGE
+S /defaultvalue last def pop
+/grib_name /PRATE def
+/missing_value 9.999e20 def
+decompress
+/standard_name (lwe_pecipitation_rate) def
+/long_name (Total Precipitation) def
+} defasvarsilent
+
+/prmsl { 
+SOURCES .Models .NMME .CanSIPS-IC3 .FORECAST .MONTHLY .prmsl
+M 1 10 RANGE
+S /defaultvalue last def pop
+/grib_name /PRMSL def
+/units (Pa) def
+/missing_value 9.999e20 def
+/long_name (Pressure Reduced to Mean Sea Level) def
+/standard_name (air_pressure_at_sea_level) def
+} defasvarsilent
+
+%/soilw { [ X Y | L M S ] (/Data/data23/NMME/CanSIPSv2.D/Forecast.D/*_cansips_forecast_raw_nmme_latlon-1x1_SOILM_DBLL_10cm_%Y-%m[S]_allmembers.grib2) [ S ] readdatafile:
+%/name (SOILM) def
+%/grib_name /SOILM def
+%/units (kg m-2) def
+%(04XXXX) GRIBvariable
+%:readdatafile
+%/missing_value 9.999e20 def
+%decompress
+%/long_name (Soil Moisture Content 0-10cm Below Surface) def
+%/standard_name (soil_moisture_content) def
+%} defasvarsilent
+
+/tmax { 
+SOURCES .Models .NMME .CanSIPS-IC3 .FORECAST .MONTHLY .tmax
+M 1 10 RANGE
+S /defaultvalue last def pop
+/grib_name /TMAX def
+/units (Kelvin_scale) def
+/missing_value 9.999e20 def
+/long_name (Maximum Temperature) def
+/standard_name (air_temperature) def
+} defasvarsilent
+ 
+/tmin { 
+SOURCES .Models .NMME .CanSIPS-IC3 .FORECAST .MONTHLY .tmin
+M 1 10 RANGE
+S /defaultvalue last def pop
+/grib_name /TMIN def
+/units (Kelvin_scale) def
+/missing_value 9.999e20 def
+/long_name (Minimum Temperature) def
+/standard_name (air_temperature) def
+} defasvarsilent
+
+/tmp { 
+SOURCES .Models .NMME .CanSIPS-IC3 .FORECAST .MONTHLY .tmp
+M 1 10 RANGE
+S /defaultvalue last def pop
+/grib_name /TMP def
+/units (Kelvin_scale) def
+/missing_value 9.999e20 def
+/long_name (850 hPa Temperature) def
+/standard_name (air_temperature) def
+} defasvarsilent
+
+/ugrd { 
+SOURCES .Models .NMME .CanSIPS-IC3 .FORECAST .MONTHLY .ugrd
+M 1 10 RANGE
+S /defaultvalue last def pop
+/grib_name /UGRD def
+/units (m s-1) def
+/missing_value 9.999e20 def
+/long_name (Zonal Wind) def
+/standard_name (eastward_wind) def
+} defasvarsilent
+
+/vgrd { 
+SOURCES .Models .NMME .CanSIPS-IC3 .FORECAST .MONTHLY .vgrd
+M 1 10 RANGE
+S /defaultvalue last def pop
+/grib_name /VGRD def
+/units (m s-1) def
+/missing_value 9.999e20 def
+/long_name (Meridional Wind) def
+/standard_name (northward_wind) def
+} defasvarsilent
+
+/hgt { 
+SOURCES .Models .NMME .CanSIPS-IC3 .FORECAST .MONTHLY .hgt
+M 1 10 RANGE
+S /defaultvalue last def pop
+/grib_name /HGT def
+/units (gpm) def
+/missing_value 9.999e20 def
+/long_name (Geopotential Height) def
+/standard_name (geopotential_height) def
+} defasvarsilent
+
+:dataset
+
+ugrd .Y name exch def
+ugrd .X name exch def
+ugrd .M name exch def
+ugrd .L name exch def
+ugrd .S name exch def
+ugrd .P name exch def
+hgt .P2 name exch def
+
+\end{ingrid}
+

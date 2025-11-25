@@ -1,0 +1,89 @@
+<html> 
+
+<head> 
+
+<title>Equatorial Pacific SSTA forecasts</title> 
+
+</head>
+
+<body>
+
+<h1>Equatorial Pacific SSTA forecasts</h1> 
+
+Steve Zebiak 
+
+<p>
+
+If you're familiar with the differences between the LDEO and LDEO2
+products you can go directly to the analysis or data.  Otherwise read
+on.
+
+<UL>
+<LI> <a href="http://rainbow.ldgo.columbia.edu/forecast/page/page.html">LDEO analysis</a>
+
+<LI> <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.ENSOFORECAST/">LDEO forecasts</a>
+
+<LI> <a href="http://rainbow.ldgo.columbia.edu/forecast/page2/page_ldeo2.html">LDEO2 analysis</a> 
+
+<LI> LDEO2 forecasts (under construction)
+</UL>
+
+
+ <P>
+Forecast sea surface temperature fields are produced on a monthly
+basis using the Zebiak and Cane 
+
+(<a href="http://rainbow.ldgo.columbia.edu/cgi-bin/bibfind_html?Zebiak:Cane1987">1987</a>)
+
+coupled atmosphere-ocean model.  
+ <P>
+At present, two forecast products are available: The standard
+forecasts (consistent with those issued in the NOAA Diagnostic
+Bulletin over the past several years), and a newer product, referred
+to as LDEO2, that utilizes a different forecast intialization scheme.
+ <P>
+In the standard initialization, FSU pseudo-stress anomalies (with some
+filtering and smoothing as described in Cane et al, 1986, Nature) are
+used to "spin up" the ocean model from 1964 until the beginning of the
+forecast period; the atmosphere model is similarly spun up using the
+simulated SSTA from the forced ocean run.  Thus initialized, the
+coupled model runs ahead in time with no data insertion, producing a
+forecast for the evolution of the coupled atmosphere-ocean system.
+ <P>
+For the standard product, SSTA fields from individual forecasts are
+composited by lag-averaging the results from six consecutive monthly
+initialconditions.  The composited forecasts for lead times of 3,6,9,
+and 12 months are then post-processed using a singular value
+decomposition analysis, to remove systematic spatial pattern errors
+and to map the idealized model domain onto the real one.  The results
+are archived from January 1972 (verification time) to the most recent
+month available. 
+
+ An analysis of the results in terms of an ENSO (El Ni&ntilde;o-Southern Oscillation) index is <a href="http://rainbow.ldgo.columbia.edu/forecast/page/page.html">here</a>.
+ The forecast results are <a
+href="http://ingrid.ldgo.columbia.edu/SOURCES/.ENSOFORECAST/">here</a>.
+
+ <P>
+For the LDEO2 product, a nudging algorithm as described in Chen et al,
+1995 Science, is used to initialize forecasts.  In effect, the ocean
+is spun up with a weighted average of FSU and model-derived winds.
+This scheme results in much reduced "initialization shock",
+considerably improved forecast skill (.1 - .2 increase in correlation
+at all lead times from 0 to 18 months) and reduced seasonality of
+skill.  Fore the LDEO2 product, no lag-averaging is used, although
+small corrections for systematic errors are made using a value
+decomposition analysis.  Results are available at all lead times from
+0 - 18 months.  An analysis equivalent to that above for LDEO2 can be found
+ <a href="http://rainbow.ldgo.columbia.edu/forecast/page2/page_ldeo2.html">here</a>. 
+LDEO2 forecast results will  be included ASAP
+
+
+<p><address>
+steve@ldeo.columbia.edu
+</address>
+
+</body>
+
+</html>
+
+

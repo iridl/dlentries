@@ -1,0 +1,68 @@
+\begin{ingrid}
+continuedataset:
+/description (Cressman analysis of monthly precipitation, and maximum and minimum temperature for Mexico and surroundings based upon CLICOM daily station data, GHCN Version 2 monthly station data, and University of East Anglia Climate Research Unit (CRU) monthly gridded data as the "first guess" for the Cressman analysis, from the Centro de Ciencias de la Atm&#243;sfera) def
+/long_name (Version Released May 2007) def
+/iridl:hasSemantics (iriref:Mendez_M) def
+grid:
+ /name (X) def
+ /units (degreeE) def
+ /fullname (Longitude) def
+ periodic
+ -140.25 0.5 -59.75
+:grid
+grid:
+ /name (Y) def
+ /units (degreeN) def
+ /fullname (Latitude) def
+ 4.75 0.5 45.25
+:grid
+grid:
+ /name (T) def
+ monthtime
+ /fullname (Month) def
+ /defaultvalue { 16 Dec 2002 ensotime } def
+ /pointwidth 1 def
+ 16 Jan 1901 ensotime
+ 1
+ 16 Dec 2002 ensotime
+:grid
+
+variable:
+ /name (prcp) def
+ /long_name (Precipitation) def
+ /units (mm/month) def
+ /missing_value -999.9 def
+ prcp_0to500_colors
+ grids: X Y | T :grids
+ file:
+ decdirect
+ /name (/Data/data6/unam/gridded/monthly/v0705/prcp1901-2002.r02p02_vf.bin) def
+ :file
+:variable
+
+variable:
+ /name (tmax) def
+ /long_name (Maximum Temperature) def
+ /units (Celsius_scale) def
+ /missing_value -999.9 def
+ grids: X Y | T :grids
+ file:
+ decdirect
+ /name (/Data/data6/unam/gridded/monthly/v0705/tmax1901-2002.r02p02_vf.bin) def
+ :file
+:variable
+
+variable:
+ /name (tmin) def
+ /long_name (Minimum Temperature) def
+ /units (Celsius_scale) def
+ /missing_value -999.9 def
+ grids: X Y | T :grids
+ file:
+ decdirect
+ /name (/Data/data6/unam/gridded/monthly/v0705/tmin1901-2002.r02p02_vf.bin) def
+ :file
+:variable
+
+:dataset
+\end{ingrid}

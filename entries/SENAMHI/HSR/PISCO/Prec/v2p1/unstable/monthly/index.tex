@@ -1,0 +1,53 @@
+\begin{ingrid}
+
+continuedataset:
+
+grid:
+/name /T def
+/units (monthtime) def
+/defaultvalue { last } def
+16 Jan 1981 ensotime
+1
+%16 Feb 2019 ensotime
+16 systemtime systemtime2ymd pop exch ensotime
+/pointwidth 1. def
+:grid
+
+T { (/Data/data23/SENAMHI/Prec/monthly/unstable/PISCOpm_V2.1.%Y-%m[T]-01.tif) [T] } removeextrausing
+/expires
+last cvsunits
+    interp exch 0.5 add
+     1 ymd:nextmonth ymd:nextmonth ymd2systemtime
+def
+name exch def
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+ -81.25 0.1 -68.05
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+0.95 0.1 -18.75
+:grid
+
+/Prec {
+[X Y | T ]
+(/Data/data23/SENAMHI/Prec/monthly/unstable/PISCOpm_V2.1.%Y-%m[T]-01.tif) [T]
+readdatafile:
+/realarraytype tiffimage
+:readdatafile
+/long_name (Precipitation) def
+/units (mm/month) def
+/missing_value -3.4e+38 def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

@@ -1,0 +1,87 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+grid:
+/name /X  def
+degE
+0 2.8125 360 1 index sub
+:grid
+/Y 64 namedgaussianlat high low subgrid name exch def
+grid:
+/name /T def
+/units monthtimename def
+16 Jan 1950 ensotime
+1
+16 Dec 2002 ensotime
+:grid
+/M 24 NewIntegerGRID
+name exch def
+:datasetdefs
+dataset:
+/name /anomaly def
+dataset .X name exch def
+dataset .Y name exch def
+dataset .T name exch def
+dataset .M name exch def
+/t2m
+{
+[X Y | M T] (/beluga/data/forecast/DATA/ccm3/2mt/ccm3.2mt.5002.ano.%d[offset]) [M dup 11 onegridcounter /name /offset def]readdatafile: decsequential
+/long_name (temperature at 2m) def
+/units (degreeK) def
+ :readdatafile 
+} defasvarsilent
+/prcp
+{
+[X Y | M T] (/beluga/data/forecast/DATA/ccm3/pcp/ccm3.pcp.5002.ano.%d[offset]) [M dup 11 onegridcounter /name /offset def]readdatafile: decsequential
+/long_name (precipitation rate) def
+/units (mm/day) def
+ :readdatafile 
+} defasvarsilent
+:dataset
+datasetdefs:
+:datasetdefs
+/DAILY currentobject 1 index get def
+/MONTHLY currentobject 1 index get def
+
+dataset:
+/name /monthly def
+dataset .X name exch def
+dataset .Y name exch def
+dataset .T name exch def
+dataset .M name exch def
+/t2m
+{
+[X Y | M T] (/beluga/data/forecast/DATA/ccm3/2mt/ccm3.2mt.5002.tot.%d[offset]) [M dup 11 onegridcounter /name /offset def]readdatafile: decsequential
+/long_name (temperature at 2m) def
+/units (degreeK) def
+ :readdatafile 
+} defasvarsilent
+/prcp
+{
+[X Y | M T] (/beluga/data/forecast/DATA/ccm3/pcp/ccm3.pcp.5002.tot.%d[offset]) [M dup 11 onegridcounter /name /offset def]readdatafile: decsequential
+/long_name (precipitation rate) def
+/units (mm/day) def
+ :readdatafile 
+} defasvarsilent
+\end{ingrid}
+
+
+computed
+/t2m
+{
+dataset a: .anomaly .t2m
+:a: .dataset .climatology .c6998 .t2m
+:a
+add
+} defasvar
+/prcp
+{
+dataset a: .anomaly .prcp
+:a: .dataset .climatology .c6998 .prcp
+:a
+add
+} defasvar
+\begin{ingrid}
+:dataset
+:dataset
+\end{ingrid}

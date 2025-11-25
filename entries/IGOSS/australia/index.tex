@@ -1,0 +1,55 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (iriref:Parker_P) def
+/description (Surface winds from the Australian Bureau of Meteorology in Melbourne) def
+grid: 
+/name /X def
+degE
+periodic
+%1 1 163
+-180 2.5 180 2.5 sub
+:grid
+grid:
+/name /Y def
+degN
+%1 1 134
+-90. 2.5 90.
+:grid
+grid:
+/name /T def
+monthtime
+/defaultvalue {last} def
+16 Aug 1995 ensotime
+1 
+16 Aug 2002 ensotime % enddate
+:grid
+/history (The surface winds are calculated using boundary layer similarity theory. <b>AUSTRALIA</b>) def
+file:
+grids: X Y | [ /u /v ] T :grids
+%/name (/Data/data1/igoss/aus/data/uv10m.oct) def
+%formatted
+%/format ((13F6.1))def
+/name (/Data/data1/igoss/aus/data/uv10m.r4) def
+random
+variable:
+/name /u def
+/units (m/s) def
+/long_name (zonal surface wind) def
+/missing_value [ 9999. 396. ] def
+:variable
+variable:
+/name /v def
+/long_name (meridional surface wind) def
+/units (m/s) def
+/missing_value [9999. 396.]def
+:variable
+:file
+%/u u X first secondtolast RANGE 
+%X name /degreeE preferredunitname periodic gridvalues NewGRID replaceGRID
+%def
+%/v v X first secondtolast RANGE 
+%X name /degreeE preferredunitname periodic gridvalues NewGRID replaceGRID
+%def
+:dataset
+\end{ingrid}
+

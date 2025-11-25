@@ -1,0 +1,152 @@
+\begin{ingrid}
+
+link:
+/name (ESRL/PSD GEFS Reforecast 2 Project) def
+/description (Reforecast Version 2 Home Page) def
+/href (http://esrl.noaa.gov/psd/forecasts/reforecast2/) def
+:link
+
+link:
+/name (Reforecast Version 2 ftp site) def
+/description (Reforecast Version 2 ftp site) def
+/href (ftp://ftp.cdc.noaa.gov/Projects/Reforecast2/) def
+:link
+
+continuedataset:
+
+grid:
+/name (S) def
+/units (days since 1970-01-01 00:00:00) def
+/long_name (Forecast Start Time) def
+/standard_name (forecast_reference_time) def
+/defaultvalue { last } def
+01 Dec 1984 julian_day
+01 Jan 1970 julian_day sub
+1
+24 Sep 2020 julian_day 
+%systemtime (%d %b %Y) 12 strftime interp julian_day
+01 Jan 1970 julian_day sub
+/pointwidth 0 def
+:grid
+
+\end{ingrid}
+S {S /unixtime unitconvertbyattribute exch scale_factor mul add_offset add (/Data/data21/noaa/esrl/psd/refcst2/ensemblemean/apcp_sfc_%Y%m%d00_mean.grib2) 100 strftime nip}
+removeextrausing
+
+/expires last 1 add 1970 01 01 ymd2rjt add rjt2ymd ymd2systemtime 18 3600 mul add  def
+name exch def
+/expires S .expires def
+\begin{ingrid}
+
+/last_modified S .last_modified def
+
+grid:
+/name (X) def
+/units (degree_east) def
+0.0 1.0 359.0
+periodic
+/standard_name (longitude) def
+:grid
+
+grid:
+/name (Y) def
+/units (degree_north) def
+90.0 1.0 -90.0
+/standard_name (latitude) def
+:grid
+
+grid:
+/name (L) def
+/long_name (Lead) def
+/units (hours) def
+values: 0 3 6 9 12 15 18 21 24 27 30 33 36 39 42 45 48 51 54 57 60 63 66 69 72 78 84 90 96 102 108 114 120 126 132 138 144 150 156 162 168 174 180 186 192 :values
+:grid
+
+/apcp {
+[X Y | L S] (/Data/data21/noaa/esrl/psd/refcst2/ensemblemean/apcp_sfc_%Y%m%d[S]00_mean.grib2) [S]
+%[X Y | L S] (/beluga/data/mbell/dldata/cdc.d/reforecast2.d/apcp_sfc_%Y%m%d[S]00_mean.grib2) [S]
+%[X Y | L S] (ftp://ftp.cdc.noaa.gov/Projects/Reforecast2/%Y[S]/%Y%m[S]/%Y%m%d[S]00/mean/latlon/apcp_sfc_%Y%m%d[S]00_mean.grib2) [S]
+readdatafile:
+/name (apcp) def
+/grib-name /APCP def
+/gribleveltype 1 def
+/gribcenter 7 def
+/units (kg/m^2)cvn def
+/long_name (Accumulated Precipitation (3 or 6 hourly)) def
+/standard_name (precipitation_amount) def
+/center (US National Weather Service - NCEP) def
+/missing_value 9.999000E+20 def
+1 GRIB2record :readdatafile
+decompress
+} defasvarsilent
+
+/tmax_2m {
+[X Y | L S] (ftp://ftp.cdc.noaa.gov/Projects/Reforecast2/%Y[S]/%Y%m[S]/%Y%m%d[S]00/mean/latlon/tmax_2m_%Y%m%d[S]00_mean.grib2) [S]
+readdatafile:
+/name (tmax_2m) def
+/grib-name /TMAX def
+%/gribleveltype 1 def
+/gribcenter 7 def
+/units (K) def
+/long_name (Maximum Temperature (3 or 6 hourly)) def
+/standard_name (air_temperature) def
+/center (US National Weather Service - NCEP) def
+/missing_value 9.999000E+20 def
+1 GRIB2record :readdatafile
+decompress
+} defasvarsilent
+
+/tmp_2m {
+[X Y | L S] (ftp://ftp.cdc.noaa.gov/Projects/Reforecast2/%Y[S]/%Y%m[S]/%Y%m%d[S]00/mean/latlon/tmp_2m_%Y%m%d[S]00_mean.grib2) [S]
+readdatafile:
+/name (tmp_2m) def
+/grib-name /TMP def
+%/gribleveltype 1 def
+/gribcenter 7 def
+/units (K) def
+/long_name (2-Meter Temperature (3 or 6 hourly)) def
+/standard_name (air_temperature) def
+/center (US National Weather Service - NCEP) def
+/missing_value 9.999000E+20 def
+1 GRIB2record :readdatafile
+decompress
+} defasvarsilent
+
+/tmin_2m {
+[X Y | L S] (ftp://ftp.cdc.noaa.gov/Projects/Reforecast2/%Y[S]/%Y%m[S]/%Y%m%d[S]00/mean/latlon/tmin_2m_%Y%m%d[S]00_mean.grib2) [S]
+readdatafile:
+/name (tmin_2m) def
+/grib-name /TMIN def
+%/gribleveltype 1 def
+/gribcenter 7 def
+/units (K) def
+/long_name (Minimum Temperature (3 or 6 hourly)) def
+/standard_name (air_temperature) def
+/center (US National Weather Service - NCEP) def
+/missing_value 9.999000E+20 def
+1 GRIB2record :readdatafile
+decompress
+} defasvarsilent
+
+/spfh_2m {
+[X Y | L S] (ftp://ftp.cdc.noaa.gov/Projects/Reforecast2/%Y[S]/%Y%m[S]/%Y%m%d[S]00/mean/latlon/spfh_2m_%Y%m%d[S]00_mean.grib2) [S]
+readdatafile:
+/name (spfh_2m) def
+/grib-name /SPFH def
+%/gribleveltype 1 def
+/gribcenter 7 def
+/units (kg kg-1) def
+/long_name (2-Meter Specific Humidity (3 or 6 hourly)) def
+/standard_name (specific_humidity) def
+/center (US National Weather Service - NCEP) def
+/missing_value 9.999000E+20 def
+1 GRIB2record :readdatafile
+decompress
+} defasvarsilent
+
+/references (Hamill_etal2013) def
+
+/note (Please note that there are forecasts every 3 hours at leads (L) from 0 to 72 hours and forecasts every 6 hours thereafter, out to 192 hours.  The values at all the 6-hourly leads that are multiples of 6 (L = 6, 12, 18, etc.) are six-hourly values of the given variable (e.g., for precipitation, accumulations over the previous 6 hours).  The values at the remaining 3-hourly leads (L = 3, 9, 15, etc.) are three-hourly values of the given variable (e.g., for precipitation, accumulations over the previous 3 hours). ) def
+
+:dataset
+\end{ingrid}

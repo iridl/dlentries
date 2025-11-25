@@ -1,0 +1,52 @@
+\begin{ingrid}
+  
+
+continuedataset:
+ 
+	/MME_Precipitation {
+	   SOURCES .IRI .FD .SubX .SubX_Hindcast .Subx_verification .monthly_RPSS_biweekly_precip
+	   a: .week2-3 .MME_v21 .RPSS
+	   :a: .week3-4 .MME_v21 .RPSS :a
+	   2 {exch[X Y T]REORDER}repeat
+	  	{ /rpssl1 /rpssl2} ds
+	 	{rpssl1 rpssl2} grouptogrid
+	 	M grid:
+		/name (L) def
+		15 7 22
+		   /units (days) def
+		   /fullname (Forecast_period) def
+		   :grid
+	   replaceGRID
+	   X 59.5  93.5 RANGE
+	   Y 7.5  41.5  RANGE
+		 /long_name (Precipitation Ranked Probability Skill Score) def
+	} defasvarsilent
+
+	/MME_Temperature {
+		SOURCES .IRI .FD .SubX .SubX_Hindcast .Subx_verification .monthly_RPSS_biweekly_t2m
+		a: .week2-3 .MME_v21 .RPSS
+	   :a: .week3-4 .MME_v21 .RPSS :a
+	   2 {exch[X Y T]REORDER}repeat
+	  	{ /rpssl1 /rpssl2} ds
+	 	{rpssl1 rpssl2} grouptogrid
+	 	M grid:
+		/name (L) def
+		15 7 22
+		   /units (days) def
+		   /fullname (Forecast_period) def
+		   :grid
+	   replaceGRID
+	   X 59.5  93.5 RANGE
+	   Y 7.5  41.5  RANGE
+	  /long_name (Temperature Ranked Probability Skill Score) def
+	} defasvarsilent
+	
+
+:dataset
+
+ MME_Precipitation .T name exch def
+ MME_Precipitation .L name exch def
+ MME_Precipitation .X name exch def
+ MME_Precipitation .Y name exch def
+
+\end{ingrid}

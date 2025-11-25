@@ -1,0 +1,98 @@
+\begin{ingrid}
+continuedataset:
+grid:
+/name /X def
+/standard_name (longitude) def
+/long_name (longitude) def
+degE
+periodic
+-178.75 2.5 178.75
+:grid
+grid:
+/name /Y def
+/standard_name (latitude) def
+/long_name (latitude) def
+degN
+88.75 -2.5 -88.75
+:grid
+grid:
+/name /T def
+/standard_name (time) def
+monthtime
+16 Jan 2007 ensotime
+1.
+16 Mar 2018 ensotime
+%systemtime systemtime2ymd pop .5 sub exch
+%ensotime 
+/defaultvalue {last} def
+:grid
+
+\end{ingrid}
+T {(/Data/data21/gpcc/gpcc_25_%m%Y[T]_monitoring_product_v4) [T] } removeextrausing
+ /expires last rm19602ymd
+       3 {ymd:nextmonth}repeat
+       pop
+      16 ymd2systemtime
+     def
+ name exch def
+\begin{ingrid}
+
+ [ /NVZ
+    7 NewIntegerGRID
+    X Y |
+    T 16
+      Jan 2007 ensotime
+      last subgrid
+     ] (/Data/data21/gpcc/gpcc_25_%m%Y[T]_monitoring_product_v4) [T 16
+        Jan 2007 ensotime
+        last subgrid
+       ]readdatafile:
+      /missing_value -99999.99 def
+      [1231 726991]r*4asascii
+      :readdatafile
+definevariables:
+0 Zvariable:
+/name /prcp def
+/long_name (precipitation) def
+/standard_name (lwe_precipitation_rate) def
+/units (mm/month) def
+:Zvariable
+0 Zvariable:
+/name /cnts def
+/long_name (number of gauges per grid) def
+:Zvariable
+0 Zvariable:
+/name /sprcp def
+/long_name (proportion of solid precip) def
+/units /percent def
+:Zvariable
+0 Zvariable:
+/name /lprcp def
+/long_name (proportion of liquid precip) def
+/units /percent def
+:Zvariable
+0 Zvariable:
+/name /eprcp def
+/long_name (absolute systematic gauge error) def
+/units (mm/month) def
+:Zvariable
+0 Zvariable:
+/name /reprcp def
+/long_name (relative systematic gauge error) def
+/units /percent def
+:Zvariable
+0 Zvariable:
+/name /gec def
+/long_name (systematic gauge error correction factor) def
+/units /unitless def
+:Zvariable
+:definevariables
+/last_modified T .last_modified def
+%/expires T .expires def
+:dataset
+%dup {pop} {cachevar pop}foralldatasets2
+\end{ingrid}
+home .benno .GPCC .2p5
+   T first VALUE
+   TM first VALUE
+

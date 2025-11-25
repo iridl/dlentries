@@ -1,0 +1,64 @@
+\begin{ingrid}
+
+/description (Land Cover of the Philippines) def
+
+continuedataset:
+
+/area {
+IRIDB (phl_phy_landcover_philgisorg) (area) [(objectid)] open_column_by
+/long_name (Area) def
+}defasvarsilentnoreuse
+
+/code {
+IRIDB (phl_phy_landcover_philgisorg) (code) [(objectid)] open_column_by
+/long_name (Code) def
+}defasvarsilentnoreuse
+
+/descript {
+IRIDB (phl_phy_landcover_philgisorg) (descript) [(objectid)] open_column_by
+/long_name (Description) def
+}defasvarsilentnoreuse
+
+/perimeter {
+IRIDB (phl_phy_landcover_philgisorg) (perimeter) [(objectid)] open_column_by
+/long_name (Perimeter) def
+}defasvarsilentnoreuse
+
+/rrp250lv {
+IRIDB (phl_phy_landcover_philgisorg) (rrp250lv_) [(objectid)] open_column_by
+}defasvarsilentnoreuse
+
+/rrp250lv_i {
+IRIDB (phl_phy_landcover_philgisorg) (rrp250lv_i) [(objectid)] open_column_by
+}defasvarsilentnoreuse
+
+/shape_area {
+IRIDB (phl_phy_landcover_philgisorg) (shape_area) [(objectid)] open_column_by
+/long_name (Area) def
+}defasvarsilentnoreuse
+
+/shape_leng {
+IRIDB (phl_phy_landcover_philgisorg) (shape_leng) [(objectid)] open_column_by
+/long_name (Length) def
+}defasvarsilentnoreuse
+
+/symbol {
+IRIDB (phl_phy_landcover_philgisorg) (symbol) [(objectid)] open_column_by
+/long_name (Symbol) def
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (phl_phy_landcover_philgisorg) (geom) [(objectid)] open_column_by
+/long_name (Geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (phl_phy_landcover_philgisorg) ((descript || ', ' || code) as label) [(objectid)] open_column_by
+/long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+shape_area .objectid name exch def
+
+\end{ingrid}

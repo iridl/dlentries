@@ -1,0 +1,59 @@
+\begin{ingrid}
+datasetdefs:
+/Merged_Analysis  SOURCES .NOAA .NCEP .CPC 1 index get def
+/CAMS_OPI  SOURCES .NOAA .NCEP .CPC 1 index get def
+/CAMS  SOURCES .NOAA .NCEP .CPC 1 index get def
+/STATION.cuf { STATION} def
+/STATION { SOURCES .NOAA .NCEP .CPC .GSOD .MONTHLY } def
+:datasetdefs
+%/Merged_Analysis 
+%currentobject 1 index get def
+%/CAMS_OPI
+%currentobject 1 index get def
+%/CAMS
+%currentobject 1 index get def
+%/STATION.cuf
+%currentobject 1 index get def
+continuedataset:
+grid:
+/name /X def
+degE
+1.25 2.5 358.75
+periodic
+:grid
+grid:
+/name /Y def
+degN
+90 2.5 -90
+:grid
+grid:
+/name /T def
+monthtime
+16 Jan 1974 ensotime
+1.
+%1 index  add 1 sub %enddate
+16
+%(/Data/data5/noaa/cpc/olr/olrmonth)deflastmod
+(/Data/data5/noaa/cpc/olr/olrmonth.bin)deflastmod
+last_modified systemtime2ymd ymd:lastmonth
+pop .5 sub exch ensotime
+/defaultvalue {last} def
+:grid
+variable:
+/name /olr def
+/long_name (outgoing longwave radiation) def
+/missing_value -9999. def
+/units (W/m2) def
+grids: X Y | T :grids
+file:
+%/name (/Data/data5/noaa/cpc/olr/olrmonth) def
+/name (/Data/data5/noaa/cpc/olr/olrmonth.bin) def
+random
+:file
+/dataset_documentation.html {dataset .olr.html} def
+:variable
+/olr olr
+T (Jun 1974) last RANGE0
+def
+:dataset
+\end{ingrid}

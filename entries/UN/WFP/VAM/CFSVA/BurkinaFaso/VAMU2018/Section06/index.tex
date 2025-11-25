@@ -1,0 +1,39 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (ANTHROPOMETRIE) def
+
+/Date_entretien { IRIDB (BF_VAMU_2018) (date_entretien) [(hhid)] open_column_by
+/long_name (Date d'enregistrement de la section anthropométrie et état de santé) def 
+/missing_value -999999999 def
+}defasvarsilentnoreuse
+
+/QA { IRIDB (BF_VAMU_2018) (qa) [(hhid)] open_column_by
+/long_name (Enfants de 0-59 moi) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Oui)
+(Non)
+] def
+/scale_min 1.000 def
+/scale_max 2.000 def
+}defasvarsilentnoreuse
+
+/pres_enft { IRIDB (BF_VAMU_2018) (pres_enft) [(hhid)] open_column_by
+/long_name (Présence d'enfants de 0-23 mois dans le ménage) def 
+/missing_value -999999999 def
+/units /ids def
+/CLIST [(Oui)
+(Non)
+] def
+/scale_min 1.000 def
+/scale_max 2.000 def
+}defasvarsilentnoreuse
+
+/zdummy {c: 0 :c}defasvar
+:dataset
+
+Date_entretien .hhid name exch def
+\end{ingrid}
+

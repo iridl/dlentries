@@ -1,0 +1,82 @@
+\begin{ingrid}
+
+continuedataset:
+
+/description (Forecast Ensemble Mean) def
+
+/target_date 1 index .dataset  .dataset  .target_date defasvar
+
+dataset:
+/name /Precipitation def
+
+    [ S L ] { name exch def } forall
+
+    grid:
+        /name /X def
+        /long_name (Longitude) def
+        /units /degree_east def
+        274.5 360.0 sub 1.0 325.5 360.0 sub
+    :grid
+
+    grid:
+        /name /Y def
+        /long_name (Latitude) def
+        /units /degree_north def
+        -59.5  1.0 15.5
+    :grid
+
+    /precip {
+    [ X Y last first subgrid L | S ]
+    (/Data/data21/iri/FD/PepsiCo/Subx_forecast/flexible_forecast/biweekly_precip_MME/Subx_SAMER_precip_issue_Fri_%d_%b_%Y[S]_biweekly_fcst_mean_MMEmean.nc) [S]
+    readdatafile:
+    /name (mean) def
+    /doublearraytype netcdfrecords
+    :readdatafile
+    Y last first RANGE
+    /long_name (Ensemble Mean Precipitation) def
+    /units (mm/week) def
+    precip_colors
+    DATA 0 AUTO RANGE
+    }defasvarsilent
+:dataset
+
+dataset:
+/name /T2M def
+
+    [ S L ] { name exch def } forall
+
+    grid:
+        /name /X def
+        /long_name (Longitude) def
+        /units /degree_east def
+        274.0 360 sub 1.0 326.0 360 sub 
+    :grid
+
+    grid:
+        /name /Y def
+        /long_name (Latitude) def
+        /units /degree_north def
+        -60.0 1.0 16.0
+    :grid
+
+    /temperature {
+    [ X Y last first subgrid L | S ]
+    (/Data/data21/iri/FD/PepsiCo/Subx_forecast/flexible_forecast/biweekly_T2M_MME/Subx_SAMER_t2m_issue_Fri_%d_%b_%Y[S]_biweekly_fcst_mean_MMEmean.nc) [S]
+    readdatafile:
+    /name (mean) def
+    /doublearraytype netcdfrecords
+    :readdatafile
+    Y last first RANGE
+    /long_name (Ensemble Mean Temperature) def
+    /units /Kelvin_scale def
+    temp_colors
+    /scale_symmetric false def
+    DATA AUTO AUTO RANGE
+    }defasvarsilent
+:dataset
+
+
+
+:dataset
+
+\end{ingrid}

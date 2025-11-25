@@ -1,0 +1,136 @@
+\begin{ingrid}
+continuedataset:
+/references (Cheney_etal1994) def
+grid:
+/name /X def
+degE
+periodic
+2. 4. 358.
+:grid
+grid:
+/name /Y def
+degN
+-60. 1. 60.
+:grid
+grid:
+/name /T def
+monthtime
+16 Oct 1992 ensotime
+1.
+16 jul 2002  ensotime %enddatenoaa
+/defaultvalue { last } def
+:grid
+/description (NOAA TOPEX/POSEIDON Altimeter Gridded Sea Level Analysis)def
+variable:
+/name /ssha def
+/long_name (Sea Surface Height Anomaly) def
+/units /cm def
+/missing_value NaN def
+/history [(Monthly mean sea surface height anomaly. <B>USA</B>)]def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data6/noaa/grdl/topex/altimanom) def
+:file
+DATA -60 60 RANGE
+    /colormap
+[ 16777215 1973790 0 [ 0 14 ] 8388608 [ 8388608 12 ] 16711680 [ 16711680 13 ] 14772545 [
+   14772545 12 ] 15624315 [ 15624315 13 ] 16740484 [ 16740484 13 ] 9419919 [ 9419919 12 ]
+   11193702 [ 11193702 13 ] 15130800 [ 15130800 12 ] 16777215 [ 16777215 13 ] 16777215 [
+   16777215 13 ] 11200750 [ 11200750 12 ] 65535 [ 65535 13 ] 3195135 [ 3195135 12 ] 755384 [
+   755384 13 ] 1993170 [ 1993170 13 ] 7504122 
+ [ 7504122 12 ] 255 [ 255 13 ] 128 [ 128 12 ]
+   1262987 [ 1262987 13 ] 12632256 ]
+def
+:variable
+variable:
+/name /sshd def
+/long_name (Sea Surface Height Deviations) def
+/units /cm def
+/missing_value NaN def
+/history [(Monthly mean sea surface height deviations. <B>USA</B>)]def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data6/noaa/grdl/topex/altimdev) def
+:file
+DATA -60 60 RANGE
+    /colormap
+[ 16777215 1973790 0 [ 0 14 ] 8388608 [ 8388608 12 ] 16711680 [ 16711680 13 ] 14772545 [
+   14772545 12 ] 15624315 [ 15624315 13 ] 16740484 [ 16740484 13 ] 9419919 [ 9419919 12 ]
+   11193702 [ 11193702 13 ] 15130800 [ 15130800 12 ] 16777215 [ 16777215 13 ] 16777215 [
+   16777215 13 ] 11200750 [ 11200750 12 ] 65535 [ 65535 13 ] 3195135 [ 3195135 12 ] 755384 [
+   755384 13 ] 1993170 [ 1993170 13 ] 7504122 
+ [ 7504122 12 ] 255 [ 255 13 ] 128 [ 128 12 ]
+   1262987 [ 1262987 13 ] 12632256 ]
+def
+:variable
+:dataset
+\end{ingrid}
+dataset:
+/name /NOAAOLD def
+grid:
+/name /X def
+degE
+periodic
+2. 4. 358.
+:grid
+grid:
+/name /Y def
+degN
+-60. 1. 60.
+:grid
+grid:
+/name /T def
+monthtime
+16 Oct 1992 ensotime
+1.
+16 may 1996  ensotime 
+/defaultvalue { last } def
+:grid
+/dataset_documentation.html descriptions /topexnoaaold.html get def
+variable:
+/name /ssha def
+/long_name (Sea Surface Height Anomaly) def
+/units (m) def
+/missing_value NaN def
+/history [(Monthly mean sea surface height anomaly. <B>USA</B>)]def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data1/ocean/topex-noaa/old/altimanom) def
+:file
+DATA -60 60 RANGE
+    /colormap
+[ 16777215 1973790 0 [ 0 14 ] 8388608 [ 8388608 12 ] 16711680 [ 16711680 13 ] 14772545 [
+   14772545 12 ] 15624315 [ 15624315 13 ] 16740484 [ 16740484 13 ] 9419919 [ 9419919 12 ]
+   11193702 [ 11193702 13 ] 15130800 [ 15130800 12 ] 16777215 [ 16777215 13 ] 16777215 [
+   16777215 13 ] 11200750 [ 11200750 12 ] 65535 [ 65535 13 ] 3195135 [ 3195135 12 ] 755384 [
+   755384 13 ] 1993170 [ 1993170 13 ] 7504122 
+ [ 7504122 12 ] 255 [ 255 13 ] 128 [ 128 12 ]
+   1262987 [ 1262987 13 ] 12632256 ]
+def
+:variable
+variable:
+/name /sshd def
+/long_name (Sea Surface Height Deviations) def
+/units (m) def
+/missing_value NaN def
+/history [(Monthly mean sea surface height deviations. <B><a href="/descriptions/topexnoaaold.html">USA</a></B>)]def
+grids: X Y | T :grids
+file:
+random
+/name (/Data/data1/ocean/topex-noaa/old/altimdev) def
+:file
+DATA -60 60 RANGE
+    /colormap
+[ 16777215 1973790 0 [ 0 14 ] 8388608 [ 8388608 12 ] 16711680 [ 16711680 13 ] 14772545 [
+   14772545 12 ] 15624315 [ 15624315 13 ] 16740484 [ 16740484 13 ] 9419919 [ 9419919 12 ]
+   11193702 [ 11193702 13 ] 15130800 [ 15130800 12 ] 16777215 [ 16777215 13 ] 16777215 [
+   16777215 13 ] 11200750 [ 11200750 12 ] 65535 [ 65535 13 ] 3195135 [ 3195135 12 ] 755384 [
+   755384 13 ] 1993170 [ 1993170 13 ] 7504122 
+ [ 7504122 12 ] 255 [ 255 13 ] 128 [ 128 12 ]
+   1262987 [ 1262987 13 ] 12632256 ]
+def
+:variable
+:dataset

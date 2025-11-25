@@ -1,0 +1,55 @@
+\begin{ingrid}
+/S SOURCES .NOAA .NCEP .EMC .CFSv2 .ENSEMBLE .FLXF .T .S def
+continuedataset:
+
+link:
+/name (SamplingTable) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NCEP/.EMC/.CFSv2/.ENSEMBLE/.FLXF/mark/sampleS/M/4/STEP/S/exch%5BM%5Dtable:/mark/:table/.html) def
+/description (gives pentad start date as a function of ensemble member M and start S) def
+:link
+
+/ACKNOWLEDGEMENTS (In order to document NMME-Phase II data impact and enable continuing support, users of NMME data are expected to acknowledge NMME data and the participating modeling groups. The NMME model output should be referred to as "the NMME System Phase II data [https://www.earthsystemgrid.org/search.html?Project=NMME]."  In publications, users should include a table (referred to below as Table XX) listing the models and institutions that provided model output used in the NMME-Phase II system, as well as the digital object identifier of publications documenting the models, where "Table XX" in the paper should list the models and modeling groups that provided the NMME data.  In addition, an acknowledgement similar to the following should be included in any publication:  "We acknowledge the agencies that support the NMME-Phase II system, and we thank the climate modeling groups (Environment Canada, NASA, NCAR, NOAA/GFDL, NOAA/NCEP, and University of Miami) for producing and making available their model output. NOAA/NCEP, NOAA/CTB, and NOAA/CPO jointly provided coordinating support and led development of the NMME-Phase II system."  Besides the above acknowledgement, users should register any journal articles (or other scientific documents) that are based on NMME-Phase II results.) def
+
+grid:
+/name /X def
+/long_name (longitude) def
+/standard_name (longitude) def
+0.0 1.0 359.0
+periodic
+/units (degree_east) def
+:grid
+
+grid:
+/name /Y def
+/long_name (latitude) def
+/standard_name (latitude) def
+-90.0 1.0 90.0 
+/units (degree_north) def
+:grid
+
+grid:
+/name /M def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units /unitless def
+1.0 1.0 28.0
+:grid
+
+grid:
+/name /L def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+/units (months) def
+0.5 1.0 9.5
+:grid
+
+/prec { SOURCES .Models .NMME .NCEP-CFSv2 .HINDCAST .PENTAD_SAMPLES .MONTHLY .prec } defasvarsilent
+
+/tref { SOURCES .Models .NMME .NCEP-CFSv2 .HINDCAST .PENTAD_SAMPLES .MONTHLY .tref } defasvarsilent
+
+/sst { SOURCES .Models .NMME .NCEP-CFSv2 .HINDCAST .PENTAD_SAMPLES .MONTHLY .sst } defasvarsilent
+
+/T { SOURCES .NOAA .NCEP .EMC .CFSv2 .ENSEMBLE .FLXF .T } defasvarsilent
+
+:dataset
+\end{ingrid}

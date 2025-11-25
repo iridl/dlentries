@@ -1,0 +1,77 @@
+<html>
+<head><title>Reduced Space Optimal Analysis of the MOHSST5 Global Sea Surface Temperature Anomalies</title></head>
+<INGRID>standardHeader</INGRID>
+<p align=center>
+     <h1> Reduced Space Optimal Analysis of the MOHSST5 Global Sea Surface
+      Temperature  Anomalies  </h1>
+<p> 
+
+<table align=right><tr><td align=center><a
+OnMouseOver="self.status='Click here to explore the data';return true"
+href="http://ingrid.ldgo.columbia.edu/SOURCES/.KAPLAN/.RSA_MOHSST5.cuf/.OS/.ssta/sstacolorscale/html+viewer?plot=X+Y&zoom=Zoom&plotcoast=draw+land&CS=-4.200000&CE=4.200000&plottype=plaincolor&X.width=360.0000&Y.width=180.0000&T.value=-984.5000&X.value=-155.0000&Y.value=0.0000000E00&X.first=-332.5000&Y.first=-87.50000&X.last=22.50000&Y.last=87.50000&map.y0=226&map.x0=62&map.y1=10&map.x1=494&mapxy=X+Y&plotsizecntrl=Plot+size&plotaxislength=432&xovery=auto&plotborder=72&color_smoothing=&help=tableformat"><img
+src="http://ingrid.ldgo.columbia.edu/SOURCES/.KAPLAN/.RSA_MOHSST5.cuf/.OS/.ssta/sstacolorscale/T+-984.5000+VALUE+(PLOTCOAST)+1+def+(plotaxislength)300.0000+def+(plotborder)+0+def+(color_smoothing)null+def+(XOVY)+2.000000+def+X+Y+/plaincolor.gif"></a></td></tr>
+<tr><td align=center><img
+src="http://ingrid.ldgo.columbia.edu/SOURCES/.KAPLAN/.RSA_MOHSST5.cuf/.OS/.ssta/sstacolorscale/X+Y+(plotaxislength)300.0000+def+colorscale.gif"></td></tr>
+<caption align=bottom>KAPLAN RSA_MOHSST5 OS SST anomaly Dec1877
+      (Degree C)</caption></table>
+<b>Reduced Space Optimal Analysis for Historical Datasets: 136 years of
+    Global Sea Surface
+Temperatures </b> are now available.
+This analysis uses present-day temperature patterns to enhance the
+meager data available in the past.
+
+
+<p> Reduced Space Optimal Estimation has been applied to the global sea
+	  surface temperature (SST)
+record MOHSST5 (ATLAS7) from the U.K. Meteorological Office to produce
+	  136 years of analyzed global SST anomalies (with regards to
+	  normals of 1951-1980) , where data gaps are
+	  removed and sampling errors are diminished. 
+The results of this analysis are available as <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.KAPLAN/.RSA_MOHSST5.cuf/.OS/">a dataset</a>,
+including an interactive viewer and downloadable data files.
+This analysis is described in the paper<p>
+Kaplan, A., M. Cane, Y. Kushnir, A. Clement, M. Blumenthal, and B. Rajagopalan,
+  Analyses of global sea surface temperature 1856-1991, <i>Journal of
+  Geophysical Research</i>, <b>103</b>, 18,567-18,589, 1998
+<p>
+The method itself is described in<p>
+Kaplan, A., Y. Kushnir, M. Cane, and M. Blumenthal, Reduced space optimal
+  analysis for historical datasets: 136 years of Atlantic sea surface
+  temperatures,  <i>Journal of Geophysical Research</i>, <b>102</b>,
+  27,835--27,860, 1997.
+
+
+<p>
+<p> The dataset contains results of all 5 stages of the analysis:
+<a href="http://ingrid.ldgo.columbia.edu/SOURCES/.KAPLAN/.RSA_MOHSST5.cuf/.Projection/">projection</a>, <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.KAPLAN/.RSA_MOHSST5.cuf/.OI/">Optimal Interpolation (OI)</a>, <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.KAPLAN/.RSA_MOHSST5.cuf/.KFf/">Kalman Filter (KF) forecast</a>,
+<a href="http://ingrid.ldgo.columbia.edu/SOURCES/.KAPLAN/.RSA_MOHSST5.cuf/.KFa/">KF analysis</a>, and <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.KAPLAN/.RSA_MOHSST5.cuf/.OS/">Optimal Smoother (OS)</a>.  Each stage gives the estimate
+of the field and corresponding theoretical error estimate.  The
+projection gives the poorest results: it creates large spurious anomalies in
+the areas where no observations were available.  The OI regularizes
+the solution and suppress such anomalies.  The KF forecast is what Markov
+model (MM) of time transitions predicts a month ahead, which is a weak
+field with a possibly wrong structure.  The KF analysis is much better: it
+is an improvement over the OI in that it uses MM to provide
+propagation of information forward in time. The Optimal
+Smoother (OS) provides further improvement by using MM in both
+directions in time.  <b> The use of OS is recommended for all practical applications </b>.
+
+<p> In the process of analysis we use information on number of
+observations for every gridbox.  Since it is not a part of MOHSST5, we
+took its 1x1 version from MOHSST6, averaged it on 5x5 with capping it
+by maximum of 60 monthly observations per 1x1 box.  <a href="http://ingrid.ldgo.columbia.edu/SOURCES/.KAPLAN/.RSA_MOHSST5.cuf/.Nobs/">The resulting
+coverage fields</a> are  put into this dataset.
+
+
+<p> The input data (the MOHSST5 version of the GOSTA dataset) from the U.K. Meteorological Office  on which the analysis was based can be viewed e.g.
+<a href="http://ingrid.ldgo.columbia.edu/SOURCES/.GOSTA/.atlas7/"> here
+</a>.
+
+
+<p>
+Send all inquiries to <A HREF="mailto:alexeyk@ldeo.columbia.edu">alexeyk@ldeo.columbia.edu</a>.
+
+</html>
+
+
+

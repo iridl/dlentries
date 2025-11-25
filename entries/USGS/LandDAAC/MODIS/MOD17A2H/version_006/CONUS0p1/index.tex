@@ -1,0 +1,98 @@
+\begin{ingrid}
+
+/iridl:hasSemantics (iridlsemantics:PRISM) def
+
+continuedataset:
+
+/description (Contiguous US at 0.1˚) def
+
+link:
+/name (dataset_documentation) def
+/description (MODIS/Terra Gross Primary Productivity 8-Day L4 Global 500 m SIN Grid) def
+/href (https://lpdaac.usgs.gov/products/mod17a2hv006) def
+:link
+
+grid:
+/name /T def
+/units (days since 2000-01-01) def
+/pointwidth 0 def
+values:
+2000
+1
+2019
+{
+dup  1 1 ymd2rjt 2000 1 1 ymd2rjt sub
+exch
+8. exch
+1 add 1 1 ymd2rjt 2000 1 1 ymd2rjt sub
+{} for
+} for
+2020 1 1 ymd2rjt 2000 1 1 ymd2rjt sub
+:values
+:grid
+
+/T
+T 49 last subgrid
+partialgrid
+/defaultvalue {last} def
+def
+
+grid:
+/name /X def
+/units /degree_east def
+%-155.572383000 -39.161920497 27876
+%-125. -66.46913290 584
+-124.95 0.1 -66.65
+
+%%get step
+%1 index 3 index sub exch div
+%%get center of W edge
+%3 -1 roll 1 index 2 div add 
+%%get step
+%exch
+%%get center fo E edge
+%3 -1 roll 1 index 2 div sub
+/long_name (Longitude) def
+:grid
+
+grid:
+/name /Y def
+/units /degree_north def
+%9.997997545 49.999999996 9579
+%24.64352995 49.9 252
+24.75 0.1 49.85
+
+%get step
+%1 index 3 index sub exch div
+%%get center of W edge
+%3 -1 roll 1 index 2 div add
+%%get step
+%exch
+%%get center fo E edge
+%3 -1 roll 1 index 2 div sub
+/long_name (Latitude) def
+:grid
+
+/Gpp {
+[X Y last first subgrid | T ]
+(/Data/PRISM/usgs/landdaac/MOLT/MOD17A2H.006/%Y.%m.%d[T]/SNA0p1/MOD17A2H.SNA0p1.006_MOD_Grid_MOD17A2H.hdf) [T integralgrid first secondtolast subgrid]
+readdatafile:
+/name (Gpp_500m) def
+/shortarraytype netcdfrecords
+:readdatafile
+Y last first RANGE
+% it appears there are values above 3 so need to mask then out as invalid
+% this is the only set up I can make it work
+   /missing_value NaN def
+   -32767 replaceNaN
+   /missing_value [ -32767 32761 32762 32763 32764 32765 32766 32767 ] def
+%   0 300 masknotrange
+   /valid_min 0 def
+   /valid_max 300 def
+   /scale_factor 1e-2 def
+   DATA 0 AUTO RANGE
+/long_name (Gross primary production) def
+}defasvarsilent
+
+:dataset
+\end{ingrid}

@@ -1,0 +1,147 @@
+\begin{ingrid}
+continuedataset:
+
+grid:  
+/name /X def
+ degE
+ 0 2.5 357.5
+ periodic
+:grid
+
+grid:
+/name /Y def
+ degN
+ 90 2.5 -90
+:grid
+
+grid:
+/name /percentile def
+/units (unitless) def
+%0.0 0.1 1.0
+values: 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.95 0.99 1.0 :values
+:grid
+
+grid:
+/name /S def
+/units (pentads since 1960-01-01) def
+0.5
+1
+72.5
+periodic
+:grid
+
+dataset:
+/name (day1fcst) def
+/long_name (Day 1 Forecast) def
+variable:
+ /name (apcp) def
+ /long_name (Accumulated Precipitation) def
+ grids: percentile X Y | S :grids
+ file:
+  random
+%/name (/beluga/data/mbell/dldata/ifrc.d/percentiles.d/ensemble_mean.d/pctles79_04_day1fcst_pentads.r4) def
+%/name (/Data/data21/noaa/esrl/psd/refcst/ensemblemean/pentad/percentiles/pctles79_04_day1fcst_pentads.r4) def
+/name (/Data/data21/noaa/esrl/psd/refcst/ensemblemean/pentad/percentiles/nn2pctles79_04_day1fcst_pentads.r4) def
+:file
+:variable
+:dataset
+
+dataset:
+/name (day2fcst) def
+/long_name (Day 2 Forecast) def
+variable:
+ /name (apcp) def
+ /long_name (Accumulated Precipitation) def
+ grids: percentile X Y | S :grids
+ file:
+  random
+%/name (/beluga/data/mbell/dldata/ifrc.d/percentiles.d/ensemble_mean.d/pctles79_04_day2fcst_pentads.r4) def
+%/name (/Data/data21/noaa/esrl/psd/refcst/ensemblemean/pentad/percentiles/pctles79_04_day2fcst_pentads.r4) def
+/name (/Data/data21/noaa/esrl/psd/refcst/ensemblemean/pentad/percentiles/nn2pctles79_04_day2fcst_pentads.r4) def
+:file
+:variable
+:dataset
+
+dataset:
+/name (day3fcst) def
+/long_name (Day 3 Forecast) def
+variable:
+ /name (apcp) def
+ /long_name (Accumulated Precipitation) def
+ grids: percentile X Y | S :grids
+ file:
+  random
+%/name (/beluga/data/mbell/dldata/ifrc.d/percentiles.d/ensemble_mean.d/pctles79_04_day3fcst_pentads.r4) def
+%/name (/Data/data21/noaa/esrl/psd/refcst/ensemblemean/pentad/percentiles/pctles79_04_day3fcst_pentads.r4) def
+/name (/Data/data21/noaa/esrl/psd/refcst/ensemblemean/pentad/percentiles/nn2pctles79_04_day3fcst_pentads.r4) def
+:file
+:variable
+:dataset
+
+dataset:
+/name (day4fcst) def
+/long_name (Day 4 Forecast) def
+variable:
+ /name (apcp) def
+ /long_name (Accumulated Precipitation) def
+ grids: percentile X Y | S :grids
+ file:
+  random
+%/name (/beluga/data/mbell/dldata/ifrc.d/percentiles.d/ensemble_mean.d/pctles79_04_day4fcst_pentads.r4) def
+%/name (/Data/data21/noaa/esrl/psd/refcst/ensemblemean/pentad/percentiles/pctles79_04_day4fcst_pentads.r4) def
+/name (/Data/data21/noaa/esrl/psd/refcst/ensemblemean/pentad/percentiles/nn2pctles79_04_day4fcst_pentads.r4) def
+:file
+:variable
+:dataset
+
+dataset:
+/name (day5fcst) def
+/long_name (Day 5 Forecast) def
+variable:
+ /name (apcp) def
+ /long_name (Accumulated Precipitation) def
+ grids: percentile X Y | S :grids
+ file:
+  random
+%/name (/beluga/data/mbell/dldata/ifrc.d/percentiles.d/ensemble_mean.d/pctles79_04_day5fcst_pentads.r4) def
+%/name (/Data/data21/noaa/esrl/psd/refcst/ensemblemean/pentad/percentiles/pctles79_04_day5fcst_pentads.r4) def
+/name (/Data/data21/noaa/esrl/psd/refcst/ensemblemean/pentad/percentiles/nn2pctles79_04_day5fcst_pentads.r4) def
+:file
+:variable
+:dataset
+
+dataset:
+/name (day6fcst) def
+/long_name (Day 6 Forecast) def
+variable:
+ /name (apcp) def
+ /long_name (Accumulated Precipitation) def
+ grids: percentile X Y | S :grids
+ file:
+  random
+
+%/name (/beluga/data/mbell/dldata/ifrc.d/percentiles.d/ensemble_mean.d/pctles79_04_day6fcst_pentads.r4) def
+%/name (/Data/data21/noaa/esrl/psd/refcst/ensemblemean/pentad/percentiles/pctles79_04_day6fcst_pentads.r4) def
+/name (/Data/data21/noaa/esrl/psd/refcst/ensemblemean/pentad/percentiles/nn2pctles79_04_day6fcst_pentads.r4) def
+:file
+:variable
+:dataset
+
+dataset:
+/name (tot6daysfcst) def
+/long_name (Six-Day Total Forecast) def
+variable:
+ /name (apcp) def
+ /long_name (Accumulated Precipitation) def
+ grids: percentile X Y | S :grids
+ file:
+  random
+%/name (/beluga/data/mbell/dldata/ifrc.d/percentiles.d/ensemble_mean.d/pctles79_04_tot6daysfcst_pentads.r4) def
+%/name (/Data/data21/noaa/esrl/psd/refcst/ensemblemean/pentad/percentiles/pctles79_04_tot6daysfcst_pentads.r4) def
+/name (/Data/data21/noaa/esrl/psd/refcst/ensemblemean/pentad/percentiles/nn2pctles79_04_tot6daysfcst_pentads.r4) def
+:file
+:variable
+:dataset
+
+:dataset
+\end{ingrid}

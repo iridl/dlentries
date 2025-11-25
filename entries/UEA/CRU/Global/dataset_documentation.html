@@ -1,0 +1,100 @@
+<html>
+<head>
+<link REL=stylesheet TYPE="text/css" HREF="/site.css">
+<link rel=stylesheet type="text/css" href="/site.css">
+</head>
+  <INGRID>standardHeader</INGRID>
+<table align=right>
+<tr><td align=center><a href="/SOURCES/.UEA/.CRU/.Global/.prcp/figviewer.html?map.T.plotvalue=Jan+1900&map.Y.units=degree_north&map.Y.plotlast=87.5N&map.url=X+Y+fig-+colors+coasts+-fig&map.domain=+{+/prcp+0.0+500.+plotrange+/T+-719.5+-719.5+plotrange+}&map.zoom=Zoom&map.Y.plotfirst=87.5S&map.X.plotfirst=180W&map.X.units=degree_east&map.X.modulus=360&map.X.plotlast=176.25E&map.prcp.plotfirst=0.0&map.prcp.units=mm/month&map.prcp.plotlast=500.&map.plotaxislength=432&map.plotborder=72&map.color_smoothing=1&map.iftime=25&map.mftime=25&map.fftime=200" OnMouseOver="self.status='Click here to explore the data';return true"><img src="/SOURCES/.UEA/.CRU/.Global/.prcp/X+Y+fig-+colors+coasts+-fig+//prcp/0.0/500./plotrange//T/-719.5/-719.5/plotrange+(plotaxislength)300+psdef+.gif" NOSAVE width=372 height=220></a><br><img src="/SOURCES/.UEA/.CRU/.Global/.prcp/X+Y+fig-+colors+coasts+-fig+.auxfig+//prcp/0.0/500./plotrange//T/-719.5/-719.5/plotrange+(plotaxislength)300+psdef+.gif" NOSAVE width=320 height=50></td></tr>
+</table>
+<h1>  The Dataset</h1>
+An historical monthly precipitation dataset for global land areas from 1900 to 1996, gridded at 2.5° latitude by 3.75° longitude resolution (a 5° latitude/longitude resolution version is also available: 'g55wld0096.dat'), has been constructed and is available for use in scientific research.  This work has been supported by the UK Department of the Environment, Transport and the Regions (Contract EPG 1/1/48).  The following credit should be used in reports or publications, etc.:<p>
+"'gu23wld0096.dat' (Version 1.0) constructed and supplied by Dr Mike Hulme at the Climatic Research Unit, University of East Anglia, Norwich, UK.  This work has been supported by the UK Department of the Environment, Transport and the Regions (Contract EPG 1/1/48)."<p>
+The appropriate scientific papers to reference are as follows:<p>
+Hulme,M. (1992)   A 1951-80 global land precipitation climatology for the evaluation of General Circulation Models  Climate Dynamics,  7,  57-72<br>
+Hulme,M. (1994)   Validation of large-scale precipitation fields in General Circulation Models   pp.387-406 in,  Global precipitations and climate change   (eds.) Desbois,M. and Desalmand,F.,  NATO ASI Series,  Springer-Verlag,  Berlin,  466pp.<br>
+The station dataset from which this gridded dataset has been
+  constructed is an extension of the original CRU/US DoE data
+  described in Eischeid et al. (1991).  Substantial additional work in
+  extending these station time series and increasing the network has
+  been undertaken by the Climatic Research Unit in recent years.  A
+  total of over 11,800 station time series now exist.  For access to
+  these station data one should approach Russ Vose working on the
+  Global Historical Climatology Network (<a href="/SOURCES/.NOAA/.NCDC/.GHCN/.v2/">GHCN Version 2</a>) at Arizona State University, USA  (Email:  rvose@smtpl.asu.edu).<p>
+
+<h2>  Gridding Method</h2> 
+
+Thiessen polygon weights were used to average gauge data within
+each gridbox.  Where a monthly station value was missing an estimate
+was obtained by calculating the mean anomaly for that location derived
+from surrounding stations.  This anomaly interpolation method required
+the station values to be converted into percentage anomalies from some
+reference period.  These standard anomalies were then interpolated
+onto the missing station location using an inverse distance (with
+spherical adjustment), angular weighted method similar to that
+described in Shepherd (1984) and Legates and Willmott (1990).  For
+this interpolation, a maximum percent anomaly value of 500 per cent
+was imposed.  The interpolated percent anomaly was then converted back
+into a station mm estimate using that station's mean monthly
+precipitation total for the reference period.  This mean anomaly
+interpolation was only performed for a missing station value where two
+stations within a 600km radius possessed valid data.  Otherwise the
+station value remained missing and hence the gridbox average could not
+be calculated for that month.  A maximum of the 50 nearest stations
+could contribute to the interpolation.<p> Two gridded datasets were
+initially calculated based on two different reference periods: 1931-70
+and 1951-90.  Stations could only contribute to these climatologies if
+they possessed 75% or more valid monthly measurements in the reference
+period.  For 1931-70, 5986 stations were used resulting in historical
+gridded time series for 1276 2.5° by 3.75° gridboxes.  The
+maximum number of stations per gridbox was 51.  For 1951-90, 6647
+stations were included generating time series for 1419 2.5° by
+3.75° gridboxes.  The maximum number of stations per gridbox was
+45.  These two datasets were then combined using the common 1951-70
+period to blend the data on the basis of mean monthly values and their
+variance.  When merged, a total of 1520 gridboxes possessed time
+series of which 1019 had complete data between 1900 and 1996.  The
+period of most complete coverage was from 1952-70; the year 1959
+possessed no missing data in any of the 813 gridboxes.
+<p>
+
+<h2>Some Notes About Reliability</h2>
+All station data have been screened for gross outliers and typographical errors using a number of semi-automated techniques.  Owing to the large spatial variability of precipitation these methods, however, are not foolproof.  The GHCN has considered and implemented further improvements to these screening methods (Easterling and Peterson, 1995).<p>
+No corrections for gauge undercatch have been applied to the station data (cf. Sevruk, 1982; Legates and Willmott, 1990).  A spatially varying, but temporally constant, correction could be applied to the estimates derived from Legates and Willmott (1990), although this would not alter the trends in the data.  Applying time-dependent corrections to gauge time series on a global scale is a gigantic undertaking which may well not be either feasible or justifiable.  <p>
+A number of Northern Hemisphere high latitude time series contain inhomogeneities  due to varying sensitivities of different gauge designs and mountings to snowcatch.  These have been well documented for certain countries (e.g. Russia; Groisman et al., 1991) and work is underway to "clean" other country datasets (e.g. Canada and Scandinavian countries).  Groisman's adjusted data have now been added to the master station dataset used here, but further improvements in the reliability of this gridded dataset over high latitudes will follow.  For the present, the user should be cautious about the precise interpretation of high latitude precipitation trends outside Russia, especially in winter.<p>
+No topographic weighting has been applied to the interpolation scheme.  A number of different methods exist for incorporating the effects of topography on precipitation (e.g. the PRISM and AURELHY methods and the spline algorithms of Hutchinson, 1995).  However, the dependence of precipitation anomalies on elevation is much smaller and more ambiguous.  Since the method used here only interpolates anomalies, and not precipitation values themselves, excluding the effects of elevation is reasonable. There are, however, other problems associated with using precipitation anomalies in a gridding algorithm like this and these are discussed by Hulme and New (1997).  Further discussion and applications of these, and other gridded, precipitation datasets can be found in the following publications:<p>
+
+Hulme,M. (1991)   An intercomparison of model and observed global precipitation    climatologies   Geophys. Res. Lett.,  18,  1715-1718<p>
+Hulme,M. (1992)   A 1951-80 global land precipitation climatology for the evaluation of General Circulation Models  Climate Dynamics  7,  57-72.<p>
+Hulme,M., Marsh,R. and Jones,P.D. (1992)   Global changes in a humidity index between 1931-60 and 1961-90   Climate Research,  2,  1-22.<p>
+Hulme,M. (1992)   Rainfall changes in Africa: 1931-60 to 1961-90   Int. J. Climatol.,  12,  685-699.<p>
+Hulme,M. and Jones,P.D. (1993)   A historical monthly precipitation dataset for global land areas: applications for climate monitoring and climate model evaluation   pp. A/14-A/17 in,  Analysis methods of precipitation on a global scale   Report of a GEWEX Workshop,  14-17 September 1992,  Koblenz,  Germany,   WMO/TD-No.558,  Geneva<p>
+Hulme,M. (1994)   Validation of large-scale precipitation fields in General Circulation Models   pp.387-406 in,  Global precipitations and climate change   (eds.) Desbois,M. and Desalmand,F.,  NATO ASI Series,  Springer-Verlag,  Berlin,  466pp.<p>
+Hulme,M. (1995)   Estimating global changes in precipitation   Weather,  50,  34-42.<p>
+Hulme,M. (1996)   Recent climate change in the world's drylands   Geophys. Res. Letts.,  23,  61-64
+Jones,P.D. and Hulme,M. (1996)   Calculating regional climatic time series for temperature and precipitation: methods and illustrations   Int. J. Climatol.,  16,  361-377
+Hulme,M. and New,M. (1997)   The dependence of large-scale precipitation climatologies on temporal and spatial gauge sampling   J.Climate  10,  1099-1113.
+see also:<p>
+Legates,D.R. (1995)   Global and terrestrial precipitation: a comparative assessment of existing climatologies   Int. J. Climatol.,  15,  236-258.<p>
+
+<h2>  References</h2>
+Easterling,D.R. and Peterson,T.C. (1995)   A new method for detecting undocumented discontinuities in climatological time series   Int. J. Climatol.,  15,  369-378
+Groisman,P.Ya., Koknaeva,V.V., Belokrylova,T.A. and Karl,T.R. (1991)  Overcoming biases of precipitation measurement: a history of the USSR experience   Bull. Amer. Met. Soc.,  72,  1725-1733.<p>
+Hutchinson,M.F. (1995)   Interpolating mean rainfall using thin-plate smoothing splines   Int. J. Geographical Inf. Systems,  9,  385-403.
+Legates,D.R. and Willmott,C.J. (1990)   Mean seasonal and spatial variability in gauge-corrected, global precipitation   Int. J. Climatol.,   10,  111-128.<p>
+Shepherd,D. (1984)   Computer mapping: the SYMAP interpolation algorithm  in, Spatial statistics and models  (eds.)  Gaile,G.L. and Willmott,C.J.,  D.Reidel Publishing,  Dordrecht,  133pp.<p>
+<p>
+<p>
+***  No liability is accepted for errors in the dataset  ***
+ <p>
+For further information about these gridded datasets contact:<p>
+Dr Mike Hulme<p>
+Climatic Research Unit<br>
+School of Environmental Sciences<br>
+University of East Anglia<br>
+Norwich NR4 7TJ,  UK<p>
+tel: +1603 593162;  fax: +1603 507784<br>
+email  m.hulme@uea.ac.uk<br>
+web site:  http://www.cru.uea.ac.uk/~mikeh<p>
+
+</body></html>

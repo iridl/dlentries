@@ -1,0 +1,59 @@
+<INGRID>datasetdocumentationheader</INGRID>
+<h3>Description of Southern Asia NOAA/Climate Prediction Center RFE2.0 Daily Precipitation Estimates
+ </h3>
+<p>
+<i>Original documentation can be found in the SOUTH_ASIA_README.txt file at <a href="ftp://ftpprd.ncep.noaa.gov/pub/cpc/fews/S.Asia">ftpprd.ncep.noaa.gov/pub/cpc/fews/S.Asia</a>. </i>
+<p>
+<i>For more documentation, see RFE2.0 Documents: <a href="http://www.cpc.ncep.noaa.gov/products/fews/sasia_rfe.pdf"> Southern Asia RFE Paper</a> and the
+following web page at the Climate Prediction Center:  <a
+href="http://www.cpc.ncep.noaa.gov/products/fews/SASIA/rfe.html">http://www.cpc.ncep.noaa.gov/products/fews/SASIA/rfe.html</a></i>
+<p>
+<i>The following information is excerpted from the "SOUTH_ASIA_README.txt" file referred to above:</i>
+<p>
+<pre>
+
+This is the readme file for archived southern Asia area NOAA/Climate Prediction Center RFE2.0 daily rainfall estimates.  This file
+describes all archived rainfall estimates for the region, though the data located on the NOAA/CPC anonymous ftp server:
+ftp://ftpprd.ncep.noaa.gov/pub/cpc/fews/S.Asia/data/ and ftp://ftpprd.ncep.noaa.gov/pub/cpc/fews/S.Asia/figs/.
+
+CONTENTS:
+
+  Southern Asia area daily rainfall estimates
+
+    --graphics for May 01, 2001 - July 31, 2003:  'cpc_rfe_v2.0_sa_dly.YYYYMMDD.gif'
+    --data for May 01, 2001 - July 31, 2003:  'cpc_rfe_v2.0_sa_dly.bin.YYYYMMDD.gz'  where
+YYYY is year, MM is month, DD is day.
+
+    --Spatial domain:  70.0-110.0E; 5.0-35.0N
+    --Temporal domain:  00Z-00Z
+
+    --Resolution:  0.1 x 0.1 degree
+
+    --File structure:  binary, 4-byte floating point, big_endian
+
+                       undefined = -999.0
+
+                       file contains one record with (401 pixels in x direction) * (301 pixels in y direction) = 120701 points
+
+                       uncompressed file size = 120701 points * 4 bytes per point = 482804
+bytes
+
+                       file starting pixel = (5.0N;70.0E)
+                       pixel #2 = (5.0N;60.1E)
+                       pixel #402 = (5.1N;60.0E)
+                       pixel #120701 = (35.0N;110.0E)
+
+    --Monthly accumulations for 2003 are available as created with similar format to daily
+estimates
+
+
+These products were created by the NOAA/Climate Prediction Center's FEWS-NET group sponsored by USAID.  For details regarding
+the algorithm, see http://www.cpc.ncep.noaa.gov/products/fews.  For usage or other information, contact Tim.Love@noaa.gov or
+Pingping.Xie@noaa.gov.
+
+
+August 11, 2003
+Modified October 20, 2003
+
+</pre>
+<INGRID>datasetdocumentationtrailer</INGRID>

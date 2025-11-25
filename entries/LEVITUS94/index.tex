@@ -1,0 +1,151 @@
+These data are in a variety of files, some netCDF, some direct access.
+\begin{ingrid}
+continuedataset:
+/description (World Ocean Atlas 1994, an atlas of objectively analyzed fields of major ocean parameters at the annual, seasonal, and monthly time scales. Superceeded by WOA98) def
+link:
+/name (WOA98) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NODC/.WOA98/) def
+/description (World Ocean Atlas 1998 replaces LEVITUS94) def
+/semantics /dcterm:isReplacedBy def
+:link
+/references (Conkright:etal1994 Levitus:Boyer1994a Levitus:etal1994 Levitus:Boyer1994c)def
+/iridl:hasSemantics [(iridl:NOAA)(iridl:Ocean)] def
+/name /LEVITUS94 cvx def
+grid: /name /Z def
+/long_name (Depth) def
+/longname /Depth def
+/units (m) def
+/positive (down) def
+[ 0.0 10. 20. 30. 50. 75. 100. 125. 150. 200. 250. 300. 400. 500. 600. 700. 800. 900. 1000. 1100. 1200. 1300. 1400. 1500. 1750. 2000. 2500. 3000. 3500. 4000. 4500. 5000. 5500.]
+:grid
+grid: /name (X) def
+/long_name(Longitude) def
+/units /degreeE def
+periodic 
+0.5 to 359.5 N= 360 pts
+:grid
+grid: /name (Y) def
+/long_name(Latitude) def
+/units /degreeN def
+-89.5 to 89.5 N= 180 pts
+:grid
+grid: /name (T) def
+/long_name (Time) def
+periodic
+month
+Jan 1 Dec
+:grid
+/ANNUAL { /ANNUAL     (/Data/data1/lev94/lev94a.cdf) nameCDF
+/rhoa
+(/Data/data1/ocean/levitus94cache/rhoa.cdf) readCDF .rhoa
+longname addhistory
+/fullname [ /LEVITUS94 /ANNUAL /rhoa ] def
+/long_name (density) def
+/units (g/cm3 above 1) preferredunitname def
+/dataset SOURCES .LEVITUS94 .ANNUAL def
+  def
+%/po4* {SOURCES .LEVITUS94 .ANNUAL .PO4 SOURCES .LEVITUS94 .ANNUAL .O2 43.5 mul 175 div add 1.95 sub 
+%/name /po4* def
+%/dataset SOURCES .LEVITUS94 .ANNUAL def
+%/long_name ($@ PO sub 4 sup *$) def
+%/fullname [ fullname aload pop pop long_name ] def
+%} def
+(/Data/data1/ocean/levitus94cache/po4s.cuf) continuewithCUF
+/theta 
+(/Data/data1/ocean/levitus94cache/theta.cdf) readCDF .$theta$
+longname addhistory
+/fullname [ /LEVITUS94 /ANNUAL /theta ] def
+/long_name (potential temperature) def
+/units /Celsius preferredunitname def
+/dataset SOURCES .LEVITUS94 .ANNUAL def
+/name /theta def
+def
+/temp temp /units /Celsius preferredunitname def 
+def
+dup {pop}{fullname type /stringtype eq {fullname interp /fullname exch def dataset name exch put}{pop}ifelse}foralldatasets2
+/potdens {
+theta sal 0 densa /long_name (potential density) def
+} defasvar
+dup /ANNUAL SOURCES .LEVITUS94  !
+ } def
+/SEASONAL { /SEASONAL (/Data/data1/lev94/lev94s.cdf) nameCDF 
+/temp temp /units /Celsius preferredunitname def 
+def
+dup {pop}{fullname type /stringtype eq {fullname interp /fullname exch def dataset name exch put}{pop}ifelse}foralldatasets2
+SOURCES .NOAA .NODC .WOA98 .SEASONAL .T
+   name exch def
+pushproc
+  T replacewithdatasetGRID
+popproc
+/name /SEASONAL def
+} defasvarsilent
+/MONTHLY {/MONTHLY    (/Data/data1/lev94/lev94m.cdf) nameCDF
+/theta
+(/Data/data1/lev94/theta.cdf) readCDF .$theta$
+/name /theta def
+longname addhistory
+/fullname [ /LEVITUS94 /MONTHLY /theta ] def
+/dataset SOURCES .LEVITUS94 .MONTHLY def
+def
+%/Zmix
+%(/Data/data1/lev94/zmix.cdf) readCDF .Z
+%%/name /Zmix def
+%/fullname [ /LEVITUS94 /MONTHLY /Zmix ] def
+%/long_name (Mixed Layer Depth) def
+%/dataset SOURCES .LEVITUS94 .MONTHLY def
+%def
+/potdens {
+theta sal 0 densa /long_name (potential density) def
+} defasvar
+/Zmix {
+potdens
+   Z 0 VALUE
+   1.2500002E-04 add
+   potdens[Z]tablefunction
+   potdens
+    Z 0 VALUE
+    1.2500002E-04 add
+    SOURCES .LEVITUS94 .ANNUAL .potdens
+     [Z]tablefunction
+    replaceNaN
+[X Y] REORDER
+/long_name (mixed layer depth) def
+} defasvarcache
+/temp temp /units /Celsius preferredunitname def 
+def
+dup {pop}{fullname type /stringtype eq {fullname interp /fullname exch def dataset name exch put}{pop}ifelse}foralldatasets2
+dup /MONTHLY SOURCES .LEVITUS94  !
+ } def
+:dataset
+\end{ingrid}
+\section{Zmix}
+Zmix is computed from monthly data, except that a second version which
+uses the ANNUAL mean data is used where the mixed-layer depth goes
+below 1000 m.  The corresponding ingrid script follows
+SOURCES .LEVITUS94 .MONTHLY
+  a: .theta
+    :a: .sal
+     0 :a
+    densa
+  a:
+    Z 0 VALUE
+    1.2500002E-04 add
+    :a: :a
+   [Z]tablefunction
+  SOURCES .LEVITUS94 .MONTHLY
+   a: .theta
+     :a: .sal
+      0 :a
+     densa
+   Z 0 VALUE
+   1.2500002E-04 add
+   SOURCES .LEVITUS94 .ANNUAL
+    a: .theta
+      :a: .sal
+       0 :a
+      densa
+    [Z]tablefunction
+   replaceNaN
+
+It is *very* slow, so until caching is automatic, it must be stored.
+

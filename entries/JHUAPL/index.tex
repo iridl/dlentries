@@ -1,0 +1,57 @@
+
+\begin{ingrid}
+
+/iridl:hasSemantics [(iridl:SpaceWeather)(iridl:JHUAPL)(iridlsemantics:PRISM)] def
+
+/references (Gjeorlev2009 Gjeorlev2012) def
+
+link:
+/name (supermag.jhuapl.edu/indices/) def
+/description (SuperMAG) def
+/href (http://supermag.jhuapl.edu/indices/) def
+:link
+
+continuedataset:
+datasetdefs:
+grid:
+/name /mycol def
+1 1 2
+:grid
+:datasetdefs
+
+/T (minutes since 2018-01-01 00:00:00) 0 0 1 2019
+       12 31 ymd2rjt
+       2018
+        1 1 ymd2rjt
+        sub
+       24 mul
+       60 mul
+       1 sub
+       NewEvenIntegerGRID
+  /pointwidth 0 def
+name exch def
+
+/SML {
+[mycol T | ]
+(/Data/PRISM/SuperMAG/Indices/SuperMAGIndices.tsv)
+readdatafile:
+[1 1] r*4astsv
+:readdatafile
+mycol 1 VALUE
+mycol removeGRID
+/units (minutes) def
+}defasvarsilent
+
+/SMU {
+[mycol T | ]
+(/Data/PRISM/SuperMAG/Indices/SuperMAGIndices.tsv)
+readdatafile:
+[1 1] r*4astsv
+:readdatafile
+mycol 2 VALUE
+mycol removeGRID
+/units (minutes) def
+}defasvarsilent
+
+:dataset
+\end{ingrid}

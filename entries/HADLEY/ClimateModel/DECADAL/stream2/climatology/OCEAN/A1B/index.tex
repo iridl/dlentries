@@ -1,0 +1,180 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+grid:
+/name /M def
+/long_name (Member) def
+0 1 8
+:grid
+variable:
+/name /Mem def
+grids: M :grids
+values:
+(aenwl)
+(aeyja)
+(aeyjc)
+(aeyjh)
+(aeyji)
+(aeyjm)
+(aeyjp)
+(aeyjq)
+(aeyjr)
+:values
+:variable
+/putasvarsilent { defasvarsilent pop } def
+:datasetdefs
+ /Conventions (CF-1.0) def
+\end{ingrid}
+grid:
+/name /S def
+/long_name (Start time) def
+/standard_name (forecast_reference_time) def
+/units (months since 1960-01-01 00:00:00) def
+/pointwidth 0 def
+values:
+01 Dec 1989 ensotime
+:values
+:grid
+\begin{ingrid}
+grid:
+/name /T def
+/long_name (Time) def
+/standard_name (Time) def
+/units (months since 1960-01-01 00:00:00) def
+/pointwidth 3 def
+16 Jan 1990 ensotime
+3.
+16 Oct 2040  ensotime
+:grid
+
+grid:
+/name (X)def
+/units (degree_east)def
+periodic
+0.625 1.25 360 0.625 sub
+:grid
+/X1 X def
+
+grid:
+/name (X)def
+/units (degree_east)def
+periodic
+0 1.25 360 1.25 sub
+:grid
+
+grid:
+/name (Y) def
+/units (degree_north)def
+-88.75 1.25 88.75
+:grid
+/Y1 Y def
+
+grid:
+/name (Y) def
+/units (degree_north)def
+-89.375 1.25 89.375
+:grid
+
+grid:
+/name /z def
+/long_name (Below sea surface) def
+/units (m) def
+values: 
+    5.00   15.00   25.00   35.10   47.85
+   67.00   95.75  138.90  203.70  301.00
+  447.05  666.30  995.55 1500.85 2116.15
+ 2731.40 3346.65 3961.90 4577.15 5192.45
+:values
+:grid
+
+dataset: /name /surface def :dataset
+surface [ X Y M T] { name exch def } forall pop
+dataset: /name /belowSeaSurface def :dataset
+belowSeaSurface  [ X Y z M T] { name exch def } forall pop
+belowSeaSurface /so {
+dataset
+[ X Y | z M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_sm/ocean/%s[Mem]/%s[Mem]_sm_so%.2f[z]_198912010000-204012010000.nc)[z Mem M]
+readdatafile: 
+/name (so) def
+/long_name (salinity (ocean)) def /units (psu) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+belowSeaSurface /thetao {
+dataset
+[ X Y | z M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_sm/ocean/%s[Mem]/%s[Mem]_sm_thetao%.2f[z]_198912010000-204012010000.nc)[z Mem M]
+readdatafile: 
+/name (thetao) def
+/long_name (potential temperature (ocean)) def /units (K) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+belowSeaSurface /uo {
+dataset
+[ X1 Y1 | z M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_sm/ocean/%s[Mem]/%s[Mem]_sm_uo%.2f[z]_198912010000-204012010000.nc)[z Mem M]
+readdatafile: 
+/name (uo) def
+/long_name (total u-velocity (ocean)) def /units (m s-1) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+belowSeaSurface /vo {
+dataset
+[ X1 Y1 | z M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_sm/ocean/%s[Mem]/%s[Mem]_sm_vo%.2f[z]_198912010000-204012010000.nc)[z Mem M]
+readdatafile: 
+/name (vo) def
+/long_name (total v-velocity (ocean)) def /units (m s-1) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+surface /aic {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_sm/ocean/%s[Mem]/%s[Mem]_sm_aic-1_198912010000-204012010000.nc)[Mem M]
+readdatafile: 
+/name (aic) def
+/long_name (sea ice concentration) def /units (fraction) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+surface /sit {
+dataset
+[ X Y | M T] 
+(/Data/data21/hadleycmdecadal/ENSEMBLES/clim_sm/ocean/%s[Mem]/%s[Mem]_sm_sit-1_198912010000-204012010000.nc)[Mem M]
+readdatafile: 
+/name (sit) def
+/long_name (sea ice thickness) def /units (m) def
+/missing_value 1e+20 def
+/realarraytype
+netcdfrecords
+:readdatafile
+nip
+}putasvarsilent
+
+:dataset
+\end{ingrid}
+

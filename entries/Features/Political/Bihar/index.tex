@@ -1,0 +1,25 @@
+\begin{ingrid}
+
+continuedataset:
+
+/adm2_name{
+ SOURCES .Features .Political .World .secondOrder_GAUL .adm2_name
+  gid 30329 30365 RANGE
+}defasvar
+
+/the_geom{
+ SOURCES .Features .Political .World .secondOrder_GAUL .the_geom
+  gid 30329 30365 RANGE
+}defasvar
+
+/label{
+ SOURCES .Features .Political .World .secondOrder_GAUL .label
+  gid 30329 30365 RANGE
+}defasvar
+
+
+:dataset
+% make the gid grid available to maprooms
+Bihar adm2_name .gid name exch put
+
+\end{ingrid}

@@ -1,0 +1,18 @@
+(/local1/archives/vobsomer/africa/NDVI/spot/binfiles/af%y%m3.bin)
+getlastdatefromSPOTfilepattern
+\begin{ingrid}
+/SPOT dataareLDEOonlyPassword
+Ingrid:
+/getlastdatefromSPOTfilepattern
+{ systemtime backonemonth} def
+/backonemonth
+{
+2592000 sub
+dup 
+2 index dup length 2 add strftime
+fileexists?
+{ (28 %m %Y) 10 strftime interp julian_day nip }
+{ backonemonth} ifelse
+} def
+pop
+\end{ingrid}

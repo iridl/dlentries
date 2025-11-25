@@ -1,0 +1,68 @@
+\begin{ingrid}
+continuedataset:
+
+/est_prcp {
+ SOURCES .NOAA .NCEP .CPC .FEWS .Africa .DAILY .ARC2 .daily .est_prcp
+  1.0 dekadalAverage
+  T differential_mul
+  /long_name (Estimated Dekadal Precipitation) def
+  T
+   /defaultvalue {last}def
+   dup integralgrid
+    1 index
+     a: .first
+       :a: .last :a
+      subgrid
+    /myintegralgrid exch def
+   pop
+   CopyStream
+  /last_modified last_modified
+    1149798760 imax
+    def
+} defasvarsilent
+
+dataset:
+/name (climatology) def
+
+ dataset:
+ /name (dc1983-2014) def
+
+/est_prcp {
+ SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .ARC2 .est_prcp
+  T (1 Jan 2003) (31 Dec 2003) RANGE
+  SOURCES .NOAA .NCEP .CPC .FEWS .Africa .TEN-DAY .ARC2 .est_prcp
+   /missing_value NaN def
+   T (1 Jan 1983) (31 Dec 2014) RANGE
+   T name
+     npts NewIntegerGRID
+     replaceGRID
+   T 36 splitstreamgrid
+   [T2]average
+   T 2 index
+     T dekadaledgesgrid partialgrid
+      2 1 roll
+      pop
+     replaceGRID
+   T (days since 2003-01-01) streamgridunitconvert
+   T T dekadaledgesgrid
+     first secondtolast subgrid
+     /calendar /365 def
+     gridS
+      365 store modulus
+      pop
+     periodic setgridtype
+     partialgrid replaceGRID
+   [X Y]REORDER
+   2 1 roll
+   pop
+  /fullname (Dekadal ARC2 1983-2014 average) def
+  /long_name (Dekadal ARC2 1983-2014 average) def
+  /base_period (1983-2014) def
+} defasvarcachesilent
+
+ :dataset
+
+:dataset
+
+:dataset
+\end{ingrid}

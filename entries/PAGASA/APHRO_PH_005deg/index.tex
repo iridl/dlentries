@@ -1,0 +1,47 @@
+\begin{ingrid}
+/description (Philippines APHRODITE at 0.05 degree) def
+/PAGASA datadownloadsareRestricted
+
+continuedataset:
+
+grid:
+/name /X def
+/units /degree_east def
+ 116.025 0.05 2 copy 240 1 sub mul add
+/long_name (longitude) def
+:grid
+
+grid:
+/name /Y def
+/units /degree_north def
+4.025 0.05 2 copy 320 1 sub mul add
+/long_name (latitude) def
+:grid
+
+grid:
+/name /T def
+      /units (days since 1960-01-01) def
+      /calendar /standard def
+      (1200 1 Jan 2007)
+       1
+      (1200 31 Dec 2010)
+:grid
+
+/precip {
+[X Y | T ]
+(/data/remic/mydatafiles/PAGASA/APHRO_PH/APHRO_PH_005deg.%Y[T]) [T yearlyedgesgrid first secondtolast subgrid]
+%[X Y T | ]
+%(/data/remic/mydatafiles/PAGASA/APHRO_PH/APHRO_PH_005deg.2010)
+readdatafile:
+/missing_value -99.9 def
+decdirect
+:readdatafile
+/long_name (daily precipitation) def
+/units (mm/day) def
+precip_colors
+DATA 0 AUTO RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

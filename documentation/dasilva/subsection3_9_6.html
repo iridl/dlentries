@@ -1,0 +1,55 @@
+<HEAD>
+<TITLE> Producing your own fine tuned fluxes</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html442 HREF=section3_10.html><IMG ALIGN=MIDDLE SRC="/icons/next_motif.gif"></A> <A NAME=tex2html440 HREF=section3_9.html><IMG ALIGN=MIDDLE SRC="/icons/up_motif.gif"></A> <A NAME=tex2html436 HREF=subsection3_9_5.html><IMG ALIGN=MIDDLE SRC="/icons/previous_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME=tex2html443 HREF=section3_10.html> Assessing sampling errors </A>
+<B>Up:</B> <A NAME=tex2html441 HREF=section3_9.html> Fine tuning of </A>
+<B> Previous:</B> <A NAME=tex2html437 HREF=subsection3_9_5.html> Constrained fluxes in </A>
+<HR> <P>
+<H2><A NAME=SECTION0009600000000000000> Producing your own fine tuned fluxes</A></H2>
+<P>
+<A NAME=seccustom><IMG ALIGN=MIDDLE SRC="/icons/invis_anchor.xbm"></A>
+<P>
+The uncertainties in the parameter error covariance matrix <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3663.xbm"> and
+the need to adjust the flux based on measurements for a particular
+area will undoubtedly require users to produce their own fine
+tuning of the heat and fresh water fluxes. To this end, we provide
+users of UWM/COADS with <em>sensitivity fields</em> associated 
+with each of the tuning parameters discussed in this section. 
+For example, the net heat flux can be written as
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_eqnarray1483.xbm"><P>
+The corresponding sensitivity fields are
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_eqnarray1485.xbm"><P>
+The sensitivity fields <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3793.xbm">, <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3795.xbm"> and <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3797.xbm"> are equal to
+<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3799.xbm">, <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3801.xbm"> and <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3803.xbm"> which are the full unconstrained fields 
+already included in UWM/COADS. The other sensitivity fields are
+computed either from individual observations with climatology and
+anomalies analyzed the same way as the other UWM/COADS fields (<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3805.xbm">
+and <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3807.xbm">), or derived from analyzed fields (<IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3809.xbm">).
+<P>
+In order to produce constrained estimates of the individual heat flux
+components, one can calculate
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_eqnarray1509.xbm"><P>
+where <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3811.xbm"> denotes the unconstrained estimate of the heat flux
+component as included in UWM/COADS. Likewise, constrained evaporation
+and precipitation fields can be computed from
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_eqnarray1511.xbm"><P>
+The parameters in Tables <A HREF=subsection3_9_2.html#tabchf>11</A>-<A HREF=subsection3_9_4.html#tabmulti>13</A> can be
+used to produce several versions of the constrained heat and fresh
+water fluxes. In addition, new values for the tuning parameters can be
+obtained as follows. The sensitivity matrix <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3813.xbm"> can be computed by
+integrating the sensitivity fields <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3815.xbm"> at a given latitude, e.g.,
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_770_eqnarray1513.xbm"><P>
+(assuming <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3645.xbm"> is the <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap2917.xbm">th parameter).  The new tuning parameters
+can be obtained by solving (<A HREF=subsection3_9_1.html#eqmultiple>55</A>), given estimates for
+the parameter error covariance matrix <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3821.xbm"> and oceanographic
+measurements <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3823.xbm"> with error covariance matrix <IMG ALIGN=BOTTOM ALT="" SRC="_770_tex2html_wrap3517.xbm">.
+<P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>
+Fri Oct 20 12:28:33 EDT 1995</I>
+</ADDRESS>

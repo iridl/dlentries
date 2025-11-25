@@ -1,0 +1,580 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+grid: /name /X def
+degE
+periodic
+     0.00000
+     2.81250
+360 1 index sub
+:grid
+64 gaussianlat high low subgrid name exch def
+grid:
+/name /T def
+/units /monthtime def
+16 Jan 1950 ensotime
+1
+16 Jul 1998 ensotime
+:grid
+grid:
+/name /M def
+/long_name (member) def
+/units (integer) def
+1 1 10
+:grid
+variable:
+/name /prcp def
+/long_name (precipitation rate) def
+/units (mm/day) def
+grids: X Y | M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/pcp/echm.pcp.5098.tot.%d2) def
+/filecnt0 11 def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /t2m def
+/long_name (temperature at 2m) def
+/units (degreeK) def
+grids: X Y | M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/2mt/echm.2mt.5098.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+grid:
+/name /P def
+/units (mb) def
+values: 850 :values
+:grid
+variable:
+/name /u850 def
+/long_name (zonal velocity) def
+/units (m/s) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/u/echm.u850.5098.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /v850 def
+/long_name (meridional velocity) def
+/units (m/s) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/v/echm.v850.5098.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+grid:
+/name /T def
+/units /monthtime def
+16 Jan 1950 ensotime
+1
+16 Dec 1996 ensotime
+:grid
+variable:
+/name /z850 def
+/long_name (height) def
+/units (m) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/z/echm.850.5096.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+grid:
+/name /P def
+/units (mb) def
+values: 200 :values
+:grid
+variable:
+/name /u200 def
+/long_name (zonal velocity) def
+/units (m/s) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/u/echm.u200.5096.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /v200 def
+/long_name (meridional velocity) def
+/units (m/s) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/v/echm.v200.5096.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /z200 def
+/long_name (height) def
+/units (m) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/z/echm.200.5096.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+grid:
+/name /P def
+/units (mb) def
+values: 1000 :values
+:grid
+variable:
+/name /u1000 def
+/long_name (zonal velocity) def
+/units (m/s) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/u/echm.u1000.5096.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /v1000 def
+/long_name (meridional velocity) def
+/units (m/s) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/v/echm.v1000.5096.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /z1000 def
+/long_name (height) def
+/units (m) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/z/echm.1000.5096.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+grid:
+/name /P def
+/units (mb) def
+values: 500 :values
+:grid
+variable:
+/name /u500 def
+/long_name (zonal velocity) def
+/units (m/s) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/u/echm.u500.5096.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /v500 def
+/long_name (meridional velocity) def
+/units (m/s) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/v/echm.v500.5096.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /z500 def
+/long_name (height) def
+/units (m) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/z/echm.500.5096.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+grid:
+/name /P def
+/units (mb) def
+values: 700 :values
+:grid
+variable:
+/name /u700 def
+/long_name (zonal velocity) def
+/units (m/s) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/u/echm.u700.5096.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /v700 def
+/long_name (meridional velocity) def
+/units (m/s) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/v/echm.v700.5096.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /z700 def
+/long_name (height) def
+/units (m) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/z/echm.700.5096.tot.%d2) def
+/filecnt0 11 def
+%/filesize T .npts def
+%/nfile 10 def
+%/nrec T .npts def
+M setfilenamegrid
+:file
+:variable
+grid:
+/name /T def
+/units /monthtime def
+16 Jan 1950 ensotime
+1
+16 Feb 1999 ensotime
+:grid
+variable:
+/name /uqint def
+/long_name (integrated zonal moisture flux) def
+/units (unknown) def
+grids: X Y | M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/uq/echm.uqint.5099.tot.%d2) def
+/filecnt0 11 def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /vqint def
+/long_name (integrated meridional moisture flux) def
+/units (unknown) def
+grids: X Y | M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/vq/echm.vqint.5099.tot.%d2) def
+/filecnt0 11 def
+M setfilenamegrid
+:file
+:variable
+% missing realization files
+z850 M 1 2   4 5 6 7 8 9 10 VALUES0 name exch def
+z200 M 1 2   4 5 6 7 8 9 10 VALUES0 name exch def
+u850 M 1 2   4 5 6 7 8 9 10 VALUES0 name exch def
+u200 M 1     4 5 6 7 8 9 10 VALUES0 name exch def
+v850 M 1 2   4 5 6 7 8 9 10 VALUES0 name exch def
+v200 M 1     4 5 6 7 8 9 10 VALUES0 name exch def
+z1000 M 1 2   4 5 6 7 8 9 10 VALUES0 name exch def
+u1000 M 1     4 5 6 7 8 9 10 VALUES0 name exch def
+v1000 M 1     4 5 6 7 8 9 10 VALUES0 name exch def
+z500 M 1 2   4 5 6 7 8 9 10 VALUES0 name exch def
+u500 M 1     4 5 6 7 8 9 10 VALUES0 name exch def
+v500 M 1     4 5 6 7 8 9 10 VALUES0 name exch def
+z700 M 1 2   4 5 6 7 8 9 10 VALUES0 name exch def
+u700 M 1     4 5 6 7 8 9 10 VALUES0 name exch def
+v700 M 1     4 5 6 7 8 9 10 VALUES0 name exch def
+:datasetdefs
+uqint M 4 5 6 7 8 9 10 VALUES0 name exch def
+vqint M 4 5 6 7 8 9 10 VALUES0 name exch def
+grid: /name /X def
+degE
+periodic
+     0.00000
+     2.81250
+360 1 index sub
+:grid
+64 gaussianlat high low subgrid name exch def
+grid:
+/name /T def
+/units /monthtime def
+16 Jan 1950 ensotime
+1
+16 Mar 1999 ensotime
+:grid
+grid:
+/name /M def
+/long_name (member) def
+/units (integer) def
+1 1 10
+:grid
+grid: /name /P def
+/long_name (pressure) def
+/units (mb) def
+values:
+1000 850 700 500 200
+:values
+:grid
+variable:
+/name /prcp def
+/long_name (precipitation rate) def
+/units (mm/day) def
+grids: X Y | M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/pcp/echm.pcp.5099.tot.%d2) def
+/filecnt0 11 def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /t2m def
+/long_name (temperature at 2m) def
+/units (degreeK) def
+grids: X Y | M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/2mt/echm.2mt.5099.tot.%d2) def
+/filecnt0 11 def
+M setfilenamegrid
+:file
+:variable
+variable:
+/name /z def
+/long_name (height) def
+/units (m) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/links/z/file%d2) def
+M setfilenamegrid
+/filesize 1 def
+/nfile 50  def
+/nrec T .npts def
+:file
+:variable
+variable:
+/name /u def
+/long_name (zonal velocity) def
+/units (m/s) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/links/u/file%d2) def
+M setfilenamegrid
+/filesize 1 def
+/nfile 50  def
+/nrec T .npts def
+:file
+:variable
+variable:
+/name /v def
+/long_name (meridional velocity) def
+/units (m/s) def
+grids: X Y | P M T :grids
+file:
+decsequential
+/name (/Data/data7/iri/echam/ensemble/links/v/file%d2) def
+M setfilenamegrid
+/filesize 1 def
+/nfile 50  def
+/nrec T .npts def
+:file
+:variable
+z M 1 2   4 5 6 7 8 9 10 VALUES0 name exch def
+u M 1     4 5 6 7 8 9 10 VALUES0 name exch def
+v M 1     4 5 6 7 8 9 10 VALUES0 name exch def
+dataset:
+/name /PressureLevel def
+/u {
+SOURCES .IRI .FD .ECHAM3 .History .MONTHLY
+members: R25004 .PressureLevel .u
+     R25005 .PressureLevel .u
+      R25006 .PressureLevel .u
+      R25007 .PressureLevel .u
+      R25008 .PressureLevel .u
+      R25009 .PressureLevel .u
+      R25010 .PressureLevel .u
+       {R25004 R25005 R25006 R25007 R25008 R25009 R25010}:members
+nip
+} defasvar
+/v {
+SOURCES .IRI .FD .ECHAM3 .History .MONTHLY
+members: R25004 .PressureLevel .v
+     R25005 .PressureLevel .v
+      R25006 .PressureLevel .v
+      R25007 .PressureLevel .v
+      R25008 .PressureLevel .v
+      R25009 .PressureLevel .v
+      R25010 .PressureLevel .v
+       {R25004 R25005 R25006 R25007 R25008 R25009 R25010}:members
+nip
+} defasvar
+/v {
+SOURCES .IRI .FD .ECHAM3 .History .MONTHLY
+members: R25004 .PressureLevel .v
+     R25005 .PressureLevel .v
+      R25006 .PressureLevel .v
+      R25007 .PressureLevel .v
+      R25008 .PressureLevel .v
+      R25009 .PressureLevel .v
+      R25010 .PressureLevel .v
+       {R25004 R25005 R25006 R25007 R25008 R25009 R25010}:members
+nip
+} defasvar
+/hus {
+SOURCES .IRI .FD .ECHAM3 .History .MONTHLY
+members: R25004 .PressureLevel .hus
+     R25005 .PressureLevel .hus
+      R25006 .PressureLevel .hus
+      R25007 .PressureLevel .hus
+      R25008 .PressureLevel .hus
+      R25009 .PressureLevel .hus
+      R25010 .PressureLevel .hus
+       {R25004 R25005 R25006 R25007 R25008 R25009 R25010}:members
+nip
+} defasvar
+/rvort {
+SOURCES .IRI .FD .ECHAM3 .History .MONTHLY
+members: R25004 .PressureLevel .rvort
+     R25005 .PressureLevel .rvort
+      R25006 .PressureLevel .rvort
+      R25007 .PressureLevel .rvort
+      R25008 .PressureLevel .rvort
+      R25009 .PressureLevel .rvort
+      R25010 .PressureLevel .rvort
+       {R25004 R25005 R25006 R25007 R25008 R25009 R25010}:members
+nip
+} defasvar
+/Div {
+SOURCES .IRI .FD .ECHAM3 .History .MONTHLY
+members: R25004 .PressureLevel .Div
+     R25005 .PressureLevel .Div
+      R25006 .PressureLevel .Div
+      R25007 .PressureLevel .Div
+      R25008 .PressureLevel .Div
+      R25009 .PressureLevel .Div
+      R25010 .PressureLevel .Div
+       {R25004 R25005 R25006 R25007 R25008 R25009 R25010}:members
+nip
+} defasvar
+/ta {
+SOURCES .IRI .FD .ECHAM3 .History .MONTHLY
+members: R25004 .PressureLevel .ta
+     R25005 .PressureLevel .ta
+      R25006 .PressureLevel .ta
+      R25007 .PressureLevel .ta
+      R25008 .PressureLevel .ta
+      R25009 .PressureLevel .ta
+      R25010 .PressureLevel .ta
+       {R25004 R25005 R25006 R25007 R25008 R25009 R25010}:members
+nip
+} defasvar
+/phi {
+SOURCES .IRI .FD .ECHAM3 .History .MONTHLY
+members: R25004 .PressureLevel .phi
+     R25005 .PressureLevel .phi
+      R25006 .PressureLevel .phi
+      R25007 .PressureLevel .phi
+      R25008 .PressureLevel .phi
+      R25009 .PressureLevel .phi
+      R25010 .PressureLevel .phi
+       {R25004 R25005 R25006 R25007 R25008 R25009 R25010}:members
+nip
+} defasvar
+/chi {
+SOURCES .IRI .FD .ECHAM3 .History .MONTHLY
+members: R25004 .PressureLevel .chi
+     R25005 .PressureLevel .chi
+      R25006 .PressureLevel .chi
+      R25007 .PressureLevel .chi
+      R25008 .PressureLevel .chi
+      R25009 .PressureLevel .chi
+      R25010 .PressureLevel .chi
+       {R25004 R25005 R25006 R25007 R25008 R25009 R25010}:members
+nip
+} defasvar
+/psi {
+SOURCES .IRI .FD .ECHAM3 .History .MONTHLY
+members: R25004 .PressureLevel .psi
+     R25005 .PressureLevel .psi
+      R25006 .PressureLevel .psi
+      R25007 .PressureLevel .psi
+      R25008 .PressureLevel .psi
+      R25009 .PressureLevel .psi
+      R25010 .PressureLevel .psi
+       {R25004 R25005 R25006 R25007 R25008 R25009 R25010}:members
+nip
+} defasvar
+:dataset
+:dataset
+\end{ingrid}

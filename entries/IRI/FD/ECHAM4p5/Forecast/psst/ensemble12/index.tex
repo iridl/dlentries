@@ -1,0 +1,10 @@
+\begin{ingrid}
+continuedataset:
+/description (retrospective ECHAM4.5 ensemble forecasts based on persisted SST) def
+datasetdefs:
+/FULLMONTHLY { SIX-HOURLY T 0.125 shiftGRID monthlyAverage} defasvarcache
+/DAILY { SIX-HOURLY T 0.125 shiftGRID T dailyAverage } defasvar
+:datasetdefs
+/SIX-HOURLY currentobject 1 index get def
+/MONTHLY currentobject 1 index get def
+:dataset

@@ -1,0 +1,358 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+Ingrid: /holdindex 1 array put
+:datasetdefs
+link:
+/name (SamplingTable) def
+/href (mark/sampleS/M/4/STEP/S/exch%5BM%5Dtable:/mark/:table/.html) def
+/description (gives pentad start date as a function of ensemble member M and start S) def
+:link
+grid:
+/name (S) def
+/calendar /365 def
+/units (days since 1960-01-01) def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+2011 3 10 ymd2d365c 1960 1 1 ymd2d365c sub
+1
+systemtime (%Y %m %d) 12 strftime interp ymd2d365c 1960 1 1 ymd2d365c sub
+:grid
+
+S {(/Data/data22/noaa/ncep/cfsv2/fcst/%Y/%m/%d[S]/00/pgbf.01.%Y%m%d[S]00.%Y%m[S].avrg.grib.grb2) [S] } removeextrausing name exch def
+
+S gridvalues
+     npts integerarray copy
+     NewGRID
+name exch def
+S monthlyedgesgrid365 second secondtolast subgrid
+/S exch def
+S CopyStream defivars
+   /name /s365 def
+   S monthtimename streamgridunitconvert
+   /name /s365 def
+name exch def
+s365 .S name exch def
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 1.0 359
+:grid
+grid:
+/name (Y)def
+/units (degree_north)def
+90 -1 -90
+:grid
+dataset: /name /surface def :dataset
+dataset: /name /mean_sea_level def :dataset
+dataset: /name /2m_above_ground def :dataset
+dataset: /name /3000-0m_above_ground def :dataset
+dataset: /name /1000-0m_above_ground def :dataset
+dataset: /name /6000-0m_above_ground def :dataset
+dataset: /name /tropopause def :dataset
+dataset: /name /max_wind def :dataset
+dataset: /name /1829m_above_Mean_Sea_Level def :dataset
+dataset: /name /2743m_above_Mean_Sea_Level def :dataset
+dataset: /name /3658m_above_Mean_Sea_Level def :dataset
+dataset: /name /4572m_above_Mean_Sea_Level def :dataset
+dataset: /name /entire_atmosphere def :dataset
+dataset: /name /pressure_level def :dataset
+dataset: /name /Model_top_level def :dataset
+dataset: /name /0C_isotherm def :dataset
+dataset: /name /highest_tropospheric_freezing_level def :dataset
+dataset: /name /30-0mb_above_ground def :dataset
+dataset: /name /180-0mb_above_ground def :dataset
+dataset: /name /0.33-1sigma_layer def :dataset
+dataset: /name /0.44-1sigma_layer def :dataset
+dataset: /name /0.72-0.94sigma_layer def :dataset
+dataset: /name /0.44-0.72sigma_layer def :dataset
+dataset: /name /0.33-1sigma_layer def :dataset
+dataset: /name /0.995sigma_level def :dataset
+dataset: /name /PV=2e-06_surface def :dataset
+dataset: /name /PV=-2e-06_surface def :dataset
+dataset: /name /500mb def :dataset
+dataset: /name /1000mb def :dataset
+dataset: /name /stream_function def :dataset
+
+grid:
+/name /Z def
+/long_name (above_mean_sea_level) def
+values:
+1829 2743 3658 4572 
+:values
+:grid
+
+/Z1 Z def
+
+grid:
+/name /Z def
+/long_name (Pressure level) def
+/units (mb) def
+values:
+1 2 3 5 7 :values
+:grid
+
+/Z2 Z def
+
+grid:
+/name /Z def
+/long_name (Wind Component) def
+1 1 2
+:grid
+
+/Z3 Z def
+
+grid:
+/name /P def
+/long_name (Pressure level) def
+/units (mb) def
+values:
+1 2 3 5 7 :values
+:grid
+
+/P1 P def
+
+grid:
+/name /P def
+/long_name (Pressure level) def
+/units (mb) def
+values:
+10 20 30 50 70 100 125 150 175 200 225 250 300 350 400 450 500 550 600 650 700 750 775 800 825 850 875 900 925 950 975 1000 :values
+:grid
+
+/P2 P def
+
+grid:
+/name /P def
+/long_name (Pressure level) def
+/units (mb) def
+values:
+1000 975 950 925 900 875 850 825 800 775 750 700 650 600 550 500 450 400 350 300 250 225 200 175 150 125 100 70 50 30 20 10 7 5 3 2 1 :values
+:grid
+
+/P3 P def
+
+grid:
+/name /L def
+/units (months) def
+.5 1 9.5
+:grid
+
+variable:
+/name /offsets def
+grids: S :grids
+values:
+S .npts 12 idiv
+{-20 -20 -21 -21 -22 -23 -23 -24 -19 -20 -21 -19} repeat
+S .npts dup 12 idiv 12 imul sub
+{-20 -20 -21 -21 -22 -23 -23 -24 -19 -20 -21 -19} exch 0 exch getinterval
+aload pop
+:values
+:variable
+/M 28 NewIntegerGRID
+name exch def
+
+/M2hour
+{ M 1 sub
+   4 mod
+   6 mul
+toi4
+/long_name (M2hour) def
+} defasvarsilent
+
+
+
+
+variable:
+/name /skipM1 def
+grids: M :grids
+values:
+0 0 0 0 5 5 5 5 10 10 10 10 15 15 15 15 20 20 20 20 25 25 25 25 30 30 30 30
+:values
+:variable
+
+/sampleS
+{
+s365 offsets exch add
+skipM1 exch add
+M 24 flaggt 
+3 index .s365 365 mod 303.5 304.5 flagnotrange mul
+1 1 maskrange add
+/units (days since 1960-01-01) def
+/calendar /365 def
+/pointwidth 0 def
+} defasvarsilent
+
+/T{
+currentobject
+S 
+%monthlyedgesgrid first secondtolast subgrid
+monthlyedgesgrid first last subgrid
+ first cvsunits
+    interp ensotime
+     nip cvi onegridcounter
+
+/units (months since 1960-01-01) def
+L  add
+[S] regridLB nip
+/long_name (Forecast Time) def
+/standard_name (time) def
+/units (months since 1960-01-01) def
+/calendar /360 def
+/pointwidth 1 def
+}defasvarsilent
+
+/atmos{
+[ X Y | /NVZ 477 NewIntegerGRID M L S ] 
+
+(/Data/data22/noaa/ncep/cfsv2/fcst/%Y/%m/%d[sampleS]/%2.2d[M2hour]/pgbf.01.%Y%m%d[sampleS]%2.2d[M2hour].%Y%m[T].avrg.grib.grb2) [ M L S M2hour sampleS 0. replaceNaN T ]
+
+readdatafile: 
+/missing_value 9.9990003E+20 def
+1 GRIB2record
+:readdatafile
+2 RECHUNK
+}defasvarsilent
+atmos holdindex astore pop
+atmos 1 RECHUNK
+
+definevariables:
+
+mean_sea_level 0  Zvariable:/name (PRES) def /long_name (Pressure) def /units (Pa) def /P undef :Zvariable
+
+/P P1 def
+Model_top_level [2 10 18 26 34] Pvariable:/name (HGT) def /long_name (Geopotential Height) def /units (gpm) def /Z undef :Pvariable
+Model_top_level [3 11 19 27 35] Pvariable:/name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def /Z undef :Pvariable
+Model_top_level [4 12 20 28 36] Pvariable:/name (RH) def /long_name (Relative Humidity) def /units (%) def /Z undef :Pvariable
+Model_top_level [5 13 21 29 37] Pvariable:/name (SPFH) def /long_name (Specific Humidity) def /units (kg kg-1) def /Z undef :Pvariable
+Model_top_level [6 14 22 30 38] Pvariable:/name (VVEL) def /long_name (Vertical Velocity) def /units (Pa s-1) def /Z undef :Pvariable
+Model_top_level [7 15 23 31 39] Pvariable:/gribfield 1 def /name (UGRD) def /long_name (U-wind) def /units (m s-1) def /Z undef :Pvariable
+Model_top_level [7  15 23 31 39] Pvariable:/gribfield 2 def /name (VGRD) def /long_name (V-wind) def /units (m s-1) def /Z undef :Pvariable
+Model_top_level [8 16 24 32 40] Pvariable:/name (ABSV) def /long_name (Absolute Vorticity) def /units (m s-1) def /Z undef :Pvariable
+Model_top_level [9 17 25 33 41] Pvariable:/name (O3MR) def /long_name (Ozone Mixing Ratio) def /units (kg kg-1) def /Z undef :Pvariable
+/P P2 def
+pressure_level [42 51 60 69 78 87 96 105 114 123 132 141 150 159 168 177 186 195 204 213 222 231 240 249 258 267 276 285 294 303 312 321] Pvariable:/name (HGT) def /long_name (Geopotential Height) def /units (gpm) def /Z undef :Pvariable
+pressure_level [43 52 61 70 79 88 97 106 115 124 133 142 151 160 169 178 187 196 205 214 223 232 241 250 259 268 277 286 295 304 313 322] Pvariable:/name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def /Z undef :Pvariable
+pressure_level [44 53 62 71 80 89 98 107 116 125 134 143 152 161 170 179 188 197 206 215 224 233 242 251 260 269 278 287 296 305 314 323] Pvariable:/name (RH) def /long_name (Relative Humidity) def /units (%) def /Z undef :Pvariable
+pressure_level [45 54 63 72 81 90 99 108 117 126 135 144 153 162 171 180 189 198 207 216 225 234 243 252 261 270 279 288 297 306 315 324] Pvariable:/name (SPFH) def /long_name (Specific Humidity) def /units (kg kg-1) def /Z undef :Pvariable
+pressure_level [46 55 64 73 82 91 100 109 118 127 136 145 154 163 172 181 190 199 208 217 226 235 244 253 262 271 280 289 298 307 316 325] Pvariable:/name (VVEL) def /long_name (Vertical Velocity) def /units (Pa s-1) def /Z undef :Pvariable
+pressure_level [47 56 65 74 83 92 101 110 119 128 137 146 155 164 173 182 191 200 209 218 227 236 245 254 263 272 281 290 299 308 317 326] Pvariable:/gribfield 1 def /name (UGRD) def /long_name (U-wind) def /units (m s-1) def /Z undef :Pvariable
+pressure_level [47 56 65 74 83 92 101 110 119 128 137 146 155 164 173 182 191 200 209 218 227 236 245 254 263 272 281 290 299 308 317 326] Pvariable:/gribfield 2 def /name (VGRD) def /long_name (V-wind) def /units (m s-1) def /Z undef :Pvariable
+pressure_level [48 57 66 75 84 93 102 111 120 129 138 147 156 165 174 183 192 201 210 219 228 237 246 255 264 273 282 291 300 309 318 327] Pvariable:/name (ABSV) def /long_name (Absolute Vorticity) def /units (m s-1) def /Z undef :Pvariable
+pressure_level [49 58 67 76 85 94 103 112 121 130 139 148 157 166 175 184 193 202 211 220 229 238 247 256 265 274 283 292 301 310 319 328] Pvariable:/name (CLWMR) def /long_name (Cloud Mixing Ratio) def /units (kg kg-1) def /Z undef :Pvariable
+pressure_level [50 59 68 77 86 95 104 113 122 131 140 149 158 167 176 185 194 203 212 221 230 239 248 257 266 275 284 293 302 311 320 329] Pvariable:/name (O3MR) def /long_name (Ozone Mixing Ratio) def /units (kg kg-1) def /Z undef :Pvariable
+2m_above_ground  0 Zvariable:/name (DPT) def /long_name (Dew Point Temperature) def /units (Kelvin_scale) def /P undef :Zvariable
+2m_above_ground  0 Zvariable:/name (RH) def /long_name (Relative Humidity) def /units (%) def /P undef :Zvariable
+surface  0 Zvariable:/name (APCP) def /long_name (Total Precipitation) def /units (kg m-2) def /P undef :Zvariable
+surface  0 Zvariable:/name (ACPCP) def /long_name (Convective Precipitation) def /units (kg m-2) def /P undef :Zvariable
+surface  0 Zvariable:/name (NCPCP) def /long_name (Large-Scale Precipitation) def /units (kg m-2) def /P undef :Zvariable
+surface  0 Zvariable:/name (CSNOW) def /long_name (Categorical Snow (yes=1; no=0)) def /P undef :Zvariable
+surface  0 Zvariable:/name (CICEP) def /long_name (Categorical Ice Pellets (yes=1; no=0)) def /P undef :Zvariable
+surface  0 Zvariable:/name (CFRZR) def /long_name (Categorical Freezing Rain (yes=1; no=0)) def /P undef :Zvariable
+surface  0 Zvariable:/name (CRAIN) def /long_name (Categorical Rain (yes=1; no=0)) def /P undef :Zvariable
+surface  0 Zvariable:/name (LFTX) def /long_name (Surface Lifted Index) def /units (Kelvin_scale) def /P undef :Zvariable
+surface  0 Zvariable:/name (CAPE) def /long_name (Convective Available Potential Energy) def /units (J kg-1) def /P undef :Zvariable
+surface  0 Zvariable:/name (CIN) def /long_name (ConvectiveInhibition) def /units (J kg-1) def /P undef :Zvariable
+entire_atmosphere  0 Zvariable: /name (CWAT) def /long_name (Cloud Water) def /units (kg m-2) def /P undef :Zvariable
+entire_atmosphere  0 Zvariable: /name (RH) def /long_name (Relative Humidity) def /units (%) def /P undef :Zvariable
+entire_atmosphere  0 Zvariable: /name (TOZONE) def /long_name (Total Ozone) def /units (Dobson) def /P undef :Zvariable
+3000-0m_above_ground 0 Zvariable: /name (HLCY) def /long_name (Storm Relative Helicity) def /units (m2 s-2) def /P undef :Zvariable
+1000-0m_above_ground 0 Zvariable: /name (HLCY) def /long_name (Storm Relative Helicity) def /units (m2 s-2) def /P undef :Zvariable
+6000-0m_above_ground 0 Zvariable: /name (USTM) def /long_name (U-Component Storm Motion) def /units (m s-1) def /P undef :Zvariable
+6000-0m_above_ground 0 Zvariable: /name (VSTM) def /long_name (V-Component Storm Motion) def /units (m s-1) def /P undef :Zvariable
+tropopause 0 Zvariable: /name (PRES) def /long_name (Pressure) def /units (Pa) def /P undef :Zvariable
+tropopause 0 Zvariable: /name (HGT) def /long_name (Geopotential Height) def /units (gpm) def /P undef :Zvariable
+tropopause 0 Zvariable: /name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def /P undef :Zvariable
+/Z Z3 def
+tropopause [352] Zvariable: /gribfield 1 def /name (UGRD) def /long_name (U-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+tropopause [352] Zvariable: /gribfield 2 def /name (VGRD) def /long_name (V-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+tropopause 0 Zvariable: /name (VWSH) def /long_name (Vertical speed sheer) def /units (s-1) def /P undef :Zvariable
+max_wind 0 Zvariable: /name (PRES) def /long_name (Pressure) def /units (Pa) def /P undef :Zvariable
+tropopause 0 Zvariable: /name (HGT) def /long_name (Geopotential Height) def /units (gpm) def /P undef :Zvariable
+/Z Z3 def
+max_wind [356] Zvariable: /gribfield 1 def /name (UGRD) def /long_name (U-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+max_wind [356] Zvariable: /gribfield 2 def /name (VGRD) def /long_name (V-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+max_wind  0 Zvariable: /name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def /P undef :Zvariable
+1829m_above_Mean_Sea_Level 0 Zvariable: /name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def /P undef :Zvariable
+/Z Z3 def
+1829m_above_Mean_Sea_Level [359] Zvariable: /gribfield 1 def /name (UGRD) def /long_name (U-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+1829m_above_Mean_Sea_Level [359] Zvariable: /gribfield 2 def /name (VGRD) def /long_name (V-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+
+2743m_above_Mean_Sea_Level 0 Zvariable: /name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def /P undef :Zvariable
+2743m_above_Mean_Sea_Level [359] Zvariable: /gribfield 1 def /name (UGRD) def /long_name (U-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+2743m_above_Mean_Sea_Level [359] Zvariable: /gribfield 2 def /name (VGRD) def /long_name (V-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+
+3658m_above_Mean_Sea_Level 0 Zvariable: /name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def /P undef :Zvariable
+3658m_above_Mean_Sea_Level [359] Zvariable: /gribfield 1 def /name (UGRD) def /long_name (U-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+3658m_above_Mean_Sea_Level [359] Zvariable: /gribfield 2 def /name (VGRD) def /long_name (V-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+
+4572m_above_Mean_Sea_Level 0 Zvariable: /name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def /P undef :Zvariable
+4572m_above_Mean_Sea_Level [359] Zvariable: /gribfield 1 def /name (UGRD) def /long_name (U-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+4572m_above_Mean_Sea_Level [359] Zvariable: /gribfield 2 def /name (VGRD) def /long_name (V-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+0C_isotherm 0 Zvariable: /name (HGT) def /long_name (Potential Temperature) def /units (Kelvin_scale) def /P undef :Zvariable
+0C_isotherm 0 Zvariable: /name (RH) def /long_name (Relative Humidity) def /units (%) def /P undef :Zvariable
+highest_tropospheric_freezing_level 0 Zvariable: /name (HGT) def /long_name (Potential Temperature) def /units (Kelvin_scale) def /P undef :Zvariable
+highest_tropospheric_freezing_level 0 Zvariable: /name (RH) def /long_name (Relative Humidity) def /units (%) def /P undef :Zvariable
+30-0mb_above_ground 0 Zvariable: /name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def /P undef :Zvariable
+30-0mb_above_ground 0 Zvariable: /name (RH) def /long_name (Relative Humidity) def /units (%) def /P undef :Zvariable
+30-0mb_above_ground 0 Zvariable: /name (DPT) def /long_name (Dew Point Temperature) def /units (Kelvin_scale) def /P undef :Zvariable
+30-0mb_above_ground 0 Zvariable: /name (SPFH) def /long_name (Specific Humidity) def /units (kg kg-1) def /P undef :Zvariable
+30-0mb_above_ground [374] Zvariable: /gribfield 1 def /name (UGRD) def /long_name (U-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+30-0mb_above_ground [374] Zvariable: /gribfield 2 def /name (VGRD) def /long_name (V-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+30-0mb_above_ground 0 Zvariable: /name (PWAT) def /long_name (Precipitable Water) def /units (kg m-2) def /P undef :Zvariable
+30-0mb_above_ground 0 Zvariable: /name (PLI) def /long_name (Parcel Lifted Index) def /units (Kelvin_scale) def /P undef :Zvariable
+surface 0 Zvariable: /name (4LFTX) def /long_name (Best (4 layer) Lifted Index) def /units (Kelvin_scale) def /P undef :Zvariable
+180-0mb_above_ground  0 Zvariable:/name (CAPE) def /long_name (Convective Available Potential Energy) def /units (J kg-1) def /P undef :Zvariable
+180-0mb_above_ground  0 Zvariable:/name (CIN) def /long_name (ConvectiveInhibition) def /units (J kg-1) def /P undef :Zvariable
+0.33-1sigma_layer 0 Zvariable: /name (RH) def /long_name (Relative Humidity) def /units (%) def /P undef :Zvariable
+0.44-1sigma_layer 0 Zvariable: /name (RH) def /long_name (Relative Humidity) def /units (%) def /P undef :Zvariable
+0.72-0.94sigma_layer 0 Zvariable: /name (RH) def /long_name (Relative Humidity) def /units (%) def /P undef :Zvariable
+0.44-0.72sigma_layer 0 Zvariable: /name (RH) def /long_name (Relative Humidity) def /units (%) def /P undef :Zvariable
+0.995sigma_level 0 Zvariable: /name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def /P undef :Zvariable
+0.995sigma_level 0 Zvariable: /name (POT) def /long_name (Potential Temperature) def /units (Kelvin_scale) def /P undef :Zvariable
+0.995sigma_level 0 Zvariable: /name (RH) def /long_name (Relative Humidity) def /units (%) def /P undef :Zvariable
+0.995sigma_level [387] Zvariable: /gribfield 1 def /name (UGRD) def /long_name (U-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+0.995sigma_level [387] Zvariable: /gribfield 2 def /name (VGRD) def /long_name (V-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+0.995sigma_level 0 Zvariable: /name (VVEL) def /long_name (Vertical Velocity) def /units (%) def /P undef :Zvariable
+PV=2e-06_surface [389] Zvariable: /gribfield 1 def /name (UGRD) def /long_name (U-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+PV=2e-06_surface [389] Zvariable: /gribfield 2 def /name (VGRD) def /long_name (V-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+PV=2e-06_surface 0 Zvariable: /name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def /P undef :Zvariable
+PV=2e-06_surface 0 Zvariable: /name (HGT) def /long_name (Geopotential Height) def /units (gpm) def /P undef :Zvariable
+PV=2e-06_surface 0 Zvariable: /name (PRES) def /long_name (Pressure) def /units (Pa) def /P undef :Zvariable
+PV=2e-06_surface 0 Zvariable: /name (VWSH) def /long_name (Vertical Speed Sheer) def /units (s-1) def /P undef :Zvariable
+PV=-2e-06_surface [394] Zvariable: /gribfield 1 def /name (UGRD) def /long_name (U-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+PV=-2e-06_surface [394] Zvariable: /gribfield 2 def /name (VGRD) def /long_name (V-Component of Wind) def /units (m s-1) def /P undef :Zvariable
+PV=-2e-06_surface 0 Zvariable: /name (TMP) def /long_name (Temperature) def /units (Kelvin_scale) def /P undef :Zvariable
+PV=-2e-06_surface 0 Zvariable: /name (HGT) def /long_name (Geopotential Height) def /units (gpm) def /P undef :Zvariable
+PV=-2e-06_surface 0 Zvariable: /name (PRES) def /long_name (Pressure) def /units (Pa) def /P undef :Zvariable
+PV=-2e-06_surface 0 Zvariable: /name (VWSH) def /long_name (Vertical Speed Sheer) def /units (s-1) def /P undef :Zvariable
+0 Zvariable: /name (PRMSL) def /long_name (Mean Sea Level Pressure) def /units (Pa) def /P undef :Zvariable
+500mb 0 Zvariable: /name (5WAVH) def /long_name (5-Wave Geopotential Height) def /units (gpm) def /P undef :Zvariable
+1000mb 0 Zvariable: /name (GPA) def /long_name (Geopotential Height Anomaly) def /units (gpm) def /P undef :Zvariable
+500mb 0 Zvariable: /name (GPA) def /long_name (Geopotential Height Anomaly) def /units (gpm) def /P undef :Zvariable
+500mb 0 Zvariable: /name (5WAVA) def /long_name (5-Wave Geopotential Height Anomaly) def /units (gpm) def /P undef :Zvariable
+/P P3 def
+stream_function [404 406 408 410 412 414 416 418 420 422 424 426 428 430 432 434 436 438 440 442 444 446 448 450 452 454 456 458 460 462 464 466 468 470 472 474 476] Pvariable: /name (STRM) def /long_name (Stream Function) def /units (m2 s-1) def /Z undef :Pvariable
+stream_function [405 407 409 411 413 415 417 419 421 423 425 427 429 431 433 435 437 439 441 443 445 447 449 451 453 455 457 459 461 463 465 467 469 471 473 475 477] Pvariable: /name (VPOT) def /long_name (Velocity Potential) def /units (m2 s-1) def /Z undef :Pvariable
+:definevariables
+/atmos undef
+3000-0m_above_ground /HLCY
+{null decompress} dup 3 index 3 index get 0 exch put put
+180-0mb_above_ground /CAPE
+{null decompress} dup 3 index 3 index get 0 exch put put
+surface /CAPE
+{null decompress} dup 3 index 3 index get 0 exch put put
+pressure_level /HGT
+{null decompress} dup 3 index 3 index get 0 exch put put
+pressure_level /UGRD
+{null decompress} dup 3 index 3 index get 0 exch put put
+pressure_level /VGRD
+{null decompress} dup 3 index 3 index get 0 exch put put
+pressure_level /TMP
+{null decompress} dup 3 index 3 index get 0 exch put put
+pressure_level /SPFH
+{null decompress} dup 3 index 3 index get 0 exch put put
+
+:dataset
+
+\end{ingrid}

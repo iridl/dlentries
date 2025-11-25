@@ -1,0 +1,40 @@
+This only works for ISCCP
+\begin{ingrid}
+%/postProcessNASACDFvar
+%{LONGITUD (X) cvn
+%      (degreeE) cvn
+%       periodic 1.25000 2.50000 358.750 NewEvenGRID
+%      replaceGRID
+%    EPOCH (T) cvn
+%      (monthtime) cvn
+%       ordered 16
+%         Jul 1983 ensotime
+%         1.00000 16
+%           Dec 1990 ensotime
+%           NewEvenGRID
+%      replaceGRID
+%    LATITUDE
+%     (degreeN) cvn setunits
+%     pop
+%    LATITUDE (Y) cvn renameGRID
+%} exch Ingrid: !
+/description (Greenhouse Effect Detection Experiment) def
+%/isccp_c2.cdf undef
+continuedataset:
+datasetdefs:
+/isccp_c2.cdf {isccp_c2} def
+:datasetdefs
+/isccp_c2 {
+(/Data/data3/gedex/isccp_c2.cdf) readCDF
+%/dataset_documentation.html { (/Data/data1/DataCatalog/documentation/gedex/detailed/) /isccpc.html  readfilein } def
+/description (Monthly mean cloud product from the Greenhouse Effect Detection Experiment) def
+}
+defasvarsilent
+/iridl:hasSemantics (iridl:NASA) def
+:dataset
+\end{ingrid}
+
+
+
+
+

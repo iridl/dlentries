@@ -1,0 +1,221 @@
+\begin{ingrid}
+continuedataset:
+
+/note (Generated using Copernicus Climate Change Service information [2018]) def
+
+link:
+/name (source) def
+/description (Data Downloaded from the Copernicus Climate Change Service, implemented by ECMWF) def
+/href (https://cds.climate.copernicus.eu/cdsapp#!/home) def
+:link
+
+link:
+/name (license) def
+/description (Licence Agreement to Use Copernicus Products, Version 1.2) def
+/href (https://iridl.ldeo.columbia.edu/documentation/eu/copernicus/cds/c3s/licence-to-use-copernicus-products.pdf) def
+:link
+
+grid:
+/name (X)def
+/units (degree_east)def
+ 0.0 2.5 357.5
+periodic
+:grid 
+
+grid:
+/name (Y)def
+/units (degree_north)def
+ 90.0 2.5 -90.0
+:grid
+
+grid:
+/name (M)def
+/long_name (member) def
+/units (unitless)def
+ 1 1 91
+:grid
+
+grid:
+/name (L)def
+/units (months) def
+/long_name (Lead) def
+/standard_name (forecast_period) def
+0.5 1. 5.5
+:grid
+
+
+grid:
+/name (S) def
+/long_name (Forecast Start Time) def
+/units (months since 1960-01-01) def
+/standard_name (forecast_reference_time) def
+/pointwidth 0 def
+1 Oct 2020 ensotime
+1
+1 Jan 2022 ensotime
+:grid
+
+
+/T { S L add
+/long_name (Time) def
+/standard_name (time) def 
+/pointwidth 1 def } defasvarsilent
+
+/sst {
+[ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/JMA/System2/Forecasts/new_sst_C3S_JMA_System_2_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (sst) def
+%/subcenter (Environmental Modeling Center) def
+%/calendar /standard def
+%/PTVersion 2 def
+ /gribparam 34 def
+%/GRIBgridcode 98 def
+ /gribcenter 98 def
+%/center (US Weather Service - National Met. Center) def
+%/PDS_TimeRange 3 def
+ /grib_name /SSTK def
+ /scale_max 365.39999 def
+ /gribNumBits 16 def
+ /gribleveltype 1 def
+ /scale_min 180.0 def
+ /process 142 def
+ /units (Kelvin_scale)cvn def
+ /missing_value 9.999000E+20 def
+
+ GRIB1record :readdatafile
+
+}defasvarsilent
+
+
+/slp {
+[ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/JMA/System2/Forecasts/new_slp_C3S_JMA_System_2_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (sst) def
+%/subcenter (Environmental Modeling Center) def
+%/calendar /standard def
+%/PTVersion 2 def
+ /gribparam 34 def
+%/GRIBgridcode 98 def
+ /gribcenter 98 def
+%/center (US Weather Service - National Met. Center) def
+%/PDS_TimeRange 3 def
+ /grib_name /SSTK def
+ /scale_max 104000.39999 def
+ /gribNumBits 16 def
+ /gribleveltype 1 def
+ /scale_min 95000.0 def
+ /process 142 def
+ /units (Pa) def
+ /missing_value 9.999000E+20 def
+
+ GRIB1record :readdatafile
+
+}defasvarsilent
+
+
+
+/u {
+[ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/JMA/System2/Forecasts/new_u_C3S_JMA_System_2_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (sst) def
+%/subcenter (Environmental Modeling Center) def
+%/calendar /standard def
+%/PTVersion 2 def
+ /gribparam 34 def
+%/GRIBgridcode 98 def
+ /gribcenter 98 def
+%/center (US Weather Service - National Met. Center) def
+%/PDS_TimeRange 3 def
+ /grib_name /SSTK def
+ /scale_max 18.39999 def
+ /gribNumBits 16 def
+ /gribleveltype 1 def
+ /scale_min -14.0 def
+ /process 142 def
+ /units (m s-1) def
+ /missing_value 9.999000E+20 def
+
+ GRIB1record :readdatafile
+
+}defasvarsilent
+
+
+/v {
+[ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/JMA/System2/Forecasts/new_v_C3S_JMA_System_2_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (sst) def
+%/subcenter (Environmental Modeling Center) def
+%/calendar /standard def
+%/PTVersion 2 def
+ /gribparam 34 def
+%/GRIBgridcode 98 def
+ /gribcenter 98 def
+%/center (US Weather Service - National Met. Center) def
+%/PDS_TimeRange 3 def
+ /grib_name /SSTK def
+ /scale_max 18.39999 def
+ /gribNumBits 16 def
+ /gribleveltype 1 def
+ /scale_min -18.0 def
+ /process 142 def
+ /units (Kelvin_scale)cvn def
+ /missing_value 9.999000E+20 def
+
+ GRIB1record :readdatafile
+
+}defasvarsilent
+
+
+
+/t2m {
+[ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/JMA/System2/Forecasts/new_t2m_C3S_JMA_System_2_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (t2m) def
+%/subcenter (Environmental Modeling Center) def
+%/calendar /standard def
+%/PTVersion 2 def
+ /gribparam 167 def
+%/GRIBgridcode 98 def
+ /gribcenter 98 def
+%/center (US Weather Service - National Met. Center) def
+%/PDS_TimeRange 3 def
+ /grib_name /2T def
+ /scale_max 330.00000 def
+ /gribNumBits 16 def
+ /gribleveltype 1 def
+ /scale_min 180.0 def
+ /process 147 def
+ /units (Kelvin_scale)cvn def
+ /missing_value 9.999000E+20 def
+
+ GRIB1record :readdatafile
+
+}defasvarsilent
+
+/prec {
+[ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/JMA/System2/Forecasts/new_prec_C3S_JMA_System_2_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (prcp) def
+%/subcenter (Environmental Modeling Center) def
+%/calendar /standard def
+%/PTVersion 2 def
+ /gribparam 228 def
+%/GRIBgridcode 98 def
+ /gribcenter 98 def
+%/center (US Weather Service - National Met. Center) def
+%/PDS_TimeRange 3 def
+ /grib_name /TP def
+%/scale_max 330.00000 def
+ /gribNumBits 16 def
+ /gribleveltype 1 def
+ /scale_min 0.0 def
+ /process 147 def
+ /units (m s-1)cvn def
+ /missing_value 9.999000E+20 def
+
+ GRIB1record :readdatafile
+
+}defasvarsilent
+
+:dataset
+\end{ingrid}

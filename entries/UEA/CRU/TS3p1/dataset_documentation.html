@@ -1,0 +1,115 @@
+<INGRID>datasetdocumentationheader</INGRID>
+    <h1>CRU TS 3.1:  University of East Anglia Climatic Research Unit (CRU) Global 0.5&deg; Monthly Time
+ Series</h1>
+
+<p><b>Important Note, 23 July 2012:</b> On July 12, 2012, BADC added the following note to its CRU TS3.1
+ documentation page:  "A systematic
+ error was discovered in the CRUTS v3.01 process generating the precipitation, wet days and frost frequency data files.
+ New precipitation data files (version 3.01.01) have been generated and are now available in the archive.  Wet days and
+ frost frequency files will be made available at a later time."  The revised precipitation file and both precipitation
+ station
+ count files were added to the IRI Data Library holdings on July 23, 2012, replacing the previous version of these
+ files.
+<p>
+Additionally, also in July 2012, BADC added the file "READ_ME_CRUTS_PRE_v3.01.01.txt" to its documentation, which
+states the following:
+<pre>
+READ ME file for CRUTS v3.01.01 (PRE only)
+
+In July 2012, a systematic error was discovered in the CRUTS v3.01
+process. The effect was, in some cases, to reduce the gridded values.
+
+The files were immediately removed from BADC and from the Climate
+Explorer at KNMI.
+
+This corrected run, based on the v3.01 precipitation station data,
+should be used as a direct replacement. The version number 3.01.01
+reflects this status.
+</pre>
+
+<p>
+CRU TS 3.1 data are produced used the same methodology as for the 3.0 dataset. 
+The main differences is that the 3.1 dataset extends from 1901-2009, and all 
+of the data in this period can now be used.
+Slight differences may be noticed between the results for a given time/location 
+between the 3.0 and 3.1 versions, due to additional data now being available.
+CRU have examined the 3.1 dataset in detail and are confident that such differences 
+are not significant.
+<p>
+The station count files are all integer, because they are counts.
+<p>
+'stn' is all stations reporting within the CDD of the variable in question.
+<p>
+'st0' is all stations reporting within the cell itself.
+<p>
+*************************************************
+<p>
+NOTE:
+(added 20/5/11)
+<p>
+Due to an encoding error, the station count files ('st0' and 'stn') will need to be multiplied by a scale factor to obtain their true integer values, as follows:
+<p>
+* For 'wet', multiply by 100.
+<p>
+* For all other station count files, multiply by 10.
+<p>
+The station counts are scaled by the parameter scale factor:
+<p>
+<pre>
+tmp   0.100   
+dtr   0.100 \
+tmn   0.100  > ('tmpdtr' st0 & stn counts)        
+tmx   0.100 /
+pre   0.100 
+vap   0.100 
+wet   0.010 
+cld   0.100 (only 'stn' files)
+frs   0.010 (no station counts)
+pet   0.100 (no station counts)
+</pre>
+<p>
+<b>Calculation of Potential Evapotraspiration (PET)</b> <p>
+The method used is the FAO (Food and Agricultural Organization) grass reference evapotranspiration equation (Ekstrom et al., 2007, which is based on Allen et al., 1994). It is a variant of the Penman Monteith method using the gridded TMP, TMN, TMX, VAP and CLD.
+Note that PET values are <b>mean mm/day</b> for each month (with a scaling factor of 10 applied to the netcdf files).
+The pet values in the datafiles therefore need to be muliplied by the number of days for each month to get the mean pet for that month
+<p>
+* note that a scaling factor of 10 has been applied to the PET ascii data <b>but NOT</b> the PET netcdf data. *
+<p>
+
+
+
+**************************************************
+<p>
+It is planned that the dataset will be updated every 6 months, with the first 3.1 update scheduled for July 2011.
+<p>
+Note: The files themseleves are >2GB when unzipped, which may cause problems on the computer 
+systems of some users.
+<p>
+
+A reference paper is available for CRU TS3.10: 
+<p>
+Harris, I., Jones, P.D., Osborn, T.J., and Lister, D.H., 2014: <a href="http://onlinelibrary.wiley.com/doi/10.1002/joc.3711/abstract">Updated high-resolution grids of monthly climatic observations - the CRU TS3.10 Dataset.</a>  Int. J. Climatol., 34: 623-642. Doi: 10.1002/joc.3711
+
+<p>
+
+<b>Background</b> <p>
+At present, the BADC holds the preliminary CRU TS3.0 datasets for the period 1901-2006 
+as well as the final CRU TS3.1 datasets for the period 1901-2009 (which entirely 
+supersede CRU TS3.0). TS (time-series) datasets are month-by-month variation in climate 
+over the last century or so. 
+These are on high-resolution grids. They allow the comparison of variations in climate 
+with variations in other phenomena. Variables include cloud cover, diurnal temperature 
+range, frost day frequency, precipitation, daily mean temperature, monthly average 
+daily maximum temperature, vapour pressure and wet day frequency. The CRU TS3.0 data 
+are monthly gridded fields based on monthly station values -hence the ASCII and netcdf 
+files both contain monthly mean values for the various parameters.
+<p>
+CRU TS3.0 data were orginally produced and held by the CRU, however in 2007 it was 
+decided that the BADC could provide dedicated long term support for these data and work 
+began to port the software to the BADC systems where they could run on an operational basis. 
+The system has now been ported to the BADC, and BADC are responsible for updating these (3.1) 
+data on a regular basis.
+<p>
+BADC Team
+11/4/11
+<INGRID>datasetdocumentationtrailer</INGRID>

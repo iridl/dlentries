@@ -1,0 +1,123 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+grid:
+/name /X def
+degE
+-20. 0.0083333333333346  52.991669
+:grid
+grid:
+/name /Y def
+degN
+-40. 0.0083333333333346 39.991669
+:grid
+/X01 X def
+/Y01 Y high low subgrid def
+grid:
+/name /X def
+degE
+-20. .1 55.
+:grid
+grid:
+/name /Y def
+degN
+40. -.1 -40.
+:grid
+:datasetdefs
+/X X def
+/Y Y def
+grid:
+/name /T def
+/units (days since 2004-01-01) def
+/pointwidth 0 def
+values:
+2004
+1
+2022
+{
+dup  1 1 ymd2rjt 2004 1 1 ymd2rjt sub
+exch
+8. exch
+1 add 1 1 ymd2rjt 2004 1 1 ymd2rjt sub
+{} for
+} for
+
+2023
+1 1 ymd2rjt 2004 1 1 ymd2rjt sub
+8.
+2023
+11 8 ymd2rjt 2004 1 1 ymd2rjt sub
+2 index 
+     sub
+    8. div
+    cvi
+    8. mul
+2 index add
+{} for
+:values
+:grid
+
+/T T 
+partialgrid
+/defaultvalue {last} def
+def
+
+/prcp {
+ [X
+    Y |
+    T first 3985 subgrid] (/Data/data21/usgs/edc/vcap/version200906/trmm%Y%j[starts].flt)
+[T get_bounds I_bounds first VALUE I_bounds removeGRID   /name /starts def]readdatafile:
+      /missing_value -9999. def
+/iridl:hasSemantics (iridl:precipitation_amount) def
+/units (mm) def
+	/long_name (precipitation) def
+      direct :readdatafile
+} defasvarsilent
+/vcap {
+Ingrid: /vcap_colors {
+startcolormap DATA
+0.0 50.0 RANGE
+transparent grey grey
+0.0 VALUE
+grey grey
+0.0 bandmax
+LemonChiffon LemonChiffon
+2.0 bandmax
+yellow yellow
+4.0 bandmax
+gold gold
+6.0 bandmax
+pink pink
+8.0 bandmax
+LightCoral LightCoral
+10.0 bandmax
+tomato tomato
+15.0 bandmax
+OrangeRed OrangeRed
+20.0 bandmax
+brown brown
+50.0 bandmax
+navy endcolormap } put
+ [X01
+    Y01 |
+    T] (/Data/data21/usgs/edc/vcap/version200906/v%Y%j[starts].flt)
+[T get_bounds I_bounds first VALUE I_bounds removeGRID /name /starts def]readdatafile:
+      /missing_value -9999. def
+/iridl:hasSemantics [(iridl:Vectorial_Capacity)(iridl:Malaria)] def
+      direct :readdatafile
+vcap_colors
+} defasvarsilent
+
+/temp {
+ [X01
+    Y01 |
+    T] (/Data/data21/usgs/edc/vcap/version200906/lst%Y%j[starts].flt)
+[T get_bounds I_bounds first VALUE I_bounds removeGRID /name /starts def]readdatafile:
+      /missing_value -9999. def
+/iridl:hasSemantics (iridl:LandSurfaceTemperature) def
+/units (Celsius_scale) def
+      direct :readdatafile
+} defasvarsilent
+
+:dataset
+\end{ingrid}

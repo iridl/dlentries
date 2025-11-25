@@ -1,0 +1,73 @@
+\begin{ingrid}
+
+continuedataset:
+
+/precip {
+   SOURCES .Ethiopia .NMA .ENACTS_v7 .ALL .Rainfall .dekadal .precip
+     T (1 Jan 1981) (31 Dec 1981) RANGE
+   SOURCES .Ethiopia .NMA .ENACTS_v7 .ALL .Rainfall .dekadal .precip
+     T (1 Jan 1981) (31 Dec 2010) RANGE
+     T name
+      npts NewIntegerGRID
+      replaceGRID
+    T 36 splitstreamgrid
+    [T2]average
+    T 2 index
+      T dekadaledgesgrid partialgrid
+       2 1 roll
+       pop
+      replaceGRID
+    T (days since 1981-01-01) streamgridunitconvert
+    T T dekadaledgesgrid
+      first secondtolast subgrid
+      /calendar /365 def
+      gridS
+       365 store modulus
+       pop
+      periodic setgridtype
+      partialgrid replaceGRID
+        [X Y]REORDER
+        2 1 roll pop
+%/fullname (Merged Station-Satellite Rainfall Climatology 1981-2010) def
+/long_name (Merged Station-Satellite Rainfall Climatology 1981-2010) def
+cmorph_dekad_colors
+}defasvar
+
+/precip_stddev {
+SOURCES .Ethiopia .NMA .ENACTS_v7 .ALL .Rainfall .dekadal .precip
+  T (1 Jan 1981) (31 Dec 1981) RANGE
+SOURCES .Ethiopia .NMA .ENACTS_v7 .ALL .Rainfall .dekadal .precip
+     T (1 Jan 1981) (31 Dec 2010) RANGE
+    T name
+      npts NewIntegerGRID
+      replaceGRID
+    T 36 splitstreamgrid
+    [T2]stddev
+    T 2 index
+      T dekadaledgesgrid partialgrid
+       2 1 roll
+       pop
+      replaceGRID
+    T (days since 1981-01-01) streamgridunitconvert
+    T T dekadaledgesgrid
+      first secondtolast subgrid
+      /calendar /365 def
+      gridS
+       365 store modulus
+       pop
+      periodic setgridtype
+      partialgrid replaceGRID
+        [X Y]REORDER
+        2 1 roll pop
+/long_name (Merged Station-Satellite Rainfall Climatology standard deviation 1981-2010) def
+cmorph_dekad_colors
+}defasvar
+
+:dataset
+
+
+precip_stddev .X name exch def
+precip_stddev .Y name exch def
+precip_stddev .T name exch def
+
+\end{ingrid}

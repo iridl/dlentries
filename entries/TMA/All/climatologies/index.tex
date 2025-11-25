@@ -1,0 +1,35 @@
+\begin{ingrid}
+
+continuedataset:
+
+/rfe_merged {
+ SOURCES .TMA .All .dekadly .rainfall .rfe_merged
+monthlyAverage 3. mul
+yearly-climatology
+/long_name (rfe 1983-2014 average) def
+precip_colors
+DATA 0 300 RANGE
+}defasvarcache
+
+/tmin {
+ SOURCES .TMA .All .dekadly .temperature .tmin
+monthlyAverage
+yearly-climatology
+/long_name (tmin 1961-2010 average) def
+temp_colors
+/scale_symmetric false def
+  DATA -1 26 RANGE
+}defasvarcache
+
+/tmax {
+ SOURCES .TMA .All .dekadly .temperature .tmax
+monthlyAverage
+yearly-climatology
+/long_name (tmax 1961-2010 average) def
+temp_colors
+/scale_symmetric false def
+  DATA 18 33 RANGE
+}defasvarcache
+
+:dataset
+\end{ingrid}

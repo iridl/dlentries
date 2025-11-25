@@ -1,0 +1,24 @@
+\begin{ingrid}
+continuedataset:
+
+/description (HMCR Ensemble) def
+
+datasetdefs:
+/forecast { r2p5 .forecast } def
+/reforecast { r2p5 .reforecast } def
+:datasetdefs
+/r2p5 currentobject /r2p5 get def
+/r1p5 currentobject /r1p5 get def
+
+link:
+/name (dataset_documentation) def
+/description (HMCR Model Description) def
+/href (https://software.ecmwf.int/wiki/display/S2S/HMCR+Model+Description) def
+:link
+
+/note (Global ensemble system that simulates initial uncertainties using breeding method. It is based on 20 members, run weekly (Wednesday at 00Z) up to day 61.) def
+
+/ensemble_id_code (RUMS) def
+
+:dataset
+\end{ingrid}

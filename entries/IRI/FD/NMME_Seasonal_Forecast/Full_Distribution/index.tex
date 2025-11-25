@@ -1,0 +1,96 @@
+\begin{ingrid}
+
+continuedataset:
+
+0.5 /percentile parameter
+pop
+
+Ingrid:
+
+/prob_percentile_exc_rain {
+startcolormap DATA 0 1 RANGE transparent black RGBdup 0 VALUE brown /percentile get_parameter -1. mul 1. add /probref parameter 0.05 sub 3. div VALUE orange /probref get_parameter 0.05 sub 3. div 2. mul VALUE yellow /probref get_parameter 0.05 sub VALUE moccasin RGBdup /probref get_parameter 0.05 add bandmax LimeGreen /probref get_parameter 0.05 add 0.005 add VALUE turquoise /probref get_parameter 0.05 add 2. mul 1. add 3. div VALUE blue /probref get_parameter 0.05 add 2. add 3. div VALUE purple 1 VALUE purple endcolormap
+}defcolorscale
+
+/prob_percentile_nonexc_rain {
+startcolormap DATA 0 1 RANGE transparent purple RGBdup 0 VALUE blue /percentile get_parameter /probref parameter 0.05 sub 3. div VALUE turquoise /probref get_parameter 0.05 sub 3. div 2. mul VALUE LimeGreen /probref get_parameter 0.05 sub VALUE moccasin RGBdup /probref get_parameter 0.05 add bandmax yellow /probref get_parameter 0.05 add 0.005 add VALUE orange /probref get_parameter 0.05 add 2. mul 1. add 3. div VALUE brown /probref get_parameter 0.05 add 2. add 3. div VALUE black 1 VALUE black endcolormap
+}defcolorscale
+
+/prob_percentile_exc_temp {
+startcolormap DATA 0 1 RANGE transparent purple RGBdup 0 VALUE blue /percentile get_parameter -1. mul 1. add /probref parameter 0.05 sub 3. div VALUE LightSkyBlue /probref get_parameter 0.05 sub 3. div 2. mul VALUE azure /probref get_parameter 0.05 sub VALUE moccasin RGBdup /probref get_parameter 0.05 add bandmax yellow /probref get_parameter 0.05 add 0.005 add VALUE orange /probref get_parameter 0.05 add 2. mul 1. add 3. div VALUE red /probref get_parameter 0.05 add 2. add 3. div VALUE IndianRed 1 VALUE IndianRed endcolormap
+}defcolorscale
+
+/prob_percentile_nonexc_temp {
+startcolormap DATA 0 1 RANGE transparent IndianRed RGBdup 0 VALUE red /percentile get_parameter /probref parameter 0.05 sub 3. div VALUE orange /probref get_parameter 0.05 sub 3. div 2. mul VALUE yellow /probref get_parameter 0.05 sub VALUE moccasin RGBdup /probref get_parameter 0.05 add bandmax azure /probref get_parameter 0.05 add 0.005 add VALUE LightSkyBlue /probref get_parameter 0.05 add 2. mul 1. add 3. div VALUE blue /probref get_parameter 0.05 add 2. add 3. div VALUE purple 1 VALUE purple endcolormap
+}defcolorscale
+
+pop
+
+grid:
+/name /X def
+/long_name (Longitude) def
+/units /degree_east def
+0 1 359
+:grid
+
+grid:
+/name /Y def
+/long_name (Latitude) def
+/units /degree_north def
+-90 1 90
+:grid
+
+grid:
+/name /percentile def
+/long_name (Percentile) def
+10 5 90
+/units /percent def
+:grid
+
+grid:
+/name /L def
+/long_name (Lead Time) def
+/units /months def
+2.5 1 5.5
+:grid
+
+grid:
+/name /S def
+/long_name (Start Time) def
+monthtime
+/defaultvalue { last } def
+/pointwidth 0. def
+/netcdfgrid true def
+1 Feb 2017 ensotime
+1.
+1 Dec 2017 ensotime
+    :grid
+
+    /target_date {S L add /long_name (forecast time) def /pointwidth 3 def} defasvar
+
+/precip {
+[X Y percentile L | S]
+(/Data/data21/iri/FD/NMME_Flexible_Forecast/forecast_precip_flexible%b%Y[S].nc) [S]
+readdatafile:
+/name (prob) def
+/doublearraytype netcdfrecords
+:readdatafile
+/missing_value NaN def
+/long_name (Precipitation Probability) def
+DATA 0 1 RANGE
+}defasvarsilent
+
+/tref {
+[X Y percentile L | S]
+(/Data/data21/iri/FD/NMME_Flexible_Forecast/forecast_tref_flexible%b%Y[S].nc) [S]
+readdatafile:
+/name (prob) def
+/doublearraytype netcdfrecords
+:readdatafile
+/missing_value NaN def
+/long_name (Temperature Probability) def
+DATA 0 1 RANGE
+}defasvarsilent
+
+:dataset
+
+\end{ingrid}

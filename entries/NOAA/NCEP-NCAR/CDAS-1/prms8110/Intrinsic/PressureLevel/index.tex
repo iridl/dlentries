@@ -1,0 +1,56 @@
+\begin{ingrid}
+continuedataset:
+/phi250 {
+ SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Intrinsic .PressureLevel .phi
+  P 250 VALUES
+  T (1 Jan 1981) (31 Dec 2010) RANGE
+  SOURCES .NOAA .NCEP-NCAR .CDAS-1 .pc8110 .Intrinsic .PressureLevel .phi
+  P 250 VALUES
+   [T]regridLinear
+   sub
+  T pentadAverage
+  T 73 splitstreamgrid
+  [T2]rmsover
+2 RECHUNK CopyStream
+} defasvarcache
+/phi500 {
+ SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Intrinsic .PressureLevel .phi
+  P 500 VALUES
+  T (1 Jan 1981) (31 Dec 2010) RANGE
+  SOURCES .NOAA .NCEP-NCAR .CDAS-1 .pc8110 .Intrinsic .PressureLevel .phi
+  P 500 VALUES
+   [T]regridLinear
+   sub
+  T pentadAverage
+  T 73 splitstreamgrid
+  [T2]rmsover
+2 RECHUNK CopyStream
+} defasvarcache
+/phi925 {
+ SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Intrinsic .PressureLevel .phi
+  P 925 VALUES
+  T (1 Jan 1981) (31 Dec 2010) RANGE
+  SOURCES .NOAA .NCEP-NCAR .CDAS-1 .pc8110 .Intrinsic .PressureLevel .phi
+  P 925 VALUES
+   [T]regridLinear
+   sub
+  T pentadAverage
+  T 73 splitstreamgrid
+  [T2]rmsover
+2 RECHUNK CopyStream
+} defasvarcache
+/temp925 {
+ SOURCES .NOAA .NCEP-NCAR .CDAS-1 .DAILY .Intrinsic .PressureLevel .temp
+  P 925 VALUES
+  T (1 Jan 1981) (31 Dec 2010) RANGE
+  SOURCES .NOAA .NCEP-NCAR .CDAS-1 .pc8110 .Intrinsic .PressureLevel .temp
+  P 925 VALUES
+   [T]regridLinear
+   sub
+  T pentadAverage
+  T 73 splitstreamgrid
+  [T2]rmsover
+2 RECHUNK CopyStream
+} defasvarcache
+:dataset
+\end{ingrid}

@@ -1,0 +1,47 @@
+\begin{ingrid}
+continuedataset:
+/iridl:hasSemantics (irigaz:United_States_156_1) def
+dataset:
+/name /Divisions def
+/description (Climate divisions in the U.S.) def
+%  db:
+%   /server (localhost) def
+%   /dbname (iridb) def
+%   :db
+%   (select division_i,st,div as div_id,name as div_name,the_geom from divisions1 order by division_i) (division_i) openqueryby
+%        division_i
+%            /long_name (Unique State-Climate Div. index) def
+%        CopyStream
+%        name exch def
+/st {
+IRIDB (divisions1) (st) [(division_i)] open_column_by
+            /long_name (State) def
+}defasvarsilentnoreuse
+
+/div_id {
+IRIDB (divisions1) (div as div_id) [(division_i)] open_column_by
+            /long_name (Index of Climate Div. within a state) def
+}defasvarsilentnoreuse
+
+/div_name {
+IRIDB (divisions1) (name as div_name) [(division_i)] open_column_by
+            /long_name (Name of Climate Div. within a state) def
+}defasvarsilentnoreuse
+
+/the_geom {
+IRIDB (divisions1) (the_geom) [(division_i)] open_column_by
+            /long_name (State-Climate Div. geometry) def
+}defasvarsilentnoreuse
+
+/label {
+IRIDB (divisions1) ((name || ', ' || st) as label)  [(division_i)] open_column_by
+            /long_name (Label) def
+}defasvarsilentnoreuse
+
+:dataset
+
+:dataset
+	
+Divisions div_id .division_i name exch put
+
+\end{ingrid}

@@ -1,0 +1,184 @@
+\begin{ingrid}
+continuedataset:
+  /description (CPC Morphing technique for the production of global precipitation estimates (daily)) def
+
+  dataset:
+    /name (orignames) def
+    /description (CMORPH data from 23 Feb 2005 to 27 Oct 2015) def  
+
+    dataset:
+      /name (mean) def
+      datasetdefs:
+        /mydata {
+          /D
+          /character unordered 
+          { /comb /cmorph } cvlit
+          NewGRID
+          T 1 2 twogridmodcounter
+          T (/Data/data6/noaa/cpc/cmorph/daily/%Y%m%d_dly-025deg_cpc+comb) strftimes
+          copyachunk
+          [X Y ] -9999. readr4
+        }defasvarsilent
+      :datasetdefs
+      grid:
+        /name /X def
+        degE
+        0.125 0.25 359.875 
+        periodic
+      :grid
+      grid:
+        /name /Y def
+        degN
+        59.875 0.25 -59.875
+      :grid
+      grid:
+        /name /T def
+        /units (days since 2005-02-23 12:00:00) def
+        /defaultvalue {last} def
+        0 1
+        27 Oct 2015 julian_day %enddate
+        23 Feb 2005 julian_day sub
+      :grid
+      T { (/Data/data6/noaa/cpc/cmorph/daily/%Y%m%d[T]_dly-025deg_cpc+comb)[T]} removeextrausing
+      name exch def
+      /last_modified T .last_modified def
+
+      dataset:
+        /name (microwave-only) def
+        /comb {
+          dataset .mydata
+          D /comb VALUE D removeGRID
+          /long_name (estimated precipitation) def
+          /units (mm/hr) def
+        } defasvarsilent
+      :dataset
+
+      dataset:
+        /name (morphed) def
+        /cmorph {
+          dataset .mydata
+          D /cmorph VALUE D removeGRID
+          /long_name (estimated precipitation) def
+          /units (mm/hr) def
+        } defasvarsilent
+      :dataset
+    :dataset
+  :dataset
+
+  dataset:
+    /name (renamed102015) def
+    /description (CMORPH data from 27 Oct 2015 to present) def  
+    dataset:
+      /name (mean) def
+      datasetdefs:
+        /mydata {
+          /D
+          /character unordered 
+          { /comb /cmorph } cvlit
+          NewGRID
+          T 1 2 twogridmodcounter
+          T (/Data/data6/noaa/cpc/cmorph/daily/CMORPH+MWCOMB_DAILY-025DEG_%Y%m%d) strftimes
+          copyachunk
+          [X Y ] -9999. readr4
+        } defasvarsilent
+      :datasetdefs
+      grid:
+        /name /X def
+        degE
+        0.125 0.25 359.875 
+        periodic
+      :grid
+      grid:
+        /name /Y def
+        degN
+        59.875 0.25 -59.875
+      :grid
+      grid:
+        /name /T def
+        /units (days since 2005-02-23 12:00:00) def
+        /defaultvalue {last} def
+        28 Oct 2015 julian_day 23 Feb 2005 julian_day sub 1
+        systemtime
+        (%d %b %Y) 12 strftime interp julian_day
+        23 Feb 2005 julian_day sub
+      :grid
+      T { (/Data/data6/noaa/cpc/cmorph/daily/CMORPH+MWCOMB_DAILY-025DEG_%Y%m%d[T])[T]} removeextrausing
+      name exch def
+      /last_modified T .last_modified def
+
+      dataset:
+        /name (microwave-only) def
+        /comb {
+          dataset .mydata
+          D /comb VALUE D removeGRID
+          /long_name (estimated precipitation) def
+          /units (mm/hr) def
+        } defasvarsilent
+      :dataset
+
+      dataset:
+        /name (morphed) def
+        /cmorph {
+          dataset .mydata
+          D /cmorph VALUE D removeGRID
+          /long_name (estimated precipitation) def
+          /units (mm/hr) def
+        } defasvarsilent
+      :dataset
+    :dataset
+  :dataset
+
+  dataset:
+    /name (mean) def
+    /description (CMORPH full time series from 23 Feb 2005 to present) def
+    grid:
+      /name /X def
+      degE
+      0.125 0.25 359.875 
+      periodic
+    :grid
+    grid:
+      /name /Y def
+      degN
+      59.875 0.25 -59.875
+    :grid
+    grid:
+      /name /T def
+      /units (days since 2005-02-23 12:00:00) def
+      /defaultvalue {last} def
+      0 1
+      systemtime
+      (%d %b %Y) 12 strftime interp julian_day
+      23 Feb 2005 julian_day sub
+    :grid
+    T { (/Data/data6/noaa/cpc/cmorph/daily/CMORPH+MWCOMB_DAILY-025DEG_%Y%m%d[T])[T]} removeextrausing
+    name exch def
+    /last_modified T .last_modified def
+
+    dataset:
+      /name (microwave-only) def
+      /comb { 
+        SOURCES .NOAA .NCEP .CPC .CMORPH .daily .orignames .mean .microwave-only .comb
+        SOURCES .NOAA .NCEP .CPC .CMORPH .daily .renamed102015 .mean .microwave-only .comb appendstream
+        T /defaultvalue {last} def pop
+      } defasvarsilent
+    :dataset
+
+    dataset:
+      /name (morphed) def
+      /cmorph {
+        SOURCES .NOAA .NCEP .CPC .CMORPH .daily .orignames .mean .morphed .cmorph
+        SOURCES .NOAA .NCEP .CPC .CMORPH .V0px .RAW .daily .prcp
+        /name /cmorph def
+        T (28 Oct 2015) last RANGE
+        Y 59.875 -59.875 RANGE
+        c: 24 (hr/day) :c
+        div
+        /units (mm/hr) def
+        appendstream
+        T /defaultvalue {last} def pop
+      } defasvarsilent
+    :dataset
+  :dataset
+:dataset
+\end{ingrid}

@@ -1,0 +1,131 @@
+\begin{ingrid}
+continuedataset:
+
+grid:
+/name (X) def
+/units (degree_east) def
+0.0 1.0 359.0
+periodic
+/standard_name (longitude) def
+:grid
+
+grid:
+/name (Y) def
+/units (degree_north) def
+90.0 1.0 -90.0
+/standard_name (latitude) def
+:grid
+
+grid:
+/name (percentile) def
+/units (unitless) def
+values: 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.95 0.99 0.995 0.999 1.0 :values
+:grid
+
+dataset:
+/name (day1fcst) def
+/long_name (Day 1 Forecast) def
+variable:
+/name (apcp) def
+/units (mm/day) def
+grids: percentile Y | X :grids
+file:
+ random
+%/name (/beluga/data/mbell/dldata/cdc.d/reforecast2.d/ensemblemean/dailypctlereplace/day1fcst/pctlereplace_85_12_day1_pYX.r4) def
+ /name (/Data/data21/noaa/esrl/psd/refcst2/ensemblemean/dailypctlereplace/day1fcst/pctlereplace_85_12_day1_pYX.r4) def
+:file
+:variable
+:dataset
+
+dataset:
+/name (day2fcst) def
+/long_name (Day 2 Forecast) def
+variable:
+/name (apcp) def
+/units (mm/day) def
+grids: percentile Y | X :grids
+file:
+ random
+%/name (/beluga/data/mbell/dldata/cdc.d/reforecast2.d/ensemblemean/dailypctlereplace/day2fcst/pctlereplace_85_12_day2_pYX.r4) def
+ /name (/Data/data21/noaa/esrl/psd/refcst2/ensemblemean/dailypctlereplace/day2fcst/pctlereplace_85_12_day2_pYX.r4) def
+:file
+:variable
+:dataset
+
+dataset:
+/name (day3fcst) def
+/long_name (Day 3 Forecast) def
+variable:
+/name (apcp) def
+/units (mm/day) def
+grids: percentile Y | X :grids
+file:
+ random
+%/name (/beluga/data/mbell/dldata/cdc.d/reforecast2.d/ensemblemean/dailypctlereplace/day3fcst/pctlereplace_85_12_day3_pYX.r4) def
+ /name (/Data/data21/noaa/esrl/psd/refcst2/ensemblemean/dailypctlereplace/day3fcst/pctlereplace_85_12_day3_pYX.r4) def
+:file
+:variable
+:dataset
+
+dataset:
+/name (day4fcst) def
+/long_name (Day 4 Forecast) def
+variable:
+/name (apcp) def
+/units (mm/day) def
+grids: percentile Y | X :grids
+file:
+ random
+%/name (/beluga/data/mbell/dldata/cdc.d/reforecast2.d/ensemblemean/dailypctlereplace/day4fcst/pctlereplace_85_12_day4_pYX.r4) def
+ /name (/Data/data21/noaa/esrl/psd/refcst2/ensemblemean/dailypctlereplace/day4fcst/pctlereplace_85_12_day4_pYX.r4) def
+:file
+:variable
+:dataset
+
+dataset:
+/name (day5fcst) def
+/long_name (Day 5 Forecast) def
+variable:
+/name (apcp) def
+/units (mm/day) def
+grids: percentile Y | X :grids
+file:
+ random
+%/name (/beluga/data/mbell/dldata/cdc.d/reforecast2.d/ensemblemean/dailypctlereplace/day5fcst/pctlereplace_85_12_day5_pYX.r4) def
+ /name (/Data/data21/noaa/esrl/psd/refcst2/ensemblemean/dailypctlereplace/day5fcst/pctlereplace_85_12_day5_pYX.r4) def
+:file
+:variable
+:dataset
+
+dataset:
+/name (day6fcst) def
+/long_name (Day 6 Forecast) def
+variable:
+/name (apcp) def
+/units (mm/day) def
+grids: percentile Y | X :grids
+file:
+ random
+%/name (/beluga/data/mbell/dldata/cdc.d/reforecast2.d/ensemblemean/dailypctlereplace/day6fcst/pctlereplace_85_12_day6_pYX.r4) def
+ /name (/Data/data21/noaa/esrl/psd/refcst2/ensemblemean/dailypctlereplace/day6fcst/pctlereplace_85_12_day6_pYX.r4) def
+:file
+:variable
+:dataset
+
+dataset:
+/name (tot6daysfcst) def
+/long_name (Six-Day Total Forecast) def
+variable:
+/name (apcp) def
+/units (mm) def
+grids: percentile Y | X :grids
+file:
+ random
+%/name (/beluga/data/mbell/dldata/cdc.d/reforecast2.d/ensemblemean/dailypctlereplace/tot6dayfcst/pctlereplace_85_12_tot6days_pYX.r4) def
+ /name (/Data/data21/noaa/esrl/psd/refcst2/ensemblemean/dailypctlereplace/tot6dayfcst/pctlereplace_85_12_tot6days_pYX.r4) def
+:file
+:variable
+:dataset
+
+:dataset
+\end{ingrid}

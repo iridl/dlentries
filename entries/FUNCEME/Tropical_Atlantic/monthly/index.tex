@@ -1,0 +1,114 @@
+\begin{ingrid}
+continuedataset:
+/description (Monthly sea surface temperature and wind pseudo-stress data for the tropical Atlantic Ocean) def
+grid:
+/name /T def
+monthtime
+16 Jan 1964 ensotime
+1
+16 Dec 2010 ensotime %enddate
+/defaultvalue {last} def
+:grid
+grid:
+/name /X def
+degE
+-59 to 15 N= 38 pts
+:grid
+grid:
+/name /Y def
+degN
+29 to -19 N= 25 pts
+:grid
+
+variable:
+/name /sst def
+grids: X Y | T :grids
+file:
+direct
+/name (/Data/data3/funceme/tropatl/sst.r4) def
+%/name (/beluga/data/mbell/dldata/servaindata.d/sst.r4) def
+:file
+/missing_value 9999.8 def
+/units (Celsius_scale) def
+/long_name (sea surface temperature) def
+/scale_min 0 def
+/scale_max 31.5 def
+:variable
+
+variable:
+/name /ssta def
+grids: X Y | T :grids
+file:
+direct
+/name (/Data/data3/funceme/tropatl/sstanom.r4) def
+%/name (/beluga/data/mbell/dldata/servaindata.d/sstanom.r4) def
+:file
+/missing_value 9999.8 def
+/units (deg_C) def
+/long_name (sea surface temperature anomaly) def
+/scale_min -5 def
+/scale_max 5 def
+:variable
+
+variable:
+/name /pwsx def
+grids: X Y | T :grids
+file:
+direct
+/name (/Data/data3/funceme/tropatl/pwsx.r4) def
+%/name (/beluga/data/mbell/dldata/servaindata.d/pwsx.r4) def
+:file
+/missing_value 9999.8 def
+/units (m2/s2) def
+/long_name (zonal wind pseudo-stress) def
+/scale_min -132 def
+/scale_max 123 def
+:variable
+
+variable:
+/name /pwsxanom def
+grids: X Y | T :grids
+file:
+direct
+/name (/Data/data3/funceme/tropatl/pwsxanom.r4) def
+%/name (/beluga/data/mbell/dldata/servaindata.d/pwsxanom.r4) def
+:file
+/missing_value 9999.8 def
+/units (m2/s2) def
+/long_name (zonal wind pseudo-stress anomaly) def
+/scale_min -100 def
+/scale_max 122 def
+:variable
+
+variable:
+/name /pwsy def
+grids: X Y | T :grids
+file:
+direct
+/name (/Data/data3/funceme/tropatl/pwsy.r4) def
+%/name (/beluga/data/mbell/dldata/servaindata.d/pwsy.r4) def
+:file
+/missing_value 9999.8 def
+/units (m2/s2) def
+/long_name (meridional wind pseudo-stress) def
+/scale_min -106 def
+/scale_max 123 def
+:variable
+
+variable:
+/name /pwsyanom def
+grids: X Y | T :grids
+file:
+direct
+/name (/Data/data3/funceme/tropatl/pwsyanom.r4) def
+%/name (/beluga/data/mbell/dldata/servaindata.d/pwsyanom.r4) def
+:file
+/missing_value 9999.8 def
+/units (m2/s2) def
+/long_name (meridional wind pseudo-stress anomaly) def
+/scale_min -78 def
+/scale_max 63 def
+:variable
+
+:dataset
+\end{ingrid}
