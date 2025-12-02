@@ -20,7 +20,8 @@ import platform
 
 # Globals
 filecount = []
-debug = None
+debug = False
+dryrun = False
 myplatform = platform.system()
 
 
@@ -34,7 +35,8 @@ def my_logger(msg):
 
 def initializer():
     global ECMWF_server
-    ECMWF_server = ECMWFDataServer(log=my_logger)
+    if not dryrun:
+        ECMWF_server = ECMWFDataServer(log=my_logger)
 
 
 def receive_file_task(task):
@@ -51,13 +53,17 @@ def receive_file_task(task):
         size = os.path.getsize(task["target"])
         logging.warning(f"checking {task['target']} size: {size} bytes, exists")
         if size < min_size:
-            os.unlink(task["target"])
+            if not dryrun:
+                os.unlink(task["target"])
             logging.warning(f"target too small, removing and redownloading {task['target']}")
 
     if size < min_size:
         logging.info(f"Process {task['target']} started")
         try:
-            ECMWF_server.retrieve(task)
+            if dryrun:
+                print(task)
+            else:
+                ECMWF_server.retrieve(task)
         except Exception as e:
             logging.error(f"Process {task['target']} error {e}, continuing.")
         else:
@@ -68,10 +74,12 @@ def receive_file_task(task):
             logging.info(f"checking {task['target']} size: {size} bytes")
             if size == 0:
                 logging.info(f"removing zero-size {task['target']}")
-                os.unlink(task["target"])
+                if not dryrun:
+                    os.unlink(task["target"])
             elif size < min_size:
                 logging.info(f"removing under-sized {task['target']}")
-                os.unlink(task["target"])
+                if not dryrun:
+                    os.unlink(task["target"])
             else:
                 filecount.append({"filename": task["target"], "size": size})
         else:
@@ -94,11 +102,14 @@ if __name__ == '__main__':
                         help="End Day in the form YYYY-MM-DD")
     parser.add_argument('--debug', action="store_true",
                         help="Turn on ECMWFDataserver logging")
+    parser.add_argument('--dryrun', action="store_true",
+                        help="Don't actually download anything, just report")
     parser.add_argument('--max_downloads', type=int,
                         help="configure the maximum parallel downloads")
     args = parser.parse_args()
 
     debug = args.debug
+    dryrun = args.dryrun
     max_downloads = args.max_downloads
 
     # Convert start and end into datetime objects

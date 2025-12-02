@@ -86,6 +86,9 @@ PATH=/usr/local/datalib/dlentries/updatescripts:/usr/local/datalib/dlentries/upd
 0	22	*	*	*	ecmwf_get_data.py --user jefft --models ecmf --timeout 14400
 0	7	*/2	*	*	ecmwf_get_data.py --user jpt11 --models ecmf_ref
 0	11	*	*	3,6	ecmwf_get_data.py --user jpt11 --models eccc_ref
+30  09  *   *   6   ecmwf_get_data.py --user jpt11 --models hmcr_ref
+30  13  *   *   1   ecmwf_get_data.py --user jpt11 --models ukmo_ref
+# SubX routines from GEFS
 5    10-11 	* 	* 	sat,sun,mon,tue 	  update_GEFSv12_SubX_fcst.py
 00,30    * * * thu,fri update_GEFSv12_SubX_fcst.py
 # SubX routines from Phoenix

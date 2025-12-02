@@ -27,12 +27,14 @@ from ecmwf_ecmf_tasks import ECMFModel
 from ecmwf_ecmf4147_tasks import ECMF4147Model
 from ecmwf_ecmf_ref_tasks import ECMF_REF_Model
 from ecmwf_hmcr_tasks import HMCRModel
+from ecmwf_hmcr_ref_tasks import HMCR_REF_Model
 from ecmwf_iapcas_tasks import IAPCASModel
 from ecmwf_isac_tasks import ISACModel
 from ecmwf_jma_tasks import JMAModel
 from ecmwf_kma_tasks import KMAModel
 from ecmwf_ncep_tasks import NCEPModel
 from ecmwf_ukmo_tasks import UKMOModel
+from ecmwf_ukmo_ref_tasks import UKMO_REF_Model
 
 available_models = {
     
@@ -45,12 +47,14 @@ available_models = {
     "ecmf4147": ECMF4147Model,
     "ecmf_ref": ECMF_REF_Model,
     "hmcr": HMCRModel,
+    "hmcr_ref": HMCR_REF_Model,
     "iapcas": IAPCASModel,
     "isac": ISACModel,
     "jma": JMAModel,
     "kma": KMAModel,
     "ncep": NCEPModel,
-    "ukmo": UKMOModel
+    "ukmo": UKMOModel,
+    "ukmo_ref": UKMO_REF_Model
 }
 
 # returns None if using ~/.ecmwfapirc
@@ -86,12 +90,16 @@ if __name__ == '__main__':
                         help="timeout of process in seconds")
     parser.add_argument('--debug', action="store_true",
                         help="Turn on ECMWFDataserver logging")
+    parser.add_argument('--dryrun', action="store_true",
+                        help="Don't actually download anything")
     parser.add_argument('--max_downloads', type=int, default=ECMWF_max_processes,
                         help=f"modify max parallel downloads from default of {ECMWF_max_processes}")
     args = parser.parse_args()
 
     if args.debug:
         executable_arguments.extend(["--debug"])
+    if args.dryrun:
+        executable_arguments.extend(["--dryrun"])
     if args.timeout:
         timeout = args.timeout
 
@@ -113,12 +121,10 @@ if __name__ == '__main__':
             for k in ["url", "key", "email"]:
                 # Set ENVIRONMENT variables to be passed to the job that will set the ECMWFAPI API keys
                 os.environ[f"ECMWF_API_{k.upper()}"] = key[k]
-    # else
-        # We're using ~/.ecmwfapirc and no environment variables are necessary
 
     #
     # Check the Start and End Times.  Set start and end as datetime values, so we can
-    # later check that all the output folders exists for the target files.
+    # later check that all the output folders exist for the target files.
     # use strptime to make sure the values are formatted properly
     if args.start is not None:
         try:
