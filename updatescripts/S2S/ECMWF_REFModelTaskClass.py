@@ -27,7 +27,7 @@ class ECMWF_REFModelTaskBase:
 
         # Where is the S2S Toplevel
         self.S2S_toplevel = S2S_ecmwf_toplevel_directory()
-        self.today = datetime.datetime.now(datetime.UTC)
+        self.today = datetime.datetime.now()
         self.last = self.today - datetime.timedelta(days=delay) + datetime.timedelta(days=version_inc)
         self.realtime_dt = self.today - datetime.timedelta(days=delay)
         self.version_dt = self.realtime_dt + datetime.timedelta(days=version_inc)
