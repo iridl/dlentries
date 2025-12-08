@@ -6,7 +6,7 @@ use File::Basename;
 my $libdir = dirname(__FILE__) . "/perl";
 require "$libdir/credentials.pl";
 
-my ($user, $passwd) = get_credential("pisco_prec");
+my ($user, $passwd) = get_credential("pisco_hydro");
 
 my @vars = ("QR","PR","RU","AE","SM");
 my $lcldir = '/Data/data23/SENAMHI/Stream/v1.1/monthly/GR2M/'; 
