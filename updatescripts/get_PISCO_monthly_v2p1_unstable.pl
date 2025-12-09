@@ -7,7 +7,7 @@ use File::Basename;
 my $libdir = dirname(__FILE__) . "/perl";
 require "$libdir/credentials.pl";
 
-my ($user, $passwd) = get_credential("pisco_hydro");
+my ($user, $passwd) = get_credential("pisco_prec");
 
 my $lcldir = '/Data/data23/SENAMHI/Prec/monthly/unstable/'; 
 my $host = 'ftp.senamhi.gob.pe';				#ftp host
