@@ -12,7 +12,6 @@ my ($user, $passwd) = get_credential("pisco_prec");
 my $lcldir = '/Data/data23/SENAMHI/Prec/monthly/unstable/'; 
 my $host = 'ftp.senamhi.gob.pe';				#ftp host
 my $remotedir = '/PISCO/Prec/V2.1/unstable/monthly';               #array of directories
-@datelist = ();
 @newfiles = ();
 
 # get monthly files
