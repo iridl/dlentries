@@ -39,8 +39,6 @@ continuedataset:
         27 Oct 2015 julian_day %enddate
         23 Feb 2005 julian_day sub
       :grid
-      T { (/Data/data6/noaa/cpc/cmorph/daily/%Y%m%d[T]_dly-025deg_cpc+comb)[T]} removeextrausing
-      name exch def
       /last_modified T .last_modified def
 
       dataset:
@@ -98,8 +96,7 @@ continuedataset:
         /units (days since 2005-02-23 12:00:00) def
         /defaultvalue {last} def
         28 Oct 2015 julian_day 23 Feb 2005 julian_day sub 1
-        systemtime
-        (%d %b %Y) 12 strftime interp julian_day
+        2 Oct 2017 julian_day
         23 Feb 2005 julian_day sub
       :grid
       T { (/Data/data6/noaa/cpc/cmorph/daily/CMORPH+MWCOMB_DAILY-025DEG_%Y%m%d[T])[T]} removeextrausing
@@ -147,8 +144,7 @@ continuedataset:
       /units (days since 2005-02-23 12:00:00) def
       /defaultvalue {last} def
       0 1
-      systemtime
-      (%d %b %Y) 12 strftime interp julian_day
+      2 Oct 2017 julian_day
       23 Feb 2005 julian_day sub
     :grid
     T { (/Data/data6/noaa/cpc/cmorph/daily/CMORPH+MWCOMB_DAILY-025DEG_%Y%m%d[T])[T]} removeextrausing
