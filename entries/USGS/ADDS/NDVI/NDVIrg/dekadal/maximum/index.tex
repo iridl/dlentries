@@ -69,8 +69,7 @@ variable:
 :variable
 
 1 Jun 2004 julian_day
-systemtime (%d %b %Y) 12 strftime interp julian_day
-%21 Dec 2002 julian_day %enddate
+10 Mar 2010 julian_day
 dekadGRID
 /defaultvalue { last } def
 /standard_name (time) def
@@ -111,14 +110,5 @@ variable:
 :variable
 
 :dataset
-T { (/Data/data6/usgs/adds/ndvi/ndvirg/ndvirg%y[T]/AC%y[T]%m[T]0%d[dekad].IMG) [T dup day2dom 5. add 10. div toi4 /name /dekad def]}removeextrausing
-%/expires
-%last_modified systemtime2ymd 
-%dup 20 lt { 10 lt { 11 }{21} ifelse}
-%{ymd:nextmonth} ifelse
-% ymd2systemtime
-%def
-name exch def
-%/expires T .expires def
-/last_modified T .last_modified def
+
 \end{ingrid}
