@@ -72,16 +72,8 @@ grid:
 /defaultvalue { last } def
  01 Oct 2004 julian_day 
 1 
-systemtime
- (%d %b %Y) 12 strftime interp julian_day
-%01 Jan 1960 julian_day sub
+27 Jul 2019 julian_day
 :grid
-
-%T {T /unixtime unitconvertbyattribute exch scale_factor mul add_offset add (/Data/data6/nasa/gsfc/toms/version8/omi/aerosol/L3_aersl_omi_%Y%m%d.txt) 100 strftime nip}
-%removeextrausing name exch def  
-
-T {T /unixtime unitconvertbyattribute exch scale_factor mul add_offset add (/Data/data6/nasa/gsfc/toms/version8/omi/aerosol/L3_aersl_omi_%Y%m%d.txt) 100 strftime nip}
-removeextrausing name exch def  
 
 /X X def
 /Y Y def
@@ -90,7 +82,6 @@ removeextrausing name exch def
 /ai {
 [T]
 T
-%(/beluga/data/mbell/dldata/nasa.d/GSFC.d/toms.d/version8/OMI/ai%Y/L3_aersl_omi_%Y%m%d.txt) strftimes
 (/Data/data6/nasa/gsfc/toms/version8/omi/aerosol/L3_aersl_omi_%Y%m%d.txt) strftimes
 recordsandfilenames nip[X Y] 999 
 ((1X//180(1X/14(1X,25I3/),(1X,10I3)))) readi2formatted
