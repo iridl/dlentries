@@ -1,5 +1,5 @@
 Regional climate model RegCM3 over South East Asia  with 25km-grid,  NCEP-reanalysis-driving (nr) simulation, 3-month running average output:
-/data/dstore4/iri/modelling/jqian/SEAsia/phil/movavg3mon
+/Data/data1/iri/modelling/jqian/SEAsia/phil/movavg3mon
 \begin{ingrid}
 continuedataset:
 %datasetdefs:
@@ -76,7 +76,7 @@ values:
 :grid
 \end{ingrid}
 [X    Y | /NVZ 1 NewIntegerGRID
-   T S] (/data/dstore4/iri/modelling/jqian/SEAsia/phil/movavg3mon/regcm3.v.995.71-02.djf.nr)
+   T S] (/Data/data1/iri/modelling/jqian/SEAsia/phil/movavg3mon/regcm3.v.995.71-02.djf.nr)
 readdatafile: 
 %sequential 
 myspecialsequential
@@ -88,8 +88,8 @@ definevariables:
 
 
 [X    Y | /NVZ 1 NewIntegerGRID
-   Year S ] (/data/dstore4/iri/modelling/jqian/SEAsia/phil/movavg3mon/regcm3.pcp.71-02.%s[season].nr) [S season]
-%   T ] (/data/dstore4/iri/modelling/jqian/SEAsia/phil/movavg3mon/regcm3.pcp.71-02.%s[season].nr) [S season]
+   Year S ] (/Data/data1/iri/modelling/jqian/SEAsia/phil/movavg3mon/regcm3.pcp.71-02.%s[season].nr) [S season]
+%   T ] (/Data/data1/iri/modelling/jqian/SEAsia/phil/movavg3mon/regcm3.pcp.71-02.%s[season].nr) [S season]
 readdatafile: 
 direct
 :readdatafile
@@ -100,8 +100,8 @@ definevariables:
 \begin{ingrid}
 /pcp {
 [X    Y |
-   Year S ] (/data/dstore4/iri/modelling/jqian/SEAsia/phil/movavg3mon/regcm3.pcp.71-02.%s[season].nr) [S season]
-%   T ] (/data/dstore4/iri/modelling/jqian/SEAsia/phil/movavg3mon/regcm3.pcp.71-02.%s[season].nr) [S season]
+   Year S ] (/Data/data1/iri/modelling/jqian/SEAsia/phil/movavg3mon/regcm3.pcp.71-02.%s[season].nr) [S season]
+%   T ] (/Data/data1/iri/modelling/jqian/SEAsia/phil/movavg3mon/regcm3.pcp.71-02.%s[season].nr) [S season]
 readdatafile: 
 sequential
 /long_name (total precipitation)  def /units (mm/day) def
@@ -112,7 +112,7 @@ sequential
 } defasvarsilent
 /u {
 [X    Y |
-   Year S ] (/data/dstore4/iri/modelling/jqian/SEAsia/phil/movavg3mon/regcm3.u.995.71-02.%s[season].nr) [S season]
+   Year S ] (/Data/data1/iri/modelling/jqian/SEAsia/phil/movavg3mon/regcm3.u.995.71-02.%s[season].nr) [S season]
 readdatafile: 
 sequential
 /long_name (zonal wind component)  def /units (m/s) def
@@ -123,7 +123,7 @@ sequential
 } defasvarsilent
 /v {
 [X    Y |
-   Year S ] (/data/dstore4/iri/modelling/jqian/SEAsia/phil/movavg3mon/regcm3.u.995.71-02.%s[season].nr) [S season]
+   Year S ] (/Data/data1/iri/modelling/jqian/SEAsia/phil/movavg3mon/regcm3.u.995.71-02.%s[season].nr) [S season]
 readdatafile: 
 sequential
 /long_name (meridional wind component)  def /units (m/s) def
