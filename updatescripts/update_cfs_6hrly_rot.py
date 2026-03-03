@@ -20,15 +20,18 @@ for adate in [(TODAY - datetime.timedelta(days=d)) for d in range(7)]:
             rel_path = f"cfs.{adate_Ymd}/{anhour:02}/6hrly_grib_{amember:02}"
             dest_dir = DEST_DIR / rel_path
             url_path = f"{URL_PATH}/{rel_path}"
-            with urlr.urlopen(url_path) as r:
-                if r.status != 200:
-                    print(f'Trying to get {rel_path} returned status {r.status}')
-                else:
-                    url_text = r.read().decode()
-                    file_names = re.findall(
-                        r'<a href="((?:pgbf|flxf)\d{10}.\d{2}.\d{10}.grb2)',
-                        url_text,
-                    )
+            try:
+                with urlr.urlopen(url_path) as r:
+                    if r.status != 200:
+                        print(f'Trying to get {rel_path} returned status {r.status}')
+                    else:
+                        url_text = r.read().decode()
+                        file_names = re.findall(
+                            r'<a href="((?:pgbf|flxf)\d{10}.\d{2}.\d{10}.grb2)',
+                            url_text,
+                        )
+            except Exception as e:
+                print(f'Trying to get {rel_path} returned exception {e}')
             for file_name in file_names:
                 print(file_name)
                 is_downloaded, message = uu.download_file(
