@@ -28,7 +28,7 @@ for adate in [(TODAY - datetime.timedelta(days=d)) for d in range(7)]:
                     else:
                         url_text = r.read().decode()
                         file_names = re.findall(
-                            r'<a href="((?:pgbf|flxf)\d{10}.\d{2}.\d{10}.grb2)',
+                            r'<a href="((?:pgbf|flxf)\d{10}.\d{2}.\d{10}.grb2)">',
                             url_text,
                         )
                     for file_name in file_names:
