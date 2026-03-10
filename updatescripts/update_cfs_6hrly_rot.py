@@ -35,11 +35,10 @@ for adate in [(TODAY - datetime.timedelta(days=d)) for d in range(7)]:
                 file_names = []
                 message = f'Trying to get {rel_path} returned status {e}'
             for file_name in file_names:
-                print(file_name)
                 is_downloaded, message = uu.download_file(
                     dest_dir, file_name, f'{url_path}/{file_name}',
                 )
-            print(message)
+                print(message)
 
 # Ingrid tries to read last 2 weeks from today only
 old_date = TODAY - datetime.timedelta(days=15)
