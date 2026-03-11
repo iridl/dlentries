@@ -1,27 +1,43 @@
 from ECMWFModelTaskClass import ECMWFModelTaskBase
-
+import datetime
 
 class CNRMModel(ECMWFModelTaskBase):
     """
     Task for the CNRM model download from the ECMWFDataServer()
+    References:
+        https://confluence.ecmwf.int/display/S2S/CNRM+Model
+        https://apps.ecmwf.int/datasets/data/s2s-realtime-instantaneous-accum-lfpw/
     """
 
-    DefaultDelay = 7
+    first_date = datetime.datetime(2015, 5, 1)
 
-    def __init__(self, start=None):
-        """
-        :param start: datetime day to get data (today-DefaultDelay if None)
-        """
-        super().__init__(CNRMModel.DefaultDelay, start)
+    # Data Access Delay, how many days back is the first forecast we can get.
+    data_access_delay = 7
+
+    # weekdays: days of week data is available
+    weekdays = ["Thu"]
+
+    origin = "lfpw"
+    
+    def __init__(self, start=None, end=None, weekdays=None, goback=None):
+        if weekdays is None:
+            weekdays = CNRMModel.weekdays
+
+        super().__init__(start, end, weekdays, goback, CNRMModel.data_access_delay)
 
         pf_toplevel = f"{self.S2S_toplevel}/CNRM/REL_new/PF"
         cf_toplevel = f"{self.S2S_toplevel}/CNRM/REL_new/CF"
 
-        y_m_d = f"{self.start.year}-{self.start.month:02d}-{self.start.day:02d}"
-        ymd = f"{self.start.year}{self.start.month:02d}{self.start.day:02d}"
+        self.all_models["CNRM_REL_new_PF"] = []
+        self.all_models["CNRM_REL_new_CF"] = []
 
-        self.all_models["CNRM_REL_new_PF"] = [
+        for d in self.dates:
+            y_m_d = f"{d.year}-{d.month:02d}-{d.day:02d}"
+            ymd = f"{d.year}{d.month:02d}{d.day:02d}"
+
+            self.all_models["CNRM_REL_new_PF"].extend([
             {
+                "actual_size": 2365903296,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_pl_zuvt{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -31,7 +47,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "levtype": "pl",
                 "model": "glob",
                 "number": "1/to/24",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "130/131/132/156",
                 "step": "24/to/1128/by/24",
                 "stream": "enfo",
@@ -40,6 +56,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "min_size": 514569984,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_pl_w{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -49,7 +66,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "levtype": "pl",
                 "model": "glob",
                 "number": "1/to/24",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "135",
                 "step": "24/to/1128/by/24",
                 "stream": "enfo",
@@ -58,6 +75,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "min_size": 385927488,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_pl_q{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -67,7 +85,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "levtype": "pl",
                 "model": "glob",
                 "number": "1/to/24",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "133",
                 "step": "24/to/1128/by/24",
                 "stream": "enfo",
@@ -76,6 +94,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "min_size": 1210000000,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_sfc_sfc{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -84,7 +103,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "levtype": "sfc",
                 "model": "glob",
                 "number": "1/to/24",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "121/122/134/146/147/151/165/166/169/175/176/177/179/180/181/174008/228143/228144/228205/228228",
                 "step": "24/to/1128/by/24",
                 "stream": "enfo",
@@ -93,6 +112,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "min_size": 960000000,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_sfc_sfc2_{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -101,7 +121,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "levtype": "sfc",
                 "model": "glob",
                 "number": "1/to/24",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "121/122/134/146/147/151/165/166/169/175/176/177/179/228143/228144",
                 "step": "24/to/1128/by/24",
                 "stream": "enfo",
@@ -110,6 +130,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "min_size": 250000000,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_sfc_sfc3_{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -118,7 +139,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "levtype": "sfc",
                 "model": "glob",
                 "number": "1/to/24",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "180/181/174008/228205/228228",
                 "step": "24/to/1128/by/24",
                 "stream": "enfo",
@@ -126,7 +147,8 @@ class CNRMModel(ECMWFModelTaskBase):
                 "type": "pf",
                 "expect": "any",
             },
-            {   
+            {
+                "min_size": 1300000000,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_sfc_sfc6_{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -135,7 +157,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "levtype": "sfc",
                 "model": "glob",
                 "number": "1/to/24",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "121/122/165/166/228228",
                 "step": "6/12/18/24/30/36/42/48/54/60/66/72/78/84/90/96/102/108/114/120/126/132/138/144/150/156/162/168/174/180/186/192/198/204/210/216/222/228/234/240/246/252/258/264/270/276/282/288/294/300/306/312/318/324/330/336/342/348/354/360/366/372/378/384/390/396/402/408/414/420/426/432/438/444/450/456/462/468/474/480/486/492/498/504/510/516/522/528/534/540/546/552/558/564/570/576/582/588/594/600/606/612/618/624/630/636/642/648/654/660/666/672/678/684/690/696/702/708/714/720/726/732/738/744/750/756/762/768/774/780/786/792/798/804/810/816/822/828/834/840/846/852/858/864/870/876/882/888/894/900/906/912/918/924/930/936/942/948/954/960/966/972/978/984/990/996/1002/1008/1014/1020/1026/1032/1038/1044/1050/1056/1062/1068/1074/1080/1086/1092/1098/1104/1110/1116/1122/1128",
                 "stream": "enfo",
@@ -143,8 +165,8 @@ class CNRMModel(ECMWFModelTaskBase):
                 "type": "pf",
                 "expect": "any",
             },
-
             {
+                "min_size": 660000000,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_da_sfc{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -153,7 +175,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "levtype": "sfc",
                 "model": "glob",
                 "number": "1/to/24",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "31/33/34/59/136/167/168/235/228032/228086/228087/228095/228096/228141/228164",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128",
                 "stream": "enfo",
@@ -162,6 +184,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "min_size": 940000000,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_o2d{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -170,7 +193,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "levtype": "o2d",
                 "model": "glob",
                 "number": "1/to/24",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "151126/151131/151132/151145/151163/151175/151219/151225/174098",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128", 
                 "stream": "enfo",
@@ -179,6 +202,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "min_size": 105291792,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_o2d1_{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -187,7 +211,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "levtype": "o2d",
                 "model": "glob",
                 "number": "1/to/24",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "151163",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128",
                 "stream": "enfo",
@@ -196,6 +220,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "min_size": 105291792,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_o2d2_{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -204,7 +229,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "levtype": "o2d",
                 "model": "glob",
                 "number": "1/to/24",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "151225",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128",
                 "stream": "enfo",
@@ -212,10 +237,11 @@ class CNRMModel(ECMWFModelTaskBase):
                 "type": "pf",
                 "expect": "any",
             }
-        ]
+        ])
 
-        self.all_models["CNRM_REL_new_CF"] = [
+            self.all_models["CNRM_REL_new_CF"].extend([
             {
+                "min_size": 96481872,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_pl_zuvt{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -224,7 +250,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "levelist": "10/50/100/200/300/500/700/850/925",
                 "levtype": "pl",
                 "model": "glob",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "130/131/132/156",
                 "step": "24/to/1128/by/24",
                 "stream": "enfo",
@@ -233,6 +259,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "min_size": 21440416,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_pl_w{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -241,7 +268,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "levelist": "50/100/200/300/500/700/850/925",
                 "levtype": "pl",
                 "model": "glob",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "135",
                 "step": "24/to/1128/by/24",
                 "stream": "enfo",
@@ -249,8 +276,8 @@ class CNRMModel(ECMWFModelTaskBase):
                 "type": "cf",
                 "expect": "any",
             },
-
             {
+                "min_size": 16080312,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_pl_q{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -259,7 +286,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "levelist": "10/50/100/200/300/500/700/850/925",
                 "levtype": "pl",
                 "model": "glob",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "133",
                 "step": "24/to/1128/by/24",
                 "stream": "enfo",
@@ -268,6 +295,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "min_size": 50000000,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_sfc_sfc{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -275,7 +303,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expver": "prod",
                 "levtype": "sfc",
                 "model": "glob",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "121/122/134/146/147/151/165/166/169/172/175/176/177/179/180/181/174008/228002/228143/228144/228205/228228",
                 "step": "24/to/1128/by/24",
                 "stream": "enfo",
@@ -284,6 +312,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "min_size": 50000000,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_sfc_sfc6_{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -291,7 +320,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expver": "prod",
                 "levtype": "sfc",
                 "model": "glob",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "121/122/165/166/228228",
                 "step": "6/12/18/24/30/36/42/48/54/60/66/72/78/84/90/96/102/108/114/120/126/132/138/144/150/156/162/168/174/180/186/192/198/204/210/216/222/228/234/240/246/252/258/264/270/276/282/288/294/300/306/312/318/324/330/336/342/348/354/360/366/372/378/384/390/396/402/408/414/420/426/432/438/444/450/456/462/468/474/480/486/492/498/504/510/516/522/528/534/540/546/552/558/564/570/576/582/588/594/600/606/612/618/624/630/636/642/648/654/660/666/672/678/684/690/696/702/708/714/720/726/732/738/744/750/756/762/768/774/780/786/792/798/804/810/816/822/828/834/840/846/852/858/864/870/876/882/888/894/900/906/912/918/924/930/936/942/948/954/960/966/972/978/984/990/996/1002/1008/1014/1020/1026/1032/1038/1044/1050/1056/1062/1068/1074/1080/1086/1092/1098/1104/1110/1116/1122/1128",
                 "stream": "enfo",
@@ -299,8 +328,8 @@ class CNRMModel(ECMWFModelTaskBase):
                 "type": "cf",
                 "expect": "any",
             },
-
             {
+                "min_size": 10000000,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_da_sfc{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -308,7 +337,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expver": "prod",
                 "levtype": "sfc",
                 "model": "glob",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "31/33/34/59/136/167/168/235/228032/228086/228087/228095/228096/228141/228164",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128",
                 "stream": "enfo",
@@ -317,6 +346,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "min_size": 30000000,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_o2d{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -324,7 +354,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expver": "prod",
                 "levtype": "o2d",
                 "model": "glob",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "151126/151131/151132/151145/151163/151175/151219/151225/174098",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128",
                 "stream": "enfo",
@@ -333,6 +363,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {   # depth of 20C isotherm
+                "min_size": 4387158,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_o2d1_{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -340,7 +371,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expver": "prod",
                 "levtype": "o2d",
                 "model": "glob",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "151163",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128",
                 "stream": "enfo",
@@ -349,6 +380,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {   # 9 mixed layer thickness
+                "min_size": 4387158,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_o2d2_{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -356,7 +388,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expver": "prod",
                 "levtype": "o2d",
                 "model": "glob",
-                "origin": "lfpw",
+                "origin":  CNRMModel.origin,
                 "param": "151225",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128",
                 "stream": "enfo",
@@ -364,5 +396,34 @@ class CNRMModel(ECMWFModelTaskBase):
                 "type": "cf",
                 "expect": "any",
             }
-        ]
+        ])
 
+if __name__ == '__main__':
+    import argparse
+    start = end = None
+
+    parser = argparse.ArgumentParser(description="Check Data from CNRM Model.")
+    parser.add_argument('--start', type=str,
+                        help="Start Day in the form YYYY-MM-DD.  Today, b yut default.")
+    parser.add_argument('--end', type=str,
+                        help="End Day in the form YYYY-MM-DD (or \"now\".  Will only run 1 day if not defined")
+
+    args = parser.parse_args()
+    if args.start is None:
+        start = CNRMModel.first_date
+    else:
+        start = datetime.datetime.strptime(args.start, "%Y-%m-%d")
+
+    if args.end is not None:
+        if args.end == "now":
+            end = datetime.datetime.now()
+        else:
+            end = datetime.datetime.strptime(args.start, "%Y-%m-%d")
+    else:
+        end = datetime.datetime.now()
+
+    model = CNRMModel(start=start, end=end)
+    tasks = model.get_tasks(prune=True, dryrun=True)
+    for t in tasks:
+        print(t['target'])
+    print(f"Total tasks: {len(tasks)}")

@@ -17,43 +17,46 @@ from S2S_config import S2S_script_directory
 from S2S_config import S2S_logs_directory
 from S2S_config import S2S_configure_logging
 from S2S_config import ECMWF_max_processes
+from S2S_config import ECMWF_TMPDIR
 
 from ecmwf_cma_tasks import CMAModel
 from ecmwf_cnrm_tasks import CNRMModel
 from ecmwf_cptec_tasks import CPTECModel
-from ecmwf_eccc_ref_tasks import ECCC_REF_Model
 from ecmwf_eccc_tasks import ECCCModel
 from ecmwf_ecmf_tasks import ECMFModel
 from ecmwf_ecmf4147_tasks import ECMF4147Model
-from ecmwf_ecmf_ref_tasks import ECMF_REF_Model
 from ecmwf_hmcr_tasks import HMCRModel
-from ecmwf_hmcr_ref_tasks import HMCR_REF_Model
 from ecmwf_iapcas_tasks import IAPCASModel
 from ecmwf_isac_tasks import ISACModel
 from ecmwf_jma_tasks import JMAModel
 from ecmwf_kma_tasks import KMAModel
 from ecmwf_ncep_tasks import NCEPModel
 from ecmwf_ukmo_tasks import UKMOModel
+
+from ecmwf_eccc_ref_tasks import ECCC_REF_Model
+from ecmwf_ecmf_ref_tasks import ECMF_REF_Model
+from ecmwf_hmcr_ref_tasks import HMCR_REF_Model
 from ecmwf_ukmo_ref_tasks import UKMO_REF_Model
+from ecmwf_kma_ref_tasks import KMA_REF_Model
 
 available_models = {
-    
     "cma": CMAModel,
     "cnrm": CNRMModel,
     "cptec": CPTECModel,
     "eccc": ECCCModel,
-    "eccc_ref": ECCC_REF_Model,
     "ecmf": ECMFModel,
     "ecmf4147": ECMF4147Model,
-    "ecmf_ref": ECMF_REF_Model,
     "hmcr": HMCRModel,
-    "hmcr_ref": HMCR_REF_Model,
     "iapcas": IAPCASModel,
     "isac": ISACModel,
     "jma": JMAModel,
     "kma": KMAModel,
     "ncep": NCEPModel,
     "ukmo": UKMOModel,
+    "eccc_ref": ECCC_REF_Model,
+    "ecmf_ref": ECMF_REF_Model,
+    "hmcr_ref": HMCR_REF_Model,
+    "kma_ref": KMA_REF_Model,
     "ukmo_ref": UKMO_REF_Model
 }
 
@@ -68,7 +71,6 @@ if __name__ == '__main__':
     model_class = None
     start = None
     end = None
-    timeout = None
 
     parser = argparse.ArgumentParser(description="Download models from ECMWF.")
 
@@ -86,24 +88,32 @@ if __name__ == '__main__':
                         help="Start Day in the form YYYY-MM-DD.  Will use model default if non is specified.")
     parser.add_argument('--end', type=str,
                         help="End Day in the form YYYY-MM-DD.  Will only run 1 day if not defined")
-    parser.add_argument('--timeout', type=int,
-                        help="timeout of process in seconds")
     parser.add_argument('--debug', action="store_true",
                         help="Turn on ECMWFDataserver logging")
     parser.add_argument('--dryrun', action="store_true",
                         help="Don't actually download anything")
     parser.add_argument('--max_downloads', type=int, default=ECMWF_max_processes,
                         help=f"modify max parallel downloads from default of {ECMWF_max_processes}")
+    parser.add_argument('--goback', type=int,
+                        help="number of days to go back in time.  Default is defined by the model.")
+    parser.add_argument('--days', type=str, nargs="+",
+                        help='List of days to download:\nPossible values are:\n["odd", "even"]\n\
+                        ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]\n\
+                        ["1", "2", "3", "4", "5", "6", "7" ... "31"] for the actual dates.')
+    parser.add_argument('--tmpdir', type=str, default=ECMWF_TMPDIR,
+                        help=f"modify default TMPDIR from {ECMWF_TMPDIR}")
     args = parser.parse_args()
 
     if args.debug:
         executable_arguments.extend(["--debug"])
     if args.dryrun:
         executable_arguments.extend(["--dryrun"])
-    if args.timeout:
-        timeout = args.timeout
+    if args.goback:
+        executable_arguments.extend(["--goback", str(args.goback)])
 
     executable_arguments.extend(["--max_downloads", str(args.max_downloads)])
+    executable_arguments.extend(["--tmpdir", str(args.tmpdir)])
+
     #
     # Make sure the user key exists and set the environment variables for login to ECMWFDataserver
     #
@@ -170,7 +180,7 @@ if __name__ == '__main__':
         parser.print_usage()
         exit(1)
     else:
-        executable_arguments.append("--model")
+        executable_arguments.append("--models")
         for m in args.models:
             if m not in available_models.keys():
                 print(f"You must select models from: {available_models.keys()}. {m} is not a valid model")
@@ -184,7 +194,7 @@ if __name__ == '__main__':
     try:
         executable_arguments.extend(["--logfile", logfile])
         logger.info(f"Calling {' '.join(executable_arguments)}")
-        p = subprocess.run(executable_arguments, capture_output=True, timeout=timeout)
+        p = subprocess.run(executable_arguments, capture_output=True)
         p.check_returncode()
     except subprocess.TimeoutExpired as e:
         print(f"Process timed out and killed {e}")

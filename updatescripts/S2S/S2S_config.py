@@ -14,6 +14,8 @@ from datetime import datetime
 
 # don't submit more than this many jobs at a time to ECMWF Data Server
 ECMWF_max_processes = 10
+ECMWF_TMPDIR = '/Data/tmp'
+DIR_MODE = 0o775
 
 # Where are the scripts?
 S2S_script_directory = pathlib.Path(__file__).parent
