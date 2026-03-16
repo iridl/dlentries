@@ -56,7 +56,7 @@ for var in ["pgbf", "flxf"]:
                             dest_dir, file_name, f'{url_path}/{file_name}',
                         )
                         print(download_status["message"])
-                        is_done = is_done & (download_status["flag"] >= 0)
+                        is_done = is_done and (download_status["flag"] >= 0)
             if is_done:
                 done_file.touch(mode=uu.FILE_MODE)
 
