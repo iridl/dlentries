@@ -11,7 +11,10 @@ import pandas as pd
 
 URL_PATH = "https://nomads.ncep.noaa.gov/pub/data/nccf/com/cfs/prod"
 DEST_DIR = Path("/Data/data22/noaa/ncep/cfsv2/6_hourly_rotating")
-TODAY = datetime.date.today() + relativedelta(hour=18)
+TODAY = datetime.datetime.today()
+LAST_HOUR = (TODAY.hour // 6) * 6
+TODAY = TODAY + relativedelta(hour=LAST_HOUR)
+
 
 # Rotating archive holds last 7 days
 for var in ["pgbf", "flxf"]:
