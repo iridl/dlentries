@@ -12,9 +12,7 @@ import pandas as pd
 URL_PATH = "https://nomads.ncep.noaa.gov/pub/data/nccf/com/cfs/prod"
 DEST_DIR = Path("/Data/data22/noaa/ncep/cfsv2/6_hourly_rotating")
 TODAY = datetime.datetime.today()
-LAST_HOUR = (TODAY.hour // 6) * 6
-TODAY = TODAY + relativedelta(hour=LAST_HOUR)
-
+TODAY = TODAY.replace(hour=(TODAY.hour // 6) * 6)
 
 # Rotating archive holds last 7 days
 for var in ["pgbf", "flxf"]:
@@ -40,11 +38,11 @@ for var in ["pgbf", "flxf"]:
                     if amember == 1 :
                         # 1st members lead up to 
                         # 0th hour of first day 7 months later
-                        last_L = astart + relativedelta(months=7, day=1, hour=0)
+                        last_L = astart.replace(day=1, hour=0) + relativedelta(months=7)
                     elif astart.hour == 0 :
                         # Midnight starts other than for 1st member lead up to 
                         # 0th hour of first day 4 months later
-                        last_L = astart + relativedelta(months=4, day=1, hour=0)
+                        last_L = astart.replace(day=1, hour=0) + relativedelta(months=4)
                     else:
                         # All other (ie not 1st member not midnight starts) lead up to 
                         # 45 days
