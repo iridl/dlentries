@@ -8,7 +8,7 @@ grid:
 /name (M)def
 /long_name (member) def
 /units (unitless)def
-1 1 62
+ 1 1 28
 :grid
 
 grid:
@@ -16,10 +16,11 @@ grid:
 /long_name (Forecast Start Time) def
 /units (months since 1960-01-01) def
 /standard_name (forecast_reference_time) def
+/defaultvalue { last } def
 /pointwidth 0 def
-1 Mar 2025 ensotime
+1 Feb 1993 ensotime
 1
-1 Feb 2026 ensotime
+1 Dec 2016 ensotime
 :grid
 
 /T { S L add
@@ -28,7 +29,8 @@ grid:
 /pointwidth 3 def
 } defasvarsilent
 
-/sst { [ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System604/forecast/sst_C3S_ukmo_system604_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+/sst {
+[ X Y | M L S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System605/hindcast/sst_C3S_ukmo_system605_hcast_mon_mean_%Y[S]%m[S].grb) [ S ]
  readdatafile:
  /name (sst) def
  /gribparam 34 def
@@ -48,7 +50,8 @@ grid:
  9.999000E+20 maskge
 }defasvarsilent
 
-/t2m { [ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System604/forecast/t2m_C3S_ukmo_system604_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+/t2m {
+[ X Y | M L S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System605/hindcast/t2m_C3S_ukmo_system605_hcast_mon_mean_%Y[S]%m[S].grb) [ S ]
  readdatafile:
  /name (t2m) def
  /gribparam 167 def
@@ -69,13 +72,16 @@ grid:
 }defasvarsilent
 
 /prcp {
-[ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System604/forecast/prcp_C3S_ukmo_system604_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+[ X Y | M L S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System605/hindcast/prcp_C3S_ukmo_system605_hcast_mon_mean_%Y[S]%m[S].grb) [ S ]
  readdatafile:
  /name (prcp) def
  /gribparam 228 def
  /gribcenter 74 def
+ /grib_name /TP def
  /gribNumBits 16 def
+ /gribleveltype 1 def
  /scale_min 0.0 def
+ /process 255 def
  /units (m s-1)cvn def
  /missing_value 9.999000E+20 def
  /long_name (total precipitation) def
@@ -86,7 +92,7 @@ grid:
 }defasvarsilent
 
 /ua {
-[ X Y | P L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System604/forecast/u_C3S_ukmo_system604_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+[ X Y | P M L S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System605/hindcast/u_C3S_ukmo_system605_hcast_mon_mean_%Y[S]%m[S].grb) [ S ]
  readdatafile:
  /name (ua) def
  /gribparam 131 def
@@ -104,7 +110,7 @@ grid:
 } defasvarsilent
 
 /va {
-[ X Y | P L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System604/forecast/v_C3S_ukmo_system604_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+[ X Y | P M L S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System605/hindcast/v_C3S_ukmo_system605_hcast_mon_mean_%Y[S]%m[S].grb) [ S ]
  readdatafile:
  /name (va) def
  /gribparam 132 def
@@ -122,25 +128,26 @@ grid:
 } defasvarsilent
 
 /z {
-[ X Y | P L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System604/forecast/z_C3S_ukmo_system604_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
-readdatafile:
-/name (z) def
-/gribparam 129 def
-/gribcenter 98 def
-/process 147 def
-/grib_name /Z def
-/gribNumBits 16 def
-/units (m2 s-2)cvn def
-/missing_value 9.999000E+20 def
-/long_name (geopotential) def
-/standard_name (geopotential) def
-GRIB1record :readdatafile
-decompress
-9.999000E+20 maskge
+[ X Y | P M L S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System605/hindcast/z_C3S_ukmo_system605_hcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+ readdatafile:
+ /name (z) def
+ /gribparam 129 def
+ /gribcenter 98 def
+ /process 147 def
+ /grib_name /Z def
+ /gribNumBits 16 def
+ /units (m2 s-2)cvn def
+ /missing_value 9.999000E+20 def
+ /long_name (geopotential) def
+ /standard_name (geopotential) def
+ GRIB1record :readdatafile
+ decompress
+ 9.999000E+20 maskge
 } defasvarsilent
 
-/slp { 
-[X Y | L M S] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System604/forecast/mslp_C3S_ukmo_system604_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+
+/slp {
+[X Y | M L S] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System605/hindcast/mslp_C3S_ukmo_system605_hcast_mon_mean_%Y[S]%m[S].grb) [ S ]
  readdatafile:
  /name (slp) def
  /gribparam 132 def
@@ -154,5 +161,7 @@ decompress
  decompress
  9.999000E+20 maskge
 } defasvarsilent
+
+
 :dataset
 \end{ingrid}

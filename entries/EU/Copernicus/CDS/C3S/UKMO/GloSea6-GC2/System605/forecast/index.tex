@@ -8,7 +8,7 @@ grid:
 /name (M)def
 /long_name (member) def
 /units (unitless)def
-1 1 62
+1 1 56
 :grid
 
 grid:
@@ -17,10 +17,23 @@ grid:
 /units (months since 1960-01-01) def
 /standard_name (forecast_reference_time) def
 /pointwidth 0 def
-1 Mar 2025 ensotime
+1 Mar 2026 ensotime
 1
-1 Feb 2026 ensotime
+%1 Feb 2027 ensotime
+1 systemtime (%b %Y) 10 strftime
+interp
+ensotime
 :grid
+
+S { (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System605/forecast/prcp_C3S_ukmo_system605_fcast_mon_mean_%Y[S]%m[S].grb) [S]} removeextrausing
+/expires
+last_modified systemtime2ymd ymd:nextmonth
+ymd2systemtime 7 3600 mul add
+def
+/defaultvalue last def
+name exch def
+/expires S .expires def
+/last_modified S .last_modified def
 
 /T { S L add
 /long_name (Time) def
@@ -28,7 +41,7 @@ grid:
 /pointwidth 3 def
 } defasvarsilent
 
-/sst { [ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System604/forecast/sst_C3S_ukmo_system604_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+/sst { [ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System605/forecast/sst_C3S_ukmo_system605_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
  readdatafile:
  /name (sst) def
  /gribparam 34 def
@@ -48,7 +61,7 @@ grid:
  9.999000E+20 maskge
 }defasvarsilent
 
-/t2m { [ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System604/forecast/t2m_C3S_ukmo_system604_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+/t2m { [ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System605/forecast/t2m_C3S_ukmo_system605_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
  readdatafile:
  /name (t2m) def
  /gribparam 167 def
@@ -69,7 +82,7 @@ grid:
 }defasvarsilent
 
 /prcp {
-[ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System604/forecast/prcp_C3S_ukmo_system604_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+[ X Y | L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System605/forecast/prcp_C3S_ukmo_system605_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
  readdatafile:
  /name (prcp) def
  /gribparam 228 def
@@ -86,7 +99,7 @@ grid:
 }defasvarsilent
 
 /ua {
-[ X Y | P L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System604/forecast/u_C3S_ukmo_system604_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+[ X Y | P L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System605/forecast/u_C3S_ukmo_system605_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
  readdatafile:
  /name (ua) def
  /gribparam 131 def
@@ -104,7 +117,7 @@ grid:
 } defasvarsilent
 
 /va {
-[ X Y | P L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System604/forecast/v_C3S_ukmo_system604_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+[ X Y | P L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System605/forecast/v_C3S_ukmo_system605_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
  readdatafile:
  /name (va) def
  /gribparam 132 def
@@ -122,7 +135,7 @@ grid:
 } defasvarsilent
 
 /z {
-[ X Y | P L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System604/forecast/z_C3S_ukmo_system604_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+[ X Y | P L M S ] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System605/forecast/z_C3S_ukmo_system605_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
 readdatafile:
 /name (z) def
 /gribparam 129 def
@@ -140,7 +153,7 @@ decompress
 } defasvarsilent
 
 /slp { 
-[X Y | L M S] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System604/forecast/mslp_C3S_ukmo_system604_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
+[X Y | L M S] (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System605/forecast/mslp_C3S_ukmo_system605_fcast_mon_mean_%Y[S]%m[S].grb) [ S ]
  readdatafile:
  /name (slp) def
  /gribparam 132 def
