@@ -164,13 +164,13 @@ grid:
 % /pointwidth 0.25 def
 % :grid
 
-% grid:
-% /name (P) def
-% /long_name (Pressure Level) def
-% /standard_name (air_pressure) def
-% /units (hPa) def
-% values: 10 50 100 200 300 500 700 850 925 1000 :values
-% :grid
+grid:
+/name (P) def
+/long_name (Pressure Level) def
+/standard_name (air_pressure) def
+/units (hPa) def
+values: 10 50 100 200 300 500 700 850 925 1000 :values
+:grid
 
 dataset:
 [X Y L S ] {name exch def } forall
@@ -409,17 +409,17 @@ dataset:
 /name (2m_above_ground) def
 [X Y LA S ] {name exch def } forall
 
-% /2t { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
-%   /name (TMP) def
-%   (04XXXX000B0000) GRIBvariable
-%   :readdatafile
-%   /long_name (2-meter Temperature) def
-%   /standard_name (air_temperature) def
-%   /units (K) def
-%   /missing_value 9.999000E+20 def
-%   decompress
-%   Y last first RANGE
-% } defasvarsilent
+/2t { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/CPTEC/REL/CF/cptec_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+  /name (TMP) def
+  (04XXXX000B0000) GRIBvariable
+  :readdatafile
+  /long_name (2-meter Temperature) def
+  /standard_name (air_temperature) def
+  /units (K) def
+  /missing_value 9.999000E+20 def
+  decompress
+  Y last first RANGE
+} defasvarsilent
 
 /mx2t6 { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/CPTEC/REL/CF/cptec_rel_cf_sfc_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
   /name (mx2t6) def
@@ -445,17 +445,162 @@ dataset:
   Y last first RANGE
 } defasvarsilent
 
-% /2dt { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
-%   /name (DPT) def
-%   (04XXXX000B0006) GRIBvariable
+/2dt { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/CPTEC/REL/CF/cptec_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+  /name (DPT) def
+  (04XXXX000B0006) GRIBvariable
+  :readdatafile
+  /long_name (2-meter Dewpoint Temperature) def
+  /standard_name (dew_point_temperature) def
+  /units (K) def
+  /missing_value 9.999000E+20 def
+  decompress
+  Y last first RANGE
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y P L S ] {name exch def } forall
+/name /pressure_level_t def
+
+/t { [ X Y last first subgrid | P L S ] (/Data/data25/ECMWF/S2S/CPTEC/REL/CF/cptec_rel_cf_pl_zuvt%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+  /name (TMP) def
+  (04XXXX00010000) GRIBvariable
+  :readdatafile
+  /long_name (Temperature) def
+  /standard_name (air_temperature) def
+  /units (K) def
+  /missing_value 9.999000E+20 def
+  decompress
+  Y last first RANGE
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y P L S ] {name exch def } forall
+/name /pressure_level_gh def
+
+/gh { [ X Y last first subgrid | P L S ] (/Data/data25/ECMWF/S2S/CPTEC/REL/CF/cptec_rel_cf_pl_zuvt%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+  /name (HGT) def
+  (04XXXX00010305) GRIBvariable
+  :readdatafile
+  /long_name (Geopotential Height) def
+  /standard_name (geopotential_height) def
+  /units (gpm) def
+  /missing_value 9.999000E+20 def
+  decompress
+  Y last first RANGE
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y P L S ] {name exch def } forall
+/name /pressure_level_u def
+
+/u { [ X Y last first subgrid | P L S ] (/Data/data25/ECMWF/S2S/CPTEC/REL/CF/cptec_rel_cf_pl_zuvt%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+  /name (UGRD) def
+  (04XXXX00010202) GRIBvariable
+  :readdatafile
+  /long_name (U-Component of Wind) def
+  /standard_name (eastward_wind) def
+  /units (m/s) def
+  /missing_value 9.999000E+20 def
+  decompress
+  Y last first RANGE
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y P L S ] {name exch def } forall
+/name /pressure_level_v def
+
+/v { [ X Y last first subgrid | P L S ] (/Data/data25/ECMWF/S2S/CPTEC/REL/CF/cptec_rel_cf_pl_zuvt%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+  /name (VGRD) def
+  (04XXXX00010203) GRIBvariable
+  :readdatafile
+  /long_name (V-Component of Wind) def
+  /standard_name (northward_wind) def
+  /units (m/s) def
+  /missing_value 9.999000E+20 def
+  decompress
+  Y last first RANGE
+} defasvarsilent
+
+:dataset
+
+dataset:
+/name (atmos_column) def
+[X Y LA S ] {name exch def } forall
+
+% /cape { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/CPTEC/REL/CF/cptec_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+%   /name (CAPE) def
+%   (04XXXX000B0706) GRIBvariable
 %   :readdatafile
-%   /long_name (2-meter Dewpoint Temperature) def
-%   /standard_name (dew_point_temperature) def
-%   /units (K) def
+%   /long_name (Convective Available Potential Energy) def
+%   /standard_name (atmosphere_convective_available_potential_energy) def
+%   /units (J kg-1) def
 %   /missing_value 9.999000E+20 def
 %   decompress
 %   Y last first RANGE
 % } defasvarsilent
+
+% /tcw { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/CPTEC/REL/CF/cptec_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+% /name (TCWAT) def
+%   (04XXXX000B0133) GRIBvariable
+%   :readdatafile
+%   /long_name (Total Column Water (Vertically integrated total water (vapour cloud+water/ice))) def
+%   /standard_name (atmosphere_mass_content_of_water) def
+%   /units (kg m-2) def
+%   /missing_value 9.999000E+20 def
+%   decompress
+%   Y last first RANGE
+% } defasvarsilent
+
+/tcc { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/CPTEC/REL/CF/cptec_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+  /name (TCDC) def
+  (04XXXX000B0601) GRIBvariable
+  :readdatafile
+  /long_name (Total Cloud Cover) def
+  /standard_name (cloud_area_fraction) def
+  /units (%) def
+  /missing_value 9.999000E+20 def
+  decompress
+  Y last first RANGE
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y LA S ] {name exch def } forall
+/name /sfc_temperature def
+
+% /wtmp { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/CPTEC/REL/CF/cptec_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+%   /name (WTMP) def
+%   (04XXXX000B0300) GRIBvariable
+%   :readdatafile
+%   /long_name (Water Temperature) def
+%   /standard_name (sea_surface_temperature) def
+%   /units (K) def
+%   /missing_value 9.999000E+20 def
+%   0 maskle
+%   decompress
+%   Y last first RANGE
+% } defasvarsilent
+
+/skt { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/CPTEC/REL/CF/cptec_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+  /name (SKINT) def
+  (04XXXX000B0011) GRIBvariable
+  :readdatafile
+  /long_name (Skin Temperature) def
+  /standard_name (surface_temperature) def
+  /units (K) def
+  /missing_value 9.999000E+20 def
+  decompress
+  Y last first RANGE
+} defasvarsilent
 
 :dataset
 
