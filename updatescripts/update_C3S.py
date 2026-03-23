@@ -98,13 +98,13 @@ models = {
         },
     },
     'UKMO': {
-        'dir': 'UKMO/GloSea6-GC2/System604',
-        'slug': 'C3S_ukmo_system604',
+        'dir': 'UKMO/GloSea6-GC2/System605',
+        'slug': 'C3S_ukmo_system605',
         'start_year': 1993,
         'end_year': 2016,
         'args': {
             'originating_centre': 'ukmo',
-	        'system': '604',
+	        'system': '605',
         },
     },
 }
