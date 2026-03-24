@@ -42,7 +42,7 @@ for adate in [(TODAY - datetime.timedelta(days=d)) for d in range(7)]:
             print(message)
 
 # Ingrid tries to read last 2 weeks from today only
-old_date = TODAY - datetime.timedelta(days=14)
+old_date = TODAY - datetime.timedelta(days=15)
 old_dir = DEST_DIR / f"cfs.{old_date.strftime("%Y%m%d")}"
 while old_dir.is_dir():
     shutil.rmtree(old_dir)
