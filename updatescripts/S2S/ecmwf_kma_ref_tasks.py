@@ -46,8 +46,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                 hdate_y_m_d = f"{year}-{d.month:02d}-{d.day:02d}"
                 hdate_ymd = f"{year}{d.month:02d}{d.day:02d}"
 
-                toplevel = f"{self.S2S_toplevel}/KMA/REF_new/{T}/{d.year}"
-
+                toplevel = f"{self.S2S_toplevel}/KMA/REF_new/CF/{d.year}"
                 self.all_models['KMA_REF_CF'].extend([
                     {
                         "target": f"{toplevel}/kma_ref_cf_pl_zuvt{ymd}{hdate_ymd}.grb",
@@ -182,6 +181,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                     }
                 ])
 
+                toplevel = f"{self.S2S_toplevel}/KMA/REF_new/PF/{d.year}"
                 self.all_models['KMA_REF_PF'].extend([
                     {
                         "target": f"{toplevel}/kma_ref_pf_pl_zuvt{ymd}{hdate_ymd}.grb",
