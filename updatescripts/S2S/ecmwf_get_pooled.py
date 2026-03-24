@@ -72,7 +72,7 @@ def receive_file_task(task):
 
     # Check if the retrieved file exists, and if the size is incorrect, remove it.
     logging.debug(f"Checking {task['target']} size")
-    size = process_file_by_size(task['target'], min_size, actual_size, dryrun, logging)
+    size = process_file_by_size(task['target'], min_size, actual_size, dryrun)
     logging.debug(f"File {task['target']} size is {size}")
     if size != 0:
         try:
