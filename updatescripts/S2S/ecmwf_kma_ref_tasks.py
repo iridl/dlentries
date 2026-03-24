@@ -344,7 +344,7 @@ if __name__ == '__main__':
             end = datetime.datetime.now()
         else:
             end = datetime.datetime.strptime(args.start, "%Y-%m-%d")
-    else:
+    elif args.start is None:
         end = datetime.datetime.now()
 
     model = KMA_REF_Model(start=start, end=end)

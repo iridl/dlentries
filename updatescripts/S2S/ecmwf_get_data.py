@@ -85,7 +85,7 @@ if __name__ == '__main__':
     parser.add_argument('--models', type=str, required=True, nargs='+',
                         help=f"select the model types: {available_models.keys()}.")
     parser.add_argument('--start', type=str,
-                        help="Start Day in the form YYYY-MM-DD.  Will use model default if non is specified.")
+                        help="Start Day in the form YYYY-MM-DD.  Will use today by default.")
     parser.add_argument('--end', type=str,
                         help="End Day in the form YYYY-MM-DD.  Will only run 1 day if not defined")
     parser.add_argument('--debug', action="store_true",
