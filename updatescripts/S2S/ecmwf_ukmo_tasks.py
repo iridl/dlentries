@@ -31,6 +31,7 @@ class UKMOModel(ECMWFModelTaskBase):
             self.all_models["UKMO_REL_PF"].extend([
                 {   # _rel_pf_sfc_sfc
                     "target": f"{pf_toplevel}/ukmo_rel_pf_sfc_sfc{ymd}{ymd}.grb",
+                    "actual_size": 209722956,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -48,6 +49,7 @@ class UKMOModel(ECMWFModelTaskBase):
                 },
                 {   # _rel_pf_pl_zuvt
                     "target": f"{pf_toplevel}/ukmo_rel_pf_pl_zuvt{ymd}{ymd}.grb",
+                    "min_size": 214570000,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -66,6 +68,7 @@ class UKMOModel(ECMWFModelTaskBase):
                 },
                 {   # _rel_pf_pl_q
                     "target": f"{pf_toplevel}/ukmo_rel_pf_pl_q{ymd}{ymd}.grb",
+                    "actual_size": 114639252,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -84,6 +87,7 @@ class UKMOModel(ECMWFModelTaskBase):
                 },
                 {   # _rel_pf_pl_w
                     "target": f"{pf_toplevel}/ukmo_rel_pf_pl_w{ymd}{ymd}.grb",
+                    "actual_size": 16377036,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -102,6 +106,7 @@ class UKMOModel(ECMWFModelTaskBase):
                 },
                 {   # _rel_pf_da_sfc
                     "target": f"{pf_toplevel}/ukmo_rel_pf_da_sfc{ymd}{ymd}.grb",
+                    "actual_size": 86687820,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -122,6 +127,7 @@ class UKMOModel(ECMWFModelTaskBase):
             self.all_models["UKMO_REL_CF"].extend([
                 {   # _rel_cf_sfc_sfc
                     "target": f"{cf_toplevel}/ukmo_rel_cf_sfc_sfc{ymd}{ymd}.grb",
+                    "actual_size": 80825676,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -138,6 +144,7 @@ class UKMOModel(ECMWFModelTaskBase):
                 },
                 {   # _rel_cf_pl_zuvt
                     "target": f"{cf_toplevel}/ukmo_rel_cf_pl_zuvt{ymd}{ymd}.grb",
+                    "min_size": 214400000,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -155,6 +162,7 @@ class UKMOModel(ECMWFModelTaskBase):
                 },
                 { # _rel_cf_pl_g
                     "target": f"{cf_toplevel}/ukmo_rel_cf_pl_q{ymd}{ymd}.grb",
+                    "actual_size": 38213084,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -172,6 +180,7 @@ class UKMOModel(ECMWFModelTaskBase):
                 },
                 {   # _rel_cf_pl_w
                     "target": f"{cf_toplevel}/ukmo_rel_cf_pl_w{ymd}{ymd}.grb",
+                    "actual_size": 5459012,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -189,6 +198,8 @@ class UKMOModel(ECMWFModelTaskBase):
                 },
                 {   # _rel_cf_da_sfc
                     "target": f"{cf_toplevel}/ukmo_rel_cf_da_sfc{ymd}{ymd}.grb",
+                    "actual_size": 28895940 if d < datetime.datetime(2021, 2, 2) else \
+                        28900620 if d < datetime.datetime(2025, 2, 19) else 28903320,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,

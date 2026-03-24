@@ -59,6 +59,9 @@ class ECMWFModelTaskBase:
             if d >= self.today - datetime.timedelta(days=self.data_access_delay):
                 return False
 
+        if self.weekdays is None:
+            return True
+
         # if day is in the weekdays list return True, else return False
         if "odd" in self.weekdays and d.day % 2 == 1:
             return True

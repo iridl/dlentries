@@ -38,8 +38,8 @@ class ECMWF_REFModelTaskBase(ECMWFModelTaskBase):
         date_list = []
 
         # Override get_date_list as we use model_version_offset instead of data_access_delay.
-        if self.weekdays is None:
-            raise ValueError("Weekdays are required")
+#        if self.weekdays is None:
+#            raise ValueError("Weekdays are required")
         if self.goback < 1:
             raise ValueError("goback must be >= 1")
 

@@ -31,6 +31,7 @@ class NCEPModel(ECMWFModelTaskBase):
             self.all_models["NCEP_REL_PF"].extend([
                 {
                     "target": f"{pf_toplevel}/ncep_rel_pf_sfc_sfc{ymd}{ymd}.grb",
+                    "min_size": 560060000,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -47,6 +48,7 @@ class NCEPModel(ECMWFModelTaskBase):
                     "expect": "any",
                 },
                 {
+                    "min_size": 1238790000,
                     "target": f"{pf_toplevel}/ncep_rel_pf_pl_zuvt{ymd}{ymd}.grb",
                     "class": "s2",
                     "dataset": "s2s",
@@ -65,6 +67,7 @@ class NCEPModel(ECMWFModelTaskBase):
                     "expect": "any",
                 },
                 {
+                    "min_size": 201068970,
                     "target": f"{pf_toplevel}/ncep_rel_pf_pl_q{ymd}{ymd}.grb",
                     "class": "s2",
                     "dataset": "s2s",
@@ -83,6 +86,7 @@ class NCEPModel(ECMWFModelTaskBase):
                     "expect": "any",
                 },
                 {
+                    "min_size": 38049000,
                     "target": f"{pf_toplevel}/ncep_rel_pf_pl_w{ymd}{ymd}.grb",
                     "class": "s2",
                     "dataset": "s2s",
@@ -102,6 +106,7 @@ class NCEPModel(ECMWFModelTaskBase):
                 },
                 {
                     "target": f"{pf_toplevel}/ncep_rel_pf_da_sfc{ymd}{ymd}.grb",
+                    "min_size": 295550000,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -119,6 +124,7 @@ class NCEPModel(ECMWFModelTaskBase):
                 },
                 {
                     "target": f"{pf_toplevel}/ncep_rel_pf_pt_pv{ymd}{ymd}.grb",
+                    "min_size": 29370000,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -139,6 +145,7 @@ class NCEPModel(ECMWFModelTaskBase):
             self.all_models["NCEP_REL_CF"].extend([
                 {
                     "target": f"{cf_toplevel}/ncep_rel_cf_sfc_multvars{ymd}{ymd}.grb",
+                    "min_size": 35420000,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -155,6 +162,7 @@ class NCEPModel(ECMWFModelTaskBase):
                 },
                 {
                     "target": f"{cf_toplevel}/ncep_rel_cf_sfc_sfc{ymd}{ymd}.grb",
+                    "min_size": 38699962,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -171,6 +179,7 @@ class NCEPModel(ECMWFModelTaskBase):
                 },
                 {
                     "target": f"{cf_toplevel}/ncep_rel_cf_pl_zuvt{ymd}{ymd}.grb",
+                    "min_size": 82300000,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -188,6 +197,7 @@ class NCEPModel(ECMWFModelTaskBase):
                 },
                 {
                     "target": f"{cf_toplevel}/ncep_rel_cf_pl_q{ymd}{ymd}.grb",
+                    "min_size": 13350000,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -205,6 +215,7 @@ class NCEPModel(ECMWFModelTaskBase):
                 },
                 {
                     "target": f"{cf_toplevel}/ncep_rel_cf_pl_w{ymd}{ymd}.grb",
+                    "min_size": 2510000,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -222,6 +233,7 @@ class NCEPModel(ECMWFModelTaskBase):
                 },
                 {
                     "target": f"{cf_toplevel}/ncep_rel_cf_da_sfc{ymd}{ymd}.grb",
+                    "min_size": 19598000,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
@@ -238,6 +250,7 @@ class NCEPModel(ECMWFModelTaskBase):
                 },
                 {
                     "target": f"{cf_toplevel}/ncep_rel_cf_pt_pv{ymd}{ymd}.grb",
+                    "min_size": 1950000,
                     "class": "s2",
                     "dataset": "s2s",
                     "date": y_m_d,
