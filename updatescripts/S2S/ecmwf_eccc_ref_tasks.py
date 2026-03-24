@@ -10,7 +10,7 @@ class ECCC_REF_Model(ECMWF_REFModelTaskBase):
     numbers will increment the date, negative will decrement the date.
     """
 
-    first_date = datetime.date(2001, 1, 1)
+    first_date = datetime.datetime(2001, 1, 1)
     hindcast_start_year = 2001
     hindcast_end_year = 2020
     model_version_offset = 0
