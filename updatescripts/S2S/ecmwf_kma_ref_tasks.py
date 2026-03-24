@@ -138,7 +138,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "expect": "any",
                     },
                     {
-                        "target": f"{toplevel}/KMA_ref_{T.lower()}_sfc_sfc6_{ymd}{hdate_ymd}.grb",
+                        "target": f"{toplevel}/kma_ref_cf_sfc_sfc6_{ymd}{hdate_ymd}.grb",
                         "actual_size": 109144080,
                         "class": "s2",
                         "dataset": "s2s",
@@ -157,7 +157,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "expect": "any",
                     },
                     {
-                        "target": f"{toplevel}/KMA_ref_{T.lower()}_da_sfc{ymd}{hdate_ymd}.grb",
+                        "target": f"{toplevel}/kma_ref_cf_da_sfc{ymd}{hdate_ymd}.grb",
                         "actual_size": 11146140 if d < datetime.datetime(2017, 2, 1) else \
                             14575140 if d < datetime.datetime(2017, 11, 1) else \
                                 19946520 if d < datetime.datetime(2020, 9, 1) else \
@@ -207,7 +207,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "expect": "any",
                     },
                     {
-                        "target": f"{toplevel}/kma_ref_cf_pl_q{ymd}{hdate_ymd}.grb",
+                        "target": f"{toplevel}/kma_ref_pf_pl_q{ymd}{hdate_ymd}.grb",
                         "actual_size": 76432146 if d < datetime.datetime(2022, 3, 25) else \
                             77661906 if d < datetime.datetime(2023, 8, 17) else \
                                 332836740 if d < datetime.datetime(2025, 9, 1) else \
@@ -230,7 +230,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "expect": "any",
                     },
                     {
-                        "target": f"{toplevel}/kma_ref_cf_pl_w{ymd}{hdate_ymd}.grb",
+                        "target": f"{toplevel}/kma_ref_pf_pl_w{ymd}{hdate_ymd}.grb",
                         "actual_size": 7435518 if d < datetime.datetime(2017, 1, 1) else \
                             10747518 if d < datetime.datetime(2017, 11, 1) else \
                                 107475180 if d < datetime.datetime(2022, 3, 25) else \
@@ -254,7 +254,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "expect": "any",
                     },
                     {
-                        "target": f"{toplevel}/kma_ref_cf_sfc_sfc{ymd}{hdate_ymd}.grb",
+                        "target": f"{toplevel}/kma_ref_pf_sfc_sfc{ymd}{hdate_ymd}.grb",
                         "actual_size": 66404160 if d < datetime.datetime(2017, 1, 1) else \
                             82503360 if d < datetime.datetime(2017, 10, 25) else \
                                 85930560 if d < datetime.datetime(2020, 9, 1) else \
@@ -278,7 +278,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "expect": "any",
                     },
                     {
-                        "target": f"{toplevel}/KMA_ref_cf_sfc_sfc6_{ymd}{hdate_ymd}.grb",
+                        "target": f"{toplevel}/kma_ref_pf_sfc_sfc6_{ymd}{hdate_ymd}.grb",
                         "actual_size": 654864480,
                         "class": "s2",
                         "dataset": "s2s",
@@ -297,7 +297,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "expect": "any",
                     },
                     {
-                        "target": f"{toplevel}/KMA_ref_cf_da_sfc{ymd}{hdate_ymd}.grb",
+                        "target": f"{toplevel}/kma_ref_pf_da_sfc{ymd}{hdate_ymd}.grb",
                         "actual_size": 22292280 if d < datetime.datetime(2017, 1, 1) else \
                             29150280 if d < datetime.datetime(2017, 11, 1) else \
                                 39893040 if d < datetime.datetime(2020, 9, 1) else \
