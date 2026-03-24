@@ -98,6 +98,16 @@ models = {
         },
     },
     'UKMO': {
+        'dir': 'UKMO/GloSea6-GC2/System604',
+        'slug': 'C3S_ukmo_system604',
+        'start_year': 1993,
+        'end_year': 2016,
+        'args': {
+            'originating_centre': 'ukmo',
+	        'system': '604',
+        },
+    },
+    'UKMOs605': {
         'dir': 'UKMO/GloSea6-GC2/System605',
         'slug': 'C3S_ukmo_system605',
         'start_year': 1993,
@@ -182,8 +192,9 @@ if __name__ == '__main__':
                         variable=long_var,
                         year=yr,
                         month=mon,
-                        #data_format="netcdf",
+                        data_format="grib"
                     )
+                    args.pop('format', None)
                     if has_p(short_var):
                         args['pressure_level'] = pressure_levels
                         # cdsapi writes directly to the destination file, so
