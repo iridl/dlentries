@@ -278,7 +278,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "expect": "any",
                     },
                     {
-                        "target": f"{toplevel}/KMA_ref_{T.lower()}_sfc_sfc6_{ymd}{hdate_ymd}.grb",
+                        "target": f"{toplevel}/KMA_ref_cf_sfc_sfc6_{ymd}{hdate_ymd}.grb",
                         "actual_size": 654864480,
                         "class": "s2",
                         "dataset": "s2s",
@@ -297,7 +297,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "expect": "any",
                     },
                     {
-                        "target": f"{toplevel}/KMA_ref_{T.lower()}_da_sfc{ymd}{hdate_ymd}.grb",
+                        "target": f"{toplevel}/KMA_ref_cf_da_sfc{ymd}{hdate_ymd}.grb",
                         "actual_size": 22292280 if d < datetime.datetime(2017, 1, 1) else \
                             29150280 if d < datetime.datetime(2017, 11, 1) else \
                                 39893040 if d < datetime.datetime(2020, 9, 1) else \
