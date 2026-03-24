@@ -10,7 +10,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
     first_date = datetime.datetime(2016, 11, 1)
 
     model_version_offset = 18  # days
-    weekdays = None
+    weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
     def __init__(self, start=None, end=None, weekdays=None, goback=None, model_version_offset=None):
         if weekdays is None:

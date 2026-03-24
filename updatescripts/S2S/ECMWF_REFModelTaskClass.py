@@ -24,7 +24,6 @@ class ECMWF_REFModelTaskBase(ECMWFModelTaskBase):
     This class is meant to be subclassed.
     """
     goback = 60
-
     def __init__(self, start=None, end=None, weekdays=None, goback=None, model_version_offset=0):
         if goback is None:
             goback = ECMWF_REFModelTaskBase.goback
@@ -38,8 +37,6 @@ class ECMWF_REFModelTaskBase(ECMWFModelTaskBase):
         date_list = []
 
         # Override get_date_list as we use model_version_offset instead of data_access_delay.
-#        if self.weekdays is None:
-#            raise ValueError("Weekdays are required")
         if self.goback < 1:
             raise ValueError("goback must be >= 1")
 
