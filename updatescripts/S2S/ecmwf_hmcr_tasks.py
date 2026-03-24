@@ -398,7 +398,9 @@ class HMCRModel(ECMWFModelTaskBase):
                     "expect": "any",
                 },
                 {
-                    "min_size": 25285708 if d < datetime.datetime(2022, 9, 15) else 19168198,
+                    "min_size": 9203404 if d < datetime.datetime(2018, 11, 1) else \
+                        9078412 if d < datetime.datetime(2022, 9, 15) else \
+                            6882022,
                     "target": f"{cf_toplevel}/hmcr_rel_cf_pl_q{ymd}{ymd}.grb",
                     "class": "s2",
                     "dataset": "s2s",
@@ -419,7 +421,11 @@ class HMCRModel(ECMWFModelTaskBase):
                     "expect": "any",
                 },
                 {
-                    "min_size": 71452180 if d < datetime.datetime(2022, 9, 15) else 53968540,
+                    "min_size": 23413004 if d < datetime.datetime(2015, 9, 16) else \
+                        23391980 if d < datetime.datetime(2016, 12, 14) else \
+                            26021524 if d < datetime.datetime(2018, 11, 11) else \
+                                25668436 if d < datetime.datetime(2022, 9, 15) else \
+                                    19387996,
                     "target": f"{cf_toplevel}/hmcr_rel_cf_sfc_sfc{ymd}{ymd}.grb",
                     "class": "s2",
                     "dataset": "s2s",
@@ -439,7 +445,7 @@ class HMCRModel(ECMWFModelTaskBase):
                     "expect": "any",
                 },
                 {
-                    "min_size": 22070000,
+                    "min_size": 7947000,
                     "target": f"{cf_toplevel}/hmcr_rel_cf_da_sfc{ymd}{ymd}.grb",
                     "class": "s2",
                     "dataset": "s2s",
@@ -462,7 +468,9 @@ class HMCRModel(ECMWFModelTaskBase):
 
             self.all_models['HMCR_REL_PF'].extend([
                 {
-                    "min_size": 2470774896 if d < datetime.datetime(2022, 9, 15) else 4381302400,
+                    "min_size": 2470774896 if d < datetime.datetime(2018, 11, 1) else \
+                        887090544 if d < datetime.datetime(2022, 9, 15) else \
+                            707865120,
                     "target": f"{pf_toplevel}/hmcr_rel_pf_pl_zuvt{ymd}{ymd}.grb",
                     "class": "s2",
                     "dataset": "s2s",
@@ -483,7 +491,9 @@ class HMCRModel(ECMWFModelTaskBase):
                     "expect": "any",
                 },
                 {
-                    "min_size": 480428452 if d < datetime.datetime(2022, 9, 15) else 766727920,
+                    "min_size": 174864676 if d < datetime.datetime(2018, 11, 1) else \
+                        172489828 if d < datetime.datetime(2022, 9, 15) else \
+                            137640440,
                     "target": f"{pf_toplevel}/hmcr_rel_pf_pl_q{ymd}{ymd}.grb",
                     "class": "s2",
                     "dataset": "s2s",
@@ -504,8 +514,10 @@ class HMCRModel(ECMWFModelTaskBase):
                     "expect": "any",
                 },
                 {
-                    "min_size": 1221429668 if d < datetime.datetime(2015, 9, 16) else \
-                        1221429668 if d < datetime.datetime(2022, 9, 15) else 1939676480,
+                    "min_size": 444847076 if d < datetime.datetime(2015, 9, 16) else \
+                        444447620 if d < datetime.datetime(2018, 11, 1) else \
+                            438417476 if d < datetime.datetime(2022, 9, 15) else \
+                                348434080,
                     "target": f"{pf_toplevel}/hmcr_rel_pf_sfc_sfc{ymd}{ymd}.grb",
                     "class": "s2",
                     "dataset": "s2s",
@@ -525,7 +537,7 @@ class HMCRModel(ECMWFModelTaskBase):
                     "expect": "any",
                 },
                 {
-                    "min_size": 555040000,
+                    "min_size": 158950000,
                     "target": f"{pf_toplevel}/hmcr_rel_pf_da_sfc{ymd}{ymd}.grb",
                     "class": "s2",
                     "dataset": "s2s",
