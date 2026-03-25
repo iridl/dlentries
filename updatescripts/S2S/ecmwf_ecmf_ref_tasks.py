@@ -9,6 +9,7 @@ class ECMF_REF_Model(ECMWF_REFModelTaskBase):
     # hindcast_end_year = 2025
     model_version_offset = 18 # days
     weekdays = ["odd"]
+    first_date = datetime.datetime(2015, 1, 1)
 
     def __init__(self, start=None, end=None, weekdays=None, goback=None, model_version_offset=None):
         if weekdays is None:
@@ -482,14 +483,15 @@ if __name__ == '__main__':
     import argparse
     start = end = None
 
-    parser = argparse.ArgumentParser(description="Download models from ECMWF.")
+    parser = argparse.ArgumentParser(description="Check reforecast model data from ECMWF.")
     parser.add_argument('--start', type=str,
                         help="Start Day in the form YYYY-MM-DD.  Will use model default if non is specified.")
     parser.add_argument('--end', type=str,
                         help="End Day in the form YYYY-MM-DD.  Will only run 1 day if not defined")
     args = parser.parse_args()
     if args.start is None:
-        start = datetime.datetime(2015, 1, 1)
+        start = ECMF_REF_Model.first_date
+        end = datetime.datetime.now()
     else:
         start = datetime.datetime.strptime(args.start, "%Y-%m-%d")
 
@@ -499,7 +501,7 @@ if __name__ == '__main__':
         else:
             end = datetime.datetime.strptime(args.start, "%Y-%m-%d")
 
-    model = ECMF_REF_Model(start, end)
+    model = ECMF_REF_Model(args.start, args.end)
     tasks = model.get_tasks(prune=True, dryrun=True)
     for t in tasks:
         print(t['target'])

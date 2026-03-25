@@ -33,6 +33,32 @@ class ECMWF_REFModelTaskBase(ECMWFModelTaskBase):
 
         self.dates = self.get_date_list()
 
+    def check_date(self, d):
+        d_string = d.strftime("%a")
+
+        # make sure we're not trying to get data beyond its availability.
+        if self.model_version_offset is not None:
+            if d >= self.today + datetime.timedelta(days=self.model_version_offset):
+                return False
+
+        if self.weekdays is None:
+            return True
+
+        # if day is in the weekdays list return True, else return False
+        if "odd" in self.weekdays and d.day % 2 == 1:
+            return True
+        elif "even" in self.weekdays and d.day % 2 == 0:
+            return True
+        elif self.weekdays[0].isnumeric():
+            if f"{d.day}" in self.weekdays:
+                return True
+            else:
+                return False
+        elif d_string in self.weekdays:
+            return True
+        else:
+            return False
+
     def get_date_list(self):
         date_list = []
 
@@ -43,16 +69,18 @@ class ECMWF_REFModelTaskBase(ECMWFModelTaskBase):
         if self.first_date is None:
             # in this case, we are going to download the previous goback days, up to the offset date,
             # only for the defined weekdays
-            for i in range(0-self.goback, self.model_version_offset+1, 1):
-                d = self.today + datetime.timedelta(days=i)
-                if self.check_date(d):
-                    date_list.append(d)
+            day = self.today - datetime.timedelta(days=self.goback)
+            end = self.today + datetime.timedelta(days=self.model_version_offset+1)
+            while day <= end:
+                if self.check_date(day):
+                    date_list.append(day)
+                day = day + datetime.timedelta(days=1)
         elif self.end is not None:
-            d = self.first_date
-            while d <= self.end:
-                if self.check_date(d):
-                    date_list.append(d)
-                d = d + datetime.timedelta(days=1)
+            day = self.first_date
+            while day <= self.end:
+                if self.check_date(day):
+                    date_list.append(day)
+                day = day + datetime.timedelta(days=1)
         else:
             if self.check_date(self.first_date):
                 date_list.append(self.first_date)
