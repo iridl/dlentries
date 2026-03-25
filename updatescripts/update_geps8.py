@@ -50,14 +50,13 @@ for adate in MON_THU_OF_INTEREST:
             ) for y in years
         ]
         for file_name in file_names :
-            is_downloaded, message = uu.download_file(
-                dest_dir,
-                file_name,
+            download_status = uu.download_file(
+                dest_dir, file_name,
                 f'{URL_PATH}/{date_str}/{file_name}',
                 expected_file_size=274636800,
             )
-            print(message)
-            if is_downloaded:
+            print(download_status["message"])
+            if download_status["flag"] == 1 :
                 tarfile_name = dest_dir / file_name
                 unpacked_dir, message = uu.unpack(tarfile_name, keep_packed_file=True)
                 print(message)

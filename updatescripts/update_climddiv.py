@@ -26,11 +26,11 @@ with urlr.urlopen(DATA_URL) as r:
         url_text,
     )
 for file_name in file_names :
-    is_downloaded, message = uu.download_file(
+    download_status = uu.download_file(
         DEST_DIR, file_name, f"{DATA_URL}{file_name}"
     )
-    print(message)
-    if is_downloaded :
+    print(download_status["message"])
+    if download_status["flag"] == 1 :
         #file_name is e.g. climdiv-pcpndv-v1.0.0-20250206
         #dl_file will link to it, be read by DL and be stripped of -date, e.g.
         #climdiv-pcpndv-v1.0.0

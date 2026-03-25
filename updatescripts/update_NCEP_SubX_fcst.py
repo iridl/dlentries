@@ -47,12 +47,14 @@ for adate in ALL_DATES :
                     message = f'Already got transposed {filet}'
                 else:
                     file = f'{file_stem}.nc'
-                    is_downloaded, message = uu.download_file(
+                    download_status = uu.download_file(
                         #We added a variable and year dir in our file structure
                         dest_path, file, f'{URL_PATH}/{var}/realtime/{file}',
                     )
+                    message = download_status["message"]
+                    is_downloaded = (download_status["flag"] == 1)
                 print(message)
-                if is_downloaded :
+                if is_downloaded:
                     #Unlimited dimension time need be first for Ingrid to read
                     try:
                         with tempfile.NamedTemporaryFile(dir=dest_path) as f:

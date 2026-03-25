@@ -15,11 +15,11 @@ for dekad in range(1, 4):
     #Files are issued monthly by batch of 3 dekads of the previous month
     file_name = f'{FILE_NAME}{uu.previous_month(iter=1).strftime("%Y.%m")}.{dekad}.tif.gz'
     print(file_name)
-    is_downloaded, message = uu.download_file(
+    download_status = uu.download_file(
         DEST_DIR, file_name, f'{URL_PATH}/{file_name}',
     )
-    print(message)
-    if is_downloaded:
+    print(download_status["message"])
+    if download_status["flag"] == 1 :
         gzfile_name = DEST_DIR / file_name
         unpacked, message = uu.unpack(gzfile_name, keep_packed_file=False)
         print(message)

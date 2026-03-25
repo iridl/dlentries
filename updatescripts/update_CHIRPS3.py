@@ -14,5 +14,5 @@ for date in pd.date_range(uu.previous_month(iter=6), uu.previous_month(), freq="
         tres_path = "monthly" if tres == 0 else "dekads"
         dest_path = DEST_PATH / tres_path / "global" / "tifs"
         url_path = f"{URL_PATH}{tres_path}/global/tifs/"
-        is_downloaded, message = uu.download_file(dest_path, file, f'{url_path}{file}')
-        print(message)
+        download_status = uu.download_file(dest_path, file, f'{url_path}{file}')
+        print(download_status["message"])

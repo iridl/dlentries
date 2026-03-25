@@ -297,9 +297,9 @@ def download_file(
             `is_downloaded` returns True if download successful, otherwise false
             `message` confirms doanload or returns helpful error message
     """
-    is_downloaded = False
     destination_file = destination_dir / file_name
     if destination_file.is_file() or destination_file.is_dir():
+        download_flag = 0
         message = f'Already got {destination_file} as file or directory'
     else:
         try:
@@ -320,15 +320,18 @@ def download_file(
                         )
                         print(message)
                     else:
+                        download_flag = -9
                         message = f'Temporary file in {destination_dir} is not expected size'
                 if not destination_file.is_file():
+                    download_flag = -9
                     message = f'Renaming temporary file to {destination_file} failed'
                 else:
-                    is_downloaded = True
+                    download_flag = 1
                     message = f'{destination_file} downloaded successfully from {file_url}'
         except Exception as e:
+            download_flag = -9
             message = f'Something went wrong with exception {e} on {file_url}'
-    return is_downloaded, message
+    return {"flag" : download_flag, "message": message}
 
 
 def add_to_dataset(path, new_path=None):

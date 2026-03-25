@@ -30,8 +30,8 @@ for var in VARIABLES:
         f'_cansips_forecast_raw_nmme_latlon-1x1_{var}_'
         f'{datetime.datetime.today().strftime("%Y-%m")}_allmembers.grib2'
     )
-    is_downloaded, message = uu.download_file(
+    download_status = uu.download_file(
         DEST_PATH, var_file, f'{URL_PATH}/{var_file}'
     )
-    print(message)
+    print(download_status["message"])
         

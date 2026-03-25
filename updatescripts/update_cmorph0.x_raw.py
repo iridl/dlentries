@@ -25,12 +25,12 @@ for date in pd.date_range(TODAY - datetime.timedelta(days=10), TODAY):
         is_downloaded = False
         print(f'Already have {file_stem}.gz')
     else:
-        is_downloaded, message = uu.download_file(
+        download_status = uu.download_file(
             #Providers provides bz2 files
             dest_path, f'{file_stem}.bz2', f'{url_path}/{file_stem}.bz2'
         )
-        print(message)
-        if is_downloaded:
+        print(download_status["message"])
+        if download_status["flag"] == 1 :
             unpacked_file, message = uu.unpack(
                 (dest_path / f'{file_stem}.bz2'), keep_packed_file=False
             )

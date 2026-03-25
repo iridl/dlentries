@@ -40,7 +40,7 @@ for date in pd.date_range(
                     file_name = (
                         f'{vars}.01.{issue_date}{hr}.{target}.avrg.grib{hr2}.grb2'
                     )
-                    is_downloaded, message = uu.download_file(
+                    download_status = uu.download_file(
                         dest_path, file_name, f'{url_path}/{file_name}'
                     )
-                    print(message)
+                    print(download_status["message"])

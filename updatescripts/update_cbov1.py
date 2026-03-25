@@ -84,10 +84,10 @@ for p in PRODUCTS:
                 print(file)
                 destination_dir = file.parent
                 destination_dir.mkdir(parents=True, exist_ok=True)
-                is_downloaded, message = uu.download_file(
+                download_status = uu.download_file(
                     destination_dir, file.name,
                     f'{url_product}/{file.parent.parent.stem}/{file.name}',
                     expected_file_size=PRODUCTS_SIZES[p],
                 )
-                print(message)
+                print(download_status["message"])
                 

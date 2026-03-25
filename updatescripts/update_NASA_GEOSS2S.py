@@ -48,10 +48,10 @@ def file_name_and_path(adate, member, var):
 for mem in range(10):
     for var in VARS:
         path, file_name = file_name_and_path(TODAY, mem, var)
-        is_downloaded, message = uu.download_file(
+        download_status = uu.download_file(
             DEST_PATH / path, file_name, f"{URL_PATH}/{file_name}",
         )
-        print(message)
+        print(download_status["message"])
 with open(DEST_PATH / "endmonth.txt", mode="r+") as f:
     lines = f.readlines()
     current_last_month = lines[1][0:3]

@@ -22,10 +22,10 @@ for date in pd.date_range(
             is_downloaded = False
             print(f'Already have {file_target.stem}')
         else:
-            is_downloaded, message = uu.download_file(
+            download_status = uu.download_file(
                 (DEST_PATH / sub_path), file, f'{URL_PATH}{sub_path}/{file}',
             )
-            print(message)
+            print(download_status["message"])
             if file_target.is_file():
                 unpacked_dir, message = uu.unpack(
                     (DEST_PATH / sub_path / file), keep_packed_file=False,

@@ -5,7 +5,10 @@ import urllib.request as urlr
 import update_utilities as uu
 import re
 
-URL_PATH = f'https://www.ncei.noaa.gov/data/global-precipitation-climatology-project-gpcp-monthly/access/'
+URL_PATH = (
+    f'https://www.ncei.noaa.gov/data/'
+    f'global-precipitation-climatology-project-gpcp-monthly/access/'
+)
 DEST_PATH = Path(f'/Data/data7/nasa/gpcp/v2p3/cdr_ncei')
 
 # Final version is 3 months behind whereas preliminary is last month
@@ -21,7 +24,7 @@ for p in PRODUCTS:
             file_names = re.findall(r""+p+"\d{6}_c\d{8}\.nc", last_url_text)[::2]
             for file_name in file_names:
                 print(file_name)
-                is_downloaded, message = uu.download_file(
+                download_status = uu.download_file(
                     DEST_PATH, file_name, f'{latest_url}/{file_name}',
                 )
-                print(message)
+                print(download_status["message"])
