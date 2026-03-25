@@ -355,7 +355,7 @@ class JMAModel(ECMWFModelTaskBase):
                     "target": f"{pf_toplevel}/jma_rel_pf_da_sfc{ymd}{ymd}.grb",
                     "actual_size": 338833440 if d < datetime.datetime(2017,3,22) \
                         else 670031488 if d < datetime.datetime(2022, 3, 16) \
-                        else 669441920 if datetime.datetime(2023, 3, 8) \
+                        else 669441920 if d < datetime.datetime(2023, 3, 8) \
                         else 54435088 if d < datetime.datetime(2026, 1, 25) \
                         else 54434544,
                     "class": "s2",
