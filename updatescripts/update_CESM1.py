@@ -17,9 +17,9 @@ for p in PRODUCTS:
     for ensm in range(1, 11):
         file_name = f'{TODAYS_YEAR}{TODAYS_MONTH}01.1x1.{p}_ens{ensm:02}.nc'
         print(file_name)
-        is_downloaded, message = uu.download_file(
+        download_status = uu.download_file(
             DEST_PATH,
             file_name,
             f'{URL_PATH}/{TODAYS_MONTH}/{file_name}'
         )
-        print(message)
+        print(download_status["message"])

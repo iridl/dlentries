@@ -102,10 +102,10 @@ for year in YEARS :
         url_file = f"{URL_FILESERVER}{VARIABLES_PATH[var]}/{file_name}"
         if not file_path.is_file():
             # Case we don't have the new year file yet
-            is_downloaded, message = uu.download_file(
+            download_status = uu.download_file(
                 file_path.parent, file_path.name, url_file
             )
-            print(message)
+            print(download_status["message"])
         else:
             last_modified = datetime.datetime.fromtimestamp(
                 file_path.stat().st_mtime, tz=datetime.timezone.utc
@@ -129,10 +129,10 @@ for year in YEARS :
                 print(f'{file_name} is up to date')
             else:
                 with tempfile.TemporaryDirectory(dir=dest_path) as tmp:
-                    is_downloaded, message = uu.download_file(
+                    download_status = uu.download_file(
                         Path(tmp), file_name, url_file
                     )
-                    print(message)
-                    if is_downloaded:
+                    print(download_status["message"])
+                    if download_status["flag"] == 1 :
                         # rename tmp to older file
                         (Path(tmp) / file_name).rename(file_path)

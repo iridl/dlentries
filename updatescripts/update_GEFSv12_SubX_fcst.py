@@ -22,10 +22,10 @@ for adate in ALL_DATES :
                 f'{var}_GEFS_{adate.strftime("%d%b%Y").lower()}'
                 f'_00z_d01_d35_m{member:02}.nc'
             )
-            is_downloaded, message = uu.download_file(
+            download_status = uu.download_file(
                 #We added a daily directory in our file structure
                 DEST_DIR / adate.strftime("%Y%m%d"), file, f'{URL_PATH}/{file}',
             )
-            print(message)
-            if is_downloaded:
+            print(download_status["message"])
+            if download_status["flag"] == 1 :
                 (DEST_DIR / adate.strftime("%Y%m%d") / file).chmod(0o664)

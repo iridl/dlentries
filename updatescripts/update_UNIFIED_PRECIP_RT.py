@@ -13,10 +13,9 @@ for date in [(TODAY - datetime.timedelta(days=d)) for d in range(1,8)]:
     dest_dir_yr = DEST_DIR / f'{date.year}'
     dest_dir_yr.mkdir(mode=uu.DIR_MODE, parents=True, exist_ok=True)
     file_name = f'PRCP_CU_GAUGE_V1.0GLB_0.50deg.lnx.{date.strftime("%Y%m%d")}.RT'
-    is_downloaded, message = uu.download_file(
-        dest_dir_yr,
-        file_name,
+    download_status = uu.download_file(
+        dest_dir_yr, file_name,
         f'{URL}/{date.year}/{file_name}',
         expected_file_size=2073600,
     )
-    print(message)
+    print(download_status["message"])

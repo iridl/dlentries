@@ -70,11 +70,9 @@ for dkd in range(6) :
         if Path(dest_dir).is_dir():
             print(f'Already got {file_stem}')
         else:
-            is_downloaded, message = uu.download_file(
-                dest_path, f'{file_stem}.zip', url,
-            )
-            print(message)
-            if is_downloaded:
+            download_status = uu.download_file(dest_path, f'{file_stem}.zip', url)
+            print(download_status["message"])
+            if download_status["flag"] == 1 :
                 unpacked, message = uu.unpack(
                     dest_dir.with_suffix('.zip'), keep_packed_file=False,
                 )

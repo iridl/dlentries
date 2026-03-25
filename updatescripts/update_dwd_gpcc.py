@@ -98,12 +98,10 @@ if __name__ == '__main__':
                 print(f'{file_target} already downloaded')
             else:
                 print(f'downloading {file_target}...')
-                is_downloaded, message = uu.download_file(
-                                            dirname, postfix, fileget,
-                                            )
-                print(message)
+                download_status = uu.download_file(dirname, postfix, fileget)
+                print(download_status["message"])
                 #Always process one file
-                unpacked_dir, message = uu.unpack(file_target,keep_packed_file=False)
+                unpacked_dir, message = uu.unpack(file_target, keep_packed_file=False)
                 print(message)
 
         start += relativedelta(months=1)

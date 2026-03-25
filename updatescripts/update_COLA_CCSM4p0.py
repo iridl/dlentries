@@ -16,9 +16,9 @@ VARIABLES = [
 for var in VARIABLES :
     for m in range(1, 11) :
         file = f'{uu.previous_month().strftime("%Y%m%d")}.1x1.{var}_ens{m:02}.nc'
-        message = uu.download_file(
+        download_status = uu.download_file(
             (DEST_PATH / f'{datetime.datetime.today().strftime("%b")}.D'),
             file,
             f'{URL_PATH}/{datetime.datetime.today().strftime("%m")}/{file}',
         )
-        print(message)
+        print(download_status["message"])

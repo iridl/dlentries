@@ -12,9 +12,8 @@ TODAY = datetime.date.today()
 
 for date in pd.date_range(TODAY - datetime.timedelta(days=30), TODAY):
     file_name = f'CPC_GOB_V0.x_DLY_0.25deg.lnx.{date.strftime("%Y%m%d")}.RT.gz'
-    is_downloaded, message = uu.download_file(
-        (DEST_DIR / f'{date.year}'),
-        file_name,
+    download_status = uu.download_file(
+        (DEST_DIR / f'{date.year}'), file_name,
         f'{URL_PATH}/{date.year}/{file_name}',
     )
-    print(message)
+    print(download_status["message"])
