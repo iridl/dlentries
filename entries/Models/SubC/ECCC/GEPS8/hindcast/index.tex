@@ -41,6 +41,18 @@ values: 850 500 200 100 :values
 :grid
 
 grid:
+/name (T) def
+/units (monthtime) def
+/defaultvalue { first } def
+1 Jul 2024 ensotime
+12
+1 Jul systemtime (%Y)  10 strftime interp 1 sub  ensotime
+/pointwidth 12. def
+:grid
+
+
+
+grid:
 /name /S def
 /long_name (Start Time) def
 /standard_name (forecast_reference_time) def
@@ -53,7 +65,7 @@ grid:
 :grid
 
  /pr{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/pr_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/pr_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (pr) def
  /long_name (Total Precipitation) def
  /missing_value 9.99900026E20 def
@@ -63,10 +75,11 @@ grid:
  /level (surface) def
  /short_name (TPRATE_surface) def
  /realarraytype netcdfrecords :readdatafile
+ [T] average
 }defasvarsilent
 
  /rlut{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/rlut_toa_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile: 
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/rlut_toa_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile: 
 /name (rlut) def
  /short_name (NLWRF_topofatmosphere) def
  /long_name (Outgoing Longwave Radiation at Top of Atmosphere) def 
@@ -79,7 +92,7 @@ grid:
 }defasvarsilent
 
  /tas{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/tas_2m_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/tas_2m_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (tas) def
  /long_name (2-meter Air Temperature) def
  /units /Kelvin_scale def
@@ -93,7 +106,7 @@ grid:
 }defasvarsilent
 
 /ts{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/ts_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/ts_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (ts) def
  /long_name (Surface Temperature) def
  /level_type (surface) def
@@ -106,7 +119,7 @@ grid:
 }defasvarsilent
 
  /ua{
-[ X Y L | S P 850 100 subgrid M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d[S]/ua_%d[P]_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S P 850 100 subgrid M] readdatafile: 
+[ X Y L | T S P 850 100 subgrid M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/ua_%d[P]_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S P 850 100 subgrid M] readdatafile: 
 /name (ua) def
  /long_name (Zonal Velocity) def 
  /level_type (pressure level) def
@@ -118,7 +131,7 @@ grid:
 }defasvarsilent
 
  /va{
-[ X Y L | S P 850 100 subgrid M] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d[S]/va_%d[P]_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S P 850 100 subgrid M] readdatafile: 
+[ X Y L | T S P 850 100 subgrid M] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/va_%d[P]_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S P 850 100 subgrid M] readdatafile: 
 /name (va) def
  /long_name (Meridional Velocity) def 
  /level_type (pressure level) def
@@ -130,7 +143,7 @@ grid:
 }defasvarsilent
 
  /zg{
-[ X Y L | S P 500 200 subgrid M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d[S]/zg_%d[P]_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [ S P 500 200 subgrid M ] readdatafile: 
+[ X Y L | T S P 500 200 subgrid M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/zg_%d[P]_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [ T S P 500 200 subgrid M ] readdatafile: 
 /name (zg) def
  /level_type (pressure level) def
  /standard_name (geopotential_height) def
@@ -141,7 +154,7 @@ grid:
 }defasvarsilent
 
  /hfls{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/hfls_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/hfls_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (hfls) def
  /short_name (LHTFL_surface) def
  /long_name (Surface Latent Heat Flux) def
@@ -154,7 +167,7 @@ grid:
 }defasvarsilent
 
  /hfss{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/hfss_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/hfss_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (hfss) def
  /short_name (SHTFL_surface) def
  /long_name (Surface Sensible Heat Flux) def
@@ -167,7 +180,7 @@ grid:
 }defasvarsilent
 
  /huss{
-[ X Y L | S P 850 subgrid M] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d[S]/huss_%d[P]_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S P 850 subgrid M] readdatafile:
+[ X Y L | T S P 850 subgrid M] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/huss_%d[P]_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S P 850 subgrid M] readdatafile:
 /name (huss) def
  /long_name (Specific Humidity) def
  /missing_value 9.99900026E20 def
@@ -180,7 +193,7 @@ grid:
 }defasvarsilent
 
  /mrro{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/mrro_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/mrro_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (mrro) def
  /short_name (SFCWRO_surface) def
  /long_name (Surface Water Runoff) def
@@ -193,7 +206,7 @@ grid:
 }defasvarsilent
 
  /psl{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/psl_msl_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/psl_msl_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (psl) def
  /long_name (Mean Sea Level Pressure) def
  /standard_name (air_pressure_at_sea_level) def
@@ -206,7 +219,7 @@ grid:
 }defasvarsilent
 
  /rad{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/rad_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/rad_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (rad) def
  /long_name (Net Surface Radiation) def
  /level (surface) def
@@ -218,7 +231,7 @@ grid:
 }defasvarsilent
 
  /sic{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/sic_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/sic_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (sic) def
  /long_name (Sea Ice Concentration) def
  /standard_name (sea_ice_area_fraction) def
@@ -231,7 +244,7 @@ grid:
 }defasvarsilent
 
  /snwd{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/snwd_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/snwd_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (snwd) def
  /long_name (Snow Density) def
  /standard_name (snow_density) def
@@ -244,7 +257,7 @@ grid:
 }defasvarsilent
 
  /swe{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/swe_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/swe_sfc_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (swe) def
  /long_name (Snow Depth Water Equivalent) def
  /standard_name (surface_snow_melt_amount) def
@@ -257,7 +270,7 @@ grid:
 }defasvarsilent
 
  /tasmax{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/tasmax_2m_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/tasmax_2m_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (tasmax) def
  /short_name (Tmax_2m) def
  /long_name (2-meter Maximum Air Temperature) def
@@ -270,7 +283,7 @@ grid:
 }defasvarsilent
 
  /tasmin{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/tasmin_2m_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/tasmin_2m_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (tasmin) def
  /short_name (Tmin_2m) def
  /long_name (2-meter Minimum Air Temperature) def
@@ -283,7 +296,7 @@ grid:
 }defasvarsilent
 
  /tdps{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/tdps_2m_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/tdps_2m_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (tdps) def
  /long_name (2-meter Dew Point Temperature) def
  /standard_name (dew_point_temperature) def
@@ -296,7 +309,7 @@ grid:
 }defasvarsilent
 
  /uas{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/uas_10m_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/uas_10m_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (uas) def
  /long_name (10-meter Eastward Wind) def
  /standard_name (eastward_wind) def
@@ -309,7 +322,7 @@ grid:
 }defasvarsilent
 
  /vas{
-[ X Y L | S M ] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d/vas_10m_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S M] readdatafile:
+[ X Y L | T S M ] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/vas_10m_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S M] readdatafile:
 /name (vas) def
  /long_name (10-meter Northward Wind) def
  /standard_name (northward_wind) def
@@ -322,7 +335,7 @@ grid:
 }defasvarsilent
 
  /wap {
-[ X Y L | S P 500 subgrid M] (/Data/SubX/ECCC/GEPS8/hindcast/*%m%d[S]/wap_%d[P]_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [S P 500 subgrid M] readdatafile:
+[ X Y L | T S P 500 subgrid M] (/Data/SubX/ECCC/GEPS8/hindcast/%Y[T]%m%d[S]/wap_%d[P]_ECCC_%d%b:lc%Y[S]_00z_d01_d39_m%2.2d[M].nc) [T S P 500 subgrid M] readdatafile:
 /name (wap) def
  /long_name (Pressure Vertical Velocity) def
  /missing_value 9.999000E20 def
