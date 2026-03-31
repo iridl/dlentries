@@ -501,7 +501,7 @@ if __name__ == '__main__':
         else:
             end = datetime.datetime.strptime(args.start, "%Y-%m-%d")
 
-    model = ECMF_REF_Model(args.start, args.end)
+    model = ECMF_REF_Model(start, end)
     tasks = model.get_tasks(prune=True, dryrun=True)
     for t in tasks:
         print(t['target'])
