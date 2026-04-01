@@ -165,6 +165,18 @@ if __name__ == '__main__':
     except Exception as e:
         logging.warning(f"Pool Error: {e}")
     else:
-        logging.info(f"completed all tasks: {results}")
+        logging.info(f"completed all {len(results)} tasks:")
+        rows = []
+        for r in results:
+            delta = r['end_time'] - r['start_time']
+            rows.append([delta.total_seconds(), r['size'], r['target']])
+        col_widths = [max(len(str(row[i])) for row in [headers] + rows) for i in range(len(headers))]
+        def print_row(row):
+            print("  ".join(str(val).ljust(col_widths[i]) for i, val in enumerate(row)))
+        headers = ["Time", "Size", "Target"]
+        print_row(headers)
+        print("  ".join("-" * w for w in col_widths))
+        for row in rows:
+            print_row(row)
 
     exit(0)
