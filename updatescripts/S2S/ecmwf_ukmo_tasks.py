@@ -5,6 +5,7 @@ import datetime
 class UKMOModel(ECMWFModelTaskBase):
     """
     Tasks for the UKMO Models downloaded from ECMWF
+    https://apps.ecmwf.int/datasets/data/s2s-realtime-instantaneous-accum-egrr/levtype=sfc/type=cf/
     """
     # Data Access Delay, how many days back is the first forecast we can get.
     data_access_delay = 21
