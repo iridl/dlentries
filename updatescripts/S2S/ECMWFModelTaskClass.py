@@ -47,6 +47,7 @@ class ECMWFModelTaskBase:
 
         # Actual dates we'll be downloading data for
         self.dates = self.get_date_list()
+        logging.debug(f'Dates are: {self.dates}')
 
         # all_models is to be defined in the subclass
         self.all_models = {}
@@ -57,6 +58,7 @@ class ECMWFModelTaskBase:
         # make sure we're not trying to get data beyond its availability.
         if self.data_access_delay is not None:
             if d >= self.today - datetime.timedelta(days=self.data_access_delay):
+                logging.debug(f'{d} > today-delay')
                 return False
 
         if self.weekdays is None:
@@ -71,10 +73,12 @@ class ECMWFModelTaskBase:
             if f"{d.day}" in self.weekdays:
                 return True
             else:
+                logging.debug(f'{d} is not on the right weekday: {self.weekdays}')
                 return False
         elif d_string in self.weekdays:
             return True
         else:
+            logging.debug(f'{d} is not on the right weekday: {self.weekdays}')
             return False
 
     def get_date_list(self):
@@ -88,8 +92,8 @@ class ECMWFModelTaskBase:
 
         if self.first_date is None:
             # in this case, start is today-goback to start-access_delay
-            start, day = self.today - datetime.timedelta(days=self.goback)
-            end = start - datetime.timedelta(days=self.data_access_delay)
+            day = self.today - datetime.timedelta(days=self.goback+self.data_access_delay)
+            end = self.today - datetime.timedelta(days=self.data_access_delay)
 
             while day <= end:
                 if self.check_date(day):
