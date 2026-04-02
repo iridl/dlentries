@@ -23,7 +23,6 @@ from check_file_size import process_file_by_size
 # Globals
 filecount = []
 debug = False
-dryrun = False
 myplatform = platform.system()
 tmpdir = tempfile.gettempdir()
 
@@ -37,55 +36,47 @@ def my_logger(msg):
 
 def initializer():
     global ECMWF_server
-    if not dryrun:
-        ECMWF_server = ECMWFDataServer(log=my_logger)
+    ECMWF_server = ECMWFDataServer(log=my_logger)
 
 def receive_file_task(task):
     """
     Single task to download a model file from ECMWF.
     """
-    result = {"start_time": datetime.datetime.now()}
+    result = {'start_time': datetime.datetime.now(), 'size': 0, 'target': task.pop("target", None), 'end_time': None,
+              'error': None}
 
-    real_file = task.pop("target", None)
-    if real_file is None:
+    if result['target'] is None:
         logging.error("No target specified for task")
-        return None
-
-    task["target"] = f"{tmpdir}/{os.path.basename(real_file)}"
-    logging.info(f"tempfile is {task['target']}")
-
-    min_size = task.pop("min_size", None)
-    actual_size = task.pop("actual_size", None)
-
-    try:
-        # if debugging is on then messages from this process will be logged to the logfile.
-        if debug:
-            logging.debug(f"Retrieving {task['target']}")
-        ECMWF_server.retrieve(task)
-    except Exception as e:
-        logging.error(f"Process {task['target']} error {e}, continuing.")
-        if os.path.exists(task['target']):
-            if not dryrun:
-                os.unlink(task["target"])
+        result["error"] = "No target specified for task"
     else:
-        logging.info(f"Process {real_file} finished")
+        task['target'] = f"{tmpdir}/{os.path.basename(result['target'])}"
 
-    # Check if the retrieved file exists, and if the size is incorrect, remove it.
-    logging.debug(f"Checking {task['target']} size")
-    size = process_file_by_size(task['target'], min_size, actual_size, dryrun)
-    logging.debug(f"File {task['target']} size is {size}")
-    if size != 0:
+        min_size = task.pop("min_size", None)
+        actual_size = task.pop("actual_size", None)
+
         try:
-            logging.debug(f"Moving {task['target']} to {real_file}")
-            os.rename(task["target"], real_file)
-        except Exception as exception:
-            logging.error(f"Error renaming {task['target']} to {real_file}: {exception}")
-            os.unlink(task["target"])
+            # if debugging is on then messages from this process will be logged to the logfile.
+            if debug:
+                logging.debug(f"Retrieving {task['target']}")
+            ECMWF_server.retrieve(task)
+        except Exception as e:
+            if os.path.exists(task['target']):
+                os.unlink(task["target"])
+            result['error'] = f"ECMWF_Server.retrieve {task['target']} error {e}"
+        else:
+            # Check if the retrieved file exists, and if the size is incorrect, remove it.
+            result['size'] = process_file_by_size(task['target'], min_size, actual_size)
+            if result['size'] != 0:
+                try:
+                    os.rename(task["target"], result['target'])
+                except Exception as exception:
+                    os.unlink(task["target"])
+                    result['error'] = f"Error renaming {task['target']} to {result['target']}: {exception}"
+            else:
+                result['error'] = f"File size is incorrect for {task['target']}"
 
-    result["target"] = real_file
-    result["size"] = size
+    logging.debug(f"Completed {task['target']}, error: {result['error'] if result['error'] else 'None'}")
     result["end_time"] = datetime.datetime.now()
-
     return result
 
 if __name__ == '__main__':
@@ -104,8 +95,6 @@ if __name__ == '__main__':
                         help="End Day in the form YYYY-MM-DD")
     parser.add_argument('--debug', action="store_true",
                         help="Turn on ECMWFDataserver logging")
-    parser.add_argument('--dryrun', action="store_true",
-                        help="Don't actually download anything, just report")
     parser.add_argument('--max_downloads', type=int, default=1,
                         help="configure the maximum parallel downloads")
     parser.add_argument('--goback', type=int,
@@ -120,8 +109,6 @@ if __name__ == '__main__':
 
     if args.debug:
         debug = args.debug
-    if args.dryrun:
-        dryrun = args.dryrun
     if args.tmpdir:
         tmpdir = args.tmpdir
 
@@ -152,7 +139,7 @@ if __name__ == '__main__':
     # Build the tasks for each model specified
     for model in args.models:
         model_class = available_models[model](start=start, end=end, weekdays=args.days, goback=args.goback)
-        all_tasks.extend(model_class.get_tasks(prune=True, dryrun=dryrun))
+        all_tasks.extend(model_class.get_tasks(prune=True))
         logging.info(f"downloading {len(all_tasks)} files for {model} from {start} to {end}")
 
     install_mp_handler()
@@ -163,20 +150,11 @@ if __name__ == '__main__':
         pool.close()
         pool.join()
     except Exception as e:
-        logging.warning(f"Pool Error: {e}")
+        logging.error(f"Pool Error: {e}")
     else:
-        logging.info(f"completed all {len(results)} tasks:")
-        rows = []
+        logging.info(f"completed {len(results)} tasks:")
         for r in results:
             delta = r['end_time'] - r['start_time']
-            rows.append([delta.total_seconds(), r['size'], r['target']])
-        col_widths = [max(len(str(row[i])) for row in [headers] + rows) for i in range(len(headers))]
-        def print_row(row):
-            print("  ".join(str(val).ljust(col_widths[i]) for i, val in enumerate(row)))
-        headers = ["Time", "Size", "Target"]
-        print_row(headers)
-        print("  ".join("-" * w for w in col_widths))
-        for row in rows:
-            print_row(row)
+            logging.info(f"Time: {delta.total_seconds()}, Size: {r['size']}, File: {r['target']}, Error: {r['error'] if r['error'] else 'None'}")
 
     exit(0)
