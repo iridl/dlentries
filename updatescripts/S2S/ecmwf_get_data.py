@@ -71,7 +71,7 @@ if __name__ == '__main__':
     model_class = None
     start = None
     end = None
-
+    all_models = ", ".join([k for k in available_models.keys()])
     parser = argparse.ArgumentParser(description="Download models from ECMWF.")
 
     if ECMWFAPIKEYS is not None:
@@ -83,7 +83,7 @@ if __name__ == '__main__':
                             help=f"Whose key do you want to use: {','.join(usernames)}")
 
     parser.add_argument('--models', type=str, required=True, nargs='+',
-                        help=f"select the model types: {available_models.keys()}.")
+                        help=f"select the model types: {all_models}.")
     parser.add_argument('--start', type=str,
                         help="Start Day in the form YYYY-MM-DD.  Will use today by default.")
     parser.add_argument('--end', type=str,
