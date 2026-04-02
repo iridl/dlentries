@@ -90,8 +90,6 @@ if __name__ == '__main__':
                         help="End Day in the form YYYY-MM-DD.  Will only run 1 day if not defined")
     parser.add_argument('--debug', action="store_true",
                         help="Turn on ECMWFDataserver logging")
-    parser.add_argument('--dryrun', action="store_true",
-                        help="Don't actually download anything")
     parser.add_argument('--max_downloads', type=int, default=ECMWF_max_processes,
                         help=f"modify max parallel downloads from default of {ECMWF_max_processes}")
     parser.add_argument('--goback', type=int,
@@ -106,8 +104,6 @@ if __name__ == '__main__':
 
     if args.debug:
         executable_arguments.extend(["--debug"])
-    if args.dryrun:
-        executable_arguments.extend(["--dryrun"])
     if args.goback:
         executable_arguments.extend(["--goback", str(args.goback)])
 
