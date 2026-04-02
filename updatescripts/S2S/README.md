@@ -34,30 +34,56 @@ Parameters are:
 show this help message and exit
 
 >--user *username*\
-Who's ECMWF API key do you want to use (from ~datag/ecmwfapikeys).  If you're testing, using your ~/.ecmwfapirc file,\
-> you can ignore this. 
+Which ECMWF API key do you want to use (from ~datag/ecmwfapikeys).\
+> jefft, jpt11, jingyuan
 
 >--models MODEL [MODEL ...]\
-select at least of the model types: currently acceptable are:
+select at least one of the model types: currently acceptable are:
+> * **cma**
+> * **cnrm**
+> * **cptec**
+> * **eccc**
 > * **ecmf**
+> * **ecmf4147**
 > * **hmcr**
+> * **iapcas**
+> * **isac**
 > * **jma**
 > * **kma**
 > * **ncep**
-> * **ukmo**\
+> * **ukmo**
+> * **eccc_ref**
+> * **ecmf_ref**
+> * **hmcr_ref**
+> * **kma_ref**
+> * **ukmo_ref**\
 > but you can select as many as you want: --models kma hmcr ...
-> These don't currently handle the hindcast datasets yet.
 
 >--start YYYY-MM-DD\
-Start Day of downloading model data\
-Will use model default if none is specified.
+Start Day of downloading model data (defaults to today).
 
 >--end YYYY-MM-DD\
 End Day to finish downloading data.\
 Will only run 1 day if not defined
 
 >--debug\
-Turn on extensive ECMWF Data server logging to the logfile
+Turn on ECMWF Data server logging to the logfile
+
+>--dryrun\
+> Don't actually download anything
+
+>--max_downloads MAX_DOWNLOADS\
+Modify max parallel downloads from default of 10. Only change this to a lower value if you know what you're doing. as ECMWF has a maximum which will get you cut off if you abuse it.
+
+>--goback GOBACK\
+Instead of --end, select number of days to go back in time. Default is defined by the model. (60)
+
+>  --days DAYS [DAYS ...]\
+List of days to download: Possible values are: ["odd", "even"] ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] ["1", "2", "3", "4", "5", "6", "7"... "31"] for the actual dates.\
+This is used to define which dates the data is available on.
+
+>--tmpdir TMPDIR\
+Modify default TMPDIR from /Data/tmp 
 
 #### Environment variables for *testing* ecmwf_get_data.py
 ECMWFAPIKEYS_FILE - Set your ECMWFAPI key (see pre-requisites section)
@@ -70,36 +96,18 @@ variables necessary for this script to run. Currently, ECMWF limits the number o
 parallel downloads (per user key) to 10.  This script creates a pool and insures
 we always have up to 10 processes running in parallel, and no more.
 
-## Development Details
-### ECMWFModelTaskClass.py
-This is the abstract model for calling ECMWF Data.  ALL ECMWF data calls are the
-same, with only the task being different.  The task defines the variables from the
-specific model you're downloading.  Each task is defined in the subclasses 
+## Notes
+Running an individual tasks script will let you know what files are missing or
+corrupt.  It does a filesystem check of all the files instead of attempting to download anything.
+For example:
+> \# condarun updatescripts ecmwf_cma_tasks.py
 
-#### ecmwf_ecmf_tasks.py
-* ECMF/REL/PF
-* ECMF/REL/CF
+Will tell you what files are missing or corrupt from the start of the dataset to the end.
+Since some variables are not available from the start of the dataset, this can gi ve you a
+good idea of what is missing for specific dates.
 
-#### ecmwf_hmcr_tasks.py
-* HMCR/REL/PF
-* HMCR/REL/CF
-* HMCR/REL_new/PF
-* HMCR/REL_new/CF
+## Important
+**Do not run the script** multiple times at once without using different users. Otherwise your
+access to ECMWF can get cut off for abusing the system.  Make sure that the cronjobs
+do not/will not overlap.
 
-#### ecmwf_jma_tasks.py
-* JMA/REL/PF
-* JMA/REL/CF
-
-#### ecmwf_kma_tasks.py
-* KMA/REL/PF
-* KMA/REL/CF
-* KMA/REL_new/PF
-* KMA/REL_new/CF
-
-#### ecmwf_ncep_tasks.py
-* NCEP/REL/PF
-* NCEP/REL/CF
-
-#### ecmwf_ukmo_tasks.py
-* UKMO/REL/PF
-* UKMO/REL/CF

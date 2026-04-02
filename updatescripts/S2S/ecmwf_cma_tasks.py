@@ -1,27 +1,43 @@
 from ECMWFModelTaskClass import ECMWFModelTaskBase
-
+import datetime
 
 class CMAModel(ECMWFModelTaskBase):
     """
     Task for the CMA model download from the ECMWFDataServer()
+    References:
+        https://confluence.ecmwf.int/display/S2S/CMA+Model
+        https://apps.ecmwf.int/datasets/data/s2s-realtime-instantaneous-accum-babj/
     """
 
-    DefaultDelay = 2
+    first_date = datetime.datetime(2019, 11, 11)
 
-    def __init__(self, start=None):
-        """
-        :param start: datetime day to get data (today-DefaultDelay if None)
-        """
-        super().__init__(CMAModel.DefaultDelay, start)
+    # Data Access Delay, how many days back is the first forecast we can get.
+    data_access_delay = 2
+
+    # weekdays: days of week data is available
+    weekdays = ["Mon", "Thu"]
+
+    origin = "babj"
+    
+    def __init__(self, start=None, end=None, weekdays=None, goback=None):
+        if weekdays is None:
+            weekdays = CMAModel.weekdays
+
+        super().__init__(start, end, weekdays, goback, CMAModel.data_access_delay)
 
         pf_toplevel = f"{self.S2S_toplevel}/CMA/REL_new/PF"
         cf_toplevel = f"{self.S2S_toplevel}/CMA/REL_new/CF"
 
-        y_m_d = f"{self.start.year}-{self.start.month:02d}-{self.start.day:02d}"
-        ymd = f"{self.start.year}{self.start.month:02d}{self.start.day:02d}"
+        self.all_models["CMA_REL_new_PF"] = []
+        self.all_models["CMA_REL_new_CF"] = []
 
-        self.all_models["CMA_REL_new_PF"] = [
+        for d in self.dates:
+            y_m_d = f"{d.year}-{d.month:02d}-{d.day:02d}"
+            ymd = f"{d.year}{d.month:02d}{d.day:02d}"
+
+            self.all_models["CMA_REL_new_PF"].extend([
             {
+                "actual_size": 533097300,
                 "target": f"{pf_toplevel}/cma_rel_pf_pl_zuvwt{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -31,7 +47,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "pl",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "130/131/132/135/156",
                 "step": "0/to/1440/by/24",
                 "stream": "enfo",
@@ -40,6 +56,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "actual_size": 74633622,
                 "target": f"{pf_toplevel}/cma_rel_pf_pl_q{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -49,7 +66,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "pl",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "133",
                 "step": "0/to/1440/by/24",
                 "stream": "enfo",
@@ -58,6 +75,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "actual_size": 199296744,
                 "target": f"{pf_toplevel}/cma_rel_pf_sfc_sfc{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -66,7 +84,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "sfc",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "121/122/134/146/147/151/165/166/169/175/176/177/179/180/181/174008/228143/228144/228205/228228",
                 "step": "0/to/1440/by/24",
                 "stream": "enfo",
@@ -75,6 +93,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "min_size": 160000000,
                 "target": f"{pf_toplevel}/cma_rel_pf_da_sfc{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -83,7 +102,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "sfc",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "31/33/34/59/136/167/168/235/228032/228086/228087/228095/228096/228141/228164",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128/1128-1152/1152-1176/1176-1200/1200-1224/1224-1248/1248-1272/1272-1296/1296-1320/1320-1344/1344-1368/1368-1392/1392-1416/1416-1440",
                 "stream": "enfo",
@@ -92,6 +111,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "actual_size": 10661946,
                 "target": f"{pf_toplevel}/cma_rel_pf_pt_pv{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -101,7 +121,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "pt",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "60",
                 "step": "0/to/1440/by/24",
                 "stream": "enfo",
@@ -110,6 +130,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "actual_size": 143472060,
                 "target": f"{pf_toplevel}/cma_rel_pf_o2d{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -118,7 +139,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "o2d",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "151126/151131/151132/151145/151163/151175/151219/151225/174098",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128/1128-1152/1152-1176/1176-1200/1200-1224/1224-1248/1248-1272/1272-1296/1296-1320/1320-1344/1344-1368/1368-1392/1392-1416/1416-1440", 
                 "stream": "enfo",
@@ -127,6 +148,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "min_size": 15941340,
                 "target": f"{pf_toplevel}/cma_rel_pf_o2d1_{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -135,7 +157,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "o2d",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "151163",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128/1128-1152/1152-1176/1176-1200/1200-1224/1224-1248/1248-1272/1272-1296/1296-1320/1320-1344/1344-1368/1368-1392/1392-1416/1416-1440",
                 "stream": "enfo",
@@ -144,6 +166,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "actual_size": 15941340,
                 "target": f"{pf_toplevel}/cma_rel_pf_o2d2_{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -152,18 +175,18 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "o2d",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "151225",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128/1128-1152/1152-1176/1176-1200/1200-1224/1224-1248/1248-1272/1272-1296/1296-1320/1320-1344/1344-1368/1368-1392/1392-1416/1416-1440",
                 "stream": "enfo",
                 "time": "00:00:00",
                 "type": "pf",
                 "expect": "any",
-            }
-        ]
+            }])
 
-        self.all_models["CMA_REL_new_CF"] = [
+            self.all_models["CMA_REL_new_CF"].extend([
             {
+                "actual_size": 177699100,
                 "target": f"{cf_toplevel}/cma_rel_cf_pl_zuvwt{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -173,7 +196,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "pl",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "130/131/132/135/156",
                 "step": "0/to/1440/by/24",
                 "stream": "enfo",
@@ -182,6 +205,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "actual_size": 24877874,
                 "target": f"{cf_toplevel}/cma_rel_cf_pl_q{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -191,7 +215,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "pl",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "133",
                 "step": "0/to/1440/by/24",
                 "stream": "enfo",
@@ -200,6 +224,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "actual_size": 73540212,
                 "target": f"{cf_toplevel}/cma_rel_cf_sfc_sfc{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -208,7 +233,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "sfc",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "121/122/134/146/147/151/165/166/169/172/175/176/177/179/180/181/174008/228002/228143/228144/228205/228228",
                 "step": "0/to/1440/by/24",
                 "stream": "enfo",
@@ -217,6 +242,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "min_size": 54000000,
                 "target": f"{cf_toplevel}/cma_rel_cf_da_sfc{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -225,7 +251,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "sfc",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "31/33/34/59/136/167/168/235/228032/228086/228087/228095/228096/228141/228164",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128/1128-1152/1152-1176/1176-1200/1200-1224/1224-1248/1248-1272/1272-1296/1296-1320/1320-1344/1344-1368/1368-1392/1392-1416/1416-1440",
                 "stream": "enfo",
@@ -234,6 +260,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
+                "actual_size": 3553982,
                 "target": f"{cf_toplevel}/cma_rel_cf_pt_pv{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -243,7 +270,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "pt",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "60",
                 "step": "0/to/1440/by/24",
                 "stream": "enfo",
@@ -252,6 +279,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "expect" : "any",
             },
             {
+                "actual_size": 47824020,
                 "target": f"{cf_toplevel}/cma_rel_cf_o2d{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -260,7 +288,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "o2d",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "151126/151131/151132/151145/151163/151175/151219/151225/174098",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128/1128-1152/1152-1176/1176-1200/1200-1224/1224-1248/1248-1272/1272-1296/1296-1320/1320-1344/1344-1368/1368-1392/1392-1416/1416-1440",
                 "stream": "enfo",
@@ -269,6 +297,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {   # depth of 20C isotherm
+                "actual_size": 5313780,
                 "target": f"{cf_toplevel}/cma_rel_cf_o2d1_{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -277,7 +306,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "o2d",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "151163",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128/1128-1152/1152-1176/1176-1200/1200-1224/1224-1248/1248-1272/1272-1296/1296-1320/1320-1344/1344-1368/1368-1392/1392-1416/1416-1440", 
                 "stream": "enfo",
@@ -286,6 +315,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {   # 9 mixed layer thickness
+                "actual_size": 5313780,
                 "target": f"{cf_toplevel}/cma_rel_cf_o2d2_{ymd}{ymd}.grb",
                 "class": "s2",
                 "dataset": "s2s",
@@ -294,7 +324,7 @@ class CMAModel(ECMWFModelTaskBase):
                 "levtype": "o2d",
                 "model": "glob",
                 "number": "1/to/3",
-                "origin": "babj",
+                "origin":  CMAModel.origin,
                 "param": "151225",
                 "step": "0-24/24-48/48-72/72-96/96-120/120-144/144-168/168-192/192-216/216-240/240-264/264-288/288-312/312-336/336-360/360-384/384-408/408-432/432-456/456-480/480-504/504-528/528-552/552-576/576-600/600-624/624-648/648-672/672-696/696-720/720-744/744-768/768-792/792-816/816-840/840-864/864-888/888-912/912-936/936-960/960-984/984-1008/1008-1032/1032-1056/1056-1080/1080-1104/1104-1128/1128-1152/1152-1176/1176-1200/1200-1224/1224-1248/1248-1272/1272-1296/1296-1320/1320-1344/1344-1368/1368-1392/1392-1416/1416-1440", 
                 "stream": "enfo",
@@ -302,5 +332,34 @@ class CMAModel(ECMWFModelTaskBase):
                 "type": "cf",
                 "expect": "any",
             }
-        ]
+        ])
 
+if __name__ == '__main__':
+    import argparse
+    start = end = None
+
+    parser = argparse.ArgumentParser(description="Check Data from CMA Model.")
+    parser.add_argument('--start', type=str,
+                        help="Start Day in the form YYYY-MM-DD.  Today, b yut default.")
+    parser.add_argument('--end', type=str,
+                        help="End Day in the form YYYY-MM-DD (or \"now\".  Will only run 1 day if not defined")
+
+    args = parser.parse_args()
+    if args.start is None:
+        start = CMAModel.first_date
+    else:
+        start = datetime.datetime.strptime(args.start, "%Y-%m-%d")
+
+    if args.end is not None:
+        if args.end == "now":
+            end = datetime.datetime.now()
+        else:
+            end = datetime.datetime.strptime(args.start, "%Y-%m-%d")
+    else:
+        end = datetime.datetime.now()
+
+    model = CMAModel(start=start, end=end)
+    tasks = model.get_tasks(prune=True, dryrun=True)
+    for t in tasks:
+        print(t['target'])
+    print(f"Total tasks: {len(tasks)}")

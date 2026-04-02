@@ -5,14 +5,19 @@ class HMCR_REF_Model(ECMWF_REFModelTaskBase):
     """
     Model used to download the HMCR hindcast models from the ECMWFDataServer()
     https://apps.ecmwf.int/datasets/data/s2s-reforecasts-instantaneous-accum-rums/levtype=sfc/type=cf/
-    Realtime dates are available once a week on Thursdays, so this cron job should be run on Fridays, with a 1 day delay.
     """
+    first_date = datetime.datetime(2015, 1, 7)
 
-    def __init__(self, start=None, delay=1, version_inc=14):
-        """
-        :param start: datetime day to get data (today-DefaultDelay if None)
-        """
-        super().__init__(start, delay, version_inc)
+    model_version_offset = 21 # days
+    weekdays = ["Thu"]
+
+    def __init__(self, start=None, end=None, weekdays=None, goback=None, model_version_offset=None):
+        if weekdays is None:
+            weekdays = HMCR_REF_Model.weekdays
+        if model_version_offset is None:
+            model_version_offset = HMCR_REF_Model.model_version_offset
+
+        super().__init__(start, end, weekdays, goback, model_version_offset)
 
         step = "0/to/1464/by/24"
         step_sfc61 = "6/to/1464/by/6"
@@ -23,136 +28,174 @@ class HMCR_REF_Model(ECMWF_REFModelTaskBase):
         self.all_models["HMCR_REF_PF"] = []
         self.all_models["HMCR_REF_CF"] = []
 
-        y_m_d = f"{self.start.year}-{self.start.month:02d}-{self.start.day:02d}"
-        ymd = f"{self.start.year}{self.start.month:02d}{self.start.day:02d}"
+        for d in self.dates:
 
-        forecast_yr = f"{self.start.year}"
+            if d < datetime.datetime(2021, 7, 4):
+                hindcast_start_year = 1985
+                hindcast_end_year = 2010
+            elif d < datetime.datetime(2024, 10, 17):
+                hindcast_start_year = 1990
+                hindcast_end_year = 2015
+            else:
+                hindcast_start_year = 1991
+                hindcast_end_year = 2020
 
-        # Hindcast Years currently go from 1991 to 2020.  I don't know if that's going to
-        # change in 2026, so for now this is hardcoded
-        for year in range(1991, 2021):
-            hdate_y_m_d = f"{year}-{self.start.month:02d}-{self.start.day:02d}"
-            hdate_ymd = f"{year}{self.start.month:02d}{self.start.day:02d}"
+            y_m_d = f"{d.year}-{d.month:02d}-{d.day:02d}"
+            ymd = f"{d.year}{d.month:02d}{d.day:02d}"
 
-            for T in ["CF", "PF"]:
-                toplevel = f"{self.S2S_toplevel}/HMCR/REF_new/{T}/{self.start.year}"
-                modeltype = f"HMCR_REF_{T}"
+            for year in range(hindcast_start_year, hindcast_end_year + 1):
+                hdate_y_m_d = f"{year}-{d.month:02d}-{d.day:02d}"
+                hdate_ymd = f"{year}{d.month:02d}{d.day:02d}"
 
-                self.all_models[modeltype].extend([
-                    {
-                        "target": f"{toplevel}/hmcr_ref_{T.lower()}_pl_zuvt{ymd}{hdate_ymd}.grb",
-                        "min_size": 109545720,
-                        "class": "s2",
-                        "dataset": "s2s",
-                        "date": y_m_d,
-                        "expver": "prod",
-                        "hdate": hdate_y_m_d,
-                        "levelist": "10/50/100/200/300/500/700/850/925/1000",
-                        "levtype": "pl",
-                        "model": "glob",
-                        "number": number,
-                        "origin": "rums",
-                        "param": "130/131/132/156",
-                        "step": step,
-                        "stream": "enfh",
-                        "time": "00:00:00",
-                        "type": f"{T.lower()}",
-                        "expect" : "any",
-                    },
-                    {
-                        "target": f"{toplevel}/hmcr_ref_{T.lower()}_pl_q{ymd}{hdate_ymd}.grb",
-                        "min_size": 19170501,
-                        "class": "s2",
-                        "dataset": "s2s",
-                        "date": y_m_d,
-                        "expver": "prod",
-                        "hdate": hdate_y_m_d,
-                        "levelist": "200/300/500/700/850/925/1000",
-                        "levtype": "pl",
-                        "model": "glob",
-                        "number": number,
-                        "origin": "rums",
-                        "param": "133",
-                        "step": step,
-                        "stream": "enfh",
-                        "time": "00:00:00",
-                        "type": f"{T.lower()}",
-                        "expect": "any",
-                    },
-                    {
-                        "target": f"{toplevel}/hmcr_ref_{T.lower()}_sfc_sfc{ymd}{hdate_ymd}.grb",
-                        "min_size": 53975106 if T == "CF" else 484978200,
-                        "class": "s2",
-                        "dataset": "s2s",
-                        "date": y_m_d,
-                        "expver": "prod",
-                        "hdate": hdate_y_m_d,
-                        "levtype": "sfc",
-                        "model": "glob",
-                        "number": number,
-                        "origin": "rums",
-                        "param": "121/122/134/146/147/151/165/166/169/172/175/176/177/179/180/181/228002/228143/228144/228228",
-                        "step": step,
-                        "stream": "enfh",
-                        "time": "00:00:00",
-                        "type": f"{T.lower()}",
-                        "expect": "any",
-                    },
-                    {
-                        "target": f"{toplevel}/hmcr_ref_{T.lower()}_sfc_sfc6_{ymd}{hdate_ymd}.grb",
-                        "min_size": 21451824 if T == "CF" else 214518240,
-                        "class": "s2",
-                        "dataset": "s2s",
-                        "date": y_m_d,
-                        "expver": "prod",
-                        "hdate": hdate_y_m_d,
-                        "levtype": "sfc",
-                        "model": "glob",
-                        "number": number,
-                        "origin": "rums",
-                        "param": "121/122",
-                        "step": step_sfc61,
-                        "stream": "enfh",
-                        "time": "00:00:00",
-                        "type": f"{T.lower()}",
-                        "expect": "any",
-                    },
-                    {
-                        "target": f"{toplevel}/hmcr_ref_{T.lower()}_sfc_sfc62_{ymd}{hdate_ymd}.grb",
-                        "min_size": 32285655 if T == "CF" else 322856550,
-                        "class": "s2",
-                        "dataset": "s2s",
-                        "date": y_m_d,
-                        "expver": "prod",
-                        "hdate": hdate_y_m_d,
-                        "levtype": "sfc",
-                        "model": "glob",
-                        "number": number,
-                        "origin": "rums",
-                        "param": "165/166/228228",
-                        "step": step_sfc62,
-                        "stream": "enfh",
-                        "time": "00:00:00",
-                        "type": f"{T.lower()}",
-                        "expect": "any",
-                    },
-                    {
-                        "target": f"{toplevel}/hmcr_ref_{T.lower()}_da_sfc{ymd}{hdate_ymd}.grb",
-                        "min_size": 22100000 if T == "CF" else 220790000,
-                        "class": "s2",
-                        "dataset": "s2s",
-                        "date": y_m_d,
-                        "expver": "prod",
-                        "hdate": hdate_y_m_d,
-                        "levtype": "o2d",
-                        "model": "glob",
-                        "number": number,
-                        "origin": "rums",
-                        "param": "31/34/167/168/235/228032/228086/228087/228095/228096/228141/228164",
-                        "step": step_da_sfc,
-                        "stream": "enfh",
-                        "time": "00:00:00",
-                        "type": f"{T.lower()}",
-                        "expect": "any",
-                    }
-                ])
+                for T in ["CF", "PF"]:
+                    toplevel = f"{self.S2S_toplevel}/HMCR/REF_new/{T}/{d.year}"
+                    modeltype = f"HMCR_REF_{T}"
+
+                    self.all_models[modeltype].extend([
+                        {
+                            "target": f"{toplevel}/hmcr_ref_{T.lower()}_pl_zuvt{ymd}{hdate_ymd}.grb",
+                            "min_size": 109545720,
+                            "class": "s2",
+                            "dataset": "s2s",
+                            "date": y_m_d,
+                            "expver": "prod",
+                            "hdate": hdate_y_m_d,
+                            "levelist": "10/50/100/200/300/500/700/850/925/1000",
+                            "levtype": "pl",
+                            "model": "glob",
+                            "number": number,
+                            "origin": "rums",
+                            "param": "130/131/132/156",
+                            "step": step,
+                            "stream": "enfh",
+                            "time": "00:00:00",
+                            "type": f"{T.lower()}",
+                            "expect" : "any",
+                        },
+                        {
+                            "target": f"{toplevel}/hmcr_ref_{T.lower()}_pl_q{ymd}{hdate_ymd}.grb",
+                            "min_size": 19170501,
+                            "class": "s2",
+                            "dataset": "s2s",
+                            "date": y_m_d,
+                            "expver": "prod",
+                            "hdate": hdate_y_m_d,
+                            "levelist": "200/300/500/700/850/925/1000",
+                            "levtype": "pl",
+                            "model": "glob",
+                            "number": number,
+                            "origin": "rums",
+                            "param": "133",
+                            "step": step,
+                            "stream": "enfh",
+                            "time": "00:00:00",
+                            "type": f"{T.lower()}",
+                            "expect": "any",
+                        },
+                        {
+                            "target": f"{toplevel}/hmcr_ref_{T.lower()}_sfc_sfc{ymd}{hdate_ymd}.grb",
+                            "min_size": 53975106 if T == "CF" else 484978200,
+                            "class": "s2",
+                            "dataset": "s2s",
+                            "date": y_m_d,
+                            "expver": "prod",
+                            "hdate": hdate_y_m_d,
+                            "levtype": "sfc",
+                            "model": "glob",
+                            "number": number,
+                            "origin": "rums",
+                            "param": "121/122/134/146/147/151/165/166/169/172/175/176/177/179/180/181/228002/228143/228144/228228",
+                            "step": step,
+                            "stream": "enfh",
+                            "time": "00:00:00",
+                            "type": f"{T.lower()}",
+                            "expect": "any",
+                        },
+                        {
+                            "target": f"{toplevel}/hmcr_ref_{T.lower()}_sfc_sfc6_{ymd}{hdate_ymd}.grb",
+                            "min_size": 21451824 if T == "CF" else 214518240,
+                            "class": "s2",
+                            "dataset": "s2s",
+                            "date": y_m_d,
+                            "expver": "prod",
+                            "hdate": hdate_y_m_d,
+                            "levtype": "sfc",
+                            "model": "glob",
+                            "number": number,
+                            "origin": "rums",
+                            "param": "121/122",
+                            "step": step_sfc61,
+                            "stream": "enfh",
+                            "time": "00:00:00",
+                            "type": f"{T.lower()}",
+                            "expect": "any",
+                        },
+                        {
+                            "target": f"{toplevel}/hmcr_ref_{T.lower()}_sfc_sfc62_{ymd}{hdate_ymd}.grb",
+                            "min_size": 32285655 if T == "CF" else 322856550,
+                            "class": "s2",
+                            "dataset": "s2s",
+                            "date": y_m_d,
+                            "expver": "prod",
+                            "hdate": hdate_y_m_d,
+                            "levtype": "sfc",
+                            "model": "glob",
+                            "number": number,
+                            "origin": "rums",
+                            "param": "165/166/228228",
+                            "step": step_sfc62,
+                            "stream": "enfh",
+                            "time": "00:00:00",
+                            "type": f"{T.lower()}",
+                            "expect": "any",
+                        },
+                        {
+                            "target": f"{toplevel}/hmcr_ref_{T.lower()}_da_sfc{ymd}{hdate_ymd}.grb",
+                            "min_size": 22100000 if T == "CF" else 220790000,
+                            "class": "s2",
+                            "dataset": "s2s",
+                            "date": y_m_d,
+                            "expver": "prod",
+                            "hdate": hdate_y_m_d,
+                            "levtype": "sfc",
+                            "model": "glob",
+                            "number": number,
+                            "origin": "rums",
+                            "param": "31/34/167/168/235/228032/228086/228087/228095/228096/228141/228164",
+                            "step": step_da_sfc,
+                            "stream": "enfh",
+                            "time": "00:00:00",
+                            "type": f"{T.lower()}",
+                            "expect": "any",
+                        }
+                    ])
+
+if __name__ == '__main__':
+    import argparse
+    start = end = None
+
+    parser = argparse.ArgumentParser(description="Download models from ECMWF.")
+    parser.add_argument('--start', type=str,
+                        help="Start Day in the form YYYY-MM-DD.  Today, b yut default.")
+    parser.add_argument('--end', type=str,
+                        help="End Day in the form YYYY-MM-DD (or \"now\".  Will only run 1 day if not defined")
+
+    args = parser.parse_args()
+    if args.start is None:
+        start = HMCR_REF_Model.first_date
+    else:
+        start = datetime.datetime.strptime(args.start, "%Y-%m-%d")
+
+    if args.end is not None:
+        if args.end == "now":
+            end = datetime.datetime.now()
+        else:
+            end = datetime.datetime.strptime(args.start, "%Y-%m-%d")
+    else:
+        end = datetime.datetime.now()
+
+    model = HMCR_REF_Model(start=start,end=end)
+    tasks = model.get_tasks(prune=True, dryrun=True)
+    for t in tasks:
+        print(t['target'])
+    print(f'Total tasks are: {len(tasks)}')
