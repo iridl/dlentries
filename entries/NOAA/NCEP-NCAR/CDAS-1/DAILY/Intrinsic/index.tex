@@ -12,19 +12,9 @@ grid:
 /standard_name (time) def
 0
 1.0
-systemtime
-   (%d %b %Y) 12 strftime interp julian_day
+23 Mar 2026 julian_day
 01 Jan 1948 julian_day sub
 :grid
-
-T {(/Data/data6/ncep-ncar/daily/update/pgb.%Y%m%d[T]) [T] } removeextrausing
-
-/expires last 3 add 1948 1 1 ymd2rjt add rjt2ymd ymd2systemtime 
-13 60 mul 40 add 60 mul add % 13:40 GMT
-def
-name exch def
-/expires T .expires def
-/last_modified T .last_modified def
 
 T monthlyedgesgrid
 (1 Jan 1948-2002) (1 Apr 2002) subgridvalues
