@@ -53,16 +53,9 @@ grid:
 /standard_name (time) def
 16 Jan 1949 ensotime
 1
-%16 Sep 2012 ensotime 
-16 systemtime systemtime2ymd ymd:lastmonth pop exch ensotime
+16 Feb 2026 ensotime 
 :grid
 
-T {(/Data/data6/ncep-ncar/reanI/flux/flx.gau.grib.mean.%Y%m[T]) [T] } removeextrausing
-/expires last
-    rm19602ymd ymd:nextmonth ymd:nextmonth 2 add ymd2systemtime def
-    name exch def
-/expires T .expires def
-/last_modified T .last_modified def
 % parameters to GRIBvariable, in order, are: 1. GRIB variable parameter code, 2. GRIB level/layer type code, and
 % 3. field ID (generally 1).  So, for example, pressure-level absolute vorticity would be "41 100 1 GRIBvariable"
 
