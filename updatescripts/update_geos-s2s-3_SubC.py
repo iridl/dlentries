@@ -33,8 +33,8 @@ for adate in ISSUES :
     adate_Ymd = adate.strftime("%Y%m%d")
     for var in [
         "frocean", "frseaice", "mrro", "mrso", "olr", "pr_sfc", "rzsm", "sic",
-        "tas_2m", "ts_sfc", "ua_200", "ua_850", "va_200", "va_850", "zg_200",
-        "zg_500",
+        "tas_2m", "ua_200", "ua_850", "va_200", "va_850", "zg_200", "zg_500",
+        "ts_sfc",
     ] :
         members = (
             15
