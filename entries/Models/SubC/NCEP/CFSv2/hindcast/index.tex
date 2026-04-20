@@ -197,7 +197,7 @@ grid:
 } defasvarsilent
 
 /ua {
-[ X Y | L M S P ] (/Data/SubX/NCEP/CFSv2/hindcast/ua/%Y[S]/%m[S]/ua_%d[P]_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ S M P ] readdatafile:
+[ X Y | L M S first 18231.75 subgrid P ] (/Data/SubX/NCEP/CFSv2/hindcast/ua/%Y[S]/%m[S]/ua_%d[P]_CFS_%d[S]%b:lc[S]%Y[S]_%H[S]z_d00_d44_m0%1.1d[M]_XYT.nc) [ S first 18231.75 subgrid M P ] readdatafile:
 /name (ua) def
 /long_name (Zonal Wind) def
 /interpolation (bilinearly interpolated from Gaussian grid) def
