@@ -3,16 +3,13 @@ import datetime
 
 class CNRMModel(ECMWFModelTaskBase):
     """
-    Task for the CNRM model download from the ECMWFDataServer()
-    References:
-        https://confluence.ecmwf.int/display/S2S/CNRM+Model
-        https://apps.ecmwf.int/datasets/data/s2s-realtime-instantaneous-accum-lfpw/
+    Task for the CNRM model download from the ECMWFDataServer cdsapi()
     """
 
     first_date = datetime.datetime(2015, 5, 1)
 
     # Data Access Delay, how many days back is the first forecast we can get.
-    data_access_delay = 7
+    data_access_delay = 9
 
     # weekdays: days of week data is available
     weekdays = ["Thu"]
@@ -28,19 +25,19 @@ class CNRMModel(ECMWFModelTaskBase):
         pf_toplevel = f"{self.S2S_toplevel}/CNRM/REL_new/PF"
         cf_toplevel = f"{self.S2S_toplevel}/CNRM/REL_new/CF"
 
-        self.all_models["CNRM_REL_new_PF"] = []
-        self.all_models["CNRM_REL_new_CF"] = []
+        self.all_models["CNRM_REL_PF"] = []
+        self.all_models["CNRM_REL_CF"] = []
 
         for d in self.dates:
             y_m_d = f"{d.year}-{d.month:02d}-{d.day:02d}"
             ymd = f"{d.year}{d.month:02d}{d.day:02d}"
 
-            self.all_models["CNRM_REL_new_PF"].extend([
+            self.all_models["CNRM_REL_PF"].extend([
             {
                 "actual_size": 2365903296,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_pl_zuvt{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "10/50/100/200/300/500/700/850/925",
@@ -58,8 +55,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 514569984,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_pl_w{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "50/100/200/300/500/700/850/925",
@@ -77,8 +74,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 385927488,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_pl_q{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "10/50/100/200/300/500/700/850/925",
@@ -96,8 +93,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 1210000000,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_sfc_sfc{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -114,8 +111,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 960000000,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_sfc_sfc2_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -132,8 +129,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 250000000,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_sfc_sfc3_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -150,8 +147,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 1051729152,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_sfc_sfc6_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -168,8 +165,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 660000000,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_da_sfc{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -186,8 +183,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 940000000,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_o2d{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "o2d",
@@ -204,8 +201,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 105291792,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_o2d1_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "o2d",
@@ -222,8 +219,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 105291792,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_o2d2_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "o2d",
@@ -239,12 +236,12 @@ class CNRMModel(ECMWFModelTaskBase):
             }
         ])
 
-            self.all_models["CNRM_REL_new_CF"].extend([
+            self.all_models["CNRM_REL_CF"].extend([
             {
                 "min_size": 96481872,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_pl_zuvt{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "10/50/100/200/300/500/700/850/925",
@@ -261,8 +258,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 21440416,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_pl_w{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "50/100/200/300/500/700/850/925",
@@ -279,8 +276,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 16080312,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_pl_q{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "10/50/100/200/300/500/700/850/925",
@@ -297,8 +294,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 50000000,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_sfc_sfc{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -314,8 +311,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 50000000,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_sfc_sfc6_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -331,8 +328,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 10000000,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_da_sfc{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -348,8 +345,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {
                 "min_size": 30000000,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_o2d{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "o2d",
@@ -365,8 +362,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {   # depth of 20C isotherm
                 "min_size": 4387158,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_o2d1_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "o2d",
@@ -382,8 +379,8 @@ class CNRMModel(ECMWFModelTaskBase):
             {   # 9 mixed layer thickness
                 "min_size": 4387158,
                 "target": f"{cf_toplevel}/cnrm_rel_cf_o2d2_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CNRMModel.s2s_class,
+                "dataset": CNRMModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "o2d",

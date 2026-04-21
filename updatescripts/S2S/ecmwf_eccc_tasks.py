@@ -3,10 +3,7 @@ import datetime
 
 class ECCCModel(ECMWFModelTaskBase):
     """
-    Model used to download the ECCC models from the ECMWFDataServer()
-    References:
-        https://confluence.ecmwf.int/display/S2S/ECMWF+Model
-        https://apps.ecmwf.int/datasets/data/s2s-realtime-instantaneous-accum-cwao/
+    Model used to download the ECCC models from the ECMWFDataServer cdsapi()
     """
     first_date = datetime.datetime(2024, 6, 13)
 
@@ -38,8 +35,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {
                     "min_size": 1817774400,
                     "target": f"{pf_toplevel}/eccc_rel_pf_pl_zuvt{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -57,8 +54,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {
                     "min_size": 318110520,
                     "target": f"{pf_toplevel}/eccc_rel_pf_pl_q{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "200/300/500/700/850/925/1000",
@@ -76,8 +73,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {
                     "min_size": 45444360,
                     "target": f"{pf_toplevel}/eccc_rel_pf_pl_w{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "500",
@@ -95,8 +92,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {
                     "min_size": 745712760,
                     "target": f"{pf_toplevel}/eccc_rel_pf_sfc_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -113,8 +110,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {
                     "min_size": 310000000,
                     "target": f"{pf_toplevel}/eccc_rel_pf_da_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -131,8 +128,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {
                     "min_size": 659521980,
                     "target": f"{pf_toplevel}/eccc_rel_pf_o2d{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "o2d",
@@ -149,8 +146,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {
                     "min_size": 73280220,
                     "target": f"{pf_toplevel}/eccc_rel_pf_o2d1_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "o2d",
@@ -167,8 +164,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {
                     "min_size": 73280220,
                     "target": f"{pf_toplevel}/eccc_rel_pf_o2d2_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "o2d",
@@ -188,8 +185,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {
                     "min_size": 90888720,
                     "target": f"{cf_toplevel}/eccc_rel_cf_pl_zuvt{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -207,8 +204,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {
                     "min_size": 15905526,
                     "target": f"{cf_toplevel}/eccc_rel_cf_pl_q{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "200/300/500/700/850/925/1000",
@@ -226,8 +223,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {
                     "min_size": 2272218,
                     "target": f"{cf_toplevel}/eccc_rel_cf_pl_w{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "500",
@@ -245,8 +242,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {
                     "min_size": 41830074,
                     "target": f"{cf_toplevel}/eccc_rel_cf_sfc_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -263,8 +260,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {
                     "min_size": 10000000,
                     "target": f"{cf_toplevel}/eccc_rel_cf_da_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -281,8 +278,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {
                     "min_size": 32976099,
                     "target": f"{cf_toplevel}/eccc_rel_cf_o2d{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "o2d",
@@ -299,8 +296,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {   # depth of 20C isotherm
                     "min_size": 3664011,
                     "target": f"{cf_toplevel}/eccc_rel_cf_o2d1_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "o2d",
@@ -317,8 +314,8 @@ class ECCCModel(ECMWFModelTaskBase):
                 {   # 9 mixed layer thickness
                     "min_size": 3664011,
                     "target": f"{cf_toplevel}/eccc_rel_cf_o2d2_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECCCModel.s2s_class,
+                    "dataset": ECCCModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "o2d",

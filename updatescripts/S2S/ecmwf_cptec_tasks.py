@@ -3,10 +3,7 @@ import datetime
 
 class CPTECModel(ECMWFModelTaskBase):
     """
-    Model used to download the CPTEC models from the ECMWFDataServer()
-    References:
-        https://confluence.ecmwf.int/display/S2S/CPTEC+Model
-        https://apps.ecmwf.int/datasets/data/s2s-realtime-instantaneous-accum-sbsj/
+    Model used to download the CPTEC models from the ECMWFDataServer cdsapi()
     """
 
     first_date = datetime.datetime(2023, 12, 13)
@@ -39,8 +36,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 153097000,
                     "target": f"{pf_toplevel}/cptec_rel_pf_pl_z{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -58,8 +55,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 153097000,
                     "target": f"{pf_toplevel}/cptec_rel_pf_pl_t{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -77,8 +74,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 153097000,
                     "target": f"{pf_toplevel}/cptec_rel_pf_pl_u{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -96,8 +93,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 153097000,
                     "target": f"{pf_toplevel}/cptec_rel_pf_pl_v{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -115,8 +112,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 612388000,
                     "target": f"{pf_toplevel}/cptec_rel_pf_pl_zuvt{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -134,8 +131,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 107167900,
                     "target": f"{pf_toplevel}/cptec_rel_pf_pl_q{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "200/300/500/700/850/925/1000",
@@ -153,8 +150,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 153097000,
                     "target": f"{pf_toplevel}/cptec_rel_pf_pl_w{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -172,8 +169,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 275675400,
                     "target": f"{pf_toplevel}/cptec_rel_pf_sfc_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -190,8 +187,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 306294800,
                     "target": f"{pf_toplevel}/cptec_rel_pf_sfc_sfc6_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -208,8 +205,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 76590500,
                     "target": f"{pf_toplevel}/cptec_rel_pf_da_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -229,8 +226,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 61238800,
                     "target": f"{cf_toplevel}/cptec_rel_cf_pl_zuvt{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -248,8 +245,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 10716790,
                     "target": f"{cf_toplevel}/cptec_rel_cf_pl_q{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "200/300/500/700/850/925/1000",
@@ -267,8 +264,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 15309700,
                     "target": f"{cf_toplevel}/cptec_rel_cf_pl_w{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -286,8 +283,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 27567540,
                     "target": f"{cf_toplevel}/cptec_rel_cf_sfc_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -304,8 +301,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 30629480,
                     "target": f"{cf_toplevel}/cptec_rel_cf_sfc_sfc6_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -322,8 +319,8 @@ class CPTECModel(ECMWFModelTaskBase):
                 {
                     "min_size": 7659050,
                     "target": f"{cf_toplevel}/cptec_rel_cf_da_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": CPTECModel.s2s_class,
+                    "dataset": CPTECModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",

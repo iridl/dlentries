@@ -3,10 +3,7 @@ import datetime
 
 class CMAModel(ECMWFModelTaskBase):
     """
-    Task for the CMA model download from the ECMWFDataServer()
-    References:
-        https://confluence.ecmwf.int/display/S2S/CMA+Model
-        https://apps.ecmwf.int/datasets/data/s2s-realtime-instantaneous-accum-babj/
+    Task for the CMA model download from the ECMWFDataServer cdsapi()
     """
 
     first_date = datetime.datetime(2019, 11, 11)
@@ -28,19 +25,19 @@ class CMAModel(ECMWFModelTaskBase):
         pf_toplevel = f"{self.S2S_toplevel}/CMA/REL_new/PF"
         cf_toplevel = f"{self.S2S_toplevel}/CMA/REL_new/CF"
 
-        self.all_models["CMA_REL_new_PF"] = []
-        self.all_models["CMA_REL_new_CF"] = []
+        self.all_models["CMA_REL_PF"] = []
+        self.all_models["CMA_REL_CF"] = []
 
         for d in self.dates:
             y_m_d = f"{d.year}-{d.month:02d}-{d.day:02d}"
             ymd = f"{d.year}{d.month:02d}{d.day:02d}"
 
-            self.all_models["CMA_REL_new_PF"].extend([
+            self.all_models["CMA_REL_PF"].extend([
             {
                 "actual_size": 533097300,
                 "target": f"{pf_toplevel}/cma_rel_pf_pl_zuvwt{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -58,8 +55,8 @@ class CMAModel(ECMWFModelTaskBase):
             {
                 "actual_size": 74633622,
                 "target": f"{pf_toplevel}/cma_rel_pf_pl_q{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "200/300/500/700/850/925/1000",
@@ -77,8 +74,8 @@ class CMAModel(ECMWFModelTaskBase):
             {
                 "actual_size": 199296744,
                 "target": f"{pf_toplevel}/cma_rel_pf_sfc_sfc{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -95,8 +92,8 @@ class CMAModel(ECMWFModelTaskBase):
             {
                 "min_size": 160000000,
                 "target": f"{pf_toplevel}/cma_rel_pf_da_sfc{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -113,8 +110,8 @@ class CMAModel(ECMWFModelTaskBase):
             {
                 "actual_size": 10661946,
                 "target": f"{pf_toplevel}/cma_rel_pf_pt_pv{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "320",
@@ -132,8 +129,8 @@ class CMAModel(ECMWFModelTaskBase):
             {
                 "actual_size": 143472060,
                 "target": f"{pf_toplevel}/cma_rel_pf_o2d{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "o2d",
@@ -150,8 +147,8 @@ class CMAModel(ECMWFModelTaskBase):
             {
                 "min_size": 15941340,
                 "target": f"{pf_toplevel}/cma_rel_pf_o2d1_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "o2d",
@@ -168,8 +165,8 @@ class CMAModel(ECMWFModelTaskBase):
             {
                 "actual_size": 15941340,
                 "target": f"{pf_toplevel}/cma_rel_pf_o2d2_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "o2d",
@@ -184,12 +181,12 @@ class CMAModel(ECMWFModelTaskBase):
                 "expect": "any",
             }])
 
-            self.all_models["CMA_REL_new_CF"].extend([
+            self.all_models["CMA_REL_CF"].extend([
             {
                 "actual_size": 177699100,
                 "target": f"{cf_toplevel}/cma_rel_cf_pl_zuvwt{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -207,8 +204,8 @@ class CMAModel(ECMWFModelTaskBase):
             {
                 "actual_size": 24877874,
                 "target": f"{cf_toplevel}/cma_rel_cf_pl_q{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "200/300/500/700/850/925/1000",
@@ -226,8 +223,8 @@ class CMAModel(ECMWFModelTaskBase):
             {
                 "actual_size": 73540212,
                 "target": f"{cf_toplevel}/cma_rel_cf_sfc_sfc{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -244,8 +241,8 @@ class CMAModel(ECMWFModelTaskBase):
             {
                 "min_size": 54000000,
                 "target": f"{cf_toplevel}/cma_rel_cf_da_sfc{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -262,8 +259,8 @@ class CMAModel(ECMWFModelTaskBase):
             {
                 "actual_size": 3553982,
                 "target": f"{cf_toplevel}/cma_rel_cf_pt_pv{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "320",
@@ -281,8 +278,8 @@ class CMAModel(ECMWFModelTaskBase):
             {
                 "actual_size": 47824020,
                 "target": f"{cf_toplevel}/cma_rel_cf_o2d{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "o2d",
@@ -299,8 +296,8 @@ class CMAModel(ECMWFModelTaskBase):
             {   # depth of 20C isotherm
                 "actual_size": 5313780,
                 "target": f"{cf_toplevel}/cma_rel_cf_o2d1_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "o2d",
@@ -317,8 +314,8 @@ class CMAModel(ECMWFModelTaskBase):
             {   # 9 mixed layer thickness
                 "actual_size": 5313780,
                 "target": f"{cf_toplevel}/cma_rel_cf_o2d2_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": CMAModel.s2s_class,
+                "dataset": CMAModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "o2d",

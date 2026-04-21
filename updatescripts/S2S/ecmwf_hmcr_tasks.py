@@ -14,7 +14,6 @@ class HMCRModel(ECMWFModelTaskBase):
 
     # weekdays: days of week data is available
     weekdays = ["Thu"]
-
     origin = "rums"
 
     def __init__(self, start=None, end=None, weekdays=None, goback=None):
@@ -43,8 +42,8 @@ class HMCRModel(ECMWFModelTaskBase):
             {
                 "actual_size": 130040784 if d < datetime.datetime(2022,9,15) else 109532560,
                 "target": f"{cf_1p5_toplevel}/hmcr_rel_cf_pl_zuvt{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -64,8 +63,8 @@ class HMCRModel(ECMWFModelTaskBase):
             {
                 "actual_size": 25285708 if d < datetime.datetime(2022,9,15) else 19168198,
                 "target": f"{cf_1p5_toplevel}/hmcr_rel_cf_pl_q{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "200/300/500/700/850/925/1000",
@@ -86,8 +85,8 @@ class HMCRModel(ECMWFModelTaskBase):
                 "actual_size": 71510260 if d < datetime.datetime(2015,9,16) else \
                     71452180 if d < datetime.datetime(2022,9,15) else 53968540,
                 "target": f"{cf_1p5_toplevel}/hmcr_rel_cf_sfc_sfc{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -106,8 +105,8 @@ class HMCRModel(ECMWFModelTaskBase):
             {
                 "actual_size": 21449248,
                 "target": f"{cf_1p5_toplevel}/hmcr_rel_cf_sfc_sfc6_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -126,8 +125,8 @@ class HMCRModel(ECMWFModelTaskBase):
             {
                 "actual_size": 32281770,
                 "target": f"{cf_1p5_toplevel}/hmcr_rel_cf_sfc_sfc62_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -146,8 +145,8 @@ class HMCRModel(ECMWFModelTaskBase):
             {
                 "min_size": 22070000,
                 "target": f"{cf_1p5_toplevel}/hmcr_rel_cf_da_sfc{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -168,8 +167,8 @@ class HMCRModel(ECMWFModelTaskBase):
             {
                 "actual_size": 2470774896 if d < datetime.datetime(2022,9,15) else 4381302400,
                 "target": f"{pf_1p5_toplevel}/hmcr_rel_pf_pl_zuvt{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -189,8 +188,8 @@ class HMCRModel(ECMWFModelTaskBase):
             {
                 "actual_size": 617693724 if d < datetime.datetime(2022,9,15) else 1095325600,
                 "target": f"{pf_1p5_toplevel}/hmcr_rel_pf_pl_z{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -210,8 +209,8 @@ class HMCRModel(ECMWFModelTaskBase):
             {
                 "actual_size": 617693724 if d < datetime.datetime(2022,9,15) else 1095325600,
                 "target": f"{pf_1p5_toplevel}/hmcr_rel_pf_pl_t{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -231,8 +230,8 @@ class HMCRModel(ECMWFModelTaskBase):
             {
                 "actual_size": 617693724 if d < datetime.datetime(2022,9,15) else 1095325600,
                 "target": f"{pf_1p5_toplevel}/hmcr_rel_pf_pl_u{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -252,8 +251,8 @@ class HMCRModel(ECMWFModelTaskBase):
             {
                 "actual_size": 617693724 if d < datetime.datetime(2022,9,15) else 1095325600,
                 "target": f"{pf_1p5_toplevel}/hmcr_rel_pf_pl_v{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -273,8 +272,8 @@ class HMCRModel(ECMWFModelTaskBase):
             {
                 "actual_size": 480428452 if d < datetime.datetime(2022,9,15) else 766727920,
                 "target": f"{pf_1p5_toplevel}/hmcr_rel_pf_pl_q{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levelist": "200/300/500/700/850/925/1000",
@@ -295,8 +294,8 @@ class HMCRModel(ECMWFModelTaskBase):
                 "actual_size": 1221429668 if d < datetime.datetime(2015,9,16) else \
                     1220326148 if d < datetime.datetime(2022,9,15) else 1939676480,
                 "target": f"{pf_1p5_toplevel}/hmcr_rel_pf_sfc_sfc{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -315,8 +314,8 @@ class HMCRModel(ECMWFModelTaskBase):
             {
                 "actual_size": 857969920,
                 "target": f"{pf_1p5_toplevel}/hmcr_rel_pf_sfc_sfc6_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -335,8 +334,8 @@ class HMCRModel(ECMWFModelTaskBase):
             {
                 "actual_size": 1291270800,
                 "target": f"{pf_1p5_toplevel}/hmcr_rel_pf_sfc_sfc62_{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -355,8 +354,8 @@ class HMCRModel(ECMWFModelTaskBase):
             {
                 "min_size": 555040000,
                 "target": f"{pf_1p5_toplevel}/hmcr_rel_pf_da_sfc{ymd}{ymd}.grb",
-                "class": "s2",
-                "dataset": "s2s",
+                "class": HMCRModel.s2s_class,
+                "dataset": HMCRModel.dataset,
                 "date": y_m_d,
                 "expver": "prod",
                 "levtype": "sfc",
@@ -379,8 +378,8 @@ class HMCRModel(ECMWFModelTaskBase):
                     "actual_size": 47331792 if d < datetime.datetime(2018, 11, 1) else \
                         46688976 if d < datetime.datetime(2022, 9, 15) else 35393256,
                     "target": f"{cf_toplevel}/hmcr_rel_cf_pl_zuvt{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": HMCRModel.s2s_class,
+                    "dataset": HMCRModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "50/100/200/300/500/700/850/925/1000",
@@ -402,8 +401,8 @@ class HMCRModel(ECMWFModelTaskBase):
                         9078412 if d < datetime.datetime(2022, 9, 15) else \
                             6882022,
                     "target": f"{cf_toplevel}/hmcr_rel_cf_pl_q{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": HMCRModel.s2s_class,
+                    "dataset": HMCRModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "200/300/500/700/850/925/1000",
@@ -427,8 +426,8 @@ class HMCRModel(ECMWFModelTaskBase):
                                 25668436 if d < datetime.datetime(2022, 9, 15) else \
                                     19387996,
                     "target": f"{cf_toplevel}/hmcr_rel_cf_sfc_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": HMCRModel.s2s_class,
+                    "dataset": HMCRModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -447,8 +446,8 @@ class HMCRModel(ECMWFModelTaskBase):
                 {
                     "min_size": 7947000,
                     "target": f"{cf_toplevel}/hmcr_rel_cf_da_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": HMCRModel.s2s_class,
+                    "dataset": HMCRModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -472,8 +471,8 @@ class HMCRModel(ECMWFModelTaskBase):
                         887090544 if d < datetime.datetime(2022, 9, 15) else \
                             707865120,
                     "target": f"{pf_toplevel}/hmcr_rel_pf_pl_zuvt{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": HMCRModel.s2s_class,
+                    "dataset": HMCRModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "50/100/200/300/500/700/850/925/1000",
@@ -495,8 +494,8 @@ class HMCRModel(ECMWFModelTaskBase):
                         172489828 if d < datetime.datetime(2022, 9, 15) else \
                             137640440,
                     "target": f"{pf_toplevel}/hmcr_rel_pf_pl_q{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": HMCRModel.s2s_class,
+                    "dataset": HMCRModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "200/300/500/700/850/925/1000",
@@ -519,8 +518,8 @@ class HMCRModel(ECMWFModelTaskBase):
                             438417476 if d < datetime.datetime(2022, 9, 15) else \
                                 348434080,
                     "target": f"{pf_toplevel}/hmcr_rel_pf_sfc_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": HMCRModel.s2s_class,
+                    "dataset": HMCRModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -539,8 +538,8 @@ class HMCRModel(ECMWFModelTaskBase):
                 {
                     "min_size": 158950000,
                     "target": f"{pf_toplevel}/hmcr_rel_pf_da_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": HMCRModel.s2s_class,
+                    "dataset": HMCRModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",

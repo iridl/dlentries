@@ -113,7 +113,7 @@ def S2S_logs_directory():
     return f"{S2S_ecmwf_toplevel_directory()}/logs"
 
 
-def S2S_configure_logging(log_dir, log_file, level=logging.DEBUG):
+def S2S_configure_logging(log_dir, log_file, level=logging.INFO):
     logfile = None
     try:
         if not os.path.isdir(log_dir):

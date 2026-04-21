@@ -15,7 +15,8 @@ from ECMWFModelTaskClass import ECMWFModelTaskBase
 class ECMWF_REFModelTaskBase(ECMWFModelTaskBase):
     """
     This subclass is slightly different than the base due to the date checks.
-    Reference example: https://apps.ecmwf.int/datasets/data/s2s-reforecasts-instantaneous-accum-cwao/levtype=sfc/type=cf/
+    https://ecds.ecmwf.int/datasets/s2s-reforecasts?tab=overview
+
     This is a base model for building tasks to download reforecast data from the ECMWF Data Server
     Reforecasts are typically available on specific days of the week (realtime date).
     If a start date is specified, we assume they know that is the exact date they want to download for, so no
@@ -24,6 +25,8 @@ class ECMWF_REFModelTaskBase(ECMWFModelTaskBase):
     This class is meant to be subclassed.
     """
     goback = 60
+    dataset = "s2s-reforecasts"
+
     def __init__(self, start=None, end=None, weekdays=None, goback=None, model_version_offset=0):
         if goback is None:
             goback = ECMWF_REFModelTaskBase.goback

@@ -3,10 +3,7 @@ import datetime
 
 class ECMFModel(ECMWFModelTaskBase):
     """
-    Model used to download the ECMWF models from the ECMWFDataServer()
-    References:
-        https://confluence.ecmwf.int/display/S2S/ECMWF+Model
-        https://apps.ecmwf.int/datasets/data/s2s-realtime-instantaneous-accum-ecmf/
+    Model used to download the ECMWF models from the ECMWFDataServer cdsapi()
     """
     first_date = datetime.datetime(2023, 6, 30)
 
@@ -17,7 +14,7 @@ class ECMFModel(ECMWFModelTaskBase):
     weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
     origin = "ecmf"
-    
+
     def __init__(self, start=None, end=None, weekdays=None, goback=None):
         if weekdays is None:
             weekdays = ECMFModel.weekdays
@@ -52,8 +49,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 251924888,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_pl_t_LEVEL_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -71,8 +68,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 251924888,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_pl_u_LEVEL_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -90,8 +87,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 251924888,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_pl_v_LEVEL_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -109,8 +106,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 251924888,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_pl_w_LEVEL_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -128,8 +125,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 251924888,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_pl_z_LEVEL_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -151,8 +148,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 1763474216,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_pl_q{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "200/300/500/700/850/925/1000",
@@ -170,8 +167,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 997220384,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_sfc_sfc21_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -188,8 +185,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 1233426520,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_sfc_sfc22_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -206,8 +203,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 1490553088,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_sfc_sfc23_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -224,8 +221,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 939462600,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_sfc_sfc3_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -242,8 +239,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 986665408,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_sfc_sfc6_mx2t6_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -260,8 +257,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 986665408,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_sfc_sfc6_mn2t6_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -278,8 +275,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 986684360,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_sfc_sfc62_tp_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -296,8 +293,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 991619240,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_sfc_sfc62_10u_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -314,8 +311,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 991619240,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_sfc_sfc62_10v_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -332,8 +329,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 1436496581,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_da_sfc1_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -350,8 +347,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 1316312816,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_da_sfc2_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -368,8 +365,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 251924888,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_pt_pv{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "320",
@@ -387,8 +384,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 1495250240,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_o2d1_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "o2d",
@@ -406,8 +403,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 398743272,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_o2d2_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "o2d",
@@ -425,8 +422,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 1730929569,
                     "target": f"{pf_toplevel}/ecmf_rel_pf_o2d3_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "o2d",
@@ -447,8 +444,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 100769955,
                     "target": f"{cf_toplevel}/ecmf_rel_cf_pl_zuvt{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -465,8 +462,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 17634742,
                     "target": f"{cf_toplevel}/ecmf_rel_cf_pl_q{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "200/300/500/700/850/925/1000",
@@ -483,8 +480,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 25192488,
                     "target": f"{cf_toplevel}/ecmf_rel_cf_pl_w{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -501,8 +498,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 9399663,
                     "target": f"{cf_toplevel}/ecmf_rel_cf_sfc_sfc3_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -518,8 +515,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 9972203,
                     "target": f"{cf_toplevel}/ecmf_rel_cf_sfc_sfc21_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -535,8 +532,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 14853514,
                     "target": f"{cf_toplevel}/ecmf_rel_cf_sfc_sfc22_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -552,8 +549,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 15922210,
                     "target": f"{cf_toplevel}/ecmf_rel_cf_sfc_sfc23_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -569,8 +566,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 19733308,
                     "target": f"{cf_toplevel}/ecmf_rel_cf_sfc_sfc6_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -586,8 +583,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 29699228,
                     "target": f"{cf_toplevel}/ecmf_rel_cf_sfc_sfc62_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -603,8 +600,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 27534510,
                     "target": f"{cf_toplevel}/ecmf_rel_cf_da_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -620,8 +617,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 2519248,
                     "target": f"{cf_toplevel}/ecmf_rel_cf_pt_pv{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "320",
@@ -638,8 +635,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {
                     "min_size": 34906932,
                     "target": f"{cf_toplevel}/ecmf_rel_cf_o2d{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "o2d",
@@ -656,8 +653,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {   # depth of 20C isotherm
                     "min_size": 3987432,
                     "target": f"{cf_toplevel}/ecmf_rel_cf_o2d1_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "o2d",
@@ -674,8 +671,8 @@ class ECMFModel(ECMWFModelTaskBase):
                 {   # 9 mixed layer thickness
                     "min_size": 3987432,
                     "target": f"{cf_toplevel}/ecmf_rel_cf_o2d2_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": ECMFModel.s2s_class,
+                    "dataset": ECMFModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "o2d",

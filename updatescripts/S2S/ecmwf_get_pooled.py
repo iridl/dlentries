@@ -12,75 +12,109 @@ import multiprocessing as mp
 import argparse
 import logging
 from multiprocessing_logging import install_mp_handler
+from typing import TypedDict
 import os
-from ecmwfapi import ECMWFDataServer
+import cdsapi
 import datetime
 from ecmwf_get_data import available_models
-import platform
 import tempfile
+from pathlib import Path
 from check_file_size import process_file_by_size
 
-# Globals
-filecount = []
-debug = False
-myplatform = platform.system()
-tmpdir = tempfile.gettempdir()
-
-def my_logger(msg):
-    if debug:
-        if myplatform == "Darwin":
-            print(msg)
-        else:
-            logging.info(msg)
+class DownloadResult(TypedDict):
+    start_time: datetime.datetime
+    end_time: datetime.datetime
+    size: int
+    target: Path
+    error: str | None
 
 
-def initializer():
-    global ECMWF_server
-    ECMWF_server = ECMWFDataServer(log=my_logger)
+def initializer(t, log_level):
+    global CDS_Client
+    global tmpdir
+    tmpdir = t
+
+    logging.getLogger("cdsapi").setLevel(logging.WARN)
+    logging.getLogger("ecmwf_downloader").setLevel(log_level)
+
+    CDS_Client = cdsapi.Client(quiet=True)
 
 def receive_file_task(task):
     """
     Single task to download a model file from ECMWF.
     """
-    result = {'start_time': datetime.datetime.now(), 'size': 0, 'target': task.pop("target", None), 'end_time': None,
-              'error': None}
+    result: DownloadResult = {
+        "start_time": datetime.datetime.now(),
+        "size": 0,
+        "target": Path(task.pop("target", "")),
+        "end_time": datetime.datetime.now(),
+        "error": None,
+    }
 
-    if result['target'] is None:
-        logging.error("No target specified for task")
+    app_logger = logging.getLogger("ecmwf_downloader")
+
+    if result['target'] == Path(""):
         result["error"] = "No target specified for task"
     else:
-        task['target'] = f"{tmpdir}/{os.path.basename(result['target'])}"
+        tmpfile = f"{tmpdir}/{os.path.basename(result['target'])}"
 
         min_size = task.pop("min_size", None)
         actual_size = task.pop("actual_size", None)
+        dataset = task.pop("dataset", None)
 
         try:
-            # if debugging is on then messages from this process will be logged to the logfile.
-            if debug:
-                logging.debug(f"Retrieving {task['target']}")
-            ECMWF_server.retrieve(task)
+            app_logger.debug(f"Retrieving {tmpfile}")
+            CDS_Client.retrieve(dataset, task, tmpfile)
         except Exception as e:
-            if os.path.exists(task['target']):
-                os.unlink(task["target"])
-            result['error'] = f"ECMWF_Server.retrieve {task['target']} error {e}"
+            if os.path.exists(tmpfile):
+                os.unlink(tmpfile)
+            result['error'] = f"ECMWF_Server.retrieve {tmpfile} error {e}"
+            app_logger.error(result['error'])
         else:
             # Check if the retrieved file exists, and if the size is incorrect, remove it.
-            result['size'] = process_file_by_size(task['target'], min_size, actual_size)
+            result['size'] = process_file_by_size(tmpfile, min_size, actual_size)
             if result['size'] != 0:
                 try:
-                    os.rename(task["target"], result['target'])
+                    result['target'].parent.mkdir(parents=True, exist_ok=True)
+                    os.rename(tmpfile, result['target'])
                 except Exception as exception:
-                    os.unlink(task["target"])
-                    result['error'] = f"Error renaming {task['target']} to {result['target']}: {exception}"
+                    result['error'] = f"Error renaming {tmpfile} to {result['target']}: {exception}"
+                    try:
+                        os.unlink(tmpfile)
+                        os.unlink(result['target'])
+                    except FileNotFoundError:
+                        # Ignore if file is already gone
+                        pass
+                    except OSError as e:
+                        # Optionally handle other OS-related errors (e.g., permissions)
+                        result['error'] = f"Error removing {tmpfile} or {result['target']}: {exception}"
             else:
-                result['error'] = f"File size is incorrect for {task['target']}"
+                result['error'] = f"File size is incorrect for {result['target']}, tmpfile removed"
 
-    logging.debug(f"Completed {task['target']}, error: {result['error'] if result['error'] else 'None'}")
+    if result['error'] is not None:
+        app_logger.error(f"Completed {result['target']}, error: {result['error']}")
+    else:
+        app_logger.info(f"Completed {result['target']}, size: {result['size']}")
     result["end_time"] = datetime.datetime.now()
     return result
 
+def safe_receive_file_task(task):
+    # This prevents unknown exceptions in the receive_file_task from returning nothing.
+    target = task.get("target")
+    try:
+        return receive_file_task(task)
+    except Exception as e:
+        return {
+            'target': target,
+            'error': f"Unhandled exception: {e}",
+            'size': 0,
+            'start_time': datetime.datetime.now(),
+            'end_time': datetime.datetime.now()
+        }
+
+
 if __name__ == '__main__':
-    ECMWF_server = None
+    CDS_Client = None
     start = None
     end = None
 
@@ -94,7 +128,7 @@ if __name__ == '__main__':
     parser.add_argument('--end', type=str,
                         help="End Day in the form YYYY-MM-DD")
     parser.add_argument('--debug', action="store_true",
-                        help="Turn on ECMWFDataserver logging")
+                        help="Turn on extra logging")
     parser.add_argument('--max_downloads', type=int, default=1,
                         help="configure the maximum parallel downloads")
     parser.add_argument('--goback', type=int,
@@ -104,18 +138,21 @@ if __name__ == '__main__':
                         ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]\n\
                         ["1", "2", "3", "4", "5", "6", "7" ... "31"] for the actual dates.')
     parser.add_argument('--tmpdir', type=str,
-                        help=f"modify default TMPDIR from {tmpdir}")
+                        help=f"modify default TMPDIR from default")
     args = parser.parse_args()
 
-    if args.debug:
-        debug = args.debug
     if args.tmpdir:
         tmpdir = args.tmpdir
+    else:
+        tmpdir = tempfile.gettempdir()
 
     # initialize logging
-    logging.basicConfig(filename=args.logfile, encoding="utf-8",
-                        format="%(levelname)s: %(asctime)s - %(process)s - %(message)s",
-                        level=logging.DEBUG)
+    app_logger = logging.getLogger("ecmwf_downloader")
+    app_logger.setLevel(logging.DEBUG if args.debug else logging.INFO)
+
+    handler = logging.FileHandler(args.logfile, encoding="utf-8")
+    handler.setFormatter(logging.Formatter("%(levelname)s: %(asctime)s - %(process)s - %(message)s"))
+    app_logger.addHandler(handler)
 
     # Convert start and end into datetime objects
     if args.start is not None:
@@ -144,17 +181,22 @@ if __name__ == '__main__':
 
     install_mp_handler()
 
+    results = []
+    pool = None
     try:
-        pool = mp.Pool(args.max_downloads, initializer=initializer)
-        results = pool.map(receive_file_task, all_tasks)
+        pool = mp.Pool(processes=args.max_downloads, initializer=initializer, initargs=(tmpdir, logging.DEBUG if args.debug else logging.INFO))
+        results = pool.map(safe_receive_file_task, all_tasks)
         pool.close()
         pool.join()
     except Exception as e:
         logging.error(f"Pool Error: {e}")
-    else:
-        logging.info(f"completed {len(results)} tasks:")
-        for r in results:
-            delta = r['end_time'] - r['start_time']
-            logging.info(f"Time: {delta.total_seconds()}, Size: {r['size']}, File: {r['target']}, Error: {r['error'] if r['error'] else 'None'}")
+        if pool:
+            pool.terminate()
+            pool.join()
+
+    logging.info(f"completed {len(results)} tasks:")
+    for r in results:
+        delta = r['end_time'] - r['start_time']
+        logging.info(f"Time: {delta.total_seconds()}, Size: {r['size']}, File: {r['target']}, Error: {r['error'] if r['error'] else 'None'}")
 
     exit(0)

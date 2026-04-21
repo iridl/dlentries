@@ -13,11 +13,13 @@ from check_file_size import process_file_by_size
 class ECMWFModelTaskBase:
     """
     Base model for building tasks to download data from the ECMWF Data Server
-    https://confluence.ecmwf.int/display/S2S/Models
+    https://ecds.ecmwf.int/datasets/s2s-forecasts?tab=overview
     """
 
     # Default number of days to go back in time to download data
     goback = 60
+    s2s_class = "s2s"
+    dataset = "s2s-forecasts"
 
     def __init__(self, start=None, end=None, weekdays=None, goback=goback, data_access_delay=0):
         """
@@ -47,7 +49,6 @@ class ECMWFModelTaskBase:
 
         # Actual dates we'll be downloading data for
         self.dates = self.get_date_list()
-        logging.debug(f'Dates are: {self.dates}')
 
         # all_models is to be defined in the subclass
         self.all_models = {}
@@ -58,7 +59,6 @@ class ECMWFModelTaskBase:
         # make sure we're not trying to get data beyond its availability.
         if self.data_access_delay is not None:
             if d >= self.today - datetime.timedelta(days=self.data_access_delay):
-                logging.debug(f'{d} > today-delay')
                 return False
 
         if self.weekdays is None:
@@ -73,12 +73,10 @@ class ECMWFModelTaskBase:
             if f"{d.day}" in self.weekdays:
                 return True
             else:
-                logging.debug(f'{d} is not on the right weekday: {self.weekdays}')
                 return False
         elif d_string in self.weekdays:
             return True
         else:
-            logging.debug(f'{d} is not on the right weekday: {self.weekdays}')
             return False
 
     def get_date_list(self):
@@ -159,6 +157,6 @@ class ECMWFModelTaskBase:
         """
         for f in self.get_target_folders():
             if not os.path.exists(f):
-                logging.warning(f"Creating folder {f}")
+                logging.debug(f"Creating folder {f}")
                 if not dryrun:
                     os.makedirs(f, DIR_MODE, exist_ok=True)

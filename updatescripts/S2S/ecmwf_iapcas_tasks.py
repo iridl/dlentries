@@ -17,7 +17,6 @@ class IAPCASModel(ECMWFModelTaskBase):
 
     # weekdays: days of week data is available
     weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-
     origin = "anso"
     
     def __init__(self, start=None, end=None, weekdays=None, goback=None):
@@ -40,8 +39,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "actual_size": 2837078400 if d > datetime.datetime(2024,8, 20) else 86587000,
                     "target": f"{pf_toplevel}/iap-cas_rel_pf_pl_z{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -59,8 +58,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "actual_size": 2837078400 if d > datetime.datetime(2024,8, 20) else 86587000,
                     "target": f"{pf_toplevel}/iap-cas_rel_pf_pl_t{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -78,8 +77,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "actual_size": 2837078400 if d > datetime.datetime(2024,8, 20) else 86587000,
                     "target": f"{pf_toplevel}/iap-cas_rel_pf_pl_u{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -97,8 +96,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "actual_size": 2837078400 if d > datetime.datetime(2024,8, 20) else 86587000,
                     "target": f"{pf_toplevel}/iap-cas_rel_pf_pl_v{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -116,8 +115,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "actual_size": 11348313600 if d > datetime.datetime(2024,8, 20) else 3546348000,
                     "target": f"{pf_toplevel}/iap-cas_rel_pf_pl_zuvt{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -135,8 +134,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "actual_size": 1985954880 if d > datetime.datetime(2024,8, 20) else 620610900,
                     "target": f"{pf_toplevel}/iap-cas_rel_pf_pl_q{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "200/300/500/700/850/925/1000",
@@ -154,8 +153,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "actual_size": 283707840 if d > datetime.datetime(2024,8, 20) else 88658700,
                     "target": f"{pf_toplevel}/iap-cas_rel_pf_pl_w{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "500",
@@ -173,8 +172,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "min_size": 3405167000 if d > datetime.datetime(2024,8, 20) else 1064115000,
                     "target": f"{pf_toplevel}/iap-cas_rel_pf_sfc_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -191,8 +190,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "actual_size": 5675055360 if d > datetime.datetime(2024,8, 20) else 1773454800,
                     "target": f"{pf_toplevel}/iap-cas_rel_pf_sfc_sfc6_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -209,8 +208,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "min_size": 1497169428 if d > datetime.datetime(2024,8, 20) else 467865450,
                     "target": f"{pf_toplevel}/iap-cas_rel_pf_da_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -231,8 +230,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "actual_size": 236423200,
                     "target": f"{cf_toplevel}/iap-cas_rel_cf_pl_zuvt{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "10/50/100/200/300/500/700/850/925/1000",
@@ -250,8 +249,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "actual_size": 41374060,
                     "target": f"{cf_toplevel}/iap-cas_rel_cf_pl_q{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "200/300/500/700/850/925/1000",
@@ -269,8 +268,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "actual_size": 5910580,
                     "target": f"{cf_toplevel}/iap-cas_rel_cf_pl_w{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levelist": "500",
@@ -288,8 +287,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "actual_size": 82762160,
                     "target": f"{cf_toplevel}/iap-cas_rel_cf_sfc_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -306,8 +305,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "actual_size": 118230320,
                     "target": f"{cf_toplevel}/iap-cas_rel_cf_sfc_sfc6_{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
@@ -324,8 +323,8 @@ class IAPCASModel(ECMWFModelTaskBase):
                 {
                     "min_size": 31191027,
                     "target": f"{cf_toplevel}/iap-cas_rel_cf_da_sfc{ymd}{ymd}.grb",
-                    "class": "s2",
-                    "dataset": "s2s",
+                    "class": IAPCASModel.s2s_class,
+                    "dataset": IAPCASModel.dataset,
                     "date": y_m_d,
                     "expver": "prod",
                     "levtype": "sfc",
