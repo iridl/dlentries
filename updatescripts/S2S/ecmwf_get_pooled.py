@@ -16,9 +16,14 @@ from typing import TypedDict
 import os
 import cdsapi
 import datetime
-from ecmwf_get_data import available_models
 import tempfile
+import sys
 from pathlib import Path
+
+sys.path.append('..')
+from get_cdsapi_credentials import get_cdsapi_credential
+
+from ecmwf_get_data import available_models
 from check_file_size import process_file_by_size
 
 class DownloadResult(TypedDict):
@@ -29,7 +34,7 @@ class DownloadResult(TypedDict):
     error: str | None
 
 
-def initializer(t, log_level):
+def initializer(t, log_level, credential):
     global CDS_Client
     global tmpdir
     tmpdir = t
@@ -37,7 +42,7 @@ def initializer(t, log_level):
     logging.getLogger("cdsapi").setLevel(logging.WARN)
     logging.getLogger("ecmwf_downloader").setLevel(log_level)
 
-    CDS_Client = cdsapi.Client(quiet=True)
+    CDS_Client = cdsapi.Client(url=credential['url'], key=credential['key'], quiet=True)
 
 def receive_file_task(task):
     """
@@ -117,6 +122,9 @@ if __name__ == '__main__':
     CDS_Client = None
     start = None
     end = None
+    credential = get_cdsapi_credential('ecmwf_get_pooled.py')
+    if credential is None:
+        raise ValueError("CDS API credentials not found for 'ecmwf_get_pooled.py'")
 
     parser = argparse.ArgumentParser(description="use multiprocessing to download a set of models from ECMWF")
     parser.add_argument('--models', type=str, required=True, nargs="+",
@@ -129,7 +137,7 @@ if __name__ == '__main__':
                         help="End Day in the form YYYY-MM-DD")
     parser.add_argument('--debug', action="store_true",
                         help="Turn on extra logging")
-    parser.add_argument('--max_downloads', type=int, default=1,
+    parser.add_argument('--max_downloads', type=int, default=2,
                         help="configure the maximum parallel downloads")
     parser.add_argument('--goback', type=int,
                         help="number of days to go back in time.  Default is defined by the model.")
@@ -184,7 +192,8 @@ if __name__ == '__main__':
     results = []
     pool = None
     try:
-        pool = mp.Pool(processes=args.max_downloads, initializer=initializer, initargs=(tmpdir, logging.DEBUG if args.debug else logging.INFO))
+        pool = mp.Pool(processes=args.max_downloads, initializer=initializer,
+                       initargs=(tmpdir, logging.DEBUG if args.debug else logging.INFO, credential))
         results = pool.map(safe_receive_file_task, all_tasks)
         pool.close()
         pool.join()

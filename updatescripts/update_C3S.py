@@ -6,6 +6,12 @@ import datetime
 import os
 import calendar
 
+from get_cdsapi_credentials import get_cdsapi_credential
+
+credential = get_cdsapi_credential('update_C3S.py')
+if credential is None:
+    raise ValueError("CDS API credentials not found for 'update_C3S.py'")
+
 topdir = '/Data/data21/EC/Copernicus/CDS/C3S'
 
 case = {
@@ -164,7 +170,7 @@ if __name__ == '__main__':
     dirname = f"{args.dir}/{model['dir']}/{case[hcst_fcst]}"
     print(dirname)
 
-    c = cdsapi.Client()
+    c = cdsapi.Client(url=credential['url'], key=credential['key'])
 
     for yr in years:
         for mon in months:
