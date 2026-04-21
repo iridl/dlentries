@@ -81,7 +81,7 @@ S {(/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/ts_sfc_GMAOGEOS_%Y%m%d[S]_ens05.nc4)
 name exch def
 
  /pr{
-[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/pr_sfc_GMAOGEOS_%Y%m%d[S]_ens0%1.1d[M].nc4) [ M S ]   readdatafile: 
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/pr_sfc_GMAOGEOS_%Y%m%d[S]_ens%2.2d[M].nc4) [ M S ]   readdatafile: 
 /name (PRECTOTCORR) def
  /long_name (Total Precipitation) def
  /units (kg m-2 s-1)cvn def
@@ -92,7 +92,7 @@ name exch def
 }defasvarsilent
 
  /tas{
-[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/tas_2m_GMAOGEOS_%Y%m%d[S]_ens0%1.1d[M].nc4) [ M S ] readdatafile:
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/tas_2m_GMAOGEOS_%Y%m%d[S]_ens%2.2d[M].nc4) [ M S ] readdatafile:
 /name (T2M) def
  /long_name (2-meter Air Temperature) def
  /units /Kelvin_scale def
@@ -103,7 +103,7 @@ name exch def
 }defasvarsilent
 
  /ts{
-[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/ts_sfc_GMAOGEOS_%Y%m%d[S]_ens0%1.1d[M].nc4) [ M S ] readdatafile:
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/ts_sfc_GMAOGEOS_%Y%m%d[S]_ens%2.2d[M].nc4) [ M S ] readdatafile:
 /name (TS) def
  /fmissing_value 1.0E15 def
  /long_name (Surface Skin Temperature) def
@@ -115,7 +115,7 @@ name exch def
 
  /ua {
 [ X Y /Pdummy 1 NewIntegerGRID | P a: 850 subgrid :a: 200 subgrid :a appendgrid L M S ]
-(/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d[S]/ua_%d[P]_GMAOGEOS_%Y%m%d[S]_ens0%1.1d[M].nc4)
+(/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d[S]/ua_%d[P]_GMAOGEOS_%Y%m%d[S]_ens%2.2d[M].nc4)
 [ P a: 850 subgrid :a: 200 subgrid :a appendgrid S M ] readdatafile:
 /name (U) def
  /long_name (Eastward Wind) def
@@ -129,7 +129,7 @@ name exch def
 
  /va {
 [ X Y /Pdummy 1 NewIntegerGRID | P a: 850 subgrid :a: 200 subgrid :a appendgrid L M S ]
-(/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d[S]/va_%d[P]_GMAOGEOS_%Y%m%d[S]_ens0%1.1d[M].nc4)
+(/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d[S]/va_%d[P]_GMAOGEOS_%Y%m%d[S]_ens%2.2d[M].nc4)
 [ P a: 850 subgrid :a: 200 subgrid :a appendgrid S M ] readdatafile:
 /name (V) def
  /long_name (Northward Wind) def
@@ -143,7 +143,7 @@ name exch def
 
  /zg {
 [ X Y /Pdummy 1 NewIntegerGRID | P a: 500 subgrid :a: 200 subgrid :a appendgrid L M S ]
-(/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d[S]/zg_%d[P]_GMAOGEOS_%Y%m%d[S]_ens0%1.1d[M].nc4)
+(/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d[S]/zg_%d[P]_GMAOGEOS_%Y%m%d[S]_ens%2.2d[M].nc4)
 [ P a: 500 subgrid :a: 200 subgrid :a appendgrid S M ] readdatafile:
 /name (H) def
  /long_name (Geopotential Height) def
@@ -156,7 +156,7 @@ name exch def
 }defasvarsilent
 
  /mrro{
-[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/mrro_GMAOGEOS_%Y%m%d[S]_ens0%1.1d[M].nc4) [ M S ] readdatafile: 
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/mrro_GMAOGEOS_%Y%m%d[S]_ens%2.2d[M].nc4) [ M S ] readdatafile: 
 /name (RUNOFF) def
  /missing_value 1.0E15 def
  /standard_name (surface_runoff_flux) def
@@ -167,7 +167,7 @@ name exch def
 }defasvarsilent
 
  /mrso{
-[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/mrso_GMAOGEOS_%Y%m%d[S]_ens0%1.1d[M].nc4) [ M S ] readdatafile: 
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/mrso_GMAOGEOS_%Y%m%d[S]_ens%2.2d[M].nc4) [ M S ] readdatafile: 
 /name (WATSOI) def
  /fmissing_value 1.0E15 def
  /missing_value 1.0E15 def
@@ -178,7 +178,7 @@ name exch def
 }defasvarsilent
 
  /sic{
-[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/sic_GMAOGEOS_%Y%m%d[S]_ens0%1.1d[M].nc4) [ M S ] readdatafile: 
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/sic_GMAOGEOS_%Y%m%d[S]_ens%2.2d[M].nc4) [ M S ] readdatafile: 
 /name (sic) def
  /missing_value 1.0E15 def
  /fmissing_value 1.0E15 def
@@ -189,7 +189,7 @@ name exch def
 }defasvarsilent
 
 /frocean{
-[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/frocean_GMAOGEOS_%Y%m%d[S]_ens0%1.1d[M].nc4) [ S M ] readdatafile: 
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/frocean_GMAOGEOS_%Y%m%d[S]_ens%2.2d[M].nc4) [ S M ] readdatafile: 
 /name (FROCEAN) def
  /missing_value 1.0E15 def
  /standard_name (fraction_of_ocean) def
@@ -200,7 +200,7 @@ name exch def
 }defasvarsilent
 
 /frseaice{
-[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/frseaice_GMAOGEOS_%Y%m%d[S]_ens0%1.1d[M].nc4) [ S M ] readdatafile: 
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/frseaice_GMAOGEOS_%Y%m%d[S]_ens%2.2d[M].nc4) [ S M ] readdatafile: 
 /name (FRSEAICE) def
  /missing_value 1.0E15 def
  /standard_name (ice_covered_fraction_of_tile) def
@@ -211,7 +211,7 @@ name exch def
 }defasvarsilent
 
 /olr{
-[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/olr_GMAOGEOS_%Y%m%d[S]_ens0%1.1d[M].nc4) [ S M ] readdatafile: 
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/olr_GMAOGEOS_%Y%m%d[S]_ens%2.2d[M].nc4) [ S M ] readdatafile: 
 /name (OLR) def
  /missing_value 1.0E15 def
  /standard_name (upwelling_longwave_flux_at_toa) def
@@ -222,7 +222,7 @@ name exch def
 }defasvarsilent
 
 /rzsm{
-[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/rzsm_GMAOGEOS_%Y%m%d[S]_ens0%1.1d[M].nc4) [ S M ] readdatafile: 
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/forecast/%Y%m%d/rzsm_GMAOGEOS_%Y%m%d[S]_ens%2.2d[M].nc4) [ S M ] readdatafile: 
 /name (WET2) def
  /missing_value 1.0E15 def
  /standard_name (root_zone_soil_wetness) def
