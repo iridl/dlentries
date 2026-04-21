@@ -96,7 +96,7 @@ class ECMWFModelTaskBase:
             while day <= end:
                 if self.check_date(day):
                     date_list.append(day)
-                day = self.today + datetime.timedelta(days=1)
+                day = day + datetime.timedelta(days=1)
         elif self.end is not None:
             # this routine will update self.end to the actual end date.
             day = self.first_date
