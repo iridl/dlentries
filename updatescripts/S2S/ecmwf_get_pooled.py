@@ -68,6 +68,7 @@ def receive_file_task(task):
             result['size'] = process_file_by_size(task['target'], min_size, actual_size)
             if result['size'] != 0:
                 try:
+                    result['target'].parent.mkdir(parents=True, exist_ok=True)
                     os.rename(task["target"], result['target'])
                 except Exception as exception:
                     os.unlink(task["target"])
