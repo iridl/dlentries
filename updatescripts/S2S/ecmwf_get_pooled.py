@@ -19,6 +19,7 @@ from ecmwf_get_data import available_models
 import platform
 import tempfile
 from check_file_size import process_file_by_size
+from pathlib import Path
 
 # Globals
 filecount = []
@@ -49,7 +50,8 @@ def receive_file_task(task):
         logging.error("No target specified for task")
         result["error"] = "No target specified for task"
     else:
-        task['target'] = f"{tmpdir}/{os.path.basename(result['target'])}"
+        result['target'] = Path(result['target'])
+        task['target'] = f"{tmpdir}/{result['target'].name}"
 
         min_size = task.pop("min_size", None)
         actual_size = task.pop("actual_size", None)
@@ -61,7 +63,10 @@ def receive_file_task(task):
             ECMWF_server.retrieve(task)
         except Exception as e:
             if os.path.exists(task['target']):
-                os.unlink(task["target"])
+                try:
+                    os.unlink(task['target'])
+                except Exception as e:
+                    logging.debug(f"Failure to remove failed download temp file: {task['target']}")
             result['error'] = f"ECMWF_Server.retrieve {task['target']} error {e}"
         else:
             # Check if the retrieved file exists, and if the size is incorrect, remove it.
@@ -69,10 +74,13 @@ def receive_file_task(task):
             if result['size'] != 0:
                 try:
                     result['target'].parent.mkdir(parents=True, exist_ok=True)
-                    os.rename(task["target"], result['target'])
+                    os.rename(task["target"], str(result['target']))
                 except Exception as exception:
-                    os.unlink(task["target"])
-                    result['error'] = f"Error renaming {task['target']} to {result['target']}: {exception}"
+                    try:
+                        os.unlink(task["target"])
+                    except Exception as e:
+                        logging.debug(f"Failure to remove downloaded temp file: {task['target']}")
+                    result['error'] = f"Error moving {task['target']} to {str(result['target'])}: {exception}"
             else:
                 result['error'] = f"File size is incorrect for {task['target']}"
 
