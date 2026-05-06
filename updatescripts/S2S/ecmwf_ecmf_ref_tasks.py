@@ -8,7 +8,7 @@ class ECMF_REF_Model(ECMWF_REFModelTaskBase):
     # hindcast_start_year = 2006
     # hindcast_end_year = 2025
     model_version_offset = 18 # days
-    weekdays = ["Mon", 'Thu']
+    weekdays = ["odd"]
     first_date = datetime.datetime(2015, 1, 1)
     origin = "ecmf"
 

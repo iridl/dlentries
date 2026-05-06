@@ -16,6 +16,7 @@ from typing import TypedDict
 import os
 import cdsapi
 import datetime
+import platform
 import tempfile
 import sys
 from pathlib import Path
@@ -33,6 +34,12 @@ class DownloadResult(TypedDict):
     target: Path
     error: str | None
 
+def my_logger(msg):
+    if debug:
+        if myplatform == "Darwin":
+            print(msg)
+        else:
+            logging.info(msg)
 
 def initializer(t, log_level, credential):
     global CDS_Client
@@ -61,45 +68,41 @@ def receive_file_task(task):
     if result['target'] == Path(""):
         result["error"] = "No target specified for task"
     else:
-        tmpfile = f"{tmpdir}/{os.path.basename(result['target'])}"
+        result['target'] = Path(result['target'])
+        task['target'] = f"{tmpdir}/{result['target'].name}"
 
         min_size = task.pop("min_size", None)
         actual_size = task.pop("actual_size", None)
-        dataset = task.pop("dataset", None)
 
         try:
-            app_logger.debug(f"Retrieving {tmpfile}")
-            CDS_Client.retrieve(dataset, task, tmpfile)
+            # if debugging is on then messages from this process will be logged to the logfile.
+            if debug:
+                logging.debug(f"Retrieving {task['target']}")
+            ECMWF_server.retrieve(task)
         except Exception as e:
-            if os.path.exists(tmpfile):
-                os.unlink(tmpfile)
-            result['error'] = f"ECMWF_Server.retrieve {tmpfile} error {e}"
-            app_logger.error(result['error'])
+            if os.path.exists(task['target']):
+                try:
+                    os.unlink(task['target'])
+                except Exception as e:
+                    logging.debug(f"Failure to remove failed download temp file: {task['target']}")
+            result['error'] = f"ECMWF_Server.retrieve {task['target']} error {e}"
         else:
             # Check if the retrieved file exists, and if the size is incorrect, remove it.
-            result['size'] = process_file_by_size(tmpfile, min_size, actual_size)
+            result['size'] = process_file_by_size(task['target'], min_size, actual_size)
             if result['size'] != 0:
                 try:
                     result['target'].parent.mkdir(parents=True, exist_ok=True)
-                    os.rename(tmpfile, result['target'])
+                    os.rename(task["target"], str(result['target']))
                 except Exception as exception:
-                    result['error'] = f"Error renaming {tmpfile} to {result['target']}: {exception}"
                     try:
-                        os.unlink(tmpfile)
-                        os.unlink(result['target'])
-                    except FileNotFoundError:
-                        # Ignore if file is already gone
-                        pass
-                    except OSError as e:
-                        # Optionally handle other OS-related errors (e.g., permissions)
-                        result['error'] = f"Error removing {tmpfile} or {result['target']}: {exception}"
+                        os.unlink(task["target"])
+                    except Exception as e:
+                        logging.debug(f"Failure to remove downloaded temp file: {task['target']}")
+                    result['error'] = f"Error moving {task['target']} to {str(result['target'])}: {exception}"
             else:
-                result['error'] = f"File size is incorrect for {result['target']}, tmpfile removed"
+                result['error'] = f"File size is incorrect for {task['target']}"
 
-    if result['error'] is not None:
-        app_logger.error(f"Completed {result['target']}, error: {result['error']}")
-    else:
-        app_logger.info(f"Completed {result['target']}, size: {result['size']}")
+    logging.debug(f"Completed {task['target']}, error: {result['error'] if result['error'] else 'None'}")
     result["end_time"] = datetime.datetime.now()
     return result
 
@@ -149,6 +152,8 @@ if __name__ == '__main__':
                         help=f"modify default TMPDIR from default")
     args = parser.parse_args()
 
+    if args.debug:
+        debug = args.debug
     if args.tmpdir:
         tmpdir = args.tmpdir
     else:

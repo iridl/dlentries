@@ -9,7 +9,7 @@ class UKMO_REF_Model(ECMWF_REFModelTaskBase):
     """
     hindcast_start_year = 1993
     hindcast_end_year = 2016
-    model_version_offset = 62
+    model_version_offset = 39
     weekdays = ["1", "9", "17", "25"]
     origin = "egrr"
     
