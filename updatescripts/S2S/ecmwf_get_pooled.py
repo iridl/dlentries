@@ -16,16 +16,14 @@ from typing import TypedDict
 import os
 import cdsapi
 import datetime
-import platform
 import tempfile
 import sys
 from pathlib import Path
+from ecmwf_get_data import available_models
+from check_file_size import process_file_by_size
 
 sys.path.append('..')
 from get_cdsapi_credentials import get_cdsapi_credential
-
-from ecmwf_get_data import available_models
-from check_file_size import process_file_by_size
 
 class DownloadResult(TypedDict):
     start_time: datetime.datetime
@@ -33,13 +31,6 @@ class DownloadResult(TypedDict):
     size: int
     target: Path
     error: str | None
-
-def my_logger(msg):
-    if debug:
-        if myplatform == "Darwin":
-            print(msg)
-        else:
-            logging.info(msg)
 
 def initializer(t, log_level, credential):
     global CDS_Client
@@ -58,18 +49,17 @@ def receive_file_task(task):
     result: DownloadResult = {
         "start_time": datetime.datetime.now(),
         "size": 0,
-        "target": Path(task.pop("target", "")),
+        "target": task.pop("target"),
         "end_time": datetime.datetime.now(),
         "error": None,
     }
 
     app_logger = logging.getLogger("ecmwf_downloader")
-
-    if result['target'] == Path(""):
-        result["error"] = "No target specified for task"
+    dataset = task.pop("dataset")
+    if result['target'] == None or dataset == None:
+        result["error"] = "Missing target or dataset for task"
     else:
-        result['target'] = Path(result['target'])
-        task['target'] = f"{tmpdir}/{result['target'].name}"
+        tmpfile = f"{tmpdir}/{result['target'].name}"
 
         min_size = task.pop("min_size", None)
         actual_size = task.pop("actual_size", None)
@@ -78,33 +68,30 @@ def receive_file_task(task):
             # if debugging is on then messages from this process will be logged to the logfile.
             if debug:
                 logging.debug(f"Retrieving {task['target']}")
-            ECMWF_server.retrieve(task)
+            CDS_Client.retrieve(dataset, task, tmpfile)
         except Exception as e:
-            if os.path.exists(task['target']):
+            result['error'] = f"ECMWF_Server.retrieve {tmpfile} error {e}"
+            if os.path.exists(tmpfile):
                 try:
-                    os.unlink(task['target'])
+                    os.unlink(tmpfile)
                 except Exception as e:
-                    logging.debug(f"Failure to remove failed download temp file: {task['target']}")
-            result['error'] = f"ECMWF_Server.retrieve {task['target']} error {e}"
+                    result['error'] += f"\nFailure to remove failed download temp file: {tmpfile}: {e}"
         else:
             # Check if the retrieved file exists, and if the size is incorrect, remove it.
-            result['size'] = process_file_by_size(task['target'], min_size, actual_size)
+            result['size'] = process_file_by_size(tmpfile, min_size, actual_size)
             if result['size'] != 0:
                 try:
                     result['target'].parent.mkdir(parents=True, exist_ok=True)
-                    os.rename(task["target"], str(result['target']))
+                    os.rename(tmpfile, str(result['target']))
                 except Exception as exception:
-                    try:
-                        os.unlink(task["target"])
-                    except Exception as e:
-                        logging.debug(f"Failure to remove downloaded temp file: {task['target']}")
-                    result['error'] = f"Error moving {task['target']} to {str(result['target'])}: {exception}"
+                    result['error'] = f"Error moving {tmpfile} to {str(result['target'])}: {exception}"
             else:
                 result['error'] = f"File size is incorrect for {task['target']}"
 
     logging.debug(f"Completed {task['target']}, error: {result['error'] if result['error'] else 'None'}")
     result["end_time"] = datetime.datetime.now()
     return result
+
 
 def safe_receive_file_task(task):
     # This prevents unknown exceptions in the receive_file_task from returning nothing.
