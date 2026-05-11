@@ -7,6 +7,7 @@ class UKMO_REF_Model(ECMWF_REFModelTaskBase):
     https://apps.ecmwf.int/datasets/data/s2s-reforecasts-instantaneous-accum-egrr/levtype=sfc/type=cf/
     Realtime dates are available every day, but we only run once a week.
     """
+    first_date = datetime.datetime(2016, 12, 25)
     hindcast_start_year = 1993
     hindcast_end_year = 2016
     model_version_offset = 39
@@ -185,7 +186,7 @@ class UKMO_REF_Model(ECMWF_REFModelTaskBase):
                     },
                     {
                         "target": f"{toplevel}/ukmo_ref_pf_pl_w{ymd}{hdate_ymd}.grb",
-                        "actual_size": 32242554 if d < datetime.datetime(2017, 3, 25) else 10747518,
+                        "actual_size": 10747518 if d < datetime.datetime(2017, 3, 25) else 32242554,
                         "class": UKMO_REF_Model.s2s_class,
                         "dataset": UKMO_REF_Model.dataset,
                         "date": y_m_d,
@@ -205,7 +206,7 @@ class UKMO_REF_Model(ECMWF_REFModelTaskBase):
                     },
                     {
                         "target": f"{toplevel}/ukmo_ref_pf_sfc_sfc{ymd}{hdate_ymd}.grb",
-                        "actual_size": 419478714 if d < datetime.datetime(2017, 3, 25) else 139826238,
+                        "actual_size": 139826238 if d < datetime.datetime(2017, 3, 25) else 419478714,
                         "class": UKMO_REF_Model.s2s_class,
                         "dataset": UKMO_REF_Model.dataset,
                         "date": y_m_d,
