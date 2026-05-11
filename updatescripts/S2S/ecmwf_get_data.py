@@ -88,6 +88,8 @@ if __name__ == '__main__':
                         ["1", "2", "3", "4", "5", "6", "7" ... "31"] for the actual dates.')
     parser.add_argument('--tmpdir', type=str, default=ECMWF_TMPDIR,
                         help=f"modify default TMPDIR from {ECMWF_TMPDIR}")
+    parser.add_argument('--key', type=str,
+                        help=f"pass the CDSAPIRC key")
     args = parser.parse_args()
 
     if args.debug:
@@ -97,6 +99,8 @@ if __name__ == '__main__':
 
     executable_arguments.extend(["--max_downloads", str(args.max_downloads)])
     executable_arguments.extend(["--tmpdir", str(args.tmpdir)])
+    if args.key:
+        executable_arguments.extend(["--key", args.key])
 
     #
     # Check the Start and End Times.  Set start and end as datetime values, so we can
