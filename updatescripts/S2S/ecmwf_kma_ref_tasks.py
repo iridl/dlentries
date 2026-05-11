@@ -236,7 +236,8 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                             10747518 if d < datetime.datetime(2017, 11, 1) else \
                                 107475180 if d < datetime.datetime(2022, 3, 25) else \
                                         109203180 if d < datetime.datetime(2023, 8, 17) else \
-                                            327609540,
+                                            327609540 if d < datetime.datetime(2026, 4, 1) else \
+                                                294848586,
                         "class": KMA_REF_Model.s2s_class,
                         "dataset": KMA_REF_Model.dataset,
                         "date": y_m_d,

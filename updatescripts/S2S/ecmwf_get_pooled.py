@@ -112,9 +112,6 @@ if __name__ == '__main__':
     CDS_Client = None
     start = None
     end = None
-    credential = get_cdsapi_credential('ecmwf_get_pooled.py')
-    if credential is None:
-        raise ValueError("CDS API credentials not found for 'ecmwf_get_pooled.py'")
 
     parser = argparse.ArgumentParser(description="use multiprocessing to download a set of models from ECMWF")
     parser.add_argument('--models', type=str, required=True, nargs="+",
@@ -137,6 +134,9 @@ if __name__ == '__main__':
                         ["1", "2", "3", "4", "5", "6", "7" ... "31"] for the actual dates.')
     parser.add_argument('--tmpdir', type=str,
                         help=f"modify default TMPDIR from default")
+    parser.add_argument('--key', type=str,
+                        help=f"use the key as the cdsapi key")
+
     args = parser.parse_args()
 
     if args.debug:
@@ -145,6 +145,14 @@ if __name__ == '__main__':
         tmpdir = args.tmpdir
     else:
         tmpdir = tempfile.gettempdir()
+
+    if args.key:
+        credential = {'url': 'https://ecds.ecmwf.int/api', 'key': args.key}
+    else:
+        credential = get_cdsapi_credential('ecmwf_get_pooled.py')
+
+    if credential is None:
+        raise ValueError("CDS API credentials not found for 'ecmwf_get_pooled.py'")
 
     # initialize logging
     app_logger = logging.getLogger("ecmwf_downloader")

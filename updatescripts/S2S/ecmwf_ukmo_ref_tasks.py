@@ -247,8 +247,31 @@ class UKMO_REF_Model(ECMWF_REFModelTaskBase):
                 ])
 
 if __name__ == '__main__':
-    model = UKMO_REF_Model(start=None)
-    print(model.dates)
-    for key in model.all_models.keys():
-        for task in model.all_models[key]:
-            print(task['target'])
+    import argparse
+    start = end = None
+
+    parser = argparse.ArgumentParser(description="Check Data from UKMO REFORECAST Model.")
+    parser.add_argument('--start', type=str,
+                        help="Start Day in the form YYYY-MM-DD.  Today, b yut default.")
+    parser.add_argument('--end', type=str,
+                        help="End Day in the form YYYY-MM-DD (or \"now\".  Will only run 1 day if not defined")
+
+    args = parser.parse_args()
+    if args.start is None:
+        start = UKMO_REF_Model.first_date
+    else:
+        start = datetime.datetime.strptime(args.start, "%Y-%m-%d")
+
+    if args.end is not None:
+        if args.end == "now":
+            end = datetime.datetime.now()
+        else:
+            end = datetime.datetime.strptime(args.start, "%Y-%m-%d")
+    else:
+        end = datetime.datetime.now()
+
+    model = UKMO_REF_Model(start=start, end=end)
+    tasks = model.get_tasks(prune=True, dryrun=True)
+    for t in tasks:
+        print(t['target'])
+    print(f"Total tasks: {len(tasks)}")
