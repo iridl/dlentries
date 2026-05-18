@@ -8,6 +8,8 @@
 # Jeff Turmelle - Jan 2023
 #
 #
+print(f"Script loaded, __name__ = {__name__}")
+
 import multiprocessing as mp
 import argparse
 import logging
@@ -25,6 +27,8 @@ from check_file_size import process_file_by_size
 sys.path.append('..')
 from get_cdsapi_credentials import get_cdsapi_credential
 
+CDS_Client = None
+
 class DownloadResult(TypedDict):
     start_time: datetime.datetime
     end_time: datetime.datetime
@@ -41,12 +45,19 @@ def initializer(t, loglevel, credential):
     app_logger.info(f"Initializing cdsapi with {credential['url']} and {credential['key']}")
 
     logging.getLogger("cdsapi").setLevel(loglevel)
-    CDS_Client = cdsapi.Client(url=credential['url'], key=credential['key'], quiet=True)
+    try:
+        CDS_Client = cdsapi.Client(url=credential['url'], key=credential['key'], quiet=True)
+    except cdsapi.exceptions.CDSAPIError as e:
+        app_logger.error(f"Failed to initialize cdsapi: {e}")
+        raise
+    else:
+        app_logger.info("cdsapi initialized")
 
 def receive_file_task(task):
     """
     Single task to download a model file from ECMWF.
     """
+    global CDS_Client
     result: DownloadResult = {
         "start_time": datetime.datetime.now(),
         "size": 0,
@@ -194,7 +205,7 @@ if __name__ == '__main__':
     try:
         pool = mp.Pool(processes=args.max_downloads, initializer=initializer,
                        initargs=(tmpdir, logging.DEBUG if args.debug else logging.WARN, credential))
-        results = pool.map(safe_receive_file_task, all_tasks)
+        results = pool.map(receive_file_task, all_tasks)
         pool.close()
         pool.join()
     except Exception as e:
