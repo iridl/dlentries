@@ -32,14 +32,15 @@ class DownloadResult(TypedDict):
     target: Path
     error: str | None
 
-def initializer(t, log_level, credential):
+def initializer(t, loglevel, credential):
     global CDS_Client
     global tmpdir
     tmpdir = t
 
-    logging.getLogger("cdsapi").setLevel(logging.WARN)
-    logging.getLogger("ecmwf_downloader").setLevel(log_level)
+    app_logger = logging.getLogger("ecmwf_downloader")
+    app_logger.info(f"Initializing cdsapi with {credential['url']} and {credential['key']}")
 
+    logging.getLogger("cdsapi").setLevel(loglevel)
     CDS_Client = cdsapi.Client(url=credential['url'], key=credential['key'], quiet=True)
 
 def receive_file_task(task):
@@ -53,8 +54,8 @@ def receive_file_task(task):
         "end_time": datetime.datetime.now(),
         "error": None,
     }
-
     app_logger = logging.getLogger("ecmwf_downloader")
+
     dataset = task.pop("dataset")
     if result['target'] == None or dataset == None:
         result["error"] = "Missing target or dataset for task"
@@ -66,8 +67,7 @@ def receive_file_task(task):
 
         try:
             # if debugging is on then messages from this process will be logged to the logfile.
-            if debug:
-                logging.debug(f"Retrieving {task['target']}")
+            app_logger.info(f"Retrieving {task['target']}")
             CDS_Client.retrieve(dataset, task, tmpfile)
         except Exception as e:
             result['error'] = f"ECMWF_Server.retrieve {tmpfile} error {e}"
@@ -88,7 +88,7 @@ def receive_file_task(task):
             else:
                 result['error'] = f"File size is incorrect for {task['target']}"
 
-    logging.debug(f"Completed {task['target']}, error: {result['error'] if result['error'] else 'None'}")
+    app_logger.info(f"Completed {task['target']}, error: {result['error'] if result['error'] else 'None'}")
     result["end_time"] = datetime.datetime.now()
     return result
 
@@ -185,7 +185,7 @@ if __name__ == '__main__':
     for model in args.models:
         model_class = available_models[model](start=start, end=end, weekdays=args.days, goback=args.goback)
         all_tasks.extend(model_class.get_tasks(prune=True))
-        logging.info(f"downloading {len(all_tasks)} files for {model} from {start} to {end}")
+        app_logger.info(f"downloading {len(all_tasks)} files for {model} from {start} to {end}")
 
     install_mp_handler()
 
@@ -193,19 +193,19 @@ if __name__ == '__main__':
     pool = None
     try:
         pool = mp.Pool(processes=args.max_downloads, initializer=initializer,
-                       initargs=(tmpdir, logging.DEBUG if args.debug else logging.INFO, credential))
+                       initargs=(tmpdir, logging.DEBUG if args.debug else logging.WARN, credential))
         results = pool.map(safe_receive_file_task, all_tasks)
         pool.close()
         pool.join()
     except Exception as e:
-        logging.error(f"Pool Error: {e}")
+        app_logger.error(f"Pool Error: {e}")
         if pool:
             pool.terminate()
             pool.join()
 
-    logging.info(f"completed {len(results)} tasks:")
+    app_logger.info(f"completed {len(results)} tasks:")
     for r in results:
         delta = r['end_time'] - r['start_time']
-        logging.info(f"Time: {delta.total_seconds()}, Size: {r['size']}, File: {r['target']}, Error: {r['error'] if r['error'] else 'None'}")
+        app_logger.info(f"Time: {delta.total_seconds()}, Size: {r['size']}, File: {r['target']}, Error: {r['error'] if r['error'] else 'None'}")
 
     exit(0)
