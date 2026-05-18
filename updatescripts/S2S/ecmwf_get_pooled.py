@@ -8,8 +8,6 @@
 # Jeff Turmelle - Jan 2023
 #
 #
-print(f"Script loaded, __name__ = {__name__}")
-
 import multiprocessing as mp
 import argparse
 import logging
@@ -33,7 +31,7 @@ class DownloadResult(TypedDict):
     start_time: datetime.datetime
     end_time: datetime.datetime
     size: int
-    target: Path
+    target: str
     error: str | None
 
 def initializer(t, loglevel, credential):
@@ -71,14 +69,14 @@ def receive_file_task(task):
     if result['target'] == None or dataset == None:
         result["error"] = "Missing target or dataset for task"
     else:
-        tmpfile = f"{tmpdir}/{result['target'].name}"
+        tmpfile = f"{tmpdir}/{os.path.basename(result['target'])}"
 
         min_size = task.pop("min_size", None)
         actual_size = task.pop("actual_size", None)
 
         try:
             # if debugging is on then messages from this process will be logged to the logfile.
-            app_logger.info(f"Retrieving {task['target']}")
+            app_logger.info(f"Retrieving {result['target']}")
             CDS_Client.retrieve(dataset, task, tmpfile)
         except Exception as e:
             result['error'] = f"ECMWF_Server.retrieve {tmpfile} error {e}"
@@ -87,6 +85,7 @@ def receive_file_task(task):
                     os.unlink(tmpfile)
                 except Exception as e:
                     result['error'] += f"\nFailure to remove failed download temp file: {tmpfile}: {e}"
+                    raise
         else:
             # Check if the retrieved file exists, and if the size is incorrect, remove it.
             result['size'] = process_file_by_size(tmpfile, min_size, actual_size)
@@ -97,27 +96,11 @@ def receive_file_task(task):
                 except Exception as exception:
                     result['error'] = f"Error moving {tmpfile} to {str(result['target'])}: {exception}"
             else:
-                result['error'] = f"File size is incorrect for {task['target']}"
+                result['error'] = f"File size is incorrect for {result['target']}"
 
-    app_logger.info(f"Completed {task['target']}, error: {result['error'] if result['error'] else 'None'}")
+    app_logger.info(f"Completed {result['target']}, error: {result['error'] if result['error'] else 'None'}")
     result["end_time"] = datetime.datetime.now()
     return result
-
-
-def safe_receive_file_task(task):
-    # This prevents unknown exceptions in the receive_file_task from returning nothing.
-    target = task.get("target")
-    try:
-        return receive_file_task(task)
-    except Exception as e:
-        return {
-            'target': target,
-            'error': f"Unhandled exception: {e}",
-            'size': 0,
-            'start_time': datetime.datetime.now(),
-            'end_time': datetime.datetime.now()
-        }
-
 
 if __name__ == '__main__':
     CDS_Client = None
