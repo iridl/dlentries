@@ -47,7 +47,7 @@ def initializer(t, loglevel, credential):
     logging.getLogger("cdsapi").setLevel(loglevel)
     try:
         CDS_Client = cdsapi.Client(url=credential['url'], key=credential['key'], quiet=True)
-    except cdsapi.exceptions.CDSAPIError as e:
+    except Exception as e:
         app_logger.error(f"Failed to initialize cdsapi: {e}")
         raise
     else:
