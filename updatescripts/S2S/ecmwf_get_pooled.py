@@ -149,7 +149,7 @@ if __name__ == '__main__':
     if args.key:
         credential = {'url': 'https://ecds.ecmwf.int/api', 'key': args.key}
     else:
-        credential = get_cdsapi_credential('ecmwf_get_pooled.py')
+        credential = get_cdsapi_credential('S2S/ecmwf_get_pooled.py')
 
     if credential is None:
         raise ValueError("CDS API credentials not found for 'ecmwf_get_pooled.py'")
