@@ -1,4 +1,4 @@
-#!/usr/local/bin/condarun updatescripts
+#!/usr/local/bin/condarun updatescripts2
 # This code is used to download ECMWF Data Server data in parallel.
 #
 # This script should be called from ecmwf_get_data.py, otherwise it won't
