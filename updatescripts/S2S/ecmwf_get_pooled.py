@@ -18,7 +18,6 @@ import cdsapi
 import datetime
 import tempfile
 import sys
-from pathlib import Path
 from ecmwf_get_data import available_models
 from check_file_size import process_file_by_size
 
@@ -42,9 +41,10 @@ def initializer(t, loglevel, credential):
     app_logger = logging.getLogger("ecmwf_downloader")
     app_logger.info(f"Initializing cdsapi with {credential['url']} and {credential['key']}")
 
-    logging.getLogger("cdsapi").setLevel(loglevel)
+    # logging.getLogger("cdsapi").setLevel(loglevel)
     try:
-        CDS_Client = cdsapi.Client(url=credential['url'], key=credential['key'], quiet=True)
+        CDS_Client = cdsapi.Client(url=credential['url'], key=credential['key'],
+                                   quiet=False if loglevel == logging.DEBUG else True)
     except Exception as e:
         app_logger.error(f"Failed to initialize cdsapi: {e}")
         raise
@@ -91,10 +91,10 @@ def receive_file_task(task):
             result['size'] = process_file_by_size(tmpfile, min_size, actual_size)
             if result['size'] != 0:
                 try:
-                    result['target'].parent.mkdir(parents=True, exist_ok=True)
-                    os.rename(tmpfile, str(result['target']))
+                    os.makedirs(os.path.dirname(result['target']), mode=0o775, exist_ok=True)
+                    os.rename(tmpfile, result['target'])
                 except Exception as exception:
-                    result['error'] = f"Error moving {tmpfile} to {str(result['target'])}: {exception}"
+                    result['error'] = f"Error moving {tmpfile} to {result['target']}: {exception}"
             else:
                 result['error'] = f"File size is incorrect for {result['target']}"
 
