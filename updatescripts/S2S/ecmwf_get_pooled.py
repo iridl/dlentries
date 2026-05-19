@@ -33,7 +33,8 @@ class DownloadResult(TypedDict):
     target: str
     error: str | None
 
-def initializer(t, loglevel, credential):
+
+def initializer(t, debug, credential):
     global CDS_Client
     global tmpdir
     tmpdir = t
@@ -44,7 +45,7 @@ def initializer(t, loglevel, credential):
     # logging.getLogger("cdsapi").setLevel(loglevel)
     try:
         CDS_Client = cdsapi.Client(url=credential['url'], key=credential['key'],
-                                   quiet=False if loglevel == logging.DEBUG else True)
+                                   quiet=(not debug))
     except Exception as e:
         app_logger.error(f"Failed to initialize cdsapi: {e}")
         raise
@@ -106,6 +107,7 @@ if __name__ == '__main__':
     CDS_Client = None
     start = None
     end = None
+    debug = False
 
     parser = argparse.ArgumentParser(description="use multiprocessing to download a set of models from ECMWF")
     parser.add_argument('--models', type=str, required=True, nargs="+",
@@ -134,7 +136,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.debug:
-        debug = args.debug
+        debug = True
     if args.tmpdir:
         tmpdir = args.tmpdir
     else:
@@ -150,7 +152,9 @@ if __name__ == '__main__':
 
     # initialize logging
     app_logger = logging.getLogger("ecmwf_downloader")
-    app_logger.setLevel(logging.DEBUG if args.debug else logging.INFO)
+    app_logger.setLevel(logging.DEBUG if debug else logging.INFO)
+
+    install_mp_handler()
 
     handler = logging.FileHandler(args.logfile, encoding="utf-8")
     handler.setFormatter(logging.Formatter("%(levelname)s: %(asctime)s - %(process)s - %(message)s"))
@@ -181,13 +185,11 @@ if __name__ == '__main__':
         all_tasks.extend(model_class.get_tasks(prune=True))
         app_logger.info(f"downloading {len(all_tasks)} files for {model} from {start} to {end}")
 
-    install_mp_handler()
-
     results = []
     pool = None
     try:
         pool = mp.Pool(processes=args.max_downloads, initializer=initializer,
-                       initargs=(tmpdir, logging.DEBUG if args.debug else logging.WARN, credential))
+                       initargs=(tmpdir, logging.DEBUG if debug else logging.WARN, credential))
         results = pool.map(receive_file_task, all_tasks)
         pool.close()
         pool.join()
