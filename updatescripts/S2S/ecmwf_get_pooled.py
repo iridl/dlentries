@@ -101,8 +101,10 @@ def receive_file_task(task):
             else:
                 result['error'] = f"File size is incorrect for {result['target']}"
 
-    app_logger.info(f"Completed {result['target']}, error: {result['error'] if result['error'] else 'None'}")
     result["end_time"] = datetime.datetime.now()
+    result['delta'] = result["end_time"] - result["start_time"]
+
+    app_logger.info(f"Completed {result['target']} in {result['delta'].total_seconds()/60.0} minutes, error: {result['error'] if result['error'] else 'None'}")
     return result
 
 
@@ -210,8 +212,10 @@ if __name__ == '__main__':
 
         app_logger.info(f"completed {len(results)} tasks:")
         for r in results:
-            delta = r['end_time'] - r['start_time']
-            app_logger.info(f"Time: {delta.total_seconds()}, Size: {r['size']}, File: {r['target']}, Error: {r['error'] if r['error'] else 'None'}")
+            app_logger.info(f"Time: {r['delta'].total_seconds()} seconds, Size: {r['size']}, File: {r['target']}, Error: {r['error'] if r['error'] else 'None'}")
+
+        total_time = datetime.datetime.now() - start
+        app_logger.info(f"Total Time: {total_time.total_seconds()/60.0} minutes")
 
     listener.stop()
 
