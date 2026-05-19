@@ -32,7 +32,6 @@ vars = {
 common_args = {
     'product_type': 'monthly_mean',
     'leadtime_month': ['1', '2', '3', '4', '5', '6'],
-    'format': 'grib',
 }
 
 pressure_levels = [
