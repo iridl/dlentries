@@ -7,11 +7,10 @@
 #
 # Jeff Turmelle - Jan 2023
 #
-#
 import multiprocessing as mp
-import argparse
 import logging
-from multiprocessing_logging import install_mp_handler
+import logging.handlers
+import argparse
 from typing import TypedDict
 import os
 import cdsapi
@@ -34,15 +33,19 @@ class DownloadResult(TypedDict):
     error: str | None
 
 
-def initializer(t, debug, credential):
+def initializer(t, debug, credential, log_queue):
     global CDS_Client
     global tmpdir
     tmpdir = t
 
+    # Wire this worker's logger to send records to the main process queue
+    queue_handler = logging.handlers.QueueHandler(log_queue)
     app_logger = logging.getLogger("ecmwf_downloader")
+    app_logger.addHandler(queue_handler)
+    app_logger.setLevel(logging.DEBUG if debug else logging.INFO)
+
     app_logger.info(f"Initializing cdsapi with {credential['url']} and {credential['key']}")
 
-    # logging.getLogger("cdsapi").setLevel(loglevel)
     try:
         CDS_Client = cdsapi.Client(url=credential['url'], key=credential['key'],
                                    quiet=(not debug))
@@ -51,6 +54,7 @@ def initializer(t, debug, credential):
         raise
     else:
         app_logger.info("cdsapi initialized")
+
 
 def receive_file_task(task):
     """
@@ -67,7 +71,7 @@ def receive_file_task(task):
     app_logger = logging.getLogger("ecmwf_downloader")
 
     dataset = task.pop("dataset")
-    if result['target'] == None or dataset == None:
+    if result['target'] is None or dataset is None:
         result["error"] = "Missing target or dataset for task"
     else:
         tmpfile = f"{tmpdir}/{os.path.basename(result['target'])}"
@@ -76,7 +80,6 @@ def receive_file_task(task):
         actual_size = task.pop("actual_size", None)
 
         try:
-            # if debugging is on then messages from this process will be logged to the logfile.
             app_logger.info(f"Retrieving {result['target']}")
             CDS_Client.retrieve(dataset, task, tmpfile)
         except Exception as e:
@@ -88,7 +91,6 @@ def receive_file_task(task):
                     result['error'] += f"\nFailure to remove failed download temp file: {tmpfile}: {e}"
                     raise
         else:
-            # Check if the retrieved file exists, and if the size is incorrect, remove it.
             result['size'] = process_file_by_size(tmpfile, min_size, actual_size)
             if result['size'] != 0:
                 try:
@@ -102,6 +104,7 @@ def receive_file_task(task):
     app_logger.info(f"Completed {result['target']}, error: {result['error'] if result['error'] else 'None'}")
     result["end_time"] = datetime.datetime.now()
     return result
+
 
 if __name__ == '__main__':
     CDS_Client = None
@@ -150,14 +153,19 @@ if __name__ == '__main__':
     if credential is None:
         raise ValueError("CDS API credentials not found for 'ecmwf_get_pooled.py'")
 
-    # initialize logging
-    app_logger = logging.getLogger("ecmwf_downloader")
-    app_logger.setLevel(logging.DEBUG if debug else logging.INFO)
+    # Set up the logging queue and listener in the main process
+    log_queue = mp.Queue()
 
     handler = logging.FileHandler(args.logfile, encoding="utf-8")
     handler.setFormatter(logging.Formatter("%(levelname)s: %(asctime)s - %(process)s - %(message)s"))
-    app_logger.addHandler(handler)
-    install_mp_handler(logger=app_logger)
+
+    listener = logging.handlers.QueueListener(log_queue, handler)
+    listener.start()
+
+    # Set up the main process logger to also use the queue
+    app_logger = logging.getLogger("ecmwf_downloader")
+    app_logger.setLevel(logging.DEBUG if debug else logging.INFO)
+    app_logger.addHandler(logging.handlers.QueueHandler(log_queue))
 
     # Convert start and end into datetime objects
     if args.start is not None:
@@ -166,6 +174,7 @@ if __name__ == '__main__':
         except ValueError as e:
             print(f"Error in start: {e}")
             parser.print_usage()
+            listener.stop()
             exit(-1)
 
     if args.end is not None:
@@ -174,6 +183,7 @@ if __name__ == '__main__':
         except ValueError as e:
             print(f"Error in end: {e}")
             parser.print_usage()
+            listener.stop()
             exit(-1)
 
     all_tasks = []
@@ -188,7 +198,7 @@ if __name__ == '__main__':
     pool = None
     try:
         pool = mp.Pool(processes=args.max_downloads, initializer=initializer,
-                       initargs=(tmpdir, debug, credential))
+                       initargs=(tmpdir, debug, credential, log_queue))
         results = pool.map(receive_file_task, all_tasks)
         pool.close()
         pool.join()
@@ -197,6 +207,8 @@ if __name__ == '__main__':
         if pool:
             pool.terminate()
             pool.join()
+    finally:
+        listener.stop()
 
     app_logger.info(f"completed {len(results)} tasks:")
     for r in results:
