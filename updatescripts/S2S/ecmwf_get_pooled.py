@@ -89,7 +89,7 @@ def receive_file_task(task):
                     os.unlink(tmpfile)
                 except Exception as e:
                     result['error'] += f"\nFailure to remove failed download temp file: {tmpfile}: {e}"
-                    raise
+            raise
         else:
             result['size'] = process_file_by_size(tmpfile, min_size, actual_size)
             if result['size'] != 0:
@@ -191,28 +191,28 @@ if __name__ == '__main__':
     # Build the tasks for each model specified
     for model in args.models:
         model_class = available_models[model](start=start, end=end, weekdays=args.days, goback=args.goback)
-        all_tasks.extend(model_class.get_tasks(prune=True))
+        all_tasks = model_class.get_tasks(prune=True)
         app_logger.info(f"downloading {len(all_tasks)} files for {model} from {start} to {end}")
 
-    results = []
-    pool = None
-    try:
-        pool = mp.Pool(processes=args.max_downloads, initializer=initializer,
-                       initargs=(tmpdir, debug, credential, log_queue))
-        results = pool.map(receive_file_task, all_tasks)
-        pool.close()
-        pool.join()
-    except Exception as e:
-        app_logger.error(f"Pool Error: {e}")
-        if pool:
-            pool.terminate()
+        results = []
+        pool = None
+        try:
+            pool = mp.Pool(processes=args.max_downloads, initializer=initializer,
+                           initargs=(tmpdir, debug, credential, log_queue))
+            results = pool.map(receive_file_task, all_tasks)
+            pool.close()
             pool.join()
-    finally:
-        listener.stop()
+        except Exception as e:
+            app_logger.error(f"Pool Error: {e}")
+            if pool:
+                pool.terminate()
+                pool.join()
 
-    app_logger.info(f"completed {len(results)} tasks:")
-    for r in results:
-        delta = r['end_time'] - r['start_time']
-        app_logger.info(f"Time: {delta.total_seconds()}, Size: {r['size']}, File: {r['target']}, Error: {r['error'] if r['error'] else 'None'}")
+        app_logger.info(f"completed {len(results)} tasks:")
+        for r in results:
+            delta = r['end_time'] - r['start_time']
+            app_logger.info(f"Time: {delta.total_seconds()}, Size: {r['size']}, File: {r['target']}, Error: {r['error'] if r['error'] else 'None'}")
+
+    listener.stop()
 
     exit(0)
