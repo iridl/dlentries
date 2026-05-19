@@ -110,6 +110,7 @@ def receive_file_task(task):
 
 if __name__ == '__main__':
     CDS_Client = None
+    starting_time = datetime.datetime.now()
     start = None
     end = None
     debug = False
@@ -214,7 +215,7 @@ if __name__ == '__main__':
         for r in results:
             app_logger.info(f"Time: {r['delta'].total_seconds()} seconds, Size: {r['size']}, File: {r['target']}, Error: {r['error'] if r['error'] else 'None'}")
 
-        total_time = datetime.datetime.now() - start
+        total_time = datetime.datetime.now() - starting_time
         app_logger.info(f"Total Time: {total_time.total_seconds()/60.0} minutes")
 
     listener.stop()
