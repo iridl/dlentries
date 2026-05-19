@@ -189,7 +189,7 @@ if __name__ == '__main__':
     pool = None
     try:
         pool = mp.Pool(processes=args.max_downloads, initializer=initializer,
-                       initargs=(tmpdir, logging.DEBUG if debug else logging.WARN, credential))
+                       initargs=(tmpdir, debug, credential))
         results = pool.map(receive_file_task, all_tasks)
         pool.close()
         pool.join()
