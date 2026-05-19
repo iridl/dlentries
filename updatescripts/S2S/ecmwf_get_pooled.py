@@ -154,11 +154,10 @@ if __name__ == '__main__':
     app_logger = logging.getLogger("ecmwf_downloader")
     app_logger.setLevel(logging.DEBUG if debug else logging.INFO)
 
-    install_mp_handler(logger=app_logger)
-
     handler = logging.FileHandler(args.logfile, encoding="utf-8")
     handler.setFormatter(logging.Formatter("%(levelname)s: %(asctime)s - %(process)s - %(message)s"))
     app_logger.addHandler(handler)
+    install_mp_handler(logger=app_logger)
 
     # Convert start and end into datetime objects
     if args.start is not None:
