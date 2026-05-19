@@ -73,11 +73,11 @@ PATH=/usr/local/datalib/dlentries/updatescripts:/usr/local/datalib/dlentries/upd
 30	12	*	*	sat     get_rmms_lftp.py -v --previous 3 --models cnrm eccc hmcr isac
 0   14  *   *   *       get_rmms_lftp.py -v --previous 3 --models jma kma ncep ukmo
 # S2S ECMWF data
-10	10	*	*	*	ecmwf_get_data.py --models cma cnrm cptec eccc ecmf hmcr iapcas isac jma kma ncep ukmo --max_downloads 10
-0	4	*/2	*	*	ecmwf_get_data.py --models ecmf_ref --max_downloads 5
-30  	8  	*   	*	Fri	ecmwf_get_data.py --models hmcr_ref --max_downloads 5
-30	16	2,10,18,26   *	*  	ecmwf_get_data.py --models ukmo_ref --max_downloads 5
-0	23	*	*	Tue,Fri	ecmwf_get_data.py --models eccc_ref --max_downloads 5
+10	10	*	        *	*	    ecmwf_get_data.py --models cma cnrm cptec eccc ecmf hmcr iapcas isac jma kma ncep ukmo --max_downloads 10
+0	4	*/2	        *	*	    ecmwf_get_data.py --models ecmf_ref --max_downloads 5
+30 	8  	*   	    *	Fri	    ecmwf_get_data.py --models hmcr_ref --max_downloads 5
+30	16	2,10,18,26  *	*  	    ecmwf_get_data.py --models ukmo_ref --max_downloads 5
+0	23	*	        *	Tue,Fri	ecmwf_get_data.py --models eccc_ref --max_downloads 5
 # SubX routines from GEFS
 5    10-11 	* 	* 	sat,sun,mon,tue 	  update_GEFSv12_SubX_fcst.py
 00,30    * * * thu,fri update_GEFSv12_SubX_fcst.py
