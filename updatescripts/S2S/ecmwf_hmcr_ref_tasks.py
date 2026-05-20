@@ -61,7 +61,7 @@ class HMCR_REF_Model(ECMWF_REFModelTaskBase):
                             1170507672 if d < datetime.datetime(2022,10,14) and T=='PF' else
                             985911480 if d < datetime.datetime(2025,7,30) and T=='PF' else
                             1095457200 if T=='PF' else None,
-                            "class": ECMWF_REFModelTaskBase.s2s_class,
+                            "class": HMCR_REF_Model.s2s_class,
                             "dataset": HMCR_REF_Model.dataset,
                             "date": y_m_d,
                             "expver": "prod",
@@ -86,7 +86,7 @@ class HMCR_REF_Model(ECMWF_REFModelTaskBase):
                             191705010 if T=='PF' and d < datetime.datetime(2025,7,30) else
                             19170501 if T=='PF' else None,
                             "target": f"{toplevel}/hmcr_ref_{T.lower()}_pl_q{ymd}{hdate_ymd}.grb",
-                            "class": ECMWF_REFModelTaskBase.s2s_class,
+                            "class": HMCR_REF_Model.s2s_class,
                             "dataset": HMCR_REF_Model.dataset,
                             "date": y_m_d,
                             "expver": "prod",
