@@ -44,7 +44,7 @@ def initializer(t, debug, credential, log_queue):
     app_logger.addHandler(queue_handler)
     app_logger.setLevel(logging.DEBUG if debug else logging.INFO)
 
-    app_logger.info(f"Initializing cdsapi with {credential['url']} and {credential['key']}")
+    # app_logger.info(f"Initializing cdsapi with {credential['url']} and {credential['key']}")
 
     try:
         CDS_Client = cdsapi.Client(url=credential['url'], key=credential['key'],
