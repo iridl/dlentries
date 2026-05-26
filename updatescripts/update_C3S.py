@@ -1,4 +1,4 @@
-#!/usr/local/bin/condarun updatescripts2
+#!/usr/local/bin/condarun updatescripts3
 
 import argparse
 import cdsapi
