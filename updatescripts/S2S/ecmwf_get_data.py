@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/local/bin/condarun updatescripts3
 # Wrapper script to call ecmwf_get_pooled.py to get model data from ECMWF using the ECMWFDataServer API.
 # We need to do it this way because we need to set the ECMWF Keys Environment in order to pass credentials
 # properly to the server.
@@ -23,7 +23,6 @@ from ecmwf_cnrm_tasks import CNRMModel
 from ecmwf_cptec_tasks import CPTECModel
 from ecmwf_eccc_tasks import ECCCModel
 from ecmwf_ecmf_tasks import ECMFModel
-from ecmwf_ecmf_all_tasks import ECMF_ALL_Model
 from ecmwf_ecmf4147_tasks import ECMF4147Model
 from ecmwf_hmcr_tasks import HMCRModel
 from ecmwf_iapcas_tasks import IAPCASModel
@@ -45,7 +44,6 @@ available_models = {
     "cptec": CPTECModel,
     "eccc": ECCCModel,
     "ecmf": ECMFModel,
-    "ecmf_pf_pl_tuqvwz": ECMF_ALL_Model,
     "ecmf4147": ECMF4147Model,
     "hmcr": HMCRModel,
     "iapcas": IAPCASModel,

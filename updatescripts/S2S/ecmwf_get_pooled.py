@@ -1,4 +1,4 @@
-#!/usr/local/bin/condarun updatescripts2
+#!/usr/local/bin/condarun updatescripts3
 # This code is used to download ECMWF Data Server data in parallel.
 #
 # This script should be called from ecmwf_get_data.py, otherwise it won't
@@ -101,16 +101,13 @@ def receive_file_task(task):
             else:
                 result['error'] = f"File size is incorrect for {result['target']}"
 
+    app_logger.info(f"Completed {result['target']}, error: {result['error'] if result['error'] else 'None'}")
     result["end_time"] = datetime.datetime.now()
-    result['delta'] = result["end_time"] - result["start_time"]
-
-    app_logger.info(f"Completed {result['target']} in {result['delta'].total_seconds()/60.0} minutes, error: {result['error'] if result['error'] else 'None'}")
     return result
 
 
 if __name__ == '__main__':
     CDS_Client = None
-    starting_time = datetime.datetime.now()
     start = None
     end = None
     debug = False
@@ -213,10 +210,8 @@ if __name__ == '__main__':
 
         app_logger.info(f"completed {len(results)} tasks:")
         for r in results:
-            app_logger.info(f"Time: {r['delta'].total_seconds()} seconds, Size: {r['size']}, File: {r['target']}, Error: {r['error'] if r['error'] else 'None'}")
-
-        total_time = datetime.datetime.now() - starting_time
-        app_logger.info(f"Total Time: {total_time.total_seconds()/60.0} minutes")
+            delta = r['end_time'] - r['start_time']
+            app_logger.info(f"Time: {delta.total_seconds()}, Size: {r['size']}, File: {r['target']}, Error: {r['error'] if r['error'] else 'None'}")
 
     listener.stop()
 
