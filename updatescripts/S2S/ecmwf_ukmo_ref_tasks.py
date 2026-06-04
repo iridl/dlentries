@@ -7,11 +7,13 @@ class UKMO_REF_Model(ECMWF_REFModelTaskBase):
     https://apps.ecmwf.int/datasets/data/s2s-reforecasts-instantaneous-accum-egrr/levtype=sfc/type=cf/
     Realtime dates are available every day, but we only run once a week.
     """
+    first_date = datetime.datetime(2016, 12, 25)
     hindcast_start_year = 1993
     hindcast_end_year = 2016
     model_version_offset = 39
     weekdays = ["1", "9", "17", "25"]
-
+    origin = "egrr"
+    
     def __init__(self, start=None, end=None, weekdays=None, goback=None, model_version_offset=None):
         if weekdays is None:
             weekdays = UKMO_REF_Model.weekdays
@@ -35,114 +37,242 @@ class UKMO_REF_Model(ECMWF_REFModelTaskBase):
                 hdate_y_m_d = f"{year}-{d.month:02d}-{d.day:02d}"
                 hdate_ymd = f"{year}{d.month:02d}{d.day:02d}"
 
-                for T in ["CF", "PF"]:
-                    toplevel = f"{self.S2S_toplevel}/UKMO/REF/{T}"
-                    modeltype = f"UKMO_REF_{T}"
+                toplevel = f"{self.S2S_toplevel}/UKMO/REF/CF"
+                modeltype = f"UKMO_REF_CF"
 
-                    self.all_models[modeltype].extend([
-                        {
-                            "target": f"{toplevel}/ukmo_ref_{T.lower()}_pl_zuvt{ymd}{hdate_ymd}.grb",
-                            "min_size": 139400000 if T == "CF" else 183130000,
-                            "class": "s2",
-                            "dataset": "s2s",
-                            "date": y_m_d,
-                            "expver": "prod",
-                            "hdate": hdate_y_m_d,
-                            "levelist": "10/50/100/200/300/500/700/850/925/1000",
-                            "levtype": "pl",
-                            "model": "glob",
-                            "number": number,
-                            "origin": "egrr",
-                            "param": "130/131/132/156",
-                            "step": step,
-                            "stream": "enfh",
-                            "time": "00:00:00",
-                            "type": f"{T.lower()}",
-                            "expect" : "any",
-                        },
-                        {
-                            "target": f"{toplevel}/ukmo_ref_{T.lower()}_pl_q{ymd}{hdate_ymd}.grb",
-                            "min_size": 38216073 if T == "CF" else 229296438,
-                            "class": "s2",
-                            "dataset": "s2s",
-                            "date": y_m_d,
-                            "expver": "prod",
-                            "hdate": hdate_y_m_d,
-                            "levelist": "200/300/500/700/850/925/1000",
-                            "levtype": "pl",
-                            "model": "glob",
-                            "number": number,
-                            "origin": "egrr",
-                            "param": "133",
-                            "step": step,
-                            "stream": "enfh",
-                            "time": "00:00:00",
-                            "type": f"{T.lower()}",
-                            "expect": "any",
-                        },
-                        {
-                            "target": f"{toplevel}/ukmo_ref_{T.lower()}_pl_w{ymd}{hdate_ymd}.grb",
-                            "min_size": 5373759 if T == "CF" else 32242554,
-                            "class": "s2",
-                            "dataset": "s2s",
-                            "date": y_m_d,
-                            "expver": "prod",
-                            "hdate": hdate_y_m_d,
-                            "levelist": "500",
-                            "levtype": "pl",
-                            "model": "glob",
-                            "number": number,
-                            "origin": "egrr",
-                            "param": "135",
-                            "step": step,
-                            "stream": "enfh",
-                            "time": "00:00:00",
-                            "type": f"{T.lower()}",
-                            "expect": "any",
-                        },
-                        {
-                            "target": f"{toplevel}/ukmo_ref_{T.lower()}_sfc_sfc{ymd}{hdate_ymd}.grb",
-                            "min_size": 75372558 if T == "CF" else 419478714,
-                            "class": "s2",
-                            "dataset": "s2s",
-                            "date": y_m_d,
-                            "expver": "prod",
-                            "hdate": hdate_y_m_d,
-                            "levtype": "sfc",
-                            "model": "glob",
-                            "number": number,
-                            "origin": "egrr",
-                            "param": "121/122/134/165/166/169/172/175/176/177/179/228143/228144/228228",
-                            "step": step,
-                            "stream": "enfh",
-                            "time": "00:00:00",
-                            "type": f"{T.lower()}",
-                            "expect": "any",
-                        },
-                        {
-                            "target": f"{toplevel}/ukmo_ref_{T.lower()}_da_sfc{ymd}{hdate_ymd}.grb",
-                            "min_size": 28905840 if T == "CF" else 173435040,
-                            "class": "s2",
-                            "dataset": "s2s",
-                            "date": y_m_d,
-                            "expver": "prod",
-                            "hdate": hdate_y_m_d,
-                            "levtype": "sfc",
-                            "model": "glob",
-                            "number": number,
-                            "origin": "egrr",
-                            "param": "31/34/167/168/235/228164",
-                            "step": step_da_sfc,
-                            "stream": "enfh",
-                            "time": "00:00:00",
-                            "type": f"{T.lower()}",
-                            "expect": "any",
-                        },
-                    ])
+                self.all_models[modeltype].extend([
+                    {
+                        "target": f"{toplevel}/ukmo_ref_cf_pl_zuvt{ymd}{hdate_ymd}.grb",
+                        "min_size": 214390000,
+                        "class": UKMO_REF_Model.s2s_class,
+                        "dataset": UKMO_REF_Model.dataset,
+                        "date": y_m_d,
+                        "expver": "prod",
+                        "hdate": hdate_y_m_d,
+                        "levelist": "10/50/100/200/300/500/700/850/925/1000",
+                        "levtype": "pl",
+                        "model": "glob",
+                        "number": number,
+                        "origin": UKMO_REF_Model.origin,
+                        "param": "130/131/132/156",
+                        "step": step,
+                        "stream": "enfh",
+                        "time": "00:00:00",
+                        "type": f"cf",
+                        "expect" : "any",
+                    },
+                    {
+                        "target": f"{toplevel}/ukmo_ref_cf_pl_q{ymd}{hdate_ymd}.grb",
+                        "actual_size": 38216073,
+                        "class": UKMO_REF_Model.s2s_class,
+                        "dataset": UKMO_REF_Model.dataset,
+                        "date": y_m_d,
+                        "expver": "prod",
+                        "hdate": hdate_y_m_d,
+                        "levelist": "200/300/500/700/850/925/1000",
+                        "levtype": "pl",
+                        "model": "glob",
+                        "number": number,
+                        "origin": UKMO_REF_Model.origin,
+                        "param": "133",
+                        "step": step,
+                        "stream": "enfh",
+                        "time": "00:00:00",
+                        "type": f"cf",
+                        "expect": "any",
+                    },
+                    {
+                        "target": f"{toplevel}/ukmo_ref_cf_pl_w{ymd}{hdate_ymd}.grb",
+                        "min_size": 5373759,
+                        "class": UKMO_REF_Model.s2s_class,
+                        "dataset": UKMO_REF_Model.dataset,
+                        "date": y_m_d,
+                        "expver": "prod",
+                        "hdate": hdate_y_m_d,
+                        "levelist": "500",
+                        "levtype": "pl",
+                        "model": "glob",
+                        "number": number,
+                        "origin": UKMO_REF_Model.origin,
+                        "param": "135",
+                        "step": step,
+                        "stream": "enfh",
+                        "time": "00:00:00",
+                        "type": f"cf",
+                        "expect": "any",
+                    },
+                    {
+                        "target": f"{toplevel}/ukmo_ref_cf_sfc_sfc{ymd}{hdate_ymd}.grb",
+                        "actual_size": 80831997 if d < datetime.datetime(2016,12,1) else 75372558,
+                        "class": UKMO_REF_Model.s2s_class,
+                        "dataset": UKMO_REF_Model.dataset,
+                        "date": y_m_d,
+                        "expver": "prod",
+                        "hdate": hdate_y_m_d,
+                        "levtype": "sfc",
+                        "model": "glob",
+                        "number": number,
+                        "origin": UKMO_REF_Model.origin,
+                        "param": "121/122/134/165/166/169/172/175/176/177/179/228143/228144/228228",
+                        "step": step,
+                        "stream": "enfh",
+                        "time": "00:00:00",
+                        "type": f"cf",
+                        "expect": "any",
+                    },
+                    {
+                        "target": f"{toplevel}/ukmo_ref_cf_da_sfc{ymd}{hdate_ymd}.grb",
+                        "actual_size": 28898460 if d < datetime.datetime(2012,2,1) else \
+                            28903140 if d < datetime.datetime(2025,5, 1) else 28905840,
+                        "class": UKMO_REF_Model.s2s_class,
+                        "dataset": UKMO_REF_Model.dataset,
+                        "date": y_m_d,
+                        "expver": "prod",
+                        "hdate": hdate_y_m_d,
+                        "levtype": "sfc",
+                        "model": "glob",
+                        "number": number,
+                        "origin": UKMO_REF_Model.origin,
+                        "param": "31/34/167/168/235/228164",
+                        "step": step_da_sfc,
+                        "stream": "enfh",
+                        "time": "00:00:00",
+                        "type": f"cf",
+                        "expect": "any",
+                    },
+                ])
+
+                toplevel = f"{self.S2S_toplevel}/UKMO/REF/PF"
+                self.all_models[modeltype].extend([
+                    {
+                        "target": f"{toplevel}/ukmo_ref_pf_pl_zuvt{ymd}{hdate_ymd}.grb",
+                        "min_size": 429000000 if d < datetime.datetime(2017, 3, 25) else 1286830000,
+                        "class": UKMO_REF_Model.s2s_class,
+                        "dataset": UKMO_REF_Model.dataset,
+                        "date": y_m_d,
+                        "expver": "prod",
+                        "hdate": hdate_y_m_d,
+                        "levelist": "10/50/100/200/300/500/700/850/925/1000",
+                        "levtype": "pl",
+                        "model": "glob",
+                        "number": number,
+                        "origin": UKMO_REF_Model.origin,
+                        "param": "130/131/132/156",
+                        "step": step,
+                        "stream": "enfh",
+                        "time": "00:00:00",
+                        "type": f"pf",
+                        "expect" : "any",
+                    },
+                    {
+                        "target": f"{toplevel}/ukmo_ref_pf_pl_q{ymd}{hdate_ymd}.grb",
+                        "actual_size": 76432146 if d < datetime.datetime(2017, 3, 25) else 229296438,
+                        "class": UKMO_REF_Model.s2s_class,
+                        "dataset": UKMO_REF_Model.dataset,
+                        "date": y_m_d,
+                        "expver": "prod",
+                        "hdate": hdate_y_m_d,
+                        "levelist": "200/300/500/700/850/925/1000",
+                        "levtype": "pl",
+                        "model": "glob",
+                        "number": number,
+                        "origin": UKMO_REF_Model.origin,
+                        "param": "133",
+                        "step": step,
+                        "stream": "enfh",
+                        "time": "00:00:00",
+                        "type": f"pf",
+                        "expect": "any",
+                    },
+                    {
+                        "target": f"{toplevel}/ukmo_ref_pf_pl_w{ymd}{hdate_ymd}.grb",
+                        "actual_size": 10747518 if d < datetime.datetime(2017, 3, 25) else 32242554,
+                        "class": UKMO_REF_Model.s2s_class,
+                        "dataset": UKMO_REF_Model.dataset,
+                        "date": y_m_d,
+                        "expver": "prod",
+                        "hdate": hdate_y_m_d,
+                        "levelist": "500",
+                        "levtype": "pl",
+                        "model": "glob",
+                        "number": number,
+                        "origin": UKMO_REF_Model.origin,
+                        "param": "135",
+                        "step": step,
+                        "stream": "enfh",
+                        "time": "00:00:00",
+                        "type": f"pf",
+                        "expect": "any",
+                    },
+                    {
+                        "target": f"{toplevel}/ukmo_ref_pf_sfc_sfc{ymd}{hdate_ymd}.grb",
+                        "actual_size": 139826238 if d < datetime.datetime(2017, 3, 25) else 419478714,
+                        "class": UKMO_REF_Model.s2s_class,
+                        "dataset": UKMO_REF_Model.dataset,
+                        "date": y_m_d,
+                        "expver": "prod",
+                        "hdate": hdate_y_m_d,
+                        "levtype": "sfc",
+                        "model": "glob",
+                        "number": number,
+                        "origin": UKMO_REF_Model.origin,
+                        "param": "121/122/134/165/166/169/172/175/176/177/179/228143/228144/228228",
+                        "step": step,
+                        "stream": "enfh",
+                        "time": "00:00:00",
+                        "type": f"pf",
+                        "expect": "any",
+                    },
+                    {
+                        "target": f"{toplevel}/ukmo_ref_pf_da_sfc{ymd}{hdate_ymd}.grb",
+                        "actual_size": 57796920 if d < datetime.datetime(2017, 3, 25) else \
+                            173390760 if d < datetime.datetime(2021, 2, 1) else \
+                            173418840 if d < datetime.datetime(2025, 4, 25) else \
+                            173435040,
+                        "class": UKMO_REF_Model.s2s_class,
+                        "dataset": UKMO_REF_Model.dataset,
+                        "date": y_m_d,
+                        "expver": "prod",
+                        "hdate": hdate_y_m_d,
+                        "levtype": "sfc",
+                        "model": "glob",
+                        "number": number,
+                        "origin": UKMO_REF_Model.origin,
+                        "param": "31/34/167/168/235/228164",
+                        "step": step_da_sfc,
+                        "stream": "enfh",
+                        "time": "00:00:00",
+                        "type": f"pf",
+                        "expect": "any",
+                    },
+                ])
 
 if __name__ == '__main__':
-    model = UKMO_REF_Model(start=None)
-    print(model.dates)
-    for key in model.all_models.keys():
-        for task in model.all_models[key]:
-            print(task['target'])
+    import argparse
+    start = end = None
+
+    parser = argparse.ArgumentParser(description="Check Data from UKMO REFORECAST Model.")
+    parser.add_argument('--start', type=str,
+                        help="Start Day in the form YYYY-MM-DD.  Today, b yut default.")
+    parser.add_argument('--end', type=str,
+                        help="End Day in the form YYYY-MM-DD (or \"now\".  Will only run 1 day if not defined")
+
+    args = parser.parse_args()
+    if args.start is None:
+        start = UKMO_REF_Model.first_date
+    else:
+        start = datetime.datetime.strptime(args.start, "%Y-%m-%d")
+
+    if args.end is not None:
+        if args.end == "now":
+            end = datetime.datetime.now()
+        else:
+            end = datetime.datetime.strptime(args.start, "%Y-%m-%d")
+    else:
+        end = datetime.datetime.now()
+
+    model = UKMO_REF_Model(start=start, end=end)
+    tasks = model.get_tasks(prune=True, dryrun=True)
+    for t in tasks:
+        print(t['target'])
+    print(f"Total tasks: {len(tasks)}")

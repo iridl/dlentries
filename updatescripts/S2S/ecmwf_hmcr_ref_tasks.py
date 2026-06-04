@@ -10,6 +10,7 @@ class HMCR_REF_Model(ECMWF_REFModelTaskBase):
 
     model_version_offset = 21 # days
     weekdays = ["Thu"]
+    origin = "rums"
 
     def __init__(self, start=None, end=None, weekdays=None, goback=None, model_version_offset=None):
         if weekdays is None:
@@ -54,9 +55,14 @@ class HMCR_REF_Model(ECMWF_REFModelTaskBase):
                     self.all_models[modeltype].extend([
                         {
                             "target": f"{toplevel}/hmcr_ref_{T.lower()}_pl_zuvt{ymd}{hdate_ymd}.grb",
-                            "min_size": 109545720,
-                            "class": "s2",
-                            "dataset": "s2s",
+                            "actual_size": 130056408 if d < datetime.datetime(2022,10,14) and T=='CF' else
+                            1095457200 if d < datetime.datetime(2025,7,30) and T=='CF' else
+                            109545720 if T=='CF' else
+                            1170507672 if d < datetime.datetime(2022,10,14) and T=='PF' else
+                            985911480 if d < datetime.datetime(2025,7,30) and T=='PF' else
+                            1095457200 if T=='PF' else None,
+                            "class": HMCR_REF_Model.s2s_class,
+                            "dataset": HMCR_REF_Model.dataset,
                             "date": y_m_d,
                             "expver": "prod",
                             "hdate": hdate_y_m_d,
@@ -64,7 +70,7 @@ class HMCR_REF_Model(ECMWF_REFModelTaskBase):
                             "levtype": "pl",
                             "model": "glob",
                             "number": number,
-                            "origin": "rums",
+                            "origin": HMCR_REF_Model.origin,
                             "param": "130/131/132/156",
                             "step": step,
                             "stream": "enfh",
@@ -73,10 +79,15 @@ class HMCR_REF_Model(ECMWF_REFModelTaskBase):
                             "expect" : "any",
                         },
                         {
+                            "actual_size": 25288746 if T=='CF' and d < datetime.datetime(2022,10,14) else
+                            191705010 if T=='CF' and d < datetime.datetime(2025,7,30) else
+                            19170501 if T=='CF' else
+                            227598714 if T=='PF' and d < datetime.datetime(2022,10,14) else
+                            191705010 if T=='PF' and d < datetime.datetime(2025,7,30) else
+                            19170501 if T=='PF' else None,
                             "target": f"{toplevel}/hmcr_ref_{T.lower()}_pl_q{ymd}{hdate_ymd}.grb",
-                            "min_size": 19170501,
-                            "class": "s2",
-                            "dataset": "s2s",
+                            "class": HMCR_REF_Model.s2s_class,
+                            "dataset": HMCR_REF_Model.dataset,
                             "date": y_m_d,
                             "expver": "prod",
                             "hdate": hdate_y_m_d,
@@ -84,7 +95,7 @@ class HMCR_REF_Model(ECMWF_REFModelTaskBase):
                             "levtype": "pl",
                             "model": "glob",
                             "number": number,
-                            "origin": "rums",
+                            "origin": HMCR_REF_Model.origin,
                             "param": "133",
                             "step": step,
                             "stream": "enfh",
@@ -95,15 +106,15 @@ class HMCR_REF_Model(ECMWF_REFModelTaskBase):
                         {
                             "target": f"{toplevel}/hmcr_ref_{T.lower()}_sfc_sfc{ymd}{hdate_ymd}.grb",
                             "min_size": 53975106 if T == "CF" else 484978200,
-                            "class": "s2",
-                            "dataset": "s2s",
+                            "class": HMCR_REF_Model.s2s_class,
+                            "dataset": HMCR_REF_Model.dataset,
                             "date": y_m_d,
                             "expver": "prod",
                             "hdate": hdate_y_m_d,
                             "levtype": "sfc",
                             "model": "glob",
                             "number": number,
-                            "origin": "rums",
+                            "origin": HMCR_REF_Model.origin,
                             "param": "121/122/134/146/147/151/165/166/169/172/175/176/177/179/180/181/228002/228143/228144/228228",
                             "step": step,
                             "stream": "enfh",
@@ -114,15 +125,15 @@ class HMCR_REF_Model(ECMWF_REFModelTaskBase):
                         {
                             "target": f"{toplevel}/hmcr_ref_{T.lower()}_sfc_sfc6_{ymd}{hdate_ymd}.grb",
                             "min_size": 21451824 if T == "CF" else 214518240,
-                            "class": "s2",
-                            "dataset": "s2s",
+                            "class": HMCR_REF_Model.s2s_class,
+                            "dataset": HMCR_REF_Model.dataset,
                             "date": y_m_d,
                             "expver": "prod",
                             "hdate": hdate_y_m_d,
                             "levtype": "sfc",
                             "model": "glob",
                             "number": number,
-                            "origin": "rums",
+                            "origin": HMCR_REF_Model.origin,
                             "param": "121/122",
                             "step": step_sfc61,
                             "stream": "enfh",
@@ -133,15 +144,15 @@ class HMCR_REF_Model(ECMWF_REFModelTaskBase):
                         {
                             "target": f"{toplevel}/hmcr_ref_{T.lower()}_sfc_sfc62_{ymd}{hdate_ymd}.grb",
                             "min_size": 32285655 if T == "CF" else 322856550,
-                            "class": "s2",
-                            "dataset": "s2s",
+                            "class": HMCR_REF_Model.s2s_class,
+                            "dataset": HMCR_REF_Model.dataset,
                             "date": y_m_d,
                             "expver": "prod",
                             "hdate": hdate_y_m_d,
                             "levtype": "sfc",
                             "model": "glob",
                             "number": number,
-                            "origin": "rums",
+                            "origin": HMCR_REF_Model.origin,
                             "param": "165/166/228228",
                             "step": step_sfc62,
                             "stream": "enfh",
@@ -152,15 +163,15 @@ class HMCR_REF_Model(ECMWF_REFModelTaskBase):
                         {
                             "target": f"{toplevel}/hmcr_ref_{T.lower()}_da_sfc{ymd}{hdate_ymd}.grb",
                             "min_size": 22100000 if T == "CF" else 220790000,
-                            "class": "s2",
-                            "dataset": "s2s",
+                            "class": HMCR_REF_Model.s2s_class,
+                            "dataset": HMCR_REF_Model.dataset,
                             "date": y_m_d,
                             "expver": "prod",
                             "hdate": hdate_y_m_d,
                             "levtype": "sfc",
                             "model": "glob",
                             "number": number,
-                            "origin": "rums",
+                            "origin": HMCR_REF_Model.origin,
                             "param": "31/34/167/168/235/228032/228086/228087/228095/228096/228141/228164",
                             "step": step_da_sfc,
                             "stream": "enfh",
@@ -190,7 +201,7 @@ if __name__ == '__main__':
         if args.end == "now":
             end = datetime.datetime.now()
         else:
-            end = datetime.datetime.strptime(args.start, "%Y-%m-%d")
+            end = datetime.datetime.strptime(args.end, "%Y-%m-%d")
     else:
         end = datetime.datetime.now()
 

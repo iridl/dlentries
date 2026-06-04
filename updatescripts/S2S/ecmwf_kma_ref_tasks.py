@@ -11,7 +11,8 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
 
     model_version_offset = 18  # days
     weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-
+    origin = "rksl"
+    
     def __init__(self, start=None, end=None, weekdays=None, goback=None, model_version_offset=None):
         if weekdays is None:
             weekdays = KMA_REF_Model.weekdays
@@ -53,8 +54,8 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "actual_size": 151033560 if d < datetime.datetime(2017, 1, 1) else \
                             218377560 if d < datetime.datetime(2022, 3, 25) else \
                                 221891160,
-                        "class": "s2",
-                        "dataset": "s2s",
+                        "class": KMA_REF_Model.s2s_class,
+                        "dataset": KMA_REF_Model.dataset,
                         "date": y_m_d,
                         "expver": "prod",
                         "hdate": hdate_y_m_d,
@@ -62,7 +63,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "levtype": "pl",
                         "model": "glob",
                         "number": "1/to/6",
-                        "origin": "rksl",
+                        "origin": KMA_REF_Model.origin,
                         "param": "130/131/132/156",
                         "step": normal_step,
                         "stream": "enfh",
@@ -74,8 +75,8 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "target": f"{toplevel}/kma_ref_cf_pl_q{ymd}{hdate_ymd}.grb",
                         "actual_size": 38216073 if d < datetime.datetime(2022, 3, 25) else \
                             55472790 if d < datetime.datetime(2025, 9, 1) else 49925511,
-                        "class": "s2",
-                        "dataset": "s2s",
+                        "class": KMA_REF_Model.s2s_class,
+                        "dataset": KMA_REF_Model.dataset,
                         "date": y_m_d,
                         "expver": "prod",
                         "hdate": hdate_y_m_d,
@@ -83,7 +84,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "levtype": "pl",
                         "model": "glob",
                         "number": "1/to/6",
-                        "origin": "rksl",
+                        "origin": KMA_REF_Model.origin,
                         "param": "133",
                         "step": normal_step,
                         "stream": "enfh",
@@ -97,8 +98,8 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                             5373759 if d < datetime.datetime(2017, 11, 1) else \
                                 53737590 if d < datetime.datetime(2022, 3, 25) else \
                                         54601590,
-                        "class": "s2",
-                        "dataset": "s2s",
+                        "class": KMA_REF_Model.s2s_class,
+                        "dataset": KMA_REF_Model.dataset,
                         "date": y_m_d,
                         "expver": "prod",
                         "hdate": hdate_y_m_d,
@@ -106,7 +107,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "levtype": "pl",
                         "model": "glob",
                         "number": "1/to/6",
-                        "origin": "rksl",
+                        "origin": KMA_REF_Model.origin,
                         "param": "135",
                         "step": normal_step,
                         "stream": "enfh",
@@ -121,15 +122,15 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                                 42965280 if d < datetime.datetime(2022, 3, 25) else \
                                     76403160 if d < datetime.datetime(2023, 8, 17) else \
                                         87497718,
-                        "class": "s2",
-                        "dataset": "s2s",
+                        "class": KMA_REF_Model.s2s_class,
+                        "dataset": KMA_REF_Model.dataset,
                         "date": y_m_d,
                         "expver": "prod",
                         "hdate": hdate_y_m_d,
                         "levtype": "sfc",
                         "model": "glob",
                         "number": "1/to/6",
-                        "origin": "rksl",
+                        "origin": KMA_REF_Model.origin,
                         "param": "121/122/134/151/165/166/169/172/175/176/177/179/228002/228143/228144/228228",
                         "step": normal_step,
                         "stream": "enfh",
@@ -140,15 +141,15 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                     {
                         "target": f"{toplevel}/kma_ref_cf_sfc_sfc6_{ymd}{hdate_ymd}.grb",
                         "actual_size": 109144080,
-                        "class": "s2",
-                        "dataset": "s2s",
+                        "class": KMA_REF_Model.s2s_class,
+                        "dataset": KMA_REF_Model.dataset,
                         "date": y_m_d,
                         "expver": "prod",
                         "hdate": hdate_y_m_d,
                         "levtype": "sfc",
                         "model": "glob",
                         "number": "1/to/6",
-                        "origin": "rksl",
+                        "origin": KMA_REF_Model.origin,
                         "param": "121/122/165/166/228228",
                         "step": step_sfc61,
                         "stream": "enfh",
@@ -163,15 +164,15 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                                 19946520 if d < datetime.datetime(2020, 9, 1) else \
                                     29186100 if d < datetime.datetime(2022, 3, 25) else \
                                         29335140,
-                        "class": "s2",
-                        "dataset": "s2s",
+                        "class": KMA_REF_Model.s2s_class,
+                        "dataset": KMA_REF_Model.dataset,
                         "date": y_m_d,
                         "expver": "prod",
                         "hdate": hdate_y_m_d,
                         "levtype": "sfc",
                         "model": "glob",
                         "number": "1/to/6",
-                        "origin": "rksl",
+                        "origin": KMA_REF_Model.origin,
                         "param": "31/34/167/168/235/228164",
                         "step": step_da_sfc,
                         "stream": "enfh",
@@ -189,8 +190,8 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                             436755120 if d < datetime.datetime(2022, 3, 25) else \
                                 443782320 if d < datetime.datetime(2023, 8, 17) else \
                                     1331346960,
-                        "class": "s2",
-                        "dataset": "s2s",
+                        "class": KMA_REF_Model.s2s_class,
+                        "dataset": KMA_REF_Model.dataset,
                         "date": y_m_d,
                         "expver": "prod",
                         "hdate": hdate_y_m_d,
@@ -198,7 +199,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "levtype": "pl",
                         "model": "glob",
                         "number": "1/to/6",
-                        "origin": "rksl",
+                        "origin": KMA_REF_Model.origin,
                         "param": "130/131/132/156",
                         "step": normal_step,
                         "stream": "enfh",
@@ -212,8 +213,8 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                             77661906 if d < datetime.datetime(2023, 8, 17) else \
                                 332836740 if d < datetime.datetime(2025, 9, 1) else \
                                     299553066,
-                        "class": "s2",
-                        "dataset": "s2s",
+                        "class": KMA_REF_Model.s2s_class,
+                        "dataset": KMA_REF_Model.dataset,
                         "date": y_m_d,
                         "expver": "prod",
                         "hdate": hdate_y_m_d,
@@ -221,7 +222,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "levtype": "pl",
                         "model": "glob",
                         "number": "1/to/6",
-                        "origin": "rksl",
+                        "origin": KMA_REF_Model.origin,
                         "param": "133",
                         "step": normal_step,
                         "stream": "enfh",
@@ -235,9 +236,10 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                             10747518 if d < datetime.datetime(2017, 11, 1) else \
                                 107475180 if d < datetime.datetime(2022, 3, 25) else \
                                         109203180 if d < datetime.datetime(2023, 8, 17) else \
-                                            327609540,
-                        "class": "s2",
-                        "dataset": "s2s",
+                                            327609540 if d < datetime.datetime(2026, 4, 1) else \
+                                                294848586,
+                        "class": KMA_REF_Model.s2s_class,
+                        "dataset": KMA_REF_Model.dataset,
                         "date": y_m_d,
                         "expver": "prod",
                         "hdate": hdate_y_m_d,
@@ -245,7 +247,7 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "levtype": "pl",
                         "model": "glob",
                         "number": "1/to/6",
-                        "origin": "rksl",
+                        "origin": KMA_REF_Model.origin,
                         "param": "135",
                         "step": normal_step,
                         "stream": "enfh",
@@ -261,15 +263,15 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                                     150387120 if d < datetime.datetime(2022, 3, 25) else \
                                         152806320 if d < datetime.datetime(2023, 9, 1) else \
                                             524986308,
-                        "class": "s2",
-                        "dataset": "s2s",
+                        "class": KMA_REF_Model.s2s_class,
+                        "dataset": KMA_REF_Model.dataset,
                         "date": y_m_d,
                         "expver": "prod",
                         "hdate": hdate_y_m_d,
                         "levtype": "sfc",
                         "model": "glob",
                         "number": "1/to/6",
-                        "origin": "rksl",
+                        "origin": KMA_REF_Model.origin,
                         "param": "121/122/134/151/165/166/169/172/175/176/177/179/228002/228143/228144/228228",
                         "step": normal_step,
                         "stream": "enfh",
@@ -280,15 +282,15 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                     {
                         "target": f"{toplevel}/kma_ref_pf_sfc_sfc6_{ymd}{hdate_ymd}.grb",
                         "actual_size": 654864480,
-                        "class": "s2",
-                        "dataset": "s2s",
+                        "class": KMA_REF_Model.s2s_class,
+                        "dataset": KMA_REF_Model.dataset,
                         "date": y_m_d,
                         "expver": "prod",
                         "hdate": hdate_y_m_d,
                         "levtype": "sfc",
                         "model": "glob",
                         "number": "1/to/6",
-                        "origin": "rksl",
+                        "origin": KMA_REF_Model.origin,
                         "param": "121/122/165/166/228228",
                         "step": step_sfc61,
                         "stream": "enfh",
@@ -304,15 +306,15 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                                     58372200 if d < datetime.datetime(2022, 3, 25) else \
                                         58670280 if d < datetime.datetime(2023, 8, 17) else \
                                             176010840,
-                        "class": "s2",
-                        "dataset": "s2s",
+                        "class": KMA_REF_Model.s2s_class,
+                        "dataset": KMA_REF_Model.dataset,
                         "date": y_m_d,
                         "expver": "prod",
                         "hdate": hdate_y_m_d,
                         "levtype": "sfc",
                         "model": "glob",
                         "number": "1/to/6",
-                        "origin": "rksl",
+                        "origin": KMA_REF_Model.origin,
                         "param": "31/34/167/168/235/228164",
                         "step": step_da_sfc,
                         "stream": "enfh",

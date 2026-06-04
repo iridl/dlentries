@@ -1,4 +1,4 @@
-#!/usr/local/bin/condarun updatescripts
+#!/usr/local/bin/condarun updatescripts3
 # This code is used to download ECMWF Data Server data in parallel.
 #
 # This script should be called from ecmwf_get_data.py, otherwise it won't
@@ -7,91 +7,110 @@
 #
 # Jeff Turmelle - Jan 2023
 #
-#
 import multiprocessing as mp
-import argparse
 import logging
-from multiprocessing_logging import install_mp_handler
+import logging.handlers
+import argparse
+from typing import TypedDict
 import os
-from ecmwfapi import ECMWFDataServer
+import cdsapi
 import datetime
-from ecmwf_get_data import available_models
-import platform
 import tempfile
+import sys
+from ecmwf_get_data import available_models
 from check_file_size import process_file_by_size
-from pathlib import Path
 
-# Globals
-filecount = []
-debug = False
-myplatform = platform.system()
-tmpdir = tempfile.gettempdir()
+sys.path.append('..')
+from get_cdsapi_credentials import get_cdsapi_credential
 
-def my_logger(msg):
-    if debug:
-        if myplatform == "Darwin":
-            print(msg)
-        else:
-            logging.info(msg)
+CDS_Client = None
+
+class DownloadResult(TypedDict):
+    start_time: datetime.datetime
+    end_time: datetime.datetime
+    size: int
+    target: str
+    error: str | None
 
 
-def initializer():
-    global ECMWF_server
-    ECMWF_server = ECMWFDataServer(log=my_logger)
+def initializer(t, debug, credential, log_queue):
+    global CDS_Client
+    global tmpdir
+    tmpdir = t
+
+    # Wire this worker's logger to send records to the main process queue
+    queue_handler = logging.handlers.QueueHandler(log_queue)
+    app_logger = logging.getLogger("ecmwf_downloader")
+    app_logger.addHandler(queue_handler)
+    app_logger.setLevel(logging.DEBUG if debug else logging.INFO)
+
+    # app_logger.info(f"Initializing cdsapi with {credential['url']} and {credential['key']}")
+
+    try:
+        CDS_Client = cdsapi.Client(url=credential['url'], key=credential['key'],
+                                   quiet=(not debug))
+    except Exception as e:
+        app_logger.error(f"Failed to initialize cdsapi: {e}")
+        raise
+    else:
+        app_logger.info("cdsapi initialized")
+
 
 def receive_file_task(task):
     """
     Single task to download a model file from ECMWF.
     """
-    result = {'start_time': datetime.datetime.now(), 'size': 0, 'target': task.pop("target", None), 'end_time': None,
-              'error': None}
+    global CDS_Client
+    result: DownloadResult = {
+        "start_time": datetime.datetime.now(),
+        "size": 0,
+        "target": task.pop("target"),
+        "end_time": datetime.datetime.now(),
+        "error": None,
+    }
+    app_logger = logging.getLogger("ecmwf_downloader")
 
-    if result['target'] is None:
-        logging.error("No target specified for task")
-        result["error"] = "No target specified for task"
+    dataset = task.pop("dataset")
+    if result['target'] is None or dataset is None:
+        result["error"] = "Missing target or dataset for task"
     else:
-        result['target'] = Path(result['target'])
-        task['target'] = f"{tmpdir}/{result['target'].name}"
+        tmpfile = f"{tmpdir}/{os.path.basename(result['target'])}"
 
         min_size = task.pop("min_size", None)
         actual_size = task.pop("actual_size", None)
 
         try:
-            # if debugging is on then messages from this process will be logged to the logfile.
-            if debug:
-                logging.debug(f"Retrieving {task['target']}")
-            ECMWF_server.retrieve(task)
+            app_logger.info(f"Retrieving {result['target']}")
+            CDS_Client.retrieve(dataset, task, tmpfile)
         except Exception as e:
-            if os.path.exists(task['target']):
+            result['error'] = f"ECMWF_Server.retrieve {tmpfile} error {e}"
+            if os.path.exists(tmpfile):
                 try:
-                    os.unlink(task['target'])
+                    os.unlink(tmpfile)
                 except Exception as e:
-                    logging.debug(f"Failure to remove failed download temp file: {task['target']}")
-            result['error'] = f"ECMWF_Server.retrieve {task['target']} error {e}"
+                    result['error'] += f"\nFailure to remove failed download temp file: {tmpfile}: {e}"
+            raise
         else:
-            # Check if the retrieved file exists, and if the size is incorrect, remove it.
-            result['size'] = process_file_by_size(task['target'], min_size, actual_size)
+            result['size'] = process_file_by_size(tmpfile, min_size, actual_size)
             if result['size'] != 0:
                 try:
-                    result['target'].parent.mkdir(parents=True, exist_ok=True)
-                    os.rename(task["target"], str(result['target']))
+                    os.makedirs(os.path.dirname(result['target']), mode=0o775, exist_ok=True)
+                    os.rename(tmpfile, result['target'])
                 except Exception as exception:
-                    try:
-                        os.unlink(task["target"])
-                    except Exception as e:
-                        logging.debug(f"Failure to remove downloaded temp file: {task['target']}")
-                    result['error'] = f"Error moving {task['target']} to {str(result['target'])}: {exception}"
+                    result['error'] = f"Error moving {tmpfile} to {result['target']}: {exception}"
             else:
-                result['error'] = f"File size is incorrect for {task['target']}"
+                result['error'] = f"File size is incorrect for {result['target']}"
 
-    logging.debug(f"Completed {task['target']}, error: {result['error'] if result['error'] else 'None'}")
+    app_logger.info(f"Completed {result['target']}, error: {result['error'] if result['error'] else 'None'}")
     result["end_time"] = datetime.datetime.now()
     return result
 
+
 if __name__ == '__main__':
-    ECMWF_server = None
+    CDS_Client = None
     start = None
     end = None
+    debug = False
 
     parser = argparse.ArgumentParser(description="use multiprocessing to download a set of models from ECMWF")
     parser.add_argument('--models', type=str, required=True, nargs="+",
@@ -103,8 +122,8 @@ if __name__ == '__main__':
     parser.add_argument('--end', type=str,
                         help="End Day in the form YYYY-MM-DD")
     parser.add_argument('--debug', action="store_true",
-                        help="Turn on ECMWFDataserver logging")
-    parser.add_argument('--max_downloads', type=int, default=1,
+                        help="Turn on extra logging")
+    parser.add_argument('--max_downloads', type=int, default=2,
                         help="configure the maximum parallel downloads")
     parser.add_argument('--goback', type=int,
                         help="number of days to go back in time.  Default is defined by the model.")
@@ -113,18 +132,40 @@ if __name__ == '__main__':
                         ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]\n\
                         ["1", "2", "3", "4", "5", "6", "7" ... "31"] for the actual dates.')
     parser.add_argument('--tmpdir', type=str,
-                        help=f"modify default TMPDIR from {tmpdir}")
+                        help=f"modify default TMPDIR from default")
+    parser.add_argument('--key', type=str,
+                        help=f"use the key as the cdsapi key")
+
     args = parser.parse_args()
 
     if args.debug:
-        debug = args.debug
+        debug = True
     if args.tmpdir:
         tmpdir = args.tmpdir
+    else:
+        tmpdir = tempfile.gettempdir()
 
-    # initialize logging
-    logging.basicConfig(filename=args.logfile, encoding="utf-8",
-                        format="%(levelname)s: %(asctime)s - %(process)s - %(message)s",
-                        level=logging.DEBUG)
+    if args.key:
+        credential = {'url': 'https://ecds.ecmwf.int/api', 'key': args.key}
+    else:
+        credential = get_cdsapi_credential('S2S/ecmwf_get_pooled.py')
+
+    if credential is None:
+        raise ValueError("CDS API credentials not found for 'ecmwf_get_pooled.py'")
+
+    # Set up the logging queue and listener in the main process
+    log_queue = mp.Queue()
+
+    handler = logging.FileHandler(args.logfile, encoding="utf-8")
+    handler.setFormatter(logging.Formatter("%(levelname)s: %(asctime)s - %(process)s - %(message)s"))
+
+    listener = logging.handlers.QueueListener(log_queue, handler)
+    listener.start()
+
+    # Set up the main process logger to also use the queue
+    app_logger = logging.getLogger("ecmwf_downloader")
+    app_logger.setLevel(logging.DEBUG if debug else logging.INFO)
+    app_logger.addHandler(logging.handlers.QueueHandler(log_queue))
 
     # Convert start and end into datetime objects
     if args.start is not None:
@@ -133,6 +174,7 @@ if __name__ == '__main__':
         except ValueError as e:
             print(f"Error in start: {e}")
             parser.print_usage()
+            listener.stop()
             exit(-1)
 
     if args.end is not None:
@@ -141,6 +183,7 @@ if __name__ == '__main__':
         except ValueError as e:
             print(f"Error in end: {e}")
             parser.print_usage()
+            listener.stop()
             exit(-1)
 
     all_tasks = []
@@ -148,22 +191,28 @@ if __name__ == '__main__':
     # Build the tasks for each model specified
     for model in args.models:
         model_class = available_models[model](start=start, end=end, weekdays=args.days, goback=args.goback)
-        all_tasks.extend(model_class.get_tasks(prune=True))
-        logging.info(f"downloading {len(all_tasks)} files for {model} from {start} to {end}")
+        all_tasks = model_class.get_tasks(prune=True)
+        app_logger.info(f"downloading {len(all_tasks)} files for {model} from {start} to {end}")
 
-    install_mp_handler()
+        results = []
+        pool = None
+        try:
+            pool = mp.Pool(processes=args.max_downloads, initializer=initializer,
+                           initargs=(tmpdir, debug, credential, log_queue))
+            results = pool.map(receive_file_task, all_tasks)
+            pool.close()
+            pool.join()
+        except Exception as e:
+            app_logger.error(f"Pool Error: {e}")
+            if pool:
+                pool.terminate()
+                pool.join()
 
-    try:
-        pool = mp.Pool(args.max_downloads, initializer=initializer)
-        results = pool.map(receive_file_task, all_tasks)
-        pool.close()
-        pool.join()
-    except Exception as e:
-        logging.error(f"Pool Error: {e}")
-    else:
-        logging.info(f"completed {len(results)} tasks:")
+        app_logger.info(f"completed {len(results)} tasks:")
         for r in results:
             delta = r['end_time'] - r['start_time']
-            logging.info(f"Time: {delta.total_seconds()}, Size: {r['size']}, File: {r['target']}, Error: {r['error'] if r['error'] else 'None'}")
+            app_logger.info(f"Time: {delta.total_seconds()}, Size: {r['size']}, File: {r['target']}, Error: {r['error'] if r['error'] else 'None'}")
+
+    listener.stop()
 
     exit(0)

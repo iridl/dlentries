@@ -13,7 +13,7 @@ from email.message import EmailMessage
 from datetime import datetime
 
 # don't submit more than this many jobs at a time to ECMWF Data Server
-ECMWF_max_processes = 10
+ECMWF_max_processes = 2
 ECMWF_TMPDIR = '/Data/tmp'
 DIR_MODE = 0o775
 
@@ -113,7 +113,7 @@ def S2S_logs_directory():
     return f"{S2S_ecmwf_toplevel_directory()}/logs"
 
 
-def S2S_configure_logging(log_dir, log_file, level=logging.DEBUG):
+def S2S_configure_logging(log_dir, log_file, level=logging.INFO):
     logfile = None
     try:
         if not os.path.isdir(log_dir):

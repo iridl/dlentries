@@ -53,6 +53,7 @@ for adate in MON_THU_OF_INTEREST:
             download_status = uu.download_file(
                 dest_dir, file_name,
                 f'{URL_PATH}/{date_str}/{file_name}',
+                expected_file_size=274636800,
             )
             print(download_status["message"])
             if download_status["flag"] == 1 :

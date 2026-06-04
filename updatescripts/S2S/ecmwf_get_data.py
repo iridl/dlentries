@@ -1,4 +1,4 @@
-#!/usr/local/bin/condarun updatescripts
+#!/usr/local/bin/condarun updatescripts3
 # Wrapper script to call ecmwf_get_pooled.py to get model data from ECMWF using the ECMWFDataServer API.
 # We need to do it this way because we need to set the ECMWF Keys Environment in order to pass credentials
 # properly to the server.
@@ -12,7 +12,6 @@ import os
 from datetime import datetime
 import logging
 
-from S2S_config import S2S_ecmwf_api_keys
 from S2S_config import S2S_script_directory
 from S2S_config import S2S_logs_directory
 from S2S_config import S2S_configure_logging
@@ -60,9 +59,6 @@ available_models = {
     "ukmo_ref": UKMO_REF_Model
 }
 
-# returns None if using ~/.ecmwfapirc
-ECMWFAPIKEYS = S2S_ecmwf_api_keys()
-
 if __name__ == '__main__':
     lockname = "ecmwf_get_data"
     usernames = []  # holds all the available ECMWF user API keys
@@ -74,14 +70,6 @@ if __name__ == '__main__':
     all_models = ", ".join([k for k in available_models.keys()])
     parser = argparse.ArgumentParser(description="Download models from ECMWF.")
 
-    if ECMWFAPIKEYS is not None:
-        for k in ECMWFAPIKEYS:
-            # This is just for the parser help
-            k['username'] = k['email'].split('@')[0]
-            usernames.append(k['username'])
-        parser.add_argument('--user', type=str, required=True, default='x',
-                            help=f"Whose key do you want to use: {','.join(usernames)}")
-
     parser.add_argument('--models', type=str, required=True, nargs='+',
                         help=f"select the model types: {all_models}.")
     parser.add_argument('--start', type=str,
@@ -89,7 +77,7 @@ if __name__ == '__main__':
     parser.add_argument('--end', type=str,
                         help="End Day in the form YYYY-MM-DD.  Will only run 1 day if not defined")
     parser.add_argument('--debug', action="store_true",
-                        help="Turn on ECMWFDataserver logging")
+                        help="Increase logging")
     parser.add_argument('--max_downloads', type=int, default=ECMWF_max_processes,
                         help=f"modify max parallel downloads from default of {ECMWF_max_processes}")
     parser.add_argument('--goback', type=int,
@@ -100,6 +88,8 @@ if __name__ == '__main__':
                         ["1", "2", "3", "4", "5", "6", "7" ... "31"] for the actual dates.')
     parser.add_argument('--tmpdir', type=str, default=ECMWF_TMPDIR,
                         help=f"modify default TMPDIR from {ECMWF_TMPDIR}")
+    parser.add_argument('--key', type=str,
+                        help=f"pass the CDSAPIRC key")
     args = parser.parse_args()
 
     if args.debug:
@@ -109,24 +99,8 @@ if __name__ == '__main__':
 
     executable_arguments.extend(["--max_downloads", str(args.max_downloads)])
     executable_arguments.extend(["--tmpdir", str(args.tmpdir)])
-
-    #
-    # Make sure the user key exists and set the environment variables for login to ECMWFDataserver
-    #
-    key = None
-    if ECMWFAPIKEYS is not None:
-        for k in ECMWFAPIKEYS:
-            if k['username'] == args.user:
-                key = k
-                break
-        if key is None:
-            print(f"Incorrect key, must choose one of {usernames}")
-            parser.print_usage()
-            exit(1)
-        else:
-            for k in ["url", "key", "email"]:
-                # Set ENVIRONMENT variables to be passed to the job that will set the ECMWFAPI API keys
-                os.environ[f"ECMWF_API_{k.upper()}"] = key[k]
+    if args.key:
+        executable_arguments.extend(["--key", args.key])
 
     #
     # Check the Start and End Times.  Set start and end as datetime values, so we can
@@ -162,9 +136,10 @@ if __name__ == '__main__':
     # Set up the logfile.  This is try/except because S2S_configure_logging creates the folder/file if it doesn't exist.
     logger = logging.getLogger(__name__)
     try:
+        LOGLEVEL = logging.DEBUG if args.debug else logging.INFO
         logdir = f"{S2S_logs_directory()}/{today.year}"
         logfile = f"ecmwf_get_data_{today.year}{today.month:02d}{today.day:02d}-{today.hour:02d}{today.minute:02d}{today.second:02d}.log"
-        logfile = S2S_configure_logging(S2S_logs_directory(), logfile)
+        logfile = S2S_configure_logging(S2S_logs_directory(), logfile, LOGLEVEL)
         print(f"logfile is {logfile}")
     except Exception as e:
         print(e)
