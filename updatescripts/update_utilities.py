@@ -268,6 +268,7 @@ def download_file(
         file_url,
         expected_file_size=None,
         chunk_size=16*1024,
+        temporary_dir="/Data/tmp"
     ):
     """Downloads a file from URL.
 
@@ -291,6 +292,8 @@ def download_file(
     chunk_size : int, optional
         size of chunks of file to download one after the other,
         default is 16*1024
+    temporary_dir : str, optional
+        directory where to download temporary files, default is "/Data/tmp"
     Returns
     -------
         is_downloaded, message : tuple
@@ -301,11 +304,16 @@ def download_file(
     if destination_file.is_file() or destination_file.is_dir():
         download_flag = 0
         message = f'Already got {destination_file} as file or directory'
+    elif not Path(temporary_dir).exists():
+        download_flag = -8
+        message = f'{temporary_dir} doesn not exist'
     else:
+        temporary_filename = None
         try:
             with urlr.urlopen(file_url) as r:
                 destination_dir.mkdir(parents=True, exist_ok=True)
-                with tempfile.NamedTemporaryFile(dir=destination_dir) as f:
+                with tempfile.NamedTemporaryFile(dir=temporary_dir) as f:
+                    temporary_filename = Path(f.name)
                     chunk = None
                     while chunk != b'':
                         chunk = r.read(chunk_size)
@@ -316,7 +324,7 @@ def download_file(
                         or f.tell() == expected_file_size
                     ) :
                         message = add_to_dataset(
-                            Path(f.name), new_path=destination_file
+                            path=temporary_filename, new_path=destination_file
                         )
                         print(message)
                     else:
@@ -331,6 +339,7 @@ def download_file(
         except Exception as e:
             download_flag = -9
             message = f'Something went wrong with exception {e} on {file_url}'
+            temporary_filename.unlink(missing_ok=True)
     return {"flag" : download_flag, "message": message}
 
 
