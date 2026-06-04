@@ -306,7 +306,7 @@ def download_file(
         message = f'Already got {destination_file} as file or directory'
     elif not Path(temporary_dir).exists():
         download_flag = -8
-        message = f'{temporary_dir} doesn not exist'
+        message = f'{temporary_dir} does not exist'
     else:
         temporary_filename = None
         try:
@@ -339,7 +339,8 @@ def download_file(
         except Exception as e:
             download_flag = -9
             message = f'Something went wrong with exception {e} on {file_url}'
-            temporary_filename.unlink(missing_ok=True)
+            if temporary_filename:
+                temporary_filename.unlink(missing_ok=True)
     return {"flag" : download_flag, "message": message}
 
 
