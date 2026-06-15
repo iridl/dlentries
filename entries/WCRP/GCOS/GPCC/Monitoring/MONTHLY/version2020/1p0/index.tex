@@ -22,18 +22,8 @@ continuedataset:
    /netcdfgrid true def
    16 Jan 1982 ensotime
    1
-   16 systemtime systemtime2ymd ymd:lastmonth pop .5 sub exch ensotime
+   16 Feb 2026 ensotime
    :grid
-   
-   T {(/Data/data21/gpcc/v2020/%Y[T]/monitoring_v2020_10_%Y[T]_%m[T].nc) [T] } removeextrausing
-   name exch def
-   
-   T
-   /expires last
-      rm19602ymd ymd:nextmonth ymd:nextmonth ymd:nextmonth ymd2systemtime def
-      name exch def
-   /last_modified last_modified T .last_modified imax def
-   /expires T .expires def
 
    /eprcp{
       [ X Y last first subgrid | T ] (/Data/data21/gpcc/v2020/%Y[T]/monitoring_v2020_10_%Y[T]_%m[T].nc) [T] readdatafile:
