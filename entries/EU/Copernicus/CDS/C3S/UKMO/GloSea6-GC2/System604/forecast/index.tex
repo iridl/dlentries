@@ -19,24 +19,9 @@ grid:
 /pointwidth 0 def
 1 Mar 2025 ensotime
 1
-%1 Feb 2026 ensotime
-1 systemtime (%b %Y) 10 strftime
-interp
-ensotime
+1 Feb 2026 ensotime
 /defaultvalue { last } def
 :grid
-
-S { (/Data/data21/EC/Copernicus/CDS/C3S/UKMO/GloSea6-GC2/System604/forecast/prcp_C3S_ukmo_system604_fcast_mon_mean_%Y[S]%m[S].grb) [S]} removeextrausing
-name exch def
-
-S
-/expires
-last rm19602ymd ymd:nextmonth
-ymd2systemtime 
-def
-name exch def
-/expires S .expires def
-/last_modified S .last_modified def
 
 /T { S L add
 /long_name (Time) def
