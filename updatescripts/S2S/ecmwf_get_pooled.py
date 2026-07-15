@@ -21,7 +21,7 @@ from ecmwf_get_data import available_models
 from check_file_size import process_file_by_size
 from pathlib import Path
 
-sys.path.append(str(Path(__file__).parent))
+sys.path.append(str(Path(__file__).parent.parent))
 from get_cdsapi_credentials import get_cdsapi_credential
 
 CDS_Client = None
