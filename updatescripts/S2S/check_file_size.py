@@ -14,17 +14,22 @@ def process_file_by_size(filename, min_size, actual_size, dryrun=False, mylogger
             if actual_size-actual_size_offset < size < actual_size+actual_size_offset:
                 return size
             else:
-                mylogger.error(f"{filename} is wrong size ({size}), should be {actual_size}")
+                if mylogger:
+                    mylogger.error(f"{filename} is wrong size ({size}), should be {actual_size}")
                 if not dryrun:
-                    mylogger.warning(f"removing wrong size file {filename}")
+                    if mylogger:
+                        mylogger.warning(f"removing wrong size file {filename}")
                     os.unlink(filename)
                 return 0
         elif min_size is not None and size < min_size:
-            mylogger.error(f"{filename} too small ({size}), should be a minimum of {min_size}")
+            if mylogger:
+                mylogger.error(f"{filename} too small ({size}), should be a minimum of {min_size}")
             if not dryrun:
-                mylogger.warning(f"removing too small file {filename}")
+                if mylogger:
+                    mylogger.warning(f"removing too small file {filename}")
                 os.unlink(filename)
             return 0
     else:
-        mylogger.error(f"{filename} does not exist.")
+        if mylogger:
+            mylogger.error(f"{filename} does not exist.")
     return size
