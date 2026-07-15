@@ -1,7 +1,8 @@
 import os
 import logging
 
-def process_file_by_size(filename, min_size, actual_size, dryrun=False):
+
+def process_file_by_size(filename, min_size, actual_size, dryrun=False, logger=None):
     # Check file size and remove if it doesn't match the expected size
     size = 0
     if os.path.exists(filename):
