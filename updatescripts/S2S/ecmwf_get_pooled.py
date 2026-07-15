@@ -95,7 +95,7 @@ def receive_file_task(task):
                     result['error'] += f"\nFailure to remove failed download temp file: {tmpfile}: {e}"
             raise
         else:
-            result['size'] = process_file_by_size(tmpfile, min_size, actual_size, dryrun=False, logger=app_logger)
+            result['size'] = process_file_by_size(tmpfile, min_size, actual_size, dryrun=False, mylogger=app_logger)
             if result['size'] != 0:
                 try:
                     os.makedirs(os.path.dirname(result['target']), mode=0o775, exist_ok=True)
@@ -159,8 +159,14 @@ if __name__ == '__main__':
     if credential is None:
         raise ValueError("CDS API credentials not found for 'ecmwf_get_pooled.py'")
 
+    # Force 'spawn' regardless of platform default so workers never inherit the main
+    # process's logging handlers or open sockets via fork. The queue must be created
+    # from the same context as the Pool below, since Queue binds its internal locks
+    # to whichever context constructed it.
+    mp_ctx = mp.get_context("spawn")
+
     # Set up the logging queue and listener in the main process
-    log_queue = mp.Queue()
+    log_queue = mp_ctx.Queue()
 
     handler = logging.FileHandler(args.logfile, encoding="utf-8")
     handler.setFormatter(logging.Formatter("%(levelname)s: %(asctime)s - %(process)s - %(message)s"))
@@ -203,8 +209,8 @@ if __name__ == '__main__':
         results = []
         pool = None
         try:
-            pool = mp.Pool(processes=args.max_downloads, initializer=initializer,
-                           initargs=(tmpdir, debug, credential, log_queue))
+            pool = mp_ctx.Pool(processes=args.max_downloads, initializer=initializer,
+                               initargs=(tmpdir, debug, credential, log_queue))
             results = pool.map(receive_file_task, all_tasks)
             pool.close()
             pool.join()
