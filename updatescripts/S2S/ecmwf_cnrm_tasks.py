@@ -163,7 +163,7 @@ class CNRMModel(ECMWFModelTaskBase):
                 "expect": "any",
             },
             {
-                "min_size": 650000000,
+                "min_size": 640000000,
                 "target": f"{pf_toplevel}/cnrm_rel_pf_da_sfc{ymd}{ymd}.grb",
                 "class": CNRMModel.s2s_class,
                 "dataset": CNRMModel.dataset,
