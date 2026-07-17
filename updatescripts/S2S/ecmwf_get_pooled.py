@@ -19,8 +19,9 @@ import tempfile
 import sys
 from ecmwf_get_data import available_models
 from check_file_size import process_file_by_size
+from pathlib import Path
 
-sys.path.append('..')
+sys.path.append(str(Path(__file__).parent.parent))
 from get_cdsapi_credentials import get_cdsapi_credential
 
 CDS_Client = None
@@ -38,9 +39,12 @@ def initializer(t, debug, credential, log_queue):
     global tmpdir
     tmpdir = t
 
-    # Wire this worker's logger to send records to the main process queue
+    # Wire this worker's logger to send records to the main process queue.
+    # On platforms using fork, the worker inherits the main process's already-attached
+    # QueueHandler via copy-on-write, so clear it first or every record gets logged twice.
     queue_handler = logging.handlers.QueueHandler(log_queue)
     app_logger = logging.getLogger("ecmwf_downloader")
+    app_logger.handlers.clear()
     app_logger.addHandler(queue_handler)
     app_logger.setLevel(logging.DEBUG if debug else logging.INFO)
 
@@ -91,7 +95,7 @@ def receive_file_task(task):
                     result['error'] += f"\nFailure to remove failed download temp file: {tmpfile}: {e}"
             raise
         else:
-            result['size'] = process_file_by_size(tmpfile, min_size, actual_size)
+            result['size'] = process_file_by_size(tmpfile, min_size, actual_size, dryrun=False, mylogger=app_logger)
             if result['size'] != 0:
                 try:
                     os.makedirs(os.path.dirname(result['target']), mode=0o775, exist_ok=True)
@@ -101,8 +105,10 @@ def receive_file_task(task):
             else:
                 result['error'] = f"File size is incorrect for {result['target']}"
 
-    app_logger.info(f"Completed {result['target']}, error: {result['error'] if result['error'] else 'None'}")
     result["end_time"] = datetime.datetime.now()
+    delta = result["end_time"] - result["start_time"]
+    app_logger.info(f"Completed {result['target']}, Time: {delta.total_seconds()}, Size: {result['size']}, "
+                     f"error: {result['error'] if result['error'] else 'None'}")
     return result
 
 
@@ -208,10 +214,7 @@ if __name__ == '__main__':
                 pool.terminate()
                 pool.join()
 
-        app_logger.info(f"completed {len(results)} tasks:")
-        for r in results:
-            delta = r['end_time'] - r['start_time']
-            app_logger.info(f"Time: {delta.total_seconds()}, Size: {r['size']}, File: {r['target']}, Error: {r['error'] if r['error'] else 'None'}")
+        app_logger.info(f"completed {len(results)} tasks")
 
     listener.stop()
 
