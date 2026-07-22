@@ -26,6 +26,7 @@ from get_cdsapi_credentials import get_cdsapi_credential
 
 CDS_Client = None
 
+
 class DownloadResult(TypedDict):
     start_time: datetime.datetime
     end_time: datetime.datetime
@@ -107,8 +108,11 @@ def receive_file_task(task):
 
     result["end_time"] = datetime.datetime.now()
     delta = result["end_time"] - result["start_time"]
-    app_logger.info(f"Completed {result['target']}, Time: {delta.total_seconds()}, Size: {result['size']}, "
-                     f"error: {result['error'] if result['error'] else 'None'}")
+    if result['error']:
+        app_logger.error(f"ERROR {result['target']}, Time: {delta.total_seconds()}, Size: {result['size']}, "
+                        f"error: {result['error']}")
+    else:
+        app_logger.info(f"Completed {result['target']}, Time: {delta.total_seconds()}, Size: {result['size']}, ")
     return result
 
 

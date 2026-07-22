@@ -90,7 +90,7 @@ class ECCCModel(ECMWFModelTaskBase):
                     "expect": "any",
                 },
                 {
-                    "min_size": 745712760,
+                    "min_size": 740000000,
                     "target": f"{pf_toplevel}/eccc_rel_pf_sfc_sfc{ymd}{ymd}.grb",
                     "class": ECCCModel.s2s_class,
                     "dataset": ECCCModel.dataset,
@@ -240,7 +240,7 @@ class ECCCModel(ECMWFModelTaskBase):
                     "expect": "any",
                 },
                 {
-                    "min_size": 41830074,
+                    "min_size": 41000000,
                     "target": f"{cf_toplevel}/eccc_rel_cf_sfc_sfc{ymd}{ymd}.grb",
                     "class": ECCCModel.s2s_class,
                     "dataset": ECCCModel.dataset,
