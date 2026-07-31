@@ -97,7 +97,8 @@ class KMA_REF_Model(ECMWF_REFModelTaskBase):
                         "actual_size": 3717759 if d < datetime.datetime(2017, 1, 1) else \
                             5373759 if d < datetime.datetime(2017, 11, 1) else \
                                 53737590 if d < datetime.datetime(2022, 3, 25) else \
-                                        54601590,
+                                        54601590 if d < datetime.datetime(2026, 3, 25) else
+					    49141431,
                         "class": KMA_REF_Model.s2s_class,
                         "dataset": KMA_REF_Model.dataset,
                         "date": y_m_d,
