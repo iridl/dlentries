@@ -80,11 +80,10 @@ class HMCR_REF_Model(ECMWF_REFModelTaskBase):
                         },
                         {
                             "actual_size": 25288746 if T=='CF' and d < datetime.datetime(2022,10,14) else
-                            191705010 if T=='CF' and d < datetime.datetime(2025,7,30) else
+                            191705010 if T=='CF' and (d < datetime.datetime(2025,7,30) or d > datetime.datetime(2025,12,25)) else
                             19170501 if T=='CF' else
                             227598714 if T=='PF' and d < datetime.datetime(2022,10,14) else
-                            191705010 if T=='PF' and d < datetime.datetime(2025,7,30) else
-                            19170501 if T=='PF' else None,
+                            191705010 if T=='PF',
                             "target": f"{toplevel}/hmcr_ref_{T.lower()}_pl_q{ymd}{hdate_ymd}.grb",
                             "class": HMCR_REF_Model.s2s_class,
                             "dataset": HMCR_REF_Model.dataset,
