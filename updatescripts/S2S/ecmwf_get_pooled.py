@@ -88,13 +88,12 @@ def receive_file_task(task):
             app_logger.info(f"Retrieving {result['target']}")
             CDS_Client.retrieve(dataset, task, tmpfile)
         except Exception as e:
-            result['error'] = f"ECMWF_Server.retrieve {tmpfile} error {e}"
+            result['error'] = f"CDS_Client.retrieve {tmpfile} error {e}"
             if os.path.exists(tmpfile):
                 try:
                     os.unlink(tmpfile)
                 except Exception as e:
                     result['error'] += f"\nFailure to remove failed download temp file: {tmpfile}: {e}"
-            raise
         else:
             result['size'] = process_file_by_size(tmpfile, min_size, actual_size, dryrun=False, mylogger=app_logger)
             if result['size'] != 0:
