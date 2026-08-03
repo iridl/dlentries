@@ -1,0 +1,116 @@
+\begin{ingrid}
+continuedataset:
+
+ /CDO (Climate Data Operators version 1.9.0 (http://mpimet.mpg.de/cdo)) def
+ /Conventions (COARDS) def
+ /History (File written by MAPL_CFIO) def
+ /Contact (http://gmao.gsfc.nasa.gov) def
+ /Institution (NASA Global Modeling and Assimilation Office) def
+ /Title (GEOS-S2S-3) def
+ /References (http://gmao.gsfc.nasa.gov) def
+ /Comment (GEOS-S2S-3) def
+ /creator (gmaohcst) def
+
+grid:
+/name / X def
+/units /degree_east def
+ -180. 0.5 179.5
+periodic
+:grid
+
+grid:
+/name /Y def
+/units /degree_north def
+ -90.0 0.5 90.0
+:grid
+
+grid:
+/name /L def
+/long_name (Lead) def
+/units /days def
+ 0.5 1.0 90.5
+/pointwidth 1.0 def
+/standard_name (hindcast_period) def
+:grid
+
+grid:
+/name /M def
+/long_name (Ensemble Member) def
+/standard_name (realization) def
+/units /ids def
+1 1 15
+:grid
+
+grid:
+/name (S) def
+/units (days since 1960-01-01) def
+/long_name (hindcast start time) def
+/standard_name (hindcast_reference_time) def
+/netcdfgrid true def %time is a coord into the file
+1 Jan 1999 julian_day 01 Jan 1960 julian_day sub
+1.0
+31 Jul 2024 julian_day %end on the last day of the month preceding the final data availability date.
+01 Jan 1960 julian_day sub
+/pointwidth 0. def
+/defaultvalue { last } def
+:grid
+
+%Adjustment of S grid according to the owner's specification -> 
+%      each 5 days of each month (excluding 29 February) 
+%      each Year has the same day for each month
+S monthlyedgesgrid
+   name units gridtype mark gridvalues
+        {dup cvsunits (Jan) search {3 {pop}repeat  5 {dup 5 add}repeat} { 
+         (Feb) search {3 {pop}repeat 1 sub 5 {dup 5 add}repeat} { 
+            (Apr) search {3 {pop}repeat 5 {dup 5 add}repeat} { 
+               (May) search {3 {pop}repeat  6 {dup 5 add}repeat} { 
+                  (Jun) search {3 {pop}repeat 4 add 5 {dup 5 add}repeat} { 
+                     (Jul) search {3 {pop}repeat 4 add 5 {dup 5 add}repeat} {
+                        (Aug) search {3 {pop}repeat 3 add 5 {dup 5 add}repeat} {
+                            (Sep) search {3 {pop}repeat 2 add 5 {dup 5 add}repeat} {
+                                (Oct) search {3 {pop}repeat 2 add 5 {dup 5 add}repeat}
+                                  %Mar, Nov and Dec
+                                  {pop 1 add 5 {dup 5 add}repeat}
+                                ifelse}
+                            ifelse}
+                        ifelse}
+                     ifelse}
+                     ifelse}
+                  ifelse}
+               ifelse}
+            ifelse}
+         ifelse
+         }forall counttomark realarray astore
+        nip NewGRID
+    /pointwidth 0.0 def
+    first last  subgrid
+    /defaultvalue { last } def
+    /netcdfgrid true def %time is a coord into the file
+    replaceGRID
+
+    
+ /pr{                                                                %19990101.sfc_tavg_3hr_glo_L720x361_sfc.dailymean.19990331.L89.t2mprectot.nc4
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/hindcast/%Y%m%d[S]/ens%d[M]/%Y%m%d[S].sfc_tavg_3hr_glo_L720x361_sfc.dailymean.*.L%d[L].t2mprectot.nc4) [ M S L 0.5 sub ] readdatafile: 
+/name (PRECTOTCORR) def
+ /long_name (Total Precipitation) def
+ /units (kg m-2 s-1)cvn def
+ /fmissing_value 1.0E15 def
+ /missing_value 1.0E15 def
+ /standard_name (precipitation_flux) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+ /tas{
+[ X Y | L M S ] (/Data/SubX/NASA/GEOS_V3/hindcast/%Y%m%d[S]/ens%d[M]/%Y%m%d[S].sfc_tavg_3hr_glo_L720x361_sfc.dailymean.*.L%d[L].t2mprectot.nc4) [ M S L 0.5 sub ] readdatafile: 
+/name (T2M) def
+ /long_name (2-meter Air Temperature) def
+ /units /Kelvin_scale def
+ /missing_value 1.0E15 def
+ /fmissing_value 1.0E15 def
+ /standard_name (air_temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+
+:dataset
+\end{ingrid}
+
