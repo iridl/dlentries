@@ -9,8 +9,7 @@ grid:
 /standard_name (forecast_reference_time) def
 13 Nov 2024 julian_day 01 Jan 1960 julian_day sub
 1.0
-systemtime
-(%d %b %Y) 12 strftime interp julian_day
+30 Apr 2026 julian_day
 01 Jan 1960 julian_day sub
 /pointwidth 0. def
 /defaultvalue { last } def
@@ -34,7 +33,9 @@ S monthlyedgesgrid
                ifelse}
             ifelse}
          ifelse
-         }forall counttomark realarray astore
+         }forall  
+         10 {pop} repeat % It should be end in May 11 2026
+         counttomark realarray astore
         nip NewGRID
     /pointwidth 0.0 def
     %The calculations are done for each month starting on the 1st day, then it moves to November 13th, 

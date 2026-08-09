@@ -24,18 +24,38 @@ grid:
 -90.0 1.5 90.0
 :grid
 
+
 grid:
 /name (S) def
 /units (days since 1960-01-01) def
 /long_name (forecast start time) def
 /standard_name (forecast_reference_time) def
-12 Nov 2024 julian_day 01 Jan 1960 julian_day sub
+13 May 2026 julian_day 01 Jan 1960 julian_day sub
 1.0
-12 May 2026 julian_day 01 Jan 1960 julian_day sub
+systemtime
+(%d %b %Y) 12 strftime interp julian_day
+01 Jan 1960 julian_day sub
 /pointwidth 0. def
 /defaultvalue { last } def
 :grid
 
+
+S {(/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_pt_pv%Y%m%d[S]%Y%m%d[S].grb) [ S ]} removeextrausing
+
+/expires
+  S last
+    1 add
+    cvsunits nip interp exch
+      0.5 add
+      3 -1 roll
+      ymd2systemtime
+    nip
+def
+name exch def
+/expires S  .expires def
+
+
+% a grid for instantaneous values, starting at 1
 grid:
 /name /L def
 /long_name (Lead) def
@@ -55,7 +75,7 @@ grid:
 /pointwidth 0. def
 :grid
 
-%need a second lead grid for daily averages, not instantaneous values -- look at previous S2S datasets
+% a lead grid for daily averages
 grid:
 /name /LA def
 /long_name (Lead) def
@@ -86,14 +106,6 @@ grid:
 :grid
 
 grid:
-/name /M def
-/long_name (Ensemble Member) def
-/standard_name (realization) def
-/units (ids) def
-1 1 100
-:grid
-
-grid:
 /name (P) def
 /long_name (Pressure Level) def
 /standard_name (air_pressure) def
@@ -102,11 +114,30 @@ values: 10 50 100 200 300 500 700 850 925 1000 :values
 :grid
 
 dataset:
-[X Y M L P 200 300 500 700 850 925 1000 subgrid S ] {name exch def } forall
+[X Y P L S ] {name exch def } forall
+
+/name /pressure_level_w def
+
+/w { [ X Y last first subgrid | P L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_pl_w%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (VVEL) def
+(04XXXX00010208) GRIBvariable
+:readdatafile
+/long_name (Vertical Velocity (Pressure)) def
+/standard_name (lagrangian_tendency_of_air_pressure) def
+/units (Pa/s) cvn def
+/missing_value 9.999000E+20 def
+decompress
+Y last first RANGE
+} defasvarsilent
+
+:dataset
+
+dataset:
+[X Y P 200 300 500 700 850 925 1000 subgrid L S ] {name exch def } forall
 
 /name /pressure_level_q def
 
-/q { [ X Y last first subgrid | P M L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_pl_q%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/q { [ X Y last first subgrid | P L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_pl_q%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (SPFH) def
 (04XXXX00010100) GRIBvariable
 :readdatafile
@@ -120,25 +151,12 @@ Y last first RANGE
 
 :dataset
 
-
 dataset:
-[X Y M L S P] {name exch def } forall
+[X Y P L S ] {name exch def } forall
 
-/name /pressure_level def
+/name /pressure_level_t def
 
-/w { [ X Y last first subgrid | M L S P] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_pl_w_%i[P]_%Y%m%d[S]%Y%m%d[S].grb) [ S P ] readdatafile:
-/name (VVEL) def
-(04XXXX00010208) GRIBvariable
-:readdatafile
-/long_name (Vertical Velocity (Pressure)) def
-/standard_name (lagrangian_tendency_of_air_pressure) def
-/units (Pa/s) cvn def
-/missing_value 9.999000E+20 def
-decompress
-Y last first RANGE
-} defasvarsilent
-
-/t { [ X Y last first subgrid | M L S P ]  (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_pl_t_%i[P]_%Y%m%d[S]%Y%m%d[S].grb) [ S P ] readdatafile:
+/t { [ X Y last first subgrid | P L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_pl_zuvt%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (TMP) def
 (04XXXX00010000) GRIBvariable
 :readdatafile
@@ -150,11 +168,18 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-/gh { [ X Y last first subgrid | M L S P ]  (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_pl_z_%i[P]_%Y%m%d[S]%Y%m%d[S].grb) [ S P ] readdatafile:
+:dataset
+
+dataset:
+[X Y P L S ] {name exch def } forall
+
+/name /pressure_level_gh def
+
+/gh { [ X Y last first subgrid | P L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_pl_zuvt%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (HGT) def
 (04XXXX00010305) GRIBvariable
 :readdatafile
-/long_name (Geopotential Height 10-500) def
+/long_name (Geopotential Height) def
 /standard_name (geopotential_height) def
 /units (gpm) def
 /missing_value 9.999000E+20 def
@@ -162,7 +187,14 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-/u { [ X Y last first subgrid | M L S P ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_pl_u_%i[P]_%Y%m%d[S]%Y%m%d[S].grb) [ S P ] readdatafile:
+:dataset
+
+dataset:
+[X Y P L S ] {name exch def } forall
+
+/name /pressure_level_u def
+
+/u { [ X Y last first subgrid | P L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_pl_zuvt%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (UGRD) def
 (04XXXX00010202) GRIBvariable
 :readdatafile
@@ -174,7 +206,14 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-/v { [ X Y last first subgrid | M L S P ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_pl_v_%i[P]_%Y%m%d[S]%Y%m%d[S].grb) [ S P ] readdatafile:
+:dataset
+
+dataset:
+[X Y P L S ] {name exch def } forall
+
+/name /pressure_level_v def
+
+/v { [ X Y last first subgrid | P L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_pl_zuvt%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (VGRD) def
 (04XXXX00010203) GRIBvariable
 :readdatafile
@@ -188,18 +227,71 @@ Y last first RANGE
 
 :dataset
 
+% need to deal with land surface data
+
 \end{ingrid}
+
+\begin{ingrid}
+dataset:
+
+datasetdefs:
+L name exch def
+:datasetdefs
+
+[ X Y ] {name exch def } forall
+
+/name /land_sfc def
+
+/slt { [ X Y last first subgrid | L ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/2024/06/ecmf_rel_cf_sfc_sfc2024060120240601.grb) readdatafile:
+/name (SOTYP) def
+(04XXXX00010300) GRIBvariable
+:readdatafile
+L first VALUE L removeGRID
+/long_name (Soil Type) def
+/standard_name (soil_type) def
+/units (ids) def
+/missing_value 9.999000E+20 def
+decompress
+Y last first RANGE
+} defasvarsilent
+
+/lsm { [ X Y last first subgrid | L ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/2024/06/ecmf_rel_cf_sfc_sfc2024060120240601.grb) readdatafile:
+/name (lsm) def
+(04XXXX00010000) GRIBvariable
+:readdatafile
+L first VALUE L removeGRID
+/long_name (Land-Sea Mask) def
+/units (unitless) def
+/missing_value 9.999000E+20 def
+decompress
+Y last first RANGE
+} defasvarsilent
+
+/orog { [ X Y last first subgrid | L ] (/Data/data25/ECMWF/S2S/ECMF/REF/CF/OLD_GRIB/ecmf_ref_cf_sfc_landsfc_static.grb) readdatafile:
+/name (orog) def
+(04XXXX003C0305) GRIBvariable
+:readdatafile
+L first VALUE L removeGRID
+/long_name (Orography) def
+/standard_name (geopotential_height) def
+/units (gpm) def
+/missing_value 9.999000E+20 def
+decompress
+Y last first RANGE
+} defasvarsilent
+
+:dataset
+
+\end{ingrid}
+
 \begin{ingrid}
 
 dataset:
-
-[X Y M LA S ] {name exch def } forall
+[X Y LA S ] {name exch def } forall
 
 /name /sfc_snow_ice def
-%one-day average values
 
-
-/ci { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_da_sfc1_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/ci { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (ICEC) def
 (04XXXX000B0200) GRIBvariable
 :readdatafile
@@ -211,21 +303,19 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-
-/sd { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_da_sfc1_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/sd { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (SDWE) def
 (04XXXX000B013C) GRIBvariable
 :readdatafile
 /long_name (Snow Depth Water Equivalent) def
-/standard_name (surface_snow_amount) def
+/standard_name (surface_snow_amount) def 
 /units (kg m-2) def
 /missing_value 9.999000E+20 def
 decompress
 Y last first RANGE
 } defasvarsilent
 
-
-/rsn { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_da_sfc1_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/rsn { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (SDEN) def
 (04XXXX000B013D) GRIBvariable
 :readdatafile
@@ -237,8 +327,7 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-
-/asn { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_da_sfc1_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/asn { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (SALBD) def
 (04XXXX000B1313) GRIBvariable
 :readdatafile
@@ -253,12 +342,11 @@ Y last first RANGE
 :dataset
 
 dataset:
-[X Y M LA S ] {name exch def } forall
+[X Y LA S ] {name exch def } forall
 
 /name /sfc_temperature def
 
-
-/wtmp { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_da_sfc2_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/wtmp { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (WTMP) def
 (04XXXX000B0300) GRIBvariable
 :readdatafile
@@ -271,8 +359,7 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-
-/skt { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_da_sfc2_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/skt { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (SKINT) def
 (04XXXX000B0011) GRIBvariable
 :readdatafile
@@ -286,14 +373,14 @@ Y last first RANGE
 
 :dataset
 
-
 dataset:
-[X Y M L S ] {name exch def } forall
+[X Y L S ] {name exch def } forall
 
 /name /sfc_heat_flux def
 
-/sshf { [ X Y last first subgrid | M L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc21_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/sshf { [ X Y last first subgrid | L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc21_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (sshf) def
+% SHTFL
 (04XXXX000B000B) GRIBvariable
 :readdatafile
 /long_name (Daily Accumulated Surface Sensible Heat Net Flux) def
@@ -306,8 +393,9 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-/slhf { [ X Y last first subgrid | M L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc21_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/slhf { [ X Y last first subgrid | L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc21_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (slhf) def
+% LHTFL
 (04XXXX000B000A) GRIBvariable
 :readdatafile
 /long_name (Daily Accumulated Surface Latent Heat Net Flux) def
@@ -323,11 +411,11 @@ Y last first RANGE
 :dataset
 
 dataset:
-[X Y M L S ] {name exch def } forall
+[X Y L S ] {name exch def } forall
 
 /name /sfc_pressure def
 
-/msl { [ X Y last first subgrid | M L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc21_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/msl { [ X Y last first subgrid | L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y/%m/ecmf_rel_cf_sfc_sfc21_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (PRES) def
 (04XXXX00010300XXXXXXXXXXXXXXXXXXXXXX65) GRIBvariable
 :readdatafile
@@ -339,7 +427,7 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-/sp { [ X Y last first subgrid | M L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc21_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/sp { [ X Y last first subgrid | L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y/%m/ecmf_rel_cf_sfc_sfc21_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (PRES) def
 (04XXXX00010300XXXXXXXXXXXXXXXXXXXXXX01) GRIBvariable
 :readdatafile
@@ -353,16 +441,12 @@ Y last first RANGE
 
 :dataset
 
-\end{ingrid}
-\begin{ingrid}
-
-
 dataset:
-[X Y M LA S ] {name exch def } forall
+[X Y LA S ] {name exch def } forall
 
 /name /sfc_rad_flux def
 
-/ssrd { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc22_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/ssrd { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc22_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (ssrd) def
 % DSWRF
 (04XXXX000B0407) GRIBvariable
@@ -372,12 +456,12 @@ dataset:
 /units (W m-2 s) def
 /missing_value 9.999000E+20 def
 /scale_min 0. def
-/scale_max 2.0E+08 def
+/scale_max 2.0E+09 def
 decompress
 Y last first RANGE
 } defasvarsilent
 
-/strd { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc22_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/strd { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc22_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (strd) def
 % DLWRF
 (04XXXX000B0503) GRIBvariable
@@ -387,12 +471,12 @@ Y last first RANGE
 /units (W m-2 s) def
 /missing_value 9.999000E+20 def
 /scale_min 0. def
-/scale_max 2.0E+08 def
+/scale_max 2.0E+09 def
 decompress
 Y last first RANGE
 } defasvarsilent
 
-/ssr { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc22_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/ssr { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc22_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (ssr) def
 % NSWRF
 (04XXXX000B0409) GRIBvariable
@@ -402,15 +486,15 @@ Y last first RANGE
 /units (W m-2 s) def
 /missing_value 9.999000E+20 def
 /scale_min 0. def
-/scale_max 1.50E+08 def
+/scale_max 1.50E+09 def
 decompress
 Y last first RANGE
 } defasvarsilent
 
-/str { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc22_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/str { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc22_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (str) def
-% NLWRF
-(040000000B0505XXXXXXXXXXXXXXXXXXXXXX01) GRIBvariable
+% NLWRF surface
+(04XXXX000B0505XXXXXXXXXXXXXXXXXXXXXX01) GRIBvariable
 :readdatafile
 /long_name (Daily Accumulated Surface Net Long-Wave Radiation Flux) def
 /standard_name (surface_net_upward_longwave_flux) def
@@ -425,17 +509,17 @@ Y last first RANGE
 :dataset
 
 dataset:
-[X Y M L S ] {name exch def } forall
+[X Y L S ] {name exch def } forall
 
 /name /sfc_stress def
 
-/ewss { [ X Y last first subgrid | M L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc3_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/ewss { [ X Y last first subgrid | L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc3_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (ewss) def
 (04XXXX000B0226) GRIBvariable
 :readdatafile
 /long_name (Accumulated Eastward Turbulent Surface Stress) def
 %parm 38
-%/standard_name () def
+/standard_name (eastward_turbulent_surface_stress) def
 /units (N m-2 s) def
 /missing_value 9.999000E+20 def
 /scale_min -1.2E+06 def
@@ -444,13 +528,13 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-/nsss { [ X Y last first subgrid | M L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc3_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/nsss { [ X Y last first subgrid | L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc3_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (nsss) def
 (04XXXX000B0225) GRIBvariable
 :readdatafile
 /long_name (Accumulated Northward Turbulent Surface Stress) def
 %parm 37
-%/standard_name () def
+/standard_name (northward_turbulent_surface_stress) def
 /units (N m-2 s) def
 /missing_value 9.999000E+20 def
 /scale_min -1.5E+06 def
@@ -459,15 +543,14 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-
 :dataset
 
 dataset:
-[X Y M L S ] {name exch def } forall
+[X Y L S ] {name exch def } forall
 
 /name /sfc_precip def
 
-/cp { [ X Y last first subgrid | M L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc23_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/cp { [ X Y last first subgrid | L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc23_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (cp) def
 % CPRAT
 (04XXXX000B0125) GRIBvariable
@@ -482,14 +565,14 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-/sf { [ X Y last first subgrid | M L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc23_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/sf { [ X Y last first subgrid | L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc23_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (sf) def
 % TSRWE
 (04XXXX000B0135) GRIBvariable
 :readdatafile
 /long_name (Accumulated Total Snowfall Rate Water Equivalent) def
 /standard_name (snowfall_flux) def
-/units (kg m-2 s-1) def
+/units (kg m-2) def
 /missing_value 9.999000E+20 def
 /scale_min 0. def
 /scale_max 750. def
@@ -497,12 +580,12 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-/tp { [ X Y last first subgrid | M L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc3_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/tp { [ X Y last first subgrid | L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc3_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (TPRATE) def
 (04XXXX000B0134) GRIBvariable
 :readdatafile
 /long_name (Accumulated Total Precipitation) def
-/standard_name (precipitation_amount) def
+/standard_name (precipitation_amount) def 
 /units (kg m-2) def
 /missing_value 9.999000E+20 def
 /scale_min 0. def
@@ -514,11 +597,11 @@ Y last first RANGE
 :dataset
 
 dataset:
-[X Y M L S ] {name exch def } forall
+[X Y L S ] {name exch def } forall
 
 /name /sfc_runoff def
 
-/sro { [ X Y last first subgrid | M L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc3_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/sro { [ X Y last first subgrid | L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc3_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (sro) def
 (04XXXX000B0022) GRIBvariable
 :readdatafile
@@ -531,7 +614,7 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-/ro { [ X Y last first subgrid | M L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc3_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/ro { [ X Y last first subgrid | L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc3_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (ro) def
 (04XXXX000B0021) GRIBvariable
 :readdatafile
@@ -547,17 +630,35 @@ Y last first RANGE
 :dataset
 
 
-\end{ingrid}
-\begin{ingrid}
+dataset:
+/name (320K_isentropic_level) def
+
+[ X Y L S ] { name exch def } forall
+
+/pv { [ X Y last first subgrid | L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_pt_pv%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (pv) def
+(04XXXX0001020E) GRIBvariable
+:readdatafile
+/long_name (Potential Vorticity) def
+% PVORT
+/standard_name (ertel_potential_vorticity) def
+/units (K m2 kg-1 s-1) def
+/missing_value 9.999000E+20 def
+decompress
+Y last first RANGE
+} defasvarsilent
+
+:dataset
+
 
 dataset:
 /name (top_of_atmosphere) def
-[X Y M LA S ] {name exch def } forall
+[X Y LA S ] {name exch def } forall
 
-/ttr { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc22_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/ttr { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc22_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (ttr) def
-%(04XXXX000B0505) GRIBvariable
-(040000000B0505XXXXXXXXXXXXXXXXXXXXXX08) GRIBvariable
+% NLWRF toa
+(04XXXX000B0505XXXXXXXXXXXXXXXXXXXXXX08) GRIBvariable
 :readdatafile
 /long_name (Daily Accumulated Top of Atmosphere Net Long-Wave Radiation Flux) def
 /standard_name (toa_net_upward_longwave_flux) def
@@ -573,11 +674,9 @@ Y last first RANGE
 
 dataset:
 /name (atmos_column) def
+[X Y LA S ] {name exch def } forall
 
-[X Y M L LA S ] {name exch def } forall
-
-
-/cape { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_da_sfc1_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/cape { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (CAPE) def
 (04XXXX000B0706) GRIBvariable
 :readdatafile
@@ -589,8 +688,7 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-
-/tcw { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_da_sfc1_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/tcw { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (TCWAT) def
 (04XXXX000B0133) GRIBvariable
 :readdatafile
@@ -602,8 +700,7 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-
-/tcc { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_da_sfc1_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/tcc { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (TCDC) def
 (04XXXX000B0601) GRIBvariable
 :readdatafile
@@ -617,15 +714,11 @@ Y last first RANGE
 
 :dataset
 
-\end{ingrid}
-\begin{ingrid}
-
 dataset:
 /name (10m_above_ground) def
+[X Y L S ] {name exch def } forall
 
-[X Y M L S ] {name exch def } forall
-
-/10u { [ X Y last first subgrid | M L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc62_10u_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/10u { [ X Y last first subgrid | L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc23_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (10u) def
 % UGRD
 (04XXXX00010202) GRIBvariable
@@ -638,7 +731,7 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-/10v { [ X Y last first subgrid | M L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc62_10v_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/10v { [ X Y last first subgrid | L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc23_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (10v) def
 % VGRD
 (04XXXX00010203) GRIBvariable
@@ -656,10 +749,8 @@ Y last first RANGE
 dataset:
 /name (2m_above_ground) def
 
-[X Y M LA LA6 S ] {name exch def } forall
-
-
-/2t { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_da_sfc2_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+[X Y LA S ] {name exch def } forall
+/2t { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (TMP) def
 (04XXXX000B0000) GRIBvariable
 :readdatafile
@@ -671,9 +762,8 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-
-/mx2t { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc23_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
-/name (mx2t) def
+/mx2t6 { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc23_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (mx2t6) def
 (04XXXX000B0000XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX02020) GRIBvariable
 :readdatafile
 /long_name (2-meter Maximum Temperature) def
@@ -684,8 +774,8 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-/mn2t { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc23_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
-/name (mn2t) def
+/mn2t6 { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc23_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (mn2t6) def
 (04XXXX000B0000XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX03020) GRIBvariable
 :readdatafile
 /long_name (2-meter Minimum Temperature) def
@@ -696,8 +786,7 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-
-/2dt { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_da_sfc2_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/2dt { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (DPT) def
 (04XXXX000B0006) GRIBvariable
 :readdatafile
@@ -714,9 +803,9 @@ Y last first RANGE
 dataset:
 /name (0-0p2_m_below_ground) def
 
-[X Y M LA S ] {name exch def } forall
+[X Y LA S ] {name exch def } forall
 
-/sm20 { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_da_sfc2_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/sm20 { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (SOIL_M) def
 (04XXXX000B0016XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX02) GRIBvariable
 :readdatafile
@@ -730,7 +819,7 @@ Y last first RANGE
 
 % need to figure out how to set up separate soil temperature variable entries for 0-0.2m and 0-1m depths
 
-/st20 { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_da_sfc2_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/st20 { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (TSOIL) def
 (04XXXX000B0002XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX02) GRIBvariable
 :readdatafile
@@ -747,23 +836,9 @@ Y last first RANGE
 dataset:
 /name (0-1_m_below_ground) def
 
-[X Y M LA S ] {name exch def } forall
+[X Y LA S ] {name exch def } forall
 
-/sm100 { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_da_sfc2_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
-/name (SOIL_M) def
-(04XXXX000B0016XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX0A) GRIBvariable
-:readdatafile
-/long_name (Soil Moisture Top 100 cm) def
-/units (kg m-3) def
-0 maskle
-/missing_value 9.999000E+20 def
-decompress
-Y last first RANGE
-} defasvarsilent
-
-% need to figure out how to set up separate soil temperature variable entries for 0-0.2m and 0-1m depths
-
-/st100 { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_da_sfc2_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/st100 { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (TSOIL) def
 (04XXXX000B0002XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX0A) GRIBvariable
 :readdatafile
@@ -775,21 +850,13 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-:dataset
-
-dataset:
-/name (320K_isentropic_level) def
-
-[ X Y M L S ] { name exch def } forall
-
-/pv { [ X Y last first subgrid | M L S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_pt_pv%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
-/name (pv) def
-(04XXXX0001020E) GRIBvariable
+/sm100 { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_da_sfc%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/name (SOIL_M) def
+(04XXXX000B0016XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX0A) GRIBvariable
 :readdatafile
-/long_name (Potential Vorticity) def
-% PVORT
-/standard_name (ertel_potential_vorticity) def
-/units (K m2 kg-1 s-1) def
+/long_name (Soil Moisture Top 100 cm) def
+/units (kg m-3) def
+0 maskle
 /missing_value 9.999000E+20 def
 decompress
 Y last first RANGE
@@ -800,7 +867,7 @@ Y last first RANGE
 dataset:
 /name (ocean) def
 
-[ M LA S ] {name exch def } forall
+[ LA S ] {name exch def } forall
 
 grid:
 /name (X) def
@@ -817,7 +884,7 @@ grid:
 -90.0 1.0 90.0
 :grid
 
-/mswpt300 { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_o2d1_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/mswpt300 { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_o2d%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (mswpt300) def
 (04XXXX000B0412) GRIBvariable
 :readdatafile
@@ -830,13 +897,12 @@ grid:
 /missing_value 9.999000E+20 def
 decompress
   SOURCES .ECMWF .S2S .ECMF .forecast .perturbed .ocean .mask
-  [X Y]REORDER
    0 maskle
    mul
 Y last first RANGE
 } defasvarsilent
 
-/ocu { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_o2d3_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/ocu { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_o2d%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (UOGRD) def
 (04XXXX000B0102) GRIBvariable
 :readdatafile
@@ -846,13 +912,12 @@ Y last first RANGE
 /missing_value 9.999000E+20 def
 decompress
   SOURCES .ECMWF .S2S .ECMF .forecast .perturbed .ocean .mask
-  [X Y]REORDER
    0 maskle
    mul
 Y last first RANGE
 } defasvarsilent
 
-/ocv { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_o2d3_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/ocv { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_o2d%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (VOGRD) def
 (04XXXX000B0103) GRIBvariable
 :readdatafile
@@ -862,13 +927,12 @@ Y last first RANGE
 /missing_value 9.999000E+20 def
 decompress
   SOURCES .ECMWF .S2S .ECMF .forecast .perturbed .ocean .mask
-  [X Y]REORDER
    0 maskle
    mul
 Y last first RANGE
 } defasvarsilent
 
-/zos { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_o2d3_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/zos { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_o2d%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (DSLM) def
 (04XXXX000B0301) GRIBvariable
 :readdatafile
@@ -878,13 +942,13 @@ Y last first RANGE
 /missing_value 9.999000E+20 def
 decompress
   SOURCES .ECMWF .S2S .ECMF .forecast .perturbed .ocean .mask
-  [X Y]REORDER
    0 maskle
    mul
 Y last first RANGE
 } defasvarsilent
 
-/mlotst010 { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_o2d2_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+
+/mlotst010 { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_o2d2_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (mlotst010) def
 (04XXXX000B040E) GRIBvariable
 :readdatafile
@@ -894,13 +958,12 @@ Y last first RANGE
 /missing_value 9.999000E+20 def
 decompress
   SOURCES .ECMWF .S2S .ECMF .forecast .perturbed .ocean .mask
-  [X Y]REORDER
    0 maskle
    mul
 Y last first RANGE
 } defasvarsilent
 
-/sav300 { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_o2d1_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/sav300 { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_o2d%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (sav300) def
 (04XXXX000B0415) GRIBvariable
 :readdatafile
@@ -910,14 +973,12 @@ Y last first RANGE
 /missing_value 9.999000E+20 def
 decompress
   SOURCES .ECMWF .S2S .ECMF .forecast .perturbed .ocean .mask
-  [X Y]REORDER
    0 maskle
    mul
 Y last first RANGE
 } defasvarsilent
 
-
-/sos { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_o2d3_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/sos { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_o2d%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (sos) def
 (04XXXX000B0303) GRIBvariable
 :readdatafile
@@ -927,28 +988,27 @@ Y last first RANGE
 /missing_value 9.999000E+20 def
 decompress
   SOURCES .ECMWF .S2S .ECMF .forecast .perturbed .ocean .mask
-  [X Y]REORDER
    0 maskle
    mul
 Y last first RANGE
 } defasvarsilent
 
-/t20d { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_o2d1_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+
+/t20d { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_o2d%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (t20d) def
-(040000000B040EXXXXXXXXXXXXXXXXXXXXXX14) GRIBvariable
+ (040000000B040EXXXXXXXXXXXXXXXXXXXXXX14) GRIBvariable
 :readdatafile
 /long_name (Depth of 20 C isotherm) def
 /units (m) def
 /missing_value 9.999000E+20 def
 decompress
   SOURCES .ECMWF .S2S .ECMF .forecast .perturbed .ocean .mask
-  [X Y]REORDER
    0 maskle
    mul
- Y last first RANGE
+Y last first RANGE
 } defasvarsilent
 
-/sithick { [ X Y last first subgrid | M LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_o2d1_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/sithick { [ X Y last first subgrid | LA S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_o2d%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (ICETK) def
 (04XXXX000B0201) GRIBvariable
 :readdatafile
@@ -958,11 +1018,11 @@ decompress
 /missing_value 9.999000E+20 def
 decompress
   SOURCES .ECMWF .S2S .ECMF .forecast .perturbed .ocean .mask
-  [X Y]REORDER
    0 maskle
    mul
 Y last first RANGE
 } defasvarsilent
+
 
 /mask { (/Data/data25/ECMWF/S2S/ECMF/REL/PF/ecmf_1deg_land_sea_mask.nc) readCDF .mask
 X periodic setgridtype pop
@@ -971,18 +1031,20 @@ Y last first RANGE
 
 :dataset
 
+
+
 dataset:
 
-[X Y L6 LA6 S M ] {name exch def } forall
+[X Y L6 LA6 S] {name exch def } forall
 
 /name /surface_6hrly def
 
-/tp { [ X Y last first subgrid | M LA6 .npts 1 add /LA61 exch NewIntegerGRID S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc62_tp_%Y%m%d%Y%m%d[S].grb) [ S ] readdatafile:
+/tp { [ X Y last first subgrid | LA6 .npts 1 add /LA61 exch NewIntegerGRID S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc62_%Y%m%d%Y%m%d[S].grb) [ S ] readdatafile:
 /name (TPRATE) def
 (04XXXX000B0134) GRIBvariable
 :readdatafile
 LA61 second last RANGE
-LA61 LA6 replaceGRID
+LA61 LA6 replaceGRID 
 /long_name (Accumulated Total Precipitation) def
 /standard_name (precipitation_amount) def
 /units (kg m-2) def
@@ -992,7 +1054,7 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-/10u { [ X Y last first subgrid | M L6 S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc62_10u_%Y%m%d%Y%m%d[S].grb) [ S ] readdatafile:
+/10u { [ X Y last first subgrid | L6 S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc62_%Y%m%d%Y%m%d[S].grb) [ S ] readdatafile:
 /name (10u) def
 (04XXXX00010202) GRIBvariable
 :readdatafile
@@ -1005,7 +1067,7 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-/10v { [ X Y last first subgrid | M L6 S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc62_10v_%Y%m%d%Y%m%d[S].grb) [ S ] readdatafile:
+/10v { [ X Y last first subgrid | L6 S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc62_%Y%m%d%Y%m%d[S].grb) [ S ] readdatafile:
 /name (10v) def
 (04XXXX00010203) GRIBvariable
 :readdatafile
@@ -1018,8 +1080,7 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-
-/mx2t6 { [ X Y last first subgrid | M LA6 S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc6_mx2t6_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/mx2t6 { [ X Y last first subgrid | L6 S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc6_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (mx2t6) def
 (04XXXX000B0000XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX02020) GRIBvariable
 :readdatafile
@@ -1031,7 +1092,7 @@ decompress
 Y last first RANGE
 } defasvarsilent
 
-/mn2t6 { [ X Y last first subgrid | M LA6 S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/PF/%Y[S]/%m[S]/ecmf_rel_pf_sfc_sfc6_mn2t6_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
+/mn2t6 { [ X Y last first subgrid | L6 S ] (/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_sfc_sfc6_%Y%m%d[S]%Y%m%d[S].grb) [ S ] readdatafile:
 /name (mn2t6) def
 (04XXXX000B0000XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX03020) GRIBvariable
 :readdatafile
@@ -1046,6 +1107,7 @@ Y last first RANGE
 
 :dataset
 
-
 :dataset
+
 \end{ingrid}
+
