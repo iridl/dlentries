@@ -97,7 +97,7 @@ def receive_file_task(task):
             if "File size mismatch" in str(e):
                 result['error'] += f"\nFile size mismatch, skipping: {result['target']}"
             else:
-                app_logger.error(f"ERROR {result['target']}: Dropping out of loop, Time: {delta.total_seconds()}, Size: {result['size']}, "
+                app_logger.error(f"ERROR {result['target']}: Dropping out of loop, "
                                  f"error: {result['error']}")
                 raise e
         else:
