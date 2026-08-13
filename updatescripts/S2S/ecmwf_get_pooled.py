@@ -94,7 +94,12 @@ def receive_file_task(task):
                     os.unlink(tmpfile)
                 except Exception as e:
                     result['error'] += f"\nFailure to remove failed download temp file: {tmpfile}: {e}"
-            raise
+            if "File size mismatch" in str(e):
+                result['error'] += f"\nFile size mismatch, skipping: {result['target']}"
+            else:
+                app_logger.error(f"ERROR {result['target']}: Dropping out of loop, Time: {delta.total_seconds()}, Size: {result['size']}, "
+                                 f"error: {result['error']}")
+                raise e
         else:
             result['size'] = process_file_by_size(tmpfile, min_size, actual_size, dryrun=False, mylogger=app_logger)
             if result['size'] != 0:
