@@ -35,6 +35,7 @@ from ecmwf_ukmo_tasks import UKMOModel
 from ecmwf_eccc_ref_tasks import ECCC_REF_Model
 from ecmwf_ecmf_ref_tasks import ECMF_REF_Model
 from ecmwf_hmcr_ref_tasks import HMCR_REF_Model
+from ecmwf_iapcas_ref_tasks import IAPCAS_REF_Model
 from ecmwf_ukmo_ref_tasks import UKMO_REF_Model
 from ecmwf_kma_ref_tasks import KMA_REF_Model
 
@@ -55,6 +56,7 @@ available_models = {
     "eccc_ref": ECCC_REF_Model,
     "ecmf_ref": ECMF_REF_Model,
     "hmcr_ref": HMCR_REF_Model,
+    "iapcas_ref": IAPCAS_REF_Model,
     "kma_ref": KMA_REF_Model,
     "ukmo_ref": UKMO_REF_Model
 }
