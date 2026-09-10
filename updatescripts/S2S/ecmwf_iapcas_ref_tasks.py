@@ -14,7 +14,7 @@ class IAPCAS_REF_Model(ECMWF_REFModelTaskBase):
 
     def _datetime_range(start, end, delta):
         current = start
-        while current < end:  # Use <= if you want to include the end boundary
+        while current <= end:  # Use <= if you want to include the end boundary
             yield current
             current += delta
 
@@ -31,7 +31,7 @@ class IAPCAS_REF_Model(ECMWF_REFModelTaskBase):
         if model_version_offset is None:
             model_version_offset = IAPCAS_REF_Model.model_version_offset
 
-        # super().__init__(start, end, weekdays, goback, model_version_offset)
+        super().__init__(start, end, weekdays, goback, model_version_offset)
 
         normal_step = "24/to/1560/by/24"
         step_sfc6 = "6/to/1560/by/6"
@@ -41,7 +41,7 @@ class IAPCAS_REF_Model(ECMWF_REFModelTaskBase):
         self.all_models["iap-cas_ref_pf"] = []
         self.all_models["iap-cas_ref_cf"] = []
 
-        for day in _datetime_range(IAPCAS_REF_Model.hindcast_start_date, IAPCAS_REF_Model.hindcast_end_date,datetime.timedelta(days=1)):
+        for day in self._datetime_range(IAPCAS_REF_Model.hindcast_start_date, IAPCAS_REF_Model.hindcast_end_date, datetime.timedelta(days=1)):
 
             y_m_d = f"{IAPCAS_REF_Model.model_date.year}-{IAPCAS_REF_Model.model_date.month:02d}-{IAPCAS_REF_Model.model_date.day:02d}"
             ymd = f"{IAPCAS_REF_Model.model_date.year}{IAPCAS_REF_Model.model_date.month:02d}{IAPCAS_REF_Model.model_date.day:02d}"
@@ -278,13 +278,8 @@ class IAPCAS_REF_Model(ECMWF_REFModelTaskBase):
             ])
 
 if __name__ == '__main__':
-    import argparse
 
-    args = parser.parse_args()
-    start = IAPCAS_REF_Model.first_date
-    end = IAPCAS_REF_Model.first_date
-
-    model = IAPCAS_REF_Model(start=start, end=end)
+    model = IAPCAS_REF_Model()
     tasks = model.get_tasks(prune=True, dryrun=True)
     for t in tasks:
         print(t['target'])
