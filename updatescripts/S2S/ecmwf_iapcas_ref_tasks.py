@@ -128,7 +128,6 @@ class IAPCAS_REF_Model(ECMWF_REFModelTaskBase):
                 },
                 {
                     "target": f"{toplevel}/iap-cas_ref_cf_sfc_sfc6_{ymd}{hdate_ymd}.grb",
-                    "actual_size": 109144080,
                     "class": IAPCAS_REF_Model.s2s_class,
                     "dataset": IAPCAS_REF_Model.dataset,
                     "date": y_m_d,
