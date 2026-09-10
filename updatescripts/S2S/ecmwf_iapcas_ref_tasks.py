@@ -12,6 +12,7 @@ class IAPCAS_REF_Model(ECMWF_REFModelTaskBase):
     for 2020-01-01 from 1999-01-01 to 2019-12-31
     """
 
+    @staticmethod
     def _datetime_range(start, end, delta):
         current = start
         while current <= end:  # Use <= if you want to include the end boundary
@@ -20,7 +21,7 @@ class IAPCAS_REF_Model(ECMWF_REFModelTaskBase):
 
     model_date = datetime.datetime(2020, 1, 1)
     hindcast_start_date = datetime.datetime(1999,1,1)
-    hindcast_end_date = datetime.datetime(2018,12,1)
+    hindcast_end_date = datetime.datetime(2018,12,31)
     model_version_offset = 0  # days
     weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     origin = "anso"
