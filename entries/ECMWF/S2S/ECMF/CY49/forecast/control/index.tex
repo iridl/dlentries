@@ -32,27 +32,10 @@ grid:
 /standard_name (forecast_reference_time) def
 12 Nov 2024 julian_day 01 Jan 1960 julian_day sub
 1.0
-systemtime
-(%d %b %Y) 12 strftime interp julian_day
-01 Jan 1960 julian_day sub
+12 May 2026 julian_day 01 Jan 1960 julian_day sub
 /pointwidth 0. def
 /defaultvalue { last } def
 :grid
-
-
-S {(/Data/data25/ECMWF/S2S/ECMF/CY48/REL/CF/%Y[S]/%m[S]/ecmf_rel_cf_pt_pv%Y%m%d[S]%Y%m%d[S].grb) [ S ]} removeextrausing
-
-/expires
-  S last
-    1 add
-    cvsunits nip interp exch
-      0.5 add
-      3 -1 roll
-      ymd2systemtime
-    nip
-def
-name exch def
-/expires S  .expires def
 
 
 % a grid for instantaneous values, starting at 1
