@@ -1,0 +1,137 @@
+We recently completed a replacement reanalysis for SODA 2.0.3.
+The new reanalysis is called SODA 2.0.4, and address two issues.
+
+    One issue has to do with the erroneous Argo data that came from
+WHOI.  This data has been reprocessed.  The reprocessed data is
+in the Atlantic Ocean, and so particularly for the Atlantic Ocean the
+new run should be used.
+
+    The second difference is that SODA 2.0.4 goes until December 2007,
+whereas SODA 2.0.3 only runs up to November 2005.
+
+    You should be able to download SODA 2.0.4 from:
+
+                  http://soda.tamu.edu/
+
+All the best,
+Ben
+\begin{ingrid}
+continuedataset:
+/description (Oceanic and air-sea interface data from the UMD Simple Ocean Data Assimilation Reanalysis) def
+datasetdefs:
+/filenames
+{
+
+(/Data/data21/tamu/soda2p0p%1.1d[version]/SODA_2.0.%1.1d[version]_%Y%m[time].cdf) [time dup 1
+         Jan 2002 ensotime
+         flaggt
+        2 mul
+        2 add
+        /name /version def
+        ]
+} def
+:datasetdefs
+/long_name (Version 2.0.2-4) def
+/references (Carton_Giese2007) def
+/iridl:hasSemantics (iridl:Ocean) def
+link:
+/name (SODA) def
+/description (SODA Documentation) def
+/href (http://www.atmos.umd.edu/~carton/pdfs/carton&giese05.pdf) def
+:link
+link:
+/name (SODA 2.1.6) def
+/href (http://iridl.ldeo.columbia.edu/SOURCES/.CARTON-GIESE/.SODA/.v2p1p6/) def
+/description (SODA 2.0.2-4 is replaced by SODA 2.1.6) def
+/semantics /dcterm:isReplacedBy def
+:link
+/title (SODA - POP 2.0.2-4 Assimilation Giese/Carton) def
+grid:
+/name (lon)def
+/units (degree_east)def
+ 0.25 0.5 359.75
+:grid
+grid:
+/name (lat)def
+/units (degree_north)def
+ -75.25 0.5 89.25
+:grid
+grid:
+/name (depth)def
+/units (meters)def
+values: 5.0100002 15.07 25.280001 35.759998 46.610001 57.98 70.019997 82.919998 96.919998 112.32 129.49001 148.96001 171.39999 197.78999 229.48 268.45999 317.64999 381.39001 465.91 579.31 729.34998 918.37 1139.15 1378.5699 1625.7 1875.11 2125.01 2375. 2625. 2875. 3125. 3375. 3625. 3875. 4125. 4375. 4625. 4875. 5125. 5375. :values
+:grid
+grid:
+/name (time) def
+monthtime
+16 Jan 1958 ensotime
+1
+16 Dec 2007 ensotime
+:grid
+ /salt{
+[ lon lat | depth time ] filenames readdatafile:
+/name (salt) def
+ /long_name (SALINITY) def
+ /missing_value -9.98999970E33 def
+ /units (g/kg)cvn def
+/iridl:hasSemantics (iridl:Salinity) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /ssh{
+[ lon lat | time ] filenames readdatafile:
+/name (ssh) def
+ /long_name (SEA LEVEL HEIGHT) def
+ /missing_value -9.98999970E33 def
+ /units /m def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /taux{
+[ lon lat | time ] filenames readdatafile:
+/name (taux) def
+ /long_name (TAU X) def
+ /missing_value -9.98999970E33 def
+ /units (N/m2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /tauy{
+[ lon lat | time ] filenames readdatafile:
+/name (tauy) def
+ /long_name (TAU Y) def
+ /missing_value -9.98999970E33 def
+ /units (N/m2)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /temp{
+[ lon lat | depth time ] filenames readdatafile:
+/name (temp) def
+ /long_name (TEMPERATURE) def
+ /missing_value -9.98999970E33 def
+ /units /Celsius_scale def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /u{
+[ lon lat | depth time ] filenames readdatafile:
+/name (u) def
+ /long_name (ZONAL VELOCITY) def
+ /missing_value -9.98999970E33 def
+ /units (m/sec)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /v{
+[ lon lat | depth time ] filenames readdatafile:
+/name (v) def
+ /long_name (MERIDIONAL VELOCITY) def
+ /missing_value -9.98999970E33 def
+ /units (m/sec)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+ /w{
+[ lon lat | depth time ] filenames readdatafile:
+/name (w) def
+ /long_name (VERTICAL VELOCITY) def
+ /missing_value -9.98999970E33 def
+ /units (m/sec)cvn def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarcachesilent
+:dataset
+\end{ingrid}
