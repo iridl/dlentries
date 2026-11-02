@@ -1,0 +1,128 @@
+\begin{ingrid}
+continuedataset:
+datasetdefs:
+/filenames
+{
+(/ingridcache/http/dsrs.atmos.umd.edu/DATA/soda_2.2.4/SODA_2.2.4_%Y%m[time].cdf)
+[time]
+} def
+:datasetdefs
+/description (Oceanic and air-sea interface data from the UMD Simple Ocean Data Assimilation Reanalysis) def
+%/name (SODA_2.2.4_187101)def
+ /released (July 20, 2010) def
+% /data_timestamp ( 1-1871) def
+ /long_name (SODA 2.2.4, 1871-2008 Assimilation Run) def
+link:
+/name (source) def
+/description (original site for data) def
+/href (http://dsrs.atmos.umd.edu/DATA/soda_2.2.4/) def
+:link
+link:
+/name (readme) def
+/description (documentation for SODA 2.2.4) def
+/href (http://dsrs.atmos.umd.edu/DATA/soda_2.2.4/README.txt) def
+:link
+link:
+/name (documentation) def
+/description (SODA Documentation) def
+/href (http://www.atmos.umd.edu/~carton/pdfs/carton&giese05.pdf) def
+:link
+
+grid:
+/name (lon)def
+/units (degree_east)def
+ 0.25 0.5 359.75
+:grid
+grid:
+/name (lat)def
+/units (degree_north)def
+ -75.25 0.5 89.25
+:grid
+grid:
+/name (depth)def
+/units (meters)def
+values: 5.0100002 15.07 25.280001 35.759998 46.610001 57.98 70.019997 82.919998 96.919998 112.32 129.49001 148.96001 171.39999 197.78999 229.48 268.45999 317.64999 381.39001 465.91 579.31 729.34998 918.37 1139.15 1378.5699 1625.7 1875.11 2125.01 2375. 2625. 2875. 3125. 3375. 3625. 3875. 4125. 4375. 4625. 4875. 5125. 5375. :values
+:grid
+grid:
+/name (time) def
+monthtime
+16 Jan 1871 ensotime
+1
+16 Dec 2008 ensotime
+:grid
+\end{ingrid}
+\begin{ingrid}
+ /salt{
+[ lon lat | depth time ] filenames readdatafile:
+/name (salt) def
+ /units (g/kg)cvn def
+ /missing_value -9.98999971E33 def
+ /long_name (SALINITY) def
+/iridl:hasSemantics (iridl:Salinity) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /ssh{
+[ lon lat | time ] filenames readdatafile:
+/name (ssh) def
+ /units /meters def
+ /missing_value -9.98999971E33 def
+ /long_name (SEA SURFACE HEIGHT) def
+/standard_name (sea_surface_height) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /taux{
+[ lon lat | time ] filenames readdatafile:
+/name (taux) def
+ /units (N/m^2)cvn def
+ /missing_value -9.98999971E33 def
+ /long_name (TAUX) def
+/standard_name (surface_downward_eastward_stress) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /tauy{
+[ lon lat | time ] filenames readdatafile:
+/name (tauy) def
+ /units (N/m^2)cvn def
+ /missing_value -9.98999971E33 def
+ /long_name (TAUY) def
+/standard_name (surface_downward_northward_stress) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /temp{
+[ lon lat | depth time ] filenames readdatafile:
+/name (temp) def
+ /units /Celsius_scale def
+ /missing_value -9.98999971E33 def
+ /long_name (TEMPERATURE) def
+/standard_name (sea_water_temperature) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /u{
+[ lon lat | depth time ] filenames readdatafile:
+/name (u) def
+ /units (m/sec)cvn def
+ /missing_value -9.98999971E33 def
+ /long_name (ZONAL VELOCITY) def
+/standard_name (eastward_sea_water_velocity) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /v{
+[ lon lat | depth time ] filenames readdatafile:
+/name (v) def
+ /units (m/sec)cvn def
+ /missing_value -9.98999971E33 def
+ /long_name (MERIDIONAL VELOCITY) def
+/standard_name (northward_sea_water_velocity) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+ /w{
+[ lon lat | depth time ] filenames readdatafile:
+/name (w) def
+ /units (m/sec)cvn def
+ /missing_value -9.98999971E33 def
+ /long_name (VERTICAL VELOCITY) def
+/standard_name (upward_sea_water_velocity) def
+ /realarraytype netcdfrecords :readdatafile
+}defasvarsilent
+:dataset
+\end{ingrid}
